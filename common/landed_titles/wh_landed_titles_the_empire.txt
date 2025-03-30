@@ -5578,7 +5578,31 @@ e_the_empire = {
 				add = @better_than_the_alternatives_score
 			}
 		}
+		d_drakwald = {
+			capital = c_carroburg
+			color = { 52 86 63 }
+			
+		cultural_names = {
+				old_imperial_name_list = cn_thuringia
+		}
+		
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:drakwalder
+				}
+				add = @correct_culture_primary_score
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:drakwalder }
+					culture = { has_cultural_pillar = heritage_imperial }
+				}
+				add = @better_than_the_alternatives_score
+			}
+		}
 	}
+}
 	k_lichtenberg = {
 		color = { 15 104 127 }
 
