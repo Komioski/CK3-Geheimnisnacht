@@ -1,0 +1,235 @@
+
+###############
+###Brionnian###
+###############
+
+#Grail Companion
+
+
+brionnie_001 = {
+	name = Balduin
+	dynasty = dynasty_brionne
+	culture = brionnian
+	religion = grail
+	trait = education_martial_prowess_3
+	trait = impatient
+	trait = brave
+	trait = wrathful
+	trait = aggressive_attacker
+	trait = physique_good_1
+	trait = knight_lady_realm
+	5411.1.8 = {
+		birth = yes
+	}
+	5486.8.30 = {
+		death = yes
+	}
+}
+
+#Auvergne#
+
+auvergne_001 = {
+	name = Godafres
+	dynasty = dynasty_auvergne
+	culture = brionnian
+	religion = grail
+	6441.1.1 = {
+		birth = yes
+	}
+	6500.1.1 = {
+		death = yes
+	}
+}
+
+auvergne_100 = {
+	name = Theodolf
+	dynasty = dynasty_auvergne
+	father = auvergne_001
+	culture = brionnian
+	religion = grail
+	trait = education_intrigue_1
+	trait = lazy
+	trait = patient
+	trait = greedy
+	trait = poet
+	trait = knight_lady_realm
+	6472.4.18 = {
+		birth = yes
+	}
+}
+
+auvergne_101 = {
+	name = Gautier
+	dynasty = dynasty_auvergne
+	father = auvergne_001
+	culture = brionnian
+	religion = grail
+	6474.8.20 = {
+		birth = yes
+	}
+}
+
+auvergne_102 = {
+	name = Ubald
+	dynasty = dynasty_auvergne
+	father = auvergne_100
+	culture = brionnian
+	religion = grail
+	6502.2.8 = {
+		birth = yes
+	}
+}
+
+#Donges#
+
+donges_100 = {
+	name = Gerard
+	dynasty = dynasty_donges
+	culture = brionnian
+	religion = grail
+	trait = education_diplomacy_2
+	trait = gregarious
+	trait = arrogant
+	trait = zealous
+	trait = physique_good_2
+	6482.11.22 = {
+		birth = yes
+	}
+}
+
+donges_101 = {
+	name = Madalena
+	female = yes
+	dynasty = dynasty_donges
+	culture = brionnian
+	religion = grail
+	trait = curious
+	trait = physique_good_1
+	6503.3.9 = {
+		birth = yes
+	}
+}
+
+#Epee#
+
+epee_100 = {
+	name = Patricia
+	female = yes 
+	dynasty = dynasty_epee
+	culture = brionnian
+	religion = grail
+	trait = education_intrigue_3
+	trait = brave
+	trait = arbitrary
+	trait = cynical
+	trait = lovers_pox
+	6482.7.9 = {
+		birth = yes
+	}
+}
+
+#Rochelambert#
+
+rochelambert_100 = {
+	name = Reinerd
+	dynasty = dynasty_rochelambert
+	culture = brionnian
+	religion = grail
+	trait = education_martial_1
+	trait = craven
+	trait = chaste
+	trait = honest
+	#trait = hunter_1
+	6472.11.12 = {
+		birth = yes
+	}
+}
+
+#Savaric#
+
+savaric_001 = {
+	name = Amalric
+	dynasty_house = house_savaric
+	culture = brionnian
+	religion = grail
+	trait = education_martial_5
+	trait = gregarious
+	trait = trusting
+	trait = impatient
+	trait = aggressive_attacker
+	6417.2.20 = {
+		birth = yes
+	}
+	6464.1.2 = {
+		death = yes
+	}
+	
+}
+savaric_102 = {
+	name = Rainaut
+	dynasty_house = house_savaric
+	culture = brionnian
+	religion = grail
+	father = savaric_001
+	trait = education_martial_3
+	trait = patient
+	trait = just
+	trait = chaste
+	6448.3.21 = {
+		birth = yes
+	}
+}
+
+savaric_003 = {
+	name = Aimeric
+	dynasty_house = house_savaric
+	culture = brionnian
+	religion = grail
+	father = savaric_001
+	trait = education_diplomacy_2
+	trait = just
+	trait = gregarious
+	trait = greedy
+	6446.5.29 = {
+		birth = yes
+	}
+	6507.1.1 = {
+		death = yes
+	}
+}
+
+savaric_100 = {
+	name = Aimeric
+	dynasty_house = house_savaric
+	culture = brionnian
+	religion = grail
+	father = savaric_003
+	trait = education_martial_4
+	trait = patient
+	trait = shy
+	trait = gluttonous
+	trait = aggressive_attacker
+	6470.3.30 = {
+		birth = yes
+	}
+	6500.7.6 = {
+		add_spouse = epee_100
+	}
+}
+
+savaric_101 = {
+	name = Lambert
+	dna=savaric_dna101
+	dynasty_house = house_savaric
+	culture = brionnian
+	religion = grail
+	father = savaric_100
+	mother = epee_100
+	trait = rowdy
+	6501.4.30 = {
+		birth = yes
+		effect = {
+			give_nickname = nick_the_unready
+		}
+	}
+}
