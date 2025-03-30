@@ -1,4 +1,5 @@
 ﻿##Holy Orders by Nobu###
+@correct_culture_primary_score = 100
 
 d_lily_knights = {
 
@@ -1702,14 +1703,16 @@ e_bretonnia = {
 		ai_primary_priority = {
 			if = {
 				limit = {
-					culture = culture:acquitanian
+					culture = culture:aquitanian
 				}
+				add = @correct_culture_primary_score
 			}
 			if = {
 				limit = {
-					NOT = { culture = culture:acquitanian }
+					NOT = { culture = culture:aquitanian }
 					culture = { has_cultural_pillar = heritage_bretonnian }
 				}
+				add = @correct_culture_primary_score
 			}
 		}
 		

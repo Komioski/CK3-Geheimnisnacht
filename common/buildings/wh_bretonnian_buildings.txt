@@ -17,7 +17,7 @@
 	}
 	is_enabled = {
 		county.holder = { has_title = prev.duchy }
-		county.holder = { has_cultural_pillar = heritage_bretonnian }
+		county.holder.culture = { has_cultural_pillar = heritage_bretonnian }
 	}
 	show_disabled = yes
 	
@@ -76,7 +76,7 @@ bretonnian_ducal_castle_02 = {
 	
 	is_enabled = {
 		county.holder = { has_title = prev.duchy }
-		county.holder = { has_cultural_pillar = heritage_bretonnian }
+		county.holder.culture = { has_cultural_pillar = heritage_bretonnian }
 	}
 	show_disabled = yes
 	
@@ -133,7 +133,7 @@ bretonnian_ducal_castle_03 = {
 	
 	is_enabled = {
 		county.holder = { has_title = prev.duchy }
-		county.holder = { has_cultural_pillar = heritage_bretonnian }
+		county.holder.culture = { has_cultural_pillar = heritage_bretonnian }
 	}
 	show_disabled = yes
 	
@@ -708,15 +708,15 @@ bretonnian_aerie_01 = {
 	character_modifier = {
 		movement_speed = normal_movement_speed_tier_1
 		character_travel_speed_mult = normal_movement_speed_tier_1
+		heavy_cavalry_maintenance_mult = 0.01
 	}
 
 	province_culture_modifier = {
 		parameter = bretonnian_aerie_bonuses
 		stationed_flying_unit_damage_mult = 0.05
-		stationed_flying_unit_pursuit_mult = 0.05
-		heavy_cavalry_maintenance_mult = 0.01
+		stationed_flying_unit_pursuit_mult = 0.05		
 	}
-	a
+
 	province_modifier = {
 		stationed_heavy_cavalry_pursuit_mult = 0.10
 		stationed_light_cavalry_damage_mult = 0.10
@@ -839,7 +839,7 @@ bretonnian_aerie_02 = {
 		movement_speed = normal_movement_speed_tier_2
 		character_travel_speed_mult = normal_movement_speed_tier_2
 	}
-	character_culture_modifier = {
+	province_culture_modifier = {
 		parameter = parravon_bonuses
 		stationed_flying_unit_damage_mult = 0.10
 		stationed_flying_unit_pursuit_mult = 0.10

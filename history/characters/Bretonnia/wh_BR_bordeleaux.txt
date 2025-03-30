@@ -1,0 +1,210 @@
+﻿
+##############
+###Bordelen###
+##############
+
+#Grail Companion#
+
+bordeleaux_001 = {
+	name = Marcus
+	dynasty = dynasty_bordeleaux
+	culture = bordelen
+	religion = grail
+	trait = education_martial_3
+	trait = brave
+	trait = just
+	trait = gregarious
+	trait = forder
+	trait = strong
+	5422.9.12 = {
+		birth = yes
+	}
+	5503.3.22 = {
+		death = {
+			death_reason = death_natural_causes
+		}
+	}
+}
+
+#Bearn#
+
+bearn_001 = {
+	name = Roger
+	dynasty = dynasty_bearn
+	culture = bordelen
+	religion = grail
+	6450.7.11 = {
+		birth = yes
+	}
+	6482.1.1 = {
+		add_spouse = forz_99
+	}
+	6506.1.1 = {
+		death = yes
+	}
+}
+
+bearn_100 = {
+	name = Floris
+	dynasty = dynasty_bearn
+	father = bearn_001
+	mother = forz_99
+	culture = bordelen
+	religion = grail
+	trait = education_stewardship_3
+	trait = generous
+	trait = cynical
+	trait = arrogant
+	6485.7.11 = {
+		birth = yes
+	}
+}
+
+bearn_101 = {
+	name = Alice
+	female = yes
+	dynasty = dynasty_bearn
+	father = bearn_001
+	mother = forz_99
+	culture = bordelen
+	religion = grail
+	6487.5.22 = {
+		birth = yes
+	}
+}
+
+#Bergerac#
+
+bergerac_100 = {
+	name = Ebles
+	dynasty = dynasty_bergerac
+	culture = bordelen
+	religion = grail
+	trait = education_martial_2
+	trait = content
+	trait = deceitful
+	trait = patient
+	6491.11.5 = {
+		birth = yes
+	}
+}
+
+bergerac_101 = {
+	name = Pe_ire
+	dynasty = dynasty_bergerac 
+	culture = bordelen
+	religion = blood_dragon_faith
+	trait = vampire_blood_dragon
+	trait = education_martial_4
+	trait = wrathful
+	trait = arrogant
+	trait = brave
+	trait = lunatic_1
+	trait = beauty_good_1
+	6411.9.4 = {
+		birth = yes
+	}
+}
+
+#Bezieres#
+
+bezieres_100 = {
+	name = Peire
+	dynasty = dynasty_bezieres
+	culture = aquitanian
+	religion = grail
+	trait = education_stewardship_3
+	trait = trusting
+	trait = lustful
+	trait = shy
+	6489.1.31 = {
+		birth = yes
+	}
+	6507.07.06 = {
+		add_spouse = 28040
+	}
+}
+
+bezieres_101 = {
+	name = GuilhE_m
+	dynasty = dynasty_bezieres #missing dynasty
+	culture = bordelen
+	religion = grail
+	trait = education_stewardship_3
+	trait = generous
+	trait = cynical
+	trait = arrogant
+	6485.7.11 = {
+		birth = yes
+	}
+}
+
+#Poitou#
+
+poitou_003 = {
+	name = Calixte
+	dynasty_house = house_poitou
+	culture = bordelen
+	religion = grail
+	trait = education_intrigue_2
+	trait = arrogant
+	trait = compassionate
+	trait = lustful
+	6406.1.2 = {
+		birth = yes
+	}
+	6467.3.18 = {
+		death = yes
+	}
+}
+
+poitou_002 = {
+	name = Esquivardus
+	dynasty_house = house_poitou
+	culture = bordelen
+	religion = grail
+	trait = education_martial_3
+	father = poitou_003
+	trait = calm
+	trait = craven
+	trait = forgiving
+	6437.1.2 = {
+		birth = yes
+	}
+	6479.9.22 = {
+		death = yes
+	}
+}
+
+poitou_100 = {
+	name = Marcus
+	dna=poitou_dna100
+	dynasty_house = house_poitou
+	culture = bordelen
+	religion = grail
+		father = poitou_002
+	trait = education_martial_2
+	trait = content
+	trait = zealous
+	trait = gregarious
+	trait = knight_lady_realm
+	6465.4.20 = {
+		birth = yes
+	}
+}
+
+poitou_101 = {
+	name = Teresa
+	female = yes
+	dynasty_house = house_poitou
+	culture = bordelen
+	religion = grail
+	father = poitou_100
+	trait = education_learning_1
+	trait = greedy
+	trait = cynical
+	trait = compassionate
+	6491.11.4 = {
+		birth = yes
+	}
+}
