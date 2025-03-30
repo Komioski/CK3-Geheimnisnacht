@@ -1,74 +1,13 @@
 ﻿###Bretonnia decisions
 
-grail_quest_decision = { #grail quest lite version (later for AI only)
-	title = grail_quest_decision
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds" 
-	desc = grail_quest_decision_desc
-	selection_tooltip = grail_quest_decision_tooltip
-	cooldown = { years = 5 }
-	
-	is_shown = {
-		has_doctrine_parameter = knightly_virtues_active
-	}
-
-	is_valid = {
-		wh_bret_knight = yes
-		has_trait_xp = {
-			trait = knight_lady
-			value < 100
-		}
-	}
-
-
-	cost = {
-		gold = {
-			value = minor_gold_value
-		}
-	}
-
-
-	effect = {
-		custom_tooltip = grail_quest_decision.tt
-		trigger_event = wh_bretonnia_decision_events.0001
-		stress_impact = {
-			craven = major_stress_impact_gain
-		}
-	}
-	ai_potential = {
-		highest_held_title_tier >= tier_county
-		is_landed = yes
-	}
-
-	ai_check_interval =	36
-
-	ai_will_do = {
-		base = 20
-		
-		modifier = {
-			add = {
-				value = ai_zeal
-				multiply = 0.5
-			}
-		}
-		
-		modifier = {
-			add = -20
-			has_trait = cynical
-		}
-		
-		modifier = {
-			add = 20
-			has_trait = zealous
-		}
-	}
-}
 
 grail_virtues_knighthood_decision = {
 	ai_check_interval = 12
-	picture = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
 	
-	sort_order = -20
-	major = yes
+	decision_group_type = major
 	
 	cooldown = { years = 30 }
 
@@ -509,11 +448,13 @@ grail_virtues_knighthood_decision = {
 }
 
 repanse_dynasty_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_repanse.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_repanse.dds"
+	}
 
 	desc = repanse_dynasty_decision_desc
 	selection_tooltip = repanse_dynasty_decision_tooltip
-	major = yes
+	decision_group_type = major
 	ai_check_interval = 60
 
 	is_shown = {
@@ -543,8 +484,10 @@ repanse_dynasty_decision = {
 }
 
 king_louis_respect_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_louis.dds"
-	major = yes
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_louis.dds"
+	} 
+	decision_group_type = major
 	is_shown = {
 		this = character:dame_100
 		age < 30
@@ -574,12 +517,15 @@ king_louis_respect_decision = {
 }
 
 lambert_good_boy_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_good_boy.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_good_boy.dds"
+	}
 	is_shown = {
 		this = character:savaric_101
 		is_ruler = yes
 	}
-	major = yes
+
+	decision_group_type = major
 	
 	desc = lambert_good_boy_decision_desc
 	ai_will_do = {

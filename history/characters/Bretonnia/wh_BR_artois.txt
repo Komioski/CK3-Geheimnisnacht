@@ -1,0 +1,147 @@
+﻿
+############
+###Artois###
+############
+
+#Grail Companion#
+
+artois_001 = {
+	name = Folgar
+	dynasty = dynasty_artois
+	culture = artoin
+	religion = grail
+	trait = education_martial_3
+	trait = education_martial_prowess_4
+	trait = diligent
+	trait = ambitious
+	trait = calm
+	trait = forest_fighter
+	trait = physique_good_3
+	5430.3.29 = {
+		birth = yes
+	}
+	5524.2.14 = {
+		death = {
+			death_reason = death_lost_in_the_forest
+		}
+	}
+}
+
+#Abzac#
+
+abzac_001 = {
+	name = Philippe
+	dynasty_house = house_abzac
+	culture = artoin
+	religion = grail
+	trait = education_stewardship_4
+	trait = compassionate
+	trait = gluttonous
+	trait = eccentric
+	trait = knight_lady_realm
+	6442.1.9 = {
+		birth = yes
+	}
+	6489.3.21 = {
+		death = yes
+	}
+}
+
+abzac_002 = {
+	name = Geoffroy
+	dynasty_house = house_abzac
+	culture = artoin
+	religion = grail
+	father = abzac_001
+	trait = education_diplomacy_4
+	trait = compassionate
+	trait = arbitrary
+	trait = wrathful
+	trait = knight_lady_realm
+	6470.11.19 = {
+		birth = yes
+	}
+	6495.5.23 = {
+		death = yes
+	}
+}
+
+abzac_101 = {
+	name = E_tiennette
+	dynasty_house = house_abzac
+	culture = artoin
+	religion = grail
+	father = abzac_001
+	female = yes
+	trait = education_stewardship_4
+	trait = cynical
+	trait = impatient
+	trait = fickle
+	6477.9.16 = {
+		birth = yes
+	}
+}
+
+abzac_100 = {
+	name = Ives
+	dynasty_house = house_abzac
+	culture = artoin
+	religion = grail
+	father = abzac_001
+	trait = education_diplomacy_2
+	trait = gregarious
+	trait = forgiving
+	trait= ambitious
+	trait = knight_lady_realm
+	6481.11.19 = {
+		birth = yes
+	}
+	6510.2.1 = {
+		add_spouse = groy_102
+	}
+}
+
+#Litpolden#
+
+litpolden_001 = {
+	name = Adalbert
+	dynasty = dynasty_litpolden
+	culture = artoin
+	religion = grail
+	6445.1.1 = {
+		birth = yes
+	}
+	6495.5.23 = {
+		death = yes
+	}
+}
+
+litpolden_100 = {
+	name = Albe_rt
+	dynasty = dynasty_litpolden
+	father = litpolden_001
+	culture = artoin
+	religion = grail
+	trait = education_stewardship_1
+	trait = greedy
+	trait = craven
+	trait = gluttonous
+	6469.1.6 = {
+		birth = yes
+	}
+	6498.2.3 = {
+		add_spouse = abzac_101
+	}
+}
+
+litpolden_101 = {
+	name = Jacme
+	dynasty = dynasty_litpolden
+	father = litpolden_100
+	mother = abzac_101
+	culture = artoin
+	religion = grail
+	6501.7.5 = {
+		birth = yes
+	}
+}
