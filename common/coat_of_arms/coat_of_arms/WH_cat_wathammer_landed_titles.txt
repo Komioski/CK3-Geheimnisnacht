@@ -2317,20 +2317,6 @@ c_kammendun = {
 	}
 }
 
-c_nordlichturm = {
-	pattern = "pattern_solid.dds"
-	color1 = "red"
-	colored_emblem = {
-		texture = "cat_wolf_passant.dds"
-		color1 = "white"
-		color2 = "yellow_light"
-		color3 = "black"
-		instance = { position = { 0.5 0.19 } scale = { 0.7 0.55 }  }
-		instance = { position = { 0.5 0.44 } scale = { 0.7 0.55 }  }
-		instance = { position = { 0.5 0.69 } scale = { 0.7 0.55 }  }
-	}
-}
-
 c_suderende = {
 	pattern = "pattern_horizontal_split_01.dds"
 	color1 = "white"
@@ -2368,7 +2354,7 @@ c_scheinfeld = { # 다시 만들기
 	}
 }
 
-d_erpelzug = {
+c_nordlichturm = {
 	pattern = "pattern_solid.dds"
 	color1 = "blue"
 	colored_emblem = {
@@ -2393,6 +2379,189 @@ d_erpelzug = {
 		instance = { position = { 0.5 0.715 } scale = { 1.0 0.04 }  }
 		instance = { position = { 0.5 0.955 } scale = { 1.0 0.04 }  }
 	}
+}
+
+d_erpelzug={
+	pattern="pattern_solid.dds"
+	color1=wh_drakwald
+	color2=white
+	color3=blue
+	colored_emblem={
+		color1=wh_bright_gold
+		texture="ce_block_02.dds"
+		instance={
+			position={ 0.215000 0.425000 }
+			scale={ 0.020000 0.070000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.770000 0.425000 }
+			scale={ 0.020000 0.070000 }
+			depth=5.010000
+		}
+
+		instance={
+			position={ 0.500000 0.890000 }
+			scale={ 0.070000 0.020000 }
+			depth=6.010000
+		}
+
+		instance={
+			position={ 0.500000 0.110000 }
+			scale={ 0.070000 0.020000 }
+			depth=7.010000
+		}
+
+		instance={
+			position={ 0.490000 0.425000 }
+			scale={ 0.560000 0.040000 }
+			depth=8.010000
+		}
+
+		instance={
+			scale={ 0.040000 0.800000 }
+			depth=9.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_sable
+		texture="ce_escutcheon.dds"
+		instance={
+			position={ 0.500000 0.460000 }
+			scale={ 0.715000 0.715000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_purple
+		color2=wh_purple
+		texture="cat_stem_leaf_wappen.dds"
+		instance={
+			position={ 0.500000 0.450000 }
+			scale={ 0.505000 0.695000 }
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_bright_gold
+		texture="ce_fleur.dds"
+		instance={
+			position={ 0.500000 0.945000 }
+			scale={ 0.105000 0.095000 }
+			depth=10.010000
+			rotation=180
+		}
+
+		instance={
+			position={ 0.825000 0.425000 }
+			scale={ 0.105000 0.095000 }
+			depth=11.010000
+			rotation=90
+		}
+
+		instance={
+			position={ 0.155000 0.425000 }
+			scale={ 0.105000 0.095000 }
+			depth=12.010000
+			rotation=270
+		}
+
+		instance={
+			position={ 0.500000 0.055000 }
+			scale={ 0.125000 0.095000 }
+			depth=13.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_ominous_purple
+		texture="ce_escutcheon.dds"
+		instance={
+			position={ 0.500000 0.465000 }
+			scale={ 0.785000 0.785000 }
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_silver
+		color2=wh_sable
+		color3=wh_sable
+		texture="cat_jolly_roger_skull6.dds"
+		instance={
+			position={ 0.500000 0.435000 }
+			scale={ 0.515000 0.515000 }
+			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_sable
+		texture="ce_block_02.dds"
+		instance={
+			position={ 0.500000 0.425000 }
+			scale={ 1.000000 0.080000 }
+			depth=14.010000
+		}
+
+		instance={
+			scale={ 0.105000 1.000000 }
+			depth=15.010000
+		}
+
+	}
+
+}
+
+
+c_wouduin = {
+	pattern="pattern_vertical_split_01.dds"
+	color1=wh_ominous_purple
+	color2=wh_dark_red
+	color3=green
+	colored_emblem={
+		color1=wh_sable
+		color2=wh_dark_slate_grey
+		texture="ce_wolf.dds"
+		instance={
+			position={ 0.770000 0.500000 }
+			scale={ 0.725000 1.000000 }
+			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_sable
+		texture="ce_block_02.dds"
+		instance={
+			scale={ 0.010000 1.000000 }
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_silver
+		color2=wh_steel_grey
+		color3=wh_bone
+		texture="cat_dragon12_wyvern_wappen.dds"
+		instance={
+			position={ 0.265000 0.480000 }
+			scale={ -0.820000 1.000000 }
+			depth=2.010000
+		}
+
+	}
+
 }
 
 c_pinnesberg = {
@@ -2445,22 +2614,6 @@ c_plettenborn = {
 	}
 }
 
-c_wouduin = {
-	pattern = "pattern_solid.dds"
-	color1 = "blue"	
-	color2 = "white"
-	colored_emblem = {
-		texture = "ce_triangle_mask.dds"
-		color1 = "red"
-		instance = { position = { 0.50 0.50 } scale = { 1.0 1.0 }  }		
-	}
-	colored_emblem = {
-		texture = "ce_bend_checky.dds"
-		color1 = "white"
-		color2 = "black"
-		instance = { position = { 0.50 0.50 } scale = { 1.0 1.0 }  }		
-	}
-}
 
 d_kamistaat = { # 주변에 원장식
 	pattern = "pattern_solid.dds"
@@ -7030,32 +7183,119 @@ c_hinterland = {
 	}
 }
 
-d_pfeildorf = {
-	pattern = "pattern_solid.dds"
-	color1 = "red"
-	colored_emblem = {
-		texture = "ce_block_02.dds"
-		color1 = "blue"
-		instance = { position = { 0.25 0.5 } scale = { 0.5 1.0 }  }
+d_pfeildorf={
+	pattern="pattern_solid.dds"
+	color1=wh_sable
+	color2=white
+	color3=black
+	colored_emblem={
+		color1=wh_old_gold
+		color2=wh_sable
+		color3=wh_sable
+		texture="cat_jolly_roger_skull6.dds"
+		instance={
+			position={ 0.500000 0.525000 }
+			scale={ 0.695000 0.695000 }
+			depth=1.010000
+		}
+
 	}
+
+	colored_emblem={
+		color1=yellow
+		color2=wh_old_gold
+		color3=wh_sable
+		texture="cat_podolia_sun.dds"
+		instance={
+			position={ 0.500000 0.435000 }
+			depth=5.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_sable
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.500000 0.435000 }
+			scale={ 0.335000 0.335000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_old_gold
+		texture="ce__empty_designer.dds"
+		instance={
+			depth=4.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_sable
+		color2=wh_sable
+		texture="ce_cross_06.dds"
+		instance={
+			position={ 0.500000 0.340000 }
+			scale={ 0.105000 0.105000 }
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_old_gold
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.500000 0.435000 }
+			scale={ 0.355000 0.355000 }
+			depth=3.010000
+		}
+
+	}
+
 }
 
-c_pfeildorf = {
-	pattern = "pattern_solid.dds"
-	color1 = "green"
-	colored_emblem = {
-		texture = "ce_arrow.dds"
-		color1 = "white"
-		color2 = "yellow"
-		instance = { position = { 0.5 0.43 } rotation = 45 scale = { -1.2 1.2 }  }
-		instance = { position = { 0.5 0.43 } rotation = -45 scale = { 1.2 1.2 }  }
+c_pfeildorf={
+	pattern="pattern__solid_designer.dds"
+	color1=wh_silver
+	color2=white
+	color3=red
+	colored_emblem={
+		color1=yellow
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.500000 0.440000 }
+			scale={ 0.310000 0.310000 }
+			depth=1.010000
+		}
+
 	}
-	colored_emblem = {
-		texture = "ce_crown.dds"
-		color1 = "yellow"
-		color2 = "yellow_light"
-		instance = { position = { 0.5 0.45 } scale = { 0.5 0.5 }  }
+
+	colored_emblem={
+		color1=wh_sable
+		color2=wh_sable
+		texture="ce_cross_06.dds"
+		instance={
+			position={ 0.500000 0.440000 }
+			scale={ 0.300000 0.300000 }
+		}
+
 	}
+
+	colored_emblem={
+		color1=wh_old_gold
+		color2=wh_sable
+		color3=wh_safety_orange
+		texture="cat_sun3.dds"
+		instance={
+			position={ 0.500000 0.440000 }
+			depth=2.010000
+		}
+
+	}
+
 }
 
 c_sexau = {
