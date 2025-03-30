@@ -1,127 +1,9 @@
 ﻿namespace = wh_bretonnia_decision_events
 
-# # Grail Knight decision event 
 
-wh_bretonnia_decision_events.0001 = {
-	type = character_event
-	title = wh_bretonnia_decision_events.0001.t
-	desc = wh_bretonnia_decision_events.0001.desc
-	theme = martial
-	left_portrait = {
-		character = root
-		animation = aggresive_sword
-	}
-
-	immediate = {
-		play_music_cue = "mx_cue_positive_effect"
-		root = {
-			add_character_flag = wear_armor
-		}
-	}
-
-	option = {
-		name = wh_bretonnia_decision_events.0001.a
-		trigger = {
-			has_trait = knight_lady
-		}
-		duel = {
-			skill = prowess
-			value = descent_skill_rating
-			10 = {
-				desc = wh_bretonnia_decision_events.0001.a.crit_success
-				trigger = {
-					prowess >= 16
-				}
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-				}
-				send_interface_toast = {
-					title = wh_bretonnia_decision_events.0001.a.crit_success
-					left_icon = root
-					add_trait_xp = {
-						trait = knight_lady
-						value = 25
-					}
-				}
-			}
-			40 = {
-				desc = wh_bretonnia_decision_events.0001.a.success
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-				}
-				send_interface_toast = {
-					title = wh_bretonnia_decision_events.0001.a.success
-					left_icon = root
-						add_trait_xp = {
-						trait = knight_lady
-						value = 10
-						}
-					}
-				}
-			50 = {
-				desc = wh_bretonnia_decision_events.0001.a.failure
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-				}
-				send_interface_toast = {
-					title = wh_bretonnia_decision_events.0001.a.failure
-					left_icon = root
-					increase_wounds_effect = { REASON = accident }
-				}
-			}
-		}
-	}
-
-	option = {
-		name = wh_bretonnia_decision_events.0001.b
-		trigger = {
-			NOT = {
-				has_trait = knight_lady
-			}
-		}
-		duel = {
-			skill = prowess
-			value = descent_skill_rating
-			50 = {
-				desc = wh_bretonnia_decision_events.0001.b.success
-
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-				}
-				send_interface_toast = {
-					title = wh_bretonnia_decision_events.0001.b.success
-					left_icon = root
-					add_trait = knight_lady
-				}
-			}
-			50 = {
-				desc = wh_bretonnia_decision_events.0001.b.failure
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-				}
-				send_interface_toast = {
-					title = wh_bretonnia_decision_events.0001.b.failure
-					left_icon = root
-					increase_wounds_effect = { REASON = accident }
-				}
-			}
-		}
-	}
-
-	after = {
-		root = {
-			remove_character_flag = wear_armor
-		}
-	}
-}
-
-wh_bretonnia_decision_events.0010 = {
+wh_bretonnia_decision_events.0010 = { # Luiss objective sucess
     type = character_event
+	theme = dynasty
     title = wh_bretonnia_decision_events.0010.t
     desc = wh_bretonnia_decision_events.0010.d
     
@@ -131,21 +13,16 @@ wh_bretonnia_decision_events.0010 = {
     }
 }
 
-wh_bretonnia_decision_events.0020 = {
+wh_bretonnia_decision_events.0020 = { # Lambert objective success
     type = character_event
+	theme = dynasty
     title = wh_bretonnia_decision_events.0020.t
     desc = wh_bretonnia_decision_events.0020.d
 
     option = {
         name = wh_bretonnia_decision_events.0020.a1
         add_prestige = 500
-        # add_opinion = {
-        #     target = all_vassals
-        #     modifier = {
-        #         value = 20
-        #         years = 10
-        #     }
-        # }
+
 
     }
 }
@@ -153,6 +30,7 @@ wh_bretonnia_decision_events.0020 = {
 
 wh_bretonnia_decision_events.0100 = {
 	type = character_event
+	theme = dynasty
 	title = repanse_dynasty_decision_title
 	desc = repanse_dynasty_decision_desc
 	theme = dynasty
