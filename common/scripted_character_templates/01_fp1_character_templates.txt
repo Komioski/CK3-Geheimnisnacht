@@ -54,9 +54,6 @@ fp1_ms_godi_character = {
 	intrigue = 0
 	learning = 0
 	prowess = 0
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #MS Reformed Missionary
@@ -106,9 +103,6 @@ fp1_ms_reformed_missionary_character = {
 	intrigue = 0
 	learning = 0
 	prowess = 0
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #MS Nithing
@@ -151,9 +145,6 @@ fp1_ms_nithing_character = {
 	intrigue = 0
 	learning = 0
 	prowess = 0
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #MS Warrior
@@ -189,9 +180,6 @@ fp1_ms_warrior_character = {
 	intrigue = 0
 	learning = 0
 	prowess = 0
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #MS Vagrant
@@ -253,9 +241,6 @@ fp1_ms_vagrant_character = {
 	intrigue = 0
 	learning = 0
 	prowess = 0
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 ##################################################
@@ -318,9 +303,6 @@ fp1_western_warrior_character = {
 	intrigue = { min_template_low_skill max_template_decent_skill }
 	learning = { min_template_low_skill max_template_decent_skill }
 	prowess = { min_template_decent_skill max_template_high_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #Eastern Created Adventurers
@@ -380,9 +362,6 @@ fp1_eastern_warrior_character = {
 	intrigue = { min_template_low_skill max_template_decent_skill }
 	learning = { min_template_low_skill max_template_decent_skill }
 	prowess = { min_template_decent_skill max_template_high_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 ##################################################
@@ -455,7 +434,6 @@ fp1_jomsviking_bigwig = {
 	prowess = { min_template_decent_skill max_template_high_skill }
 	after_creation = {
 		add_random_tourney_participant_level_effect = yes
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -515,9 +493,6 @@ fp1_jomsviking_retainer_martial = {
 	intrigue = { min_template_low_skill max_template_average_skill }
 	learning = { min_template_low_skill max_template_average_skill }
 	prowess = { min_template_low_skill max_template_average_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 # Jomsviking Retainer, Prowess
@@ -578,11 +553,10 @@ fp1_jomsviking_retainer_prowess = {
 	prowess = { min_template_decent_skill max_template_high_skill }
 	after_creation = {
 		if = {
-			limit = { has_dlc = tours_and_tournaments }
+			limit = { has_dlc_feature = tours_and_tournaments }
 			add_trait = tourney_participant
 			add_random_tourney_participant_level_effect = yes
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -636,9 +610,6 @@ fp1_deceitful_warrior_character = {
 	intrigue = { min_template_average_skill min_template_high_skill }
 	learning = { min_template_low_skill max_template_decent_skill }
 	prowess = { min_template_average_skill min_template_high_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #Deceitful Explorer
@@ -687,9 +658,6 @@ fp1_deceitful_explorer_character = {
 	intrigue = { min_template_average_skill min_template_high_skill }
 	learning = { min_template_low_skill max_template_decent_skill }
 	prowess = { min_template_low_skill max_template_decent_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #Truthful Explorer
@@ -738,9 +706,6 @@ fp1_truthful_explorer_character = {
 	intrigue = { min_template_low_skill max_template_decent_skill }
 	learning = { min_template_low_skill max_template_decent_skill }
 	prowess = { min_template_average_skill min_template_high_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #Islamic Explorer
@@ -840,7 +805,6 @@ fp1_islamic_explorer_character = {
 				}
 			}
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -900,9 +864,6 @@ fp1_capital_county_nithing_character = {
 	intrigue = { max_template_average_skill max_template_high_skill }
 	learning = { min_template_low_skill max_template_low_skill }
 	prowess = { min_template_low_skill max_template_low_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 #Capital County Orphan
@@ -932,9 +893,6 @@ fp1_capital_county_orphan_character = {
 	intrigue = { min_template_average_skill max_template_average_skill }
 	learning = { min_template_low_skill max_template_low_skill }
 	prowess = { min_template_low_skill max_template_low_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 ##################################################
@@ -986,9 +944,6 @@ fp1_trade_partner_merchant = {
 	intrigue = { min_template_low_skill min_template_average_skill }
 	learning = { min_template_low_skill max_template_average_skill }
 	prowess = { min_template_low_skill min_template_average_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 fp1_trade_partner_priest = {
@@ -1147,9 +1102,6 @@ fp1_trade_partner_priest = {
 	intrigue = { min_template_low_skill min_template_average_skill }
 	learning = { min_template_decent_skill max_template_high_skill }
 	prowess = { min_template_low_skill min_template_average_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 fp1_trade_partner_spy = {
@@ -1202,9 +1154,6 @@ fp1_trade_partner_spy = {
 	intrigue = { min_template_decent_skill max_template_high_skill }
 	learning = { min_template_low_skill max_template_average_skill }
 	prowess = { min_template_low_skill min_template_average_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 fp1_trade_partner_warrior = {
@@ -1259,9 +1208,6 @@ fp1_trade_partner_warrior = {
 	intrigue = { min_template_low_skill min_template_average_skill }
 	learning = { min_template_low_skill max_template_average_skill }
 	prowess = { min_template_decent_skill max_template_high_skill }
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 ##################################################
@@ -1293,8 +1239,5 @@ old_country_local_warlord_template = {
 	martial = {
 		min_template_decent_skill
 		max_template_decent_skill
-	}
-	after_creation = {
-		urf_template_base_race_init = yes
 	}
 }

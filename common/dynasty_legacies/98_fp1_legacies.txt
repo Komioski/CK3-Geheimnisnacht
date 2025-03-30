@@ -4,10 +4,14 @@
 		dynasty = {
 			OR = {
 				dynast = {
-					#culture = {
-					#	has_cultural_pillar = heritage_norscan
-					#}
-					always = no
+					culture = {
+						OR = {
+							this = culture:norse
+							any_parent_culture_or_above = {
+								this = culture:norse
+							}
+						}
+					}
 				}
 				has_dynasty_perk = fp1_adventure_legacy_1
 			}
@@ -21,10 +25,14 @@ fp1_pillage_legacy_track = {
 		dynasty = {
 			OR = {
 				dynast = {
-					#culture = {
-					#	has_cultural_pillar = heritage_norscan
-					#}
-					always = no
+					culture = {
+						OR = {
+							this = culture:norse
+							any_parent_culture_or_above = {
+								this = culture:norse
+							}
+						}
+					}
 				}
 				has_dynasty_perk = fp1_pillage_legacy_1
 			}

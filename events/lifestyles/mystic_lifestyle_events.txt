@@ -35,23 +35,56 @@ mystic_lifestyle.1001 = {
 	theme = learning_theology_focus
 	left_portrait = {
 		character = scope:priest
+		animation = personality_zealous
+	}
+	right_portrait = {
+		character = scope:priest
 		animation = disapproval
 	}
 	
 	trigger = {
 		mystic_lifestyle_not_a_virtue = yes
-		exists = cp:councillor_court_chaplain
-		cp:councillor_court_chaplain = {
-			is_available = yes
-			NOT = {
-				has_trait = lifestyle_mystic
+		OR = {
+			AND = {
+				exists = cp:councillor_court_chaplain
+				cp:councillor_court_chaplain = {
+					is_available = yes
+					NOT = {
+						has_trait = lifestyle_mystic
+					}
+				}
+			}
+			AND = {
+				employs_court_position = camp_priest_camp_officer
+				any_court_position_holder = {
+					type = camp_priest_camp_officer	
+					NOT = {
+						has_trait = lifestyle_mystic
+					}			
+				}
 			}
 		}
 	}
 
 	immediate = {
-		cp:councillor_court_chaplain = {
-			save_scope_as = priest
+		if = {
+			limit = {
+				exists = cp:councillor_court_chaplain
+			}
+			cp:councillor_court_chaplain = {
+				save_scope_as = priest
+			}
+		}
+		else = {
+			random_court_position_holder = {
+				type = camp_priest_camp_officer	
+				limit = {
+					NOT = {
+						has_trait = lifestyle_mystic
+					}
+				}	
+				save_scope_as = priest	
+			}
 		}
 	}
 
@@ -169,8 +202,16 @@ mystic_lifestyle.1003 = {
 	
 	trigger = {
 		mystic_lifestyle_not_a_virtue = yes
-		any_vassal = {
-			mystic_lifestyle_1003_vassal_trigger = yes
+		OR = {
+			any_vassal = {
+				mystic_lifestyle_1003_vassal_trigger = yes
+			}
+			AND = {
+				is_landless_adventurer = yes
+				any_courtier = {
+					mystic_lifestyle_1003_vassal_trigger = yes
+				}
+			}
 		}
 	}
 
@@ -198,6 +239,35 @@ mystic_lifestyle.1003 = {
 				}
 			}
 			save_scope_as = vassal
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:vassal }
+			}
+			random_courtier = {
+				limit = {
+					NOR = {
+						has_relation_rival = root
+						has_relation_nemesis = root
+					}
+					mystic_lifestyle_1003_vassal_trigger = yes
+				}
+				alternative_limit = {
+					mystic_lifestyle_1003_vassal_trigger = yes
+				}
+				weight = {
+					base = 1
+					modifier = {
+						add = 10
+						is_of_major_interest_to_root_trigger = yes
+					}
+					modifier = {
+						add = 5
+						is_of_minor_interest_to_root_trigger = yes
+					}
+				}
+				save_scope_as = vassal
+			}
 		}
 	}
 
@@ -244,7 +314,10 @@ mystic_lifestyle.1004 = {
 	title = mystic_lifestyle.1004.t
 	desc = mystic_lifestyle.1004.desc
 	theme = learning_theology_focus
-	left_portrait = root
+	left_portrait = {
+		character = root
+		animation = eyeroll
+	}
 	
 	trigger = {
 		mystic_lifestyle_not_a_virtue = yes
@@ -300,8 +373,16 @@ mystic_lifestyle.1005 = {
 	}
 	
 	trigger = {
-		any_vassal = {
-			mystic_lifestyle_1005_vassal_trigger = yes
+		OR = {
+			any_vassal = {
+				mystic_lifestyle_1005_vassal_trigger = yes
+			}
+			AND = {
+				is_landless_adventurer = yes
+				any_courtier = {
+					mystic_lifestyle_1005_vassal_trigger = yes
+				}
+			}
 		}
 	}
 
@@ -322,6 +403,28 @@ mystic_lifestyle.1005 = {
 				}
 			}
 			save_scope_as = vassal
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:vassal }
+			}
+			random_courtier = {
+				limit = {
+					mystic_lifestyle_1005_vassal_trigger = yes
+				}
+				weight = {
+					base = 1
+					modifier = {
+						add = 10
+						is_of_major_interest_to_root_trigger = yes
+					}
+					modifier = {
+						add = 5
+						is_of_minor_interest_to_root_trigger = yes
+					}
+				}
+				save_scope_as = vassal
+			}
 		}
 	}
 
@@ -363,7 +466,10 @@ mystic_lifestyle.1006 = {
 	title = mystic_lifestyle.1006.t
 	desc = mystic_lifestyle.1006.desc
 	theme = learning_theology_focus
-	left_portrait = root
+	left_portrait = {
+		character = root
+		animation = menacing
+	}
 	
 	trigger = {
 		mystic_lifestyle_not_a_virtue = yes

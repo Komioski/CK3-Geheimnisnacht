@@ -41,20 +41,6 @@
 			number_of_consorts = 3
 		}
 	}
-	
-	doctrine_no_marriage = {
-		piety_cost = {
-			value = faith_doctrine_cost_mid
-			if = {
-				limit = { has_doctrine = doctrine_no_marriage }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-		parameters = {
-			number_of_spouses = 0
-			number_of_consorts = 0
-		}
-	}
 }
 
 doctrine_divorce = {
@@ -683,10 +669,6 @@ doctrine_consanguinity = {
 				limit = { has_doctrine = doctrine_consanguinity_unrestricted }
 				multiply = faith_changed_doctrine_cost_mult_three_step
 			}
-			else_if = {
-				limit = { has_doctrine = doctrine_divine_marriage }
-				multiply = faith_changed_doctrine_cost_mult_four_step
-			}
 		}
 		parameters = {
 			consanguinity_restricted_marriage = yes
@@ -704,10 +686,6 @@ doctrine_consanguinity = {
 				limit = { has_doctrine = doctrine_consanguinity_unrestricted }
 				multiply = faith_changed_doctrine_cost_mult_two_step
 			}
-			else_if = {
-				limit = { has_doctrine = doctrine_divine_marriage }
-				multiply = faith_changed_doctrine_cost_mult_three_step
-			}
 		}
 		parameters = {
 			consanguinity_cousins_marriage = yes
@@ -724,10 +702,6 @@ doctrine_consanguinity = {
 			}
 			else_if = {
 				limit = { has_doctrine = doctrine_consanguinity_restricted }
-				multiply = faith_changed_doctrine_cost_mult_two_step
-			}
-			else_if = {
-				limit = { has_doctrine = doctrine_divine_marriage }
 				multiply = faith_changed_doctrine_cost_mult_two_step
 			}
 		}
@@ -760,41 +734,6 @@ doctrine_consanguinity = {
 			allows_cousin_marriage = yes
 			allows_aunt_nephew_and_uncle_niece_marriage = yes
 			allows_unrestricted_marriage = yes
-		}
-	}
-	doctrine_divine_marriage = {
-		piety_cost = {
-			value = faith_doctrine_cost_high
-			if = {
-				limit = { has_doctrine = doctrine_divine_marriage }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-			else_if = {
-				limit = { has_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece }
-				multiply = faith_changed_doctrine_cost_mult_two_step
-			}
-			else_if = {
-				limit = { has_doctrine = doctrine_consanguinity_cousins }
-				multiply = faith_changed_doctrine_cost_mult_three_step
-			}
-			else_if = {
-				limit = { has_doctrine = doctrine_consanguinity_restricted }
-				multiply = faith_changed_doctrine_cost_mult_four_step
-			}
-		}
-		parameters = {
-			consanguinity_unrestricted_marriage = yes
-			consanguinity_unrestricted_incest = yes
-			allows_cousin_marriage = yes
-			allows_aunt_nephew_and_uncle_niece_marriage = yes
-			allows_unrestricted_marriage = yes
-			
-			divine_marriage_opinion = 10
-			divine_marriage_piety_gain_active = yes
-		}
-		
-		traits = {
-			virtues = { pure_blooded = 2 }
 		}
 	}
 }
@@ -950,29 +889,6 @@ doctrine_head_of_faith = {
 			spiritual_head_of_faith = yes
 			spiritual_head_of_faith_claims = yes
 			spiritual_head_of_faith_gold = yes
-		}
-	}
-	doctrine_strong_spiritual_head = {
-		visible = no
-		piety_cost = {
-			value = faith_doctrine_cost_high
-			if = {
-				limit = { has_doctrine = doctrine_strong_spiritual_head }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-		parameters = {
-			spiritual_head_of_faith = yes
-			spiritual_head_of_faith_claims = yes
-			spiritual_head_of_faith_gold = yes
-			
-			seek_indulgences_active = yes
-			seek_indulgences_active_2 = yes
-			excommunication_active = yes
-		}
-		traits = {
-			virtues = { honest }
-			sins = { deceitful }
 		}
 	}
 	doctrine_temporal_head = {

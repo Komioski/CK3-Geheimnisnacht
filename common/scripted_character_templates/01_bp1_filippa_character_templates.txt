@@ -51,7 +51,6 @@ bp1_yearly_2021_martial_person_template = {
 			}
 		}
 		add_random_tourney_participant_level_effect = yes
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -109,7 +108,6 @@ bp1_yearly_2021_learning_witch_template = {
 	            value = trait_third_level
 			}
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -172,7 +170,6 @@ bp1_yearly_2021_learning_person_template = {
 	            value = 100
 	        }
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -190,7 +187,7 @@ bp1_yearly_2021_stewardship_person_template = {
 		architect = {}
 	}
 	random_traits_list = {
-		count = 3
+		count = 1
 		honest = {}
 		gregarious = {}
 		trusting = {}
@@ -200,7 +197,7 @@ bp1_yearly_2021_stewardship_person_template = {
 	}
 	trait = greedy
 	trait = loyal
-	random_traits = no
+	random_traits = yes
 	prowess = { 2 4 }
 	diplomacy = { 5 7 }
 	stewardship = { 15 17 }
@@ -210,9 +207,6 @@ bp1_yearly_2021_stewardship_person_template = {
 	faith = root.faith
 	culture = root.culture
 	gender_female_chance = 50
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 bp1_yearly_2021_diplomacy_person_template = {
@@ -254,7 +248,6 @@ bp1_yearly_2021_diplomacy_person_template = {
 			LEVEL_1 = no
 			LEVEL_3 = yes
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -291,7 +284,4 @@ bp1_yearly_2021_intrigue_person_template = {
 	faith = root.faith
 	culture = root.culture
 	gender_female_chance = 50
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }

@@ -3,10 +3,6 @@
 hospices_01 = {
 	construction_time = standard_construction_time
 
-	is_enabled = {
-		scope:holder = { vanilla_building_trigger = yes }
-	}
-
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
@@ -20,15 +16,9 @@ hospices_01 = {
 	character_modifier = {
 		monthly_piety = 0.1
 	}
-	county_modifier = {
-		epidemic_resistance = 5
-	}
-	county_culture_modifier = {
-		parameter = hospital_bonuses
-		epidemic_resistance = 1
-	}
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_1
+		epidemic_resistance = 5
 	}
 	
 	next_building = hospices_02
@@ -40,6 +30,7 @@ hospices_01 = {
 		ai_tier_1_building_modifier = yes
 		ai_tier_1_economical_building_preference_modifier = yes
 		ai_general_building_modifier = yes
+		directive_to_build_economy_modifier = yes
 		modifier = {
 			add = 1
 			county.development_level >= 10
@@ -85,10 +76,6 @@ hospices_01 = {
 hospices_02 = {
 	construction_time = standard_construction_time
 
-	is_enabled = {
-		scope:holder = { vanilla_building_trigger = yes }
-	}
-
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 		culture = {
@@ -105,21 +92,16 @@ hospices_02 = {
 	character_modifier = {
 		monthly_piety = 0.2
 	}
-	county_modifier = {
-		epidemic_resistance = 7
-	}
-	county_culture_modifier = {
-		parameter = hospital_bonuses
-		epidemic_resistance = 2
-	}
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_2
+		epidemic_resistance = 7
 	}
 	
 	next_building = hospices_03
 	ai_value = {
 		base = 9
 		ai_general_building_modifier = yes
+		directive_to_build_economy_modifier = yes
 		ai_economical_building_preference_modifier = yes
 		modifier = { # Fill all building slots before going for upgrades
 			factor = 0
@@ -130,10 +112,6 @@ hospices_02 = {
 
 hospices_03 = {
 	construction_time = standard_construction_time
-
-	is_enabled = {
-		scope:holder = { vanilla_building_trigger = yes }
-	}
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
@@ -151,22 +129,17 @@ hospices_03 = {
 	character_modifier = {
 		monthly_piety = 0.3
 	}
-	county_modifier = {
-		epidemic_resistance = 10
-	}
-	county_culture_modifier = {
-		parameter = hospital_bonuses
-		epidemic_resistance = 3
-	}
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_3
 		stationed_maa_toughness_mult = 0.01
+		epidemic_resistance = 10
 	}
 
 	next_building = hospices_04
 	ai_value = {
 		base = 8
 		ai_general_building_modifier = yes
+		directive_to_build_economy_modifier = yes
 		ai_economical_building_preference_modifier = yes
 		modifier = { # Fill all building slots before going for upgrades
 			factor = 0
@@ -177,10 +150,6 @@ hospices_03 = {
 
 hospices_04 = {
 	construction_time = standard_construction_time
-
-	is_enabled = {
-		scope:holder = { vanilla_building_trigger = yes }
-	}
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
@@ -198,22 +167,17 @@ hospices_04 = {
 	character_modifier = {
 		monthly_piety = 0.4
 	}
-	county_modifier = {
-		epidemic_resistance = 12
-	}
-	county_culture_modifier = {
-		parameter = hospital_bonuses
-		epidemic_resistance = 4
-	}
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_4
 		stationed_maa_toughness_mult = 0.02
+		epidemic_resistance = 12
 	}
 
 	next_building = hospices_05
 	ai_value = {
 		base = 7
 		ai_general_building_modifier = yes
+		directive_to_build_economy_modifier = yes
 		ai_economical_building_preference_modifier = yes
 		modifier = { # Fill all building slots before going for upgrades
 			factor = 0
@@ -224,10 +188,6 @@ hospices_04 = {
 
 hospices_05 = {
 	construction_time = standard_construction_time
-
-	is_enabled = {
-		scope:holder = { vanilla_building_trigger = yes }
-	}
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
@@ -246,22 +206,17 @@ hospices_05 = {
 		monthly_piety = 0.5
 		legitimacy_gain_mult = 0.01
 	}
-	county_modifier = {
-		epidemic_resistance = 15
-	}
-	county_culture_modifier = {
-		parameter = hospital_bonuses
-		epidemic_resistance = 5
-	}
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_5
 		stationed_maa_toughness_mult = 0.03
+		epidemic_resistance = 15
 	}
 
 	next_building = hospices_06
 	ai_value = {
 		base = 7
 		ai_general_building_modifier = yes
+		directive_to_build_economy_modifier = yes
 		ai_economical_building_preference_modifier = yes
 		modifier = { # Fill all building slots before going for upgrades
 			factor = 0
@@ -272,10 +227,6 @@ hospices_05 = {
 
 hospices_06 = {
 	construction_time = standard_construction_time
-
-	is_enabled = {
-		scope:holder = { vanilla_building_trigger = yes }
-	}
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
@@ -294,22 +245,17 @@ hospices_06 = {
 		monthly_piety = 0.6
 		legitimacy_gain_mult = 0.02
 	}
-	county_modifier = {
-		epidemic_resistance = 17
-	}
-	county_culture_modifier = {
-		parameter = hospital_bonuses
-		epidemic_resistance = 5
-	}
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_6
 		stationed_maa_toughness_mult = 0.04
+		epidemic_resistance = 17
 	}
 
 	next_building = hospices_07
 	ai_value = {
 		base = 7
 		ai_general_building_modifier = yes
+		directive_to_build_economy_modifier = yes
 		ai_economical_building_preference_modifier = yes
 		modifier = { # Fill all building slots before going for upgrades
 			factor = 0
@@ -320,10 +266,6 @@ hospices_06 = {
 
 hospices_07 = {
 	construction_time = standard_construction_time
-
-	is_enabled = {
-		scope:holder = { vanilla_building_trigger = yes }
-	}
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
@@ -342,22 +284,17 @@ hospices_07 = {
 		monthly_piety = 0.7
 		legitimacy_gain_mult = 0.03
 	}
-	county_modifier = {
-		epidemic_resistance = 20
-	}
-	county_culture_modifier = {
-		parameter = hospital_bonuses
-		epidemic_resistance = 5
-	}
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_7
 		stationed_maa_toughness_mult = 0.05
+		epidemic_resistance = 20
 	}
 
 	next_building = hospices_08
 	ai_value = {
 		base = 7
 		ai_general_building_modifier = yes
+		directive_to_build_economy_modifier = yes
 		ai_economical_building_preference_modifier = yes
 		modifier = { # Fill all building slots before going for upgrades
 			factor = 0
@@ -368,10 +305,6 @@ hospices_07 = {
 
 hospices_08 = {
 	construction_time = standard_construction_time
-
-	is_enabled = {
-		scope:holder = { vanilla_building_trigger = yes }
-	}
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
@@ -390,21 +323,16 @@ hospices_08 = {
 		monthly_piety = 0.8
 		legitimacy_gain_mult = 0.04
 	}
-	county_modifier = {
-		epidemic_resistance = 25
-	}
-	county_culture_modifier = {
-		parameter = hospital_bonuses
-		epidemic_resistance = 5
-	}
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_8
 		stationed_maa_toughness_mult = 0.06
+		epidemic_resistance = 25
 	}
 
 	ai_value = {
 		base = 7
 		ai_general_building_modifier = yes
+		directive_to_build_economy_modifier = yes
 		ai_economical_building_preference_modifier = yes
 		modifier = { # Fill all building slots before going for upgrades
 			factor = 0

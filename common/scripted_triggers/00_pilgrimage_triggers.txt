@@ -1,4 +1,5 @@
-﻿is_on_a_pilgrimage_trigger = {
+﻿
+is_on_a_pilgrimage_trigger = {
 	exists = involved_activity
 	involved_activity = { has_activity_type = activity_pilgrimage }
 	#No more pilgrimage events if you're on your way home :colbert:
@@ -11,7 +12,21 @@
 }
 
 is_on_a_hajj_trigger = {
-	always = no
+	exists = involved_activity
+	involved_activity = {
+		has_activity_option = {
+			category = special_type
+			option = pilgrimage_type_hajj
+		}
+	}
+	involved_activity.activity_location.barony = title:b_makka
+	#No more Hajj events if you're on your way home :colbert:
+	exists = capital_province
+	NOT = { 
+		current_travel_plan = {
+			next_destination_province = root.capital_province 
+		}
+	}
 }
 
 short_pilgrimage_trigger = {
@@ -63,7 +78,13 @@ has_worldly_pilgrimage_type_trigger = {
 }
 
 has_hajj_pilgrimage_type_trigger = {
-	always = no
+	involved_activity ?= {
+		has_activity_type = activity_pilgrimage
+		has_activity_option = {
+			category = special_type
+			option = pilgrimage_type_hajj
+		}
+	}
 }
 
 #Assumes activity-scope
@@ -86,5 +107,9 @@ activity_has_worldly_pilgrimage_type_trigger = {
 
 #Assumes activity-scope
 activity_has_hajj_pilgrimage_type_trigger = {
-	always = no
+	has_activity_type = activity_pilgrimage
+	has_activity_option = {
+		category = special_type
+		option = pilgrimage_type_hajj
+	}
 }

@@ -1,0 +1,28 @@
+#This file basically determines which folders are available to be loaded at a lower resolution. 
+#all *.dds files will be loaded in at a lower resolution. png & tga files are kept at same resolution
+#The order of the directories here matter, if a directory matches later on, it will override the earlier setting
+#The array signifies how many mipmaps will be skipped loading at low/medium/high/ultra quality
+
+#specific stuff on top, algorithm will stop at first hit
+"gfx/map/environment" = { -2 -1 0 0 }
+"gfx/map/rivers" = { -4 -2 -1 0 }
+"gfx/map/surround_map" = { -3 -1 0 0 }
+"gfx/map/terrain/colormap.dds" = { -2 -1 0 0 }
+"gfx/map/terrain/flatmap" = { -2 -1 0 0 }
+"gfx/map/terrain/pattern.dds" = { -1 0 0 0 }
+"gfx/map/terrain" = { -4 -2 -1 0 }
+"gfx/map/textures" = { -4 -2 -1 0 }
+"gfx/map/water" = { -2 -1 0 0 }
+"gfx/map/water/watercolor_rgb_waterspec_a.dds" = { -1 0 0 0 }
+"gfx/map" = { 0 0 0 0 }
+
+
+"gfx/portraits/accessory_variations/textures/patterns" = { -3 -2 -1 0 }
+"gfx/models/portraits/props" 		= { -3 -2 -1 0 }
+"gfx/models/portraits/attachments" 	= { -3 -2 -1 0 }
+"gfx/models/portraits" = { -3 -2 -1 0 }
+"gfx/models" = { -4 -2 -1 0 } #Any texture coming from the gfx/models folder will be loaded with skipping 4 mipmaps at low quality, or 2 at medium, or 1 at high, or 0 at ultra settings
+
+"gfx/coat_of_arms" = { -1 0 0 0 }
+
+"gfx/particles" = { -2 -1 0 0 }

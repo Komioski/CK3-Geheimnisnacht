@@ -182,6 +182,15 @@ court_warlike = {
 				add = martial
 				if = {
 					limit = {
+						OR = {
+							culture = { has_cultural_pillar = heritage_turkic }
+							culture = { has_cultural_pillar = heritage_mongolic }
+						}
+					}
+					add = 25
+				}
+				if = {
+					limit = {
 						has_trait = wrathful
 					}
 					add = 25
@@ -375,9 +384,16 @@ court_intrigue = {
 					OR = {
 						culture = { has_cultural_pillar = ethos_bellicose }
 						culture = { has_cultural_pillar = ethos_communal }
+						any_held_title = { this = title:e_byzantium }
 					}
 				}
 				add = intrigue
+				if = {
+					limit = {
+						any_held_title = { this = title:e_byzantium }
+					}
+					add = 25
+				}
 				if = {
 					limit = {
 						OR = {
@@ -583,6 +599,15 @@ court_tribal = {
 					}
 				}
 				add = martial
+				if = {
+					limit = {
+						OR = {
+							culture = { has_cultural_pillar = heritage_turkic }
+							culture = { has_cultural_pillar = heritage_mongolic }
+						}
+					}
+					add = 25
+				}
 				if = {
 					limit = {
 						has_trait = wrathful

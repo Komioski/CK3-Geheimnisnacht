@@ -13,6 +13,12 @@ defiant_high_monarch_conversion_boost_value = {
 
 hold_gruesome_festival_decision_value = {
 	value = 0
+	if = {
+		limit = { religion = religion:germanic_religion }
+		# This actually probably *isn't* Biblical numerology creeping into accounts of pagan worship, since we have records of fighting in Sweden that was probably about this around every nine years or so between Christians and pagans.
+		add = 9
+	}
+	else = { add = 10 }
 }
 
 gruesome_festival_prestige_cost_value = 200
@@ -31,7 +37,7 @@ gruesome_festival_key_sacrifice_piety_value = {
 	# Landless faith hostility block.
 	if = {
 		limit = {
-			scope:sacrifice = { is_landed = no }
+			scope:sacrifice = { is_landed_or_landless_administrative = no }
 		}
 		# HumSac'ing a hostile faith.
 		if = {
@@ -43,10 +49,30 @@ gruesome_festival_key_sacrifice_piety_value = {
 					}
 					# Exempt faiths/families you syncretise with.
 					NOR = {
+						# Eastern Family syncretism.
+						AND = {
+							has_doctrine = tenet_eastern_syncretism
+							scope:sacrifice.religion = { is_in_family = rf_eastern }
+						}
 						# Unreformed pagans syncretism.
 						AND = {
 							has_doctrine = tenet_unreformed_syncretism
 							scope:sacrifice.faith = { has_doctrine_parameter = unreformed }
+						}
+						# Christian syncretism.
+						AND = {
+							has_doctrine = tenet_christian_syncretism
+							scope:sacrifice.religion = religion:christianity_religion
+						}
+						# Islamic syncretism.
+						AND = {
+							has_doctrine = tenet_islamic_syncretism
+							scope:sacrifice.religion = religion:islam_religion
+						}
+						# Jewish syncretism.
+						AND = {
+							has_doctrine = tenet_jewish_syncretism
+							scope:sacrifice.religion = religion:judaism_religion
 						}
 					}
 				}
@@ -70,7 +96,7 @@ gruesome_festival_key_sacrifice_piety_value = {
 	scope:sacrifice = {
 		if = {
 			limit = {
-				is_landed = yes
+				is_landed_or_landless_administrative = yes
 				# Exempt HoFs: they get their own block.
 				NOT = { this = faith.religious_head }
 			}
@@ -737,6 +763,24 @@ fp1_0111_sorcerer_learning_low = mediocre_skill_rating
 
 varangian_adventurers_standard_levy_cap_value = 2000
 
+varangian_adventurers_bonus_levies_value = {
+	value = 0
+
+	# Add troops for each appropriate county.
+	every_sub_realm_county = {
+		limit = {
+			title_province = { geographical_region = dlc_fp1_region_core_mainland_scandinavia }
+			culture = scope:attacker.culture
+			faith = scope:attacker.faith
+		}
+		add = 1
+	}
+
+	max = {
+		# Standard base max.
+		value = varangian_adventurers_standard_levy_cap_value
+	}
+}
 
 varangian_adventurer_cb_cost = {
 	add = { value = 1000 desc = "CB_BASE_COST" }
@@ -945,6 +989,12 @@ fp1_trade_events_truce_renewal_date_value = {
 
 fp1_jomsvikings_coup_priority_value = {
 	value = 0
+
+	# Weight up the Jomsvikings historical home, Walin.
+	if = {
+		limit = { this = title:c_kolobrzeg }
+		add = 1000
+	}
 	# Weight up OCMs.
 	if = {
 		limit = {

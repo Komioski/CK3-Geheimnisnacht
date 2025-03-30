@@ -1,0 +1,436 @@
+﻿
+vizier_skill_rating_1 = {
+	add = mediocre_skill_rating
+}
+vizier_skill_rating_2 = {
+	add = medium_skill_rating
+}
+vizier_skill_rating_3 = {
+	add = decent_skill_rating
+}
+vizier_skill_rating_4 = {
+	add = very_high_skill_rating
+}
+
+inverted_vizier_skill_rating_1 = {
+	subtract = vizier_skill_rating_1
+}
+inverted_vizier_skill_rating_2 = {
+	subtract = vizier_skill_rating_2
+}
+inverted_vizier_skill_rating_3 = {
+	subtract = vizier_skill_rating_3
+}
+inverted_vizier_skill_rating_4 = {
+	subtract = vizier_skill_rating_4
+}
+
+
+vizier_default_task_diplomacy_scale = {
+	add = diplomacy
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 5
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_default_task_martial_scale = {
+	add = martial
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 5
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_default_task_intrigue_scale = {
+	add = intrigue
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 5
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_default_task_learning_scale = {
+	add = learning
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 5
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_default_task_stewardship_scale = {
+	add = stewardship
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 5
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_task_court_politics_scale = {
+	add = diplomacy
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 2
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_task_chivalry_scale = {
+	add = martial
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 2
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_task_court_intrigue_scale = {
+	add = intrigue
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 2
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_task_manage_domain_scale = {
+	add = stewardship
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 2
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+vizier_task_patronage_scale = {
+	add = learning
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	if = {
+		limit = {
+			scope:councillor = {
+				AND = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+				}
+			}
+		}
+		multiply = 1.25
+	}
+	divide = 2
+	if = {
+		limit = {
+			OR = {
+				scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+
+				scope:councillor = {
+					AND = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_3 }
+					}
+				}
+			}
+		}
+		ceiling = yes
+	}
+	else = {
+		floor = yes
+	}
+	min = 1
+}
+
+#vizier rank up values
+councillor_vizier_lifestyle_rank_up_threshold = 4 #Number of half-years the character has to have been performing a task in order to rank up in the relevant skill
+councillor_vizier_lifestyle_progress_factor = 0.75 #The factor by which the chance of ranking up each month is multiplied. At 1, one point of progress and one point of skill increase the chance (every six months) by 1%
+
+councillor_vizier_lifestyle_progress_increase = 1 #How much progress is added every time

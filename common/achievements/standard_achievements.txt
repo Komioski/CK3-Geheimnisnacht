@@ -107,31 +107,22 @@ a_legacy_to_last_the_ages_achievement = {
 					has_dynasty_perk = glory_legacy_5
 					has_dynasty_perk = kin_legacy_5
 					#FP1
-					AND = {
-						has_fp1_dlc_trigger = yes
-						OR = {
-							has_dynasty_perk = fp1_adventure_legacy_5
-							has_dynasty_perk = fp1_pillage_legacy_5
-						}
-					}
+					has_dynasty_perk = fp1_adventure_legacy_5
+					has_dynasty_perk = fp1_pillage_legacy_5
 					#EP1
-					AND = {
-						has_dlc_feature = hybridize_culture
-						has_dynasty_perk = ep1_culture_legacy_5
-					}
+					has_dynasty_perk = ep1_culture_legacy_5
 					#FP2
-					AND = {
-						has_fp2_dlc_trigger = yes
-						OR = {
-							has_dynasty_perk = fp2_urbanism_legacy_5
-							has_dynasty_perk = fp2_coterie_legacy_5
-						}
-					}
+					has_dynasty_perk = fp2_urbanism_legacy_5
+					has_dynasty_perk = fp2_coterie_legacy_5
 					#FP3
-					AND = {
-						has_dlc_feature = legacy_of_persia
-						has_dynasty_perk = fp3_khvarenah_legacy_5
-					}
+					has_dynasty_perk = fp3_khvarenah_legacy_5
+					#EP2
+					has_dynasty_perk = ep2_activities_legacy_5
+					#CE1
+					has_dynasty_perk = ce1_heroic_legacy_5
+					has_dynasty_perk = ce1_legitimacy_legacy_5
+					#EP3
+					has_dynasty_perk = ep3_administrative_legacy_5
 				}
 			}
 		}
@@ -203,19 +194,42 @@ the_succession_is_safe_achievement = {
 
 almost_there_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_almost_there_achievement
+		character:159137 = {
+			is_alive = yes
+			is_ai = no
+		}
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = almost_there_achievement_trigger
+			has_title = title:k_hungary
+			has_religion = religion:christianity_religion
+			character:159137 = {
+				is_alive = yes
+				is_ai = no
+			}
+		}
 	}
 }
 
 last_count_first_king_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_last_count_first_king_achievement
+		character:109607 = {
+			is_alive = yes
+			is_ai = no
+		}
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = last_count_first_king_achievement_trigger
+			has_title = title:k_portugal
+			character:109607 = {
+				is_alive = yes
+				is_ai = no
+			}
+		}
 	}
 }
 
@@ -257,7 +271,7 @@ end_of_an_era_achievement = {
 	happened = {
 		custom_description = {
 			text = end_of_an_era_achievement_trigger
-			current_date >= 7099.12.1
+			current_date >= 1452.12.1
 		}
 	}
 }
@@ -276,28 +290,66 @@ turning_to_diamonds_achievement = {
 
 reconquista_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_reconquista_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = reconquista_achievement_trigger
+			completely_controls_region = world_europe_west_iberia
+			any_county_in_region = {
+				region = world_europe_west_iberia
+				count = all
+				faith = { religion_tag = christianity_religion }
+			}
+			OR = {
+				culture = { has_cultural_pillar = heritage_iberian }
+				culture = culture:andalusian
+			}
+			has_religion = religion:christianity_religion
+		}
 	}
 }
 
 seven_holy_cities_achievement = {
 	possible = {
-		always = no
+
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = seven_holy_cities_achievement_trigger
+			has_religion = religion:hinduism_religion
+			primary_title = { is_de_facto_liege_or_above_target = title:c_varanasi } # Varanasi
+			primary_title = { is_de_facto_liege_or_above_target = title:c_ayodhya } # Ayodhya
+			primary_title = { is_de_facto_liege_or_above_target = title:c_mathura }  # Mathura
+			primary_title = { is_de_facto_liege_or_above_target = title:c_sthanisvara } # Haridwar
+			primary_title = { is_de_facto_liege_or_above_target = title:c_kanchipuram } # Kanchipuram
+			primary_title = { is_de_facto_liege_or_above_target = title:c_ujjayini } # Ujjayini
+			primary_title = { is_de_facto_liege_or_above_target = title:c_dvaraka } # Dwarka
+		}
 	}
 }
 
 frankokratia_achievement = {
 	possible = {
-		always = no	
+		
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = frankokratia_achievement_trigger
+			completely_controls = title:k_thessalonika
+			culture = culture:french
+			faith = faith:catholic
+			NOR = {
+				has_title = title:e_byzantium
+				has_title = title:e_roman_empire
+				any_liege_or_above = {
+					has_title = title:e_byzantium
+				}
+				any_liege_or_above = {
+					has_title = title:e_roman_empire
+				}
+			}
+		}
 	}
 }
 
@@ -401,19 +453,25 @@ what_nepotism_achievement = {
 
 rise_from_the_ashes_achievement = {
 	possible = {
-		always = no
+
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = rise_from_the_ashes_achievement_trigger
+			has_title = title:e_roman_empire
+		}
 	}
 }
 
 the_emerald_isle_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_the_emerald_isle_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = the_emerald_isle_achievement_trigger
+			has_title = title:k_ireland
+		}
 	}
 }
 
@@ -431,91 +489,211 @@ from_rags_to_riches_achievement = {
 
 give_a_dog_a_bone_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_give_a_dog_a_bone_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = give_a_dog_a_bone_achievement_trigger
+			dynasty = {
+				any_dynasty_member = {
+					has_title = title:k_italy
+				}
+			}
+			dynasty = {
+				any_dynasty_member = {
+					count >= 50
+					is_alive = yes
+				}
+			}
+			exists = global_var:holy_order_give_a_dog_a_bone_achievement
+		}
 	}
 }
 
 al_andalus_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_al_andalus_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = al_andalus_achievement_trigger
+			has_character_flag = achievement_al_andalus_flag
+			completely_controls_region = world_europe_west_iberia
+		}
 	}
 }
 
 wily_as_the_fox_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_wily_as_the_fox_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = wily_as_the_fox_achievement_trigger
+			OR = {
+				has_title = title:k_sicily
+				has_title = title:k_trinacria
+				has_title = title:k_naples
+			}
+			OR = {
+				AND = {
+					completely_controls = title:k_epirus
+					any_county_in_region = {
+						region = custom_k_epirus
+						count = all
+						faith = faith:catholic
+					}
+				}
+				AND = {
+					completely_controls = title:k_thessalonika
+					any_county_in_region = {
+						region = custom_k_thessalonika
+						count = all
+						faith = faith:catholic
+					}
+				}
+				AND = {
+					completely_controls = title:k_hellas
+					any_county_in_region = {
+						region = custom_k_hellas
+						count = all
+						faith = faith:catholic
+					}
+				}
+				#Krete doesn't count.
+			}
+		}
 	}
 }
 
 sibling_rivalry_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_sibling_rivalry_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = sibling_rivalry_achievement_trigger
+			any_held_title = {
+				this = title:e_spain
+			}
+		}
 	}
 }
 
 blood_eagle_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_blood_eagle_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = blood_eagle_achievement_trigger
+			completely_controls_region = world_europe_west_britannia
+		}
 	}
 }
 
 kings_to_the_seventh_generation_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_kings_to_the_seventh_generation_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = kings_to_the_seventh_generation_achievement_trigger
+			any_held_title = {
+				this = title:k_france
+			}
+		}
 	}
 }
 
 norman_yoke_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_norman_yoke_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = norman_yoke_achievement_trigger
+			exists = global_var:achievement_norman_yoke_war_flag
+			culture = culture:english
+			title:k_england = {
+				holder = {
+					this = root
+					save_temporary_scope_as = english_king
+				}
+
+				# All direct vassals who hold a county or duchy in De Jure England must be English.
+				any_in_de_jure_hierarchy = {
+					count = all
+
+					trigger_if = {
+						limit = {
+							OR = {
+								tier = tier_county
+								tier = tier_duchy
+							}
+							exists = holder
+							holder = {
+								is_vassal_of = scope:english_king
+							}
+						}
+						holder = {
+							culture = culture:english
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
 royal_dignity_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_royal_dignity_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = royal_dignity_achievement_trigger
+			any_held_title = {
+				this = title:k_bohemia
+			}
+			any_held_title = {
+				this = title:e_hre
+			}
+		}
 	}
 }
 
 going_places_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_going_places_achievement
+		character:6878 = {
+			is_alive = yes
+			is_ai = no
+		}
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = going_places_achievement_trigger
+			highest_held_title_tier >= tier_kingdom
+			character:6878 = {
+				is_alive = yes
+				is_ai = no
+			}
+		}
 	}
 }
 
 land_of_the_rus_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_land_of_the_rus_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = land_of_the_rus_achievement_trigger
+			any_held_title = {
+				this = title:e_russia
+			}
+		}
 	}
 }
 
@@ -699,17 +877,31 @@ a_perfect_circle_achievement = {
 	happened = {
 		custom_description = {
 			text = a_perfect_circle_achievement_trigger
-			missing_unique_ancestors >= 50
+			parent_relatedness >= 0.8
 		}
 	}
 }
 
 carolingian_consolidation_achievement = {
 	possible = {
-		always = no
+		root.dynasty = {
+			this = dynasty:25061
+		}
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = carolingian_consolidation_achievement_trigger
+			is_independent_ruler = yes
+			NOT = {
+				root.dynasty = {
+					any_dynasty_member = {
+						is_playable_character = yes
+						is_independent_ruler = yes
+						NOT = { this = root }
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -741,9 +933,85 @@ beacon_of_progress_achievement = {
 
 mother_of_us_all_achievement = {
 	possible = {
-		always = no
+		exists = global_var:started_mother_of_us_all_achievement
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = mother_of_us_all_achievement_trigger
+			OR = {
+				#Siguic/Bidaic
+				AND = {
+					has_global_variable = achievement_mother_of_us_all_siguic
+					any_county_in_region = {
+						region = world_africa
+						count = all
+						faith = { religion_tag = west_african_religion }
+					}
+				}
+				#Orisan
+				AND = {
+					has_global_variable = achievement_mother_of_us_all_orisha
+					any_county_in_region = {
+						region = world_africa
+						count = all
+						faith = { religion_tag = west_african_orisha_religion }
+					}
+				}
+				#Bori
+				AND = {
+					has_global_variable = achievement_mother_of_us_all_bori
+					any_county_in_region = {
+						region = world_africa
+						count = all
+						faith = { religion_tag = west_african_bori_religion }
+					}
+				}
+				#Roog Sene
+				AND = {
+					has_global_variable = achievement_mother_of_us_all_roog_sene
+					any_county_in_region = {
+						region = world_africa
+						count = all
+						faith = { religion_tag = west_african_roog_religion }
+					}
+				}
+				#Akom
+				AND = {
+					has_global_variable = achievement_mother_of_us_all_akom
+					any_county_in_region = {
+						region = world_africa
+						count = all
+						faith = { religion_tag = akom_religion }
+					}
+				}
+				#Kushitism
+				AND = {
+					has_global_variable = achievement_mother_of_us_all_kushitism
+					any_county_in_region = {
+						region = world_africa
+						count = all
+						faith = { religion_tag = kushitism_religion }
+					}
+				}
+				#Waaqism
+				AND = {
+					has_global_variable = achievement_mother_of_us_all_waaqism
+					any_county_in_region = {
+						region = world_africa
+						count = all
+						faith = { religion_tag = waaqism_religion }
+					}
+				}
+				#North African
+				AND = {
+					has_global_variable = achievement_mother_of_us_all_achamanism
+					any_county_in_region = {
+						region = world_africa
+						count = all
+						faith = { religion_tag = north_african_religion }
+					}
+				}
+			}
+		}
 	}
 }

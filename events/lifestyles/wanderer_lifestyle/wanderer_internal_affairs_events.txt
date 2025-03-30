@@ -1,0 +1,657 @@
+﻿namespace = internal_affairs
+
+scripted_trigger internal_affairs_10_holding_trigger = {
+	save_temporary_scope_as = test_scope
+	title_province = {
+		OR = {
+			has_holding_type = city_holding
+			has_holding_type = church_holding
+		}
+	}
+	holder = {
+		OR = {
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_theocracy
+		}
+	}
+	county = {
+		OR = {
+			county_opinion <= 0
+			county_control <= 50
+		}
+		holder = {
+			trigger_if = {
+				limit = {
+					this = root
+				}
+				NOT = { this.capital_barony = scope:test_scope }
+				trigger_if = {
+					limit = {
+						highest_held_title_tier > tier_county
+					}
+					NOT = { this.capital_barony.duchy = scope:test_scope.duchy }
+				}
+			}
+			OR = {
+				this = root
+				AND = {
+					is_vassal_of = root
+					highest_held_title_tier = tier_county
+				}
+				AND = {
+					domain_size < 3
+					highest_held_title_tier = tier_county
+				}
+			}
+			trigger_if = {
+				limit = {
+					NOT = { this = root }
+				}
+				is_ai = yes
+			}
+			NOR = {
+				government_has_flag = government_is_republic
+				government_has_flag = government_is_theocracy
+			}
+		}
+	}
+}
+
+scripted_effect internal_affairs_10_move_owner_effect = {
+	create_title_and_vassal_change = {
+		type = usurped
+		save_scope_as = change
+		add_claim_on_loss = yes
+	}
+
+	scope:barony_title.county = {
+		change_title_holder = {
+			holder = scope:barony_holder
+			change = scope:change
+		}
+	}
+
+	resolve_title_and_vassal_change = scope:change
+
+	hidden_effect = {
+		scope:barony_title = {
+			set_capital_barony = yes
+		}
+	}
+}
+
+internal_affairs.10 = { # Chance for Republic/Theocracy
+	type = character_event
+	content_source = dlc_015
+	title = internal_affairs.10.t
+	desc = {
+		desc = internal_affairs.10.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:barony_title.county = {
+						county_control < 50
+					}
+				}
+				desc = internal_affairs.10.desc.control
+			}
+			triggered_desc = {
+				trigger = {
+					exists = scope:county_holder
+				}
+				desc = internal_affairs.10.desc.opinion.other
+			}
+			desc = internal_affairs.10.desc.opinion.me
+		}
+		desc = internal.affairs.10.desc.outro
+
+	}
+	theme = wanderer_internal_affairs_focus
+	override_background = { reference = council_chamber }
+
+	cooldown = { years = 10 }
+
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	right_portrait = {
+		character = scope:provider_character
+		animation = debating
+	}
+
+	lower_left_portrait = {
+		trigger = { NOT = { scope:county_holder = root } }
+		character = scope:county_holder
+	}
+	lower_right_portrait = scope:barony_holder
+	
+	trigger = {
+		has_lifestyle = wanderer_lifestyle
+		# Must have a culture that likes having republican vassals - Unless you are a player
+		OR = {
+			is_ai = no
+			culture = {
+				OR = {
+					has_cultural_parameter = can_make_republican_vassals
+					has_cultural_parameter = city_buildings_more_powerful
+					has_cultural_parameter = city_buildings_less_control
+					has_cultural_parameter = republican_vassals_pay_more
+					has_cultural_parameter = more_parochial_vassals
+				}
+			}
+		}
+		any_sub_realm_barony = {
+			internal_affairs_10_holding_trigger = yes
+		}
+		any_councillor = {
+			OR = {
+				has_council_position = councillor_chancellor
+				has_council_position = councillor_steward
+			}
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		upweight_for_focus_modifier = { FOCUS = wanderer_internal_affairs_focus }
+	}
+
+	immediate = {
+		random_sub_realm_barony = {
+			limit = {
+				internal_affairs_10_holding_trigger = yes	
+			}
+			weight = {
+				base = 1
+				modifier = {
+					factor = 50
+					NOT = { county.holder = root }
+				}
+			}
+			save_scope_as = barony_title
+			holder = { save_scope_as = barony_holder }
+			if = {
+				limit = {
+					NOT = { county.holder = root }
+				}
+				county.holder = { save_scope_as = county_holder }
+			}
+		}
+		random_councillor = {
+			limit = {
+				OR = {
+					has_council_position = councillor_chancellor
+					has_council_position = councillor_steward
+				}
+			}
+			save_scope_as = provider_character
+		}
+	}
+
+	option = { 
+		name = internal_affairs.10.a
+		internal_affairs_10_move_owner_effect = yes
+		scope:barony_holder ?= {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 50
+			}
+		}
+		scope:county_holder ?= {
+			add_opinion = {
+				modifier = angry_opinion
+				target = root
+				opinion = -50
+			}
+		}
+		scope:barony_title.county = {
+			add_county_modifier = {
+				modifier = internal_affairs_local_uprising_appeasement_modifier
+				years = 10
+			}
+		}
+
+		stress_impact = {
+			compassionate = minor_stress_impact_loss
+			diligent = minor_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = {
+		name = internal_affairs.10.b
+		pay_short_term_gold = {
+			target = scope:county_holder
+			gold = minor_gold_value
+		}
+		internal_affairs_10_move_owner_effect = yes
+		scope:barony_holder ?= {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 50
+			}
+		}
+		scope:county_holder ?= {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 25
+			}
+		}
+		scope:barony_title.county = {
+			add_county_modifier = {
+				modifier = internal_affairs_local_uprising_appeasement_modifier
+				years = 10
+			}
+		}
+		stress_impact = {
+			just = minor_stress_impact_loss
+			diligent = minor_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	option = {
+		name = internal_affairs.10.c
+		pay_short_term_gold = {
+			target = scope:barony_holder
+			gold = tiny_gold_value
+		}
+		scope:barony_holder ?= {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 25
+			}
+		}
+		scope:county_holder ?= {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 50
+			}
+		}
+		scope:barony_title.county = {
+			add_county_modifier = {
+				modifier = internal_affairs_local_uprising_festival_modifier
+				years = 10
+			}
+		}
+
+		stress_impact = {
+			generous = minor_stress_impact_loss
+			compassionate = minor_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	option = {
+		name = internal_affairs.10.d
+		scope:barony_holder ?= {
+			add_opinion = {
+				modifier = disappointed_opinion
+				target = root
+				opinion = -10
+			}
+		}
+		scope:county_holder ?= {
+			add_opinion = {
+				modifier = disappointed_opinion
+				target = root
+				opinion = -10
+			}
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_loss
+			compassionate = minor_stress_gain
+			diligent = minor_stress_gain
+			just = minor_stress_gain
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = compassionate
+					has_trait = diligent
+				}
+			}
+		}
+	}
+}
+
+scripted_trigger internal_affairs_20_county_trigger = {
+	holder = {
+		is_ai = yes
+		highest_held_title_tier <= tier_duchy
+	}
+	NOT = { holder = root }
+	OR = {
+		county_control < 50
+		county_opinion < -25
+	}
+}
+
+internal_affairs.20 = { # Unfitting Lord/Lady
+	type = character_event
+	content_source = dlc_015
+	title = internal_affairs.20.t
+	desc = {
+		desc = internal_affairs.20.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:county_title = {
+						county_control < 50
+						county_opinion < -25
+					}
+				}
+				desc = internal_affairs.20.desc.both
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county_title = {
+						county_control < 50
+					}
+				}
+				desc = internal_affairs.20.desc.control
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county_title = {
+						county_opinion < -25
+					}
+				}
+				desc = internal_affairs.20.desc.opinion
+			}
+		}
+		desc = internal_affairs.20.desc.outro
+	}
+	theme = wanderer_internal_affairs_focus
+
+	cooldown = { years = 10 }
+
+	left_portrait = {
+		character = root
+		animation = disapproval
+	}
+
+	right_portrait = {
+		character = scope:county_holder
+		animation = shock
+	}
+	
+	trigger = {
+		has_lifestyle = wanderer_lifestyle
+		any_sub_realm_county = {
+			internal_affairs_20_county_trigger = yes
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		upweight_for_focus_modifier = { FOCUS = wanderer_internal_affairs_focus }
+	}
+
+	immediate = {
+		random_sub_realm_county = {
+			limit = {
+				internal_affairs_20_county_trigger = yes
+			}
+			save_scope_as = county_title
+			holder = { save_scope_as = county_holder }
+		}
+		hidden_effect = {
+			scope:county_holder = {
+				add_dread = 10
+			}
+		}
+	}
+
+	option = {
+		name = internal_affairs.20.dread
+		trigger = {
+			OR = {
+				has_trait = callous
+				has_trait = schemer
+				dread >= 50
+			}
+		}
+		add_gold = minor_gold_value
+		scope:county_title = {
+			add_county_modifier = {
+				modifier = inspection_unfitting_ruler_modifier
+				years = 10
+			}
+		}
+
+		ai_chance = {
+			base = 500
+		}
+	}
+
+	option = { 
+		name = internal_affairs.20.a
+		add_opinion = {
+			modifier = opinion_unfitting_ruler_opinion
+			target = scope:county_holder
+		}
+		custom_tooltip = internal_affairs.20.a.tt
+
+		stress_impact = {
+			ambitious = minor_stress_impact_loss
+			greedy = minor_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 5
+				OR = {
+					has_trait = ambitious
+					has_trait = greedy
+				}
+			}
+		}
+	}
+
+	option = { 
+		name = internal_affairs.20.b
+		scope:county_holder ?= {
+			add_opinion = {
+				modifier = grateful_opinion
+				target = root
+				opinion = 25
+			}
+		}
+
+		stress_impact = {
+			gregarious = minor_stress_impact_loss
+			ambitious = minor_stress_gain
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 5
+				has_trait = gregarious
+			}
+			modifier = {
+				factor = 0
+				has_trait = ambitious
+			}
+		}
+	}
+}
+
+scripted_trigger internal_affairs_30_barony_trigger = {
+	title_province = { 
+		has_holding_type = city_holding 
+		local_guild_trigger = yes
+	}
+	county = { county_control > 90 }
+	trigger_if = {
+		limit = {
+			root = {
+				is_ai = yes
+			}
+		}
+		holder = {
+			is_ai = yes
+		}
+	}
+}
+
+internal_affairs.30 = { # A Small Bribe
+	type = character_event
+	content_source = dlc_015
+	title = internal_affairs.30.t
+	desc = internal_affairs.30.desc
+	theme = wanderer_internal_affairs_focus
+	override_background = { reference = council_chamber }
+
+	cooldown = { years = 10 }
+
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	right_portrait = {
+		character = scope:merchant_character
+		animation = debating
+	}
+	
+	trigger = {
+		has_lifestyle = wanderer_lifestyle
+		any_sub_realm_barony = {
+			internal_affairs_30_barony_trigger = yes
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		upweight_for_focus_modifier = { FOCUS = wanderer_internal_affairs_focus }
+	}
+
+	immediate = {
+		random_sub_realm_barony = {
+			limit = {
+				internal_affairs_30_barony_trigger = yes
+			}
+			title_province = { save_scope_as = guild_province }
+		}
+		create_character = {
+			template = merchant_template
+			faith = scope:guild_province.faith
+			culture = scope:guild_province.culture
+			gender = root
+			location = scope:guild_province
+			save_scope_as = merchant_character
+		}
+		scope:guild_province = { local_guild_effect = yes }
+	}
+
+	option = { 
+		name = internal_affairs.30.a
+		trigger = {
+			OR = {
+				dread >= 25
+				has_trait = arbitrary
+			}
+		}
+		add_gold = major_gold_value
+		scope:guild_province.county = { 
+			change_county_control = -50 
+			add_county_modifier = {
+				modifier = internal_affairs_local_corruption_modifier
+				years = 20
+			}
+		}
+
+		stress_impact = {
+			arbitrary = minor_stress_impact_loss
+			greedy = medium_stress_impact_loss
+			just = major_stress_gain
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 5
+				has_trait = arbitrary
+				has_trait = greedy
+			}
+			modifier = {
+				factor = 0
+				has_trait = just
+			}
+		}
+	}
+
+	option = { 
+		name = internal_affairs.30.b
+		add_gold = medium_gold_value
+		scope:guild_province.county = { change_county_control = -25 }
+
+		stress_impact = {
+			greedy = minor_stress_impact_loss
+			just = medium_stress_gain
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 5
+				has_trait = greedy
+			}
+			modifier = {
+				factor = 0
+				has_trait = just
+			}
+		}
+	}
+
+	option = { 
+		name = internal_affairs.30.c
+		add_prestige = 100
+
+		stress_impact = {
+			just = minor_stress_impact_loss
+			greedy = minor_stress_gain
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 5
+				has_trait = just
+			}
+			modifier = {
+				factor = 0
+				has_trait = greedy
+			}
+		}
+	}
+
+	after = {
+		scope:merchant_character = {
+			silent_dissapear_ai_if_not_hired = yes
+		}
+	}
+}

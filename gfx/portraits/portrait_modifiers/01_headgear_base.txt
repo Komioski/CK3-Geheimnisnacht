@@ -1,10 +1,227 @@
-﻿# rank_headgear: any headgear that signifies a certain title. crowns, pope hat etc.
+﻿# Tags:
+# rank_headgear: any headgear that signifies a certain title. crowns, pope hat etc.
 
 headgear_base = {
 
 	usage = game
 	selection_behavior = weighted_random
 	priority = 1
+
+## SP4 Crowns of the World ## 
+
+	sp4_mena_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = sp4_mena_royalty
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+            modifier = {
+                add = 30
+                has_sp4_dlc_trigger = yes    
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = mena
+                }           
+            }
+            modifier = {
+                add = 60
+                has_sp4_dlc_trigger = yes    
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = turkic
+                }           
+            }
+            modifier = {
+                factor = 0 # Should NOT show up if we're not in the right era
+                OR = {
+                    portrait_era1_trigger = yes   
+                    portrait_era2_trigger = yes   
+                }            
+            }
+		}
+	}
+
+	sp4_rus_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = sp4_rus_royalty
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+            modifier = {
+                add = 100
+                has_sp4_dlc_trigger = yes    
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = rus
+                }           
+            }
+            modifier = {
+                add = -50
+                has_pol_dlc_trigger = yes    
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = west_slavic
+                } 
+                OR = {
+                    portrait_era3_trigger = yes   
+                    portrait_era4_trigger = yes   
+                }           
+            }
+		}
+	}
+
+	sp4_western_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = sp4_western_royalty
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+            modifier = {
+                add = 50
+                has_sp4_dlc_trigger = yes    
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = western
+                }           
+            }
+            modifier = {
+                factor = 0 # Should NOT show up if we're not in the right era
+                OR = {
+                    portrait_era1_trigger = yes   
+                    portrait_era2_trigger = yes   
+                }            
+            }
+		}
+	}
+
+## SP3 ## 
+
+	sp3_western_royalty_era3 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = sp3_western_royalty
+				range = { 0 1 } # For the randomness to work correctly
+			}
+			accessory = { # Can be combined with veils
+				mode = add
+				gene = additive_headgear
+				template = ep2_western_era1_veils
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+            modifier = {
+                add = 100
+                has_dlc_feature = couture_of_the_capets     
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = western
+                }           
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = french
+                } 
+            }
+			modifier = {
+				add = 90
+				has_dlc_feature = couture_of_the_capets
+				portrait_royalty_trigger = {
+					CULTURE_INPUT = western
+				}					
+			}
+            modifier = {
+                factor = 0 # Should NOT show up if EP2 is active and we're not in the right era
+                has_ep2_dlc_trigger = yes 
+                OR = {
+                    portrait_era1_trigger = yes   
+                    portrait_era2_trigger = yes   
+                }     
+                NAND = {
+                	portrait_era1_trigger = no
+                    portrait_royalty_trigger = {
+                        CULTURE_INPUT = french
+                    } 
+                }        
+            }
+		}
+	}
+
+	sp3_western_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = sp3_western_high_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 50
+				is_female = no
+				has_dlc_feature = couture_of_the_capets
+				portrait_high_nobles_headgear_trigger = {
+					CULTURE_INPUT = western
+				}	
+			}
+            modifier = {
+                factor = 0
+                has_ep2_dlc_trigger = yes 
+                OR = {
+                    portrait_era1_trigger = yes   
+                    portrait_era2_trigger = yes   
+                }     
+                NAND = {
+                    portrait_era1_trigger = no
+                    portrait_royalty_trigger = {
+                        CULTURE_INPUT = french
+                    } 
+                }         
+            }
+		}
+	}
+
+	sp3_western_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = sp3_western_high_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 50
+				is_female = yes
+				has_dlc_feature = couture_of_the_capets
+				portrait_low_nobles_clothing_trigger = {
+					CULTURE_INPUT = western
+				}	
+			}
+			modifier = {
+				factor = 0
+				has_ep2_dlc_trigger = yes
+				NOR = {
+					portrait_era3_trigger = yes 
+					portrait_era4_trigger = yes
+				}
+			}
+		}
+	}
 
 ## SP2 ## 
 	
@@ -25,6 +242,62 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 90
+				has_dlc_feature = elegance_of_the_empire
+				OR = {
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = western
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = northern
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}					
+				}
+			}
+			modifier = {
+				add = 90
+				has_dlc_feature = elegance_of_the_empire
+				OR = {
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = western
+					}	
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = western
+					}	
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = northern
+					}	
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = northern
+					}
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}					
+				}
+				is_female = yes
+			}
+            modifier = {
+                factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
+                has_ep2_dlc_trigger = yes 
+                NOT = {
+                	portrait_era1_trigger = yes 
+                }  
+            }
 		}
 	}
 
@@ -45,6 +318,62 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 90
+				has_dlc_feature = elegance_of_the_empire
+				OR = {
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = western
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = northern
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}						
+				}
+			}
+			modifier = {
+				add = 90
+				has_dlc_feature = elegance_of_the_empire
+				OR = {
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = western
+					}	
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = western
+					}	
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = northern
+					}	
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = northern
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}				
+				}
+				is_female = yes
+			}
+            modifier = {
+                factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
+                has_ep2_dlc_trigger = yes 
+                NOT = {
+                	portrait_era2_trigger = yes 
+                }  
+            }
 		}
 	}
 
@@ -65,6 +394,21 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 50
+				has_dlc_feature = elegance_of_the_empire
+				portrait_high_nobles_headgear_trigger = {
+					CULTURE_INPUT = western
+				}	
+			}
+			modifier = {
+				factor = 0
+				has_ep2_dlc_trigger = yes
+				NOR = {
+					portrait_era2_trigger = yes 
+					portrait_era3_trigger = yes
+				}
+			}
 		}
 	}
 
@@ -215,6 +559,10 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 100 # always pick the HRE crown over the western one
+				portrait_reichskrone_trigger = yes
+			}
 		}
 	}
 
@@ -339,6 +687,34 @@ headgear_base = {
         }
     }
 
+    fp4_western_era3_commoners = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = fp4_western_era3_common
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+			modifier = {
+				add = 80
+				portrait_commoner_headgear_fallback_trigger = {
+					CULTURE_INPUT = western
+				}
+				portrait_era3_trigger = yes 
+			}
+            modifier = {
+                add = 20
+                portrait_commoner_clothing_trigger = { 
+                    CULTURE_INPUT = western
+                } 
+                portrait_era3_trigger = yes     
+            }
+        }
+    }
+
 	western_low_nobles = {
 		dna_modifiers = {
 			accessory = {
@@ -453,6 +829,42 @@ headgear_base = {
                     CULTURE_INPUT = western 
                 }
                 has_ep2_dlc_trigger = yes
+                OR = {
+                	portrait_era3_trigger = yes  
+                	portrait_era4_trigger = yes  
+                }
+			}
+		}
+	}
+
+	fp4_western_era3_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = fp4_western_low_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+		    modifier = {
+		        add = 50
+		        court_fashion_level_4_headgear_trigger = {
+		            CULTURE_INPUT = western
+		        }
+		        has_ce1_dlc_trigger = yes
+                OR = {
+                	portrait_era3_trigger = yes  
+                	portrait_era4_trigger = yes  
+                }
+		    }
+			modifier = {
+				add = 50
+                portrait_low_nobles_clothing_trigger = {  
+                    CULTURE_INPUT = western 
+                }
+                has_ce1_dlc_trigger = yes
                 OR = {
                 	portrait_era3_trigger = yes  
                 	portrait_era4_trigger = yes  
@@ -641,7 +1053,7 @@ headgear_base = {
 		}
 	}
 
-	ep1_western_royalty_era1 = {
+	ep1_western_era1_royalty = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
@@ -733,6 +1145,10 @@ headgear_base = {
                 has_ep2_dlc_trigger = yes
                 portrait_era2_trigger = yes  
 			}
+			modifier = {
+				factor = 0
+				has_ce1_dlc_trigger = yes
+			}
 		}
 	}
 
@@ -784,6 +1200,44 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 50
+				portrait_royalty_trigger = {
+					CULTURE_INPUT = western 
+				}
+				culture = {
+					has_cultural_pillar = heritage_latin
+				}
+				has_ep1_dlc_trigger = yes
+			}
+		}
+	}
+
+	fp4_western_era2_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = fp4_western_royalty
+				range = { 0 1 } # For the randomness to work correctly
+			}
+			accessory = { # Can be combined with veils
+				mode = add
+				gene = additive_headgear
+				template = ep2_western_era2_veils
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 50
+                portrait_royalty_trigger = {  
+                    CULTURE_INPUT = western 
+                }
+                has_ce1_dlc_trigger = yes
+                portrait_era2_trigger = yes  
+			}
 		}
 	}
 
@@ -813,8 +1267,16 @@ headgear_base = {
 			}
 			modifier = {
 				add = 50
-				portrait_imperial_trigger = {
-					CULTURE_INPUT = northern 
+				OR = {
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = northern 
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}
 				}
 				NOT = { has_ep2_dlc_trigger = yes }
 			}
@@ -848,9 +1310,17 @@ headgear_base = {
 			}
 			modifier = {
 				add = 50
-                portrait_imperial_trigger = {  
-                    CULTURE_INPUT = northern 
-                }
+				OR = {
+					portrait_imperial_trigger = {  
+						CULTURE_INPUT = northern 
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}
+				}
                 has_ep2_dlc_trigger = yes
                 portrait_era1_trigger = yes  
 			}
@@ -887,9 +1357,17 @@ headgear_base = {
 			}
 			modifier = {
 				add = 50
-                portrait_imperial_trigger = {  
-                    CULTURE_INPUT = northern 
-                }
+				OR = {
+					portrait_imperial_trigger = {  
+						CULTURE_INPUT = northern 
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}
+				}
                 has_ep2_dlc_trigger = yes
                 OR = {
                 	portrait_era2_trigger = yes
@@ -918,9 +1396,9 @@ headgear_base = {
 			base = 0
 			modifier = {
 				add = 50
-                portrait_imperial_trigger = {  
-                    CULTURE_INPUT = western 
-                }
+				portrait_imperial_trigger = {  
+					CULTURE_INPUT = western 
+				}
                 has_ep2_dlc_trigger = yes
                 OR = {
                 	portrait_era4_trigger = yes
@@ -928,9 +1406,17 @@ headgear_base = {
 			}
 			modifier = {
 				add = 50
-                portrait_imperial_trigger = {  
-                    CULTURE_INPUT = northern 
-                }
+				OR = {
+					portrait_imperial_trigger = {  
+						CULTURE_INPUT = northern 
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}
+				}
                 has_ep2_dlc_trigger = yes
                 OR = {
                 	portrait_era4_trigger = yes
@@ -999,6 +1485,58 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 80
+                portrait_commoner_headgear_fallback_trigger = {
+                    CULTURE_INPUT = byzantine
+                }
+			}
+			modifier = {
+				add = 20
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = byzantine
+                }
+			}
+            modifier = {
+                factor = 0     
+                has_ep3_dlc_trigger = yes   
+            }
+		}
+	}
+
+	ep3_byzantine_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ep3_byzantine_era1_commoner
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 80
+                portrait_commoner_headgear_fallback_trigger = {
+                    CULTURE_INPUT = byzantine
+                }
+				has_ep3_dlc_trigger = yes 
+				OR = {
+					portrait_era1_trigger = yes 
+					portrait_era2_trigger = yes 
+				}
+			}
+			modifier = {
+				add = 20
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = byzantine
+                }
+				has_ep3_dlc_trigger = yes 
+				OR = {
+					portrait_era1_trigger = yes 
+					portrait_era2_trigger = yes 
+				}
+			}
 		}
 	}
 
@@ -1013,6 +1551,129 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = byzantine } 
+			modifier = {
+				add = 50
+                portrait_low_nobles_clothing_trigger = {  
+                    CULTURE_INPUT = byzantine 
+                }
+			}
+            modifier = {
+                factor = 0     
+                has_ep3_dlc_trigger = yes 
+                portrait_era1_trigger = yes   
+            }
+		}
+	}
+
+	ep3_byzantine_era1_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ep3_byzantine_era1_low_nobility 
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+		    modifier = {
+		        add = 50
+		        court_fashion_level_4_headgear_trigger = {
+		            CULTURE_INPUT = byzantine
+		        }
+		        has_ep3_dlc_trigger = yes 
+		        portrait_era1_trigger = yes 
+		    }
+			modifier = {
+				add = 50
+                portrait_low_nobles_clothing_trigger = {  
+                    CULTURE_INPUT = byzantine 
+                }
+                has_ep3_dlc_trigger = yes
+                portrait_era1_trigger = yes  
+			}
+		}
+	}
+
+	ep3_byzantine_era1_bare_headed_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = no_headgear 
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+		    modifier = {
+		        add = 50
+		        has_ep3_dlc_trigger = yes 
+		        portrait_era1_trigger = yes 
+		        OR = {
+	                portrait_low_nobles_clothing_trigger = {  
+	                    CULTURE_INPUT = byzantine 
+	                }
+	                portrait_high_nobles_clothing_trigger = {  
+	                    CULTURE_INPUT = byzantine 
+	                }
+		        }
+		        NOR = {
+	                portrait_royalty_trigger = {  
+	                    CULTURE_INPUT = byzantine 
+	                }	
+	                portrait_imperial_trigger = {  
+	                    CULTURE_INPUT = byzantine 
+	                }	        
+		        }
+		    }
+		    modifier = {
+		        add = 80
+		        has_ep3_dlc_trigger = yes 
+		        portrait_era1_trigger = yes 
+                portrait_commoner_clothing_trigger = {  
+                    CULTURE_INPUT = byzantine 
+                }
+		    }
+		}
+	}
+
+	ep3_byzantine_era2_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ep3_byzantine_era2_low_nobility 
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+		    modifier = {
+		        add = 50
+		        court_fashion_level_4_headgear_trigger = {
+		            CULTURE_INPUT = byzantine
+		        }
+		        has_ep3_dlc_trigger = yes 
+                OR = {
+                    portrait_era2_trigger = yes  
+                    portrait_era3_trigger = yes  
+                    portrait_era4_trigger = yes  
+                }  
+		    }
+			modifier = {
+				add = 50
+                portrait_low_nobles_clothing_trigger = {  
+                    CULTURE_INPUT = byzantine 
+                }
+                has_ep3_dlc_trigger = yes
+                OR = {
+                    portrait_era2_trigger = yes  
+                    portrait_era3_trigger = yes  
+                    portrait_era4_trigger = yes  
+                }  
+			}
 		}
 	}
 
@@ -1027,6 +1688,65 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 50
+                portrait_high_nobles_headgear_trigger = {
+                    CULTURE_INPUT = byzantine
+                }   
+			}
+            modifier = {
+                factor = 0 
+                has_ep3_dlc_trigger = yes 
+                portrait_era1_trigger = yes   
+            }
+		}
+	}
+
+	ep3_byzantine_era1_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ep3_byzantine_era1_high_nobility 
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+                portrait_high_nobles_headgear_trigger = {
+                    CULTURE_INPUT = byzantine
+                }   
+		        has_ep3_dlc_trigger = yes 
+                portrait_era1_trigger = yes 
+			}
+		}
+	}
+
+	ep3_byzantine_era2_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ep3_byzantine_era2_high_nobility 
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 50
+                portrait_high_nobles_headgear_trigger = {
+                    CULTURE_INPUT = byzantine
+                }   
+		        has_ep3_dlc_trigger = yes 
+                OR = {
+                    portrait_era2_trigger = yes  
+                    portrait_era3_trigger = yes  
+                    portrait_era4_trigger = yes  
+                }  
+			}
 		}
 	}
 
@@ -1041,8 +1761,67 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 50
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = byzantine
+                }   
+			}
+            modifier = {
+                factor = 0     
+                has_ep3_dlc_trigger = yes 
+                portrait_era1_trigger = yes   
+            }
 		}
 	}
+
+	ep3_byzantine_era1_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ep3_byzantine_era1_royalty
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 85
+                portrait_royalty_trigger = {  
+                    CULTURE_INPUT = byzantine 
+                }
+                has_ep3_dlc_trigger = yes
+                portrait_era1_trigger = yes  
+			}
+		}
+	}
+
+    ep3_byzantine_era2_royalty = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = ep3_byzantine_era2_royalty
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 85
+                portrait_royalty_trigger = { 
+                    CULTURE_INPUT = byzantine
+                }                
+                has_ep3_dlc_trigger = yes   
+                OR = {
+                    portrait_era2_trigger = yes  
+                    portrait_era3_trigger = yes  
+                    portrait_era4_trigger = yes  
+                }     
+            }
+        }
+    }
 
 	byzantine_imperial = {
 		dna_modifiers = {
@@ -1055,6 +1834,16 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 50
+				portrait_imperial_trigger = {
+                    CULTURE_INPUT = byzantine 
+                }
+			}
+            modifier = {
+                factor = 0     
+                has_ep3_dlc_trigger = yes 
+            }
 		}
 	}
 
@@ -1069,8 +1858,82 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 50
+				portrait_imperial_trigger = {
+					CULTURE_INPUT = byzantine 
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					has_title = title:e_byzantium
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					has_ep1_dlc_trigger = yes
+				}
+			}
+            modifier = {
+                factor = 0     
+                has_ep3_dlc_trigger = yes 
+                OR = {
+                	portrait_era3_trigger = yes
+                	portrait_era4_trigger = yes 
+                }
+            }
 		}
 	}
+
+	ep3_byzantine_era1_imperial = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ep3_byzantine_era1_imperial
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 85
+                portrait_imperial_trigger = {  
+                    CULTURE_INPUT = byzantine 
+                }
+                has_ep3_dlc_trigger = yes
+                portrait_era1_trigger = yes  
+			}
+		}
+	}
+
+    ep3_byzantine_era2_imperial = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = ep3_byzantine_era2_imperial
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 85
+                portrait_imperial_trigger = { 
+                    CULTURE_INPUT = byzantine
+                }                
+                has_ep3_dlc_trigger = yes   
+                OR = {
+                    portrait_era2_trigger = yes  
+                    portrait_era3_trigger = yes  
+                    portrait_era4_trigger = yes  
+                }     
+            }
+        }
+    }
 
 ## INDIAN ##
 
@@ -1178,6 +2041,16 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 100
+				portrait_royalty_trigger = {
+					CULTURE_INPUT = indian
+				}
+				culture = {
+					has_cultural_pillar = heritage_burman
+				}
+				has_ep1_dlc_trigger = yes
+			}
 		}
 	}
 
@@ -1212,6 +2085,16 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 100
+                portrait_imperial_trigger = {
+                    CULTURE_INPUT = indian 
+                }
+				culture = {
+					has_cultural_pillar = heritage_burman
+				}
+				has_ep1_dlc_trigger = yes
+			}
 		}
 	}
 
@@ -1246,6 +2129,12 @@ headgear_base = {
                     CULTURE_INPUT = mena
                 }
 			}
+			modifier = {
+				add = -36 # Slightly lower if north african is valid
+				portrait_commoner_clothing_trigger = { 
+					CULTURE_INPUT = afr_berber
+				}
+			}
 		}
 	}
 
@@ -1266,6 +2155,12 @@ headgear_base = {
 					CULTURE_INPUT = mena
 				}
 			}
+			modifier = {
+				add = -36 # Slightly lower if north african is valid
+				portrait_mayor_headgear_trigger = { 
+					CULTURE_INPUT = afr_berber
+				}
+			}
 		}
 	}
 
@@ -1282,16 +2177,25 @@ headgear_base = {
 			base = 0
 			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = mena } 
 			modifier = {
-				add = 50
+				add = {
+					value = 50
+					if = {
+						limit = {
+							OR = {
+								portrait_low_nobles_clothing_trigger = { 
+									CULTURE_INPUT = fp3_iranian
+								}
+								portrait_low_nobles_clothing_trigger = { 
+									CULTURE_INPUT = afr_berber
+								}
+							}
+						}
+						add = -36 # Slightly lower if iranian or north african is valid
+					}
+				}
                 portrait_low_nobles_clothing_trigger = {
                     CULTURE_INPUT = mena
                 }
-			}
-			modifier = {
-				add = -36 # Slightly lower if iranian is valid
-				portrait_low_nobles_clothing_trigger = { 
-					CULTURE_INPUT = fp3_iranian
-				}
 			}
 		}
 	}
@@ -1314,9 +2218,14 @@ headgear_base = {
                 }   
 			}
 			modifier = {
-				add = -36 # Slightly lower if iranian is valid
-				portrait_high_nobles_headgear_trigger = { 
-					CULTURE_INPUT = fp3_iranian
+				add = -36 # Slightly lower if iranian or north african is valid
+				OR = {
+					portrait_high_nobles_headgear_trigger = { 
+						CULTURE_INPUT = fp3_iranian
+					}
+					portrait_high_nobles_headgear_trigger = { 
+						CULTURE_INPUT = afr_berber
+					}
 				}
 			}
 		}
@@ -1340,9 +2249,14 @@ headgear_base = {
                 }   
 			}
 			modifier = {
-				add = -36 # Slightly lower if iranian is valid
-				portrait_royalty_trigger = { 
-					CULTURE_INPUT = fp3_iranian
+				add = -36 # Slightly lower if iranian or north african is valid
+				OR = {
+					portrait_royalty_trigger = { 
+						CULTURE_INPUT = fp3_iranian
+					}
+					portrait_royalty_trigger = { 
+						CULTURE_INPUT = afr_berber
+					}
 				}
 			}
 		}
@@ -1359,6 +2273,17 @@ headgear_base = {
 		}		
 		weight = {
 			base = 0
+			modifier = {
+				add = 100
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = mena 
+                }
+				culture = {
+					has_cultural_pillar = heritage_east_african
+				}
+				religion = religion:islam_religion
+				has_ep1_dlc_trigger = yes
+			}
 		}
 	}
 
@@ -1380,9 +2305,14 @@ headgear_base = {
                 }
 			}
 			modifier = {
-				add = -36 # Slightly lower if iranian is valid
-				portrait_imperial_nobles_headgear_trigger = { 
-					CULTURE_INPUT = fp3_iranian
+				add = -36 # Slightly lower if iranian or north african is valid
+				OR = {
+					portrait_imperial_nobles_headgear_trigger = { 
+						CULTURE_INPUT = fp3_iranian
+					}
+					portrait_imperial_nobles_headgear_trigger = { 
+						CULTURE_INPUT = afr_berber
+					}
 				}
 			}
 		}
@@ -1399,6 +2329,16 @@ headgear_base = {
 		}	
 		weight = {
 			base = 0
+			modifier = {
+				add = 50
+                portrait_imperial_nobles_headgear_trigger = {
+                    CULTURE_INPUT = mena 
+                }
+                culture = {
+                    has_cultural_pillar = heritage_iranian
+                }
+                has_ep1_dlc_trigger = yes
+			}
 		}
 	}
 
@@ -1421,6 +2361,12 @@ headgear_base = {
                     CULTURE_INPUT = dde_abbasid
                 }
 			}
+			modifier = {
+				add = -36 # Slightly lower if north african is valid
+				portrait_commoner_clothing_trigger = { 
+					CULTURE_INPUT = afr_berber
+				}
+			}
 		}
 	}
 
@@ -1442,9 +2388,14 @@ headgear_base = {
                 } 
 			}
 			modifier = {
-				add = -36 # Slightly lower if iranian is valid
-				portrait_high_nobles_headgear_trigger = { 
-					CULTURE_INPUT = fp3_iranian
+				add = -36 # Slightly lower if iranian or north african is valid
+				OR = {
+					portrait_high_nobles_headgear_trigger = { 
+						CULTURE_INPUT = fp3_iranian
+					}
+					portrait_high_nobles_headgear_trigger = { 
+						CULTURE_INPUT = afr_berber
+					}
 				}
 			}
 		}
@@ -1466,6 +2417,12 @@ headgear_base = {
                 portrait_royalty_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }  
+			}
+			modifier = {
+				add = -36 # Slightly lower if north african is valid
+				portrait_royalty_trigger = { 
+					CULTURE_INPUT = afr_berber
+				}
 			}
 			#modifier = {
 			#	add = -36 # Slightly lower if iranian is valid
@@ -1494,9 +2451,14 @@ headgear_base = {
                 }
 			}
 			modifier = {
-				add = -56 # Slightly lower if iranian is valid
-				portrait_imperial_trigger = { 
-					CULTURE_INPUT = fp3_iranian
+				add = -56 # Slightly lower if iranian or north african is valid
+				OR = {
+					portrait_imperial_trigger = { 
+						CULTURE_INPUT = fp3_iranian
+					}
+					portrait_imperial_trigger = { 
+						CULTURE_INPUT = afr_berber
+					}
 				}
 			}
 		}
@@ -1680,11 +2642,9 @@ headgear_base = {
 			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = northern } 
 			modifier = {
 				add = 50
-				OR = {
-	                portrait_low_nobles_clothing_trigger = {
-	                    CULTURE_INPUT = northern
-	                }
-				}
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = northern
+	            }
 			}
 		}
 	}
@@ -1722,42 +2682,397 @@ headgear_base = {
 			base = 0
 			modifier = {
 				add = 50
-                portrait_royalty_trigger = {
-                    CULTURE_INPUT = northern
+				OR = {
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = northern
+					}
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = sami
+					}
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = ugro_permian
+					}
+				}
+			}
+		}
+	}
+
+## AFR ##
+
+	afr_berber_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = afr_common
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 80
+                portrait_commoner_headgear_fallback_trigger = {
+                    CULTURE_INPUT = afr_berber
+                }
+			}
+			modifier = {
+				add = 21
+                portrait_commoner_no_mayors_trigger = {
+                    CULTURE_INPUT = afr_berber
                 }
 			}
 		}
 	}
 
-    northern_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = headgear
-                template = northern_war
-                accessory = m_headgear_sec_northern_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50 
-                portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = northern
+	afr_berber_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = afr_low_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = afr_berber } 
+			modifier = {
+				add = 51
+                portrait_low_nobles_clothing_trigger = {
+                    CULTURE_INPUT = afr_berber
                 }
+			}
+		}
+	}
+
+	afr_berber_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = afr_high_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 51
+                portrait_high_nobles_headgear_trigger = {
+                    CULTURE_INPUT = afr_berber
+                }   
+			}
+		}
+	}
+
+	afr_berber_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = afr_royalty
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 51
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = afr_berber
+                }   
+			}
+		}
+	}
+
+	afr_berber_imperial = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = afr_imperial
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 51
+                portrait_imperial_nobles_headgear_trigger = {
+                    CULTURE_INPUT = afr_berber 
+                }
+			}
+		}
+	}
+
+## POL ##
+
+	pol_west_slavic_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = pol_common
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 90
+                portrait_commoner_headgear_fallback_trigger = {
+                    CULTURE_INPUT = west_slavic
+                }
+			}
+			modifier = {
+				add = 30
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = west_slavic
+                }
+			}
+		}
+	}
+
+	pol_west_slavic_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = pol_low_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = west_slavic } 
+			modifier = {
+				add = 80
+                portrait_low_nobles_clothing_trigger = {
+                    CULTURE_INPUT = west_slavic
+                }
+			}
+		}
+	}
+
+	pol_west_slavic_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = pol_high_nobility
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 80
+                portrait_high_nobles_headgear_trigger = {
+                    CULTURE_INPUT = west_slavic
+                }
+			}
+		}
+	}
+
+	pol_west_slavic_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = pol_royalty
+				range = { 0 1 } # For the randomness to work correctly
+			}
+			accessory = { # Can be combined with veils
+				mode = add
+				gene = additive_headgear
+				template = western_veils
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+                portrait_royalty_trigger = {
+                    CULTURE_INPUT = west_slavic
+                }
+			}
+			modifier = {
+				factor = 0
+                has_sp4_dlc_trigger = yes
                 OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = northern
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = northern
-                    }
+                    portrait_era1_trigger = yes   
+                    portrait_era2_trigger = yes   
+                }                  
+			}
+		}
+	}
+
+	pol_west_slavic_imperial = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = pol_imperial
+				range = { 0 1 } # For the randomness to work correctly
+			}
+			accessory = { # Can be combined with veils
+				mode = add
+				gene = additive_headgear
+				template = western_veils
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+                portrait_imperial_trigger = {
+                    CULTURE_INPUT = west_slavic 
                 }
-            }
-        }
-    }
-	
+			}
+		}
+	}
+
+## CCP4 Sami ##
+
+ccp4_sami_commoners = {
+	dna_modifiers = {
+		accessory = {
+			mode = add
+			gene = headgear
+			template = ccp4_sami_common
+			range = { 0 1 } # For the randomness to work correctly
+		}
+	}
+	weight = {
+		base = 0
+		modifier = {
+			add = 90
+			portrait_commoner_headgear_fallback_trigger = {
+				CULTURE_INPUT = sami
+			}
+		}
+		modifier = {
+			add = 30
+			portrait_commoner_clothing_trigger = {
+				CULTURE_INPUT = sami
+			}
+		}
+	}
+}
+
+ccp4_sami_low_nobles = {
+	dna_modifiers = {
+		accessory = {
+			mode = add
+			gene = headgear
+			template = ccp4_sami_low_nobility
+			range = { 0 1 } # For the randomness to work correctly
+		}
+	}
+	weight = {
+		base = 0
+		court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = sami } 
+		modifier = {
+			add = 80
+			portrait_low_nobles_clothing_trigger = {
+				CULTURE_INPUT = sami
+			}
+		}
+	}
+}
+
+ccp4_sami_high_nobles = {
+	dna_modifiers = {
+		accessory = {
+			mode = add
+			gene = headgear
+			template = ccp4_sami_high_nobility
+			range = { 0 1 } # For the randomness to work correctly
+		}
+	}
+	weight = {
+		base = 0
+		modifier = {
+			add = 80
+			portrait_high_nobles_headgear_trigger = {
+				CULTURE_INPUT = sami
+			}
+		}
+	}
+}
+
+## CCP4 Khanty ##
+
+ccp4_ugro_permian_commoners = {
+	dna_modifiers = {
+		accessory = {
+			mode = add
+			gene = headgear
+			template = ccp4_khanty_common
+			range = { 0 1 } # For the randomness to work correctly
+		}
+	}
+	weight = {
+		base = 0
+		modifier = {
+			add = 90
+			portrait_commoner_headgear_fallback_trigger = {
+				CULTURE_INPUT = ugro_permian
+			}
+		}
+		modifier = {
+			add = 30
+			portrait_commoner_clothing_trigger = {
+				CULTURE_INPUT = ugro_permian
+			}
+		}
+	}
+}
+
+ccp4_ugro_permian_low_nobles = {
+	dna_modifiers = {
+		accessory = {
+			mode = add
+			gene = headgear
+			template = ccp4_khanty_low_nobility
+			range = { 0 1 } # For the randomness to work correctly
+		}
+	}
+	weight = {
+		base = 0
+		court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = ugro_permian } 
+		modifier = {
+			add = 80
+			portrait_low_nobles_clothing_trigger = {
+				CULTURE_INPUT = ugro_permian
+			}
+		}
+	}
+}
+
+ccp4_ugro_permian_high_nobles = {
+	dna_modifiers = {
+		accessory = {
+			mode = add
+			gene = headgear
+			template = ccp4_khanty_high_nobility
+			range = { 0 1 } # For the randomness to work correctly
+		}
+	}
+	weight = {
+		base = 0
+		modifier = {
+			add = 80
+			portrait_high_nobles_headgear_trigger = {
+				CULTURE_INPUT = ugro_permian
+			}
+		}
+	}
+}	
+
 ## FP3 Iranian ##
 
 fp3_iranian_low_nobles = {
@@ -2384,6 +3699,11 @@ fp3_turkic_high_nobles = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 200
+				portrait_religious_head_trigger = yes
+				faith = faith:orthodox
+			}
 		}
 	}
 

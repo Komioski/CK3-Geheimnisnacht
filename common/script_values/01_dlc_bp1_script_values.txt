@@ -1,0 +1,16 @@
+﻿house_feud_death_counter_value = {
+	value = var:house_feud_death_counter
+}
+
+house_feud_kill_counter_value = {
+	value = var:house_feud_kill_counter
+}
+
+house_feud_balance_value = {
+	value = house_feud_kill_counter_value
+	subtract = house_feud_death_counter_value
+}
+
+house_feud_small_counter_value = 0.5
+house_feud_medium_counter_value = 1
+house_feud_big_counter_value = 2

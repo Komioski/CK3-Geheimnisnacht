@@ -9,6 +9,9 @@ independence_faction_war = {
 	allowed_for_character = {
 		scope:attacker = {
 			is_leading_faction_type = independence_faction
+			NOT = {
+				government_has_flag = government_is_landless_adventurer
+			}
 		}
 	}
 
@@ -241,6 +244,7 @@ independence_faction_war = {
 				value = medium_prestige_value
 				multiply = -1
 			}
+			
 			if = {
 				limit = { has_realm_law = crown_authority_1 }
 				add_realm_law = crown_authority_0
@@ -267,6 +271,12 @@ independence_faction_war = {
 			}
 		}
 		resolve_title_and_vassal_change = scope:change
+
+		# LEGITIMACY FROM LOSING FACTION WAR
+		faction_war_end_defeat_legitimacy_effect = yes
+
+		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
+		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_white_peace_desc = {
@@ -332,6 +342,9 @@ independence_faction_war = {
 		}
 
 		on_white_peace_faction_revolt_war = yes
+
+		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
+		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_defeat_desc = {
@@ -378,9 +391,14 @@ independence_faction_war = {
 				PRESTIGE_VALUE = medium_prestige_value
 			}
 			add_achievement_flag_effect = { FLAG = achievement_know_your_place_flag }
-		}
 
+			# LEGITIMACY FROM WINNING FACTION WAR
+			faction_war_end_victory_legitimacy_effect = yes
+		}
 		on_lost_faction_revolt_war = yes
+
+		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
+		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_invalidated_desc = msg_invalidate_war_title
@@ -433,6 +451,7 @@ liberty_faction_war = {
 	}
 
 	target_de_jure_regions_above = yes
+	target_top_liege_if_outside_realm = no # In case of adventurers starting faction wars
 
 	valid_to_start = {
 	}
@@ -443,13 +462,43 @@ liberty_faction_war = {
 	on_victory_desc = {
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:defender = { is_local_player = yes } }
+				trigger = {
+					scope:defender = {
+						is_local_player = yes
+						government_has_flag = government_is_administrative
+					}
+				}
+				desc = liberty_war_victory_defender_desc_admin
+			}
+			triggered_desc = {
+				trigger = {
+					scope:defender = { government_has_flag = government_is_administrative }
+				}
+				desc = liberty_war_victory_desc_admin
+			}
+			triggered_desc = {
+				trigger = {
+					scope:defender = {
+						is_local_player = yes
+						government_has_flag = government_is_tribal
+					}
+				}
+				desc = liberty_war_victory_defender_desc_tribal
+			}
+			triggered_desc = {
+				trigger = {
+					scope:defender = { government_has_flag = government_is_tribal }
+				}
+				desc = liberty_war_victory_desc_tribal
+			}
+			triggered_desc = {
+				trigger = {
+					scope:defender = { is_local_player = yes }
+				}
 				desc = liberty_war_victory_defender_desc
 			}
 			desc = liberty_war_victory_desc
 		}
-		desc = liberty_war_victory_end_desc
-
 	}
 
 	on_victory = {
@@ -458,30 +507,21 @@ liberty_faction_war = {
 		#EP2 Accolade glory gain from winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
 
+		# LEGITIMACY FROM LOSING FACTION WAR
+		faction_war_end_defeat_legitimacy_effect = yes
+
 		scope:defender = {
-			if = {
-				limit = { has_realm_law = crown_authority_1 }
-				add_realm_law = crown_authority_0
-			}
-			if = {
-				limit = { has_realm_law = crown_authority_2 }
-				add_realm_law = crown_authority_1
-			}
-			if = {
-				limit = { has_realm_law = crown_authority_3 }
-				add_realm_law = crown_authority_2
-			}
-			if = {
-				limit = { has_realm_law = tribal_authority_1 }
-				add_realm_law = tribal_authority_0
-			}
-			if = {
-				limit = { has_realm_law = tribal_authority_2 }
-				add_realm_law = tribal_authority_1
-			}
-			if = {
-				limit = { has_realm_law = tribal_authority_3 }
-				add_realm_law = tribal_authority_2
+			switch = {
+				trigger = has_realm_law
+				imperial_bureaucracy_1 = { add_realm_law = imperial_bureaucracy_0 }
+				imperial_bureaucracy_2 = { add_realm_law = imperial_bureaucracy_1 }
+				imperial_bureaucracy_3 = { add_realm_law = imperial_bureaucracy_2 }
+				tribal_authority_1 = { add_realm_law = tribal_authority_0 }
+				tribal_authority_2 = { add_realm_law = tribal_authority_1 }
+				tribal_authority_3 = { add_realm_law = tribal_authority_2 }
+				crown_authority_1 = { add_realm_law = crown_authority_0 }
+				crown_authority_2 = { add_realm_law = crown_authority_1 }
+				crown_authority_3 = { add_realm_law = crown_authority_2 }
 			}
 			
 			add_prestige = -500
@@ -548,6 +588,9 @@ liberty_faction_war = {
 				}
 			}
 		}
+
+		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
+		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_white_peace_desc = {
@@ -598,6 +641,9 @@ liberty_faction_war = {
 			}
 		}
 		on_white_peace_faction_revolt_war = yes
+
+		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
+		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_defeat_desc = {
@@ -629,8 +675,14 @@ liberty_faction_war = {
 			}
 			add_dread = medium_dread_gain
 			add_achievement_flag_effect = { FLAG = achievement_know_your_place_flag }
+
+			# LEGITIMACY FROM WINNING FACTION WAR
+			faction_war_end_victory_legitimacy_effect = yes
 		}
 		on_lost_faction_revolt_war = yes
+
+		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
+		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_invalidated_desc = msg_invalidate_war_title
@@ -729,13 +781,21 @@ populist_war = {
 	}
 
 	on_victory_desc = {
-		desc = populist_war_victory_desc
-		
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = { government_has_flag = government_is_administrative }
+				}
+				desc = populist_war_victory_desc_admin
+			}
+			desc = populist_war_victory_desc
+		}
 	}
 
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		scope:defender = {
+
 			add_prestige_level = -1
 
 			# Struggle Catalysts
@@ -767,6 +827,10 @@ populist_war = {
 				}
 			}
 		}
+
+		# LEGITIMACY FROM LOSING FACTION WAR
+		faction_war_end_defeat_legitimacy_effect = yes
+
 		random_in_list = {
 			list = target_titles
 			save_scope_as = target_title
@@ -795,8 +859,15 @@ populist_war = {
 	}
 
 	on_white_peace_desc = {
-		desc = populist_war_white_peace_desc
-		
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = { government_has_flag = government_is_administrative }
+				}
+				desc = populist_war_white_peace_desc_admin
+			}
+			desc = populist_war_white_peace_desc
+		}
 	}
 
 	on_white_peace = {
@@ -844,8 +915,15 @@ populist_war = {
 
 
 	on_defeat_desc = {
-		desc = populist_war_defeat_desc
-		
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = { government_has_flag = government_is_administrative }
+				}
+				desc = populist_war_defeat_desc_admin
+			}
+			desc = populist_war_defeat_desc
+		}
 	}
 
 	on_defeat = {
@@ -895,6 +973,9 @@ populist_war = {
 		scope:defender = {
 			add_dread = medium_dread_gain
 			add_achievement_flag_effect = { FLAG = achievement_know_your_place_flag }
+
+			# LEGITIMACY FROM WINNING FACTION WAR
+			faction_war_end_victory_legitimacy_effect = yes
 		}
 	}
 
@@ -932,6 +1013,7 @@ claimant_faction_war = {
 	ai_only_against_liege = no
 	target_titles = claim
 	allow_hostages = no
+	target_top_liege_if_outside_realm = no
 	allowed_for_character = {
 		scope:attacker = {
 			is_leading_faction_type = claimant_faction
@@ -990,6 +1072,9 @@ claimant_faction_war = {
 				}
 			}
 		}
+
+		# LEGITIMACY FROM LOSING FACTION WAR
+		faction_war_end_defeat_legitimacy_effect = yes
 
 		on_claimant_faction_war_win_common = {
 			TARGET_TITLES = target_titles
@@ -1053,6 +1138,9 @@ claimant_faction_war = {
 		scope:defender = {
 			add_dread = medium_dread_gain
 			add_achievement_flag_effect = { FLAG = achievement_know_your_place_flag }
+
+			# LEGITIMACY FROM WINNING FACTION WAR
+			faction_war_end_victory_legitimacy_effect = yes
 		}
 	}
 
@@ -1161,27 +1249,33 @@ depose_war = {
 		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
 
 		scope:defender = {
+			set_variable = {
+				name = deposed_primary_title
+				value = primary_title
+				months = 1
+			}
 			# If we win the rebellion, our liege loses any legal right to imprison us/banish us/revoke our titles.
 			consume_all_criminal_reasons_effect = {
 				LIEGE = scope:defender
 				CRIMINAL = scope:attacker
 			}
+
 			# Remove offending HumSac modifiers.
 			hidden_effect = { fp1_remove_humsac_offended_counties_effect = yes }
 			# Then our liege is deposed (but the imprisonment loss remains true for their heir).
 			# Then our liege is deposed (but the imprisonment loss remains true for their heir).
 			if = {
 				limit = { NOT = { exists = scope:attacker.var:initial_target } }
-				depose = yes
+				depose_effect = { DEPOSER = scope:attacker }
 			}
 			else = {
 				if = {
 					limit = { this = scope:attacker.var:initial_target }
-					depose = yes
+					depose_effect = { DEPOSER = scope:attacker }
 				}
 				else_if = {
 					limit = { primary_title.tier <= scope:attacker.var:target_tier}
-					depose = yes
+					depose_effect = { DEPOSER = scope:attacker }
 				}
 
 				# remove variables
@@ -1191,6 +1285,9 @@ depose_war = {
 				}
 			}
 		}
+
+		# LEGITIMACY FROM LOSING FACTION WAR
+		faction_war_end_defeat_legitimacy_effect = yes
 	}
 
 	on_white_peace_desc = {
@@ -1236,6 +1333,9 @@ depose_war = {
 		on_lost_faction_revolt_war = yes
 		scope:defender = {
 			add_dread = medium_dread_gain
+
+			# LEGITIMACY FROM WINNING FACTION WAR
+			faction_war_end_victory_legitimacy_effect = yes
 		}
 	}
 
@@ -1352,6 +1452,11 @@ refused_liege_demand_war = {
 		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
 
 		scope:defender = {
+			set_variable = {
+				name = deposed_primary_title
+				value = primary_title
+				months = 1
+			}
 			if = {
 				limit = { has_realm_law = crown_authority_1 }
 				add_realm_law = crown_authority_0
@@ -1393,16 +1498,16 @@ refused_liege_demand_war = {
 			# Then our liege is deposed (but the imprisonment loss remains true for their heir).
 			if = {
 				limit = { NOT = { exists = scope:attacker.var:initial_target } }
-				depose = yes
+				depose_effect = { DEPOSER = scope:attacker }
 			}
 			else = {
 				if = {
 					limit = { this = scope:attacker.var:initial_target }
-					depose = yes
+					depose_effect = { DEPOSER = scope:attacker }
 				}
 				else_if = {
 					limit = { primary_title.tier <= scope:attacker.var:target_tier }
-					depose = yes
+					depose_effect = { DEPOSER = scope:attacker }
 				}
 
 				# remove variables
@@ -1412,6 +1517,9 @@ refused_liege_demand_war = {
 				}
 			}
 		}
+
+		# LEGITIMACY FROM LOSING FACTION WAR
+		faction_war_end_defeat_legitimacy_effect = yes
 
 		hidden_effect = {
 			scope:attacker = {
@@ -1483,6 +1591,9 @@ refused_liege_demand_war = {
 				years = 10
 			}
 			add_dread = medium_dread_gain
+
+			# LEGITIMACY FROM WINNING FACTION WAR
+			faction_war_end_victory_legitimacy_effect = yes
 		}
 
 		# For revoking titles of character's imprisoned abroard who have lost a revocation war
@@ -1540,7 +1651,14 @@ independence_war = {
 	group = independence
 	ai = no # AI targeting is handled through game_rule events.
 
+	target_top_liege_if_outside_realm = no # In case of Adventurers starting this war
+
 	allow_hostages = no
+	allowed_for_character = {
+		scope:attacker = {
+			NOT = { government_allows = administrative }
+		}
+	}
 	allowed_against_character = {
 		scope:attacker = {
 			liege = scope:defender
@@ -1627,6 +1745,7 @@ independence_war = {
 		}
 
 		scope:defender = {
+
 			# Struggle Catalyst
 			hidden_effect = {
 				if = {
@@ -1659,6 +1778,9 @@ independence_war = {
 				}
 			}
 		}
+
+		# LEGITIMACY FROM LOSING FACTION WAR
+		faction_war_end_defeat_legitimacy_effect = yes
 
 		resolve_title_and_vassal_change = scope:change
 
@@ -1737,6 +1859,9 @@ independence_war = {
 			add_prestige_war_defender_effect = {
 				PRESTIGE_VALUE = medium_prestige_value
 			}
+
+			# LEGITIMACY FROM WINNING FACTION WAR
+			faction_war_end_victory_legitimacy_effect = yes
 		}
 
 		scope:attacker = {
@@ -1751,6 +1876,10 @@ independence_war = {
 				}
 			}
 		}
+	}
+
+	should_invalidate = {
+		scope:attacker.liege != scope:defender
 	}
 
 	on_invalidated_desc = msg_invalidate_war_title
@@ -1785,6 +1914,9 @@ nation_fracturing_faction_war = {
 	icon = dissolution_war
 	group = civil_war
 	allow_hostages = no
+
+	target_top_liege_if_outside_realm = no # In case of Adventurers starting this war
+
 	allowed_for_character = {
 		scope:attacker = {
 			is_ai = no
@@ -1902,10 +2034,10 @@ nation_fracturing_faction_war = {
 			every_vassal = {
 				limit = { is_ai = no }
 				send_interface_toast = {
-					type = event_generic_neutral
-   					title = liege_primary_title_dissolution
-   					desc = liege_primary_title_dissolution_desc
-   					left_icon = scope:defender
+					type = msg_gained_independence
+					title = liege_primary_title_dissolution
+					desc = liege_primary_title_dissolution_desc
+					left_icon = scope:defender
 				}
 			}
 		}
@@ -1926,6 +2058,9 @@ nation_fracturing_faction_war = {
 				destroy_title = prev
 			}
 		}
+
+		# LEGITIMACY FROM LOSING FACTION WAR
+		faction_war_end_defeat_legitimacy_effect = yes
 	}
 
 	on_white_peace_desc = {
@@ -2013,6 +2148,9 @@ nation_fracturing_faction_war = {
 				PRESTIGE_VALUE = medium_prestige_value
 			}
 			add_achievement_flag_effect = { FLAG = achievement_know_your_place_flag }
+
+			# LEGITIMACY FROM WINNING FACTION WAR
+			faction_war_end_victory_legitimacy_effect = yes
 		}
 
 		on_lost_faction_revolt_war = yes

@@ -17,6 +17,11 @@
         }
         weight = {
             base = 0
+            modifier = {
+                add = 150
+                portrait_religious_head_trigger = yes
+                portrait_religious_orthodox_trigger = yes
+            }
         }
     }  
 
@@ -32,6 +37,11 @@
         outfit_tags = { priest_outfit bishop_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 120
+                portrait_religious_high_trigger = yes
+                portrait_religious_orthodox_trigger = yes
+            }
         }
     }
 
@@ -49,6 +59,11 @@
         }
         weight = {
             base = 0
+            modifier = {
+                add = 120
+                portrait_religious_head_trigger = yes
+                portrait_religious_catholic_trigger = yes
+            }
         }
     }
 
@@ -64,6 +79,15 @@
         outfit_tags = { priest_outfit bishop_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                portrait_religious_high_trigger = yes
+                portrait_religious_christian_trigger = yes
+            }
+            modifier = {
+                factor = 0
+                portrait_iconoclast_high_trigger = yes
+            }
         }
     }
 
@@ -85,9 +109,34 @@
         outfit_tags = { monk_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_devoted_trigger = yes
+                portrait_religious_christian_trigger = yes
+            }
         }
     }
 
+## Iconoclast ##
+
+    religious_iconoclast_high_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_catholic_high_clothes
+                accessory = male_clothes_religious_catholic_high_01
+            }
+        }
+        outfit_tags = { priest_outfit bishop_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                portrait_iconoclast_high_trigger = yes
+            }
+        }
+    }
 
 ## Jewish ##
 
@@ -103,6 +152,11 @@
         }
         weight = {
             base = 0
+            modifier = {
+                add = 120
+                portrait_religious_head_ruler_trigger = yes
+                portrait_religious_jewish_trigger = yes                
+            }
         }
     }
 
@@ -118,6 +172,11 @@
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                portrait_religious_high_trigger = yes
+                portrait_religious_jewish_trigger = yes
+            }
         }
     }
 
@@ -135,6 +194,12 @@
         }
         weight = {
             base = 0
+            modifier = {
+                add = 112
+                portrait_religious_head_caliph_trigger = {
+                    RELIGION_INPUT = islam
+                }
+            }
         }
     } 
 
@@ -150,6 +215,11 @@
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 111
+                portrait_religious_high_trigger = yes
+                portrait_religious_muslim_trigger = yes
+            }
         }
     }
 
@@ -164,6 +234,11 @@
         }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_devoted_trigger = yes
+                portrait_religious_muslim_trigger = yes
+            }
         }
     }
 
@@ -183,6 +258,55 @@
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_high_trigger = yes
+                portrait_religious_norse_trigger = yes           
+            }
+        }
+    }
+
+    ## CCP4 Siberian ##
+
+    religious_siberian_high_clothes = { # Khanty shamans wear fancy Khanty clothes
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = ccp4_khanty_high_nobility_clothes
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 105 #higher than steppe
+                portrait_religious_high_trigger = yes
+                portrait_religious_siberian_trigger = yes
+            }
+        }
+    }
+
+    ## CCP4 Sami ##
+
+    religious_sami_high_clothes = { # Sami shamans wear Sami clothes
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = ccp4_sami_low_nobility_clothes
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 105 #higher than norse
+                portrait_religious_high_trigger = yes
+                portrait_religious_sami_trigger = yes
+            }
         }
     }
 
@@ -202,6 +326,11 @@
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_high_trigger = yes
+                portrait_religious_steppe_trigger = yes
+            }
         }
     }
 
@@ -221,6 +350,11 @@
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                portrait_religious_high_trigger = yes
+                portrait_religious_buddhist_trigger = yes
+            }
         }
     }
 
@@ -236,6 +370,11 @@
         outfit_tags = { monk_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_devoted_trigger = yes
+                portrait_religious_buddhist_trigger = yes
+            }
         }
     }
 
@@ -254,6 +393,11 @@
         outfit_tags = { monk_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_devoted_trigger = yes
+                portrait_religious_hindu_trigger = yes
+            }
         }
     }
 
@@ -269,6 +413,11 @@
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                portrait_religious_high_trigger = yes
+                portrait_religious_hindu_trigger = yes
+            }
         }
     }
 
@@ -289,6 +438,11 @@
         }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_high_trigger = yes
+                portrait_religious_zoroastrian_trigger = yes
+            }
         }
     }
 
@@ -315,6 +469,14 @@
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                exists = this
+                portrait_religious_high_trigger = yes
+                OR = {
+                    religion = religion:jainism_religion
+                }
+            }
         }
     }
 
@@ -331,6 +493,13 @@
         outfit_tags = { monk_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_has_trait_trigger = { TRAIT = devoted }
+                OR = {
+                    religion = religion:jainism_religion
+                }
+            }
         }
     }
 
@@ -349,6 +518,11 @@
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_high_trigger = yes
+                portrait_religious_african_trigger = yes
+            }
         }
     }
 
