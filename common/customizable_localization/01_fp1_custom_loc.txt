@@ -30,9 +30,14 @@ GruesomeFestivalName = {
 	type = character
 
 	text = {
+		localization_key = gruesomefestivalname_blot
+		trigger = { faith.religion = religion:germanic_religion }
+	}
+
+	text = {
 		localization_key = gruesomefestivalname_festival
 		trigger = {
-			always = yes
+			NOT = { faith.religion = religion:germanic_religion }
 		}
 		fallback = yes
 	}
@@ -40,10 +45,16 @@ GruesomeFestivalName = {
 
 GruesomeFestivalNamePlural = {
 	type = character
+
+	text = {
+		localization_key = gruesomefestivalname_blot
+		trigger = { faith.religion = religion:germanic_religion }
+	}
+
 	text = {
 		localization_key = gruesomefestivalname_festivals
 		trigger = {
-			always = yes
+			NOT = { faith.religion = religion:germanic_religion }
 		}
 		fallback = yes
 	}
@@ -57,6 +68,55 @@ GruesomeFestivalAnimalPreference = {
 		localization_key = gruesomefestivalanimalpreference_pigs_cattle_horses
 		trigger = { always = no }
 		fallback = yes
+	}
+	# Islamic syncretics.
+	text = {
+		localization_key = gruesomefestivalanimalpreference_cleananimals_cattle_horses
+		trigger = {
+			var:gf_faith = {
+				OR = {
+					has_doctrine = tenet_islamic_syncretism
+					# Islam is actually forbidden from this by default, but if someone mods it in, make sure the loc syncs up nicely.
+					religion = religion:islam_religion
+				}
+				# Exempting Hindu syncretics, who get their own loc key to avoid cattle.
+				NOT = { religion = religion:hinduism_religion }
+			}
+		}
+	}
+	# Jewish syncretics.
+	text = {
+		localization_key = gruesomefestivalanimalpreference_cleananimals_cattle
+		trigger = {
+			var:gf_faith = {
+				OR = {
+					has_doctrine = tenet_jewish_syncretism
+					# Islam is actually forbidden from this by default, but if someone mods it in, make sure the loc syncs up nicely.
+					religion = religion:judaism_religion
+				}
+				# Exempting Hindu syncretics, who get their own loc key to avoid cattle.
+				NOT = { religion = religion:hinduism_religion }
+			}
+		}
+		
+	}
+	# Hindu.
+	text = {
+		localization_key = gruesomefestivalanimalpreference_cleananimals_horses_pigs
+		trigger = { var:gf_faith.religion = religion:hinduism_religion }
+	}
+	# And, for the sake of simplicity, syncretised Hindus.
+	text = {
+		localization_key = gruesomefestivalanimalpreference_cleananimals_goats
+		trigger = {
+			var:gf_faith = {
+				religion = religion:hinduism_religion
+				OR = {
+					has_doctrine = tenet_islamic_syncretism
+					has_doctrine = tenet_jewish_syncretism
+				}
+			}
+		}
 	}
 }
 

@@ -4,6 +4,8 @@ my_animation = {										# Name of the animation, this is the name events and g
 	male = {											# Animations are scripted for each portrait type, all types needs to be scripted
 		default = { head = "idle" torso = "idle" }		# Default animation used if no item has a weight > 0, or if it is used in a non scripted environment
 
+		force = no										# portrait_modifier are copied to children if they have none of their own. If specified, copying is skipped unless force = yes. Default is no.
+
 		portrait_modifier = {							# Triggered portrait modifier for when this animation is picked. The first one satisfying the trigger will be picked.
 			trigger = {
 				age > 30

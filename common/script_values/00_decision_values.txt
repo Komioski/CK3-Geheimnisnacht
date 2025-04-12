@@ -5,7 +5,41 @@ accuse_the_krstjani_of_heresy_failure_cooldown_value = 30
 accuse_the_krstjani_of_heresy_critical_failure_cooldown_value = 50
 
 # Negotiate the Danelaw
-negotiate_the_danelaw_preferable_opponent_value = { #
+negotiate_the_danelaw_preferable_opponent_value = {
+	value = 0
+
+	# Add 75 for every held duchy in k_england.
+	every_held_title = {
+		limit = {
+			tier = tier_duchy
+			kingdom = title:k_england
+		}
+		add = 75
+	}
+	# 50 for every directly held county in k_england.
+	every_held_title = {
+		limit = {
+			tier = tier_county
+			kingdom = title:k_england
+		}
+		add = 50
+	}
+	# And 25 for every vassalised county in k_england.
+	every_vassal = {
+		limit = {
+			any_held_title = {
+				tier = tier_county
+				kingdom = title:k_england
+			}
+		}
+		every_held_title = {
+			limit = {
+				tier = tier_county
+				kingdom = title:k_england
+			}
+			add = 25
+		}
+	}
 }
 
 standard_commission_artifact_cooldown_time = {
@@ -57,4 +91,13 @@ fp3_antagonize_character_interaction_cooldown = {
 		limit = { NOT = { any_character_struggle = { is_struggle_type = persian_struggle } } }
 		add = 3
 	}
+}
+
+invite_poets_decision_standard_value = {
+	value = 14
+}
+
+invite_poets_decision_upper_value = {
+	value = invite_poets_decision_standard_value
+	add = 4
 }

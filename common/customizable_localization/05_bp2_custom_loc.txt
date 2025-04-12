@@ -86,10 +86,71 @@ GetHerHimOpposite = {
 	}
 }
 
+GetRandomWomanMan = {
+	type = character 
+	random_valid = yes 
+
+	text = { localization_key = CHARACTER_WOMAN }
+
+	text = { localization_key = CHARACTER_MAN }
+}
+
+GetWomanManOpposite = {
+	type = character 
+	random_valid = yes 
+
+	text = {
+		trigger = { is_female = yes }
+		localization_key = CHARACTER_MAN
+	}
+
+	text = {
+		trigger = { is_male = yes }
+		localization_key = CHARACTER_WOMAN
+	}
+}
+
 EruditeTopic = {
 	type = character
 	random_valid = yes
-	
+
+	text = {
+		trigger = { faith.religion = religion:christianity_religion }
+		localization_key = boethius_wheel
+	}
+	text = {
+		trigger = { location = { geographical_region = world_europe } }
+		localization_key = aristotle_logic
+	}
+	text = {
+		trigger = { location = { geographical_region = world_india } }
+		localization_key = indian_logic
+	}
+	text = {
+		trigger = { faith.religion = religion:christianity_religion }
+		localization_key = advanced_math_computus
+	}
+	text = {
+		trigger = { faith.religion = religion:islam_religion }
+		localization_key = advanced_math_problem
+	}
+	text = {
+		trigger = { location = { geographical_region = world_india } }
+		localization_key = advanced_math_trigonometry
+	}
+	text = {
+		trigger = {
+			OR = {
+				location = { geographical_region = world_europe }
+				faith.religion = religion:islam_religion
+			}
+		}
+		localization_key = classical_vs_arabic_medicine
+	}
+	text = {
+		trigger = { location = { geographical_region = world_india } }
+		localization_key = indian_medicine
+	}
 	text = {
 		localization_key = classical_vs_modern_warfare
 	}
@@ -97,7 +158,26 @@ EruditeTopic = {
 		localization_key = astrology_topic
 	}
 	text = {
+		trigger = {
+			faith.religion = religion:islam_religion
+			current_date > 1150.1.1
+		}
+		localization_key = quran_exegesis
+	}
+	text = {
+		trigger = { faith.religion = religion:islam_religion }
+		localization_key = basri_vs_kufi
+	}
+	text = {
 		localization_key = reason_vs_faith
+	}
+	text = {
+		trigger = { faith.religion = religion:christianity_religion }
+		localization_key = jewish_christian_debate
+	}
+	text = {
+		trigger = { culture = { has_cultural_pillar = heritage_byzantine } }
+		localization_key = debating_mythological_characters
 	}
 	text = {
 		localization_key = geometrical_shapes
@@ -153,6 +233,18 @@ GetMartialBuilding = {
 			}
 		}
 		localization_key = building_type_watchtowers_01
+	}
+	text = {
+		trigger = { has_culture = culture:italian }
+		localization_key = building_type_the_colosseum_01
+	}
+	text = {
+		trigger = { has_culture = culture:anglo_saxon }
+		localization_key = building_type_the_tower_of_london_01
+	}
+	text = {
+		trigger = { has_culture = culture:levantine }
+		localization_key = building_type_citadel_of_aleppo_01
 	}
 }
 
@@ -228,6 +320,69 @@ GetLearningBuilding = {
 			}
 		}
 		localization_key = building_type_monastic_schools_01
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_culture = culture:afghan
+				has_faith = faith:mahayana
+			}
+		}
+		localization_key = building_type_buddhas_of_bamian_01
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_culture = culture:levantine
+				has_faith = faith:ashari
+			}
+		}
+		localization_key = building_type_petra_01
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_culture = culture:french
+				has_faith = faith:catholic
+			}
+		}
+		localization_key = building_type_notre_dame_01
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_culture = culture:greek
+				has_faith = faith:orthodox
+			}
+		}
+		localization_key = building_type_hagia_sophia_01
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_culture = culture:bedouin
+				has_faith = faith:ashari
+			}
+		}
+		localization_key = building_type_holy_site_great_mosque_of_mecca_01
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_culture = culture:franconian
+				has_faith = faith:catholic
+			}
+		}
+		localization_key = building_type_holy_site_cologne_cathedral_01
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_culture = culture:anglo_saxon
+				has_faith = faith:catholic
+			}
+		}
+		localization_key = building_type_holy_site_canterbury_cathedral_01
 	}
 }
 

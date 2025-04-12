@@ -1,4 +1,4 @@
-#TESTING: Use effect create_legend = { type = heroic quality = famed } to create a legend
+﻿#TESTING: Use effect create_legend = { type = heroic quality = famed } to create a legend
 
 <key> = {
 	color = <color> # What color this legend has on the map: takes color names defined in the script colors file, RGB, HSV, HSV360 and HEX
@@ -32,6 +32,20 @@
 
 	# Effect run on every promoter (including owner) once a year
 	on_yearly = {
+		<effects>
+	}
+
+	# Effect run on promoter, not owner, when they start promoting the legend
+	# root = promoter to be
+	# scope:legend = legend that is being promoted
+	on_legend_start_promote = {
+		<effects>
+	}
+
+	# Effect run on promoter, not owner, when they stop promoting the legend
+	# root = former promoter
+	# scope:legend = legend that was being promoted
+	on_legend_stop_promote = {
 		<effects>
 	}
 
@@ -89,7 +103,7 @@
 				<scripted_cost>
 			}
 
-			# If the legend stops being sponsored, how long until a province is removed from the legend
+			# If the legend stops being sponsored (if it becomes unowned or is completed), how long until provinces start getting removed from the legend
 			removal_duration = {
 				<duration>
 			}

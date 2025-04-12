@@ -1,4 +1,5 @@
-﻿# This trigger is used when offering the player a choice between two stress outlets for a stress threshold event.
+﻿
+# This trigger is used when offering the player a choice between two stress outlets for a stress threshold event.
 # The stress threshold event will add character flags from this list, based on a character's personality and relevance to the event, until two have been selected.
 has_two_stress_threshold_options = {
 	calc_true_if = {
@@ -84,15 +85,52 @@ can_be_drunkard = {
 		has_trait = hashishiyah
 		has_trait = temperate
 	}
-	# faith = { # Cannot be Muslim ( some Muslims did actually drink, but ideally we want Muslims to be Hashishiyahs instead of Drunkards because it is more thematic). 
-		# NOT = {
-			# religion_tag = islam_religion
-		# }
-	# }
+	faith = { # Cannot be Muslim ( some Muslims did actually drink, but ideally we want Muslims to be Hashishiyahs instead of Drunkards because it is more thematic).
+		NOT = {
+			religion_tag = islam_religion
+		}
+	}
 }
 
 can_be_hashishiyah = {
-	always = no
+	is_adult = yes
+	NOR = { # Cannot be Temperate or already have a Substance Abuse trait.
+		has_trait = drunkard
+		has_trait = hashishiyah
+		has_trait = temperate
+	}
+
+	OR = {
+		# Muslims always have access to Hashish...
+		faith = {
+			religion_tag = islam_religion
+		}
+		# Otherwise you must not be located in Europe (where Hashish was relatively unknown until modern times.)
+		AND = {
+			OR = {
+				AND = {
+					exists = capital_province
+					capital_province = {
+						save_temporary_scope_as = my_home_province
+					}
+				}
+				AND = {
+					exists = liege
+					exists = liege.capital_province
+					liege = {
+						capital_province = {
+							save_temporary_scope_as = my_home_province
+						}
+					}
+				}
+			}
+			scope:my_home_province = {
+				NOT = {
+					geographical_region = world_europe
+				}
+			}
+		}
+	}
 }
 
 can_be_rakish = { # Must have a fitting personality or lifestyle

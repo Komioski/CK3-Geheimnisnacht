@@ -1,4 +1,5 @@
-﻿##########
+﻿
+##########
 # Religious Relations
 ##########
 
@@ -308,6 +309,12 @@ court_chaplain_fabricate_claim_tradition_language_scholars_bonus = {
 		}
 		divide = 100
 	}
+}
+
+court_chaplain_fabricate_claim_inspection_reward_bonus = {
+	value = 0
+	add = court_chaplain_fabricate_claim_base_total
+	multiply = 0.25
 }
 
 # Relation impact
@@ -655,7 +662,7 @@ court_chaplain_conversion_contextual_bonuses = {
 			desc = COURT_CHAPLAIN_CONVERSION_GHW_TENET_NO_HOF_MODIFIER
 		}
 	}
-	### Cthonic Redoubts
+	### Chthonic Redoubts
 	if = {
 		limit = {
 			exists = scope:county
@@ -676,7 +683,7 @@ court_chaplain_conversion_contextual_bonuses = {
 		}
 	}
 	## Maluses
-	### Cthonic Redoubts
+	### Chthonic Redoubts
 	if = {
 		limit = {
 			exists = scope:county
@@ -747,6 +754,26 @@ court_chaplain_conversion_contextual_bonuses = {
 	if = {
 		limit = {
 			exists = scope:county
+			scope:county = { has_county_modifier = tougher_to_convert }
+		}
+		add = {
+			value = -0.25
+			desc = COURT_CHAPLAIN_CONVERSION_LOCAL_COUNTY_MODIFIERS
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:county
+			scope:county = { has_county_modifier = easier_to_convert }
+		}
+		add = {
+			value = 0.25
+			desc = COURT_CHAPLAIN_CONVERSION_LOCAL_COUNTY_MODIFIERS
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:county
 			scope:county = { has_county_modifier = governance_1074_local_faith_respected_modifier }
 		}
 		add = {
@@ -804,8 +831,7 @@ court_chaplain_conversion_contextual_bonuses = {
 	}	
 	if = {
 		limit = {
-			exists = scope:county
-			scope:county = { has_county_modifier = petition_liege_county_control_modifier }
+			scope:county ?= { has_county_modifier = petition_liege_county_convert_modifier }
 		}
 		add = {
 			value = scope:councillor.petition_liege_county_convert_modifier_value
@@ -814,20 +840,96 @@ court_chaplain_conversion_contextual_bonuses = {
 	}
 
 	#Conversion bonuses from certain Holy Sites.
-	# if = { # Example
-		# limit = {
-			# scope:councillor.faith = {
-				# controls_holy_site = jerusalem
-			# }
-			# title:b_jerusalem = {
-				# is_holy_site_of = scope:councillor.faith
-			# }
-		# }
-		# add = {
-			# value = scope:councillor.conversion_holy_site_jerusalem
-			# desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_JERUSALEM
-		# }
-	# }
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = jerusalem
+			}
+			title:b_jerusalem = {
+				is_holy_site_of = scope:councillor.faith
+			}
+		}
+		add = {
+			value = scope:councillor.conversion_holy_site_jerusalem
+			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_JERUSALEM
+		}
+	}
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = kerala
+			}
+			title:b_mahoyadapuram = {
+				is_holy_site_of = scope:councillor.faith
+			}
+		}
+		add = {
+			value = scope:councillor.conversion_holy_site_kerala
+			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_KERALA
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:county
+			scope:councillor.faith = {
+				controls_holy_site = iona
+			}
+			title:b_islay = {
+				is_holy_site_of = scope:councillor.faith
+			}
+			scope:county.title_province = {
+				geographical_region = world_europe_west_britannia
+			}
+		}
+		add = {
+			value = scope:councillor.conversion_holy_site_iona
+			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_IONA
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:county
+			scope:county.faith = {
+				controls_holy_site = wadi_el_milk
+			}
+			title:b_wadi_el-milk = {
+				is_holy_site_of = scope:councillor.faith
+			}
+		}
+		add = {
+			value = scope:councillor.conversion_holy_site_wadi_el_milk
+			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_WADI_EL_MILK
+		}
+	}
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = cordoba
+			}
+			title:b_cordoba = {
+				is_holy_site_of = scope:councillor.faith
+			}
+		}
+		add = {
+			value = scope:councillor.conversion_holy_site_cordoba
+			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_CORDOBA
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:county
+			scope:county.faith = {
+				controls_holy_site = visoki
+			}
+			title:b_visoki = {
+				is_holy_site_of = scope:councillor.faith
+			}
+		}
+		add = {
+			value = scope:councillor.conversion_holy_site_visoki
+			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_VISOKI
+		}
+	}
 
 	#Tradition modifiers
 	if = {
@@ -1409,18 +1511,83 @@ court_6090_almoners_modifier_value = {
 }
 
 ### Various Holy Site bonuses
-# conversion_holy_site_jerusalem = { # Example
-	# value = 0
-	# if = {
-		# limit = {
-			# scope:councillor.faith = {
-				# controls_holy_site = jerusalem
-			# }
-		# }
-		# add = court_chaplain_conversion_base_total
-		# multiply = 0.20
-	# }
-# }
+conversion_holy_site_jerusalem = {
+	value = 0
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = jerusalem
+			}
+		}
+		add = court_chaplain_conversion_base_total
+		multiply = 0.20
+	}
+}
+
+conversion_holy_site_kerala = {
+	value = 0
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = kerala
+			}
+		}
+		add = court_chaplain_conversion_base_total
+		multiply = 0.50
+	}
+}
+
+conversion_holy_site_iona = {
+	value = 0
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = iona
+			}
+		}
+		add = court_chaplain_conversion_base_total
+		multiply = 0.30
+	}
+}
+
+conversion_holy_site_visoki = {
+	value = 0
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = visoki
+			}
+		}
+		add = court_chaplain_conversion_base_total
+		multiply = -0.50
+	}
+}
+
+conversion_holy_site_wadi_el_milk = {
+	value = 0
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = wadi_el_milk
+			}
+		}
+		add = court_chaplain_conversion_base_total
+		multiply = -0.50
+	}
+}
+
+conversion_holy_site_cordoba = {
+	value = 0
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = cordoba
+			}
+		}
+		add = court_chaplain_conversion_base_total
+		multiply = 0.20
+	}
+}
 
 ### Various trait bonuses
 conversion_savior_liege = {

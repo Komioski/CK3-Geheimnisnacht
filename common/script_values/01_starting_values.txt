@@ -1,4 +1,6 @@
-﻿starting_prestige = {
+﻿
+
+starting_prestige = {
 	value = {
 		# Longer-lived characters start with some inherent prestige.
 		add =	{
@@ -12,27 +14,19 @@
 					add = 1
 				}
 				else_if = {
-					limit = {
-						age > 24
-					}
+					limit = { age > 24}
 					add = 2
 				}
 				else_if = {
-					limit = {
-						age > 36
-					}
+					limit = { age > 36}
 					add = 3
 				}
 				else_if = {
-					limit = {
-						age > 48
-					}
+					limit = { age > 48}
 					add = 4
 				}
 				else_if = {
-					limit = {
-						age > 60
-					}
+					limit = { age > 60}
 					add = 5
 				}
 
@@ -93,27 +87,19 @@ starting_piety = {
 					add = 1
 				}
 				else_if = {
-					limit = {
-						age > 24
-					}
+					limit = { age > 24}
 					add = 2
 				}
 				else_if = {
-					limit = {
-						age > 36
-					}
+					limit = { age > 36}
 					add = 3
 				}
 				else_if = {
-					limit = {
-						age > 48
-					}
+					limit = { age > 48}
 					add = 4
 				}
 				else_if = {
-					limit = {
-						age > 60
-					}
+					limit = { age > 60}
 					add = 5
 				}
 			}
@@ -130,12 +116,94 @@ starting_piety = {
 	}
 }
 
+starting_influence = {
+	value = {
+		# Longer-lived characters start with some inherent influence.
+		add =	{
+			value = medium_influence_value
+			multiply = {
+				value = 0
+
+				# Bonus for older characters (who have presumably had time to establish themselves more).
+				if = {
+					limit = { age > 12}
+					add = 1
+				}
+				else_if = {
+					limit = { age > 24}
+					add = 2
+				}
+				else_if = {
+					limit = { age > 36}
+					add = 3
+				}
+				else_if = {
+					limit = { age > 48}
+					add = 4
+				}
+				else_if = {
+					limit = { age > 60}
+					add = 5
+				}
+
+				# Bonus/penalty for traits.
+				if = {
+					limit = {
+						OR = {
+							has_trait = generous
+							has_trait = deceitful
+						}
+					}
+					add = 1
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_trait = impatient
+							has_trait = trusting
+						}
+					}
+					add = -1
+				}
+
+				# Children who are impatient/trusting children shouldn't start with negative influence!
+				min = 0
+			}
+		}
+
+		# Rulers also gain bonus prestige based on their tier.
+		add = {
+			value = medium_prestige_value
+			multiply = highest_held_title_tier
+		}
+	}
+}
 # What cultural acceptance should two cultures start with?
 # root = culture 1
 # scope:culture = culture 2
 starting_culture_acceptance = {
 	# Cultures start with the baseline as their default acceptance
 	value = culture_acceptance_baseline
+	
+	# Historical one-time increases to Cultural Acceptance (added on top of the baseline)
+	# Note: List the cultures in the same order as they appear in script in common\culture\cultures.
+	if = {
+		limit = { current_date >= 1060.1.1 } # Changes for the 1066 bookmark
+		if = {
+			limit = { # The Ghaznavids have ruled over Afghan land for a few generations - Let's help them keep it
+				this = culture:afghan
+				scope:culture = culture:turkish
+			}
+			add = 25
+		}
+		if = {
+			limit = { # The Ghaznavids have ruled over Punjabi land for some time - We don't want them to revolt too quickly
+				this = culture:punjabi
+				scope:culture = culture:turkish
+			}
+			add = 20
+		}
+	}
 }
 
 # What cultural acceptance should two cultures drift down towards if above?

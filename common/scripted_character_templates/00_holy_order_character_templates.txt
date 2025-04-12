@@ -115,11 +115,10 @@
 	}
 	after_creation = {
 		if = {
-			limit = { has_dlc = tours_and_tournaments }
+			limit = { has_dlc_feature = tours_and_tournaments }
 			add_trait = tourney_participant
 			add_random_tourney_participant_level_effect = yes
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -314,8 +313,5 @@ religious_leader_character = {
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
-	}
-	after_creation = {
-		urf_template_base_race_init = yes
 	}
 }

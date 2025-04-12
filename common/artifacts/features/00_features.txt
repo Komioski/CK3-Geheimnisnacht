@@ -240,7 +240,7 @@
 	}
 	decoration_material_wire_silver = {
 		group = decoration_material_wire
-		trigger = {scope:wealth < 60 scope:wealth >= 20 }
+		trigger = { scope:wealth < 60 scope:wealth >= 20 }
 		weight = 20
 	}
 	decoration_material_wire_brass = {
@@ -253,10 +253,9 @@
 		trigger = {
 			scope:wealth < 40
 
-			# # Only commonly used by the Christian church
-			#exists = religion
-			#religion = religion:cannorian_pantheon_religion
-			always = no
+			# Only commonly used by the Christian church
+			exists = religion
+			religion = religion:christianity_religion
 		}
 		weight = 30
 	}
@@ -336,114 +335,114 @@
 	}
 
 	# Semi-Precious Gems, Regional
-	# decoration_material_gem_flourite = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 60 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_west_britannia }	
-		# }		
-		# weight = 30
-	# }
-	# decoration_material_gem_adventurine = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 60 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_west_iberia }	
-		# }		
-		# weight = 30
-	# }
-	# decoration_material_gem_amethyst = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 60 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_west_francia }
-		# }	
-		# weight = 30
-	# }
-	# decoration_material_gem_amber = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 70 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = custom_eastern_baltic}
-		# }	
-		# weight = 30
-	# }
-	# decoration_material_gem_moonstone = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 70 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_india }
-		# }
-		# weight = 30
-	# }
-	# decoration_material_gem_turquoise = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# AND = { 
-				# artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 70 }
-				# OR = {
-					# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_asia_minor }
-					# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_middle_east_persia }
-				# }
-			# }
-		# }
-		# weight = 30
-	# }
-	# decoration_material_gem_carnelian = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# AND = { 
-				# artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 70 }
-				# OR = {
-					# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_west_germania }
-					# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_north }
-				# }
-			# }
-		# }	
-		# weight = 30
-	# }
+	decoration_material_gem_flourite = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 60 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_west_britannia }	
+		}		
+		weight = 30
+	}
+	decoration_material_gem_adventurine = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 60 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_west_iberia }	
+		}		
+		weight = 30
+	}
+	decoration_material_gem_amethyst = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 60 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_west_francia }
+		}	
+		weight = 30
+	}
+	decoration_material_gem_amber = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 70 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = custom_eastern_baltic}
+		}	
+		weight = 30
+	}
+	decoration_material_gem_moonstone = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 70 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_india }
+		}
+		weight = 30
+	}
+	decoration_material_gem_turquoise = {
+		group = decoration_material_gem
+		trigger = {
+			AND = { 
+				artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 70 }
+				OR = {
+					artifact_region_trigger = { CHARACTER = scope:owner REGION = world_asia_minor }
+					artifact_region_trigger = { CHARACTER = scope:owner REGION = world_middle_east_persia }
+				}
+			}
+		}
+		weight = 30
+	}
+	decoration_material_gem_carnelian = {
+		group = decoration_material_gem
+		trigger = {
+			AND = { 
+				artifact_value_trigger = { VALUE = scope:wealth MIN = 20 MAX = 70 }
+				OR = {
+					artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_west_germania }
+					artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe_north }
+				}
+			}
+		}	
+		weight = 30
+	}
 
 	# Rare/Precious Gems, Regional
-	# decoration_material_gem_peridot = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 80 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_india_deccan }
-		# }	
-		# weight = 40
-	# }
-	# decoration_material_gem_lapis_lazuli = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 90 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_middle_east_persia }
-		# }
-		# weight = 40
-	# }
-	# decoration_material_gem_opal = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 90 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_africa_east }
-		# }		
-		# weight = 40
-	# }
-	# decoration_material_gem_spinel = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 90 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_india_deccan }
-		# }
-		# weight = 40
-	# }
-	# decoration_material_gem_jade = { # TODO: gem stuff
-		# group = decoration_material_gem
-		# trigger = {
-			# artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 90 }
-			# artifact_region_trigger = { CHARACTER = scope:owner REGION = world_india_bengal }
-		# }	
-		# weight = 40
-	# }
+	decoration_material_gem_peridot = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 80 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_india_deccan }
+		}	
+		weight = 40
+	}
+	decoration_material_gem_lapis_lazuli = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 90 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_middle_east_persia }
+		}
+		weight = 40
+	}
+	decoration_material_gem_opal = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 90 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_africa_east }
+		}		
+		weight = 40
+	}
+	decoration_material_gem_spinel = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 90 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_india_deccan }
+		}
+		weight = 40
+	}
+	decoration_material_gem_jade = {
+		group = decoration_material_gem
+		trigger = {
+			artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 90 }
+			artifact_region_trigger = { CHARACTER = scope:owner REGION = world_india_bengal }
+		}	
+		weight = 40
+	}
 
 # decoration_material_embroidery
 	decoration_material_embroidery_wool = {
@@ -558,6 +557,10 @@
 		trigger = {
 			artifact_value_trigger = { VALUE = scope:wealth MIN = 40 MAX = 70 }
 			artifact_region_trigger = { CHARACTER = scope:owner REGION = material_cloth_linen }
+			trigger_if = {
+				limit = { exists = scope:owner }
+				NOT = { scope:owner.religion = religion:judaism_religion }
+			}
 		}	
 		weight = 30
 	}
@@ -1317,6 +1320,20 @@
 		}
 		weight = {
 			value = 10
+			if = {
+				limit = { # Mostly in North Africa/West Asia/Southeast Europe
+					OR = {
+						culture_has_north_african_heritage_pillar_trigger = yes
+						culture_has_west_asian_heritage_pillar_trigger = yes
+						culture = { has_cultural_pillar = heritage_turkic }
+						culture = { has_cultural_pillar = heritage_latin }
+						culture = { has_cultural_pillar = heritage_byzantine }
+						culture = { has_cultural_pillar = heritage_caucasian }
+						culture = { has_cultural_pillar = heritage_syriac }
+					}
+				}
+				add = 10
+			}
 		}
 	}
 	armor_helmet_lamellar = {
@@ -1626,24 +1643,24 @@
 # regalia_clothes
 	regalia_clothes_cloak = {
 		group = regalia_clothes
-		trigger = { artifact_region_trigger = { CHARACTER = scope:owner REGION = world_old_world } }
+		trigger = { artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe } }
 		weight = 100
 	}
 	regalia_clothes_robe = {
 		group = regalia_clothes
-		trigger = { NOT = { artifact_region_trigger = { CHARACTER = scope:owner REGION = world_old_world } } }
+		trigger = { NOT = { artifact_region_trigger = { CHARACTER = scope:owner REGION = world_europe } } }
 		weight = 100
 	}
 
 # regalia_accessory
 	regalia_accessory_orb = {
 		group = regalia_accessory
-		trigger = { always = no }
+		trigger = { scope:owner = { religion = religion:christianity_religion } }
 		weight = 100
 	}
 	regalia_accessory_necklace = {
 		group = regalia_accessory
-		trigger = { always = yes }
+		trigger = { NOT = { scope:owner = { religion = religion:christianity_religion } } }
 		weight = 100
 	}
 
@@ -1693,7 +1710,8 @@
 	brooch_centerpiece_cross = {
 		group = brooch_centerpiece
 		trigger = {
-			always = no
+			exists = religion
+			religion = religion:christianity_religion
 		}
 		weight = 33
 	}
@@ -1896,7 +1914,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion #  Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -1915,7 +1933,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion #  Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -1934,7 +1952,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion #  Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -1953,7 +1971,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion #  Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -1972,7 +1990,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion #  Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -1991,7 +2009,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion #  Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -2010,7 +2028,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion #  Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -2029,7 +2047,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion # Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -2048,7 +2066,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion # Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -2067,7 +2085,7 @@
 			trigger_else = {
 				scope:owner = {
 					NOR = {
-						# religion = religion:islam_religion # Replace with appropriate religion
+						religion = religion:islam_religion
 						faith = { has_doctrine = tenet_aniconism }
 					}
 				}
@@ -2622,9 +2640,9 @@
 				scope:owner.var:animal_type ?= flag:wolf
 				AND = {
 					scope:owner.var:animal_type ?= flag:none
-					# scope:location ?= { # Replace with appropriate region
-						# NOT = { geographical_region = world_africa }
-					# }
+					scope:location ?= {
+						NOT = { geographical_region = world_africa }
+					}
 				}
 			}
 			trigger_if = {
@@ -4496,7 +4514,33 @@
 	book_topic_diplomacy_hitopadesa = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_diplomacy
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:diplomacy_entertainment
+			}
+			OR = {
+				trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+					limit = { exists = scope:owner.var:book_artifact_topic }
+					scope:owner.var:book_artifact_topic = flag:hitopadesa
+				}
+				AND = {
+					scope:owner.faith.religion = religion:hinduism_religion
+					trigger_if = {
+						limit = { exists = scope:owner.var:book_artifact_author }
+						scope:owner.var:book_artifact_author.faith.religion = religion:hinduism_religion
+					}
+				}
+				AND = {
+					exists = scope:owner.capital_province
+					scope:owner.capital_province = {
+						OR = {
+							geographical_region = world_india
+							geographical_region = ghw_region_afghanistan
+						}
+					}
+				}
+			}
 		}
 		weight = 1
 	}
@@ -4504,7 +4548,20 @@
 	book_topic_diplomacy_kalila = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_diplomacy
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:diplomacy_entertainment
+			}
+			trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+				limit = { exists = scope:owner.var:book_artifact_topic }
+				scope:owner.var:book_artifact_topic = flag:kalila
+			}
+			scope:owner.faith.religion = religion:islam_religion
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_artifact_author }
+				scope:owner.var:book_artifact_author.faith.religion = religion:islam_religion
+			}
 		}
 		weight = 1
 	}
@@ -4512,7 +4569,29 @@
 	book_topic_diplomacy_edda = {
 		group = book_topic
 		trigger = {
-			always = no
+			OR = {
+				has_artifact_feature = book_subject_diplomacy
+				has_artifact_feature = book_subject_learning
+			}
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				OR = {
+					scope:owner.var:book_topic_category = flag:diplomacy_entertainment
+					scope:owner.var:book_topic_category = flag:learning_learning
+				}
+			}
+			trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+				limit = { exists = scope:owner.var:book_artifact_topic }
+				scope:owner.var:book_artifact_topic = flag:edda
+			}
+			scope:owner.faith.religion = religion:germanic_religion
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_artifact_author }
+				scope:owner.var:book_artifact_author = {
+					faith.religion = religion:germanic_religion
+					has_trait = poet
+				}
+			}
 		}
 		weight = 1
 	}
@@ -4520,7 +4599,20 @@
 	book_topic_diplomacy_orkneyinga = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_diplomacy
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:diplomacy_entertainment
+			}
+			trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+				limit = { exists = scope:owner.var:book_artifact_topic }
+				scope:owner.var:book_artifact_topic = flag:orkneyinga
+			}
+			scope:owner.faith.religion = religion:germanic_religion
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_artifact_author }
+				scope:owner.var:book_artifact_author.faith.religion = religion:germanic_religion
+			}
 		}
 		weight = 1
 	}
@@ -4657,7 +4749,15 @@
 	book_topic_learning_aristotle = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_learning
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:learning_learning
+			}
+			trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+				limit = { exists = scope:owner.var:book_artifact_topic }
+				scope:owner.var:book_artifact_topic = flag:aristotle
+			}
 		}
 		weight = 1
 	}
@@ -4805,7 +4905,20 @@
 	book_topic_learning_hours = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_learning
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:learning_faith
+			}
+			trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+				limit = { exists = scope:owner.var:book_artifact_topic }
+				scope:owner.var:book_artifact_topic = flag:hours
+			}
+			scope:owner.faith.religion = religion:christianity_religion
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_artifact_author }
+				scope:owner.var:book_artifact_author.faith.religion = religion:christianity_religion
+			}
 		}
 		weight = 1
 	}
@@ -4813,7 +4926,20 @@
 	book_topic_learning_golden_legend = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_learning
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:learning_faith
+			}
+			trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+				limit = { exists = scope:owner.var:book_artifact_topic }
+				scope:owner.var:book_artifact_topic = flag:golden_legend
+			}
+			scope:owner.faith.religion = religion:christianity_religion
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_artifact_author }
+				scope:owner.var:book_artifact_author.faith.religion = religion:christianity_religion
+			}
 		}
 		weight = 1
 	}
@@ -4821,7 +4947,20 @@
 	book_topic_learning_iliad = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_learning
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:learning_learning
+			}
+			trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+				limit = { exists = scope:owner.var:book_artifact_topic }
+				scope:owner.var:book_artifact_topic = flag:iliad
+			}
+			scope:owner.culture = { has_cultural_pillar = heritage_byzantine }
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_artifact_author }
+				scope:owner.var:book_artifact_author.culture = { has_cultural_pillar = heritage_byzantine }
+			}
 		}
 		weight = 1
 	}
@@ -4829,7 +4968,31 @@
 	book_topic_learning_mahabharata = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_learning
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:learning_learning
+			}
+			OR = {
+				trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+					limit = { exists = scope:owner.var:book_artifact_topic }
+					scope:owner.var:book_artifact_topic = flag:mahabharata
+				}
+				AND = {
+					scope:owner.faith.religion = religion:hinduism_religion
+					exists = scope:owner.var:book_artifact_author
+					scope:owner.var:book_artifact_author.faith.religion = religion:hinduism_religion
+				}
+				AND = {
+					exists = scope:owner.capital_province
+					scope:owner.capital_province = {
+						OR = {
+							geographical_region = world_india
+							geographical_region = ghw_region_afghanistan
+						}
+					}
+				}
+			}
 		}
 		weight = 1
 	}
@@ -4837,7 +5000,19 @@
 	book_topic_learning_mufaddaliyat = {
 		group = book_topic
 		trigger = {
-			always = no
+			has_artifact_feature = book_subject_learning
+			trigger_if = {
+				limit = { exists = scope:owner.var:book_topic_category }
+				scope:owner.var:book_topic_category = flag:learning_learning
+			}
+			trigger_if = { # If the topic has been pre-saved from events etc. we make sure it's picked
+				limit = { exists = scope:owner.var:book_artifact_topic }
+				scope:owner.var:book_artifact_topic = flag:mufaddaliyat
+			}
+			scope:owner.faith.religion = religion:islam_religion
+			exists = scope:owner.var:book_artifact_author
+			scope:owner.var:book_artifact_author.faith.religion = religion:islam_religion
+			scope:owner.var:book_artifact_author = { has_trait = scholar }
 		}
 		weight = 1
 	}
@@ -4992,7 +5167,13 @@
 			}
 			OR = {
 				AND = {
-					scope:owner.culture = { has_cultural_pillar = heritage_byzantine }
+					scope:owner.culture = {
+						OR = {
+							has_cultural_pillar = heritage_byzantine
+							has_cultural_pillar = heritage_caucasian
+							has_cultural_pillar = heritage_syriac
+						}
+					}
 					trigger_if = {
 						limit = { exists = scope:owner.var:book_artifact_author }
 						scope:owner.var:book_artifact_author.culture = { has_cultural_pillar = heritage_byzantine }
@@ -5886,6 +6067,18 @@
 		}
 		weight = {
 			value = 1
+			if = { #An alchemist from the Islamic Golden Age, so more likely to show up if you have a stronger connection to, and easier access to, the materials
+				limit = {
+					OR = {
+						scope:owner.faith.religion = religion:islam_religion
+						AND = {
+							exists = scope:owner.var:book_artifact_author
+							scope:owner.var:book_artifact_author.faith.religion = religion:islam_religion
+						}
+					}
+				}
+				add = 10
+			}
 		}
 	}
 
@@ -5901,6 +6094,18 @@
 		}
 		weight = {
 			value = 1
+			if = { #An alchemist from the Islamic Golden Age, so more likely to show up if you have a stronger connection to, and easier access to, the materials
+				limit = {
+					OR = {
+						scope:owner.faith.religion = religion:islam_religion
+						AND = {
+							exists = scope:owner.var:book_artifact_author
+							scope:owner.var:book_artifact_author.faith.religion = religion:islam_religion
+						}
+					}
+				}
+				add = 10
+			}
 		}
 	}
 
@@ -6067,6 +6272,30 @@
 		weight = 1
 	}
 
+	book_title_diplomacy_hitopadesa = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_diplomacy_hitopadesa }
+		weight = 1
+	}
+
+	book_title_diplomacy_kalila = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_diplomacy_kalila }
+		weight = 1
+	}
+
+	book_title_diplomacy_edda = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_diplomacy_edda }
+		weight = 1
+	}
+
+	book_title_diplomacy_orkneyinga = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_diplomacy_orkneyinga }
+		weight = 1
+	}
+
 	book_title_diplomacy_poetry = {
 		group = book_title
 		trigger = { has_artifact_feature = book_topic_diplomacy_poetry }
@@ -6186,9 +6415,45 @@
 		weight = 1
 	}
 
+	book_title_learning_hours = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_learning_hours }
+		weight = 1
+	}
+
+	book_title_learning_golden_legend = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_learning_golden_legend }
+		weight = 1
+	}
+
+	book_title_learning_aristotle = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_learning_aristotle }
+		weight = 1
+	}
+
 	book_title_learning_anatomy = {
 		group = book_title
 		trigger = { has_artifact_feature = book_topic_learning_anatomy }
+		weight = 1
+	}
+
+	book_title_learning_iliad = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_learning_iliad }
+		weight = 1
+	}
+
+	book_title_learning_mahabharata = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_learning_mahabharata }
+		weight = 1
+	}
+
+	book_title_learning_mufaddaliyat = {
+		group = book_title
+		trigger = { has_artifact_feature = book_topic_learning_mufaddaliyat }
 		weight = 1
 	}
 
@@ -6751,6 +7016,18 @@
 		group = book_decoration
 		weight = 10
 	}
+
+#################################################################
+# Icon Features - Decoration									#
+#################################################################
+
+# saint - which saint or holy figure is depicted
+	icon_decoration_pattern_saint = {
+		group = icon_decoration
+		trigger = { always = yes }
+		weight = 1
+	}
+
 
 #################################################################
 # Alchemy Features - Elixirs, Metals, Decoration				#

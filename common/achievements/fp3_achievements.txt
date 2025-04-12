@@ -6,7 +6,7 @@
 
 # fp3_00_achievement = {
 # 	possible = {
-# 		has_fp3_dlc_trigger = yes
+# 		
 # 	}
 # 	happened = {
 # 		custom_description = {
@@ -17,9 +17,7 @@
 # }
 
 fp3_rich_in_diversity_achievement = {
-	possible = { 
-		has_fp3_dlc_trigger = yes 
-	}
+	possible = {  }
 	happened = {
 		custom_description = {
 			text = fp3_rich_in_diversity_achievement_trigger
@@ -39,18 +37,21 @@ fp3_rich_in_diversity_achievement = {
 }
 
 fp3_darius_revenge_achievement = {
-	possible = {
-		always = no
-	}
+	possible = {  }
 	happened = {
-		always = no
+		custom_description = {
+			text = fp3_darius_revenge_achievement_trigger
+			is_ai = no
+			has_title = title:e_persia
+			has_title = title:k_thessalonika
+			has_title = title:k_hellas
+			culture = { has_cultural_pillar = heritage_iranian }
+		}
 	}
 }
 
 fp3_mulct_them_dry_achievement = {
-	possible = { 
-		has_fp3_dlc_trigger = yes 
-	}
+	possible = {  }
 	happened = {
 		custom_description = {
 			text = fp3_mulct_them_dry_achievement_trigger
@@ -61,17 +62,26 @@ fp3_mulct_them_dry_achievement = {
 
 fp3_the_umma_strikes_back_achievement = {
 	possible = {
-		always = no
+		
+		exists = global_var:fp3_the_umma_strikes_back_achievement_tracker
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = fp3_the_umma_strikes_back_achievement_trigger
+			is_ai = no
+			exists = global_var:fp3_the_umma_strikes_back_achievement_tracker
+			has_title = title:e_arabia
+			has_title = title:d_sunni
+			faith = {
+				has_doctrine = muhammad_succession_sunni_doctrine
+				prev = religious_head
+			}
+		}
 	}
 }
 
 fp3_royal_flush_achievement = { # Achievement for commiting sassasinations
-	possible = { 
-		has_fp3_dlc_trigger = yes 
-	}
+	possible = {  }
 	happened = {
 		custom_description = {
 			text = fp3_royal_flush_achievement_trigger
@@ -87,9 +97,7 @@ fp3_royal_flush_achievement = { # Achievement for commiting sassasinations
 }
 
 fp3_fiscal_res_achievement = {
-	possible = { 
-		has_fp3_dlc_trigger = yes 
-	}
+	possible = {  }
 	happened = {
 		custom_description = {
 			text = fp3_fiscal_res_achievement_trigger
@@ -107,36 +115,52 @@ fp3_fiscal_res_achievement = {
 
 fp3_abassid_strong_achievement = {
 	possible = {
-		always = no
+		
+		exists = struggle:persian_struggle
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = fp3_abassid_strong_achievement_trigger
+			has_character_flag = fp3_abassid_strong_achievement_unlocked
+		}
 	}
 }
 
 fp3_challenger_caliphate_achievement = {
 	possible = {
-		always = no
+		
+		exists = struggle:persian_struggle
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = fp3_challenger_caliphate_achievement_trigger
+			has_character_flag = fp3_challenger_caliphate_achievement_unlocked
+		}
 	}
 }
 
 fp3_vassalize_the_caliph_achievement = {
 	possible = {
-		always = no
+		
+		exists = struggle:persian_struggle
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = fp3_vassalize_the_caliph_achievement_trigger
+			has_character_flag = fp3_vassalize_the_caliph_achievement_unlocked
+		}
 	}
 }
 
 fp3_rekindle_iran_achievement = {
 	possible = {
-		always = no
+		
+		exists = struggle:persian_struggle
 	}
 	happened = {
-		always = no
+		custom_description = {
+			text = fp3_rekindle_iran_achievement_trigger
+			has_character_flag = fp3_rekindle_iran_achievement_unlocked
+		}
 	}
 }

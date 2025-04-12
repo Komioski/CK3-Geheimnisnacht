@@ -25,7 +25,7 @@
 
 #Character knows liturgical language of the religion of the university
 #We are using the location here - rather than the religion of the teachers - which could differ
-apa_leveraging_language_skills = { # Geheimnisnacht: Do we have liturgical languages?
+apa_leveraging_language_skills = {
 	icon = public
 	is_valid = {
 		is_current_phase_active = yes
@@ -33,11 +33,81 @@ apa_leveraging_language_skills = { # Geheimnisnacht: Do we have liturgical langu
 			location = scope:province
 			has_activity_intent = study_hard_intent
 			OR = {
-				AND = { # Breton is good if they worship the Lady for now
-					scope:province.religion = religion:the_lady_religion
-					knows_language = language_breton
+				AND = {
+					scope:province.faith.religion = religion:islam_religion
+					knows_language = language_arabic
 				}
-				# ADD MORE IF NEED
+				AND = {
+					scope:province = {
+						OR = {
+							faith = faith:catholic
+							faith = faith:conversos
+							faith = faith:lollard
+							faith = faith:insular_celtic
+							faith = faith:mozarabic_church
+						}
+					}
+					knows_language = language_latin
+				}
+				AND = {
+					scope:province.faith = faith:cathar
+					knows_language = language_occitano_romance
+				}
+				AND = {
+					scope:province.faith = faith:armenian_apostolic
+					knows_language = language_armenian
+				}
+				AND = {
+					scope:province.faith = faith:nestorian
+					knows_language = language_aramaic
+				}
+				AND = {
+					scope:province.faith = faith:lamaism
+					knows_language = language_tibetan
+				}
+				AND = {
+					scope:province.religion = religion:bon_religion
+					knows_language = language_tibetan
+				}
+				AND = {
+					scope:province.religion = religion:taoism_religion
+					knows_language = language_chinese
+				}
+				AND = {
+					scope:province = {
+						religion = religion:christianity_religion
+						NOR = { #Non-Greek
+							faith = faith:catholic
+							faith = faith:conversos
+							faith = faith:lollard
+							faith = faith:insular_celtic
+							faith = faith:mozarabic_church
+							faith = faith:armenian_apostolic
+							faith = faith:cathar
+						}
+					}
+					knows_language = language_greek #General Christian Fallback
+				}
+				#For dead languages we check that you belong to the religion and have sufficient learning to be expected to know a liturgical language:
+				AND = {
+					religion = scope:province.religion
+					scope:province = { #these have specific languages to learn
+						NOR = {
+							religion = religion:christianity_religion
+							religion = religion:islam_religion
+							religion = religion:taoism_religion
+							faith = faith:lamaism
+						}
+					}
+					learning > 15 #Well educated
+				}
+				AND = { #Dharmic Faiths knows Sanskrit
+					scope:province = {
+						is_dharmic_faith_trigger = yes
+					}
+					is_dharmic_faith_trigger = yes
+					learning > 15 #Well educated
+				}
 			}
 		}
 	}

@@ -16,8 +16,11 @@ walls_00 = {
 				fort_level < 1
 			}
 			# Using the no_wall holding graphics for cities with special walls so that they don't have double walls
-			has_building_or_higher = "city_wall_of_toledo_01"
+			has_building_or_higher = "city_wall_of_toledo_01"			
 			has_building_or_higher = "roman_wall_of_lugo_01"
+			has_building_or_higher = "kano_walls_01"
+			has_building_or_higher = "jaisalmer_fort_01"
+
 		}
 	}
 }
@@ -64,6 +67,7 @@ walls_01 = {
 			"western_walls_01_a_mesh"
 			"western_walls_01_b_mesh"
 		}
+		graphical_regions = { graphical_western graphical_mediterranean graphical_india }
 	}
 	asset = {
 		type = pdxmesh
@@ -72,9 +76,8 @@ walls_01 = {
 			"mena_walls_01_b_mesh"
 
 		}
-		graphical_regions = { graphical_mena }
+		graphical_regions = { graphical_mena graphical_steppe }
 	}
-
 	asset = {
 		type = pdxmesh
 		requires_dlc_flag = the_northern_lords
@@ -145,6 +148,7 @@ walls_02 = {
 
 	asset = {
 		type = pdxmesh
+		graphical_regions = { graphical_western graphical_mediterranean graphical_india }
 		names = {
 			"western_walls_02_a_mesh"
 			"western_walls_02_a_mesh"
@@ -153,13 +157,12 @@ walls_02 = {
 
 	asset = {
 		type = pdxmesh
-		graphical_regions = { graphical_mena }
+		graphical_regions = { graphical_mena graphical_steppe }
 		names = {
 			"mena_walls_02_a_mesh"
 			"mena_walls_02_a_mesh"
 		}
 	}
-
 
 	asset = {
 		type = pdxmesh
@@ -194,9 +197,19 @@ walls_02 = {
 		type = pdxmesh
 		requires_dlc_flag = legacy_of_persia
 		graphical_cultures = { iranian_building_gfx }
-		graphical_regions = { graphical_mena graphical_india }
+		graphical_regions = { graphical_mena graphical_india graphical_steppe }
 		names = {
 			"fp3_building_persian_walls_02_a_01_mesh" 
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+		names = {
+			"ep3_byzantine_walls_02_mesh" 
 		}
 	}
 
@@ -230,7 +243,7 @@ walls_03 = {
 
 	asset = {
 		type = pdxmesh
-		graphical_regions = { graphical_western graphical_steppe }
+		graphical_regions = { graphical_western }
 		names = {
 			"western_walls_03_a_mesh"
 			"western_walls_03_a_mesh"
@@ -248,7 +261,7 @@ walls_03 = {
 
 	asset = {
 		type = pdxmesh
-		graphical_regions = { graphical_mena }
+		graphical_regions = { graphical_mena graphical_steppe }
 		names = {
 			"mena_walls_03_a_mesh"
 			"mena_walls_03_a_mesh"
@@ -277,10 +290,20 @@ walls_03 = {
 	asset = {
 		type = pdxmesh
 		requires_dlc_flag = legacy_of_persia
-		graphical_cultures = { iranian_building_gfx }
-		graphical_regions = { graphical_mena graphical_india }
+		graphical_cultures = { iranian_building_gfx steppe_building_gfx }
+		graphical_regions = { graphical_mena graphical_india graphical_steppe }
 		names = {
 			"fp3_building_persian_walls_03_a_01_mesh"  
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+		names = {
+			"ep3_byzantine_walls_03_mesh" 
 		}
 	}
 	
@@ -316,7 +339,7 @@ walls_04 = {
 
 	asset = {
 		type = pdxmesh
-		graphical_regions = { graphical_western graphical_steppe }
+		graphical_regions = { graphical_western }
 		names = {
 			"western_walls_04_a_mesh"
 			"western_walls_04_a_mesh"
@@ -334,7 +357,7 @@ walls_04 = {
 
 	asset = {
 		type = pdxmesh
-		graphical_regions = { graphical_mena }
+		graphical_regions = { graphical_mena graphical_steppe }
 		names = {
 			"mena_walls_04_a_mesh"
 			"mena_walls_04_a_mesh"
@@ -363,10 +386,20 @@ walls_04 = {
 	asset = {
 		type = pdxmesh
 		requires_dlc_flag = legacy_of_persia
-		graphical_cultures = { iranian_building_gfx }
-		graphical_regions = { graphical_mena graphical_india }
+		graphical_cultures = { iranian_building_gfx steppe_building_gfx }
+		graphical_regions = { graphical_mena graphical_india  graphical_steppe }
 		names = {
 			"fp3_building_persian_walls_04_a_01_mesh" 
+		}
+	}
+
+	asset = {
+		type = pdxmesh
+		requires_dlc_flag = roads_to_power
+		graphical_cultures = { byzantine_building_gfx }
+		graphical_regions = { graphical_mediterranean }
+		names = {
+			"ep3_byzantine_walls_04_mesh" 
 		}
 	}
 	

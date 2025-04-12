@@ -8,6 +8,527 @@
 
 # Byzantine-only: you have reconquered an important city of the long-lost Empire
 
+
+=======
+ep3_emperor_yearly.2000 = {
+	type = character_event
+	window = fullscreen_event
+	title = ep3_emperor_yearly.2000.t
+	desc = {
+		desc = ep3_emperor_yearly.2000.desc_intro
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_antiocheia
+					faith.religion = religion:christianity_religion
+				}
+				desc = ep3_emperor_yearly.2000.desc_antioch
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_antiocheia
+				}
+				desc = ep3_emperor_yearly.2000.desc_antioch_not_christ
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_jerusalem
+					faith.religion = religion:christianity_religion
+				}
+				desc = ep3_emperor_yearly.2000.desc_jerusalem
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_jerusalem
+				}
+				desc = ep3_emperor_yearly.2000.desc_jerusalem_not_christ
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_alexandria
+					faith.religion = religion:christianity_religion
+				}
+				desc = ep3_emperor_yearly.2000.desc_alexandria_not_christ
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_alexandria
+				}
+				desc = ep3_emperor_yearly.2000.desc_alexandria
+			}
+			#Maximum estent of the Roman Empire to the East (Trajan) - Abbadan
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_abbadan
+				}
+				desc = ep3_emperor_yearly.2000.desc_frontier
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_edessa
+					faith.religion = religion:christianity_religion
+				}
+				desc = ep3_emperor_yearly.2000.desc_edessa
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_edessa
+				}
+				desc = ep3_emperor_yearly.2000.desc_edessa_not_christ
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_bari
+				}
+				desc = ep3_emperor_yearly.2000.desc_bari
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_siracusa
+				}
+				desc = ep3_emperor_yearly.2000.desc_syracuse
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_roma
+				}
+				desc = ep3_emperor_yearly.2000.desc_rome
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_ravenna
+				}
+				desc = ep3_emperor_yearly.2000.desc_ravenna
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_tunis
+				}
+				desc = ep3_emperor_yearly.2000.desc_carthago
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_tangiers
+				}
+				desc = ep3_emperor_yearly.2000.desc_tingis
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_murcia
+				}
+				desc = ep3_emperor_yearly.2000.desc_carthago_spartaria
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_lombardia
+				}
+				desc = ep3_emperor_yearly.2000.desc_milan
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_trier
+				}
+				desc = ep3_emperor_yearly.2000.desc_trier
+			}
+			triggered_desc = {
+				trigger = {
+					OR = {
+						scope:county = title:c_cumberland
+						scope:county = title:c_northumberland
+					}
+				}
+				desc = ep3_emperor_yearly.2000.desc_hadrians_wall
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_chandax
+				}
+				desc = ep3_emperor_yearly.2000.desc_chandax
+			}
+			triggered_desc = {
+				trigger = {
+					scope:county = title:c_tourraine
+				}
+				desc = ep3_emperor_yearly.2000.desc_tours
+			}
+		}
+	}
+	theme = war
+	override_background = { reference = ep3_triumph }
+
+	trigger = {
+		has_ep3_dlc_trigger = yes
+		trigger_if = {
+			limit = {
+				scope:county = title:c_tourraine
+			}
+			NOT = { exists = var:ep3_reconquered_tourraine }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_chandax
+			}
+			NOT = { exists = var:ep3_reconquered_chandax }
+		}
+		trigger_else_if = {
+			limit = {
+				OR = {
+					scope:county = title:c_cumberland
+					scope:county = title:c_northumberland
+				}
+			}
+			NOT = { exists = var:ep3_reconquered_hadrian }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_trier
+			}
+			NOT = { exists = var:ep3_reconquered_trier }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_lombardia
+			}
+			NOT = { exists = var:ep3_reconquered_lombardia }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_murcia
+			}
+			NOT = { exists = var:ep3_reconquered_murcia }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_tangiers
+			}
+			NOT = { exists = var:ep3_reconquered_tangiers }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_tunis
+			}
+			NOT = { exists = var:ep3_reconquered_tunis }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_ravenna
+			}
+			NOT = { exists = var:ep3_reconquered_ravenna }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_roma
+			}
+			NOT = { exists = var:ep3_reconquered_roma }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_siracusa
+			}
+			NOT = { exists = var:ep3_reconquered_siracusa }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_bari
+			}
+			NOT = { exists = var:ep3_reconquered_bari }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_edessa
+			}
+			NOT = { exists = var:ep3_reconquered_edessa }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_abbadan
+			}
+			NOT = { exists = var:ep3_reconquered_abbadan }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_alexandria
+			}
+			NOT = { exists = var:ep3_reconquered_alexandria }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_jerusalem
+			}
+			NOT = { exists = var:ep3_reconquered_jerusalem }
+		}
+		trigger_else_if = {
+			limit = {
+				scope:county = title:c_antiocheia
+			}
+			NOT = { exists = var:ep3_reconquered_antiocheia }
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+
+	immediate = {
+		change_influence = massive_influence_gain
+		add_prestige = major_prestige_gain
+	}
+
+	#Option A
+	option = {
+		name = ep3_emperor_yearly.2000.a
+		if = {
+			limit = {
+				OR = {
+					scope:county = title:c_antiocheia
+					scope:county = title:c_jerusalem
+					scope:county = title:c_alexandria
+					scope:county = title:c_roma
+				}
+			}
+			scope:county = {
+				add_county_modifier = {
+					modifier = ep3_restored_pentarchy_seat_county_modifier
+					years = 10
+				}
+			}
+			add_character_modifier = {
+				modifier = ep3_restored_pentarchy_seat_modifier
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:county = title:c_abbadan
+					scope:county = title:c_cumberland
+					scope:county = title:c_northumberland
+				}
+			}
+			scope:county = {
+				add_county_modifier = {
+					modifier = ep3_maximum_border_county_modifier
+					years = 10
+				}
+			}
+			add_character_modifier = {
+				modifier = ep3_maximum_border_modifier
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:county = title:c_ravenna
+					scope:county = title:c_tunis
+					scope:county = title:c_murcia
+				}
+			}
+			scope:county = {
+				add_county_modifier = {
+					modifier = ep3_new_justinian_county_modifier
+					years = 10
+				}
+			}
+			add_character_modifier = {
+				modifier = ep3_new_justinian_modifier
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:county = title:c_lombardia
+					scope:county = title:c_trier
+				}
+			}
+			scope:county = {
+				add_county_modifier = {
+					modifier = ep3_western_tetrarch_county_modifier
+					years = 10
+				}
+			}
+			add_character_modifier = {
+				modifier = ep3_western_tetrarch_modifier
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:county = title:c_tangiers
+					scope:county = title:c_tourraine
+				}
+			}
+			scope:county = {
+				add_county_modifier = {
+					modifier = ep3_long_lost_province_county_modifier
+					years = 10
+				}
+			}
+			add_character_modifier = {
+				modifier = ep3_long_lost_province_modifier
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:county = title:c_edessa
+					scope:county = title:c_bari
+				}
+			}
+			scope:county = {
+				add_county_modifier = {
+					modifier = ep3_long_contested_province_county_modifier
+					years = 10
+				}
+			}
+			add_character_modifier = {
+				modifier = ep3_long_contested_province_modifier
+				years = 10
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:county = title:c_siracusa
+					scope:county = title:c_chandax
+				}
+			}
+			scope:county = {
+				add_county_modifier = {
+					modifier = ep3_medi_gem_county_modifier
+					years = 10
+				}
+			}
+			add_character_modifier = {
+				modifier = ep3_medi_gem_modifier
+				years = 10
+			}
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				scope:county = title:c_antiocheia
+			}
+			set_global_variable = ep3_reconquered_antiocheia
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_jerusalem
+			}
+			set_global_variable = ep3_reconquered_jerusalem
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_alexandria
+			}
+			set_global_variable = ep3_reconquered_alexandria
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_abbadan
+			}
+			set_global_variable = ep3_reconquered_abbadan
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_edessa
+			}
+			set_global_variable = ep3_reconquered_edessa
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_bari
+			}
+			set_global_variable = ep3_reconquered_bari
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_siracusa
+			}
+			set_global_variable = ep3_reconquered_siracusa
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_roma
+			}
+			set_global_variable = ep3_reconquered_roma
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_ravenna
+			}
+			set_global_variable = ep3_reconquered_ravenna
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_tunis
+			}
+			set_global_variable = ep3_reconquered_tunis
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_tangiers
+			}
+			set_global_variable = ep3_reconquered_tangiers
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_murcia
+			}
+			set_global_variable = ep3_reconquered_murcia
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_lombardia
+			}
+			set_global_variable = ep3_reconquered_lombardia
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_trier
+			}
+			set_global_variable = ep3_reconquered_trier
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:county = title:c_cumberland
+					scope:county = title:c_northumberland
+				}
+			}
+			set_global_variable = ep3_reconquered_hadrian
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_chandax
+			}
+			set_global_variable = ep3_reconquered_chandax
+		}
+		else_if = {
+			limit = {
+				scope:county = title:c_tourraine
+			}
+			set_global_variable = ep3_reconquered_tourraine
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					any_owned_story = {
+						story_type = ep3_story_cycle_restoring_rome
+					}
+				}
+			}
+			create_story = ep3_story_cycle_restoring_rome
+		}
+	}
+}
+
+
 # Courtiers grumble about you sending an imperial prince/princess to marry abroad among barbarians
 
 scripted_trigger emperor_2010_valid_child_trigger = {
@@ -202,6 +723,202 @@ ep3_emperor_yearly.2010 = {
 		}
 	}
 }
+
+
+=======
+# Byzantine-only: The Patriarch refuses to crown you as new emperor because you have a criminal trait (e.g. kinslayer)
+
+ep3_emperor_yearly.2020 = {
+	type = character_event
+	title = ep3_emperor_yearly.2020.t
+	desc = ep3_emperor_yearly.2020.desc
+	theme = emperor
+	override_background = { reference = ep3_hagia_sophia }
+	left_portrait = {
+		character = root
+		animation = disbelief
+	}
+	right_portrait = {
+		character = scope:patriarch
+		animation = anger
+	}
+	
+	trigger = {
+		has_ep3_dlc_trigger = yes
+		valid_for_byz_emperor_content_trigger = yes
+		exists = root.faith.religious_head
+		NOT = { this = faith.religious_head }
+		faith.religious_head = {
+			opinion = {
+				target = root
+				value <= 0
+			}
+			location = root.location
+		}
+		has_any_criminal_trait_in_faith_trigger = {
+			CHARACTER = root
+			FAITH = root.faith
+		}
+		NOT = { has_character_flag = has_had_ep3_2020 }
+	}
+
+	immediate = {
+		faith.religious_head = { save_scope_as = patriarch }
+		add_character_flag = has_had_ep3_2020
+		random_character_trait = {
+			limit = {
+				save_temporary_scope_as = temp_trait
+				scoped_trait_is_criminal_in_faith_trigger = { TRAIT = scope:temp_trait FAITH = root.faith GENDER_CHARACTER = root }
+			}
+			save_scope_as = target_criminal_trait
+		}
+	}
+
+	#Option A: repent
+	option = {
+		name = ep3_emperor_yearly.2020.a
+		flavor = ep3_emperor_yearly.2020.a.tt
+		change_influence = major_influence_loss
+		add_prestige = major_prestige_loss
+		custom_tooltip = ep3_emperor_yearly.2020.a.tt2
+
+		trigger_event = {
+			id = ep3_emperor_yearly.2021
+			days = 366
+		}
+		scope:patriarch = {
+			add_opinion = {
+				target = root
+				modifier = forgiven_opinion
+			}
+		}
+
+		stress_impact = {
+			ambitious = medium_stress_impact_gain
+			cynical = major_stress_impact_gain
+			arrogant = major_stress_impact_gain
+			zealous = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_zeal = 1
+			}
+			modifier = {
+				has_trait = ambitious
+				add = -50
+			}
+			modifier = {
+				has_trait = arrogant
+				add = -50
+			}
+		}
+	}
+
+	#Option B: ignore
+	option = {
+		name = ep3_emperor_yearly.2020.b
+		change_influence = major_influence_gain
+		add_prestige = major_prestige_gain
+		if = {
+			limit = { piety_level >= low_piety_level }
+			add_piety_level = -1
+		}
+		else = {
+			add_piety = major_piety_loss
+		}
+		scope:patriarch = {
+			add_opinion = {
+				target = root
+				modifier = impious_opinion
+				opinion = -50
+			}
+		}
+
+		stress_impact = {
+			zealous = major_stress_impact_gain
+			humble = major_stress_impact_gain
+			arrogant = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 1
+			}
+			modifier = {
+				has_trait = zealous
+				add = -50
+			}
+			modifier = {
+				has_trait = humble
+				add = -50
+			}
+		}
+	}
+}
+
+ep3_emperor_yearly.2021 = {
+	type = character_event
+	title = ep3_emperor_yearly.2021.t
+	desc = {
+		desc = ep3_emperor_yearly.2021.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:patriarch = { is_alive = yes } }
+				desc = ep3_emperor_yearly.2021.desc_patriarch
+			}
+			desc = ep3_emperor_yearly.2021.desc_patriarch_new
+		}
+		desc = ep3_emperor_yearly.2021.desc_end
+	}
+	theme = crown
+	override_background = { reference = ep3_hagia_sophia }
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	right_portrait = {
+		character = scope:patriarch_portrait
+		animation = wedding_priest
+	}
+	lower_right_portrait = {
+ 		trigger = {
+ 			scope:patriarch = { is_alive = no }
+ 		}
+ 		character = scope:patriarch
+ 	}
+
+ 	trigger = {
+ 		exists = faith.religious_head
+ 		NOT = { this = faith.religious_head }
+ 		has_any_criminal_trait_in_faith_trigger = {
+			CHARACTER = root
+			FAITH = root.faith
+		}
+ 	}
+
+	immediate = {
+		if = {
+			limit = {
+				scope:patriarch = {
+					is_alive = yes
+					faith = scope:patriarch.faith
+				}
+			}
+			scope:patriarch = { save_scope_as = patriarch_portrait }
+		}
+		else = {
+			faith.religious_head = { save_scope_as = patriarch_portrait }
+		}
+	}
+
+	option = {
+		name = ep3_emperor_yearly.2021.a
+		add_legitimacy = minor_legitimacy_gain
+		remove_trait = scope:target_criminal_trait
+	}
+}
+
 
 # The Patriarch refuses to crown a new emperor after a coup
 scripted_trigger valid_clergy_gender_trigger = {

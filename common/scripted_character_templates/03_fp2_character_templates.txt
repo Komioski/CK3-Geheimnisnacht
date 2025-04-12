@@ -29,7 +29,8 @@ celebration_scholar_character = {
 
 	random_traits_list = {
 		count = { 0 1 }
-		eunuch = {}
+		eunuch_1 = {}
+		beardless_eunuch = {}
 		blind = {}
 		infirm = {}
 	}
@@ -46,9 +47,6 @@ celebration_scholar_character = {
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
-	}
-	after_creation = {
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -97,11 +95,10 @@ celebration_martial_character = {
 	prowess = extremely_high_skill_rating
 	after_creation = {
 		if = {
-			limit = { has_dlc = tours_and_tournaments }
+			limit = { has_dlc_feature = tours_and_tournaments }
 			add_trait = tourney_participant
 			add_random_tourney_participant_level_effect = yes
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -143,9 +140,6 @@ celebration_diplomat_character = {
 		min_template_high_skill
 		max_template_high_skill
 	}
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 celebration_spy_character = {
@@ -183,9 +177,6 @@ celebration_spy_character = {
 
 	random_traits = yes
 	dynasty = none
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 celebration_steward_character = {
@@ -214,9 +205,6 @@ celebration_steward_character = {
 
 	random_traits = yes
 	dynasty = none
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }
 
 celebration_hunter_character = {
@@ -261,7 +249,6 @@ celebration_hunter_character = {
 			LEVEL_1 = no
 			LEVEL_3 = yes
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -436,7 +423,6 @@ celebration_priest_character = {
 		add_character_flag = {
 			flag = need_priest_outfit
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -491,7 +477,6 @@ celebration_artisan_character = {
 
 	after_creation = {
 		grant_inspiration_to_character_effect = { CHARACTER = this }
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -500,7 +485,8 @@ celebration_chessmaster_character = {
 
 	random_traits_list = {
 		count = { 0 1 }
-		eunuch = {}
+		eunuch_1 = {}
+		beardless_eunuch = {}
 		blind = {}
 		infirm = {}
 	}
@@ -527,7 +513,7 @@ celebration_chessmaster_character = {
 	}
 	after_creation = {
 		if = {
-			limit = { has_dlc = tours_and_tournaments }
+			limit = { has_dlc_feature = tours_and_tournaments }
 			add_trait = tourney_participant
 			add_random_tiered_trait_track_xp_effect = {
 				TRAIT = tourney_participant
@@ -536,7 +522,6 @@ celebration_chessmaster_character = {
 				LEVEL_3 = yes
 			}
 		}
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -572,7 +557,6 @@ spanish_jewish_merchant_character = {
 			}
 		}
 		set_character_faith = scope:courtier_faith
-		urf_template_base_race_init = yes
 	}
 }
 
@@ -611,7 +595,4 @@ toledan_night_character = {
 	culture = root.culture
 
 	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
-	after_creation = {
-		urf_template_base_race_init = yes
-	}
 }

@@ -1,0 +1,22 @@
+﻿#############
+# Task Contract Scripted Effects
+#############
+
+##################################################
+# General Effects
+
+laamp_base_contract_schemes_set_up_outcome_immediate_effect = {
+	scope:scheme = {
+		# Grab the right scopes.
+		task_contract = {
+			task_contract_employer = {
+				save_scope_as = employer
+				save_scope_as = bg_override_char
+			}
+			save_scope_value_as = {
+				name = task_contract_tier
+				value = task_contract_tier
+			}
+		}
+	}
+}

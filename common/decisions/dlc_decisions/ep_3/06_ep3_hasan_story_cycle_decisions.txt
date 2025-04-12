@@ -13,7 +13,7 @@ hasan_evangelize_the_faith = {
 
 	desc = hasan_evangelize_the_faith_desc
 	selection_tooltip = hasan_evangelize_the_faith_tooltip
-	decision_group_type = adventurer
+	decision_group_type = story_cycle_hasan
 
 	cooldown = { months = 1 }
 
@@ -68,6 +68,7 @@ hasan_evangelize_the_faith = {
 			}
 		}
 		trigger_event = hasan_sabbah.1010
+		custom_tooltip = chance_to_advance_to_the_assassins_tt
 	}
 
 	ai_potential = { this = character:41702 }
@@ -90,7 +91,7 @@ hasan_agitate_the_populace = {
 
 	desc = hasan_agitate_the_populace_desc
 	selection_tooltip = hasan_agitate_the_populace_tooltip
-	decision_group_type = adventurer
+	decision_group_type = story_cycle_hasan
 
 	cooldown = { months = 1 }
 
@@ -101,10 +102,10 @@ hasan_agitate_the_populace = {
 		any_owned_story = {
 			story_type = story_hasan
 		}
-		hasan_camp_in_foes_realm_trigger = yes
 	}
 
 	is_valid = {
+		hasan_camp_in_foes_realm_trigger = yes
 		OR = {
 			domicile.domicile_location.county = {
 				NOT = { faith = root.faith }
@@ -181,7 +182,7 @@ hasan_ignite_the_flames = {
 
 	desc = hasan_ignite_the_flames_desc
 	selection_tooltip = hasan_ignite_the_flames_tooltip
-	decision_group_type = adventurer
+	decision_group_type = story_cycle_hasan
 
 	cooldown = { months = 1 }
 
@@ -191,10 +192,10 @@ hasan_ignite_the_flames = {
 		any_owned_story = {
 			story_type = story_hasan
 		}
-		hasan_camp_in_foes_realm_trigger = yes
 	}
 
 	is_valid = {
+		hasan_camp_in_foes_realm_trigger = yes
 		is_at_war = no
 		custom_tooltip = {
 			text = at_least_5_counties_are_nizari
@@ -247,7 +248,7 @@ hasan_found_the_assassins = {
 
 	desc = hasan_found_the_assassins_desc
 	selection_tooltip = hasan_found_the_assassins_tooltip
-	decision_group_type = adventurer
+	decision_group_type = story_cycle_hasan
 
 	is_shown = {
 		#DLC check.
@@ -261,11 +262,11 @@ hasan_found_the_assassins = {
 		NOT = {
 			has_character_flag = founded_assassins_already
 		}
-		hasan_camp_in_foes_realm_trigger = yes
-		domicile.domicile_location.barony = { is_leased_out = no }
 	}
 
 	is_valid = {
+		hasan_camp_in_foes_realm_trigger = yes
+		domicile.domicile_location.barony = { is_leased_out = no }
 		domicile.domicile_location.county.faith = root.faith
 		custom_tooltip = {
 			text = is_mountainous_desc
@@ -378,14 +379,14 @@ hasan_found_the_assassins = {
 #############################################
 hasan_expand_the_assassins = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_foundation.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_legitimacy.dds"
 	}
 	sort_order = 500
 	ai_check_interval = 120
 
 	desc = hasan_expand_the_assassins_desc
 	selection_tooltip = hasan_expand_the_assassins_tooltip
-	decision_group_type = adventurer
+	decision_group_type = story_cycle_hasan
 
 	is_shown = {
 		#DLC check.
@@ -396,11 +397,11 @@ hasan_expand_the_assassins = {
 		}
 		is_landed = no
 		faith = faith:nizari
-		hasan_camp_in_foes_realm_trigger = yes
-		domicile.domicile_location.barony = { is_leased_out = no }
 	}
 
 	is_valid = {
+		hasan_camp_in_foes_realm_trigger = yes
+		domicile.domicile_location.barony = { is_leased_out = no }
 		domicile.domicile_location.county.faith = root.faith
 		custom_tooltip = {
 			text = is_mountainous_desc
@@ -437,7 +438,7 @@ hasan_expand_the_assassins = {
 				}
 				domicile.domicile_location.barony = {
 					change_title_holder_include_vassals = {
-						holder = domicile.domicile_location.barony.holder.top_liege
+						holder = holder.top_liege
 						change = scope:change
 					}
 				}
