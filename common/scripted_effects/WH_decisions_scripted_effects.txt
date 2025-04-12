@@ -1,0 +1,32 @@
+﻿form_kingdom_of_solland_scripted_effect = {
+	#Grab scopes for loc and such.
+	save_scope_as = scoped_ruler
+	title:k_solland = { save_scope_as = soll}
+	#Hand over k_solland.
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	title:k_solland = {
+		change_title_holder = {
+			holder = root
+			change = scope:change
+		}
+		#copy_title_history = title:k_solland
+	}
+	resolve_title_and_vassal_change = scope:change
+	#Try to make it the primary title, unless it's the Emperor doing this.
+	hidden_effect = {
+		if = {
+			limit = { primary_title.tier <= tier_kingdom }
+			set_primary_title_to = title:k_solland
+		}
+	}
+	#Transfer custom_core_austria (d_austria & d_steyermark) to the new Archduchy.
+	hidden_effect = {
+		title:k_solland = {
+			set_de_jure_liege_title = scope:previous_kingdom.de_jure_liege
+		}
+	}
+}

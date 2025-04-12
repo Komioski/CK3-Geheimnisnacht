@@ -1,0 +1,98 @@
+﻿#  #namespace = coa
+#  #scripted_trigger can_event_change_coa_trigger = {
+# 	holder = root
+# 	has_user_set_coa = no
+# #}
+
+#  #coa.10 = {
+# 	#type = character_event
+# 	#hidden = yes
+
+# 	#trigger = {
+# 		title:e_bretonnia = {
+# 			can_event_change_coa_trigger = yes
+# 		}
+# 	#}
+
+# 	immediate = {
+
+# 		if = {
+# 			limit = { has_title = title:k_bastonne }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_bastonne }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_couronne }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_couronne }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_montfort }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_montfort }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_carcassonne }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_carcassone }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_parravon }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_parravon }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_quenelles }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_quenelle }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_aquitaine }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_aquitaine }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_bordeleaux }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_bordelaux }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_gisoreux }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_gisoreux }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_brionne }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_brionne }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_mousillon }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_mousillon }
+# 		} 
+# 		else_if = {
+# 			limit = { has_title = title:k_artois }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_artois }
+# 		}
+# 		else_if = {
+# 			limit = { has_title = title:k_languille }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_languille }
+# 		} 
+# 		else_if = {
+# 			limit = { has_title = title:k_lyonesse }
+# 			title:e_bretonnia = { set_coa = e_bretonnia_lyonesse }
+# 		} 
+# 		else_if = {
+# 			limit = { 
+# 				NOR = { 
+# 						has_title = title:k_mousillon 
+# 						has_title = title:k_brionne
+# 						has_title = title:k_gisoreux
+# 						has_title = title:k_bordeleaux
+# 						has_title = title:k_aquitaine
+# 						has_title = title:k_quenelles
+# 						has_title = title:k_parravon
+# 						has_title = title:k_carcassonne
+# 						has_title = title:k_montfort
+# 						has_title = title:k_couronne
+# 						has_title = title:k_bastonne
+# 						has_title = title:k_artois
+# 						has_title = title:k_languille
+# 						has_title = title:k_lyonesse 
+# 					}   
+# 				}
+# 			title:e_bretonnia = { set_coa = e_bretonnia }
+# 		} 
+# 	}
+#}	
+

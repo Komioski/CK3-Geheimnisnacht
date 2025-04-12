@@ -219,8 +219,13 @@ wh_bret_crossbow = {
 		has_cultural_pillar = heritage_bretonnian
 		has_innovation = innovation_advanced_bowmaking
 		NOT = {
-			has_doctrine_parameter = knightly_virtues_active
+			
 			has_cultural_parameter = unlock_maa_herrimault
+		}
+	}
+	faith = { 
+		NOT = {
+			has_doctrine_parameter = knightly_virtues_active 
 		}
 	}
 }

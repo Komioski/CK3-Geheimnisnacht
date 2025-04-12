@@ -384,6 +384,8 @@ fp1_remove_stele_effect = {
 	}
 }
 
+
+=======
 forge_the_jomsvikings_scripted_effect = {
 	# Display simplified results.
 	custom_tooltip = create_holy_order_decision_effect_message
@@ -539,6 +541,7 @@ forge_the_jomsvikings_decision_tooltip_effect = {
 	# And the free army.
 	forge_the_jomsvikings_maa_reward_effect = yes
 }
+
 
 fp1_remove_humsac_offended_counties_effect = {
 	every_sub_realm_county = {
@@ -745,17 +748,6 @@ replace_with_learning_trait_effect = {
 ##################################################
 # CBs
 ##################################################
-
-clean_scandinavian_adventurer_effect = {
-	scope:attacker = {
-		every_held_title = {
-			limit = { has_variable = temporary_title }
-			save_scope_as = destroyable_title
-			scope:attacker = { destroy_title = scope:destroyable_title }
-		}
-		remove_character_modifier = scandinavian_adventurer_fp1_modifier
-	}
-}
 
 fp1_add_realm_size_appropriate_sa_reprieve_effect = {
 	# Depending on the sub realm size of $VICTIM$, we give them a scaling amount of time not to be hit by SA attacks.

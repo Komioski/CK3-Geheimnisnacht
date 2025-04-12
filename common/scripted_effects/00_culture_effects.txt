@@ -208,6 +208,9 @@ convert_family_culture_and_notify_vassals_effect = {
 				NOT = { is_in_list = notified_of_culture_change }
 			}
 			send_interface_message = {
+
+				type = culture_conversion
+=======
 				type = msg_culture_conversion
 				title = converted_culture_msg_title
 				custom_tooltip = converted_from_old_culture_to_new_culture_tt
@@ -447,6 +450,7 @@ norse_assimilate_local_traditions_effect = {
 			}
 			send_interface_message = {
 				type = msg_culture_conversion
+
 				title = converted_culture_msg_title
 				custom_tooltip = converted_from_old_culture_to_new_culture_tt
 				right_icon = scope:converting_character
@@ -1072,7 +1076,11 @@ new_culture_created_conversion_effect = {
 		hidden_effect = {
 			every_vassal_or_below = {
 				limit = {
+
+					is_landed = yes
+=======
 					is_playable_character = yes
+
 					save_temporary_scope_as = vassal_check
 					$CULTURE$ = {
 						any_parent_culture = {
@@ -1267,7 +1275,11 @@ new_culture_created_vassal_conversion_effect = {
 	$CONVERTEE$ = {
 		every_vassal = {
 			limit = {
+
+				is_landed = yes
+=======
 				is_playable_character = yes
+
 				is_ai = yes
 				save_temporary_scope_as = vassal_check
 				$CULTURE$ = {
