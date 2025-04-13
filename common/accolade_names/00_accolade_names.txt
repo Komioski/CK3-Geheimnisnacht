@@ -1,5 +1,5 @@
 ﻿# The Baghatur of the Wolf
-accolade_the_knight_of_the_animal = {
+accolade_the_knight_of_the_animal = { # TODO: Animals
 	key = "accolade_the_knight_of_the_animal"
 
 	num_options = 1
@@ -18,12 +18,12 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						NOR = {
-							geographical_region = world_steppe_west
-							geographical_region = world_europe_north
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# NOR = {
+							# geographical_region = world_steppe_west
+							# geographical_region = world_europe_north
+						# }
+					# }
 					NOR = {
 						has_trait = giant
 						has_trait = dull
@@ -43,14 +43,14 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_india
-							geographical_region = world_middle_east
-							geographical_region = world_burma
-							geographical_region = world_tibet
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_india
+							# geographical_region = world_middle_east
+							# geographical_region = world_burma
+							# geographical_region = world_tibet
+						# }
+					# }
 					NOT = {
 						has_trait = clubfooted
 					}
@@ -68,12 +68,12 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						NOR = {
-							geographical_region = world_africa
-							geographical_region = world_burma
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# NOR = {
+							# geographical_region = world_africa
+							# geographical_region = world_burma
+						# }
+					# }
 				}
 				desc = accolade_wolf
 			}
@@ -87,17 +87,17 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa_north
-							geographical_region = world_africa_east
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east
-							geographical_region = world_india
-							geographical_region = world_burma
-							geographical_region = world_europe_south_east
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa_north
+							# geographical_region = world_africa_east
+							# geographical_region = world_asia_minor
+							# geographical_region = world_middle_east
+							# geographical_region = world_india
+							# geographical_region = world_burma
+							# geographical_region = world_europe_south_east
+						# }
+					# }
 					NOR = {
 						has_trait = giant
 						has_trait = strong
@@ -116,13 +116,13 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_europe_north
-							geographical_region = world_steppe_east
-							geographical_region = world_steppe_west
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_europe_north
+							# geographical_region = world_steppe_east
+							# geographical_region = world_steppe_west
+						# }
+					# }
 					NOR = {
 						has_trait = compassionate
 						has_trait = calm
@@ -140,13 +140,13 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa
-							geographical_region = world_middle_east
-							geographical_region = world_india
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa
+							# geographical_region = world_middle_east
+							# geographical_region = world_india
+						# }
+					# }
 					NOT = {
 						has_trait = beauty_good
 					}
@@ -192,14 +192,14 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa
-							geographical_region = world_middle_east
-							geographical_region = world_europe
-							geographical_region = world_asia_minor
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa
+							# geographical_region = world_middle_east
+							# geographical_region = world_europe
+							# geographical_region = world_asia_minor
+						# }
+					# }
 					NOT = {
 						has_trait = craven
 					}
@@ -243,11 +243,11 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						NOT = {
-							geographical_region = world_africa_west
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# NOT = {
+							# geographical_region = world_africa_west
+						# }
+					# }
 					NOR = {
 						has_trait = giant
 						has_trait = dull
@@ -274,13 +274,13 @@ accolade_the_knight_of_the_animal = {
 			}
 			triggered_desc = {
 				trigger = {
-					liege.capital_county.title_province ?= {
-						NOR = {
-							geographical_region = world_steppe_west
-							geographical_region = world_europe_north
-							geographical_region = world_steppe_east
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# NOR = {
+							# geographical_region = world_steppe_west
+							# geographical_region = world_europe_north
+							# geographical_region = world_steppe_east
+						# }
+					# }
 					has_trait = beauty_good
 				}
 				desc = accolade_peacock
@@ -360,9 +360,9 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						geographical_region = world_africa_east
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# geographical_region = world_africa_east
+					# }
 					OR = {
 						has_trait = giant
 						has_trait = gluttonous
@@ -445,15 +445,15 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa_east
-							geographical_region = world_africa_north_east
-							geographical_region = world_africa_west
-							geographical_region = world_india
-							geographical_region = world_burma
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa_east
+							# geographical_region = world_africa_north_east
+							# geographical_region = world_africa_west
+							# geographical_region = world_india
+							# geographical_region = world_burma
+						# }
+					# }
 				}
 				desc = accolade_crocodile
 			}
@@ -466,17 +466,17 @@ accolade_the_knight_of_the_animal = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa
-							geographical_region = world_middle_east
-							geographical_region = world_india
-							geographical_region = world_burma
-							geographical_region = world_asia_minor
-							geographical_region = world_steppe_tarim
-							geographical_region = world_tibet
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa
+							# geographical_region = world_middle_east
+							# geographical_region = world_india
+							# geographical_region = world_burma
+							# geographical_region = world_asia_minor
+							# geographical_region = world_steppe_tarim
+							# geographical_region = world_tibet
+						# }
+					# }
 				}
 				desc = accolade_scorpion
 			}
@@ -502,16 +502,16 @@ accolade_the_knight_of_the_animal = {
 							type_has_accolade_category = defensive
 						}
 					}
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_europe_west
-							geographical_region = world_europe_south
-							geographical_region = world_europe_east
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east
-							geographical_region = world_africa_north
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_europe_west
+							# geographical_region = world_europe_south
+							# geographical_region = world_europe_east
+							# geographical_region = world_asia_minor
+							# geographical_region = world_middle_east
+							# geographical_region = world_africa_north
+						# }
+					# }
 				}
 				desc = accolade_gryphon
 			}
@@ -520,7 +520,7 @@ accolade_the_knight_of_the_animal = {
 
 	potential = {
 		liege ?= {
-			is_playable_character = yes
+			is_landed = yes
 		}
 		scope:accolade_type = {
 			OR = {
@@ -541,7 +541,7 @@ accolade_the_knight_of_the_animal = {
 }
 
 # The Lion of Cairo
-accolade_the_animal_of_capital = {
+accolade_the_animal_of_capital = { # TODO: Animals
 	key = "accolade_the_animal_of_capital"
 
 	num_options = 2
@@ -560,12 +560,12 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						NOR = {
-							geographical_region = world_steppe_west
-							geographical_region = world_europe_north
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# NOR = {
+							# geographical_region = world_steppe_west
+							# geographical_region = world_europe_north
+						# }
+					# }
 					NOR = {
 						has_trait = giant
 						has_trait = dull
@@ -585,14 +585,14 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_india
-							geographical_region = world_middle_east
-							geographical_region = world_burma
-							geographical_region = world_tibet
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_india
+							# geographical_region = world_middle_east
+							# geographical_region = world_burma
+							# geographical_region = world_tibet
+						# }
+					# }
 					NOT = {
 						has_trait = clubfooted
 					}
@@ -610,12 +610,12 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						NOR = {
-							geographical_region = world_africa
-							geographical_region = world_burma
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# NOR = {
+							# geographical_region = world_africa
+							# geographical_region = world_burma
+						# }
+					# }
 				}
 				desc = accolade_wolf
 			}
@@ -629,17 +629,17 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa_north
-							geographical_region = world_africa_east
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east
-							geographical_region = world_india
-							geographical_region = world_burma
-							geographical_region = world_europe_south_east
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa_north
+							# geographical_region = world_africa_east
+							# geographical_region = world_asia_minor
+							# geographical_region = world_middle_east
+							# geographical_region = world_india
+							# geographical_region = world_burma
+							# geographical_region = world_europe_south_east
+						# }
+					# }
 					NOR = {
 						has_trait = giant
 						has_trait = strong
@@ -658,13 +658,13 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_europe_north
-							geographical_region = world_steppe_east
-							geographical_region = world_steppe_west
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_europe_north
+							# geographical_region = world_steppe_east
+							# geographical_region = world_steppe_west
+						# }
+					# }
 					NOR = {
 						has_trait = compassionate
 						has_trait = calm
@@ -682,13 +682,13 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa
-							geographical_region = world_middle_east
-							geographical_region = world_india
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa
+							# geographical_region = world_middle_east
+							# geographical_region = world_india
+						# }
+					# }
 					NOT = {
 						has_trait = beauty_good
 					}
@@ -734,14 +734,14 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa
-							geographical_region = world_middle_east
-							geographical_region = world_europe
-							geographical_region = world_asia_minor
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa
+							# geographical_region = world_middle_east
+							# geographical_region = world_europe
+							# geographical_region = world_asia_minor
+						# }
+					# }
 					NOT = {
 						has_trait = craven
 					}
@@ -785,11 +785,11 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						NOT = {
-							geographical_region = world_africa_west
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# NOT = {
+							# geographical_region = world_africa_west
+						# }
+					# }
 					NOR = {
 						has_trait = giant
 						has_trait = dull
@@ -817,13 +817,13 @@ accolade_the_animal_of_capital = {
 
 			triggered_desc = {
 				trigger = {
-					liege.capital_county.title_province ?= {
-						NOR = {
-							geographical_region = world_steppe_west
-							geographical_region = world_europe_north
-							geographical_region = world_steppe_east
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# NOR = {
+							# geographical_region = world_steppe_west
+							# geographical_region = world_europe_north
+							# geographical_region = world_steppe_east
+						# }
+					# }
 					has_trait = beauty_good
 				}
 				desc = accolade_peacock
@@ -903,9 +903,9 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						geographical_region = world_africa_east
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# geographical_region = world_africa_east
+					# }
 					OR = {
 						has_trait = giant
 						has_trait = gluttonous
@@ -1011,15 +1011,15 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa_east
-							geographical_region = world_africa_north_east
-							geographical_region = world_africa_west
-							geographical_region = world_india
-							geographical_region = world_burma
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa_east
+							# geographical_region = world_africa_north_east
+							# geographical_region = world_africa_west
+							# geographical_region = world_india
+							# geographical_region = world_burma
+						# }
+					# }
 				}
 				desc = accolade_crocodile
 			}
@@ -1032,17 +1032,17 @@ accolade_the_animal_of_capital = {
 						}
 					}
 					exists = liege
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_africa
-							geographical_region = world_middle_east
-							geographical_region = world_india
-							geographical_region = world_burma
-							geographical_region = world_asia_minor
-							geographical_region = world_steppe_tarim
-							geographical_region = world_tibet
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_africa
+							# geographical_region = world_middle_east
+							# geographical_region = world_india
+							# geographical_region = world_burma
+							# geographical_region = world_asia_minor
+							# geographical_region = world_steppe_tarim
+							# geographical_region = world_tibet
+						# }
+					# }
 				}
 				desc = accolade_scorpion
 			}
@@ -1068,16 +1068,16 @@ accolade_the_animal_of_capital = {
 							type_has_accolade_category = defensive
 						}
 					}
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_europe_west
-							geographical_region = world_europe_south
-							geographical_region = world_europe_east
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east
-							geographical_region = world_africa_north
-						}
-					}
+					# liege.capital_county.title_province ?= { # Replace with Regions
+						# OR = {
+							# geographical_region = world_europe_west
+							# geographical_region = world_europe_south
+							# geographical_region = world_europe_east
+							# geographical_region = world_asia_minor
+							# geographical_region = world_middle_east
+							# geographical_region = world_africa_north
+						# }
+					# }
 				}
 				desc = accolade_gryphon
 			}
@@ -1088,14 +1088,14 @@ accolade_the_animal_of_capital = {
 		random_valid = {
 			triggered_desc = {
 				trigger = {
-					is_playable_character = no
+					is_landed = no
 					exists = liege
 				}
 				desc = accolade_lieges_capital
 			}
 			triggered_desc = {
 				trigger = {
-					is_playable_character = yes
+					is_landed = yes
 				}
 				desc = accolade_knights_capital
 			}
@@ -1105,9 +1105,9 @@ accolade_the_animal_of_capital = {
 	potential = {
 		OR = {
 			liege ?= {
-				is_playable_character = yes
+				is_landed = yes
 			}
-			is_playable_character = yes
+			is_landed = yes
 		}
 	}
 }
@@ -1553,7 +1553,7 @@ accolade_leader_of_the_culture_maa = {
 
 	potential = {
 		liege ?= {
-			is_playable_character = yes
+			is_landed = yes
 		}
 		NOT = {
 			culture = liege.culture
@@ -1928,13 +1928,8 @@ accolade_leader_of_the_lieges_maa = {
 			}
 			triggered_desc = {
 				trigger = {
-					OR = {
-						culture = {
-							has_cultural_era_or_later = culture_era_early_medieval
-						}
-						culture = {
-							has_cultural_parameter = unlock_maa_ballistrai
-						}
+					culture = {
+						has_cultural_era_or_later = culture_era_early_medieval
 					}
 					scope:accolade_type = {
 						type_has_accolade_category = siege
@@ -2006,18 +2001,17 @@ accolade_leader_of_the_lieges_maa = {
 									has_cultural_parameter = unlock_maa_bush_hunter
 									has_cultural_parameter = unlock_maa_metsanvartija
 									has_cultural_parameter = unlock_maa_longbowmen
-									has_innovation = innovation_bamboo_bows
 								}
 							}
 						}
-						AND = {
-							scope:accolade_type = {
-								this = accolade_type:crossbowmen_attribute
-							}
-							culture = {
-								has_innovation = innovation_repeating_crossbow
-							}
-						}
+						#AND = { # NEEDS CULTURAL UNLOCK TO BE WORTH
+						#	scope:accolade_type = {
+						#		this = accolade_type:crossbowmen_attribute
+						#	}
+						#	culture = {
+						#		has_cultural_parameter = unlock_cultural_crossbow
+						#	}
+						#}
 					}
 				}
 				desc = accolade_cultural_archers
@@ -2038,26 +2032,21 @@ accolade_leader_of_the_lieges_maa = {
 									has_cultural_parameter = unlock_maa_garudas
 									has_cultural_parameter = unlock_maa_palace_guards
 									has_cultural_parameter = unlock_maa_huscarls
-									has_cultural_parameter = unlock_maa_mountaineer
+									# has_cultural_parameter = unlock_maa_mountaineer
 									has_cultural_parameter = unlock_maa_zbrojnosh
-									has_innovation = innovation_sarawit
-									has_innovation = innovation_legionnaires
-									has_cultural_parameter = unlock_maa_skoutatoi
 								}
 							}
 						}
-						AND = {
-							scope:accolade_type = {
-								this = accolade_type:pike_attribute
-							}
-							culture = {
-								OR = {
-									has_innovation = innovation_rectilinear_schiltron
-									has_innovation = innovation_pike_columns
-									has_innovation = innovation_zweihanders
-								}
-							}
-						}
+						#AND = { # NEEDS CULTURAL UNLCOK TO BE WORTH
+						#	scope:accolade_type = {
+						#		this = accolade_type:pike_attribute
+						#	}
+						#	culture = {
+						#		OR = {
+						#			has_cultural_parameter = unlock_cultural_pikemen
+						#		}
+						#	}
+						#}
 					}
 				}
 				desc = accolade_cultural_infantry
@@ -2073,9 +2062,6 @@ accolade_leader_of_the_lieges_maa = {
 								OR = {
 									has_cultural_parameter = unlock_maa_cataphract
 									has_cultural_parameter = unlock_maa_monaspa
-									has_innovation = innovation_valets
-									has_cultural_parameter = unlock_maa_conrois
-									
 								}
 							}
 						}
@@ -2087,11 +2073,6 @@ accolade_leader_of_the_lieges_maa = {
 								OR = {
 									has_cultural_parameter = unlock_maa_mulaththamun
 									has_cultural_parameter = unlock_maa_hussar
-									has_innovation = innovation_desert_tactics
-									has_innovation = innovation_caballeros
-									has_innovation = innovation_hobbies
-									has_innovation = innovation_sahel_horsemen
-									has_cultural_parameter = unlock_maa_ayrudzi
 								}
 							}
 						}
@@ -2110,8 +2091,6 @@ accolade_leader_of_the_lieges_maa = {
 							has_cultural_parameter = unlock_maa_shomer
 							has_cultural_parameter = unlock_maa_abudrar
 							has_cultural_parameter = unlock_maa_guinea_warrior
-							has_innovation = innovation_adaptive_militia
-							has_cultural_parameter = unlock_maa_akritai
 						}
 					}
 				}
@@ -2401,7 +2380,7 @@ accolade_leader_of_the_culture_unit = {
 							OR = {
 								has_cultural_era_or_later = culture_era_high_medieval
 								has_cultural_tradition = tradition_byzantine_succession
-								has_cultural_tradition = tradition_ep3_roman_ceremonies
+								has_cultural_tradition = tradition_byzantine_succession
 								has_cultural_tradition = tradition_republican_legacy
 							}
 						}
@@ -2894,9 +2873,6 @@ accolade_knight_of_god = {
 					scope:accolade_type = {
 						type_has_accolade_category = defensive
 					}
-					NOT = {
-						faith.religion = religion:west_african_roog_religion
-					}
 				}
 				desc = accolade_health_god
 			}
@@ -2934,13 +2910,13 @@ accolade_knight_of_god = {
 			}
 			triggered_desc = {
 				trigger = {
-					NOR = {
-						faith.religion = religion:finno_ugric_religion
-						faith.religion = religion:north_african_religion
-						faith.religion = religion:paganism_religion
-						faith.religion = religion:west_african_religion
-						faith.religion = religion:west_african_roog_religion
-					}
+					# NOR = { # Replace with the religions used above
+						# faith.religion = religion:finno_ugric_religion
+						# faith.religion = religion:north_african_religion
+						# faith.religion = religion:paganism_religion
+						# faith.religion = religion:west_african_religion
+						# faith.religion = religion:west_african_roog_religion
+					# }
 				}
 				desc = accolade_good_god
 			}
@@ -2951,7 +2927,6 @@ accolade_knight_of_god = {
 	potential = {
 		exists = liege
 		religion = liege.religion
-		NOT = { faith.religion = religion:west_african_bori_religion }
 	}
 }
 
@@ -3557,14 +3532,14 @@ accolade_the_warrior_in_the_terrain = {
 		random_valid = {
 			triggered_desc = {
 				trigger = {
-					is_playable_character = no
+					is_landed = no
 					exists = liege
 				}
 				desc = accolade_lieges_capital_terrain
 			}
 			triggered_desc = {
 				trigger = {
-					is_playable_character = yes
+					is_landed = yes
 				}
 				desc = accolade_knights_capital_terrain
 			}
@@ -3574,9 +3549,9 @@ accolade_the_warrior_in_the_terrain = {
 	potential = {
 		OR = {
 			liege ?= {
-				is_playable_character = yes
+				is_landed = yes
 			}
-			is_playable_character = yes
+			is_landed = yes
 		}
 	}
 }
@@ -3853,176 +3828,6 @@ accolade_the_foe_of_enemy_faith = {
 
 	option = {
 		random_valid = {
-			triggered_desc = {
-				trigger = {
-					faith.religion = {
-						is_in_family = rf_abrahamic
-					}
-					faith = {
-						NOR = {
-							has_doctrine_parameter = unreformed_syncretic_actor_opinion_active
-							has_doctrine_parameter = unreformed
-						}
-					}
-					NOT = {
-						culture = {
-							has_cultural_era_or_later = culture_era_high_medieval
-						}
-					}
-				}
-				desc = accolade_pagans
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = { is_in_family = rf_abrahamic }
-					faith = {
-						fervor < 50
-					}
-				}
-				desc = accolade_heretics
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = religion:islam_religion
-				}
-				desc = accolade_infidels
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = religion:christianity_religion
-				}
-				desc = accolade_heathens
-			}
-			triggered_desc = {
-				trigger = {
-					NOR = {
-						faith.religion = religion:christianity_religion
-						faith = {
-							has_doctrine_parameter = christian_syncretic_actor_opinion_active
-						}
-					}
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_europe
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east_jerusalem
-							geographical_region = world_africa_north_west
-							geographical_region = world_africa_north_east
-							geographical_region = world_africa_east
-							geographical_region = world_steppe_west
-						}
-					}
-				}
-				desc = accolade_christians
-			}
-			triggered_desc = {
-				trigger = {
-					NOR = {
-						faith.religion = religion:christianity_religion
-						faith = {
-							has_doctrine_parameter = christian_syncretic_actor_opinion_active
-						}
-					}
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_europe
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east_jerusalem
-							geographical_region = world_africa_north_west
-							geographical_region = world_africa_north_east
-							geographical_region = world_africa_east
-							geographical_region = world_steppe_west
-						}
-					}
-				}
-				desc = accolade_christendom
-			}
-			triggered_desc = {
-				trigger = {
-					NOR = {
-						faith.religion = religion:islam_religion
-						faith = {
-							has_doctrine_parameter = islamic_syncretic_actor_opinion_active
-						}
-					}
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_europe_west_iberia
-							geographical_region = world_europe_south_italy
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east
-							geographical_region = world_africa_north
-							geographical_region = world_africa_east
-							geographical_region = world_india_rajastan
-							geographical_region = world_steppe_west
-						}
-					}
-				}
-				desc = accolade_muslims
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = {
-						is_in_family = rf_abrahamic
-					}
-					NOR = {
-						faith.religion = religion:buddhism_religion
-						faith = {
-							has_doctrine_parameter = eastern_syncretic_actor_opinion_active
-						}
-					}
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_tibet
-							geographical_region = world_steppe_tarim
-							geographical_region = world_burma
-							geographical_region = world_india_rajastan
-							geographical_region = world_india_bengal
-						}
-					}
-				}
-				desc = accolade_buddhists
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = {
-						is_in_family = rf_abrahamic
-					}
-					NOR = {
-						faith.religion = religion:buddhism_religion
-						faith = {
-							has_doctrine_parameter = eastern_syncretic_actor_opinion_active
-						}
-					}
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_tibet
-							geographical_region = world_steppe_tarim
-							geographical_region = world_burma
-							geographical_region = world_india_rajastan
-							geographical_region = world_india_bengal
-						}
-					}
-				}
-				desc = accolade_buddhism
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = {
-						is_in_family = rf_abrahamic
-					}
-					NOR = {
-						faith.religion = religion:hinduism_religion
-						faith = {
-							has_doctrine_parameter = eastern_syncretic_actor_opinion_active
-						}
-					}
-					liege.capital_county.title_province ?= {
-						geographical_region = world_india
-					}
-				}
-				desc = accolade_hindus
-			}
 			desc = accolade_demons
 			desc = accolade_non_believers
 		}
@@ -4030,7 +3835,7 @@ accolade_the_foe_of_enemy_faith = {
 
 	potential = {
 		liege ?= {
-			is_playable_character = yes
+			is_landed = yes
 		}
 		faith = liege.faith
 		faith = {
@@ -4267,14 +4072,6 @@ accolade_the_knight_of_aspect = {
 					}
 				}
 				desc = accolade_of_true_culture_virtue
-			}
-			triggered_desc = {
-				trigger = {
-					liege ?= {
-						faith.religion = religion:tengrism_religion
-					}
-				}
-				desc = accolade_of_the_wind_horse
 			}
 			triggered_desc = {
 				trigger = {
@@ -4850,7 +4647,7 @@ accolade_goodest_of_knights = {
 }
 
 # The Iron Knight
-accolade_the_material_knight = {
+accolade_the_material_knight = { # TODO: Materials
 	key = "accolade_the_material_knight"
 
 	num_options = 2
@@ -4910,19 +4707,19 @@ accolade_the_material_knight = {
 				}
 				desc = accolade_steel
 			}
-			triggered_desc = {
-				trigger = {
-					liege.capital_county.title_province ?= {
-						OR = {
-							geographical_region = world_tibet
-							geographical_region = world_steppe_east
-							geographical_region = world_steppe_tarim
-							geographical_region = world_india
-						}
-					}
-				}
-				desc = accolade_jade
-			}
+			#triggered_desc = { # Replace with Regions
+			#	trigger = {
+			#		liege.capital_county.title_province ?= {
+			#			OR = {
+			#				geographical_region = world_tibet
+			#				geographical_region = world_steppe_east
+			#				geographical_region = world_steppe_tarim
+			#				geographical_region = world_india
+			#			}
+			#		}
+			#	}
+			#	desc = accolade_jade
+			#}
 			desc = accolade_iron
 			desc = accolade_silver
 		}
@@ -4959,18 +4756,6 @@ accolade_the_material_knight = {
 					}
 				}
 				desc = accolade_commission
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = religion:christianity_religion
-					OR = {
-						has_trait = pilgrim
-						has_trait = holy_warrior
-						has_trait = faith_warrior
-						has_trait = zealous
-					}
-				}
-				desc = accolade_pilgrim
 			}
 			triggered_desc = {
 				trigger = {
@@ -5030,14 +4815,6 @@ accolade_the_material_knight = {
 					}
 				}
 				desc = accolade_rider
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = religion:buddhism_religion
-					exists = liege
-					liege.faith.religion = religion:buddhism_religion
-				}
-				desc = accolade_buddha
 			}
 			triggered_desc = {
 				trigger = {

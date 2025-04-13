@@ -104,7 +104,7 @@ great_holy_war.0001 = {
 		#If no Claimant or Title Holder is available to be the Papal choice and the Crusade has not proceeded far enough to have a favorite beneficiary, select a fallback Recipient so that the CB's tooltip does not appear incomplete.
 		if = { #Random Courtier in the Pope's court.
 			limit = {
-				NOT = { exists = scope:the_faith.great_holy_war.ghw_title_recipient }
+				NOT = { exists = faith.great_holy_war.ghw_title_recipient }
 				exists = scope:ghw_sponsor
 				exists = scope:the_faith.great_holy_war
 				scope:ghw_sponsor = {
@@ -163,7 +163,7 @@ great_holy_war.0001 = {
 		}
 		else_if = { #Else Generate a fallback recipient.
 			limit = {
-				NOT = { exists = scope:the_faith.great_holy_war.ghw_title_recipient }
+				NOT = { exists = faith.great_holy_war.ghw_title_recipient }
 			}
 			create_character = {
 				location = scope:ghw_sponsor.capital_province
@@ -279,364 +279,26 @@ great_holy_war.0001 = {
 				}
 			}
 		}
-		#EP3 Redirected Crusade setup event
-		great_holy_war = {
-			if = {
-				limit = {
-					has_ep3_dlc_trigger = yes
-					scope:the_faith = { this = faith:catholic }
-					ep3_frankokratia_ghw_trigger = yes
-					ep3_frankokratia_financier_exists_trigger = yes
-				}
-				#start with player
-				if = {
-					limit = {
-						any_player = {
-							ep3_frankokratia_story_owner_trigger = yes
-						}
-					}
-					random_player = {
-						limit = {
-							ep3_frankokratia_story_owner_trigger = yes
-						}
-						trigger_event = {
-							id = ep3_frankokratia_events.0001
-							days = 20
-						}
-					}
-				}
-				#Next, ai with a closely related claimant who will accept
-				else_if = {
-					limit = {
-						scope:the_faith = {
-							any_faith_playable_ruler = {
-								ep3_frankokratia_story_owner_trigger = yes
-								ep3_frankokratia_will_start_trigger = yes
-								save_temporary_scope_as = char_temp
-								
-								#Thorough check for close relation claimants
-								OR = {
-									any_close_family_member = {
-										OR = {
-											is_courtier_of = prev
-											is_vassal_of = prev
-										}
-									}
-									#In laws of family in court/realm
-									any_close_family_member = {
-										OR = {
-											is_courtier_of = prev
-											is_vassal_of = prev
-										}
-										ep3_frankokratia_transiting_relative_trigger = yes
-										any_spouse = {
-											ep3_frankokratia_claimant_trigger = yes
-										}
-									}
-									#Spouse claimant
-									any_spouse = {
-										ep3_frankokratia_claimant_trigger = yes
-									}
-									#Spouse's close family in realm/court
-									any_spouse = {
-										ep3_frankokratia_transiting_relative_trigger = yes
-										any_close_family_member = {
-											OR = {
-												is_courtier_of = prev
-												is_vassal_of = prev
-											}
-											ep3_frankokratia_claimant_trigger = yes
-										}
-									}
-									#friends
-									any_relation = {
-										type = friend
-										ep3_frankokratia_claimant_trigger = yes
-									}
-									#soulmates
-									any_relation = {
-										type = soulmate
-										ep3_frankokratia_claimant_trigger = yes
-									}
-								}
-							}
-						}
-					}
-					scope:the_faith = {
-						ordered_faith_playable_ruler = {
-							order_by = {
-								value = 0
-								add = current_military_strength
-							}
-							limit = {
-								ep3_frankokratia_story_owner_trigger = yes
-								ep3_frankokratia_will_start_trigger = yes
-								save_temporary_scope_as = char_temp
-								
-								#Thorough check for close relation claimants
-								OR = {
-									any_close_family_member = {
-										OR = {
-											is_courtier_of = prev
-											is_vassal_of = prev
-										}
-									}
-									#In laws of family in court/realm
-									any_close_family_member = {
-										OR = {
-											is_courtier_of = prev
-											is_vassal_of = prev
-										}
-										ep3_frankokratia_transiting_relative_trigger = yes
-										any_spouse = {
-											ep3_frankokratia_claimant_trigger = yes
-										}
-									}
-									#Spouse claimant
-									any_spouse = {
-										ep3_frankokratia_claimant_trigger = yes
-									}
-									#Spouse's close family in realm/court
-									any_spouse = {
-										ep3_frankokratia_transiting_relative_trigger = yes
-										any_close_family_member = {
-											OR = {
-												is_courtier_of = prev
-												is_vassal_of = prev
-											}
-											ep3_frankokratia_claimant_trigger = yes
-										}
-									}
-									#friends
-									any_relation = {
-										type = friend
-										ep3_frankokratia_claimant_trigger = yes
-									}
-									#soulmates
-									any_relation = {
-										type = soulmate
-										ep3_frankokratia_claimant_trigger = yes
-									}
-								}
-							}
-							trigger_event = {
-								id = ep3_frankokratia_events.0001
-								days = 20
-							}
-						}
-					}
-				}
-				#Someone with looser relation to claimant who will accept
-				else_if = {
-					limit = {
-						scope:the_faith = {
-							any_faith_playable_ruler = {
-								ep3_frankokratia_story_owner_trigger = yes
-								ep3_frankokratia_will_start_trigger = yes
-							}
-						}
-					}
-					scope:the_faith = {
-						ordered_faith_playable_ruler = {
-							order_by = {
-								value = 0
-								add = current_military_strength
-							}
-							limit = {
-								ep3_frankokratia_story_owner_trigger = yes
-								ep3_frankokratia_will_start_trigger = yes
-							}
-							trigger_event = {
-								id = ep3_frankokratia_events.0001
-								days = 20
-							}
-						}
-					}
-				}
-				#Next, ai with a closely related claimant who might not accept
-				else_if = {
-					limit = {
-						scope:the_faith = {
-							any_faith_playable_ruler = {
-								ep3_frankokratia_story_owner_trigger = yes
-								save_temporary_scope_as = char_temp
-								
-								#Thorough check for close relation claimants
-								OR = {
-									any_close_family_member = {
-										OR = {
-											is_courtier_of = prev
-											is_vassal_of = prev
-										}
-									}
-									#In laws of family in court/realm
-									any_close_family_member = {
-										OR = {
-											is_courtier_of = prev
-											is_vassal_of = prev
-										}
-										ep3_frankokratia_transiting_relative_trigger = yes
-										any_spouse = {
-											ep3_frankokratia_claimant_trigger = yes
-										}
-									}
-									#Spouse claimant
-									any_spouse = {
-										ep3_frankokratia_claimant_trigger = yes
-									}
-									#Spouse's close family in realm/court
-									any_spouse = {
-										ep3_frankokratia_transiting_relative_trigger = yes
-										any_close_family_member = {
-											OR = {
-												is_courtier_of = prev
-												is_vassal_of = prev
-											}
-											ep3_frankokratia_claimant_trigger = yes
-										}
-									}
-									#friends
-									any_relation = {
-										type = friend
-										ep3_frankokratia_claimant_trigger = yes
-									}
-									#soulmates
-									any_relation = {
-										type = soulmate
-										ep3_frankokratia_claimant_trigger = yes
-									}
-								}
-							}
-						}
-					}
-					scope:the_faith = {
-						ordered_faith_playable_ruler = {
-							order_by = {
-								value = 0
-								add = current_military_strength
-							}
-							limit = {
-								ep3_frankokratia_story_owner_trigger = yes
-								save_temporary_scope_as = char_temp
-								
-								#Thorough check for close relation claimants
-								OR = {
-									any_close_family_member = {
-										OR = {
-											is_courtier_of = prev
-											is_vassal_of = prev
-										}
-									}
-									#In laws of family in court/realm
-									any_close_family_member = {
-										OR = {
-											is_courtier_of = prev
-											is_vassal_of = prev
-										}
-										ep3_frankokratia_transiting_relative_trigger = yes
-										any_spouse = {
-											ep3_frankokratia_claimant_trigger = yes
-										}
-									}
-									#Spouse claimant
-									any_spouse = {
-										ep3_frankokratia_claimant_trigger = yes
-									}
-									#Spouse's close family in realm/court
-									any_spouse = {
-										ep3_frankokratia_transiting_relative_trigger = yes
-										any_close_family_member = {
-											OR = {
-												is_courtier_of = prev
-												is_vassal_of = prev
-											}
-											ep3_frankokratia_claimant_trigger = yes
-										}
-									}
-									#friends
-									any_relation = {
-										type = friend
-										ep3_frankokratia_claimant_trigger = yes
-									}
-									#soulmates
-									any_relation = {
-										type = soulmate
-										ep3_frankokratia_claimant_trigger = yes
-									}
-								}
-							}
-							trigger_event = {
-								id = ep3_frankokratia_events.0001
-								days = 20
-							}
-						}
-					}
-				}
-				#Someone with looser relation to claimant who might not accept
-				else_if = {
-					limit = {
-						scope:the_faith = {
-							any_faith_playable_ruler = {
-								ep3_frankokratia_story_owner_trigger = yes
-							}
-						}
-					}
-					scope:the_faith = {
-						ordered_faith_playable_ruler = {
-							order_by = {
-								value = 0
-								add = current_military_strength
-							}
-							limit = {
-								ep3_frankokratia_story_owner_trigger = yes
-							}
-							trigger_event = {
-								id = ep3_frankokratia_events.0001
-								days = 20
-							}
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					exists = global_var:cath_crusade_1
-				}
-				scope:the_faith = { this = faith:catholic }
-			}
-			set_global_variable = {
-				name = cath_crusade_1
-				value = 1
-			}
-		}
-		else_if = {
-			limit = {
-				scope:the_faith = { this = faith:catholic }
-			}
-			change_global_variable = {
-				name = cath_crusade_1
-				add = 1
-			}
-		}
 	}
 }
 
 # The preparation for the next Great Holy War begins. Faithful assemble.
 great_holy_war.0003 = {
 	title = great_holy_war.0003.title
-	desc = {
-		first_valid = {
-			#Catholic flavour
-			triggered_desc = {
-				desc = great_holy_war.0003.catholic.desc
-				trigger = { scope:the_faith = faith:catholic }
-			}
-			#Everyone else
-			desc = great_holy_war.0003.fallback.desc
-		}
-	}
+	#desc = {
+	#	first_valid = {
+	#		#Catholic flavour
+	#		triggered_desc = {
+	#			desc = great_holy_war.0003.catholic.desc
+	#			trigger = { scope:the_faith = faith:catholic }
+	#		}
+	#		#Everyone else
+	#		desc = great_holy_war.0003.fallback.desc
+	#	}
+	#}
+
+	desc = great_holy_war.0003.fallback.desc
+
 	theme = faith
 	override_background = {
 		reference = temple_scope
@@ -809,52 +471,7 @@ great_holy_war.0005 = {
 	scope = ghw
 
 	immediate = {
-		if = {
-			limit = {
-				any_pledged_attacker = {
-					primary_title = { is_head_of_faith = yes }
-					faith = faith:catholic
-				}
-				exists = global_var:byz_claimant_champion
-				global_var:byz_claimant_champion = {
-					is_alive = yes
-					is_ruler = yes
-					any_owned_story = {
-						story_type = frankokratia_story
-					}
-				}
-				exists = title:e_byzantium.holder
-			}
-			#Check claimant isn't dead, invalidate if they are
-			if = {
-				limit = {
-					global_var:byz_claimant_champion = {
-						any_owned_story = {
-							story_type = frankokratia_story
-							var:byz_claimant = { is_alive = no }
-						}
-					}
-				}
-				global_var:byz_claimant_champion = {
-					random_owned_story = {
-						limit = {
-							story_type = frankokratia_story
-						}
-						every_in_list = {
-							variable = frankokratia_leaders
-							limit = {
-								is_ai = no
-							}
-							trigger_event = ep3_frankokratia_events.0005
-						}
-					}
-				}
-			}
-			else = {
-				ep3_frankokratia_remove_pledged_attackers_effect = yes
-			}
-		}
-		
+
 		start_ghw_war = undirected_great_holy_war
 		divide_war_chest = {
 			fraction = 0.2
@@ -867,132 +484,132 @@ great_holy_war.0005 = {
 #Unlocking Holy Wars. (on later dates Crusades and Jihads start already unlocked from Character History)
 #Hidden check event, fired on_faith pulse.
 
-scripted_trigger great_holy_war_0010_jerusalem_reason_trigger = {
-	title:c_jerusalem.holder.top_liege = {
-		NOT = {
-			faith.religion = scope:awakening_faith.religion
-		}
-	}
-}
+#scripted_trigger great_holy_war_0010_jerusalem_reason_trigger = {
+#	title:c_jerusalem.holder.top_liege = {
+#		NOT = {
+#			faith.religion = scope:awakening_faith.religion
+#		}
+#	}
+#}
 
-scripted_trigger great_holy_war_0010_rome_reason_trigger = {
-	title:c_roma.holder.top_liege = {
-		NOT = {
-			faith.religion = scope:awakening_faith.religion
-		}
-	}
-}
+#scripted_trigger great_holy_war_0010_rome_reason_trigger = {
+#	title:c_roma.holder.top_liege = {
+#		NOT = {
+#			faith.religion = scope:awakening_faith.religion
+#		}
+#	}
+#}
 
-scripted_trigger great_holy_war_0010_byzantion_reason_trigger = {
-	OR = {
-		trigger_if = { # Byzantine Empire
-			limit = { exists = title:e_byzantium.holder } # Make sure a holder exists beforehand
-			title:e_byzantium.holder.religion = {
-				NOT = {
-					this = religion:christianity_religion
-				}
-			}
-		}
-		title:c_byzantion.holder.top_liege.religion = { # Constantinople
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_paphlagonia.holder.top_liege.religion = { # Ankyra
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_attica.holder.top_liege.religion = { # Athens
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_korinthos.holder.top_liege.religion = { # Corinth
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-	}
-}
+#scripted_trigger great_holy_war_0010_byzantion_reason_trigger = {
+#	OR = {
+#		trigger_if = { # Byzantine Empire
+#			limit = { exists = title:e_byzantium.holder } # Make sure a holder exists beforehand
+#			title:e_byzantium.holder.religion = {
+#				NOT = {
+#					this = religion:christianity_religion
+#				}
+#			}
+#		}
+#		title:c_byzantion.holder.top_liege.religion = { # Constantinople
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_paphlagonia.holder.top_liege.religion = { # Ankyra
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_attica.holder.top_liege.religion = { # Athens
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_korinthos.holder.top_liege.religion = { # Corinth
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#	}
+#}
 
-scripted_trigger great_holy_war_0010_europe_reason_trigger = {
-	OR = {
-		title:c_venaissin.holder.top_liege.religion = { # Provence
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_toulouse.holder.top_liege.religion = { # Toulouse
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_ile_de_france.holder.top_liege.religion = { # Paris
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_cologne.holder.top_liege.religion = { # Cologne
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_halberstadt.holder.top_liege.religion = { # Halberstadt
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-	}
-}
+#scripted_trigger great_holy_war_0010_europe_reason_trigger = {
+#	OR = {
+#		title:c_venaissin.holder.top_liege.religion = { # Provence
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_toulouse.holder.top_liege.religion = { # Toulouse
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_ile_de_france.holder.top_liege.religion = { # Paris
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_cologne.holder.top_liege.religion = { # Cologne
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_halberstadt.holder.top_liege.religion = { # Halberstadt
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#	}
+#}
 
-scripted_trigger great_holy_war_0010_mecca_reason_trigger = {
-	title:c_mecca.holder.top_liege = {
-		NOT = {
-			faith.religion = scope:awakening_faith.religion
-		}
-	}
-}
+#scripted_trigger great_holy_war_0010_mecca_reason_trigger = {
+#	title:c_mecca.holder.top_liege = {
+#		NOT = {
+#			faith.religion = scope:awakening_faith.religion
+#		}
+#	}
+#}
 
-scripted_trigger great_holy_war_0010_centre_reason_trigger = {
-	OR = {
-		title:c_baghdad.holder.top_liege.religion = { # Baghdad
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_damascus.holder.top_liege.religion = { # Damascus
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_cairo.holder.top_liege.religion = { # Cairo
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-	}
-}
+#scripted_trigger great_holy_war_0010_centre_reason_trigger = {
+#	OR = {
+#		title:c_baghdad.holder.top_liege.religion = { # Baghdad
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_damascus.holder.top_liege.religion = { # Damascus
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_cairo.holder.top_liege.religion = { # Cairo
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#	}
+#}
 
-scripted_trigger great_holy_war_0010_africa_reason_trigger = {
-	OR = {
-		title:c_marrakesh.holder.top_liege.religion = { # Marrakesh
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_tunis.holder.top_liege.religion = { # Tunis
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-		title:c_algier.holder.top_liege.religion = { # Algier
-			NOT = {
-				this = religion:christianity_religion
-			}
-		}
-	}
-}
+#scripted_trigger great_holy_war_0010_africa_reason_trigger = {
+#	OR = {
+#		title:c_marrakesh.holder.top_liege.religion = { # Marrakesh
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_tunis.holder.top_liege.religion = { # Tunis
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#		title:c_algier.holder.top_liege.religion = { # Algier
+#			NOT = {
+#				this = religion:christianity_religion
+#			}
+#		}
+#	}
+#}
 
 great_holy_war.0010 = {
 	hidden = yes
@@ -1008,33 +625,33 @@ great_holy_war.0010 = {
 		religious_head = { is_imprisoned = no }
 		num_county_followers >= 35 # Faith must have at least SOME legitimacy.
 		OR = {
-			AND = { # Historical setup.
-				title:c_jerusalem.holder = {
-					NOT = {
-						faith.religion = root.religion
-					}
-				}
-				current_date >= 1095.1.1
-				faith:catholic = root
-			}
-			AND = { # Historical setup.
-				great_holy_war_0010_byzantion_reason_trigger = yes
-				current_date >= 1000.1.1
-				faith:catholic = root
-			}
-			AND = { # Historical setup.
-				great_holy_war_0010_europe_reason_trigger = yes
-				current_date >= 800.1.1
-				faith:catholic = root
-			}
-			AND = { # Historical setup.
-				title:c_roma.holder.top_liege = {
-					NOT = {
-						faith.religion = root.religion
-					}
-				}
-				faith:catholic = root
-			}
+		#	AND = { # Historical setup.
+		#		title:c_jerusalem.holder = {
+		#			NOT = {
+		#				faith.religion = root.religion
+		#			}
+		#		}
+		#		current_date >= 1095.1.1
+		#		faith:catholic = root
+		#	}
+		#	AND = { # Historical setup.
+		#		great_holy_war_0010_byzantion_reason_trigger = yes
+		#		current_date >= 1000.1.1
+		#		faith:catholic = root
+		#	}
+		#	AND = { # Historical setup.
+		#		great_holy_war_0010_europe_reason_trigger = yes
+		#		current_date >= 800.1.1
+		#		faith:catholic = root
+		#	}
+		#	AND = { # Historical setup.
+		#		title:c_roma.holder.top_liege = {
+		#			NOT = {
+		#				faith.religion = root.religion
+		#			}
+		#		}
+		#		faith:catholic = root
+		#	}
 			current_date >= 1100.1.1 # Free for all after Historical years
 			AND = { # Any Faith is seriously under attack.
 				any_holy_site = {
@@ -1045,57 +662,57 @@ great_holy_war.0010 = {
 				}
 				current_date >= 800.1.1
 			}
-			AND = { # I learned it from you! - Muslims second.
-				religion:christianity_religion = {
-					exists = var:variable_ghw_unlocked
-				}
-				religion:islam_religion = root.religion
-				any_holy_site = {
-					holder.top_liege = {
-						NOT = { faith.religion = root.religion }
-					}
-					count >= 1
-				}
-			}
-			AND = { # And we learned it from you! - Everyone else last.
-				religion:christianity_religion = {
-					exists = var:variable_ghw_unlocked
-				}
-				religion:islam_religion = {
-					exists = var:variable_ghw_unlocked
-				}
-				any_holy_site = {
-					holder.top_liege = {
-						NOT = { faith.religion = root.religion }
-					}
-					count >= 1
-				}
-				NOR = {
-					religion = religion:christianity_religion
-					religion = religion:islam_religion
-				}
-			}
+		#	AND = { # I learned it from you! - Muslims second.
+		#		religion:christianity_religion = {
+		#			exists = var:variable_ghw_unlocked
+		#		}
+		#		religion:islam_religion = root.religion
+		#		any_holy_site = {
+		#			holder.top_liege = {
+		#				NOT = { faith.religion = root.religion }
+		#			}
+		#			count >= 1
+		#		}
+		#	}
+		#	AND = { # And we learned it from you! - Everyone else last.
+		#		religion:christianity_religion = {
+		#			exists = var:variable_ghw_unlocked
+		#		}
+		#		religion:islam_religion = {
+		#			exists = var:variable_ghw_unlocked
+		#		}
+		#		any_holy_site = {
+		#			holder.top_liege = {
+		#				NOT = { faith.religion = root.religion }
+		#			}
+		#			count >= 1
+		#		}
+		#		NOR = {
+		#			religion = religion:christianity_religion
+		#			religion = religion:islam_religion
+		#		}
+		#	}
 		}
 	}
 
 	weight_multiplier = {
 		base = 1
-		modifier = { # Historical push for local Christian control.
-			add = 2
-			title:c_jerusalem.holder = {
-				NOT = { faith.religion = religion:christianity_religion }
-			}
-			current_date >= 1095.1.1
-			root.religion = religion:christianity_religion
-		}
-		modifier = { # Historical push for overall Islamic control.
-			add = 2
-			title:c_jerusalem.holder.top_liege = {
-				NOT = { faith.religion = religion:islam_religion }
-			}
-			current_date >= 1095.1.1
-			root.religion = religion:islam_religion
-		}
+		#modifier = { # Historical push for local Christian control.
+		#	add = 2
+		#	title:c_jerusalem.holder = {
+		#		NOT = { faith.religion = religion:christianity_religion }
+		#	}
+		#	current_date >= 1095.1.1
+		#	root.religion = religion:christianity_religion
+		#}
+		#modifier = { # Historical push for overall Islamic control.
+		#	add = 2
+		#	title:c_jerusalem.holder.top_liege = {
+		#		NOT = { faith.religion = religion:islam_religion }
+		#	}
+		#	current_date >= 1095.1.1
+		#	root.religion = religion:islam_religion
+		#}
 	}
 	
 	immediate = {
@@ -1150,119 +767,122 @@ great_holy_war.0010 = {
 #Flavor Fluff.
 great_holy_war.0011 = {
 	type = character_event
-	title = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:awakening_faith.religion = religion:christianity_religion
-				}
-				desc = great_holy_war.0011.christian.t
-			}
-			triggered_desc = {
-				trigger = {
-					scope:awakening_faith.religion = religion:islam_religion
-				}
-				desc = great_holy_war.0011.muslim.t
-			}
-			triggered_desc = { #Pagan Polytheists
-				trigger = {
-					scope:awakening_faith.religion = {
-						is_in_family = rf_pagan
-					}
-				}
-				desc = great_holy_war.0011.pagans.t
-			}
-			desc = great_holy_war.0011.fallback.t
-		}
-	}
+	#title = {
+	#	first_valid = {
+	#		triggered_desc = {
+	#			trigger = {
+	#				scope:awakening_faith.religion = religion:christianity_religion
+	#			}
+	#			desc = great_holy_war.0011.christian.t
+	#		}
+	#		triggered_desc = {
+	#			trigger = {
+	#				scope:awakening_faith.religion = religion:islam_religion
+	#			}
+	#			desc = great_holy_war.0011.muslim.t
+	#		}
+	#		triggered_desc = { #Pagan Polytheists
+	#			trigger = {
+	#				scope:awakening_faith.religion = {
+	#					is_in_family = rf_pagan
+	#				}
+	#			}
+	#			desc = great_holy_war.0011.pagans.t
+	#		}
+	#		desc = great_holy_war.0011.fallback.t
+	#	}
+	#}
+
+	title = great_holy_war.0011.fallback.t
+
 	desc = {
 		first_valid = {
 			#Christian Flavor
-			triggered_desc = { #Catholic Crusades, because of Rome.
-				trigger = {
-					scope:awakening_faith = faith:catholic
-					exists = scope:ghw_first_sponsor
-					great_holy_war_0010_rome_reason_trigger = yes
-				}
-					desc = great_holy_war.0011.catholic.rome.desc
-			}
-			triggered_desc = { #Christian Crusades, because of fall of Europe.
-				trigger = {
-					scope:awakening_faith.religion = religion:christianity_religion
-					exists = scope:ghw_first_sponsor
-					great_holy_war_0010_europe_reason_trigger = yes
-				}
-					desc = great_holy_war.0011.christian.europe.desc
-			}
-			triggered_desc = { #Christian Crusades, because of fall of Byzantium.
-				trigger = {
-					scope:awakening_faith.religion = religion:christianity_religion
-					exists = scope:ghw_first_sponsor
-					great_holy_war_0010_byzantion_reason_trigger = yes
-				}
-					desc = great_holy_war.0011.christian.byzantion.desc
-			}
-			triggered_desc = { #Catholic Crusades, because of Jerusalem.
-				trigger = {
-					scope:awakening_faith = faith:catholic
-					exists = scope:ghw_first_sponsor
-					great_holy_war_0010_jerusalem_reason_trigger = yes
-				}
-					desc = great_holy_war.0011.catholic.jerusalem.desc
-			}
-			triggered_desc = { #Christian Crusades, fallback.
-				trigger = {
-					scope:awakening_faith.religion = religion:christianity_religion
-				}
-					desc = great_holy_war.0011.christian.fallback.desc
-			}
+			#triggered_desc = { #Catholic Crusades, because of Rome.
+			#	trigger = {
+			#		scope:awakening_faith = faith:catholic
+			#		exists = scope:ghw_first_sponsor
+			#		great_holy_war_0010_rome_reason_trigger = yes
+			#	}
+			#		desc = great_holy_war.0011.catholic.rome.desc
+			#}
+			#triggered_desc = { #Christian Crusades, because of fall of Europe.
+			#	trigger = {
+			#		scope:awakening_faith.religion = religion:christianity_religion
+			#		exists = scope:ghw_first_sponsor
+			#		great_holy_war_0010_europe_reason_trigger = yes
+			#	}
+			#		desc = great_holy_war.0011.christian.europe.desc
+			#}
+			#triggered_desc = { #Christian Crusades, because of fall of Byzantium.
+			#	trigger = {
+			#		scope:awakening_faith.religion = religion:christianity_religion
+			#		exists = scope:ghw_first_sponsor
+			#		great_holy_war_0010_byzantion_reason_trigger = yes
+			#	}
+			#		desc = great_holy_war.0011.christian.byzantion.desc
+			#}
+			#triggered_desc = { #Catholic Crusades, because of Jerusalem.
+			#	trigger = {
+			#		scope:awakening_faith = faith:catholic
+			#		exists = scope:ghw_first_sponsor
+			#		great_holy_war_0010_jerusalem_reason_trigger = yes
+			#	}
+			#		desc = great_holy_war.0011.catholic.jerusalem.desc
+			#}
+			#triggered_desc = { #Christian Crusades, fallback.
+			#	trigger = {
+			#		scope:awakening_faith.religion = religion:christianity_religion
+			#	}
+			#		desc = great_holy_war.0011.christian.fallback.desc
+			#}
 
 			#Muslim Flavor
-			triggered_desc = { #Jihads, because of Mecca.
-				trigger = {
-					scope:awakening_faith.religion = religion:islam_religion
-					exists = scope:ghw_first_sponsor
-					great_holy_war_0010_mecca_reason_trigger = yes
-				}
-					desc = great_holy_war.0011.muslim.mecca.desc
-			}
-			triggered_desc = { #Jihads, because of Jerusalem.
-				trigger = {
-					scope:awakening_faith.religion = religion:islam_religion
-					exists = scope:ghw_first_sponsor
-					great_holy_war_0010_mecca_reason_trigger = yes
-				}
-					desc = great_holy_war.0011.muslim.jerusalem.desc
-			}
-			triggered_desc = { #Jihads, because of Arabia/Egypt.
-				trigger = {
-					scope:awakening_faith.religion = religion:islam_religion
-					exists = scope:ghw_first_sponsor
-					great_holy_war_0010_centre_reason_trigger = yes
-				}
-					desc = great_holy_war.0011.muslim.arabia.desc
-			}
-			triggered_desc = { #Jihads, because of Africa.
-				trigger = {
-					scope:awakening_faith.religion = religion:islam_religion
-					exists = scope:ghw_first_sponsor
-					great_holy_war_0010_africa_reason_trigger = yes
-				}
-					desc = great_holy_war.0011.muslim.africa.desc
-			}
-			triggered_desc = { #Jihads, fallback.
-				trigger = {
-					scope:awakening_faith.religion = religion:islam_religion
-				}
-					desc = great_holy_war.0011.muslim.fallback.desc
-			}
+			#triggered_desc = { #Jihads, because of Mecca.
+			#	trigger = {
+			#		scope:awakening_faith.religion = religion:islam_religion
+			#		exists = scope:ghw_first_sponsor
+			#		great_holy_war_0010_mecca_reason_trigger = yes
+			#	}
+			#		desc = great_holy_war.0011.muslim.mecca.desc
+			#}
+			#triggered_desc = { #Jihads, because of Jerusalem.
+			#	trigger = {
+			#		scope:awakening_faith.religion = religion:islam_religion
+			#		exists = scope:ghw_first_sponsor
+			#		great_holy_war_0010_mecca_reason_trigger = yes
+			#	}
+			#		desc = great_holy_war.0011.muslim.jerusalem.desc
+			#}
+			#triggered_desc = { #Jihads, because of Arabia/Egypt.
+			#	trigger = {
+			#		scope:awakening_faith.religion = religion:islam_religion
+			#		exists = scope:ghw_first_sponsor
+			#		great_holy_war_0010_centre_reason_trigger = yes
+			#	}
+			#		desc = great_holy_war.0011.muslim.arabia.desc
+			#}
+			#triggered_desc = { #Jihads, because of Africa.
+			#	trigger = {
+			#		scope:awakening_faith.religion = religion:islam_religion
+			#		exists = scope:ghw_first_sponsor
+			#		great_holy_war_0010_africa_reason_trigger = yes
+			#	}
+			#		desc = great_holy_war.0011.muslim.africa.desc
+			#}
+			#triggered_desc = { #Jihads, fallback.
+			#	trigger = {
+			#		scope:awakening_faith.religion = religion:islam_religion
+			#	}
+			#		desc = great_holy_war.0011.muslim.fallback.desc
+			#}
 			#Generic Flavor
 			triggered_desc = { #Generic, with Head.
 				trigger = {
-					NOR = {
-						scope:awakening_faith.religion = religion:islam_religion
-						scope:awakening_faith.religion = religion:christianity_religion
-					}
+					#NOR = {
+					#	scope:awakening_faith.religion = religion:islam_religion
+					#	scope:awakening_faith.religion = religion:christianity_religion
+					#}
 					exists = scope:ghw_first_sponsor
 				}
 					desc = great_holy_war.0011.generic.fallback.head.desc
@@ -1353,28 +973,28 @@ great_holy_war.0011 = {
 		}
 	}
 
-	option = { #God's will
-		name = great_holy_war.0011.a
-		trigger = {
-			root.faith = scope:awakening_faith
-			scope:awakening_faith.religion = religion:christianity_religion
-		}
-	}
-	option = { #Allahu Akhbar
-		name = great_holy_war.0011.b
-		trigger = {
-			root.faith = scope:awakening_faith
-			scope:awakening_faith.religion = religion:islam_religion
-		}
-	}
+	#option = { #God's will
+	#	name = great_holy_war.0011.a
+	#	trigger = {
+	#		root.faith = scope:awakening_faith
+	#		scope:awakening_faith.religion = religion:christianity_religion
+	#	}
+	#}
+	#option = { #Allahu Akhbar
+	#	name = great_holy_war.0011.b
+	#	trigger = {
+	#		root.faith = scope:awakening_faith
+	#		scope:awakening_faith.religion = religion:islam_religion
+	#	}
+	#}
 	option = { #PaganGodName is with us.
 		name = great_holy_war.0011.c
 		trigger = {
 			root.faith = scope:awakening_faith
-			NOR = {
-				scope:awakening_faith.religion = religion:christianity_religion
-				scope:awakening_faith.religion = religion:islam_religion
-			}
+			#NOR = {
+			#	scope:awakening_faith.religion = religion:christianity_religion
+			#	scope:awakening_faith.religion = religion:islam_religion
+			#}
 		}
 	}
 	option = { #Infidels incoming.
@@ -1504,7 +1124,6 @@ great_holy_war.0016 = {
 				has_pledged_attacker = root
 			}
 		}
-		is_landless_adventurer = no
 	}
 
 	immediate = {
@@ -1652,24 +1271,27 @@ great_holy_war.0016 = {
 #Confirmation to unpledge.
 great_holy_war.0017 = {
 	title = great_holy_war.0017.title
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:scoped_pope = { faith = faith:catholic }
-				}
-				desc = great_holy_war.0017.desc.a
-			}
-			triggered_desc = {
-				trigger = {
-					NOT = {
-						scope:scoped_pope = { faith = faith:catholic }
-					}
-				}
-				desc = great_holy_war.0017.desc.b
-			}
-		}
-		}
+	#desc = {
+	#	first_valid = {
+	#		triggered_desc = {
+	#			trigger = {
+	#				scope:scoped_pope = { faith = faith:catholic }
+	#			}
+	#			desc = great_holy_war.0017.desc.a
+	#		}
+	#		triggered_desc = {
+	#			trigger = {
+	#				NOT = {
+	#					scope:scoped_pope = { faith = faith:catholic }
+	#				}
+	#			}
+	#			desc = great_holy_war.0017.desc.b
+	#		}
+	#	}
+	#}
+
+	desc = great_holy_war.0017.desc.b	
+
 	theme = faith
 	left_portrait = scope:scoped_pope
 
@@ -1918,22 +1540,22 @@ great_holy_war.0020 = {
 
 				modifier = { # More pledging happening at start of preparation phase.
 					factor = 0.75
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { days_until_ghw_launch > 200 }
 				}
 				modifier = { # Less pledging happening after.
 					factor = 1.5
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { days_until_ghw_launch < 150 }
 				}
 				modifier = { # Less pledging happening after.
 					factor = 1.75
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { days_until_ghw_launch < 100 }
 				}
 				modifier = { # Less pledging happening after.
 					factor = 1.75
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { days_until_ghw_launch < 70 }
 				}
 				modifier = { # More likely if war is close by.
@@ -1970,7 +1592,7 @@ great_holy_war.0020 = {
 				}
 				modifier = { # Much less likely to happen if the war has started.
 					factor = 0.25
-					exists = scope:the_faith.great_holy_war.ghw_war
+					exists = great_holy_war.ghw_war
 				}
 				modifier = { # Don't get too crowded now.
 					factor = 2
@@ -1990,17 +1612,17 @@ great_holy_war.0020 = {
 				}
 				modifier = { # Try to prevent the Crusade from failing before even starting. (Less strength than defenders)
 					factor = 0.75
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { ghw_attackers_strength < ghw_defenders_strength }
 				}
 				modifier = { # Try to prevent the Crusade from failing before even starting. (Less than half of the defenders' strength)
 					factor = 0.5
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { ghw_attackers_strength < var:half_of_defenders_strength }
 				}
 				modifier = { # Try to prevent the Crusade from failing before even starting. (Less than quarter of the defenders' strength)
 					factor = 0.35
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { ghw_attackers_strength < var:quarter_of_defenders_strength }
 				}
 				modifier = { # Slightly more likely to join when fighting for a Holy Site.
@@ -2328,12 +1950,12 @@ great_holy_war.0021 = {
 			85 = { #Do not pledge.
 				modifier = { #More pledging happening at start of preparation phase.
 					factor = 0.75
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { days_until_ghw_launch > 200 }
 				}
 				modifier = { #Less pledging happening after.
 					factor = 1.5
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { days_until_ghw_launch < 100 }
 				}
 				modifier = { #More likely if war is close by.
@@ -2394,7 +2016,7 @@ great_holy_war.0021 = {
 				}
 				modifier = { #Much less likely to happen if the war has started.
 					factor = 1.75
-					exists = scope:the_faith.great_holy_war.ghw_war
+					exists = great_holy_war.ghw_war
 				}
 				modifier = { #Don't get too crowded now.
 					factor = 1.5
@@ -2414,12 +2036,12 @@ great_holy_war.0021 = {
 				}
 				modifier = { #Try to balance.
 					factor = 0.35
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { ghw_defenders_strength < var:half_of_attackers_strength }
 				}
 				modifier = { #Try to balance.
 					factor = 0.25
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { ghw_defenders_strength < var:quarter_of_attackers_strength }
 				}
 				modifier = { #Slightly more likely to join when fighting for a Holy Site.
@@ -2590,12 +2212,12 @@ great_holy_war.0093 = {
 				}
 				modifier = { #Try to balance.
 					factor = 0.35
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { ghw_defenders_strength < var:half_of_attackers_strength }
 				}
 				modifier = { #Try to balance.
 					factor = 0.25
-					NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
+					NOT = { exists = great_holy_war.ghw_war }
 					scope:the_faith.great_holy_war = { ghw_defenders_strength < var:quarter_of_attackers_strength }
 				}
 				modifier = { #Slightly more likely to join when fighting for a Holy Site.
@@ -2645,7 +2267,7 @@ great_holy_war.0091 = {
 			great_holy_war = {
 				NOT = { has_pledged_defender = root.leader }
 			}
-			NOT = { exists = scope:the_faith.great_holy_war.ghw_war } #Must not have started already, only in preparation phase.
+			NOT = { exists = great_holy_war.ghw_war } #Must not have started already, only in preparation phase.
 		}
 	}
 
@@ -2671,7 +2293,6 @@ great_holy_war.0022 = {
 			ghw_pope_annoyed_at_lack_of_participation_trigger = yes
 			ghw_pope_annoyed_at_lack_of_participation_tier_trigger = yes
 			NOT = { has_character_flag = ghw_pope_poking }
-			is_landless_adventurer = no
 		}
 	}
 
@@ -2687,7 +2308,6 @@ great_holy_war.0022 = {
 				ghw_pope_annoyed_at_lack_of_participation_trigger = yes
 				ghw_pope_annoyed_at_lack_of_participation_tier_trigger = yes
 				NOT = { has_character_flag = ghw_pope_poking }
-				is_landless_adventurer = no
 			}
 			trigger_event = {
 				id = great_holy_war.0023
@@ -2737,7 +2357,6 @@ great_holy_war.0023 = {
 		NOT = { exists = scope:the_faith.great_holy_war.ghw_war }
 		ghw_pope_annoyed_at_lack_of_participation_trigger = yes
 		ghw_pope_annoyed_at_lack_of_participation_tier_trigger = yes
-		is_landless_adventurer = no
 	}
 
 	immediate = {
@@ -3022,7 +2641,6 @@ great_holy_war.0024 = {
 			if = {
 				limit = { exists = scope:ghw_claimant }
 				send_interface_toast = {
-					type = event_toast_effect_bad
 					left_icon = scope:former_recipient
 					right_icon = scope:ghw_claimant
 					title = great_holy_war.0024.dead.recipient.title
@@ -3031,7 +2649,6 @@ great_holy_war.0024 = {
 			}
 			else = {
 				send_interface_toast = {
-					type = event_toast_effect_bad
 					left_icon = scope:former_recipient
 					title = great_holy_war.0024.dead.recipient.title
 					custom_tooltip = great_holy_war.0024.dead.recipient.open
@@ -3424,10 +3041,7 @@ great_holy_war.0030 = {
 							has_trait = excommunicated
 							has_trait = devoted
 							has_serious_disease_trigger = yes
-							AND = {
-								is_ruler = yes
-								NOT = { government_has_flag = government_is_landless_adventurer }
-							}
+							is_ruler = yes
 							any_heir_title = { count >= 1 }	#Shouldn't be heir to anything
 						}
 					}
@@ -3440,50 +3054,84 @@ great_holy_war.0030 = {
 					limit = {
 						is_ai = no  #Send notification to player.
 						scope:former_beneficiary = {
-							OR = {
-								has_trait = incapable
-								has_trait = excommunicated
-								has_trait = devoted
-								has_serious_disease_trigger = yes
-								is_ruler = yes
-								any_heir_title = { count >= 1 }	#Shouldn't be heir to anything
-							}
+							has_trait = incapable
 						}
 					}
 					send_interface_toast = {
-						type = event_toast_effect_bad
 						left_icon = root
 						title = great_holy_war.0029.invalid.beneficiary_title
-						scope:former_beneficiary = {
-							if = {
-								limit = { has_trait = incapable }
-								custom_tooltip = great_holy_war.0030.incapable.beneficiary
-							}
-							else_if = {
-								limit = { has_trait = excommunicated }
-								custom_tooltip = great_holy_war.0030.excommunicated.beneficiary
-							}
-							else_if = {
-								limit = { has_trait = devoted }
-								custom_tooltip = great_holy_war.0030.devoted.beneficiary
-							}
-							else_if = {
-								limit = { has_serious_disease_trigger = yes }
-								custom_tooltip = great_holy_war.0030.sick.beneficiary
-							}
-							else_if = {
-								limit = { is_ruler = yes }
-								custom_tooltip = great_holy_war.0030.ruler.beneficiary
-							}
-							else_if = {
-								limit = { any_heir_title = { count >= 1 } } #Shouldn't be heir to anything
-								custom_tooltip = great_holy_war.0030.heir.beneficiary
-							}
-						}
+						custom_tooltip = great_holy_war.0030.incapable.beneficiary
 					}
 				}
 				else_if = {
-					limit = { is_ai = yes }
+					limit = {
+						is_ai = no  #Send notification to player.
+						scope:former_beneficiary = {
+							has_trait = excommunicated
+						}
+					}
+					send_interface_toast = {
+						left_icon = root
+						title = great_holy_war.0029.invalid.beneficiary_title
+						custom_tooltip = great_holy_war.0030.excommunicated.beneficiary
+					}
+				}
+				else_if = {
+					limit = {
+						is_ai = no  #Send notification to player.
+						scope:former_beneficiary = {
+							has_trait = devoted
+						}
+					}
+					send_interface_toast = {
+						left_icon = root
+						title = great_holy_war.0029.invalid.beneficiary_title
+						custom_tooltip = great_holy_war.0030.devoted.beneficiary
+					}
+				}
+				else_if = {
+					limit = {
+						is_ai = no  #Send notification to player.
+						scope:former_beneficiary = {
+							has_serious_disease_trigger = yes
+						}
+					}
+					send_interface_toast = {
+						left_icon = root
+						title = great_holy_war.0029.invalid.beneficiary_title
+						custom_tooltip = great_holy_war.0030.sick.beneficiary
+					}
+				}
+				else_if = {
+					limit = {
+						is_ai = no  #Send notification to player.
+						scope:former_beneficiary = {
+							is_ruler = yes
+						}
+					}
+					send_interface_toast = {
+						left_icon = root
+						title = great_holy_war.0029.invalid.beneficiary_title
+						custom_tooltip = great_holy_war.0030.ruler.beneficiary
+					}
+				}
+				else_if = {
+					limit = {
+						is_ai = no  #Send notification to player.
+						scope:former_beneficiary = {
+							any_heir_title = { count >= 1 }	#Shouldn't be heir to anything
+						}
+					}
+					send_interface_toast = {
+						left_icon = root
+						title = great_holy_war.0029.invalid.beneficiary_title
+						custom_tooltip = great_holy_war.0030.heir.beneficiary
+					}
+				}
+				else_if = {
+					limit = {
+						is_ai = yes
+					}
 					trigger_event = {
 						id = great_holy_war.0026
 						days = 2
@@ -3693,22 +3341,22 @@ great_holy_war.0051 = {
 	desc = {
 		first_valid = {
 			#Catholic Flavor - Attackers
-			triggered_desc = {
-				trigger = {
-					scope:attacker.faith.great_holy_war = {
-						has_pledged_attacker = root
-					}
-					scope:the_faith = faith:catholic
-				}
-				desc = great_holy_war.0051.catholic.attackers.desc
-			}
+			#triggered_desc = {
+			#	trigger = {
+			#		scope:attacker.faith.great_holy_war = {
+			#			has_pledged_attacker = root
+			#		}
+			#		scope:the_faith = faith:catholic
+			#	}
+			#	desc = great_holy_war.0051.catholic.attackers.desc
+			#}
 			#Everybody else's flavor - Attackers.
 			triggered_desc = {
 				trigger = {
 					scope:attacker.faith.great_holy_war = {
 						has_pledged_attacker = root
 					}
-					NOT = { scope:the_faith = faith:catholic }
+					#NOT = { scope:the_faith = faith:catholic }
 				}
 				desc = great_holy_war.0051.generic.attackers.desc
 			}
@@ -3725,7 +3373,7 @@ great_holy_war.0051 = {
 	}
 	
 	theme = faith
-	override_background = { reference = temple }
+	override_background = { reference = armory }
 
 	left_portrait = {
 		character = scope:ghw_sponsor
@@ -3745,32 +3393,32 @@ great_holy_war.0051 = {
 		play_music_cue = "mx_cue_combat_3"
 	}
 
-	option = {
-		name = great_holy_war.0011.a
-		trigger = {
-			scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
-			root.faith.religion = religion:christianity_religion
-		}
-
-		custom_tooltip = great_holy_war.0051.generic.start.tt
-	}
-	option = {
-		name = great_holy_war.0011.b
-		trigger = {
-			scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
-			root.faith.religion = religion:islam_religion
-		}
-
-		custom_tooltip = great_holy_war.0051.generic.start.tt
-	}
+	#option = {
+	#	name = great_holy_war.0011.a
+	#	trigger = {
+	#		scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
+	#		root.faith.religion = religion:christianity_religion
+	#	}
+	#
+	#	custom_tooltip = great_holy_war.0051.generic.start.tt
+	#}
+	#option = {
+	#	name = great_holy_war.0011.b
+	#	trigger = {
+	#		scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
+	#		root.faith.religion = religion:islam_religion
+	#	}
+	#
+	#	custom_tooltip = great_holy_war.0051.generic.start.tt
+	#}
 	option = {
 		name = great_holy_war.0011.c
 		trigger = {
 			scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
-			NOR = {
-				root.faith.religion = religion:christianity_religion
-				root.faith.religion = religion:islam_religion
-			}
+			#NOR = {
+			#	root.faith.religion = religion:christianity_religion
+			#	root.faith.religion = religion:islam_religion
+			#}
 		}
 
 		custom_tooltip = great_holy_war.0051.generic.start.tt
@@ -3860,32 +3508,32 @@ great_holy_war.0071 = {
 		scope:attacker.faith.great_holy_war = { pledge_defender = root }
 	}
 
-	option = {
-		name = great_holy_war.0011.a
-		trigger = {
-			scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
-			root.faith.religion = religion:christianity_religion
-		}
-
-		custom_tooltip = great_holy_war.0051.generic.start.tt
-	}
-	option = {
-		name = great_holy_war.0011.b
-		trigger = {
-			scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
-			root.faith.religion = religion:islam_religion
-		}
-
-		custom_tooltip = great_holy_war.0051.generic.start.tt
-	}
+	#option = {
+	#	name = great_holy_war.0011.a
+	#	trigger = {
+	#		scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
+	#		root.faith.religion = religion:christianity_religion
+	#	}
+	#
+	#	custom_tooltip = great_holy_war.0051.generic.start.tt
+	#}
+	#option = {
+	#	name = great_holy_war.0011.b
+	#	trigger = {
+	#		scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
+	#		root.faith.religion = religion:islam_religion
+	#	}
+	#
+	#	custom_tooltip = great_holy_war.0051.generic.start.tt
+	#}
 	option = {
 		name = great_holy_war.0011.c
 		trigger = {
 			scope:attacker.faith.great_holy_war = { has_pledged_attacker = root }
-			NOR = {
-				root.faith.religion = religion:christianity_religion
-				root.faith.religion = religion:islam_religion
-			}
+			#NOR = {
+			#	root.faith.religion = religion:christianity_religion
+			#	root.faith.religion = religion:islam_religion
+			#}
 		}
 
 		custom_tooltip = great_holy_war.0051.generic.start.tt
@@ -3966,16 +3614,6 @@ great_holy_war.0052 = {
 	
 	immediate = {
 		play_music_cue = "mx_cue_general_crusade_event_3"
-		if = {
-			limit = {
-				has_trait = faith_warrior
-				save_temporary_scope_as = char_temp
-				scope:attacker.faith.great_holy_war = {
-					any_pledged_attacker = { this = scope:char_temp }
-				}
-			}
-			absolve_crusaders_of_gallowsbait_effect = yes
-		}
 	}
 	
 	option = {
@@ -4235,27 +3873,30 @@ great_holy_war.0060 = {
 
 great_holy_war.0057 = {
 	title = great_holy_war.0057.title
-	desc = {
-		first_valid = {
-			triggered_desc = { #Crusaders
-				trigger = { faith.religion = religion:christianity_religion }
-				desc = great_holy_war.0057.crusader.desc
-			}
-			triggered_desc = { #Muslims
-				trigger = { faith.religion = religion:islam_religion }
-				desc = great_holy_war.0057.mujahid.desc
-			}
-			triggered_desc = { #Everybody else
-				trigger = {
-					NOR = {
-						faith.religion = religion:christianity_religion
-						faith.religion = religion:islam_religion
-					}
-				}
-				desc = great_holy_war.0057.generic.outsiders.desc
-			}
-		}
-	}
+	#desc = {
+	#	first_valid = {
+	#		triggered_desc = { #Crusaders
+	#			trigger = { faith.religion = religion:christianity_religion }
+	#			desc = great_holy_war.0057.crusader.desc
+	#		}
+	#		triggered_desc = { #Muslims
+	#			trigger = { faith.religion = religion:islam_religion }
+	#			desc = great_holy_war.0057.mujahid.desc
+	#		}
+	#		triggered_desc = { #Everybody else
+	#			trigger = {
+	#				NOR = {
+	#					faith.religion = religion:christianity_religion
+	#					faith.religion = religion:islam_religion
+	#				}
+	#			}
+	#			desc = great_holy_war.0057.generic.outsiders.desc
+	#		}
+	#	}
+	#}
+
+	desc = great_holy_war.0057.generic.outsiders.desc
+
 	theme = faith
 	override_background = {
 		reference = wilderness_scope
@@ -4407,7 +4048,7 @@ great_holy_war.0061 = {
 			every_dynasty_member = {
 				limit = { is_ai = no }
 				send_interface_message = {
-					type = event_great_holy_war_good_message
+					type = great_holy_war_good_message
 					title = great_holy_war.0061.title
 					desc = great_holy_war.0061.notification
 					left_icon = scope:scoped_beneficiary.primary_title
@@ -4415,45 +4056,32 @@ great_holy_war.0061 = {
 				}
 			}
 		}
-		if = {
-			limit = { faith.religion = religion:christianity_religion }
-			house = {
-				add_house_modifier = {
-					modifier = house_beneficiary_won_ghw_crusade
-					years = 30
-				}
+		#if = {
+		#	limit = { faith.religion = religion:christianity_religion }
+		#	house = {
+		#		add_house_modifier = {
+		#			modifier = house_beneficiary_won_ghw_crusade
+		#			years = 30
+		#		}
+		#	}
+		#}
+		#else_if = {
+		#	limit = { faith.religion = religion:islam_religion }
+		#	house = {
+		#		add_house_modifier = {
+		#			modifier = house_beneficiary_won_ghw_jihad
+		#			years = 30
+		#		}
+		#	}
+		#}
+		#else = {
+		house = {
+			add_house_modifier = {
+				modifier = house_beneficiary_won_ghw
+				years = 30
 			}
 		}
-		else_if = {
-			limit = { faith.religion = religion:islam_religion }
-			house = {
-				add_house_modifier = {
-					modifier = house_beneficiary_won_ghw_jihad
-					years = 30
-				}
-			}
-		}
-		else = {
-			house = {
-				add_house_modifier = {
-					modifier = house_beneficiary_won_ghw
-					years = 30
-				}
-			}
-		}
-		# Plus if we're gallowsbait, remove most/all of it — accounting for some weirdnesses from laamps.
-		if = {
-			limit = {
-				NOR = {
-					has_trait = crusader_king
-					save_temporary_scope_as = char_temp
-					scope:attacker.faith.great_holy_war = {
-						any_pledged_attacker = { this = scope:char_temp }
-					}
-				}
-			}
-			absolve_crusaders_of_gallowsbait_effect = yes
-		}
+		#}
 	}
 }
 
@@ -4683,7 +4311,6 @@ great_holy_war.0085 = {
 				faith.great_holy_war = { has_pledged_attacker = prev }
 			}
 			send_interface_toast = {
-				type = event_toast_effect_bad
 				right_icon = this
 				left_icon = scope:converter
 				title = great_holy_war.0085.toast

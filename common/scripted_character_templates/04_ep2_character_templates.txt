@@ -21,6 +21,7 @@
 			LEVEL_1 = no
 			LEVEL_3 = yes
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -53,6 +54,7 @@ tournament_horse_character = {
 			LEVEL_1 = no
 			LEVEL_3 = yes
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -71,6 +73,7 @@ tournament_archery_character = {
 			LEVEL_1 = no
 			LEVEL_3 = yes
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -91,6 +94,9 @@ tournament_recital_character = {
 		max_template_decent_skill
 	}
 	gender_female_chance = root_soldier_female_chance
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 tournament_pugilism_character = {
@@ -114,6 +120,7 @@ tournament_pugilism_character = {
 			LEVEL_1 = no
 			LEVEL_3 = yes
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -129,6 +136,9 @@ tournament_board_game_character = {
 		max_template_decent_skill
 	}
 	gender_female_chance = root_soldier_female_chance
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 loyal_fan_character = {
@@ -147,6 +157,9 @@ loyal_fan_character = {
 		lustful = {}
 	}
 	gender_female_chance = 50
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 local_beauty_character = {
@@ -205,6 +218,7 @@ local_beauty_character = {
 				set_sexuality = bisexual
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -248,6 +262,7 @@ feral_child_template = {
 			modifier = feral_modifier
 			years = 5
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -264,11 +279,13 @@ castaway_character = {
 				change_current_weight = -100
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
 sexy_assassin_character = {
 	age = { 18 35 }
+	random_traits = no
 	random_traits_list = {
 		count = 1
 		beauty_good_2 = {}
@@ -310,6 +327,7 @@ sexy_assassin_character = {
 	}
 	after_creation = {
 		set_sexuality = bisexual
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -336,6 +354,7 @@ garden_hermit_character = {
 				}
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -387,6 +406,7 @@ brainless_character_template = {
 				change_current_weight = -50
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -422,6 +442,9 @@ heartless_knight = {
 	}
 	random_traits = yes
 	gender_female_chance = root_soldier_female_chance
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 cowardly_knight = {
@@ -448,6 +471,9 @@ cowardly_knight = {
 	}
 	random_traits = yes
 	gender_female_chance = root_soldier_female_chance
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 child_thief_character = {
@@ -458,6 +484,9 @@ child_thief_character = {
 	intrigue = {
 		min_template_decent_skill
 		max_template_high_skill
+	}
+	after_creation = {
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -481,6 +510,9 @@ wealthy_gambler_template = {
 	martial = { 2 10 }
 	diplomacy = { 5 13 }
 	learning = { 5 13 }
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 tournament_mulan_character = {
@@ -509,6 +541,7 @@ tournament_mulan_character = {
 			LEVEL_1 = no
 			LEVEL_3 = yes
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -529,6 +562,9 @@ quasimodo_template = {
 	}
 	random_traits = yes
 	gender_female_chance = 50
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 tournament_unusual_stranger = {
@@ -551,6 +587,7 @@ tournament_unusual_stranger = {
 	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_gold = 1
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -564,7 +601,8 @@ travel_messenger = {
 	}
 	gender_female_chance = root_soldier_female_chance
 	after_creation = {
-		add_gold = 10 
+		add_gold = 10
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -595,6 +633,7 @@ sea_captain = {
 				add_trait = adventurer
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -622,6 +661,7 @@ jungle_guide = {
 				add_trait = adventurer
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -649,6 +689,7 @@ mountaineer_guide = {
 				add_trait = adventurer
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -676,6 +717,7 @@ forder_guide = {
 				add_trait = adventurer
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -703,6 +745,7 @@ desert_warrior_guide = {
 				add_trait = adventurer
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -730,6 +773,7 @@ rough_terrain_guide = { #I.e. Forest Guide
 				add_trait = adventurer
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -746,5 +790,6 @@ cultural_ambassador = {
 	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_gold = 10
+		urf_template_base_race_init = yes
 	}
 }

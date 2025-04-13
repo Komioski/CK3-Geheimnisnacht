@@ -1,5 +1,4 @@
-﻿
-WarDeclaredOpening = {
+﻿WarDeclaredOpening = {
 	type = war
 
 	text = {
@@ -266,19 +265,6 @@ ZealousDoW = {
 	text = {
 		trigger = {
 			root.faith = {
-				OR = {
-					religion_tag = christianity_religion
-					religion_tag = islam_religion
-					religion_tag = west_african_roog_religion			
-				}
-			}
-		}
-		localization_key =war_declared_flavor.zealous.mercifulgod
-	}
-
-	text = {
-		trigger = {
-			root.faith = {
 				has_doctrine_parameter = reincarnation_resistance_to_conversion
 			}
 		}
@@ -324,8 +310,6 @@ WarCasusBelliShort = {
 			OR = {
 				using_cb = claim_cb
 				using_cb = claimant_faction_war
-				using_cb = norman_conquest_cb
-				using_cb = norwegian_invasion_cb
 			}
 		}
 		localization_key = war_memory_cb_claim
@@ -336,10 +320,6 @@ WarCasusBelliShort = {
 			OR = {
 				using_cb = county_conquest_cb
 				using_cb = duchy_conquest_cb
-				using_cb = county_struggle_cb
-				using_cb = fp2_mediterranean_conquest_cb
-				using_cb = hungarian_migration_cb
-				using_cb = sons_of_lothbrok_invasion_cb
 			}
 		}
 		localization_key = war_memory_cb_conquest
@@ -372,12 +352,6 @@ WarCasusBelliShort = {
 			OR = {
 				using_cb = invasion_war
 				using_cb = clan_invasion_war
-				using_cb = mongol_invasion_war
-				using_cb = mongol_realm_invasion_war
-				using_cb = ep3_laamp_adventurer_county_invasion
-				using_cb = ep3_laamp_adventurer_duchy_invasion
-				using_cb = ep3_laamp_adventurer_kingdom_invasion
-				using_cb = ep3_laamp_adventurer_empire_invasion
 			}
 		}
 		localization_key = war_memory_cb_invasion
@@ -449,21 +423,6 @@ WarCasusBelliShort = {
 	}
 
 	text = {
-		trigger = { using_cb = imperial_reconquest_cb }
-		localization_key = war_memory_cb_imperial_reconquest
-	}
-
-	text = {
-		trigger = { using_cb = dismantle_holy_pretender_cb }
-		localization_key = war_memory_cb_holy_pretender
-	}
-
-	text = {
-		trigger = { using_cb = dismantle_byz_pretender_cb }
-		localization_key = war_memory_cb_byz_pretender
-	}
-
-	text = {
 		trigger = { using_cb = excommunication_war }
 		localization_key = war_memory_cb_excommunicate
 	}
@@ -484,26 +443,6 @@ WarCasusBelliShort = {
 			using_cb = diarch_vassalisation_cb
 		}
 		localization_key = war_memory_cb_vassalization
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				using_cb = fp1_varangian_adventurer_conquest
-				using_cb = fp1_scandi_adventurer_conquest
-			}
-		}
-		localization_key = war_memory_cb_varangian
-	}
-
-	text = {
-		trigger = { using_cb = fp2_border_raid }
-		localization_key = war_memory_cb_border
-	}
-
-	text = {
-		trigger = { using_cb = fp2_expel_interloper }
-		localization_key = war_memory_cb_expel
 	}
 
 	text = {

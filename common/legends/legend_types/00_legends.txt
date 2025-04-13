@@ -18,66 +18,6 @@
 				target = legend_owner
 			}
 		}
-		legend_protagonist = {
-			if = {
-				limit = {
-					is_alive = no
-				}
-				add_dead_character_flag = {
-					flag = ignore_sickness_clothes
-					years = 400
-				}
-			}
-		}
-	}
-	
-	on_province_spread = {
-		if = {
-			limit = {
-				county.holder = {
-					is_ai = no
-					OR = {
-						NOT = { has_variable = legend_alerted_var }
-						AND = {
-							has_variable = legend_alerted_var
-							NOT = {
-								var:legend_alerted_var = scope:legend
-							}
-						}
-					}
-				}
-				scope:legend.legend_owner = {
-					NOT = { this = prev.county.holder }
-				}
-			}
-			if = {
-				limit = {
-					scope:legend = { legend_quality = famed }
-				}
-				send_interface_message_legend_notification_effect = yes
-			}
-			else = { # If it's a high level one we send a toast
-				send_interface_toast_legend_notification_effect = yes
-			}
-		}
-	}
-	
-	on_legend_stop_promote = {
-		# If you were asked money to promote a legend and you drop it you get called out
-		if = {
-			limit = {
-				scope:legend = {
-					is_target_in_variable_list = {
-						name = accepted_promote_legend_var
-						target = root #former promoter
-					}
-				}
-			}
-			trigger_event = {
-				id = legend_events.1000
-				days = { 1 3 }
-			}
-		}
 	}
 	
 	is_valid_protagonist = {
@@ -181,7 +121,7 @@
 			}
 
 			removal_duration = {
-				years = { 25 35 }
+				years = { 1 2 }
 			}
 
 			impact = {
@@ -201,11 +141,10 @@
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					give_legendary_building_heroic_tooltip_effect = yes
 					legend_ending_rewards_heroic_effect = yes
 					legend_ending_rewards_famed_heroic_effect = yes
-					legend_ending_achievements_effect = yes						
+					legend_ending_achievements_effect = yes
 					# Ending event
 					trigger_event = story_event_legends.0001
 					
@@ -287,7 +226,7 @@
 			}
 
 			removal_duration = {
-				years = { 50 70 }
+				years = { 2 5 }
 			}
 
 			impact = {
@@ -308,7 +247,6 @@
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					custom_tooltip = {
 						text = unlock_legendary_adventure_tt
 						add_character_flag = launch_a_legendary_adventure
@@ -404,7 +342,7 @@
 			}
 
 			removal_duration = {
-				years = { 75 100 }
+				years = { 5 10 }
 			}
 
 			impact = {
@@ -425,7 +363,6 @@
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					custom_tooltip = {
 						text = unlock_legendary_adventure_tt
 						add_character_flag = launch_a_legendary_adventure
@@ -514,66 +451,6 @@ legitimizing = {
 			}
 			error_log = "Creating a Legitimizing legend without a Title property defined!"
 		}
-		legend_protagonist = {
-			if = {
-				limit = {
-					is_alive = no
-				}
-				add_dead_character_flag = {
-					flag = ignore_sickness_clothes
-					years = 400
-				}
-			}
-		}
-	}
-	
-	on_province_spread = {
-		if = {
-			limit = {
-				county.holder = {
-					is_ai = no
-					OR = {
-						NOT = { has_variable = legend_alerted_var }
-						AND = {
-							has_variable = legend_alerted_var
-							NOT = {
-								var:legend_alerted_var = scope:legend
-							}
-						}
-					}
-				}
-				scope:legend.legend_owner = {
-					NOT = { this = prev.county.holder }
-				}
-			}
-			if = {
-				limit = {
-					scope:legend = { legend_quality = famed }
-				}
-				send_interface_message_legend_notification_effect = yes
-			}
-			else = { # If it's a high level one we send a toast
-				send_interface_toast_legend_notification_effect = yes
-			}
-		}
-	}
-	
-	on_legend_stop_promote = {
-		# If you were asked money to promote a legend and you drop it you get called out
-		if = {
-			limit = {
-				scope:legend = {
-					is_target_in_variable_list = {
-						name = accepted_promote_legend_var
-						target = root #former promoter
-					}
-				}
-			}
-			trigger_event = {
-				id = legend_events.1000
-				days = { 1 3 }
-			}
-		}
 	}
 	
 	is_valid_protagonist = {
@@ -657,7 +534,7 @@ legitimizing = {
 			}
 
 			removal_duration = {
-				years = { 25 35 }
+				years = { 1 2 }
 			}
 
 			impact = {
@@ -679,7 +556,6 @@ legitimizing = {
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					if = {
 						limit = {
 							exists = scope:title
@@ -778,7 +654,7 @@ legitimizing = {
 			}
 
 			removal_duration = {
-				years = { 50 70 }
+				years = { 2 5 }
 			}
 
 			impact = {
@@ -800,7 +676,6 @@ legitimizing = {
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					custom_tooltip = {
 						text = unlock_legendary_integration_d_tt
 						add_character_flag = legendary_integration_d
@@ -912,7 +787,7 @@ legitimizing = {
 			}
 
 			removal_duration = {
-				years = { 75 100 }
+				years = { 5 10 }
 			}
 
 			impact = {
@@ -933,7 +808,6 @@ legitimizing = {
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					custom_tooltip = {
 						text = unlock_legendary_integration_k_tt
 						add_character_flag = legendary_integration_k
@@ -1047,66 +921,6 @@ holy = {
 				target = scope:holy_site.title_province 
 			}
 		}
-		legend_protagonist = {
-			if = {
-				limit = {
-					is_alive = no
-				}
-				add_dead_character_flag = {
-					flag = ignore_sickness_clothes
-					years = 400
-				}
-			}
-		}
-	}
-	
-	on_province_spread = {
-		if = {
-			limit = {
-				county.holder = {
-					is_ai = no
-					OR = {
-						NOT = { has_variable = legend_alerted_var }
-						AND = {
-							has_variable = legend_alerted_var
-							NOT = {
-								var:legend_alerted_var = scope:legend
-							}
-						}
-					}
-				}
-				scope:legend.legend_owner = {
-					NOT = { this = prev.county.holder }
-				}
-			}
-			if = {
-				limit = {
-					scope:legend = { legend_quality = famed }
-				}
-				send_interface_message_legend_notification_effect = yes
-			}
-			else = { # If it's a high level one we send a toast
-				send_interface_toast_legend_notification_effect = yes
-			}
-		}
-	}
-	
-	on_legend_stop_promote = {
-		# If you were asked money to promote a legend and you drop it you get called out
-		if = {
-			limit = {
-				scope:legend = {
-					is_target_in_variable_list = {
-						name = accepted_promote_legend_var
-						target = root #former promoter
-					}
-				}
-			}
-			trigger_event = {
-				id = legend_events.1000
-				days = { 1 3 }
-			}
-		}
 	}
 	
 	is_valid_protagonist = {
@@ -1207,7 +1021,7 @@ holy = {
 			}
 
 			removal_duration = {
-				years = { 25 35 }
+				years = { 1 2 }
 			}
 
 			impact = {
@@ -1225,7 +1039,6 @@ holy = {
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					give_legendary_building_holy_tooltip_effect = yes
 					legend_ending_rewards_holy_effect = yes
 					legend_ending_rewards_famed_holy_effect = yes
@@ -1310,7 +1123,7 @@ holy = {
 			}
 
 			removal_duration = {
-				years = { 50 70 }
+				years = { 2 5 }
 			}
 
 			impact = {
@@ -1329,7 +1142,6 @@ holy = {
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					custom_tooltip = {
 						text = unlock_legendary_conversion_tt
 						add_character_flag = legendary_conversion
@@ -1424,7 +1236,7 @@ holy = {
 			}
 
 			removal_duration = {
-				years = { 75 100 }
+				years = { 5 10 }
 			}
 
 			impact = {
@@ -1445,7 +1257,6 @@ holy = {
 				on_complete = {
 					promoted_legend ?= { save_scope_as = promoted_legend } #For the ending event loc
 					scope:protagonist = { save_scope_as = legend_protagonist }
-					remove_legend_notification_variables_effect = yes
 					custom_tooltip = {
 						text = unlock_legendary_conversion_tt
 						add_character_flag = legendary_conversion

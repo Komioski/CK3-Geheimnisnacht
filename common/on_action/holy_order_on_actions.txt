@@ -71,41 +71,16 @@ on_holy_order_hired = {
 # scope:leader = the leader of the holy order
 on_holy_order_destroyed = {
 	effect = {
-		# If it's the Jomsvikings, reset Jomsberg & send a full event.
-		if = {
+		every_ruler = {
 			limit = {
-				exists = global_var:jomsberg_location
-				scope:title = global_var:jomsvikings_title
+				is_ai = no
+				faith = root
 			}
-			# Reset the barony name first.
-			global_var:jomsberg_location = { reset_title_name = yes }
-			# Then send out events as appropriate.
-			every_player = {
-				limit = {
-					OR = {
-						# We notify everyone of the faith.
-						faith = faith:norse_pagan
-						# But also just people within diplomatic range.
-						in_diplomatic_range = scope:leader
-					}
-				}
-				trigger_event = fp1_jomsvikings.1001
-			}
-		}
-		# Otherwise, use the standard flow.
-		else = {
-			every_ruler = {
-				limit = {
-					is_ai = no
-					faith = root
-				}
-				send_interface_toast = {
-					type = holy_order_destroyed
-					title = holy_order.destroyed_title
-					custom_tooltip = holy_order.destroyed_message
-					left_icon = scope:title
-					right_icon = scope:leader
-				}
+			send_interface_toast = {
+				title = holy_order.destroyed_title
+				custom_tooltip = holy_order.destroyed_message
+				left_icon = scope:title
+				right_icon = scope:leader
 			}
 		}
 	}

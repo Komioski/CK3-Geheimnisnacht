@@ -155,9 +155,6 @@
 	}	
 	is_valid = {
 		is_lowborn = no
-		scope:liege = {
-			is_landed = yes
-		}
 	}
 }
 
@@ -225,7 +222,7 @@ glory_hound = {
 	heir_score = {
 		value = martial
 		multiply = 20
-		add = ai_boldness
+		value = ai_boldness
 		if = {
 			limit = {
 				has_trait = brave
@@ -307,12 +304,7 @@ glory_hound = {
 			multiply = 0
 			add = -100
 		}
-	}
-	is_valid = {
-		scope:liege = {
-			is_landed = yes
-		}
-	}
+	}	
 }
 
 parochial = {
@@ -396,7 +388,7 @@ parochial = {
 	heir_score = {
 		value = stewardship
 		multiply = 20
-		add = ai_honor
+		value = ai_honor
 		add = ai_rationality
 		if = {
 			limit = {
@@ -467,12 +459,7 @@ parochial = {
 			multiply = 0
 			add = -100
 		}
-	}
-	is_valid = {
-		scope:liege = {
-			is_landed = yes
-		}
-	}
+	}	
 }
 
 zealot = {
@@ -622,7 +609,7 @@ zealot = {
 	heir_score = {
 		value = learning
 		multiply = 20
-		add = ai_zeal
+		value = ai_zeal
 		if = {
 			limit = {
 				has_trait = humble
@@ -724,9 +711,6 @@ zealot = {
 				}
 			}
 		}
-		scope:liege = {
-			is_landed = yes
-		}
 	}	
 }
 
@@ -734,7 +718,7 @@ minority = {
 	score = 1000
 	heir_score = {
 		value = ai_honor
-		add = ai_compassion
+		value = ai_compassion
 		if = {
 			limit = {
 				OR = {
@@ -748,34 +732,34 @@ minority = {
 								value > faith_astray_level
 							}
 						}
-						NOR = {
-							AND = {
-								scope:liege.faith.religion = religion:islam_religion
-								faith = {
-									has_doctrine = tenet_islamic_syncretism
-								}
-							}
-							AND = {
-								scope:liege.faith.religion = religion:judaism_religion
-								faith = {
-									has_doctrine = tenet_jewish_syncretism
-								}
-							}
-							AND = {
-								scope:liege.faith.religion = religion:christianity_religion
-								faith = {
-									has_doctrine = tenet_christian_syncretism
-								}
-							}
-							AND = {
-								scope:liege.faith = {
-									has_doctrine_parameter = unreformed
-								}
-								faith = {
-									has_doctrine = tenet_unreformed_syncretism
-								}
-							}
-						}
+						#NOR = {
+						#	AND = {
+						#		scope:liege.faith.religion = religion:islam_religion
+						#		faith = {
+						#			has_doctrine = tenet_islamic_syncretism
+						#		}
+						#	}
+						#	AND = {
+						#		scope:liege.faith.religion = religion:judaism_religion
+						#		faith = {
+						#			has_doctrine = tenet_jewish_syncretism
+						#		}
+						#	}
+						#	AND = {
+						#		scope:liege.faith.religion = religion:christianity_religion
+						#		faith = {
+						#			has_doctrine = tenet_christian_syncretism
+						#		}
+						#	}
+						#	AND = {
+						#		scope:liege.faith = {
+						#			has_doctrine_parameter = unreformed
+						#		}
+						#		faith = {
+						#			has_doctrine = tenet_unreformed_syncretism
+						#		}
+						#	}
+						#}
 					}
 					AND = {
 						NOT = {
@@ -869,34 +853,34 @@ minority = {
 						value > faith_astray_level
 					}
 				}
-				NOR = {
-					AND = {
-						scope:liege.faith.religion = religion:islam_religion
-						faith = {
-							has_doctrine = tenet_islamic_syncretism
-						}
-					}
-					AND = {
-						scope:liege.faith.religion = religion:judaism_religion
-						faith = {
-							has_doctrine = tenet_jewish_syncretism
-						}
-					}
-					AND = {
-						scope:liege.faith.religion = religion:christianity_religion
-						faith = {
-							has_doctrine = tenet_christian_syncretism
-						}
-					}
-					AND = {
-						scope:liege.faith = {
-							has_doctrine_parameter = unreformed
-						}
-						faith = {
-							has_doctrine = tenet_unreformed_syncretism
-						}
-					}
-				}
+				#NOR = {
+				#	AND = {
+				#		scope:liege.faith.religion = religion:islam_religion
+				#		faith = {
+				#			has_doctrine = tenet_islamic_syncretism
+				#		}
+				#	}
+				#	AND = {
+				#		scope:liege.faith.religion = religion:judaism_religion
+				#		faith = {
+				#			has_doctrine = tenet_jewish_syncretism
+				#		}
+				#	}
+				#	AND = {
+				#		scope:liege.faith.religion = religion:christianity_religion
+				#		faith = {
+				#			has_doctrine = tenet_christian_syncretism
+				#		}
+				#	}
+				#	AND = {
+				#		scope:liege.faith = {
+				#			has_doctrine_parameter = unreformed
+				#		}
+				#		faith = {
+				#			has_doctrine = tenet_unreformed_syncretism
+				#		}
+				#	}
+				#}
 			}
 			AND = {
 				scope:liege = {
@@ -920,9 +904,6 @@ minority = {
 					}
 				}
 			}
-		}
-		scope:liege = {
-			is_landed = yes
 		}
 	}
 }

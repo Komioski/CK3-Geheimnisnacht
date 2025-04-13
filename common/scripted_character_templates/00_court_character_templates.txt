@@ -22,6 +22,9 @@
 		education_diplomacy_3 = {}
 		education_diplomacy_4 = {}
 	}
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 secret_passagecrafter_character = {
@@ -42,6 +45,9 @@ secret_passagecrafter_character = {
 		vengeful = {}
 		wrathful = {}
 		cynical = {}
+	}
+	after_creation = {
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -71,6 +77,9 @@ preaching_tour_priest_character = {
 		education_learning_3 = {}
 		education_learning_4 = {}
 	}
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 bernard_of_clairvaux_character = {
@@ -83,6 +92,10 @@ bernard_of_clairvaux_character = {
 	trait = zealous
 	trait = theologian
 	trait = education_learning_4
+
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 head_chasing_monk_character = {
@@ -97,6 +110,9 @@ head_chasing_monk_character = {
 		education_learning_3 = {}
 		education_learning_4 = {}
 	}
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 fake_artifact_peddler_character = {
@@ -104,6 +120,9 @@ fake_artifact_peddler_character = {
 	trait = greedy
 	trait = education_intrigue_2
 	random_traits = yes
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 adoring_fan_character = {
@@ -112,6 +131,9 @@ adoring_fan_character = {
 	trait = trusting
 	trait = education_martial_3
 	random_traits = yes
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 trepanner_character = {
@@ -135,6 +157,7 @@ trepanner_character = {
 			LEVEL_1 = yes
 			LEVEL_3 = yes
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -157,7 +180,7 @@ random_learned_eunuch_character = {
 	faith = root.faith
 	culture = root.culture
 	gender_female_chance = 0
-	trait = beardless_eunuch
+	trait = eunuch
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -205,6 +228,7 @@ random_learned_eunuch_character = {
 			}
 			learn_language_of_culture = scope:culture_language_to_learn
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -280,5 +304,6 @@ random_barrel_character = {
 			}
 			learn_language_of_culture = root.culture
 		}
+		urf_template_base_race_init = yes
 	}
 }

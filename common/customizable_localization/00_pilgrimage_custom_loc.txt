@@ -2,26 +2,6 @@
 PilgrimageName = {
 	type = character
 
-	# Hajj
-	text = { 
-		trigger = {
-			OR = {
-				AND = {
-					exists = involved_activity
-					involved_activity = {
-						has_activity_option = {
-							category = special_type
-							option = pilgrimage_type_hajj
-						}
-					}
-					involved_activity.activity_location.barony = title:b_makka
-				}
-				var:has_completed_pilgrimage ?= flag:hajj
-			}
-		}
-		localization_key = pilgrimage_hajj
-	}
-
 	# Pilgrimage
 	text = { 
 		localization_key = pilgrimage_default
@@ -254,15 +234,6 @@ GetPilgrimSingularPlural = {
 GetPilgrimOrHajjiTrait = {
 	type = character
 
-	#If you need your Hajji trait
-	text = {
-		trigger = { 
-			faith = { has_doctrine_parameter = mandatory_hajj }
-			NOT = { has_trait = hajjaj }
-		}
-		localization_key = activity_pilgrimage_hajjaj_custom_host_desc
-	}
-
 	#Otherwise default to Pilgrim
 	text = {
 		localization_key = activity_pilgrimage_pilgrim_custom_host_desc
@@ -278,7 +249,6 @@ GetPiousOrWorldlyRewardTier0 = {
 			involved_activity ?= {
 				OR = {
 					activity_has_pious_pilgrimage_type_trigger = yes
-					activity_has_hajj_pilgrimage_type_trigger = yes
 				}
 			}
 		}
@@ -321,7 +291,6 @@ GetPiousOrWorldlyRewardTier1 = {
 			involved_activity ?= {
 				OR = {
 					activity_has_pious_pilgrimage_type_trigger = yes
-					activity_has_hajj_pilgrimage_type_trigger = yes
 				}
 			}
 		}
@@ -364,7 +333,6 @@ GetPiousOrWorldlyRewardTier2 = {
 			involved_activity ?= {
 				OR = {
 					activity_has_pious_pilgrimage_type_trigger = yes
-					activity_has_hajj_pilgrimage_type_trigger = yes
 				}
 			}
 		}
@@ -407,7 +375,6 @@ GetPiousOrWorldlyRewardTier3 = {
 			involved_activity ?= {
 				OR = {
 					activity_has_pious_pilgrimage_type_trigger = yes
-					activity_has_hajj_pilgrimage_type_trigger = yes
 				}
 			}
 		}
@@ -450,7 +417,6 @@ GetPiousOrWorldlyFlavorTier0 = {
 			involved_activity ?= {
 				OR = {
 					activity_has_pious_pilgrimage_type_trigger = yes
-					activity_has_hajj_pilgrimage_type_trigger = yes
 				}
 			}
 		}
@@ -475,7 +441,6 @@ GetPiousOrWorldlyFlavorTier1 = {
 			involved_activity ?= {
 				OR = {
 					activity_has_pious_pilgrimage_type_trigger = yes
-					activity_has_hajj_pilgrimage_type_trigger = yes
 				}
 			}
 		}
@@ -500,7 +465,6 @@ GetPiousOrWorldlyFlavorTier2 = {
 			involved_activity ?= {
 				OR = {
 					activity_has_pious_pilgrimage_type_trigger = yes
-					activity_has_hajj_pilgrimage_type_trigger = yes
 				}
 			}
 		}
@@ -525,7 +489,6 @@ GetPiousOrWorldlyFlavorTier3 = {
 			involved_activity ?= {
 				OR = {
 					activity_has_pious_pilgrimage_type_trigger = yes
-					activity_has_hajj_pilgrimage_type_trigger = yes
 				}
 			}
 		}

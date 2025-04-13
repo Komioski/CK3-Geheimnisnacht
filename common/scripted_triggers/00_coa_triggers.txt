@@ -1,303 +1,105 @@
 ﻿#Triggers to control Coat of Arms weighting
 
 coa_african_trigger = {
-	OR = {
-		coa_african_culture_trigger = yes
-		coa_african_religion_trigger = yes
-	}
+	always = no
 }
 
 coa_african_culture_trigger = {
-	scope:culture = {
-		OR = {
-			has_coa_gfx = central_african_group_coa_gfx
-			has_coa_gfx = east_african_coa_gfx
-			has_coa_gfx = west_african_group_coa_gfx
-		}
-	}
+	always = no
 }
 
 coa_african_religion_trigger = {
-	scope:faith.religion = { 
-		save_temporary_scope_as = religion 
-	}
-	OR = {
-		scope:religion = religion:akom_religion
-		scope:religion = religion:waaqism_religion
-		scope:religion = religion:west_african_religion
-		scope:religion = religion:west_african_bori_religion
-		scope:religion = religion:west_african_orisha_religion
-		scope:religion = religion:west_african_roog_religion
-	}
+	always = no
 }
 
 coa_bishopric_trigger = {
-	scope:faith.religion = religion:christianity_religion
-	coa_theocratic_trigger = yes
+	always = no
 }
 
 coa_breton_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = breton_coa_gfx }
-		AND = {
-			exists = scope:title
-			scope:title = {
-				any_this_title_or_de_jure_above = {
-					this = title:k_brittany
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_byzantine_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = byzantine_group_coa_gfx }
-		AND = {
-			exists = scope:title
-			scope:title = {
-				any_this_title_or_de_jure_above = {
-					this = title:e_byzantium
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_castilian_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = castilian_coa_gfx }
-		AND = {
-			exists = scope:title
-			scope:title = {
-				any_this_title_or_de_jure_above = {
-					this = title:k_castille
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_coptic_trigger = {
-	OR = {
-		# TODO graphical faith trigger
-		scope:faith = faith:coptic
-		#scope:faith = faith:armenian_apostolic
-		#scope:faith = faith:paulician
-	}
+	always = no
 }
 
 coa_cross_trigger = {
-	scope:faith = {
-		religion = religion:christianity_religion
-		NOT = { has_doctrine = tenet_aniconism }
-	}
+	always = no
 }
 
 coa_england_switches_to_france_coa_trigger = {
-	holder = {
-		OR = {
-			has_title 		= title:k_france
-			has_claim_on 	= title:k_france
-			has_title 		= title:e_france
-			has_claim_on 	= title:e_france
-		}
-	}
+	always = no
 }
 coa_switch_to_norman_trigger = {
-	holder.culture = {
-		OR = {
-			has_coa_gfx = english_coa_gfx
-			has_coa_gfx = frankish_group_coa_gfx
-			has_coa_gfx = latin_group_coa_gfx
-			has_coa_gfx = iberian_group_coa_gfx
-		}
-	}
+	always = no
 }
 
 coa_switch_to_norse_trigger = {
-	holder = {
-		NOT = {
-			faith.religion = religion:christianity_religion
-		}
-		OR = {
-			faith.religion = religion:germanic_religion
-			culture = { has_coa_gfx = norse_coa_gfx }
-		}
-	}
+	always = no
 }
 
 coa_feudal_trigger = {
-	scope:faith.religion = religion:christianity_religion
 	government_has_flag = government_is_feudal
 }
 
 coa_french_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = french_coa_gfx }
-		AND = {
-			exists = root
-			any_liege_or_above = {
-				primary_title = {
-					this = title:k_france
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_irish_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = irish_coa_gfx }
-		AND = {
-			exists = scope:title
-			scope:title = {
-				any_this_title_or_de_jure_above = {
-					this = title:k_ireland
-				}
-			}
-		}
-	}
+	always = no
 }
 
 
 coa_indian_culture_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = burman_group_coa_gfx }
-		scope:culture = { has_coa_gfx = dravidian_group_coa_gfx }
-		scope:culture = { has_coa_gfx = indo_aryan_group_coa_gfx }
-		scope:culture = { has_coa_gfx = tibetan_group_coa_gfx }
-	}
+	always = no
 }
+
 coa_indian_region_trigger = {
-	exists = scope:title
-	scope:title = {
-		any_this_title_or_de_jure_above = {
-			OR = {
-				this = title:e_india
-				this = title:e_bengal
-				this = title:e_deccan
-				this = title:e_rajastan
-				this = title:e_tibet
-			}
-		}
-	}
+	always = no
 }
 coa_indian_religion_trigger = {
-	scope:faith.religion = { 
-		save_temporary_scope_as = religion 
-	}
-	OR = {
-		scope:religion = religion:bon_religion
-		scope:religion = religion:buddhism_religion
-		scope:religion = religion:hinduism_religion
-		scope:religion = religion:jainism_religion
-	}
+	always = no
 }
 coa_indian_trigger = {
-	OR = {
-		coa_indian_culture_trigger = yes
-		coa_indian_region_trigger = yes
-		coa_indian_religion_trigger = yes
-	}
+	always = no
 }
 
 coa_jewish_trigger = {
-	OR = {
-		scope:faith.religion = religion:judaism_religion
-		scope:culture = { has_coa_gfx = israelite_group_coa_gfx }
-	}
+	always = no
 }
 
 coa_leonese_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = leonese_coa_gfx }
-		AND = {
-			exists = scope:title
-			scope:title = {
-				any_this_title_or_de_jure_above = {
-					this = title:k_leon
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_manx_trigger = {
-	OR = {
-		AND = {
-			exists = scope:title
-			scope:title = {
-				any_this_title_or_de_jure_above = {
-					this = title:d_the_isles # Mann
-				}
-			}
-		}
-		AND = {
-			exists = root
-			any_liege_or_above = {
-				primary_title = {
-					OR = {
-						this = title:c_isle_of_man
-						this = title:d_the_isles # Mann
-					}
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_mena_trigger = {
-	OR = {
-		scope:faith.religion = religion:islam_religion
-		scope:culture = {
-			OR = {
-				has_coa_gfx = arabic_group_coa_gfx
-				has_coa_gfx = berber_group_coa_gfx
-			}
-		}
-	}
+	always = no
 }
 
 coa_suomenusko_trigger = {
-	OR = {
-		scope:faith.religion = religion:finno_ugric_religion
-		scope:culture = {
-			OR = {
-				has_coa_gfx = balto_finnic_group_coa_gfx
-				has_coa_gfx = ugro_permian_group_coa_gfx
-				has_coa_gfx = volga_finnic_group_coa_gfx
-			}
-		}
-	}
+	always = no
 }
 
 coa_polish_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = polish_coa_gfx }
-		AND = {
-			exists = root
-			any_liege_or_above = {
-				primary_title = {
-					this = title:k_poland
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_scottish_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = scottish_coa_gfx }
-		AND = {
-			exists = scope:title
-			scope:title = {
-				any_this_title_or_de_jure_above = {
-					this = title:k_scotland
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_theocratic_trigger = {
@@ -319,46 +121,100 @@ coa_theocratic_trigger = {
 }
 
 coa_welsh_trigger = {
-	scope:culture = { has_coa_gfx = welsh_coa_gfx }
+	always = no
 }
 
 coa_tamga_trigger = {
-	scope:culture = { has_coa_gfx = steppe_coa_gfx }
+	always = no
 }
 
 coa_scandinavian_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = swedish_coa_gfx }
-		scope:culture = { has_coa_gfx = norwegian_coa_gfx }
-		scope:culture = { has_coa_gfx = danish_coa_gfx }
-	}
+	always = no
 }
 
 coa_norse_trigger = {
-	scope:culture = { has_coa_gfx = norse_coa_gfx }
+	always = no
 }
 
 coa_germanic_trigger = {
-	scope:culture = { has_coa_gfx = german_group_coa_gfx }
+	always = no
 }
 
 coa_iberian_trigger = {
-	OR = {
-		scope:culture = { has_coa_gfx = iberian_group_coa_gfx }
-		AND = {
-			scope:culture = { has_coa_gfx = arabic_group_coa_gfx }
-			AND = {
-				exists = scope:title
-				scope:title = {
-					any_this_title_or_de_jure_above = {
-						this = title:e_spain
-					}
-				}
-			}
-		}
-	}
+	always = no
 }
 
 coa_iranian_trigger = {
-	scope:culture = { has_coa_gfx = iranian_group_coa_gfx }
+	always = no
 }
+
+#Geheimisnacht#
+coa_switch_to_pirate_trigger = {
+	holder.culture = {has_cultural_pillar = heritage_sartosan}
+}
+
+coa_bretonnia_herrimault_trigger = {
+	holder.culture = culture:herrimault
+}
+
+coa_bretonnia_couronne_trigger = {
+	OR = {
+		holder = {has_primary_title = title:k_couronne }
+		holder.culture = culture:nordscane
+	}
+}
+
+coa_bretonnia_montfort_trigger = {
+	holder = {has_primary_title = title:k_montfort }
+}
+
+coa_bretonnia_languille_trigger = {
+	holder = {has_primary_title = title:k_languille }
+}
+
+coa_bretonnia_carcassonne_trigger = {
+	holder = {has_primary_title = title:k_carcassonne }
+}
+
+coa_bretonnia_parravon_trigger = {
+	holder = {has_primary_title = title:k_parravon }
+}
+
+coa_bretonnia_aquitaine_trigger = {
+	holder = {has_primary_title = title:k_aquitaine }
+}
+
+coa_bretonnia_bordelaux_trigger = {
+	holder = {has_primary_title = title:k_bordeleaux }
+}
+
+coa_bretonnia_quenelle_trigger = {
+	holder = {has_primary_title = title:k_quenelles}
+}
+
+coa_bretonnia_gisoreux_trigger = {
+	holder = {has_primary_title = title:k_gisoreux }
+}
+
+coa_bretonnia_brionne_trigger = {
+	holder = {has_primary_title = title:k_brionne }
+}
+
+coa_bretonnia_mousillon_trigger = {
+	holder = {has_primary_title = title:k_mousillon }
+}
+
+coa_bretonnia_lyonesse_trigger = {
+	holder = {has_primary_title = title:k_lyonesse }
+}
+
+coa_bretonnia_artois_trigger = {
+	holder = {has_primary_title = title:k_artois }
+}
+
+coa_bretonnia_bastonne_trigger = {
+	holder = {has_primary_title = title:k_bastonne }
+}
+
+
+

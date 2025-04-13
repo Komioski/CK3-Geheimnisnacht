@@ -9,6 +9,9 @@ tax_collector_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
+	after_creation = {
+		urf_template_base_race_init = yes
+	}
 }
 
 administrator_character = {
@@ -114,11 +117,11 @@ administrator_character = {
 		}
 	}
 	random_traits = yes
-	
+
 	martial = { min_template_average_skill max_template_decent_skill }
 	stewardship = { min_template_average_skill max_template_decent_skill }
 	learning = { min_template_average_skill max_template_decent_skill }
-	
+
 	after_creation = {
 		# Chance to get a suitable lifestyle trait depending on education
 		if = {
@@ -134,7 +137,7 @@ administrator_character = {
 					}
 					add = 15
 				}
-				
+
 				add_trait = overseer
 			}
 		}
@@ -142,12 +145,12 @@ administrator_character = {
 			limit = { has_trait = education_stewardship }
 			random = {
 				chance = 10
-				
+
 				add_trait = administrator
 			}
 			random = {
 				chance = 10
-				
+
 				add_trait = avaricious
 			}
 		}
@@ -164,10 +167,11 @@ administrator_character = {
 					}
 					add = 15
 				}
-				
+
 				add_trait = scholar
 			}
 		}
+		urf_template_base_race_init = yes
 	}
 }
 
@@ -199,25 +203,7 @@ estate_owner_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-}
-
-herald_character = {
-	age = { 30 50 }
-	faith = root.faith
-	culture = root.culture
-	gender_female_chance = root_faith_dominant_gender_female_chance
-
-	# Traits
-	random_traits_list = {
-		count = 1
-		education_diplomacy_1 = {}
-		education_diplomacy_2 = {}
-	}
-	random_traits = yes
-	
-	# Skills
-	diplomacy = {
-		min_template_decent_skill
-		max_template_decent_skill
+	after_creation = {
+		urf_template_base_race_init = yes
 	}
 }

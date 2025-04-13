@@ -1,9 +1,7 @@
-﻿
-### Cultural trigger list
+﻿### Cultural trigger list
 
 # drinks_alcohol_trigger - Would this person drink alcohol?
 # holder_or_above_is_player_of_culture - Is this county's holder or anyone above them in the de facto hierarchy a player with the same culture?
-
 
 ######################
 # Cultural triggers  #
@@ -11,24 +9,14 @@
 
 drinks_alcohol_trigger = {
 	is_adult = yes
-	custom_tooltip = {
-		text = drinks_alcohol
-		OR = {
-			has_trait = drunkard
-			faith_forbids_alcohol_trigger = no
-		}
+	OR = {
+		has_trait = drunkard
+		faith_forbids_alcohol_trigger = no
 	}
 }
 
 faith_forbids_alcohol_trigger = {
-	OR = {
-		religion = religion:islam_religion # Prohibited by khamr, a prohibition against intoxicants
-		religion = religion:jainism_religion # Prohibited along with the consumption of any fermented food
-		AND = {
-			has_trait = zealous
-			religion = religion:buddhism_religion # Discouraged as it disrupts progress along the eightfold path
-		}
-	}
+	always = no
 }
 
 holder_or_above_is_player_of_culture = {
@@ -55,11 +43,7 @@ culture_in_winter_geographical_region_trigger = {
 		any_culture_county = {
 			any_county_province = {
 				OR = {
-					geographical_region = world_europe_north
-					geographical_region = world_europe_west
-					geographical_region = world_europe_east
-					geographical_region = world_steppe
-					geographical_region = world_tibet
+					always = no 
 				}
 			}
 		}
@@ -72,7 +56,7 @@ culture_in_non_sedentary_geographical_region_trigger = {
 		any_culture_county = {
 			any_county_province = {
 				OR = {
-					geographical_region = world_steppe
+					always = no
 				}
 			}
 		}
@@ -195,16 +179,7 @@ culture_is_not_historical_hybrid_trigger = {
 	#Used to tell if a hybrid culture is one of the historical hybrids or not, mainly in checks for AI hybridization checks related to game rules.
 	#Expects to be used in culture scope
 	NOR = {
-		this = culture:norman
-		this = culture:maghrebi
-		this = culture:gaelic
-		this = culture:anglo_saxon
-		this = culture:scottish
-		this = culture:andalusian
-		this = culture:catalan
-		this = culture:english
-		this = culture:sicilian
-		this = culture:cisalpine
+		this = culture:bastonnian
 	}
 }
 
@@ -215,8 +190,6 @@ culture_has_skirmisher_maa = {
 		has_cultural_parameter = unlock_maa_shomer
 		has_cultural_parameter = unlock_maa_abudrar
 		has_cultural_parameter = unlock_maa_guinea_warrior
-		has_innovation = innovation_adaptive_militia #Goedendag - Later Era MAA
-		has_cultural_parameter = unlock_maa_akritai
 	}
 }
 
@@ -226,8 +199,6 @@ culture_has_archer_maa = {
 		has_cultural_parameter = unlock_maa_bush_hunter
 		has_cultural_parameter = unlock_maa_metsanvartija
 		has_cultural_parameter = unlock_maa_longbowmen
-		has_innovation = innovation_repeating_crossbow #Chu-ko-nu Archers
-		has_innovation = innovation_bamboo_bows #Paiks
 	}
 }
 
@@ -240,21 +211,16 @@ culture_has_heavy_infantry_maa = {
 		has_cultural_parameter = unlock_maa_garudas
 		has_cultural_parameter = unlock_maa_palace_guards
 		has_cultural_parameter = unlock_maa_huscarls
-		has_cultural_parameter = unlock_maa_mountaineer
+		# has_cultural_parameter = unlock_maa_mountaineer
 		has_cultural_parameter = unlock_maa_zbrojnosh
-		has_innovation = innovation_sarawit #Sarawit - Later Era MAA
-		has_innovation = innovation_legionnaires #Praetorian
-		has_cultural_parameter = unlock_maa_varangian_guards
 	}
 }
 
 culture_has_pikemen_maa = { #I.e. Spearmen
 	OR = {
-		has_cultural_parameter = unlock_maa_zupin_warrior
 		has_innovation = innovation_rectilinear_schiltron #Schiltron - Later Era MAA
 		has_innovation = innovation_pike_columns #Picchieri - Later Era MAA
 		has_innovation = innovation_zweihanders #Later Era MAA
-		has_cultural_parameter = unlock_maa_skoutatoi
 	}
 }
 
@@ -262,22 +228,12 @@ culture_has_light_cavalry_maa = {
 	OR = {
 		has_cultural_parameter = unlock_maa_mulaththamun
 		has_cultural_parameter = unlock_maa_hussar #Konni
-		has_cultural_parameter = unlock_maa_tawashi #Tawashi
-		has_cultural_parameter = unlock_maa_ayrudzi
-		has_innovation = innovation_desert_tactics #Chasseur
-		has_innovation = innovation_caballeros #Caballero
-		has_innovation = innovation_hobbies #Hobelar
-		has_innovation = innovation_sahel_horsemen #Sahel Horsemen
 	}
 }
 
 culture_has_heavy_cavalry_maa = {
 	OR = {
-		has_cultural_parameter = unlock_maa_cataphract
 		has_cultural_parameter = unlock_maa_monaspa
-		has_cultural_parameter = unlock_maa_tarkhan
-		has_cultural_parameter = unlock_maa_conrois
-		has_innovation = innovation_valets #Gendarme - Later Era MAA
 	}
 }
 
@@ -288,31 +244,23 @@ culture_has_archer_cavalry_maa = {
 # Language trigger - Makes languages available when you diverge your culture
 language_is_shown_trigger = {
 	scope:character = {
-		OR = {
-			AND = {
-				exists = var:legendary_culture
-				var:legendary_culture = { has_cultural_pillar = $LANGUAGE$ }
+		# The target language needs to fulfill ALL of the following:
+		any_sub_realm_county = { # Language needs to be well-represented within your realm
+			percent >= 0.1
+			culture = { has_cultural_pillar = $LANGUAGE$ }
+		}
+		any_sub_realm_county = { # Language needs to border your own culture
+			culture = { has_cultural_pillar = $LANGUAGE$ }
+			any_neighboring_county = {
+				culture = { this = scope:character.culture }
 			}
-			AND = {
-				# The target language needs to fulfill ALL of the following:
-				any_sub_realm_county = { # Language needs to be well-represented within your realm
-					percent >= 0.1
-					culture = { has_cultural_pillar = $LANGUAGE$ }
-				}
-				any_sub_realm_county = { # Language needs to border your own culture
-					culture = { has_cultural_pillar = $LANGUAGE$ }
-					any_neighboring_county = {
-						culture = { this = scope:character.culture }
-					}
-				}
-				any_sub_realm_county = { # You need a minimum acceptance with any culture speaking the language
-					culture = {
-						has_cultural_pillar = $LANGUAGE$
-						cultural_acceptance = {
-							target = scope:character.culture
-							value >= 25
-						}
-					}
+		}
+		any_sub_realm_county = { # You need a minimum acceptance with any culture speaking the language
+			culture = {
+				has_cultural_pillar = $LANGUAGE$
+				cultural_acceptance = {
+					target = scope:character.culture
+					value >= 25
 				}
 			}
 		}
@@ -339,18 +287,10 @@ is_valid_for_hybridising_trigger = {
 			NOT = { has_same_culture_heritage = $CULTURE$ }
 			culture_age >= culture_hybrid_cooldown
 		}
-		trigger_if = {
-			limit = {
-				NAND = {
-					exists = var:special_culture
-					var:special_culture = $CULTURE$
-				}
-			}
-			custom_description = {
-				text = culture_present_in_realm_for_hybridization
-				any_sub_realm_county = {
-					culture = $CULTURE$
-				}
+		custom_description = {
+			text = culture_present_in_realm_for_hybridization
+			any_sub_realm_county = {
+				culture = $CULTURE$
 			}
 		}
 		custom_description = {
@@ -460,13 +400,5 @@ is_vegetarian_trigger = {
 }
 
 faith_is_vegetarian_trigger = {
-	faith = {
-		OR = {
-			religion = religion:buddhism_religion
-			religion = religion:jainism_religion
-			religion = religion:bon_religion
-			this = faith:mazdakism
-			this = faith:manichean
-		}
-	}
+	always = no
 }

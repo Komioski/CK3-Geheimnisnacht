@@ -765,10 +765,6 @@ funeral.1000 = {
 				is_adult = yes
 				NOT = { this = root }
 				any_memory = {
-					NOR = {
-						has_memory_category = murder
-						has_memory_category = negative
-					}
 					any_memory_participant = {
 						this = scope:deceased
 					}
@@ -784,10 +780,6 @@ funeral.1000 = {
 					is_adult = yes
 					NOT = { this = root }
 					any_memory = {
-						NOR = {
-							has_memory_category = murder
-							has_memory_category = negative
-						}
 						any_memory_participant = {
 							this = scope:deceased
 						}
@@ -807,10 +799,6 @@ funeral.1000 = {
 				}
 				random_memory = {
 					limit = {
-						NOR = {
-							has_memory_category = murder
-							has_memory_category = negative
-						}
 						any_memory_participant = {
 							this = scope:deceased
 						}
@@ -894,7 +882,7 @@ funeral.1000 = {
 			50 = {
 				compare_modifier = {
 					value = scope:duel_value
-					multiplier = -3.5
+					multiplier = 3.5
 					min = -49
 				}
 				send_interface_toast = {
@@ -997,7 +985,7 @@ funeral.1000 = {
 			50 = {
 				compare_modifier = {
 					value = scope:duel_value
-					multiplier = -3.5
+					multiplier = 3.5
 					min = -49
 				}
 				send_interface_toast = {

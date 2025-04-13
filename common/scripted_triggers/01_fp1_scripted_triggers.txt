@@ -1,5 +1,4 @@
-﻿
-##################################################
+﻿##################################################
 # General Triggers
 
 eligible_for_fp1_dynasty_legacies_trigger = {
@@ -8,7 +7,6 @@ eligible_for_fp1_dynasty_legacies_trigger = {
 		# Technically, we could hardscript this to North Germanics/Normans/Estonians, but eh.
 		culture = { has_innovation = innovation_longboats }
 		# Converts should also get a chance to get in on the fun.
-		religion = religion:germanic_religion
 	}
 }
 
@@ -43,8 +41,8 @@ fp1_county_has_stele_trigger = {
 fp1_eligible_for_yearly_events_trigger = {
 	has_fp1_dlc_trigger = yes
 	OR = {
-		culture = { has_cultural_pillar = heritage_north_germanic }
-		religion = religion:germanic_religion
+		# culture = { has_cultural_pillar = heritage_north_germanic }
+		always = no
 	}
 }
 
@@ -53,8 +51,8 @@ fp1_eligible_for_yearly_events_trigger = {
 
 fp1_is_norse = {
 	OR = {
-		culture = { has_cultural_pillar = heritage_north_germanic }
-		culture = culture:norman
+		#culture = { has_cultural_pillar = heritage_north_germanic }
+		always = no
 	}
 }
 
@@ -115,42 +113,14 @@ fp1_remove_stele_new_holder_trigger = {
 }
 
 is_vaguely_danish_bhakti_trigger = {
-	OR = {
-		has_culture = culture:danish
-		culture = { has_name_list = name_list_danish }
-		# We deliberately use the de jure rather than the geographical area to make this at least a *little* more fluid.
-		AND = {
-			is_playable_character = yes
-			capital_county.kingdom = title:k_denmark
-		}
-	}
+	always = no
 }
 
 ##################################################
 # Varangian Adventure Triggers
 
 fp1_va_eligible_for_scandinavian_troops_trigger = {
-	# We only give these to North Germanics. I realise we check this elsewhere, but it makes it a bit easier to hijack the CB for other cultures via modding without weirdness.
-	culture = {
-		OR = {
-			has_cultural_pillar = heritage_north_germanic
-			this = culture:estonian
-			any_parent_culture_or_above = {
-				this = culture:estonian #Estonian
-			}
-		}
-	}
-	# Who hold at least one county in the initial de jure of the mainland Norse kingdoms.
-	any_sub_realm_county = {
-		OR = {
-			title_province = { geographical_region = dlc_fp1_region_core_mainland_scandinavia }
-			title:k_esthonia = {
-				is_de_jure_liege_or_above_target = prev
-			}
-		}
-		culture = scope:attacker.culture
-		faith = scope:attacker.faith
-	}
+	always = no
 }
 
 ##################################################
@@ -276,8 +246,7 @@ gruesome_sacrifices_grand_blot_can_continue_trigger = {
 }
 
 fp1_valid_norse_faith_for_jomsvikings_trigger = {
-	religion = religion:germanic_religion
-	has_doctrine_parameter = unreformed
+	always = no
 }
 
 fp1_jomsvikings_have_not_existed_trigger = {
@@ -313,48 +282,8 @@ fp1_valid_county_for_jomsvikings_trigger = {
 	}
 }
 
-##################################################
-# Achievement Triggers
-
-fp1_achievement_culture_norse_trigger = {
-	OR = {
-		culture = { has_cultural_pillar = heritage_north_germanic }
-		culture = culture:norman
-	}
-}
-
-fp1_achievement_culture_norse_or_rus_trigger = {
-	OR = {
-		fp1_achievement_culture_norse_trigger = yes
-		culture = culture:russian
-	}
-}
-
-fp1_achievement_religious_norse_trigger = {
-	religion = religion:germanic_religion
-}
-
-fp1_achievement_culture_plus_religion_norse_trigger = {
-	fp1_achievement_culture_norse_trigger = yes
-	fp1_achievement_religious_norse_trigger = yes
-}
-
 ###################################################
 # Jomsviking Triggers
 fp1_ruler_eligible_for_jomsviking_coup = {
-	# We never want to coup realms with players who might be affected, so just flat-out ban them.
-	NOR = {
-		is_ai = no
-		any_vassal_or_below = { is_ai = no }
-		any_liege_or_above = { is_ai = no }
-	}
-	# And anyone that's close family to/married to a player.
-	NOR = {
-		any_spouse = { is_ai = no }
-		any_close_or_extended_family_member = { is_ai = no }
-	}
-	# Veto anyone following the unreformed Norse pagan faith.
-	NOT = { faith = faith:norse_pagan }
-	# For simplicity, exclude wars.
-	is_at_war = no
+	always = no
 }

@@ -7,9 +7,6 @@
 		scope:attacker = {
 			is_leading_faction_type = peasant_faction
 		}
-		NOT = {
-			government_has_flag = government_is_landless_adventurer
-		}
 	}
 
 	allowed_against_character = {
@@ -45,12 +42,6 @@
 			add_opinion = {
 				modifier = peasant_revolt_opinion
 				target = scope:attacker
-			}
-			
-			# Legitimacy loss because why would you have peasants revolting
-			if = {
-				limit = { is_valid_for_legitimacy_change = yes }
-				add_legitimacy = medium_legitimacy_loss
 			}
 
 			# Struggle Stuffs
@@ -90,8 +81,6 @@
 		}
 
 		scope:defender = {
-			# Legitimacy effect
-			faction_war_end_defeat_legitimacy_effect = yes
 			# Struggle Catalysts
 			hidden_effect = {
 				if = {
@@ -122,8 +111,6 @@
 			}
 		}
 
-		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
-		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_white_peace_desc = {
@@ -149,9 +136,6 @@
 				arrogant = medium_stress_impact_gain
 			}
 		}
-
-		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
-		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_defeat_desc = {
@@ -201,9 +185,6 @@
 				}
 			}
 		}
-
-		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
-		laamp_as_mercenary_payout_tooltip_effect = yes
 	}
 
 	on_invalidated_desc = msg_invalidate_war_title

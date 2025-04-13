@@ -1,11 +1,10 @@
-﻿
-#Debugging events
+﻿#Debugging events
 
 namespace = debug
 
 debug.1 = { # Max Portraits in Event Window
 	type = character_event
-	title = LOREM_IPSUM_TITLE 
+	title = LOREM_IPSUM_TITLE
 	desc = LOREM_IPSUM_DESCRIPTION
 	theme = realm
 	orphan = yes
@@ -13,34 +12,35 @@ debug.1 = { # Max Portraits in Event Window
 
 	left_portrait = {
 		character = root
-		animation = interested
+		animation = celebrate_sword
 	}
 	
 	right_portrait = {
 		character = scope:portrait_2
-		animation = interested_left
+		animation = aggressive_axe
 	}
 	
 	center_portrait = {
 		character = scope:portrait_3
-		animation = loss_1
+		animation = celebrate_sword
 	}
-	
-	
-	lower_right_portrait = scope:portrait_4
-	lower_center_portrait = scope:portrait_5
-	lower_left_portrait = scope:portrait_6
+
+	artifact = {
+		position = lower_right_portrait
+		target = scope:newly_created_artifact
+	}
 
 	immediate = {
-		random_ruler = { save_scope_as = portrait_1 }
-		random_ruler = { save_scope_as = portrait_2 }
-		random_ruler = { save_scope_as = portrait_3 }
-		random_ruler = { save_scope_as = portrait_4 }
-		random_ruler = { save_scope_as = portrait_5 }
-		random_ruler = { save_scope_as = portrait_6 }
+		create_artifact_weapon_effect = {
+			OWNER = this 
+			CREATOR = this
+			SET_WEAPON_TYPE = flag:artifact_weapon_type_sword
+		}
 	}
 
-	option = { name = LOREM_IPSUM_TITLE }
+	option = {
+		name = LOREM_IPSUM_TITLE
+	}
 }
 
 debug.111 = { # Two Portraits + three Artifacts in Event Window
@@ -332,9 +332,6 @@ debug.0010 = { #test.2
 		test_2_set_character_disease_data_variable_effect = { DISEASE = great_pox }
 		test_2_set_character_disease_data_variable_effect = { DISEASE = smallpox }
 		test_2_set_character_disease_data_variable_effect = { DISEASE = bubonic_plague }
-		test_2_set_character_disease_data_variable_effect = { DISEASE = measles }
-		test_2_set_character_disease_data_variable_effect = { DISEASE = dysentery }
-		test_2_set_character_disease_data_variable_effect = { DISEASE = ergotism }
 	}
 }
 
@@ -416,9 +413,6 @@ debug.0011 = { #test.3
 			test_3_create_disease_variables_effect = { DISEASE = great_pox }
 			test_3_create_disease_variables_effect = { DISEASE = smallpox }
 			test_3_create_disease_variables_effect = { DISEASE = bubonic_plague }
-			test_3_create_disease_variables_effect = { DISEASE = measles }
-			test_3_create_disease_variables_effect = { DISEASE = dysentery }
-			test_3_create_disease_variables_effect = { DISEASE = ergotism }
 		}
 
 
@@ -439,9 +433,6 @@ debug.0011 = { #test.3
 		test_3_count_diseases_effect = { DISEASE = great_pox }
 		test_3_count_diseases_effect = { DISEASE = smallpox }
 		test_3_count_diseases_effect = { DISEASE = bubonic_plague }
-		test_3_count_diseases_effect = { DISEASE = measles }
-		test_3_count_diseases_effect = { DISEASE = dysentery }
-		test_3_count_diseases_effect = { DISEASE = ergotism }
 
 		# Had a "common" disease?
 		if = {
@@ -470,9 +461,6 @@ debug.0011 = { #test.3
 					var:disease_data_character_great_pox_amount >= 1
 					var:disease_data_character_smallpox_amount >= 1
 					var:disease_data_character_bubonic_plague_amount >= 1
-					var:disease_data_character_measles_amount >= 1
-					var:disease_data_character_dysentery_amount >= 1
-					var:disease_data_character_ergotism_amount >= 1
 				}
 			}
 			change_global_variable = {
@@ -483,7 +471,9 @@ debug.0011 = { #test.3
 
 		# Premature death data
 		if = {
-			limit = { age < 60 }
+			limit = {
+				age < 60
+			}
 
 			save_scope_as = dead
 			random_independent_ruler = {
@@ -585,9 +575,6 @@ debug.0012 = { # test.4
 		test_4_disease_data_calc_effect = { DISEASE = great_pox }
 		test_4_disease_data_calc_effect = { DISEASE = smallpox }
 		test_4_disease_data_calc_effect = { DISEASE = bubonic_plague }
-		test_4_disease_data_calc_effect = { DISEASE = measles }
-		test_4_disease_data_calc_effect = { DISEASE = dysentery }
-		test_4_disease_data_calc_effect = { DISEASE = ergotism }
 		
 		save_scope_value_as = {
 			name = a_value
@@ -626,12 +613,6 @@ debug.0012 = { # test.4
 					exists = var:disease_data_calc_smallpox_premature_death_chance
 					exists = var:disease_data_calc_bubonic_plague_percentage
 					exists = var:disease_data_calc_bubonic_plague_premature_death_chance
-					exists = var:disease_data_calc_measles_percentage
-					exists = var:disease_data_calc_measles_premature_death_chance
-					exists = var:disease_data_calc_dysentery_percentage
-					exists = var:disease_data_calc_dysentery_premature_death_chance
-					exists = var:disease_data_calc_ergotism_percentage
-					exists = var:disease_data_calc_ergotism_premature_death_chance
 				}
 			}
 		}
@@ -656,9 +637,6 @@ debug.0013 = { # test.5
 			test_3_count_premature_disease_deaths_effect = { DISEASE = great_pox }
 			test_3_count_premature_disease_deaths_effect = { DISEASE = smallpox }
 			test_3_count_premature_disease_deaths_effect = { DISEASE = bubonic_plague }
-			test_3_count_premature_disease_deaths_effect = { DISEASE = measles }
-			test_3_count_premature_disease_deaths_effect = { DISEASE = dysentery }
-			test_3_count_premature_disease_deaths_effect = { DISEASE = ergotism }
 		}
 	}
 }
@@ -987,29 +965,6 @@ debug.312 = {
 		name = debug_test_artifact_cloth_option
 	}
 }
-
-debug.313 = {
-	type = character_event
-	title = test_artifact_name
-	desc = artifact_chest_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	
-	immediate = {
-		save_scope_as = owner
-		title:c_kandy = { title_province = { add_to_list = artifact_material_sources } }
-		create_artifact_chest_effect = {
-			OWNER = root
-			CARPENTER = root
-		}
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
 
 debug.314 = {
 	type = character_event
@@ -1542,38 +1497,6 @@ debug.334 = {
 	}
 }
 
-debug.335 = {
-	type = character_event
-	title = artifact_pedestal_crucifix_name
-	desc = artifact_pedestal_crucifix_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	immediate = {
-		create_artifact_pedestal_crucifix_effect = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
-debug.336 = {
-	type = character_event
-	title = artifact_pedestal_cross_name
-	desc = artifact_pedestal_cross_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	immediate = {
-		create_artifact_pedestal_cross_effect = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
 debug.337 = {
 	type = character_event
 	title = artifact_pedestal_human_skull_name
@@ -1667,140 +1590,6 @@ debug.342 = {
 
 	option = { 
 	name = debug_test_artifact_cloth_option
-	}
-}
-
-debug.343 = {
-	type = character_event
-	title = artifact_pedestal_reliquary_christian_name
-	desc = artifact_pedestal_reliquary_christian_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	immediate = {
-		create_artifact_pedestal_reliquary_christian_effect = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
-debug.344 = {
-	type = character_event
-	title = artifact_pedestal_reliquary_islam_name
-	desc = artifact_pedestal_reliquary_islam_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	immediate = {
-		create_artifact_pedestal_reliquary_islam_effect = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
-debug.345 = {
-	type = character_event
-	title = artifact_pedestal_reliquary_buddhism_name
-	desc = artifact_pedestal_reliquary_buddhism_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	immediate = {
-		create_artifact_pedestal_reliquary_buddhism_effect = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
-debug.346 = {
-	type = character_event
-	title = artifact_pedestal_reliquary_judaism_name
-	desc = artifact_pedestal_reliquary_judaism_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	immediate = {
-		create_artifact_pedestal_reliquary_judaism_effect = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
-debug.347 = {
-	type = character_event
-	title = artifact_sculpture_religious_name
-	desc = artifact_sculpture_religious_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	trigger = {
-		faith = {
-			NOR = {
-				has_doctrine = tenet_aniconism
-				religion = religion:judaism_religion
-				religion = religion:christianity_religion
-				religion = religion:islam_religion
-			}
-		}
-	}
-
-	immediate = {
-		create_artifact_sculpture_religious_effect = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
-debug.348 = {
-	type = character_event
-	title = artifact_sculpture_religious_christian_name
-	desc = artifact_sculpture_religious_christian_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	trigger = {
-		faith = {
-			NOT = {
-				has_doctrine = tenet_aniconism
-			}
-			religion = religion:christianity_religion
-		}
-	}
-
-	immediate = {
-		create_artifact_sculpture_religious_christian_effect = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
-	}
-}
-
-debug.349 = {
-	type = character_event
-	title = artifact_pedestal_reliquary_christian_name
-	desc = artifact_pedestal_reliquary_christian_description
-	theme = stewardship_wealth_focus
-	orphan = yes
-
-	immediate = {
-		create_artifact_pedestal_christian_relic_effect_hist = { OWNER = root }
-		create_artifact_pedestal_islamic_relic_effect_hist = { OWNER = root }
-		create_artifact_pedestal_buddhism_relic_effect_hist = { OWNER = root }
-	}
-
-	option = { 
-		name = debug_test_artifact_cloth_option
 	}
 }
 
@@ -2299,34 +2088,6 @@ debug.410 = {
 	}
 }
 
-# Convert all of iberia to mozarab & conquer caucasian iberia
-debug.411 = { # For usage debugging achievements. Should be a generic command rather than a predefined event.
-	orphan = yes
-	hidden = yes
-	immediate = {
-		debug_log = "Iberia Converted to Mozarab!"
-		every_county_in_region = {
-			region = world_europe_west_iberia
-			set_county_faith = faith:mozarabic_church
-		}
-
-		debug_log = "Woosh! Caucasian Iberia is now yours!"
-		every_county_in_region = {
-			region = dlc_fp2_caucasian_iberia
-			create_title_and_vassal_change = {
-				type = conquest
-				save_scope_as = change
-			}
-			change_title_holder_include_vassals = {
-				holder = root
-				change = scope:change
-			}
-			resolve_title_and_vassal_change = scope:change
-			change_county_control = 100 # (Not actually necessary, apparently)
-		}
-	}
-}
-
 debug.412 = { # Spawn the CHESS-A-THRON 3000, a perfect creature designed to beat you up at the game of chess
 	orphan = yes
 	hidden = yes
@@ -2583,7 +2344,6 @@ debug.418 = {
 		}
 	}
 }
-
 # Family Feud 
 debug.501 = { # Have another house murder my close family
 	type = character_event
@@ -2746,82 +2506,7 @@ debug.504 = { # Have my house killed by a feud target member
 	}
 }
 
-debug.510 = { # Placeholder debug event - Used to mark the location of placeholders
-	type = character_event
-	title = { # My favourite movie of the original triology
-		desc = d_star_company_adj
-		desc = game_concept_wars
-		desc = KEY_KP_MINUS
-		desc = cat_revenge_modifier
-	}
-	desc = {
-		desc = childhood.7400_mother_dead
-		desc = double_line_break
-		desc = RELIGION_LOC_PLACEHOLDER
-		desc = double_line_break
-		desc = RELIGION_LOC_PLACEHOLDER
-		desc = double_line_break
-		desc = RELIGION_LOC_PLACEHOLDER
-		desc = double_line_break
-		desc = RELIGION_LOC_PLACEHOLDER
-	}
-
-	#orphan = yes
-	theme = mental_break
-	left_portrait = root
-	right_portrait = character:33922
-
-	option = { name = debug_generic_option  } # Dear debug console, quiet please.
-	option = { name = debug_generic_option trigger = { always = no } trigger_event = debug.510 }
-}
-
-debug.511 = { # Set secret faith for Character
-	type = character_event
-	theme = default
-	orphan = yes
-
-	title = LOREM_IPSUM_TITLE
-	desc = LOREM_IPSUM_DESCRIPTION
-
-	option = {
-		name = debug.511.a
-
-		trigger = {
-			NOT = { exists = root.secret_faith }
-		}
-
-		root = {
-			set_character_secret_faith = faith:rabbinism
-		}
-	}
-
-	option = {
-		name = debug.511.b
-
-		trigger = {
-			exists = root.secret_faith
-		}
-
-		root = {
-			remove_character_secret_faith = yes
-		}
-	}
-}
-
-debug.512 = {
-	type = character_event
-	theme = default
-	orphan = yes
-
-	title = LOREM_IPSUM_TITLE
-	desc = LOREM_IPSUM_DESCRIPTION
-
-	option = {
-		name = debug.512.a
-	}
-}
-
-debug.513 = {
+debug.510 = {
 	title = debug_main
 	desc = debug_main
 	theme = ep2_video_test
@@ -2884,67 +2569,7 @@ debug.605 = {
 	}
 }
 
-#steam rich presence test - update this event with your new rich presence text to see it in the desc
-debug.700 = {
-	type = character_event
-	title = steam_rich_presence_debug_t
-	desc = steam_rich_presence_debug_desc
-	theme = realm
-	orphan = yes
 
-	immediate = {
-		random_ruler = {
-			limit = {
-				has_trait = sayyid
-				NOR = {
-					has_trait = fp3_struggle_detractor
-					has_trait = fp3_struggle_supporter
-				}
-			}
-			save_scope_as = sayyid
-		}
-		random_ruler = {
-			limit = {
-				has_trait = fp3_struggle_detractor
-				NOT = { has_trait = fp3_struggle_supporter }
-			}
-			save_scope_as = fp3_struggle_detractor
-		}
-				random_ruler = {
-			limit = {
-				has_trait = fp3_struggle_supporter
-				NOT = { has_trait = fp3_struggle_detractor }
-			}
-			save_scope_as = fp3_struggle_supporter
-		}
-		random_ruler = {
-			limit = {
-				has_character_modifier = fp3_struggle_caliph_super_suspicious_modifier
-			}
-			save_scope_as = sus_caliph
-		}
-		random_ruler = {
-			limit = {
-				any_character_struggle = {
-					#involvement = involved
-			 		is_struggle_type = persian_struggle
-				}
-			}
-			save_scope_as = persian_struggle
-		}
-		random_ruler = {
-			limit = {
-				any_character_struggle = {
-					#involvement = involved
-			 		is_struggle_type = iberian_struggle
-				}
-			}
-			save_scope_as = iberian_struggle
-		}
-	}
-
-	option = {}
-}
 
 debug.9595 = {
 	type = character_event
@@ -2991,96 +2616,6 @@ debug.9595 = {
 	}
 }
 
-debug.9600 = { # Event for testing Tax Collector script support
-	type = character_event
-	title = LOREM_IPSUM_TITLE
-	desc = LOREM_IPSUM_DESCRIPTION
-	theme = realm
-	orphan = yes
-
-	lower_left_portrait = scope:tax_collector
-	lower_right_portrait = scope:tax_collector_vassal
-
-	immediate = {
-		random_tax_collector = { save_scope_as = tax_collector }
-
-		scope:tax_collector = {
-			random_tax_collector_vassal = { save_scope_as = tax_collector_vassal }
-		}
-	}
-
-	option = {
-		name = aptitude_terrible
-		trigger = {
-			scope:tax_collector = {
-				tax_collector_aptitude = {
-					tax_slot_type = clan_tax_slot
-					value = 1
-				}
-			}
-		}
-
-		fire_tax_collector = scope:tax_collector
-	}
-
-	option = {
-		name = aptitude_poor
-		trigger = {
-			scope:tax_collector = {
-				tax_collector_aptitude = {
-					tax_slot_type = clan_tax_slot
-					value = 2
-				}
-			}
-		}
-
-		fire_tax_collector = scope:tax_collector
-	}
-
-	option = {
-		name = aptitude_average
-		trigger = {
-			scope:tax_collector = {
-				tax_collector_aptitude = {
-					tax_slot_type = clan_tax_slot
-					value = 3
-				}
-			}
-		}
-
-		fire_tax_collector = scope:tax_collector
-	}
-
-	option = {
-		name = aptitude_good
-		trigger = {
-			scope:tax_collector = {
-				tax_collector_aptitude = {
-					tax_slot_type = clan_tax_slot
-					value = 4
-				}
-			}
-		}
-
-		fire_tax_collector = scope:tax_collector
-	}
-
-	option = {
-		name = aptitude_excellent
-		trigger = {
-			scope:tax_collector = {
-				tax_collector_aptitude = {
-					tax_slot_type = clan_tax_slot
-					value = 5
-				}
-			}
-		}
-
-		fire_tax_collector = scope:tax_collector
-	}
-}
-
-
 #	Test for maximum usage of everything in activities.
 debug.9601 = {
 	type = activity_event
@@ -3119,73 +2654,6 @@ debug.9601 = {
 	option = { name = debug_9601.d }
 }
 
-debug.9610 = { # Spawn a super tax collector
-	hidden = yes
-	orphan = yes
-
-	immediate = {
-		create_character = {
-			name = "Super Tax Collector"
-			age = { 20 32 }
-			location = root.capital_province
-			gender_female_chance = root_faith_dominant_gender_female_chance
-			culture = root.culture
-			faith = root.faith
-			random_traits = yes
-			trait = blind
-			stewardship = 100
-		
-			dynasty = none
-			after_creation = {  add_character_flag = is_guaranteed_excellent_tax_collector }
-		
-			save_scope_as = generated_actor
-		}
-
-		send_interface_message = {
-			type = event_stewardship_good
-			title = governance_1053_corrupt_tax_collectors_modifier
-			right_icon = scope:generated_actor
-		
-			add_courtier = scope:generated_actor
-		}	
-	}
-}
-
-debug.9611 = { # Spawn a assassin
-	hidden = yes
-	orphan = yes
-
-	immediate = {
-		create_character = {
-			name = "Super Assassin"
-			age = { 20 32 }
-			location = root.capital_province
-			gender_female_chance = root_faith_dominant_gender_female_chance
-			culture = root.culture
-			faith = root.faith
-			random_traits = yes
-			intrigue = 100
-			prowess = 100
-			trait = schemer
-			trait = education_intrigue_4
-		
-			dynasty = none
-		
-			save_scope_as = generated_actor
-		}
-
-		send_interface_message = {
-			type = event_stewardship_good
-			title = {
-				desc = d_assassin
-				desc = motto_greed
-			}
-			right_icon = scope:generated_actor
-		
-			add_courtier = scope:generated_actor
-		}	
-	}
-}
 
 debug.9620 = { # Hunt Artifacts
 	type = character_event

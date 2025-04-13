@@ -21,10 +21,10 @@
 @respected_culture_for_maa_type_value = 100
 @disinterested_culture_for_maa_type_value = -100
 
-@number_maa_regiments_increment_1 = 1
-@number_maa_regiments_increment_2 = 2
-@number_maa_regiments_increment_3 = 4
-@number_maa_regiments_increment_4 = 6
+@number_maa_regiments_increment_1 = 2
+@number_maa_regiments_increment_2 = 4
+@number_maa_regiments_increment_3 = 6
+@number_maa_regiments_increment_4 = 8
 
 @accolade_maa_maint_1 = -0.1
 @accolade_maa_maint_2 = -0.15
@@ -857,7 +857,6 @@ outrider_attribute = {
 								has_cultural_pillar = heritage_iberian
 								has_cultural_pillar = heritage_indo_aryan
 								has_cultural_pillar = heritage_magyar
-								has_cultural_pillar = heritage_caucasian
 							}
 						}
 					}
@@ -1003,8 +1002,6 @@ vanguard_attribute = {
 				has_cultural_tradition = tradition_mubarizuns
 				has_cultural_tradition = tradition_burman_royal_army
 				has_cultural_tradition = tradition_mountaineer_ruralism
-				has_innovation = innovation_sarawit
-				has_innovation = innovation_legionnaires
 			}
 		}
 	}
@@ -1197,9 +1194,6 @@ lancer_attribute = {
 				has_innovation = innovation_arched_saddle
 				has_cultural_tradition = tradition_caucasian_wolves
 				has_cultural_tradition = tradition_roman_legacy
-				has_innovation = innovation_valets
-				has_cultural_tradition = tradition_ep3_audacious_cadets
-				has_cultural_tradition = tradition_ep3_imperial_tagmata
 			}
 		}
 	}
@@ -1284,7 +1278,7 @@ lancer_attribute = {
 								has_cultural_pillar = heritage_frankish
 								has_cultural_pillar = heritage_indo_aryan
 								has_cultural_pillar = heritage_byzantine
-								has_cultural_pillar = heritage_caucasian
+
 							}
 						}
 					}
@@ -1400,7 +1394,6 @@ crossbowmen_attribute = {
 		culture ?= {
 			OR = {
 				has_innovation = innovation_advanced_bowmaking
-				has_innovation = innovation_repeating_crossbow
 			}
 		}
 	}
@@ -1414,10 +1407,6 @@ crossbowmen_attribute = {
 					OR = {
 						number_maa_regiments_of_type = {
 							type = crossbowmen
-							value >= 1
-						}
-						number_maa_regiments_of_type = {
-							type = chu_ko_nu
 							value >= 1
 						}
 						number_maa_regiments_of_type = {
@@ -1440,10 +1429,6 @@ crossbowmen_attribute = {
 								value >= @number_maa_regiments_increment_1
 							}
 							number_maa_regiments_of_type = {
-								type = chu_ko_nu
-								value >= @number_maa_regiments_increment_1
-							}
-							number_maa_regiments_of_type = {
 								type = accolade_maa_crossbowers
 								value >= @number_maa_regiments_increment_1
 							}
@@ -1457,10 +1442,6 @@ crossbowmen_attribute = {
 						OR = {
 							number_maa_regiments_of_type = {
 								type = crossbowmen
-								value >= @number_maa_regiments_increment_2
-							}
-							number_maa_regiments_of_type = {
-								type = chu_ko_nu
 								value >= @number_maa_regiments_increment_2
 							}
 							number_maa_regiments_of_type = {
@@ -1480,10 +1461,6 @@ crossbowmen_attribute = {
 								value >= @number_maa_regiments_increment_3
 							}
 							number_maa_regiments_of_type = {
-								type = chu_ko_nu
-								value >= @number_maa_regiments_increment_3
-							}
-							number_maa_regiments_of_type = {
 								type = accolade_maa_crossbowers
 								value >= @number_maa_regiments_increment_3
 							}
@@ -1500,10 +1477,6 @@ crossbowmen_attribute = {
 								value >= @number_maa_regiments_increment_4
 							}
 							number_maa_regiments_of_type = {
-								type = chu_ko_nu
-								value >= @number_maa_regiments_increment_4
-							}
-							number_maa_regiments_of_type = {
 								type = accolade_maa_crossbowers
 								value >= @number_maa_regiments_increment_4
 							}
@@ -1512,25 +1485,25 @@ crossbowmen_attribute = {
 					add = @has_relevant_maa_weight_up_value
 				}
 				#Culture
-				if = {
-					limit = {
-						root.culture ?= {
-							OR = {
-								has_cultural_pillar = heritage_chinese
-								has_cultural_pillar = heritage_latin
-							}
-						}
-					}
-					add = @respected_culture_for_maa_type_value
-				}
-				if = {
-					limit = {
-						root.culture ?= {
-							has_cultural_pillar = heritage_west_germanic
-						}
-					}
-					add = @disinterested_culture_for_maa_type_value
-				}
+				# if = { # Replace with new cultural pillars
+					# limit = {
+						# root.culture ?= {
+							# OR = {
+								# has_cultural_pillar = heritage_chinese
+								# has_cultural_pillar = heritage_latin
+							# }
+						# }
+					# }
+					# add = @respected_culture_for_maa_type_value
+				# }
+				# if = { # Replace with new cultural pillars
+					# limit = {
+						# root.culture ?= {
+							# has_cultural_pillar = heritage_west_germanic
+						# }
+					# }
+					# add = @disinterested_culture_for_maa_type_value
+				# }
 				## Era.
 				add = accolade_weighted_up_in_later_eras_value
 				# AI values.
@@ -1622,7 +1595,7 @@ crossbowmen_attribute = {
 besieger_attribute = {
 	adjective = accolade_besieging
 	noun = accolade_besieger
-	accolade_categories = { men_at_arms army_bonus militant aggressive subtle leader ranged_fighter siege }
+	accolade_categories = { men_at_arms army_bonus militant aggressive subtle leader ranged_fighter }
 
 	potential = {
 		prowess >= accolade_prowess_requirement_value

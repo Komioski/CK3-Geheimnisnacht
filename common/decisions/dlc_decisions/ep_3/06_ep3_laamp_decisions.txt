@@ -20,6 +20,7 @@ become_landless_adventurer_decision = {
 	ai_check_interval = 120
 
 	desc = become_landless_adventurer_decision_desc
+	decision_group_type = major
 	selection_tooltip = become_landless_adventurer_decision_tooltip
 
 	is_shown = {
@@ -154,27 +155,11 @@ become_landless_adventurer_decision = {
 		}
 	}
 
-	ai_potential = {
-		is_valid_for_laampdom = yes
-		trigger_if = { # Temujun stays, he needs to become Genghis Khan after all!
-			limit = {
-				exists = character:125501
-			}
-			NOT = { this = character:125501 }
-		}
-	}
+	ai_potential = { is_valid_for_laampdom = yes }
 
 	ai_will_do = {
-		base = -75
+		base = -30
 		modifier = { add = ep3_laamp_chance_score_value }
-		modifier = { # If we don't have this, everyone will leave your realm constantly
-			add = -45
-			culture = { has_cultural_parameter = much_more_likely_to_be_laamps }
-		}
-		modifier = { # If we don't have this, everyone will leave your realm constantly
-			add = -20
-			culture = { has_cultural_parameter = more_likely_to_be_laamps }
-		}
 		modifier = {
 			factor = 0
 			OR = {
@@ -1264,13 +1249,8 @@ visit_local_settlement_decision = {
 			#Add on castle holding-specific effects
 			custom_tooltip = visit_local_settlement_city_holding_decision_tt
 		}
-		#To prevent the character, for whatever reason, managing to not have the variable be removed when exiting VS
-		temporarily_lock_visit_settlement_effect = yes
+		set_variable = ep3_laamp_decision_1000_is_visiting
 		trigger_event =  ep3_laamp_decision_event.1000
-		close_view = {
-			view = decisions
-			player = root
-		}
 	}
 	
 	ai_check_interval = 12
@@ -2013,10 +1993,6 @@ gather_provisions_decision = {
 			text = gather_provisions_decision_effect_tt
 			trigger_event = ep3_decisions_event.7000
 		}
-		close_view = {
-			view = decisions
-			player = root
-		}
 	}
 
 	ai_potential = {
@@ -2200,14 +2176,6 @@ zealous_missionary_prep_decision = {
 		custom_tooltip = {
 			text = zealous_missionary_prep_decision_reward_desc
 		}
-		if = {
-			limit = {
-				any_owned_story = {
-					story_type = story_hasan
-				}
-			}
-			custom_tooltip = chance_to_advance_to_the_assassins_tt
-		}
 	}
 	
 	ai_check_interval = 32
@@ -2235,8 +2203,11 @@ zealous_missionary_start_decision = {
 		has_ep3_dlc_trigger = yes
 		government_has_flag = government_is_landless_adventurer
 		has_character_flag = zealous_missionary_prep
-		NOR = {
+		NOT = {
 			has_character_flag = zealous_missionary_start
+
+		}
+		NOT = {
 			is_ai = yes
 			any_player = {
 				OR = {
@@ -2248,7 +2219,12 @@ zealous_missionary_start_decision = {
 	}
 
 	is_valid = {
-		location.county = { hasan_evangelize_province_trigger = yes }
+		custom_tooltip = {
+			text = zealous_missionary_start_decision_other_faith_location
+			NOT = {
+				location.county.faith = root.faith
+			} 
+		}	
 	}
 
 	is_valid_showing_failures_only = {
@@ -2828,10 +2804,6 @@ humiliate_the_stooge_decision = {
 			humiliate_stooge_counter_effect = yes
 		}
 		humiliate_stooge_reward_effect = yes
-		close_view = {
-			view = decisions
-			player = root
-		}
 	}
 
 	ai_will_do = {

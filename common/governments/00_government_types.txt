@@ -1,46 +1,4 @@
-﻿### Brief: feudal_government
-#
-# This is referenced in code
-#
-feudal_government = {
-	government_rules = {
-		create_cadet_branches = yes
-		rulers_should_have_dynasty = yes
-		dynasty_named_realms = yes
-		royal_court = yes
-		legitimacy = yes
-	}
-
-	fallback = 1
-
-	primary_holding = castle_holding
-	required_county_holdings = { castle_holding city_holding church_holding }
-
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		succession_rights
-		war_declaration_rights
-		council_rights
-		title_revocation_rights
-		jizya_special_rights
-	}
-
-	ai = {
-		use_legends = yes
-	}
-
-	flag = may_elevate_co_monarch
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_feudal
-	color = hsv{ 0.67 1.00 0.78 }
-}
-
-republic_government = {
+﻿republic_government = {
 	primary_holding = city_holding
 	valid_holdings = { castle_holding }
 	required_county_holdings = { city_holding castle_holding church_holding }
@@ -76,7 +34,7 @@ theocracy_government = {
 	}
 
 	primary_holding = church_holding
-	valid_holdings = { castle_holding tribal_holding }
+	valid_holdings = { castle_holding }
 	required_county_holdings = { church_holding castle_holding city_holding }
 
 	ai = {
@@ -113,8 +71,6 @@ clan_government = {
 	primary_holding = castle_holding
 	primary_heritages = { heritage_arabic heritage_iranian heritage_turkic }
 
-	fallback = 2
-
 	preferred_religions = { islam_religion }
 
 	valid_holdings = { castle_holding }
@@ -142,12 +98,19 @@ clan_government = {
 		scope:vassal = {
 			if = {
 				limit = {
-					is_powerful_vassal = yes
 					NOT = {
 						is_allied_to = scope:liege
 					}
 				}
-				value = clan_powerful_vassal_no_alliance_opinion_penalty_value
+				if = {
+					limit = {
+						is_powerful_vassal = yes
+					}
+					value = clan_powerful_vassal_no_alliance_opinion_penalty_value
+				}
+				else = {
+					value = clan_vassal_no_alliance_opinion_penalty_value
+				}
 			}
 		}
 	}
@@ -163,6 +126,17 @@ clan_government = {
 					}
 				}
 				desc = "GOVERNMENT_CLAN_NOT_ALLIED_POWERFUL"
+			}
+			triggered_desc = {
+				trigger = {
+					scope:vassal = {
+						NOT = {
+							is_allied_to = scope:liege
+						}
+						is_powerful_vassal = no
+					}
+				}
+				desc = "GOVERNMENT_CLAN_NOT_ALLIED"
 			}
 		}
 	}
@@ -276,58 +250,6 @@ holy_order_government = {
 	color = hsv{ 0.00 0.00 0.66 }
 }
 
-administrative_government = {
-	government_rules = {
-		create_cadet_branches = yes
-		rulers_should_have_dynasty = yes
-		dynasty_named_realms = no
-		royal_court = yes
-		administrative = yes
-		landless_playable = yes
-		legitimacy = yes
-		state_faith = yes
-		use_as_base_on_landed = yes
-		use_as_base_on_rank_up = yes
-		inherit_from_dynastic_government = no
-	}
-
-	domicile_type = estate
-
-	fallback = 3
-
-	primary_holding = castle_holding
-	valid_holdings = { city_holding }
-	required_county_holdings = { castle_holding city_holding church_holding }
-
-	vassal_contract = {
-		administrative_obligations
-		administrative_themes
-	}
-
-	character_modifier = {
-		levy_size = -0.5
-		feudal_government_tax_contribution_mult = -0.5
-		feudal_government_levy_contribution_mult = -0.5
-		clan_government_tax_contribution_mult = -0.5
-		clan_government_levy_contribution_mult = -0.5
-		men_at_arms_cap = -2
-		men_at_arms_limit = -2
-		knight_limit = -5
-		vassal_limit = 100
-		active_accolades = -1
-		title_creation_cost_mult = -0.5
-	}
-
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_administrative
-
-	# These flags only exist for loc and in-game descriptions
-	flag = government_has_influence
-	flag = government_has_title_men_at_arms
-	flag = government_has_powerful_families
-	color = { 72 6 92 }
-}
-
 landless_adventurer_government = {
 	government_rules = {
 		court_generate_spouses = no
@@ -356,7 +278,7 @@ landless_adventurer_government = {
 
 	character_modifier = {
 		active_accolades = -100
-		knight_limit = 2
+		knight_limit = 10
 		men_at_arms_cap = -3
 		men_at_arms_limit = -2
 		character_travel_speed = 20
@@ -365,7 +287,6 @@ landless_adventurer_government = {
 		short_reign_duration_mult = -5
 		long_reign_bonus_mult = -1
 		domicile_travel_speed = -0.75
-		monthly_wanderer_lifestyle_xp_gain_mult = 0.15
 	}
 
 	ai = {
