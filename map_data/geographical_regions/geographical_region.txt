@@ -180,10 +180,78 @@ world_old_world_southern_realms = {
 	}
 }
 
+world_old_world_empire_west = {
+	duchies = {
+		#Westerland
+		d_marienburg d_cisdrak d_fauligmere d_frysland
+		d_gap_of_berbres d_heideland d_kikkerlandje d_noordhaven
+		#Reikland
+		d_altdorf d_blitzfelsen d_reikdahl d_reikwald d_saponatheim
+		d_ubersreik d_uhland d_upper_reikwald d_vorbergland
+		#Drakwald
+	}
+}
+
+world_old_world_empire_north = {
+	duchies = {
+		#Nordland
+		d_steinigkueste d_kieselstaadt d_laurelorn d_lugrenkust d_salz 
+		#Ostland
+		d_wolfenburg d_ferlangen d_kislev_verge d_knochenkueste d_mittenberg d_schutzen 
+		#Middenland
+		d_middenheim d_carroburg d_erpelzug d_kamistaat d_kristal d_tauben 
+	}
+}
+
+world_old_world_empire_central = {
+	duchies = {
+		#Hochland
+		d_korver d_drakwasser d_weissberge 
+		#Talabecland
+		d_talabheim d_farlichberge d_koelsaberge d_talabecland_hills
+		d_volgen d_waldarfold d_waldesruh 
+		#Stirland
+		d_nattern d_grauenmark d_steyr d_stirhuegel 
+	}
+}
+
+world_old_world_empire_east = {
+	duchies = {
+		#Ostermark
+		d_mordheim d_abshaumwald d_bechafen d_geisterforst d_griffonwald d_the_veldt 
+		#Sylvania
+
+		#Mootland
+		d_auld_styrland d_aver_march 
+	}
+}
+
+world_old_world_empire_south = {
+	duchies = {
+		#Averland
+		d_averheim d_martig d_pferdmark 
+		#Wissenland
+		d_nuln d_wissenburg d_wissetal 
+		#Solland
+		d_pfeildorf d_soll d_sudenland 
+	}
+}
+
+world_old_world_empire = {
+	regions = {
+		world_old_world_empire_west
+		world_old_world_empire_north
+		world_old_world_empire_central
+		world_old_world_empire_east
+		world_old_world_empire_south
+	}
+}
+
 world_old_world = {
 	regions = {
 		world_old_world_bretonnia
 		world_old_world_southern_realms
+		world_old_world_empire
 	}
 }
 
@@ -566,7 +634,7 @@ graphical_western = {
 	color = { 255 0 0 }
 	regions = {
 		world_old_world_bretonnia_north
-		#world_old_world_empire
+		world_old_world_empire
 		#world_old_world_norsca
 		#world_old_world_kislev
 	}
