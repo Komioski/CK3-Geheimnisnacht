@@ -1,0 +1,168 @@
+﻿#call_for_electoral_college = {
+#	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+#	major = yes
+#	is_shown = {
+#		or = {
+#			is_elector = yes
+#			is_empire_pretender = yes
+#			debug_only = yes
+#		}
+#	}
+#	is_valid_showing_failures_only = {
+#		is_available_adult = yes
+#	}
+#	is_valid = {
+#		custom_description = {
+#			always = no
+#			text = not_implemented_yet
+#		}
+#	}
+#
+#	ai_check_interval = 0
+#}
+
+# form_colleges_of_magic = {
+# 	picture = "gfx/interface/illustrations/decisions/decision_magic.dds"
+# 	major = yes
+# 	is_shown = {
+# 		is_emperor = yes
+# 		debug_only = yes
+# 	}
+# 	is_valid_showing_failures_only = {
+# 		is_available_adult = yes
+# 	}
+# 	is_valid = {
+# 		custom_description = {
+# 			always = no
+# 			text = not_implemented_yet
+# 		}
+# 	}
+
+# 	ai_check_interval = 0
+# }
+
+#TODO: Claim imperial throne decision
+
+#renounce_imperial_throne = {
+#    picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+#	is_shown = {
+#		is_empire_pretender = yes
+#		debug_only = yes
+#	}
+#	ai_check_interval = 0
+#	#TODO: Add AI logic - Craven and weak military and Honest/Just might back down. 
+#	is_valid = {
+#		is_empire_pretender = yes
+#	}
+#	effect = {
+#		if = {
+#			limit = {
+#				primary_title = title:e_reikland
+#			}
+#			destroy_title = title:e_reikland
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_talabecland
+#			}
+#			destroy_title = title:e_talabecland
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_middenland
+#			}
+#			destroy_title = title:e_middenland
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_averland
+#			}
+#			destroy_title = title:e_averland
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_hochland
+#			}
+#			destroy_title = title:e_hochland
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_mootland
+#			}
+#			destroy_title = title:e_mootland
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_ostermark
+#			}
+#			destroy_title = title:e_ostermark
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_stirland
+#			}
+#			destroy_title = title:e_stirland
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_wissenland
+#			}
+#			destroy_title = title:e_wissenland
+#		}
+#        if = {
+#			limit = {
+#				primary_title = title:e_sylvania
+#			}
+#			destroy_title = title:e_sylvania
+#		}
+#
+#		#TODO: Make generic. Presuamably destroy all titles that have rule that IDs as Empire Claimant title.
+#		#TODO: Add anger effect to supporting electors.
+#	}
+#}
+
+WH_kingdom_Solland_decision = {
+	picture = { reference = "gfx/interface/illustrations/decisions/decision_d_soll.dds" }
+	decision_group_type = major
+	selection_tooltip = sollander_custom_decision_tooltip
+	is_shown = {
+		#is_landed = yes
+		culture = culture:sollander
+
+	NOT = { has_character_flag = decision_choose_solland_kingdom } 
+	}
+	ai_check_interval = 0
+
+	is_valid_showing_failures_only = {
+		is_available_adult_or_is_commanding = yes
+	}
+	
+	is_valid = {
+		is_independent_ruler = yes
+		has_title = title:d_soll
+		#culture = culture:sollander
+		completely_controls = title:d_sudenland
+		completely_controls = title:d_pfeildorf
+		completely_controls = title:d_soll
+		completely_controls = title:d_wissetal
+		prestige_level >= high_prestige_level
+			OR = {
+				has_strong_usable_hook = title:e_wissenland.holder
+				has_strong_usable_hook = title:e_the_empire.holder
+			}
+	}
+	cost = { gold = 1000 }
+	
+	effect = {
+		custom_tooltip = soll_kingdom_custom_decision.tt
+		set_realm_capital = title:c_pfeildorf
+		hidden_effect = {
+			form_kingdom_of_solland_scripted_effect = yes
+			}
+		add_character_flag = { flag = decision_choose_solland_kingdom }			
+		}
+
+	ai_potential = {
+        always = no
+	}
+}

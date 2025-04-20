@@ -1,4 +1,5 @@
 ﻿##Holy Orders by Nobu###
+@correct_culture_primary_score = 100
 
 d_lily_knights = {
 
@@ -824,39 +825,39 @@ e_bretonnia = {
 				}
 			}
 		}
-		# d_la_marche = {
-			# capital = c_thorn
-			# color = { 235 22 22 }
+		d_la_marche = {
+			capital = c_thorn
+			color = { 235 22 22 }
 
-			# c_thorn = {
-				# color = { 200 15 25 }
+			c_thorn = {
+				color = { 200 15 25 }
 
-				# b_lisieux = {
-					# province = 3706
-					# color = { 200 15 25 }
-				# }
-				# b_reric = {
-					# province = 636
-					# color = { 200 15 25 }
-				# }
-				# b_barb = {
-					# province = 637
-					# color = { 200 15 25 }
-				# }
-			# }
-			# c_saar = {
-				# color = { 0 126 210 }
+				b_lisieux = {
+					province = 3706
+					color = { 200 15 25 }
+				}
+				b_reric = {
+					province = 636
+					color = { 200 15 25 }
+				}
+				b_barb = {
+					province = 637
+					color = { 200 15 25 }
+				}
+			}
+			c_saar = {
+				color = { 0 126 210 }
 
-				# b_saar = {
-					# province = 640
-					# color = { 0 126 210 }
-				# }
-				# b_sallizes = {
-					# province = 642
-					# color = { 0 126 210  }
-				# }
-			# }
-		# }				
+				b_saar = {
+					province = 640
+					color = { 0 126 210 }
+				}
+				b_sallizes = {
+					province = 642
+					color = { 0 126 210  }
+				}
+			}
+		}				
 		d_quierzy = {
 			capital = c_rouard
 			color = { 220 5 5 }
@@ -1702,14 +1703,16 @@ e_bretonnia = {
 		ai_primary_priority = {
 			if = {
 				limit = {
-					culture = culture:acquitanian
+					culture = culture:aquitanian
 				}
+				add = @correct_culture_primary_score
 			}
 			if = {
 				limit = {
-					NOT = { culture = culture:acquitanian }
+					NOT = { culture = culture:aquitanian }
 					culture = { has_cultural_pillar = heritage_bretonnian }
 				}
+				add = @correct_culture_primary_score
 			}
 		}
 		

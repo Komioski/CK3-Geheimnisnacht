@@ -8,911 +8,911 @@
 
 # Byzantine-only: you have reconquered an important city of the long-lost Empire
 
-ep3_emperor_yearly.2000 = {
-	type = character_event
-	window = fullscreen_event
-	title = ep3_emperor_yearly.2000.t
-	desc = {
-		desc = ep3_emperor_yearly.2000.desc_intro
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_antiocheia
-					faith.religion = religion:christianity_religion
-				}
-				desc = ep3_emperor_yearly.2000.desc_antioch
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_antiocheia
-				}
-				desc = ep3_emperor_yearly.2000.desc_antioch_not_christ
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_jerusalem
-					faith.religion = religion:christianity_religion
-				}
-				desc = ep3_emperor_yearly.2000.desc_jerusalem
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_jerusalem
-				}
-				desc = ep3_emperor_yearly.2000.desc_jerusalem_not_christ
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_alexandria
-					faith.religion = religion:christianity_religion
-				}
-				desc = ep3_emperor_yearly.2000.desc_alexandria_not_christ
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_alexandria
-				}
-				desc = ep3_emperor_yearly.2000.desc_alexandria
-			}
-			#Maximum estent of the Roman Empire to the East (Trajan) - Abbadan
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_abbadan
-				}
-				desc = ep3_emperor_yearly.2000.desc_frontier
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_edessa
-					faith.religion = religion:christianity_religion
-				}
-				desc = ep3_emperor_yearly.2000.desc_edessa
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_edessa
-				}
-				desc = ep3_emperor_yearly.2000.desc_edessa_not_christ
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_bari
-				}
-				desc = ep3_emperor_yearly.2000.desc_bari
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_siracusa
-				}
-				desc = ep3_emperor_yearly.2000.desc_syracuse
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_roma
-				}
-				desc = ep3_emperor_yearly.2000.desc_rome
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_ravenna
-				}
-				desc = ep3_emperor_yearly.2000.desc_ravenna
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_tunis
-				}
-				desc = ep3_emperor_yearly.2000.desc_carthago
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_tangiers
-				}
-				desc = ep3_emperor_yearly.2000.desc_tingis
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_murcia
-				}
-				desc = ep3_emperor_yearly.2000.desc_carthago_spartaria
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_lombardia
-				}
-				desc = ep3_emperor_yearly.2000.desc_milan
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_trier
-				}
-				desc = ep3_emperor_yearly.2000.desc_trier
-			}
-			triggered_desc = {
-				trigger = {
-					OR = {
-						scope:county = title:c_cumberland
-						scope:county = title:c_northumberland
-					}
-				}
-				desc = ep3_emperor_yearly.2000.desc_hadrians_wall
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_chandax
-				}
-				desc = ep3_emperor_yearly.2000.desc_chandax
-			}
-			triggered_desc = {
-				trigger = {
-					scope:county = title:c_tourraine
-				}
-				desc = ep3_emperor_yearly.2000.desc_tours
-			}
-		}
-	}
-	theme = war
-	override_background = { reference = ep3_triumph }
-
-	trigger = {
-		has_ep3_dlc_trigger = yes
-		trigger_if = {
-			limit = {
-				scope:county = title:c_tourraine
-			}
-			NOT = { exists = var:ep3_reconquered_tourraine }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_chandax
-			}
-			NOT = { exists = var:ep3_reconquered_chandax }
-		}
-		trigger_else_if = {
-			limit = {
-				OR = {
-					scope:county = title:c_cumberland
-					scope:county = title:c_northumberland
-				}
-			}
-			NOT = { exists = var:ep3_reconquered_hadrian }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_trier
-			}
-			NOT = { exists = var:ep3_reconquered_trier }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_lombardia
-			}
-			NOT = { exists = var:ep3_reconquered_lombardia }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_murcia
-			}
-			NOT = { exists = var:ep3_reconquered_murcia }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_tangiers
-			}
-			NOT = { exists = var:ep3_reconquered_tangiers }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_tunis
-			}
-			NOT = { exists = var:ep3_reconquered_tunis }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_ravenna
-			}
-			NOT = { exists = var:ep3_reconquered_ravenna }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_roma
-			}
-			NOT = { exists = var:ep3_reconquered_roma }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_siracusa
-			}
-			NOT = { exists = var:ep3_reconquered_siracusa }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_bari
-			}
-			NOT = { exists = var:ep3_reconquered_bari }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_edessa
-			}
-			NOT = { exists = var:ep3_reconquered_edessa }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_abbadan
-			}
-			NOT = { exists = var:ep3_reconquered_abbadan }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_alexandria
-			}
-			NOT = { exists = var:ep3_reconquered_alexandria }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_jerusalem
-			}
-			NOT = { exists = var:ep3_reconquered_jerusalem }
-		}
-		trigger_else_if = {
-			limit = {
-				scope:county = title:c_antiocheia
-			}
-			NOT = { exists = var:ep3_reconquered_antiocheia }
-		}
-		trigger_else = {
-			always = no
-		}
-	}
-
-	immediate = {
-		change_influence = massive_influence_gain
-		add_prestige = major_prestige_gain
-	}
-
-	#Option A
-	option = {
-		name = ep3_emperor_yearly.2000.a
-		if = {
-			limit = {
-				OR = {
-					scope:county = title:c_antiocheia
-					scope:county = title:c_jerusalem
-					scope:county = title:c_alexandria
-					scope:county = title:c_roma
-				}
-			}
-			scope:county = {
-				add_county_modifier = {
-					modifier = ep3_restored_pentarchy_seat_county_modifier
-					years = 10
-				}
-			}
-			add_character_modifier = {
-				modifier = ep3_restored_pentarchy_seat_modifier
-				years = 10
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
-					scope:county = title:c_abbadan
-					scope:county = title:c_cumberland
-					scope:county = title:c_northumberland
-				}
-			}
-			scope:county = {
-				add_county_modifier = {
-					modifier = ep3_maximum_border_county_modifier
-					years = 10
-				}
-			}
-			add_character_modifier = {
-				modifier = ep3_maximum_border_modifier
-				years = 10
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
-					scope:county = title:c_ravenna
-					scope:county = title:c_tunis
-					scope:county = title:c_murcia
-				}
-			}
-			scope:county = {
-				add_county_modifier = {
-					modifier = ep3_new_justinian_county_modifier
-					years = 10
-				}
-			}
-			add_character_modifier = {
-				modifier = ep3_new_justinian_modifier
-				years = 10
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
-					scope:county = title:c_lombardia
-					scope:county = title:c_trier
-				}
-			}
-			scope:county = {
-				add_county_modifier = {
-					modifier = ep3_western_tetrarch_county_modifier
-					years = 10
-				}
-			}
-			add_character_modifier = {
-				modifier = ep3_western_tetrarch_modifier
-				years = 10
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
-					scope:county = title:c_tangiers
-					scope:county = title:c_tourraine
-				}
-			}
-			scope:county = {
-				add_county_modifier = {
-					modifier = ep3_long_lost_province_county_modifier
-					years = 10
-				}
-			}
-			add_character_modifier = {
-				modifier = ep3_long_lost_province_modifier
-				years = 10
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
-					scope:county = title:c_edessa
-					scope:county = title:c_bari
-				}
-			}
-			scope:county = {
-				add_county_modifier = {
-					modifier = ep3_long_contested_province_county_modifier
-					years = 10
-				}
-			}
-			add_character_modifier = {
-				modifier = ep3_long_contested_province_modifier
-				years = 10
-			}
-		}
-		else_if = {
-			limit = {
-				OR = {
-					scope:county = title:c_siracusa
-					scope:county = title:c_chandax
-				}
-			}
-			scope:county = {
-				add_county_modifier = {
-					modifier = ep3_medi_gem_county_modifier
-					years = 10
-				}
-			}
-			add_character_modifier = {
-				modifier = ep3_medi_gem_modifier
-				years = 10
-			}
-		}
-	}
-
-	after = {
-		if = {
-			limit = {
-				scope:county = title:c_antiocheia
-			}
-			set_global_variable = ep3_reconquered_antiocheia
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_jerusalem
-			}
-			set_global_variable = ep3_reconquered_jerusalem
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_alexandria
-			}
-			set_global_variable = ep3_reconquered_alexandria
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_abbadan
-			}
-			set_global_variable = ep3_reconquered_abbadan
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_edessa
-			}
-			set_global_variable = ep3_reconquered_edessa
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_bari
-			}
-			set_global_variable = ep3_reconquered_bari
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_siracusa
-			}
-			set_global_variable = ep3_reconquered_siracusa
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_roma
-			}
-			set_global_variable = ep3_reconquered_roma
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_ravenna
-			}
-			set_global_variable = ep3_reconquered_ravenna
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_tunis
-			}
-			set_global_variable = ep3_reconquered_tunis
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_tangiers
-			}
-			set_global_variable = ep3_reconquered_tangiers
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_murcia
-			}
-			set_global_variable = ep3_reconquered_murcia
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_lombardia
-			}
-			set_global_variable = ep3_reconquered_lombardia
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_trier
-			}
-			set_global_variable = ep3_reconquered_trier
-		}
-		else_if = {
-			limit = {
-				OR = {
-					scope:county = title:c_cumberland
-					scope:county = title:c_northumberland
-				}
-			}
-			set_global_variable = ep3_reconquered_hadrian
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_chandax
-			}
-			set_global_variable = ep3_reconquered_chandax
-		}
-		else_if = {
-			limit = {
-				scope:county = title:c_tourraine
-			}
-			set_global_variable = ep3_reconquered_tourraine
-		}
-
-		if = {
-			limit = {
-				NOT = {
-					any_owned_story = {
-						story_type = ep3_story_cycle_restoring_rome
-					}
-				}
-			}
-			create_story = ep3_story_cycle_restoring_rome
-		}
-	}
-}
-
-# Courtiers grumble about you sending an imperial prince/princess to marry abroad among barbarians
-
-scripted_trigger emperor_2010_valid_child_trigger = {
-	is_adult = yes
-	is_married = yes
-	primary_spouse.culture = {
-		NOT = { has_cultural_pillar = heritage_byzantine }
-	}
-	liege.culture = {
-		NOT = { has_cultural_pillar = heritage_byzantine }
-	}
-	location.culture = {
-		NOT = { has_cultural_pillar = heritage_byzantine }
-	}
-	is_travelling = no
-	culture = { has_cultural_pillar = heritage_byzantine }
-}
-
-scripted_trigger emperor_2010_valid_courtier_trigger = {
-	is_available_healthy_ai_adult = yes
-	is_of_major_or_minor_interest_trigger = { CHARACTER = root }
-	culture = { has_cultural_pillar = heritage_byzantine }
-}
-
-ep3_emperor_yearly.2010 = {
-	type = character_event
-	title = ep3_emperor_yearly.2010.t
-	desc = ep3_emperor_yearly.2010.desc
-	theme = emperor
-	left_portrait = {
-		character = scope:gossip_1
-		animation = eyeroll
-	}
-	right_portrait = {
-		character = scope:gossip_2
-		animation = throne_room_conversation_1
-	}
-	lower_center_portrait = scope:sent_off
-	cooldown = { years = 50 }
-
-	trigger = {
-		is_available_adult = yes
-		valid_for_byz_emperor_content_trigger = yes
-		any_child = {
-			emperor_2010_valid_child_trigger = yes
-		}
-		any_courtier = {
-			count >= 2
-			emperor_2010_valid_courtier_trigger = yes
-		}
-	}
-
-	immediate = {
-		random_child = {
-			limit = {
-				emperor_2010_valid_child_trigger = yes
-			}
-			save_scope_as = sent_off
-		}
-		random_courtier = {
-			limit = {
-				emperor_2010_valid_courtier_trigger = yes
-			}
-			save_scope_as = gossip_1
-		}
-		random_courtier = {
-			limit = {
-				emperor_2010_valid_courtier_trigger = yes
-				NOT = { this = scope:gossip_1 }
-			}
-			save_scope_as = gossip_2
-		}
-		scope:sent_off.primary_spouse = { save_scope_as = spouse }
-	}
-
-	#Option A: it was necessary
-	option = {
-		name = ep3_emperor_yearly.2010.a
-		add_character_modifier = {
-			modifier = ep3_politics_before_all_modifier
-			years = 40
-		}
-		add_diplomacy_lifestyle_xp = medium_lifestyle_xp
-		if = {
-			limit = {
-				government_allows = administrative
-			}
-			change_influence = medium_influence_gain
-		}
-		else = {
-			add_prestige = medium_prestige_gain
-		}
-		stress_impact = {
-			arrogant = medium_stress_impact_gain
-			deceitful = medium_stress_impact_gain
-			zealous = medium_stress_impact_gain
-			compassionate = major_stress_impact_gain
-			family_first = major_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				add = -50
-				has_trait = arrogant
-			}
-			modifier = {
-				add = -50
-				has_trait = deceitful
-			}
-			modifier = {
-				add = 50
-				has_trait = diplomat
-			}
-			modifier = {
-				add = 100
-				has_trait = ambitious
-			}
-			modifier = {
-				factor = 0
-				has_trait = compassionate
-			}
-			modifier = {
-				factor = 0
-				has_trait = family_first
-			}
-		}
-	}
-
-	#Option B: a worthy sacrifice
-	option = {
-		name = {
-			trigger = {
-				faith.religion = religion:christianity_religion
-			}
-			text = ep3_emperor_yearly.2010.b
-		}
-		name = {
-			trigger = {
-				NOT = { faith.religion = religion:christianity_religion }
-			}
-			text = ep3_emperor_yearly.2010.b2
-		}
-		add_character_modifier = {
-			modifier = ep3_everything_for_byz_modifier
-			years = 40
-		}
-		add_piety = medium_piety_gain
-		stress_impact = {
-			cynical = medium_stress_impact_gain
-			arrogant = major_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				has_trait = zealous
-				add = 100
-			}
-			modifier = {
-				has_trait = cynical
-				add = -50
-			}
-			modifier = {
-				has_trait = humble
-				add = 75
-			}
-		}
-	}
-
-	#Option C: shut up
-	option = {
-		name = ep3_emperor_yearly.2010.c
-		add_prestige = minor_prestige_gain
-		reverse_add_opinion = {
-			target = scope:gossip_1
-			modifier = angry_opinion
-			opinion = -10
-		}
-		reverse_add_opinion = {
-			target = scope:gossip_2
-			modifier = angry_opinion
-			opinion = -10
-		}
-		stress_impact = {
-			humble = major_stress_impact_gain
-		}
-		ai_chance = {
-			base = 75
-			modifier = {
-				has_trait = arrogant
-				add = 100
-			}
-		}
-	}
-}
-
-# Byzantine-only: The Patriarch refuses to crown you as new emperor because you have a criminal trait (e.g. kinslayer)
-
-ep3_emperor_yearly.2020 = {
-	type = character_event
-	title = ep3_emperor_yearly.2020.t
-	desc = ep3_emperor_yearly.2020.desc
-	theme = emperor
-	override_background = { reference = ep3_hagia_sophia }
-	left_portrait = {
-		character = root
-		animation = disbelief
-	}
-	right_portrait = {
-		character = scope:patriarch
-		animation = anger
-	}
-	
-	trigger = {
-		has_ep3_dlc_trigger = yes
-		valid_for_byz_emperor_content_trigger = yes
-		exists = root.faith.religious_head
-		NOT = { this = faith.religious_head }
-		faith.religious_head = {
-			opinion = {
-				target = root
-				value <= 0
-			}
-			location = root.location
-		}
-		has_any_criminal_trait_in_faith_trigger = {
-			CHARACTER = root
-			FAITH = root.faith
-		}
-		NOT = { has_character_flag = has_had_ep3_2020 }
-	}
-
-	immediate = {
-		faith.religious_head = { save_scope_as = patriarch }
-		add_character_flag = has_had_ep3_2020
-		random_character_trait = {
-			limit = {
-				save_temporary_scope_as = temp_trait
-				scoped_trait_is_criminal_in_faith_trigger = { TRAIT = scope:temp_trait FAITH = root.faith GENDER_CHARACTER = root }
-			}
-			save_scope_as = target_criminal_trait
-		}
-	}
-
-	#Option A: repent
-	option = {
-		name = ep3_emperor_yearly.2020.a
-		flavor = ep3_emperor_yearly.2020.a.tt
-		change_influence = major_influence_loss
-		add_prestige = major_prestige_loss
-		custom_tooltip = ep3_emperor_yearly.2020.a.tt2
-
-		trigger_event = {
-			id = ep3_emperor_yearly.2021
-			days = 366
-		}
-		scope:patriarch = {
-			add_opinion = {
-				target = root
-				modifier = forgiven_opinion
-			}
-		}
-
-		stress_impact = {
-			ambitious = medium_stress_impact_gain
-			cynical = major_stress_impact_gain
-			arrogant = major_stress_impact_gain
-			zealous = medium_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_zeal = 1
-			}
-			modifier = {
-				has_trait = ambitious
-				add = -50
-			}
-			modifier = {
-				has_trait = arrogant
-				add = -50
-			}
-		}
-	}
-
-	#Option B: ignore
-	option = {
-		name = ep3_emperor_yearly.2020.b
-		change_influence = major_influence_gain
-		add_prestige = major_prestige_gain
-		if = {
-			limit = { piety_level >= low_piety_level }
-			add_piety_level = -1
-		}
-		else = {
-			add_piety = major_piety_loss
-		}
-		scope:patriarch = {
-			add_opinion = {
-				target = root
-				modifier = impious_opinion
-				opinion = -50
-			}
-		}
-
-		stress_impact = {
-			zealous = major_stress_impact_gain
-			humble = major_stress_impact_gain
-			arrogant = medium_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_boldness = 1
-			}
-			modifier = {
-				has_trait = zealous
-				add = -50
-			}
-			modifier = {
-				has_trait = humble
-				add = -50
-			}
-		}
-	}
-}
-
-ep3_emperor_yearly.2021 = {
-	type = character_event
-	title = ep3_emperor_yearly.2021.t
-	desc = {
-		desc = ep3_emperor_yearly.2021.desc
-		first_valid = {
-			triggered_desc = {
-				trigger = { scope:patriarch = { is_alive = yes } }
-				desc = ep3_emperor_yearly.2021.desc_patriarch
-			}
-			desc = ep3_emperor_yearly.2021.desc_patriarch_new
-		}
-		desc = ep3_emperor_yearly.2021.desc_end
-	}
-	theme = crown
-	override_background = { reference = ep3_hagia_sophia }
-	left_portrait = {
-		character = root
-		animation = personality_zealous
-	}
-	right_portrait = {
-		character = scope:patriarch_portrait
-		animation = wedding_priest
-	}
-	lower_right_portrait = {
- 		trigger = {
- 			scope:patriarch = { is_alive = no }
- 		}
- 		character = scope:patriarch
- 	}
-
- 	trigger = {
- 		exists = faith.religious_head
- 		NOT = { this = faith.religious_head }
- 		has_any_criminal_trait_in_faith_trigger = {
-			CHARACTER = root
-			FAITH = root.faith
-		}
- 	}
-
-	immediate = {
-		if = {
-			limit = {
-				scope:patriarch = {
-					is_alive = yes
-					faith = scope:patriarch.faith
-				}
-			}
-			scope:patriarch = { save_scope_as = patriarch_portrait }
-		}
-		else = {
-			faith.religious_head = { save_scope_as = patriarch_portrait }
-		}
-	}
-
-	option = {
-		name = ep3_emperor_yearly.2021.a
-		add_legitimacy = minor_legitimacy_gain
-		remove_trait = scope:target_criminal_trait
-	}
-}
+#ep3_emperor_yearly.2000 = {
+#	type = character_event
+#	window = fullscreen_event
+#	title = ep3_emperor_yearly.2000.t
+#	desc = {
+#		desc = ep3_emperor_yearly.2000.desc_intro
+#		first_valid = {
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_antiocheia
+#					faith.religion = religion:christianity_religion
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_antioch
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_antiocheia
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_antioch_not_christ
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_jerusalem
+#					faith.religion = religion:christianity_religion
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_jerusalem
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_jerusalem
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_jerusalem_not_christ
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_alexandria
+#					faith.religion = religion:christianity_religion
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_alexandria_not_christ
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_alexandria
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_alexandria
+#			}
+#			#Maximum estent of the Roman Empire to the East (Trajan) - Abbadan
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_abbadan
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_frontier
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_edessa
+#					faith.religion = religion:christianity_religion
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_edessa
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_edessa
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_edessa_not_christ
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_bari
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_bari
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_siracusa
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_syracuse
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_roma
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_rome
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_ravenna
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_ravenna
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_tunis
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_carthago
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_tangiers
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_tingis
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_murcia
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_carthago_spartaria
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_lombardia
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_milan
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_trier
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_trier
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					OR = {
+#						scope:county = title:c_cumberland
+#						scope:county = title:c_northumberland
+#					}
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_hadrians_wall
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_chandax
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_chandax
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:county = title:c_tourraine
+#				}
+#				desc = ep3_emperor_yearly.2000.desc_tours
+#			}
+#		}
+#	}
+#	theme = war
+#	override_background = { reference = ep3_triumph }
+#
+#	trigger = {
+#		has_ep3_dlc_trigger = yes
+#		trigger_if = {
+#			limit = {
+#				scope:county = title:c_tourraine
+#			}
+#			NOT = { exists = var:ep3_reconquered_tourraine }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_chandax
+#			}
+#			NOT = { exists = var:ep3_reconquered_chandax }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_cumberland
+#					scope:county = title:c_northumberland
+#				}
+#			}
+#			NOT = { exists = var:ep3_reconquered_hadrian }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_trier
+#			}
+#			NOT = { exists = var:ep3_reconquered_trier }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_lombardia
+#			}
+#			NOT = { exists = var:ep3_reconquered_lombardia }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_murcia
+#			}
+#			NOT = { exists = var:ep3_reconquered_murcia }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_tangiers
+#			}
+#			NOT = { exists = var:ep3_reconquered_tangiers }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_tunis
+#			}
+#			NOT = { exists = var:ep3_reconquered_tunis }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_ravenna
+#			}
+#			NOT = { exists = var:ep3_reconquered_ravenna }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_roma
+#			}
+#			NOT = { exists = var:ep3_reconquered_roma }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_siracusa
+#			}
+#			NOT = { exists = var:ep3_reconquered_siracusa }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_bari
+#			}
+#			NOT = { exists = var:ep3_reconquered_bari }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_edessa
+#			}
+#			NOT = { exists = var:ep3_reconquered_edessa }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_abbadan
+#			}
+#			NOT = { exists = var:ep3_reconquered_abbadan }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_alexandria
+#			}
+#			NOT = { exists = var:ep3_reconquered_alexandria }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_jerusalem
+#			}
+#			NOT = { exists = var:ep3_reconquered_jerusalem }
+#		}
+#		trigger_else_if = {
+#			limit = {
+#				scope:county = title:c_antiocheia
+#			}
+#			NOT = { exists = var:ep3_reconquered_antiocheia }
+#		}
+#		trigger_else = {
+#			always = no
+#		}
+#	}
+#
+#	immediate = {
+#		change_influence = massive_influence_gain
+#		add_prestige = major_prestige_gain
+#	}
+#
+#	#Option A
+#	option = {
+#		name = ep3_emperor_yearly.2000.a
+#		if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_antiocheia
+#					scope:county = title:c_jerusalem
+#					scope:county = title:c_alexandria
+#					scope:county = title:c_roma
+#				}
+#			}
+#			scope:county = {
+#				add_county_modifier = {
+#					modifier = ep3_restored_pentarchy_seat_county_modifier
+#					years = 10
+#				}
+#			}
+#			add_character_modifier = {
+#				modifier = ep3_restored_pentarchy_seat_modifier
+#				years = 10
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_abbadan
+#					scope:county = title:c_cumberland
+#					scope:county = title:c_northumberland
+#				}
+#			}
+#			scope:county = {
+#				add_county_modifier = {
+#					modifier = ep3_maximum_border_county_modifier
+#					years = 10
+#				}
+#			}
+#			add_character_modifier = {
+#				modifier = ep3_maximum_border_modifier
+#				years = 10
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_ravenna
+#					scope:county = title:c_tunis
+#					scope:county = title:c_murcia
+#				}
+#			}
+#			scope:county = {
+#				add_county_modifier = {
+#					modifier = ep3_new_justinian_county_modifier
+#					years = 10
+#				}
+#			}
+#			add_character_modifier = {
+#				modifier = ep3_new_justinian_modifier
+#				years = 10
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_lombardia
+#					scope:county = title:c_trier
+#				}
+#			}
+#			scope:county = {
+#				add_county_modifier = {
+#					modifier = ep3_western_tetrarch_county_modifier
+#					years = 10
+#				}
+#			}
+#			add_character_modifier = {
+#				modifier = ep3_western_tetrarch_modifier
+#				years = 10
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_tangiers
+#					scope:county = title:c_tourraine
+#				}
+#			}
+#			scope:county = {
+#				add_county_modifier = {
+#					modifier = ep3_long_lost_province_county_modifier
+#					years = 10
+#				}
+#			}
+#			add_character_modifier = {
+#				modifier = ep3_long_lost_province_modifier
+#				years = 10
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_edessa
+#					scope:county = title:c_bari
+#				}
+#			}
+#			scope:county = {
+#				add_county_modifier = {
+#					modifier = ep3_long_contested_province_county_modifier
+#					years = 10
+#				}
+#			}
+#			add_character_modifier = {
+#				modifier = ep3_long_contested_province_modifier
+#				years = 10
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_siracusa
+#					scope:county = title:c_chandax
+#				}
+#			}
+#			scope:county = {
+#				add_county_modifier = {
+#					modifier = ep3_medi_gem_county_modifier
+#					years = 10
+#				}
+#			}
+#			add_character_modifier = {
+#				modifier = ep3_medi_gem_modifier
+#				years = 10
+#			}
+#		}
+#	}
+#
+#	after = {
+#		if = {
+#			limit = {
+#				scope:county = title:c_antiocheia
+#			}
+#			set_global_variable = ep3_reconquered_antiocheia
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_jerusalem
+#			}
+#			set_global_variable = ep3_reconquered_jerusalem
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_alexandria
+#			}
+#			set_global_variable = ep3_reconquered_alexandria
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_abbadan
+#			}
+#			set_global_variable = ep3_reconquered_abbadan
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_edessa
+#			}
+#			set_global_variable = ep3_reconquered_edessa
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_bari
+#			}
+#			set_global_variable = ep3_reconquered_bari
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_siracusa
+#			}
+#			set_global_variable = ep3_reconquered_siracusa
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_roma
+#			}
+#			set_global_variable = ep3_reconquered_roma
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_ravenna
+#			}
+#			set_global_variable = ep3_reconquered_ravenna
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_tunis
+#			}
+#			set_global_variable = ep3_reconquered_tunis
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_tangiers
+#			}
+#			set_global_variable = ep3_reconquered_tangiers
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_murcia
+#			}
+#			set_global_variable = ep3_reconquered_murcia
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_lombardia
+#			}
+#			set_global_variable = ep3_reconquered_lombardia
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_trier
+#			}
+#			set_global_variable = ep3_reconquered_trier
+#		}
+#		else_if = {
+#			limit = {
+#				OR = {
+#					scope:county = title:c_cumberland
+#					scope:county = title:c_northumberland
+#				}
+#			}
+#			set_global_variable = ep3_reconquered_hadrian
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_chandax
+#			}
+#			set_global_variable = ep3_reconquered_chandax
+#		}
+#		else_if = {
+#			limit = {
+#				scope:county = title:c_tourraine
+#			}
+#			set_global_variable = ep3_reconquered_tourraine
+#		}
+#
+#		if = {
+#			limit = {
+#				NOT = {
+#					any_owned_story = {
+#						story_type = ep3_story_cycle_restoring_rome
+#					}
+#				}
+#			}
+#			create_story = ep3_story_cycle_restoring_rome
+#		}
+#	}
+#}
+#
+## Courtiers grumble about you sending an imperial prince/princess to marry abroad among barbarians
+#
+#scripted_trigger emperor_2010_valid_child_trigger = {
+#	is_adult = yes
+#	is_married = yes
+#	primary_spouse.culture = {
+#		NOT = { has_cultural_pillar = heritage_byzantine }
+#	}
+#	liege.culture = {
+#		NOT = { has_cultural_pillar = heritage_byzantine }
+#	}
+#	location.culture = {
+#		NOT = { has_cultural_pillar = heritage_byzantine }
+#	}
+#	is_travelling = no
+#	culture = { has_cultural_pillar = heritage_byzantine }
+#}
+#
+#scripted_trigger emperor_2010_valid_courtier_trigger = {
+#	is_available_healthy_ai_adult = yes
+#	is_of_major_or_minor_interest_trigger = { CHARACTER = root }
+#	culture = { has_cultural_pillar = heritage_byzantine }
+#}
+#
+#ep3_emperor_yearly.2010 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2010.t
+#	desc = ep3_emperor_yearly.2010.desc
+#	theme = emperor
+#	left_portrait = {
+#		character = scope:gossip_1
+#		animation = eyeroll
+#	}
+#	right_portrait = {
+#		character = scope:gossip_2
+#		animation = throne_room_conversation_1
+#	}
+#	lower_center_portrait = scope:sent_off
+#	cooldown = { years = 50 }
+#
+#	trigger = {
+#		is_available_adult = yes
+#		valid_for_byz_emperor_content_trigger = yes
+#		any_child = {
+#			emperor_2010_valid_child_trigger = yes
+#		}
+#		any_courtier = {
+#			count >= 2
+#			emperor_2010_valid_courtier_trigger = yes
+#		}
+#	}
+#
+#	immediate = {
+#		random_child = {
+#			limit = {
+#				emperor_2010_valid_child_trigger = yes
+#			}
+#			save_scope_as = sent_off
+#		}
+#		random_courtier = {
+#			limit = {
+#				emperor_2010_valid_courtier_trigger = yes
+#			}
+#			save_scope_as = gossip_1
+#		}
+#		random_courtier = {
+#			limit = {
+#				emperor_2010_valid_courtier_trigger = yes
+#				NOT = { this = scope:gossip_1 }
+#			}
+#			save_scope_as = gossip_2
+#		}
+#		scope:sent_off.primary_spouse = { save_scope_as = spouse }
+#	}
+#
+#	#Option A: it was necessary
+#	option = {
+#		name = ep3_emperor_yearly.2010.a
+#		add_character_modifier = {
+#			modifier = ep3_politics_before_all_modifier
+#			years = 40
+#		}
+#		add_diplomacy_lifestyle_xp = medium_lifestyle_xp
+#		if = {
+#			limit = {
+#				government_allows = administrative
+#			}
+#			change_influence = medium_influence_gain
+#		}
+#		else = {
+#			add_prestige = medium_prestige_gain
+#		}
+#		stress_impact = {
+#			arrogant = medium_stress_impact_gain
+#			deceitful = medium_stress_impact_gain
+#			zealous = medium_stress_impact_gain
+#			compassionate = major_stress_impact_gain
+#			family_first = major_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			modifier = {
+#				add = -50
+#				has_trait = arrogant
+#			}
+#			modifier = {
+#				add = -50
+#				has_trait = deceitful
+#			}
+#			modifier = {
+#				add = 50
+#				has_trait = diplomat
+#			}
+#			modifier = {
+#				add = 100
+#				has_trait = ambitious
+#			}
+#			modifier = {
+#				factor = 0
+#				has_trait = compassionate
+#			}
+#			modifier = {
+#				factor = 0
+#				has_trait = family_first
+#			}
+#		}
+#	}
+#
+#	#Option B: a worthy sacrifice
+#	option = {
+#		name = {
+#			trigger = {
+#				faith.religion = religion:christianity_religion
+#			}
+#			text = ep3_emperor_yearly.2010.b
+#		}
+#		name = {
+#			trigger = {
+#				NOT = { faith.religion = religion:christianity_religion }
+#			}
+#			text = ep3_emperor_yearly.2010.b2
+#		}
+#		add_character_modifier = {
+#			modifier = ep3_everything_for_byz_modifier
+#			years = 40
+#		}
+#		add_piety = medium_piety_gain
+#		stress_impact = {
+#			cynical = medium_stress_impact_gain
+#			arrogant = major_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			modifier = {
+#				has_trait = zealous
+#				add = 100
+#			}
+#			modifier = {
+#				has_trait = cynical
+#				add = -50
+#			}
+#			modifier = {
+#				has_trait = humble
+#				add = 75
+#			}
+#		}
+#	}
+#
+#	#Option C: shut up
+#	option = {
+#		name = ep3_emperor_yearly.2010.c
+#		add_prestige = minor_prestige_gain
+#		reverse_add_opinion = {
+#			target = scope:gossip_1
+#			modifier = angry_opinion
+#			opinion = -10
+#		}
+#		reverse_add_opinion = {
+#			target = scope:gossip_2
+#			modifier = angry_opinion
+#			opinion = -10
+#		}
+#		stress_impact = {
+#			humble = major_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 75
+#			modifier = {
+#				has_trait = arrogant
+#				add = 100
+#			}
+#		}
+#	}
+#}
+#
+## Byzantine-only: The Patriarch refuses to crown you as new emperor because you have a criminal trait (e.g. kinslayer)
+#
+#ep3_emperor_yearly.2020 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2020.t
+#	desc = ep3_emperor_yearly.2020.desc
+#	theme = emperor
+#	override_background = { reference = ep3_hagia_sophia }
+#	left_portrait = {
+#		character = root
+#		animation = disbelief
+#	}
+#	right_portrait = {
+#		character = scope:patriarch
+#		animation = anger
+#	}
+#	
+#	trigger = {
+#		has_ep3_dlc_trigger = yes
+#		valid_for_byz_emperor_content_trigger = yes
+#		exists = root.faith.religious_head
+#		NOT = { this = faith.religious_head }
+#		faith.religious_head = {
+#			opinion = {
+#				target = root
+#				value <= 0
+#			}
+#			location = root.location
+#		}
+#		has_any_criminal_trait_in_faith_trigger = {
+#			CHARACTER = root
+#			FAITH = root.faith
+#		}
+#		NOT = { has_character_flag = has_had_ep3_2020 }
+#	}
+#
+#	immediate = {
+#		faith.religious_head = { save_scope_as = patriarch }
+#		add_character_flag = has_had_ep3_2020
+#		random_character_trait = {
+#			limit = {
+#				save_temporary_scope_as = temp_trait
+#				scoped_trait_is_criminal_in_faith_trigger = { TRAIT = scope:temp_trait FAITH = root.faith GENDER_CHARACTER = root }
+#			}
+#			save_scope_as = target_criminal_trait
+#		}
+#	}
+#
+#	#Option A: repent
+#	option = {
+#		name = ep3_emperor_yearly.2020.a
+#		flavor = ep3_emperor_yearly.2020.a.tt
+#		change_influence = major_influence_loss
+#		add_prestige = major_prestige_loss
+#		custom_tooltip = ep3_emperor_yearly.2020.a.tt2
+#
+#		trigger_event = {
+#			id = ep3_emperor_yearly.2021
+#			days = 366
+#		}
+#		scope:patriarch = {
+#			add_opinion = {
+#				target = root
+#				modifier = forgiven_opinion
+#			}
+#		}
+#
+#		stress_impact = {
+#			ambitious = medium_stress_impact_gain
+#			cynical = major_stress_impact_gain
+#			arrogant = major_stress_impact_gain
+#			zealous = medium_stress_impact_loss
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_zeal = 1
+#			}
+#			modifier = {
+#				has_trait = ambitious
+#				add = -50
+#			}
+#			modifier = {
+#				has_trait = arrogant
+#				add = -50
+#			}
+#		}
+#	}
+#
+#	#Option B: ignore
+#	option = {
+#		name = ep3_emperor_yearly.2020.b
+#		change_influence = major_influence_gain
+#		add_prestige = major_prestige_gain
+#		if = {
+#			limit = { piety_level >= low_piety_level }
+#			add_piety_level = -1
+#		}
+#		else = {
+#			add_piety = major_piety_loss
+#		}
+#		scope:patriarch = {
+#			add_opinion = {
+#				target = root
+#				modifier = impious_opinion
+#				opinion = -50
+#			}
+#		}
+#
+#		stress_impact = {
+#			zealous = major_stress_impact_gain
+#			humble = major_stress_impact_gain
+#			arrogant = medium_stress_impact_loss
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_boldness = 1
+#			}
+#			modifier = {
+#				has_trait = zealous
+#				add = -50
+#			}
+#			modifier = {
+#				has_trait = humble
+#				add = -50
+#			}
+#		}
+#	}
+#}
+#
+#ep3_emperor_yearly.2021 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2021.t
+#	desc = {
+#		desc = ep3_emperor_yearly.2021.desc
+#		first_valid = {
+#			triggered_desc = {
+#				trigger = { scope:patriarch = { is_alive = yes } }
+#				desc = ep3_emperor_yearly.2021.desc_patriarch
+#			}
+#			desc = ep3_emperor_yearly.2021.desc_patriarch_new
+#		}
+#		desc = ep3_emperor_yearly.2021.desc_end
+#	}
+#	theme = crown
+#	override_background = { reference = ep3_hagia_sophia }
+#	left_portrait = {
+#		character = root
+#		animation = personality_zealous
+#	}
+#	right_portrait = {
+#		character = scope:patriarch_portrait
+#		animation = wedding_priest
+#	}
+#	lower_right_portrait = {
+# 		trigger = {
+# 			scope:patriarch = { is_alive = no }
+# 		}
+# 		character = scope:patriarch
+# 	}
+#
+# 	trigger = {
+# 		exists = faith.religious_head
+# 		NOT = { this = faith.religious_head }
+# 		has_any_criminal_trait_in_faith_trigger = {
+#			CHARACTER = root
+#			FAITH = root.faith
+#		}
+# 	}
+#
+#	immediate = {
+#		if = {
+#			limit = {
+#				scope:patriarch = {
+#					is_alive = yes
+#					faith = scope:patriarch.faith
+#				}
+#			}
+#			scope:patriarch = { save_scope_as = patriarch_portrait }
+#		}
+#		else = {
+#			faith.religious_head = { save_scope_as = patriarch_portrait }
+#		}
+#	}
+#
+#	option = {
+#		name = ep3_emperor_yearly.2021.a
+#		add_legitimacy = minor_legitimacy_gain
+#		remove_trait = scope:target_criminal_trait
+#	}
+#}
 
 # The Patriarch refuses to crown a new emperor after a coup
 scripted_trigger valid_clergy_gender_trigger = {
@@ -935,480 +935,480 @@ scripted_trigger valid_clergy_gender_trigger = {
 	has_education_learning_trigger = yes
 }
 
-ep3_emperor_yearly.2030 = {
-	type = character_event
-	title = ep3_emperor_yearly.2030.t
-	desc = ep3_emperor_yearly.2030.desc
-	theme = crown
-	override_background = { reference = ep3_hagia_sophia }
-	left_portrait = {
-		character = root
-		animation = disbelief
-	}
-	right_portrait = {
-		character = scope:patriarch
-		animation = anger
-	}
-	lower_center_portrait = scope:predecessor
-	lower_left_portrait = scope:new_patriarch
-
-	trigger = {
-		exists = faith.religious_head
-		NOT = { root = root.faith.religious_head }
-		title:e_byzantium.previous_holder = { is_alive = yes }
-		faith.religious_head = {
-			opinion = {
-				target = root
-				value <= 0
-			}
-		}
-		faith.religious_head = {
-			opinion = {
-				target = title:e_byzantium.previous_holder
-				value > 40
-			}
-		}
-		# You have already had an event about the Patriarch complaining!
-		NOT = { has_character_flag = has_had_ep3_2020 }
-	}
-
-	immediate = {
-		faith.religious_head = { save_scope_as = patriarch }
-		title:e_byzantium.previous_holder = { save_scope_as = predecessor }
-		hidden_effect = {
-			if = {
-				limit = {
-					any_courtier = {
-						valid_clergy_gender_trigger = yes
-						is_available_ai_adult = yes
-					}
-				}
-				random_courtier = {
-					limit = {
-						house = root.house
-						valid_clergy_gender_trigger = yes
-						is_of_major_or_minor_interest_trigger = { CHARACTER = root }
-					}
-					alternative_limit = {
-						valid_clergy_gender_trigger = yes
-						is_of_major_or_minor_interest_trigger = { CHARACTER = root }
-					}
-					alternative_limit = {
-						valid_clergy_gender_trigger = yes
-					}
-					save_scope_as = new_patriarch
-					add_character_flag = {
-						flag = need_priest_outfit
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					any_pool_character = {
-						province = root.location
-						is_available_ai_adult = yes
-						valid_clergy_gender_trigger = yes
-					}
-				}
-				random_pool_character = {
-					province = root.location
-					limit = {
-						is_available_ai_adult = yes
-						valid_clergy_gender_trigger = yes
-					}
-					save_scope_as = new_patriarch
-					add_character_flag = {
-						flag = need_priest_outfit
-					}
-				}
-			}
-			else = {
-				create_character = {
-					template = priest_character_template
-					location = root.location
-					save_scope_as = new_patriarch
-				}
-				scope:new_patriarch = {
-					add_character_flag = patriarch_created
-				}
-			}
-			scope:new_patriarch = {
-				add_trait = loyal
-			}
-		}
-		#needed for loc
-		root = { save_scope_as = root_scope }
-	}
-
-	# Option A: then it's time for a change!
-	option = {
-		name = ep3_emperor_yearly.2030.a
-		custom_tooltip = ep3_emperor_yearly.2030.a.tt
-		create_title_and_vassal_change = {
-			type = usurped
-			save_scope_as = change
-			add_claim_on_loss = no
-		}
-		faith.religious_head_title = {
-			change_title_holder = {
-				holder = scope:new_patriarch
-				change = scope:change
-			}
-		}
-		resolve_title_and_vassal_change = scope:change
-
-		scope:patriarch = {
-			add_opinion = {
-				target = root
-				modifier = hate_opinion
-				opinion = -100
-			}
-		}
-		scope:new_patriarch = {
-			add_opinion = {
-				target = root
-				modifier = pious_opinion
-				opinion = 60
-			}
-		}
-		add_hook = {
-			target = scope:new_patriarch
-			type = favor_hook
-		}
-		every_vassal = { 
-			limit = {
-				has_vassal_stance = zealot
-				NOT = { this = scope:new_patriarch }
-			}
-			custom = every_zealot_vassal
-			add_opinion = {
-				modifier = impious_opinion
-				target = root
-				opinion = -25
-			}
-		}
-		every_vassal = { 
-			limit = {
-				has_vassal_stance = glory_hound
-			}
-			custom = every_glory_hound_vassal
-			add_opinion = {
-				modifier = impressed_opinion
-				target = root
-				opinion = 20
-			}
-		}
-		stress_impact = {
-			zealous = massive_stress_impact_gain
-			ambitious = minor_stress_impact_loss
-			paranoid = medium_stress_impact_loss
-		}
-		ai_chance = {
-			base = 50
-			ai_value_modifier = {
-				ai_zeal = -1
-				ai_boldness = 0.5
-			}
-			modifier = {
-				has_trait = ambitious
-				add = 100
-			}
-			modifier = {
-				has_trait = zealous
-				factor = 0
-			}
-		}
-	}
-
-	#Option B: I'll prove my worth
-	option = {
-		name = ep3_emperor_yearly.2030.b
-		add_character_modifier = {
-			modifier = ep3_emperor_proving_themselves_modifier
-			years = 15
-		}
-		custom_tooltip = patriarch_support_2030_desc_tt
-		scope:predecessor = {
-			add_character_flag = {
-				flag = patriarch_support_2030
-				years = 15
-			}
-		}
-		stress_impact = {
-			humble = medium_stress_impact_gain
-			lazy = major_stress_impact_gain
-			content = major_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-		}
-	}
-
-	after = {
-		if = {
-			limit = {
-				has_character_flag = has_had_ep3_2020
-			}
-			remove_character_flag = has_had_ep3_2020
-		}
-		if = {
-			limit = {
-				is_ai = yes
-				scope:new_patriarch = {
-					NOT = { this = root.faith.religious_head }
-					has_character_flag = patriarch_created
-				}
-			}
-			scope:new_patriarch = { silent_disappearance_effect = yes }
-		}
-	}
-}
-
-# Patriarch who dislikes you protests you remarrying
-ep3_emperor_yearly.2040 = {
-	type = character_event
-	title = ep3_emperor_yearly.2040.t
-	desc = ep3_emperor_yearly.2040.desc
-	theme = emperor
-	override_background = { reference = ep3_hagia_sophia }
-	left_portrait = {
-		character = root
-		animation = disbelief
-	}
-	right_portrait = {
-		character = scope:patriarch
-		animation = anger
-	}
-	lower_left_portrait = scope:new_wife
-
-	lower_right_portrait = scope:new_patriarch
-
-	trigger = {
-		valid_for_byz_emperor_content_trigger = yes
-		faith = {
-			NOR = {
-				has_doctrine = doctrine_polygamy
-				has_doctrine = doctrine_concubines
-			}
-		}
-		exists = faith.religious_head
-		NOT = { root = root.faith.religious_head }
-		faith.religious_head = {
-			opinion = {
-				target = root
-				value <= 20
-			}
-		}
-		#Only dead previous spouses: if divorce is disallowed by your faith, you can't have previous spouses who are alive; if divorce is allowed, there is no reason to nag about your previous spouses; if divorce is approved (by the HoF), it means that the previous wedding has been annuled, so there's nothing to complain about.
-		any_former_spouse = {
-			even_if_dead = yes
-			is_alive = no
-			count >= 2
-		}
-		NOT = { has_character_flag = ep3_has_had_2040 }
-	}
-
-	immediate = {
-		add_character_flag = ep3_has_had_2040
-		faith.religious_head = { save_scope_as = patriarch }
-		primary_spouse = { save_scope_as = new_wife }
-		random_former_spouse = {
-			even_if_dead = yes
-			limit = { is_alive = no }
-			save_scope_as = old_wife_1
-		}
-		random_former_spouse = {
-			even_if_dead = yes
-			limit = {
-				is_alive = no
-				NOT = { this = scope:old_wife_1 }
-			}
-			save_scope_as = old_wife_2
-		}
-		hidden_effect = {
-			create_character = {
-				template = priest_character_template
-				location = root.location
-				save_scope_as = new_patriarch
-			}
-			scope:new_patriarch = {
-				add_trait = loyal
-			}
-		}
-		#needed for loc
-		root = { save_scope_as = root_scope }
-	}
-
-	#Option A: replace him!
-	option = {
-		name = ep3_emperor_yearly.2040.a
-		custom_tooltip = ep3_emperor_yearly.2030.a.tt
-		create_title_and_vassal_change = {
-			type = usurped
-			save_scope_as = change
-			add_claim_on_loss = no
-		}
-		faith.religious_head_title = {
-			change_title_holder = {
-				holder = scope:new_patriarch
-				change = scope:change
-			}
-		}
-		resolve_title_and_vassal_change = scope:change
-
-		add_piety = major_piety_loss
-		scope:patriarch = {
-			add_opinion = {
-				target = root
-				modifier = hate_opinion
-				opinion = -100
-			}
-		}
-		scope:new_patriarch = {
-			add_opinion = {
-				target = root
-				modifier = pious_opinion
-				opinion = 60
-			}
-		}
-		add_hook = {
-			target = scope:new_patriarch
-			type = favor_hook
-		}
-		every_vassal = { 
-			limit = {
-				has_vassal_stance = zealot
-				NOT = { this = scope:new_patriarch }
-			}
-			custom = every_zealot_vassal
-			add_opinion = {
-				modifier = impious_opinion
-				target = root
-				opinion = -35
-			}
-		}
-		every_vassal = { 
-			limit = {
-				has_vassal_stance = glory_hound
-			}
-			custom = every_glory_hound_vassal
-			add_opinion = {
-				modifier = impressed_opinion
-				target = root
-				opinion = 10
-			}
-		}
-		stress_impact = {
-			zealous = massive_stress_impact_gain
-			content = major_stress_impact_gain
-			ambitious = minor_stress_impact_loss
-			lustful = medium_stress_impact_loss
-			paranoid = medium_stress_impact_loss
-		}
-		ai_chance = {
-			base = 50
-			ai_value_modifier = {
-				ai_zeal = -1
-				ai_boldness = 0.5
-			}
-			modifier = {
-				has_trait = ambitious
-				add = 100
-			}
-			modifier = {
-				has_trait = lustful
-				add = 50
-			}
-			modifier = {
-				has_trait = zealous
-				factor = 0
-			}
-		}
-	}
-
-	#Option B: bribe
-	option = {
-		name = ep3_emperor_yearly.2040.b
-		add_piety = medium_piety_loss
-		pay_short_term_gold = {
-			target = scope:patriarch
-			gold = major_gold_value
-		}
-		scope:patriarch = {
-			add_opinion = {
-				target = root
-				modifier = pleased_opinion
-				opinion = 20
-			}
-		}
-		add_character_modifier = {
-			modifier = ep3_blessed_union_modifier
-			years = 25
-		}
-		stress_impact = {
-			honest = major_stress_impact_gain
-			greedy = major_stress_impact_gain
-			paranoid = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_greed = -0.5
-				ai_honor = -0.5
-			}
-		}
-	}
-
-	#Option C: you try to convince him it's fine
-	option = {
-		name = ep3_emperor_yearly.2040.c
-		duel = {
-			target = scope:patriarch
-			skills = { diplomacy learning }
-			50 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				desc = ep3_emperor_yearly.2040.c.success
-				send_interface_toast = {
-					title = ep3_emperor_yearly.2040.c.success.tt
-					left_icon = scope:patriarch
-					add_character_modifier = {
-						modifier = ep3_blessed_union_modifier
-						years = 25
-					}
-				}
-			}
-			50 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -49
-				}
-				desc = ep3_emperor_yearly.2040.c.failure
-				send_interface_toast = {
-					title = ep3_emperor_yearly.2040.c.failure.tt
-					left_icon = scope:patriarch
-					add_character_modifier = {
-						modifier = ep3_non_blessed_union_modifier
-						years = 25
-					}
-				}
-			}
-		}
-		stress_impact = {
-			shy = major_stress_impact_gain
-		}
-		ai_chance = {
-			base = 200
-			ai_value_modifier = {
-				ai_energy = 1
-			}
-		}
-	}
-}
+#ep3_emperor_yearly.2030 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2030.t
+#	desc = ep3_emperor_yearly.2030.desc
+#	theme = crown
+#	override_background = { reference = ep3_hagia_sophia }
+#	left_portrait = {
+#		character = root
+#		animation = disbelief
+#	}
+#	right_portrait = {
+#		character = scope:patriarch
+#		animation = anger
+#	}
+#	lower_center_portrait = scope:predecessor
+#	lower_left_portrait = scope:new_patriarch
+#
+#	trigger = {
+#		exists = faith.religious_head
+#		NOT = { root = root.faith.religious_head }
+#		title:e_byzantium.previous_holder = { is_alive = yes }
+#		faith.religious_head = {
+#			opinion = {
+#				target = root
+#				value <= 0
+#			}
+#		}
+#		faith.religious_head = {
+#			opinion = {
+#				target = title:e_byzantium.previous_holder
+#				value > 40
+#			}
+#		}
+#		# You have already had an event about the Patriarch complaining!
+#		NOT = { has_character_flag = has_had_ep3_2020 }
+#	}
+#
+#	immediate = {
+#		faith.religious_head = { save_scope_as = patriarch }
+#		title:e_byzantium.previous_holder = { save_scope_as = predecessor }
+#		hidden_effect = {
+#			if = {
+#				limit = {
+#					any_courtier = {
+#						valid_clergy_gender_trigger = yes
+#						is_available_ai_adult = yes
+#					}
+#				}
+#				random_courtier = {
+#					limit = {
+#						house = root.house
+#						valid_clergy_gender_trigger = yes
+#						is_of_major_or_minor_interest_trigger = { CHARACTER = root }
+#					}
+#					alternative_limit = {
+#						valid_clergy_gender_trigger = yes
+#						is_of_major_or_minor_interest_trigger = { CHARACTER = root }
+#					}
+#					alternative_limit = {
+#						valid_clergy_gender_trigger = yes
+#					}
+#					save_scope_as = new_patriarch
+#					add_character_flag = {
+#						flag = need_priest_outfit
+#					}
+#				}
+#			}
+#			else_if = {
+#				limit = {
+#					any_pool_character = {
+#						province = root.location
+#						is_available_ai_adult = yes
+#						valid_clergy_gender_trigger = yes
+#					}
+#				}
+#				random_pool_character = {
+#					province = root.location
+#					limit = {
+#						is_available_ai_adult = yes
+#						valid_clergy_gender_trigger = yes
+#					}
+#					save_scope_as = new_patriarch
+#					add_character_flag = {
+#						flag = need_priest_outfit
+#					}
+#				}
+#			}
+#			else = {
+#				create_character = {
+#					template = priest_character_template
+#					location = root.location
+#					save_scope_as = new_patriarch
+#				}
+#				scope:new_patriarch = {
+#					add_character_flag = patriarch_created
+#				}
+#			}
+#			scope:new_patriarch = {
+#				add_trait = loyal
+#			}
+#		}
+#		#needed for loc
+#		root = { save_scope_as = root_scope }
+#	}
+#
+#	# Option A: then it's time for a change!
+#	option = {
+#		name = ep3_emperor_yearly.2030.a
+#		custom_tooltip = ep3_emperor_yearly.2030.a.tt
+#		create_title_and_vassal_change = {
+#			type = usurped
+#			save_scope_as = change
+#			add_claim_on_loss = no
+#		}
+#		faith.religious_head_title = {
+#			change_title_holder = {
+#				holder = scope:new_patriarch
+#				change = scope:change
+#			}
+#		}
+#		resolve_title_and_vassal_change = scope:change
+#
+#		scope:patriarch = {
+#			add_opinion = {
+#				target = root
+#				modifier = hate_opinion
+#				opinion = -100
+#			}
+#		}
+#		scope:new_patriarch = {
+#			add_opinion = {
+#				target = root
+#				modifier = pious_opinion
+#				opinion = 60
+#			}
+#		}
+#		add_hook = {
+#			target = scope:new_patriarch
+#			type = favor_hook
+#		}
+#		every_vassal = { 
+#			limit = {
+#				has_vassal_stance = zealot
+#				NOT = { this = scope:new_patriarch }
+#			}
+#			custom = every_zealot_vassal
+#			add_opinion = {
+#				modifier = impious_opinion
+#				target = root
+#				opinion = -25
+#			}
+#		}
+#		every_vassal = { 
+#			limit = {
+#				has_vassal_stance = glory_hound
+#			}
+#			custom = every_glory_hound_vassal
+#			add_opinion = {
+#				modifier = impressed_opinion
+#				target = root
+#				opinion = 20
+#			}
+#		}
+#		stress_impact = {
+#			zealous = massive_stress_impact_gain
+#			ambitious = minor_stress_impact_loss
+#			paranoid = medium_stress_impact_loss
+#		}
+#		ai_chance = {
+#			base = 50
+#			ai_value_modifier = {
+#				ai_zeal = -1
+#				ai_boldness = 0.5
+#			}
+#			modifier = {
+#				has_trait = ambitious
+#				add = 100
+#			}
+#			modifier = {
+#				has_trait = zealous
+#				factor = 0
+#			}
+#		}
+#	}
+#
+#	#Option B: I'll prove my worth
+#	option = {
+#		name = ep3_emperor_yearly.2030.b
+#		add_character_modifier = {
+#			modifier = ep3_emperor_proving_themselves_modifier
+#			years = 15
+#		}
+#		custom_tooltip = patriarch_support_2030_desc_tt
+#		scope:predecessor = {
+#			add_character_flag = {
+#				flag = patriarch_support_2030
+#				years = 15
+#			}
+#		}
+#		stress_impact = {
+#			humble = medium_stress_impact_gain
+#			lazy = major_stress_impact_gain
+#			content = major_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#		}
+#	}
+#
+#	after = {
+#		if = {
+#			limit = {
+#				has_character_flag = has_had_ep3_2020
+#			}
+#			remove_character_flag = has_had_ep3_2020
+#		}
+#		if = {
+#			limit = {
+#				is_ai = yes
+#				scope:new_patriarch = {
+#					NOT = { this = root.faith.religious_head }
+#					has_character_flag = patriarch_created
+#				}
+#			}
+#			scope:new_patriarch = { silent_disappearance_effect = yes }
+#		}
+#	}
+#}
+#
+## Patriarch who dislikes you protests you remarrying
+#ep3_emperor_yearly.2040 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2040.t
+#	desc = ep3_emperor_yearly.2040.desc
+#	theme = emperor
+#	override_background = { reference = ep3_hagia_sophia }
+#	left_portrait = {
+#		character = root
+#		animation = disbelief
+#	}
+#	right_portrait = {
+#		character = scope:patriarch
+#		animation = anger
+#	}
+#	lower_left_portrait = scope:new_wife
+#
+#	lower_right_portrait = scope:new_patriarch
+#
+#	trigger = {
+#		valid_for_byz_emperor_content_trigger = yes
+#		faith = {
+#			NOR = {
+#				has_doctrine = doctrine_polygamy
+#				has_doctrine = doctrine_concubines
+#			}
+#		}
+#		exists = faith.religious_head
+#		NOT = { root = root.faith.religious_head }
+#		faith.religious_head = {
+#			opinion = {
+#				target = root
+#				value <= 20
+#			}
+#		}
+#		#Only dead previous spouses: if divorce is disallowed by your faith, you can't have previous spouses who are alive; if divorce is allowed, there is no reason to nag about your previous spouses; if divorce is approved (by the HoF), it means that the previous wedding has been annuled, so there's nothing to complain about.
+#		any_former_spouse = {
+#			even_if_dead = yes
+#			is_alive = no
+#			count >= 2
+#		}
+#		NOT = { has_character_flag = ep3_has_had_2040 }
+#	}
+#
+#	immediate = {
+#		add_character_flag = ep3_has_had_2040
+#		faith.religious_head = { save_scope_as = patriarch }
+#		primary_spouse = { save_scope_as = new_wife }
+#		random_former_spouse = {
+#			even_if_dead = yes
+#			limit = { is_alive = no }
+#			save_scope_as = old_wife_1
+#		}
+#		random_former_spouse = {
+#			even_if_dead = yes
+#			limit = {
+#				is_alive = no
+#				NOT = { this = scope:old_wife_1 }
+#			}
+#			save_scope_as = old_wife_2
+#		}
+#		hidden_effect = {
+#			create_character = {
+#				template = priest_character_template
+#				location = root.location
+#				save_scope_as = new_patriarch
+#			}
+#			scope:new_patriarch = {
+#				add_trait = loyal
+#			}
+#		}
+#		#needed for loc
+#		root = { save_scope_as = root_scope }
+#	}
+#
+#	#Option A: replace him!
+#	option = {
+#		name = ep3_emperor_yearly.2040.a
+#		custom_tooltip = ep3_emperor_yearly.2030.a.tt
+#		create_title_and_vassal_change = {
+#			type = usurped
+#			save_scope_as = change
+#			add_claim_on_loss = no
+#		}
+#		faith.religious_head_title = {
+#			change_title_holder = {
+#				holder = scope:new_patriarch
+#				change = scope:change
+#			}
+#		}
+#		resolve_title_and_vassal_change = scope:change
+#
+#		add_piety = major_piety_loss
+#		scope:patriarch = {
+#			add_opinion = {
+#				target = root
+#				modifier = hate_opinion
+#				opinion = -100
+#			}
+#		}
+#		scope:new_patriarch = {
+#			add_opinion = {
+#				target = root
+#				modifier = pious_opinion
+#				opinion = 60
+#			}
+#		}
+#		add_hook = {
+#			target = scope:new_patriarch
+#			type = favor_hook
+#		}
+#		every_vassal = { 
+#			limit = {
+#				has_vassal_stance = zealot
+#				NOT = { this = scope:new_patriarch }
+#			}
+#			custom = every_zealot_vassal
+#			add_opinion = {
+#				modifier = impious_opinion
+#				target = root
+#				opinion = -35
+#			}
+#		}
+#		every_vassal = { 
+#			limit = {
+#				has_vassal_stance = glory_hound
+#			}
+#			custom = every_glory_hound_vassal
+#			add_opinion = {
+#				modifier = impressed_opinion
+#				target = root
+#				opinion = 10
+#			}
+#		}
+#		stress_impact = {
+#			zealous = massive_stress_impact_gain
+#			content = major_stress_impact_gain
+#			ambitious = minor_stress_impact_loss
+#			lustful = medium_stress_impact_loss
+#			paranoid = medium_stress_impact_loss
+#		}
+#		ai_chance = {
+#			base = 50
+#			ai_value_modifier = {
+#				ai_zeal = -1
+#				ai_boldness = 0.5
+#			}
+#			modifier = {
+#				has_trait = ambitious
+#				add = 100
+#			}
+#			modifier = {
+#				has_trait = lustful
+#				add = 50
+#			}
+#			modifier = {
+#				has_trait = zealous
+#				factor = 0
+#			}
+#		}
+#	}
+#
+#	#Option B: bribe
+#	option = {
+#		name = ep3_emperor_yearly.2040.b
+#		add_piety = medium_piety_loss
+#		pay_short_term_gold = {
+#			target = scope:patriarch
+#			gold = major_gold_value
+#		}
+#		scope:patriarch = {
+#			add_opinion = {
+#				target = root
+#				modifier = pleased_opinion
+#				opinion = 20
+#			}
+#		}
+#		add_character_modifier = {
+#			modifier = ep3_blessed_union_modifier
+#			years = 25
+#		}
+#		stress_impact = {
+#			honest = major_stress_impact_gain
+#			greedy = major_stress_impact_gain
+#			paranoid = minor_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_greed = -0.5
+#				ai_honor = -0.5
+#			}
+#		}
+#	}
+#
+#	#Option C: you try to convince him it's fine
+#	option = {
+#		name = ep3_emperor_yearly.2040.c
+#		duel = {
+#			target = scope:patriarch
+#			skills = { diplomacy learning }
+#			50 = {
+#				compare_modifier = {
+#					value = scope:duel_value
+#					multiplier = 3.5
+#					min = -49
+#				}
+#				desc = ep3_emperor_yearly.2040.c.success
+#				send_interface_toast = {
+#					title = ep3_emperor_yearly.2040.c.success.tt
+#					left_icon = scope:patriarch
+#					add_character_modifier = {
+#						modifier = ep3_blessed_union_modifier
+#						years = 25
+#					}
+#				}
+#			}
+#			50 = {
+#				compare_modifier = {
+#					value = scope:duel_value
+#					multiplier = -3.5
+#					min = -49
+#				}
+#				desc = ep3_emperor_yearly.2040.c.failure
+#				send_interface_toast = {
+#					title = ep3_emperor_yearly.2040.c.failure.tt
+#					left_icon = scope:patriarch
+#					add_character_modifier = {
+#						modifier = ep3_non_blessed_union_modifier
+#						years = 25
+#					}
+#				}
+#			}
+#		}
+#		stress_impact = {
+#			shy = major_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 200
+#			ai_value_modifier = {
+#				ai_energy = 1
+#			}
+#		}
+#	}
+#}
 
 # Flavor event hailing the new emperor, recounting when and if their family last held the throne
 ep3_emperor_yearly.2050 = {
@@ -1563,229 +1563,229 @@ scripted_trigger valid_date_foundation_constantinople_trigger = {
 	}
 }
 
-ep3_emperor_yearly.2060 = {
-	type = court_event
-	title = ep3_emperor_yearly.2060.t
-	desc = {
-		desc = ep3_emperor_yearly.2060.desc
-		triggered_desc = {
-			trigger = {
-				OR = {
-					valid_date_foundation_constantinople_trigger = yes
-					AND = {
-						current_date > 1323.5.11
-						current_date <= 1324.5.11
-					}
-				}
-			}
-			desc = ep3_emperor_yearly.2060.desc_century
-		}
-	}
-	theme = court
-	court_scene = {
-		button_position_character = scope:2060_councillor
-		court_event_force_open = yes
-		show_timeout_info = no
-		should_pause_time = yes
-		roles = {
-			scope:2060_councillor = {
-				group = petitioners_group
-				animation = personality_honorable
-			}
-		}
-	}
-
-	widget = {
-		gui = "event_window_widget_event_chain_progress"
-		container = "custom_widgets_container"
-		controller = event_chain_progress
-	}
-
-	cooldown = { years = 10 }
-
-	trigger = {
-		valid_for_byz_emperor_content_trigger = yes
-		# You have Constantinople!
-		any_realm_county = {
-			this = title:c_byzantion
-		}
-		OR = {
-			cp:councillor_chancellor ?= {
-				has_court_event_flag = no
-				is_available_ai_adult = yes
-			}
-			cp:councillor_steward ?= {
-				has_court_event_flag = no
-				is_available_ai_adult = yes
-			}
-			any_court_position_holder = {
-				has_court_event_flag = no
-				is_available_ai_adult = yes
-			}
-		}
-	}
-
-	weight_multiplier = {
-		base = 1
-
-		modifier = {
-			capital_county = title:c_byzantion
-			add = 1
-		}
-		# The foundation was in 324 - we wanna make it more likely if it's X centuries
-		modifier = {
-			valid_date_foundation_constantinople_trigger = yes
-			add = 4
-		}
-		# This is the 1000 years from foundation!
-		modifier = {
-			current_date > 1323.5.11
-			current_date <= 1324.5.11
-			add = 5
-		}
-
-		# Court weightings.
-		ep1_weight_up_for_court_type_modifier = { COURT_TYPE = court_diplomatic }
-		ep1_weight_up_for_court_type_modifier = { COURT_TYPE = court_intrigue }
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				cp:councillor_chancellor ?= {
-					has_court_event_flag = no
-					is_available_ai_adult = yes
-				}
-			}
-			cp:councillor_chancellor = {
-				save_scope_as = 2060_councillor
-				court_event_character_flag_effect = yes
-			}
-		}
-		else_if = {
-			limit = {
-				cp:councillor_steward ?= {
-					has_court_event_flag = no
-					is_available_ai_adult = yes
-				}
-			}
-			cp:councillor_steward = {
-				save_scope_as = 2060_councillor
-				court_event_character_flag_effect = yes
-			}
-		}
-		else = {
-			random_court_position_holder = {
-				limit = {
-					has_court_event_flag = no
-					is_available_ai_adult = yes
-				}
-				save_scope_as = 2060_councillor
-				court_event_character_flag_effect = yes
-			}
-		}
-		court_event_character_flag_effect = yes
-		# for loc
-		title:b_constantinople = {
-			save_scope_as = queen_city
-		}
-		# Trigger next event in chain.
-		hold_court_queue_next_event_effect = yes
-	}
-
-	# Option A: greatest celebration for the century or millennia
-	option = {
-		name = ep3_emperor_yearly.2060.a
-		trigger = {
-			valid_date_foundation_constantinople_trigger = yes
-		}
-		title:c_byzantion = {
-			add_county_modifier = {
-				modifier = ep3_century_celebration_county_modifier
-				years = 5
-			}
-		}
-		add_character_flag = {
-			flag = constantinople_birthday_flag
-			years = 5
-		}
-		custom_tooltip = constantinople_birthday_flag_tt
-		remove_short_term_gold = major_gold_value
-		stress_impact = {
-			greedy = medium_stress_impact_gain
-			paranoid = major_stress_impact_gain
-			arrogant = minor_stress_impact_loss
-			ambitious = medium_stress_impact_loss
-			generous = medium_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_greed = -0.5
-				ai_sociability = 0.5
-			}
-		}
-	}
-
-	# Option B: celebration
-	option = {
-		name = ep3_emperor_yearly.2060.b
-		trigger = {
-			NOT = {
-				valid_date_foundation_constantinople_trigger = yes
-			}
-		}
-		title:c_byzantion = {
-			add_county_modifier = {
-				modifier = ep3_foundation_celebration_county_modifier
-				years = 5
-			}
-		}
-		add_character_flag = {
-			flag = constantinople_birthday_flag
-			years = 5
-		}
-		custom_tooltip = constantinople_birthday_flag_tt
-		remove_short_term_gold = major_gold_value
-		stress_impact = {
-			greedy = medium_stress_impact_gain
-			paranoid = major_stress_impact_gain
-			arrogant = minor_stress_impact_loss
-			ambitious = minor_stress_impact_loss
-			generous = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_greed = -0.5
-				ai_sociability = 0.5
-			}
-		}
-	}
-	# Option C: not the right time
-	option = {
-		name = ep3_emperor_yearly.2060.c
-		stress_impact = {
-			arrogant = minor_stress_impact_gain
-			ambitious = minor_stress_impact_gain
-			generous = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 50
-			ai_value_modifier = {
-				ai_greed = 1
-			}
-		}
-	}
-	after = {
-		clear_court_event_participation = yes
-		scope:2060_councillor = {
-			clear_court_event_participation = yes
-		}
-		# Finish up the chain if relevant.
-		hold_court_queue_post_event_effect = yes
-	}
-}
+#ep3_emperor_yearly.2060 = {
+#	type = court_event
+#	title = ep3_emperor_yearly.2060.t
+#	desc = {
+#		desc = ep3_emperor_yearly.2060.desc
+#		triggered_desc = {
+#			trigger = {
+#				OR = {
+#					valid_date_foundation_constantinople_trigger = yes
+#					AND = {
+#						current_date > 1323.5.11
+#						current_date <= 1324.5.11
+#					}
+#				}
+#			}
+#			desc = ep3_emperor_yearly.2060.desc_century
+#		}
+#	}
+#	theme = court
+#	court_scene = {
+#		button_position_character = scope:2060_councillor
+#		court_event_force_open = yes
+#		show_timeout_info = no
+#		should_pause_time = yes
+#		roles = {
+#			scope:2060_councillor = {
+#				group = petitioners_group
+#				animation = personality_honorable
+#			}
+#		}
+#	}
+#
+#	widget = {
+#		gui = "event_window_widget_event_chain_progress"
+#		container = "custom_widgets_container"
+#		controller = event_chain_progress
+#	}
+#
+#	cooldown = { years = 10 }
+#
+#	trigger = {
+#		valid_for_byz_emperor_content_trigger = yes
+#		# You have Constantinople!
+#		any_realm_county = {
+#			this = title:c_byzantion
+#		}
+#		OR = {
+#			cp:councillor_chancellor ?= {
+#				has_court_event_flag = no
+#				is_available_ai_adult = yes
+#			}
+#			cp:councillor_steward ?= {
+#				has_court_event_flag = no
+#				is_available_ai_adult = yes
+#			}
+#			any_court_position_holder = {
+#				has_court_event_flag = no
+#				is_available_ai_adult = yes
+#			}
+#		}
+#	}
+#
+#	weight_multiplier = {
+#		base = 1
+#
+#		modifier = {
+#			capital_county = title:c_byzantion
+#			add = 1
+#		}
+#		# The foundation was in 324 - we wanna make it more likely if it's X centuries
+#		modifier = {
+#			valid_date_foundation_constantinople_trigger = yes
+#			add = 4
+#		}
+#		# This is the 1000 years from foundation!
+#		modifier = {
+#			current_date > 1323.5.11
+#			current_date <= 1324.5.11
+#			add = 5
+#		}
+#
+#		# Court weightings.
+#		ep1_weight_up_for_court_type_modifier = { COURT_TYPE = court_diplomatic }
+#		ep1_weight_up_for_court_type_modifier = { COURT_TYPE = court_intrigue }
+#	}
+#
+#	immediate = {
+#		if = {
+#			limit = {
+#				cp:councillor_chancellor ?= {
+#					has_court_event_flag = no
+#					is_available_ai_adult = yes
+#				}
+#			}
+#			cp:councillor_chancellor = {
+#				save_scope_as = 2060_councillor
+#				court_event_character_flag_effect = yes
+#			}
+#		}
+#		else_if = {
+#			limit = {
+#				cp:councillor_steward ?= {
+#					has_court_event_flag = no
+#					is_available_ai_adult = yes
+#				}
+#			}
+#			cp:councillor_steward = {
+#				save_scope_as = 2060_councillor
+#				court_event_character_flag_effect = yes
+#			}
+#		}
+#		else = {
+#			random_court_position_holder = {
+#				limit = {
+#					has_court_event_flag = no
+#					is_available_ai_adult = yes
+#				}
+#				save_scope_as = 2060_councillor
+#				court_event_character_flag_effect = yes
+#			}
+#		}
+#		court_event_character_flag_effect = yes
+#		# for loc
+#		title:b_constantinople = {
+#			save_scope_as = queen_city
+#		}
+#		# Trigger next event in chain.
+#		hold_court_queue_next_event_effect = yes
+#	}
+#
+#	# Option A: greatest celebration for the century or millennia
+#	option = {
+#		name = ep3_emperor_yearly.2060.a
+#		trigger = {
+#			valid_date_foundation_constantinople_trigger = yes
+#		}
+#		title:c_byzantion = {
+#			add_county_modifier = {
+#				modifier = ep3_century_celebration_county_modifier
+#				years = 5
+#			}
+#		}
+#		add_character_flag = {
+#			flag = constantinople_birthday_flag
+#			years = 5
+#		}
+#		custom_tooltip = constantinople_birthday_flag_tt
+#		remove_short_term_gold = major_gold_value
+#		stress_impact = {
+#			greedy = medium_stress_impact_gain
+#			paranoid = major_stress_impact_gain
+#			arrogant = minor_stress_impact_loss
+#			ambitious = medium_stress_impact_loss
+#			generous = medium_stress_impact_loss
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_greed = -0.5
+#				ai_sociability = 0.5
+#			}
+#		}
+#	}
+#
+#	# Option B: celebration
+#	option = {
+#		name = ep3_emperor_yearly.2060.b
+#		trigger = {
+#			NOT = {
+#				valid_date_foundation_constantinople_trigger = yes
+#			}
+#		}
+#		title:c_byzantion = {
+#			add_county_modifier = {
+#				modifier = ep3_foundation_celebration_county_modifier
+#				years = 5
+#			}
+#		}
+#		add_character_flag = {
+#			flag = constantinople_birthday_flag
+#			years = 5
+#		}
+#		custom_tooltip = constantinople_birthday_flag_tt
+#		remove_short_term_gold = major_gold_value
+#		stress_impact = {
+#			greedy = medium_stress_impact_gain
+#			paranoid = major_stress_impact_gain
+#			arrogant = minor_stress_impact_loss
+#			ambitious = minor_stress_impact_loss
+#			generous = minor_stress_impact_loss
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_greed = -0.5
+#				ai_sociability = 0.5
+#			}
+#		}
+#	}
+#	# Option C: not the right time
+#	option = {
+#		name = ep3_emperor_yearly.2060.c
+#		stress_impact = {
+#			arrogant = minor_stress_impact_gain
+#			ambitious = minor_stress_impact_gain
+#			generous = minor_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 50
+#			ai_value_modifier = {
+#				ai_greed = 1
+#			}
+#		}
+#	}
+#	after = {
+#		clear_court_event_participation = yes
+#		scope:2060_councillor = {
+#			clear_court_event_participation = yes
+#		}
+#		# Finish up the chain if relevant.
+#		hold_court_queue_post_event_effect = yes
+#	}
+#}
 
 # Hold Court event: Foreigners bring exotic diplomatic gifts: what are you supposed to do with a giraffe??
 ep3_emperor_yearly.2070 = {
@@ -3475,620 +3475,620 @@ ep3_emperor_yearly.2140 = {
 
 # Governor/Emperor: You are told about a new Stylite "saint" in your area
 
-ep3_emperor_yearly.2150 = {
-	type = character_event
-	title = ep3_emperor_yearly.2150.t
-	desc = {
-		desc = ep3_emperor_yearly.2150.desc
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:saint = { has_nickname = nick_the_stylite }
-				}
-				desc = ep3_emperor_yearly.2150.desc.stylite
-			}
-			triggered_desc = {
-				trigger = {
-					scope:saint = { has_nickname = nick_the_grazer }
-				}
-				desc = ep3_emperor_yearly.2150.desc.grazer
-			}
-			triggered_desc = {
-				trigger = {
-					scope:saint = { has_nickname = nick_the_iron_wearer }
-				}
-				desc = ep3_emperor_yearly.2150.desc.iron
-			}	
-		}
-		desc = ep3_emperor_yearly.2150.desc.end
-	}
-	theme = administrative
-	left_portrait = {
-		character = root
-		animation = thinking
-	}
-	lower_right_portrait = scope:saint
-	cooldown = { years = 25 }
-
-	trigger = {
-		OR = {
-			valid_for_byz_governor_content_trigger = yes
-			valid_for_byz_emperor_content_trigger = yes
-		}
-		any_sub_realm_county = {
-			faith = faith:orthodox
-		}
-	}
-
-	weight_multiplier = {
-		base = 1
-		#More common in early dates
-		modifier = {
-			add = 1
-			current_date < 1000.1.1
-		}
-		modifier = {
-			add = 1
-			has_trait = zealous
-		}
-		modifier = {
-			add = 1
-			has_trait = cynical
-		}
-		modifier = {
-			is_ai = yes
-			factor = 0.1
-		}
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				capital_province.county.faith = faith:orthodox
-			}
-			capital_province = {
-				save_scope_as = capital
-			}
-		}
-		else = {
-			random_sub_realm_county = {
-				limit = {
-					faith = faith:orthodox
-				}
-				random_province = {
-					save_scope_as = capital
-				}
-			}
-		}
-		random_pool_character = {
-			province = root.location
-			limit = {
-				faith = faith:orthodox
-				can_be_clergy_due_to_gender_trigger = yes
-				is_available_ai_adult = yes
-				OR = {
-					has_trait = eccentric
-					has_trait = zealous
-					has_trait = saint
-					has_trait = lifestyle_mystic
-					has_nickname = nick_the_stylite
-					has_nickname = nick_the_grazer
-					has_nickname = nick_the_iron_wearer
-				}
-				learning >= 16
-			}
-			save_scope_as = saint
-		}
-		if = {
-			limit = {
-				NOT = { exists = scope:saint }
-			}
-			create_character = {
-				template = stylite_saint_character
-				faith = faith:orthodox
-				culture = scope:capital.county.culture
-				location = root.location
-				save_scope_as = saint
-			}
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					scope:saint = {
-						NOT = {
-							has_trait = eccentric
-						}
-					}
-				}
-				scope:saint = {
-					add_trait = eccentric
-				}
-			}
-			scope:saint = {
-				add_trait = inappetetic
-				add_trait = wounded_1
-				change_current_weight = -50
-				random_list = {
-					# is a holy man
-					50 = {
-						add_character_flag = real_holy_man
-						modifier = {
-							has_trait = zealous
-							add = 20
-						}
-						modifier = {
-							has_trait = education_learning_1
-							add = 5
-						}
-						modifier = {
-							has_trait = education_learning_2
-							add = 10
-						}
-						modifier = {
-							has_trait = education_learning_3
-							add = 15
-						}
-						modifier = {
-							has_trait = education_learning_4
-							add = 20
-						}
-						modifier = {
-							has_trait = saint
-							add = 25
-						}
-						modifier = {
-							has_trait = lifestyle_mystic
-							add = 15
-						}
-						modifier = {
-							has_trait = honest
-							add = 15
-						}
-						modifier = {
-							has_trait = scholar
-							add = 10
-						}
-						modifier = {
-							has_trait = theologian
-							add = 10
-						}
-						modifier = {
-							has_trait = chaste
-							add = 10
-						}
-						modifier = {
-							has_trait = temperate
-							add = 10
-						}
-						modifier = {
-							has_trait = wrathful
-							add = 15
-						}
-						modifier = {
-							has_trait = arrogant
-							add = 10
-						}
-						modifier = {
-							has_trait = humble
-							add = 10
-						}
-						modifier = {
-							has_trait = arbitrary
-							add = 15
-						}
-						modifier = {
-							has_trait = callous
-							add = 10
-						}
-						modifier = {
-							has_trait = reclusive
-							add = 25
-						}
-					}
-					# is a crook
-					50 = {
-						add_character_flag = is_a_crook
-						modifier = {
-							has_trait = education_intrigue_1
-							add = 5
-						}
-						modifier = {
-							has_trait = education_intrigue_2
-							add = 10
-						}
-						modifier = {
-							has_trait = education_intrigue_3
-							add = 15
-						}
-						modifier = {
-							has_trait = education_intrigue_4
-							add = 20
-						}
-						modifier = {
-							has_trait = whole_of_body
-							add = 15
-						}
-						modifier = {
-							has_trait = deceitful
-							add = 20
-						}
-						modifier = {
-							has_trait = lifestyle_reveler
-							add = 30
-						}
-						modifier = {
-							has_trait = lustful
-							add = 10
-						}
-						modifier = {
-							has_trait = greedy
-							add = 10
-						}
-						modifier = {
-							has_trait = patient
-							add = 15
-						}
-						modifier = {
-							has_trait = brave
-							add = 15
-						}
-						modifier = {
-							has_trait = paranoid
-							add = 10
-						}
-						modifier = {
-							has_trait = compassionate
-							add = 15
-						}
-					}
-				}
-				random_list = {
-					33 = {
-						give_nickname = nick_the_stylite
-					}
-					33 = {
-						give_nickname = nick_the_grazer
-					}
-					33 = {
-						give_nickname = nick_the_iron_wearer
-					}
-				}
-			}
-		}
-	}
-
-	#Option A: all hail the saint!
-	option = {
-		name = ep3_emperor_yearly.2150.a
-		flavor = ep3_emperor_yearly.2150.a.tt
-		pay_short_term_gold = {
-			target = scope:saint
-			gold = minor_gold_value
-		}
-		if = {
-			limit = {
-				can_employ_court_position_type = cave_hermit_court_position
-				scope:saint = { can_be_employed_as = cave_hermit_court_position } 
-			}
-			court_position_grant_effect = {
-				EMPLOYER = root
-				POS = cave_hermit
-				CANDIDATE = scope:saint
-			}
-		}
-		scope:capital.county = {
-			change_county_control = major_county_control_gain
-		}
-		add_piety = minor_piety_gain
-		stress_impact = {
-			cynical = major_stress_impact_gain
-			comfort_eater = medium_stress_impact_gain
-			just = minor_stress_impact_gain
-			greedy = minor_stress_impact_gain
-			gluttonous = minor_stress_impact_gain
-			craven = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_zeal = 1
-				ai_energy = -0.5
-			}
-			modifier = {
-				gold < tiny_gold_value
-				factor = 0
-			}
-			modifier = {
-				has_trait = cynical
-				factor = 0
-			}
-		}
-	}
-
-	#Option B: put him to the test
-	option = {
-		name = ep3_emperor_yearly.2150.b
-		duel = {
-			skills = { intrigue learning }
-			target = scope:saint
-			# you find the truth
-			50 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				desc = ep3_emperor_yearly.2150.b.tt.success
-				show_as_tooltip = {
-					if = {
-						limit = {
-							is_independent_ruler = yes
-						}
-						change_influence = major_influence_gain
-					}
-					else = {
-						add_character_flag = {
-							flag = ep3_2150_found_truth
-							years = 25
-						}
-						custom_tooltip = ep3_emperor_yearly.2150.b.tt
-						change_influence = minor_influence_gain
-					}
-					random_list = {
-						50 = {
-							show_chance = no
-							desc = ep3_emperor_yearly.2150.b.tt.holy
-							scope:capital.county = {
-								add_county_modifier = {
-									modifier = land_of_holy_county_modifier
-									years = 25
-								}
-							}
-						}
-						50 = {
-							show_chance = no
-							desc = ep3_emperor_yearly.2150.b.tt.crook
-							scope:capital.county = {
-								add_county_modifier = {
-									modifier = no_crooks_county_modifier
-									years = 25
-								}
-							}
-						}
-					}
-				}
-				hidden_effect = {
-					send_interface_toast = {
-						title = ep3_emperor_yearly.2150.b.tt.success
-						left_icon = scope:saint
-						type = event_generic_neutral
-						if = {
-							limit = {
-								is_independent_ruler = yes
-							}
-							change_influence = major_influence_gain
-						}
-						else = {
-							add_character_flag = {
-								flag = ep3_2150_found_truth
-								years = 25
-							}
-							custom_tooltip = ep3_emperor_yearly.2150.b.tt
-							change_influence = minor_influence_gain
-						}
-						if = {
-							limit = {
-								scope:saint = { has_character_flag = real_holy_man }
-							}
-							custom_tooltip = ep3_emperor_yearly.2150.b.tt.holy
-							scope:capital.county = {
-								add_county_modifier = {
-									modifier = land_of_holy_county_modifier
-									years = 25
-								}
-							}
-						}
-						else = {
-							custom_tooltip = ep3_emperor_yearly.2150.b.tt.crook
-							scope:capital.county = {
-								add_county_modifier = {
-									modifier = no_crooks_county_modifier
-									years = 25
-								}
-							}
-						}
-					}
-				}
-			}
-			# you have no idea
-			50 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -49
-				}
-				desc = ep3_emperor_yearly.2150.b.tt.failure
-				send_interface_toast = {
-					title = ep3_emperor_yearly.2150.b.tt.failure
-					left_icon = scope:saint
-					type = event_generic_neutral
-					custom_tooltip = ep3_emperor_yearly.2150.b.tt.continue
-					change_influence = minor_influence_loss
-				}
-				scope:saint = { add_character_flag = follow_up_2150 }
-				trigger_event = {
-					id = ep3_emperor_yearly.2151
-					years = 3
-				}
-			}
-		}
-		stress_impact = {
-			lazy = major_stress_impact_gain
-			arbitrary = major_stress_impact_gain
-			fickle = medium_stress_impact_gain
-			zealous = medium_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_rationality = 1
-				ai_energy = 0.5
-			}
-			modifier = {
-				has_trait = lazy
-				add = -75
-			}
-		}
-	}
-
-	#Option C: he's clearly a fake!
-	option = {
-		name = ep3_emperor_yearly.2150.c
-		scope:capital.county = {
-			change_county_control = minor_county_control_loss
-		}
-		if = {
-			limit = {
-				is_independent_ruler = yes
-			}
-			change_influence = medium_influence_gain
-		}
-		else = {
-			increase_governance_effect = { VALUE = 2 }
-			change_influence = miniscule_influence_gain
-		}
-		stress_impact = {
-			zealous = major_stress_impact_gain
-			diligent = medium_stress_impact_gain
-			just = minor_stress_impact_gain
-			humble = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_zeal = -1
-				ai_rationality = 0.5
-			}
-		}
-	}
-
-	after = {
-		if = {
-			limit = {
-				scope:saint = {
-					NOT = {
-						has_character_flag = follow_up_2150
-					}
-				}
-			}
-			scope:saint = {
-				remove_character_flag = real_holy_man
-				remove_character_flag = is_a_crook
-			}
-			if = {
-				limit = {
-					is_ai = yes
-					scope:saint = { has_any_court_position = no }
-				}
-				scope:saint = { silent_disappearance_effect = yes }
-			}
-		}
-	}
-}
-
-ep3_emperor_yearly.2151 = {
-	type = character_event
-	title = ep3_emperor_yearly.2150.t
-	desc = {
-		desc = ep3_emperor_yearly.2151.desc
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:saint = { has_character_flag = real_holy_man }
-				}
-				desc = ep3_emperor_yearly.2151.desc_saint
-			}
-			desc = ep3_emperor_yearly.2151.desc_crook
-		}
-	}
-	theme = administrative
-	left_portrait = {
-		character = root
-		animation = thinking
-	}
-	right_portrait = {
-		character = scope:chaplain
-		animation = scepter
-	}
-	lower_right_portrait = scope:saint
-
-	trigger = {
-		scope:saint = { is_alive = yes }
-		OR = {
-			valid_for_byz_governor_content_trigger = yes
-			valid_for_byz_emperor_content_trigger = yes
-		}
-		any_sub_realm_county = {
-			faith = faith:orthodox
-			this = scope:capital.county
-		}
-		exists = cp:councillor_court_chaplain
-	}
-
-	on_trigger_fail = {
-		if = {
-			limit = {
-				scope:saint = { is_alive = yes }
-			}
-			scope:saint = {
-				remove_character_flag = real_holy_man
-				remove_character_flag = is_a_crook
-				remove_character_flag = follow_up_2150
-			}
-		}
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				scope:saint = { has_character_flag = real_holy_man }
-			}
-			scope:capital.county = {
-				add_county_modifier = {
-					modifier = ep3_persecuting_saints_county_modifier
-					years = 5
-				}
-			}
-		}
-		else = {
-			scope:capital.county = {
-				add_county_modifier = {
-					modifier = ep3_conmen_among_us_county_modifier
-					years = 5
-				}
-			}
-		}
-		cp:councillor_court_chaplain = { save_scope_as = chaplain }
-	}
-
-	option = {
-		name = ep3_emperor_yearly.2151.a
-	}
-
-	after = {
-		scope:saint = {
-			remove_character_flag = real_holy_man
-			remove_character_flag = is_a_crook
-			remove_character_flag = follow_up_2150
-		}
-		if = {
-			limit = {
-				is_ai = yes
-			}
-			scope:saint = { silent_disappearance_effect = yes }
-		}
-	}
-}
+#ep3_emperor_yearly.2150 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2150.t
+#	desc = {
+#		desc = ep3_emperor_yearly.2150.desc
+#		first_valid = {
+#			triggered_desc = {
+#				trigger = {
+#					scope:saint = { has_nickname = nick_the_stylite }
+#				}
+#				desc = ep3_emperor_yearly.2150.desc.stylite
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:saint = { has_nickname = nick_the_grazer }
+#				}
+#				desc = ep3_emperor_yearly.2150.desc.grazer
+#			}
+#			triggered_desc = {
+#				trigger = {
+#					scope:saint = { has_nickname = nick_the_iron_wearer }
+#				}
+#				desc = ep3_emperor_yearly.2150.desc.iron
+#			}	
+#		}
+#		desc = ep3_emperor_yearly.2150.desc.end
+#	}
+#	theme = administrative
+#	left_portrait = {
+#		character = root
+#		animation = thinking
+#	}
+#	lower_right_portrait = scope:saint
+#	cooldown = { years = 25 }
+#
+#	trigger = {
+#		OR = {
+#			valid_for_byz_governor_content_trigger = yes
+#			valid_for_byz_emperor_content_trigger = yes
+#		}
+#		any_sub_realm_county = {
+#			faith = faith:orthodox
+#		}
+#	}
+#
+#	weight_multiplier = {
+#		base = 1
+#		#More common in early dates
+#		modifier = {
+#			add = 1
+#			current_date < 1000.1.1
+#		}
+#		modifier = {
+#			add = 1
+#			has_trait = zealous
+#		}
+#		modifier = {
+#			add = 1
+#			has_trait = cynical
+#		}
+#		modifier = {
+#			is_ai = yes
+#			factor = 0.1
+#		}
+#	}
+#
+#	immediate = {
+#		if = {
+#			limit = {
+#				capital_province.county.faith = faith:orthodox
+#			}
+#			capital_province = {
+#				save_scope_as = capital
+#			}
+#		}
+#		else = {
+#			random_sub_realm_county = {
+#				limit = {
+#					faith = faith:orthodox
+#				}
+#				random_province = {
+#					save_scope_as = capital
+#				}
+#			}
+#		}
+#		random_pool_character = {
+#			province = root.location
+#			limit = {
+#				faith = faith:orthodox
+#				can_be_clergy_due_to_gender_trigger = yes
+#				is_available_ai_adult = yes
+#				OR = {
+#					has_trait = eccentric
+#					has_trait = zealous
+#					has_trait = saint
+#					has_trait = lifestyle_mystic
+#					has_nickname = nick_the_stylite
+#					has_nickname = nick_the_grazer
+#					has_nickname = nick_the_iron_wearer
+#				}
+#				learning >= 16
+#			}
+#			save_scope_as = saint
+#		}
+#		if = {
+#			limit = {
+#				NOT = { exists = scope:saint }
+#			}
+#			create_character = {
+#				template = stylite_saint_character
+#				faith = faith:orthodox
+#				culture = scope:capital.county.culture
+#				location = root.location
+#				save_scope_as = saint
+#			}
+#		}
+#		hidden_effect = {
+#			if = {
+#				limit = {
+#					scope:saint = {
+#						NOT = {
+#							has_trait = eccentric
+#						}
+#					}
+#				}
+#				scope:saint = {
+#					add_trait = eccentric
+#				}
+#			}
+#			scope:saint = {
+#				add_trait = inappetetic
+#				add_trait = wounded_1
+#				change_current_weight = -50
+#				random_list = {
+#					# is a holy man
+#					50 = {
+#						add_character_flag = real_holy_man
+#						modifier = {
+#							has_trait = zealous
+#							add = 20
+#						}
+#						modifier = {
+#							has_trait = education_learning_1
+#							add = 5
+#						}
+#						modifier = {
+#							has_trait = education_learning_2
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = education_learning_3
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = education_learning_4
+#							add = 20
+#						}
+#						modifier = {
+#							has_trait = saint
+#							add = 25
+#						}
+#						modifier = {
+#							has_trait = lifestyle_mystic
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = honest
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = scholar
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = theologian
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = chaste
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = temperate
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = wrathful
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = arrogant
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = humble
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = arbitrary
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = callous
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = reclusive
+#							add = 25
+#						}
+#					}
+#					# is a crook
+#					50 = {
+#						add_character_flag = is_a_crook
+#						modifier = {
+#							has_trait = education_intrigue_1
+#							add = 5
+#						}
+#						modifier = {
+#							has_trait = education_intrigue_2
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = education_intrigue_3
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = education_intrigue_4
+#							add = 20
+#						}
+#						modifier = {
+#							has_trait = whole_of_body
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = deceitful
+#							add = 20
+#						}
+#						modifier = {
+#							has_trait = lifestyle_reveler
+#							add = 30
+#						}
+#						modifier = {
+#							has_trait = lustful
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = greedy
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = patient
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = brave
+#							add = 15
+#						}
+#						modifier = {
+#							has_trait = paranoid
+#							add = 10
+#						}
+#						modifier = {
+#							has_trait = compassionate
+#							add = 15
+#						}
+#					}
+#				}
+#				random_list = {
+#					33 = {
+#						give_nickname = nick_the_stylite
+#					}
+#					33 = {
+#						give_nickname = nick_the_grazer
+#					}
+#					33 = {
+#						give_nickname = nick_the_iron_wearer
+#					}
+#				}
+#			}
+#		}
+#	}
+#
+#	#Option A: all hail the saint!
+#	option = {
+#		name = ep3_emperor_yearly.2150.a
+#		flavor = ep3_emperor_yearly.2150.a.tt
+#		pay_short_term_gold = {
+#			target = scope:saint
+#			gold = minor_gold_value
+#		}
+#		if = {
+#			limit = {
+#				can_employ_court_position_type = cave_hermit_court_position
+#				scope:saint = { can_be_employed_as = cave_hermit_court_position } 
+#			}
+#			court_position_grant_effect = {
+#				EMPLOYER = root
+#				POS = cave_hermit
+#				CANDIDATE = scope:saint
+#			}
+#		}
+#		scope:capital.county = {
+#			change_county_control = major_county_control_gain
+#		}
+#		add_piety = minor_piety_gain
+#		stress_impact = {
+#			cynical = major_stress_impact_gain
+#			comfort_eater = medium_stress_impact_gain
+#			just = minor_stress_impact_gain
+#			greedy = minor_stress_impact_gain
+#			gluttonous = minor_stress_impact_gain
+#			craven = minor_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_zeal = 1
+#				ai_energy = -0.5
+#			}
+#			modifier = {
+#				gold < tiny_gold_value
+#				factor = 0
+#			}
+#			modifier = {
+#				has_trait = cynical
+#				factor = 0
+#			}
+#		}
+#	}
+#
+#	#Option B: put him to the test
+#	option = {
+#		name = ep3_emperor_yearly.2150.b
+#		duel = {
+#			skills = { intrigue learning }
+#			target = scope:saint
+#			# you find the truth
+#			50 = {
+#				compare_modifier = {
+#					value = scope:duel_value
+#					multiplier = 3.5
+#					min = -49
+#				}
+#				desc = ep3_emperor_yearly.2150.b.tt.success
+#				show_as_tooltip = {
+#					if = {
+#						limit = {
+#							is_independent_ruler = yes
+#						}
+#						change_influence = major_influence_gain
+#					}
+#					else = {
+#						add_character_flag = {
+#							flag = ep3_2150_found_truth
+#							years = 25
+#						}
+#						custom_tooltip = ep3_emperor_yearly.2150.b.tt
+#						change_influence = minor_influence_gain
+#					}
+#					random_list = {
+#						50 = {
+#							show_chance = no
+#							desc = ep3_emperor_yearly.2150.b.tt.holy
+#							scope:capital.county = {
+#								add_county_modifier = {
+#									modifier = land_of_holy_county_modifier
+#									years = 25
+#								}
+#							}
+#						}
+#						50 = {
+#							show_chance = no
+#							desc = ep3_emperor_yearly.2150.b.tt.crook
+#							scope:capital.county = {
+#								add_county_modifier = {
+#									modifier = no_crooks_county_modifier
+#									years = 25
+#								}
+#							}
+#						}
+#					}
+#				}
+#				hidden_effect = {
+#					send_interface_toast = {
+#						title = ep3_emperor_yearly.2150.b.tt.success
+#						left_icon = scope:saint
+#						type = event_generic_neutral
+#						if = {
+#							limit = {
+#								is_independent_ruler = yes
+#							}
+#							change_influence = major_influence_gain
+#						}
+#						else = {
+#							add_character_flag = {
+#								flag = ep3_2150_found_truth
+#								years = 25
+#							}
+#							custom_tooltip = ep3_emperor_yearly.2150.b.tt
+#							change_influence = minor_influence_gain
+#						}
+#						if = {
+#							limit = {
+#								scope:saint = { has_character_flag = real_holy_man }
+#							}
+#							custom_tooltip = ep3_emperor_yearly.2150.b.tt.holy
+#							scope:capital.county = {
+#								add_county_modifier = {
+#									modifier = land_of_holy_county_modifier
+#									years = 25
+#								}
+#							}
+#						}
+#						else = {
+#							custom_tooltip = ep3_emperor_yearly.2150.b.tt.crook
+#							scope:capital.county = {
+#								add_county_modifier = {
+#									modifier = no_crooks_county_modifier
+#									years = 25
+#								}
+#							}
+#						}
+#					}
+#				}
+#			}
+#			# you have no idea
+#			50 = {
+#				compare_modifier = {
+#					value = scope:duel_value
+#					multiplier = -3.5
+#					min = -49
+#				}
+#				desc = ep3_emperor_yearly.2150.b.tt.failure
+#				send_interface_toast = {
+#					title = ep3_emperor_yearly.2150.b.tt.failure
+#					left_icon = scope:saint
+#					type = event_generic_neutral
+#					custom_tooltip = ep3_emperor_yearly.2150.b.tt.continue
+#					change_influence = minor_influence_loss
+#				}
+#				scope:saint = { add_character_flag = follow_up_2150 }
+#				trigger_event = {
+#					id = ep3_emperor_yearly.2151
+#					years = 3
+#				}
+#			}
+#		}
+#		stress_impact = {
+#			lazy = major_stress_impact_gain
+#			arbitrary = major_stress_impact_gain
+#			fickle = medium_stress_impact_gain
+#			zealous = medium_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_rationality = 1
+#				ai_energy = 0.5
+#			}
+#			modifier = {
+#				has_trait = lazy
+#				add = -75
+#			}
+#		}
+#	}
+#
+#	#Option C: he's clearly a fake!
+#	option = {
+#		name = ep3_emperor_yearly.2150.c
+#		scope:capital.county = {
+#			change_county_control = minor_county_control_loss
+#		}
+#		if = {
+#			limit = {
+#				is_independent_ruler = yes
+#			}
+#			change_influence = medium_influence_gain
+#		}
+#		else = {
+#			increase_governance_effect = { VALUE = 2 }
+#			change_influence = miniscule_influence_gain
+#		}
+#		stress_impact = {
+#			zealous = major_stress_impact_gain
+#			diligent = medium_stress_impact_gain
+#			just = minor_stress_impact_gain
+#			humble = minor_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_zeal = -1
+#				ai_rationality = 0.5
+#			}
+#		}
+#	}
+#
+#	after = {
+#		if = {
+#			limit = {
+#				scope:saint = {
+#					NOT = {
+#						has_character_flag = follow_up_2150
+#					}
+#				}
+#			}
+#			scope:saint = {
+#				remove_character_flag = real_holy_man
+#				remove_character_flag = is_a_crook
+#			}
+#			if = {
+#				limit = {
+#					is_ai = yes
+#					scope:saint = { has_any_court_position = no }
+#				}
+#				scope:saint = { silent_disappearance_effect = yes }
+#			}
+#		}
+#	}
+#}
+#
+#ep3_emperor_yearly.2151 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2150.t
+#	desc = {
+#		desc = ep3_emperor_yearly.2151.desc
+#		first_valid = {
+#			triggered_desc = {
+#				trigger = {
+#					scope:saint = { has_character_flag = real_holy_man }
+#				}
+#				desc = ep3_emperor_yearly.2151.desc_saint
+#			}
+#			desc = ep3_emperor_yearly.2151.desc_crook
+#		}
+#	}
+#	theme = administrative
+#	left_portrait = {
+#		character = root
+#		animation = thinking
+#	}
+#	right_portrait = {
+#		character = scope:chaplain
+#		animation = scepter
+#	}
+#	lower_right_portrait = scope:saint
+#
+#	trigger = {
+#		scope:saint = { is_alive = yes }
+#		OR = {
+#			valid_for_byz_governor_content_trigger = yes
+#			valid_for_byz_emperor_content_trigger = yes
+#		}
+#		any_sub_realm_county = {
+#			faith = faith:orthodox
+#			this = scope:capital.county
+#		}
+#		exists = cp:councillor_court_chaplain
+#	}
+#
+#	on_trigger_fail = {
+#		if = {
+#			limit = {
+#				scope:saint = { is_alive = yes }
+#			}
+#			scope:saint = {
+#				remove_character_flag = real_holy_man
+#				remove_character_flag = is_a_crook
+#				remove_character_flag = follow_up_2150
+#			}
+#		}
+#	}
+#
+#	immediate = {
+#		if = {
+#			limit = {
+#				scope:saint = { has_character_flag = real_holy_man }
+#			}
+#			scope:capital.county = {
+#				add_county_modifier = {
+#					modifier = ep3_persecuting_saints_county_modifier
+#					years = 5
+#				}
+#			}
+#		}
+#		else = {
+#			scope:capital.county = {
+#				add_county_modifier = {
+#					modifier = ep3_conmen_among_us_county_modifier
+#					years = 5
+#				}
+#			}
+#		}
+#		cp:councillor_court_chaplain = { save_scope_as = chaplain }
+#	}
+#
+#	option = {
+#		name = ep3_emperor_yearly.2151.a
+#	}
+#
+#	after = {
+#		scope:saint = {
+#			remove_character_flag = real_holy_man
+#			remove_character_flag = is_a_crook
+#			remove_character_flag = follow_up_2150
+#		}
+#		if = {
+#			limit = {
+#				is_ai = yes
+#			}
+#			scope:saint = { silent_disappearance_effect = yes }
+#		}
+#	}
+#}
 
 # Governor: If you border with nomadic people, they keep moving people into your borders
 
@@ -4266,149 +4266,149 @@ ep3_emperor_yearly.2160 = {
 
 # People are hiding from you, in your low-control province, in tunnels, in fairy chimneys, and within mountains
 
-ep3_emperor_yearly.2170 = {
-	type = character_event
-	title = ep3_emperor_yearly.2170.t
-	desc = ep3_emperor_yearly.2170.desc
-	theme = stewardship
-	left_portrait = {
-		character = root
-		animation = thinking
-	}
-	cooldown = { years = 25 }
-
-	trigger = {
-		has_ep3_dlc_trigger = yes
-		is_governor = yes
-		any_sub_realm_county = {
-			OR = {
-				any_county_province = { has_building = fairy_chimneys }
-				AND = {
-					county_control <= 50
-					any_county_province = {
-						OR = {
-							terrain = mountains
-							terrain = hills
-							terrain = forest
-							terrain = jungle
-							terrain = desert_mountains
-							terrain = steppe
-							terrain = desert
-						}
-					}
-				}
-			}
-			NOR = {
-				has_county_modifier = ep3_tunnels_encouraged_county_modifier
-				has_county_modifier = ep3_population_control_county_modifier
-			}
-		}
-	}
-
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			valid_for_byz_governor_content_trigger = yes
-			add = 2
-		}
-	}
-
-	immediate = {
-		random_sub_realm_county = {
-			limit = {
-				any_county_province = { has_building = fairy_chimneys }
-			}
-			save_scope_as = our_county
-		}
-		if = {
-			limit = {
-				NOT = { exists = scope:our_county }
-			}
-			ordered_sub_realm_county = {
-				limit = {
-					NOR = {
-						has_county_modifier = ep3_tunnels_encouraged_county_modifier
-						has_county_modifier = ep3_population_control_county_modifier
-					}
-					any_county_province = {
-						OR = {
-							terrain = mountains
-							terrain = hills
-							terrain = forest
-							terrain = jungle
-							terrain = desert_mountains
-							terrain = steppe
-							terrain = desert
-						}
-					}
-				}
-				order_by = {
-					value = county_control
-					multiply = -1
-				}
-				save_scope_as = our_county
-			}
-		}
-	}
-
-	# Option A: encourage it as defense
-	option = {
-		name = ep3_emperor_yearly.2170.a
-		scope:our_county = {
-			add_county_modifier = {
-				modifier = ep3_tunnels_encouraged_county_modifier
-				years = 50
-			}
-		}
-		change_influence = major_influence_gain
-		stress_impact = {
-			greedy = major_stress_impact_gain
-			paranoid = medium_stress_impact_gain
-			honest = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_rationality = 0.5
-			}
-			modifier = {
-				has_trait = paranoid
-				add = -75
-			}
-			modifier = {
-				has_trait = greedy
-				factor = 0
-			}
-		}
-	}
-
-	# Option B: discourage it for taxation
-	option = {
-		name = ep3_emperor_yearly.2170.b
-		scope:our_county = {
-			add_county_modifier = {
-				modifier = ep3_population_control_county_modifier
-				years = 50
-			}
-		}
-		add_character_flag = {
-			flag = ep3_2170_success
-			years = 25
-		}
-		custom_tooltip = ep3_emperor_yearly.2160.b.tt
-		stress_impact = {
-			generous = medium_stress_impact_gain
-			deceitful = medium_stress_impact_gain
-			trusting = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_greed = 0.5
-			}
-		}
-	}
-}
+#ep3_emperor_yearly.2170 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2170.t
+#	desc = ep3_emperor_yearly.2170.desc
+#	theme = stewardship
+#	left_portrait = {
+#		character = root
+#		animation = thinking
+#	}
+#	cooldown = { years = 25 }
+#
+#	trigger = {
+#		has_ep3_dlc_trigger = yes
+#		is_governor = yes
+#		any_sub_realm_county = {
+#			OR = {
+#				any_county_province = { has_building = fairy_chimneys }
+#				AND = {
+#					county_control <= 50
+#					any_county_province = {
+#						OR = {
+#							terrain = mountains
+#							terrain = hills
+#							terrain = forest
+#							terrain = jungle
+#							terrain = desert_mountains
+#							terrain = steppe
+#							terrain = desert
+#						}
+#					}
+#				}
+#			}
+#			NOR = {
+#				has_county_modifier = ep3_tunnels_encouraged_county_modifier
+#				has_county_modifier = ep3_population_control_county_modifier
+#			}
+#		}
+#	}
+#
+#	weight_multiplier = {
+#		base = 1
+#		modifier = {
+#			valid_for_byz_governor_content_trigger = yes
+#			add = 2
+#		}
+#	}
+#
+#	immediate = {
+#		random_sub_realm_county = {
+#			limit = {
+#				any_county_province = { has_building = fairy_chimneys }
+#			}
+#			save_scope_as = our_county
+#		}
+#		if = {
+#			limit = {
+#				NOT = { exists = scope:our_county }
+#			}
+#			ordered_sub_realm_county = {
+#				limit = {
+#					NOR = {
+#						has_county_modifier = ep3_tunnels_encouraged_county_modifier
+#						has_county_modifier = ep3_population_control_county_modifier
+#					}
+#					any_county_province = {
+#						OR = {
+#							terrain = mountains
+#							terrain = hills
+#							terrain = forest
+#							terrain = jungle
+#							terrain = desert_mountains
+#							terrain = steppe
+#							terrain = desert
+#						}
+#					}
+#				}
+#				order_by = {
+#					value = county_control
+#					multiply = -1
+#				}
+#				save_scope_as = our_county
+#			}
+#		}
+#	}
+#
+#	# Option A: encourage it as defense
+#	option = {
+#		name = ep3_emperor_yearly.2170.a
+#		scope:our_county = {
+#			add_county_modifier = {
+#				modifier = ep3_tunnels_encouraged_county_modifier
+#				years = 50
+#			}
+#		}
+#		change_influence = major_influence_gain
+#		stress_impact = {
+#			greedy = major_stress_impact_gain
+#			paranoid = medium_stress_impact_gain
+#			honest = minor_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_rationality = 0.5
+#			}
+#			modifier = {
+#				has_trait = paranoid
+#				add = -75
+#			}
+#			modifier = {
+#				has_trait = greedy
+#				factor = 0
+#			}
+#		}
+#	}
+#
+#	# Option B: discourage it for taxation
+#	option = {
+#		name = ep3_emperor_yearly.2170.b
+#		scope:our_county = {
+#			add_county_modifier = {
+#				modifier = ep3_population_control_county_modifier
+#				years = 50
+#			}
+#		}
+#		add_character_flag = {
+#			flag = ep3_2170_success
+#			years = 25
+#		}
+#		custom_tooltip = ep3_emperor_yearly.2160.b.tt
+#		stress_impact = {
+#			generous = medium_stress_impact_gain
+#			deceitful = medium_stress_impact_gain
+#			trusting = minor_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_greed = 0.5
+#			}
+#		}
+#	}
+#}
 
 # Traveling pilgrims come to an estate - response from the estate owner
 
@@ -5900,239 +5900,239 @@ ep3_emperor_yearly.2230 = {
 
 # An obnoxious "scholar" close to you keeps quoting the Classics out of place
 
-scripted_trigger ep3_valid_greek_culture_trigger = {
-	OR = {
-		has_cultural_pillar = heritage_byzantine
-		has_cultural_pillar = heritage_caucasian
-		this = culture:greek
-		any_parent_culture_or_above = { this = culture:greek }
-	}
-}
-
-scripted_trigger ep3_2240_valid_courtier_trigger = {
-	culture = { ep3_valid_greek_culture_trigger = yes }
-	learning >= 10
-	OR = {
-		has_trait = education_learning_1
-		has_trait = education_learning_2
-		has_trait = education_learning_3
-	}
-	knows_language = language_greek
-	OR = {
-		has_trait = arrogant
-		has_trait = eccentric
-		has_trait = gregarious
-	}
-	is_of_major_or_minor_interest_trigger = { CHARACTER = root } 
-}
-
-ep3_emperor_yearly.2240 = {
-	type = character_event
-	title = ep3_emperor_yearly.2240.t
-	desc = {
-		random_valid = {
-			desc = ep3_emperor_yearly.2240.desc_quote_a
-			desc = ep3_emperor_yearly.2240.desc_quote_b
-			desc = ep3_emperor_yearly.2240.desc_quote_c
-			triggered_desc = {
-				trigger = {
-					scope:the_scholar = { knows_language = language_latin }
-				}
-				desc = ep3_emperor_yearly.2240.desc_quote_latin
-			}
-		}
-		desc = ep3_emperor_yearly.2240.desc_outro
-	}
-	theme = learning
-	override_background = { reference = ep3_medi_market }
-	left_portrait = {
-		character = root
-		animation = rage
-	}
-	right_portrait = {
-		character = scope:the_scholar
-		animation = debating
-	}
-	cooldown = { years = 25 }
-
-	trigger = {
-		has_ep3_dlc_trigger = yes
-		is_landed_or_landless_administrative = yes
-		government_allows = administrative
-		culture = {
-			ep3_valid_greek_culture_trigger = yes
-		}	
-		any_courtier_or_guest = {
-			ep3_2240_valid_courtier_trigger = yes
-		}		
-	}
-
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			culture = culture:greek
-			add = 1
-		}
-		modifier = {
-			any_courtier_or_guest = {
-				ep3_2240_valid_courtier_trigger = yes
-				knows_language = language_latin
-			}
-			add = 1
-		}
-		modifier = {
-			any_courtier_or_guest = {
-				ep3_2240_valid_courtier_trigger = yes
-				is_of_major_interest_trigger = { CHARACTER = root }
-			}
-			add = 1
-		}
-	}
-
-	immediate = {
-		random_courtier_or_guest = {
-			limit = {
-				ep3_2240_valid_courtier_trigger = yes
-			}
-			weight = {
-				base = 1
-				modifier = { 
-					add = 3
-					knows_language = language_latin
-				}
-				modifier = { 
-					add = 2
-					is_of_major_interest_trigger = { CHARACTER = root }
-				}
-			}
-			save_scope_as = the_scholar
-		}
-	}
-
-	# Option A: outwit
-	option = {
-		name = ep3_emperor_yearly.2240.a
-		flavor = ep3_emperor_yearly.2240.a.flavor
-		duel = {
-			skill = learning
-			target = scope:the_scholar
-			60 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				desc = ep3_emperor_yearly.2240.a_success
-				send_interface_toast = {
-					title = ep3_emperor_yearly.2240.a_success.tt
-					left_icon = root
-					right_icon = scope:the_scholar
-					change_influence = massive_influence_gain
-					scope:the_scholar = { change_influence = major_influence_loss }
-				}
-			}
-			40 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -49
-				}
-				desc = ep3_emperor_yearly.2240.a_failure
-				send_interface_toast = {
-					title = ep3_emperor_yearly.2240.a_failure.tt
-					left_icon = root
-					right_icon = scope:the_scholar
-					change_influence = major_influence_loss
-					scope:the_scholar = { change_influence = massive_influence_gain }
-				}
-			}
-		}
-		stress_impact = {
-			dull = major_stress_impact_gain
-			shy = medium_stress_impact_gain
-			humble = medium_stress_impact_gain
-			lazy = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_rationality = 1
-			}
-			modifier = {
-				has_trait = dull
-				add = -50
-			}
-			modifier = {
-				has_trait = shy
-				add = -25
-			}
-			modifier = {
-				has_trait = humble
-				add = -25
-			}
-		}
-	}
-
-	# Option B: just shut up!
-	option = {
-		name = ep3_emperor_yearly.2240.b
-		add_dread = minor_dread_gain
-		change_influence = minor_influence_gain
-		scope:the_scholar = {
-			change_influence = medium_influence_loss
-			pay_short_term_gold = {
-				target = root
-				gold = minor_gold_value
-			}
-			add_opinion = {
-				target = root
-				modifier = hurt_opinion
-				opinion = -25
-			}
-		}
-		stress_impact = {
-			base = medium_stress_impact_loss
-			humble = major_stress_impact_gain
-			calm = major_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_vengefulness = 1
-			}
-			modifier = {
-				has_trait = humble
-				add = -25
-			}
-			modifier = {
-				has_trait = calm
-				add = -25
-			}
-			modifier = {
-				scope:the_scholar.dynasty ?= root.dynasty
-				add = -75
-			}
-			modifier = {
-				scope:the_scholar = { is_heir_of = root }
-				factor = 0
-			}
-		}
-	}
-
-	# Option C: ignore - opt-out
-	option = {
-		name = ep3_emperor_yearly.2240.c
-		stress_impact = {
-			base = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_energy = -1
-			}
-		}
-	}
-}
+#scripted_trigger ep3_valid_greek_culture_trigger = {
+#	OR = {
+#		has_cultural_pillar = heritage_byzantine
+#		has_cultural_pillar = heritage_caucasian
+#		this = culture:greek
+#		any_parent_culture_or_above = { this = culture:greek }
+#	}
+#}
+#
+#scripted_trigger ep3_2240_valid_courtier_trigger = {
+#	culture = { ep3_valid_greek_culture_trigger = yes }
+#	learning >= 10
+#	OR = {
+#		has_trait = education_learning_1
+#		has_trait = education_learning_2
+#		has_trait = education_learning_3
+#	}
+#	knows_language = language_greek
+#	OR = {
+#		has_trait = arrogant
+#		has_trait = eccentric
+#		has_trait = gregarious
+#	}
+#	is_of_major_or_minor_interest_trigger = { CHARACTER = root } 
+#}
+#
+#ep3_emperor_yearly.2240 = {
+#	type = character_event
+#	title = ep3_emperor_yearly.2240.t
+#	desc = {
+#		random_valid = {
+#			desc = ep3_emperor_yearly.2240.desc_quote_a
+#			desc = ep3_emperor_yearly.2240.desc_quote_b
+#			desc = ep3_emperor_yearly.2240.desc_quote_c
+#			triggered_desc = {
+#				trigger = {
+#					scope:the_scholar = { knows_language = language_latin }
+#				}
+#				desc = ep3_emperor_yearly.2240.desc_quote_latin
+#			}
+#		}
+#		desc = ep3_emperor_yearly.2240.desc_outro
+#	}
+#	theme = learning
+#	override_background = { reference = ep3_medi_market }
+#	left_portrait = {
+#		character = root
+#		animation = rage
+#	}
+#	right_portrait = {
+#		character = scope:the_scholar
+#		animation = debating
+#	}
+#	cooldown = { years = 25 }
+#
+#	trigger = {
+#		has_ep3_dlc_trigger = yes
+#		is_landed_or_landless_administrative = yes
+#		government_allows = administrative
+#		culture = {
+#			ep3_valid_greek_culture_trigger = yes
+#		}	
+#		any_courtier_or_guest = {
+#			ep3_2240_valid_courtier_trigger = yes
+#		}		
+#	}
+#
+#	weight_multiplier = {
+#		base = 1
+#		modifier = {
+#			culture = culture:greek
+#			add = 1
+#		}
+#		modifier = {
+#			any_courtier_or_guest = {
+#				ep3_2240_valid_courtier_trigger = yes
+#				knows_language = language_latin
+#			}
+#			add = 1
+#		}
+#		modifier = {
+#			any_courtier_or_guest = {
+#				ep3_2240_valid_courtier_trigger = yes
+#				is_of_major_interest_trigger = { CHARACTER = root }
+#			}
+#			add = 1
+#		}
+#	}
+#
+#	immediate = {
+#		random_courtier_or_guest = {
+#			limit = {
+#				ep3_2240_valid_courtier_trigger = yes
+#			}
+#			weight = {
+#				base = 1
+#				modifier = { 
+#					add = 3
+#					knows_language = language_latin
+#				}
+#				modifier = { 
+#					add = 2
+#					is_of_major_interest_trigger = { CHARACTER = root }
+#				}
+#			}
+#			save_scope_as = the_scholar
+#		}
+#	}
+#
+#	# Option A: outwit
+#	option = {
+#		name = ep3_emperor_yearly.2240.a
+#		flavor = ep3_emperor_yearly.2240.a.flavor
+#		duel = {
+#			skill = learning
+#			target = scope:the_scholar
+#			60 = {
+#				compare_modifier = {
+#					value = scope:duel_value
+#					multiplier = 3.5
+#					min = -49
+#				}
+#				desc = ep3_emperor_yearly.2240.a_success
+#				send_interface_toast = {
+#					title = ep3_emperor_yearly.2240.a_success.tt
+#					left_icon = root
+#					right_icon = scope:the_scholar
+#					change_influence = massive_influence_gain
+#					scope:the_scholar = { change_influence = major_influence_loss }
+#				}
+#			}
+#			40 = {
+#				compare_modifier = {
+#					value = scope:duel_value
+#					multiplier = -3.5
+#					min = -49
+#				}
+#				desc = ep3_emperor_yearly.2240.a_failure
+#				send_interface_toast = {
+#					title = ep3_emperor_yearly.2240.a_failure.tt
+#					left_icon = root
+#					right_icon = scope:the_scholar
+#					change_influence = major_influence_loss
+#					scope:the_scholar = { change_influence = massive_influence_gain }
+#				}
+#			}
+#		}
+#		stress_impact = {
+#			dull = major_stress_impact_gain
+#			shy = medium_stress_impact_gain
+#			humble = medium_stress_impact_gain
+#			lazy = minor_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_rationality = 1
+#			}
+#			modifier = {
+#				has_trait = dull
+#				add = -50
+#			}
+#			modifier = {
+#				has_trait = shy
+#				add = -25
+#			}
+#			modifier = {
+#				has_trait = humble
+#				add = -25
+#			}
+#		}
+#	}
+#
+#	# Option B: just shut up!
+#	option = {
+#		name = ep3_emperor_yearly.2240.b
+#		add_dread = minor_dread_gain
+#		change_influence = minor_influence_gain
+#		scope:the_scholar = {
+#			change_influence = medium_influence_loss
+#			pay_short_term_gold = {
+#				target = root
+#				gold = minor_gold_value
+#			}
+#			add_opinion = {
+#				target = root
+#				modifier = hurt_opinion
+#				opinion = -25
+#			}
+#		}
+#		stress_impact = {
+#			base = medium_stress_impact_loss
+#			humble = major_stress_impact_gain
+#			calm = major_stress_impact_gain
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_vengefulness = 1
+#			}
+#			modifier = {
+#				has_trait = humble
+#				add = -25
+#			}
+#			modifier = {
+#				has_trait = calm
+#				add = -25
+#			}
+#			modifier = {
+#				scope:the_scholar.dynasty ?= root.dynasty
+#				add = -75
+#			}
+#			modifier = {
+#				scope:the_scholar = { is_heir_of = root }
+#				factor = 0
+#			}
+#		}
+#	}
+#
+#	# Option C: ignore - opt-out
+#	option = {
+#		name = ep3_emperor_yearly.2240.c
+#		stress_impact = {
+#			base = minor_stress_impact_loss
+#		}
+#		ai_chance = {
+#			base = 100
+#			ai_value_modifier = {
+#				ai_energy = -1
+#			}
+#		}
+#	}
+#}
 
 ### STATE FAITH EVENTS ###
 

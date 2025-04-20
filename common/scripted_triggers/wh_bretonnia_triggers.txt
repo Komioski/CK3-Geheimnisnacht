@@ -17,6 +17,8 @@ wh_bret_knight = {
 	}
 }
 
+#Bretonnian Knightly Virtues
+
 wh_bret_capable_audacity = {
 	OR = {
 		culture = culture:parravonese
@@ -217,8 +219,13 @@ wh_bret_crossbow = {
 		has_cultural_pillar = heritage_bretonnian
 		has_innovation = innovation_advanced_bowmaking
 		NOT = {
-			has_doctrine_parameter = knightly_virtues_active
+			
 			has_cultural_parameter = unlock_maa_herrimault
+		}
+	}
+	faith = { 
+		NOT = {
+			has_doctrine_parameter = knightly_virtues_active 
 		}
 	}
 }
@@ -263,4 +270,21 @@ wh_has_dynasty_with_both_parents_trigger = {
             dynasty = yes
         }
     }
+}
+
+#Bretonnia Dynasty Legacy
+
+eligible_for_wh_bretonnia_legacy_trigger = {
+	dynasty = {
+		OR = {
+			dynast = {
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_bretonnian
+					}
+				}
+			}
+			has_dynasty_perk = wh_bretonnia_legacy_1
+		}
+	}
 }
