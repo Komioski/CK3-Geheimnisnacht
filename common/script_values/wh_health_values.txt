@@ -17,3 +17,88 @@ tombrot_max_recovery_time = 150
 
 eyerot_min_recovery_time = minimum_recovery_time
 eyerot_max_recovery_time = 150
+
+flaming_vomit_min_recovery_time = minimum_recovery_time
+flaming_vomit_max_recovery_time = 150
+
+creeping_buboes_min_recovery_time = minimum_recovery_time
+creeping_buboes_max_recovery_time = 150
+
+morrsgrippe_min_recovery_time = minimum_recovery_time
+morrsgrippe_max_recovery_time = 150
+
+wyrdgrippe_min_recovery_time = minimum_recovery_time
+wyrdgrippe_max_recovery_time = 150
+
+#deaths_breath_min_recovery_time = minimum_recovery_time
+#deaths_breath_max_recovery_time = 150
+
+galloping_consumption_min_recovery_time = minimum_recovery_time
+galloping_consumption_max_recovery_time = 150
+
+#grey_ague_min_recovery_time = minimum_recovery_time
+#grey_ague_max_recovery_time = 150
+
+neuepocken_min_recovery_time = minimum_recovery_time
+neuepocken_max_recovery_time = 150
+
+#nurgle_disfiguring_disease_min_recovery_time = minimum_recovery_time
+#nurgle_disfiguring_disease_max_recovery_time = 150
+
+brown_pox_min_recovery_time = minimum_recovery_time
+brown_pox_max_recovery_time = 150
+
+foot_warts_min_recovery_time = minimum_recovery_time
+foot_warts_max_recovery_time = 150
+
+kruts_min_recovery_time = minimum_recovery_time
+kruts_max_recovery_time = 150
+
+ratte_fever_min_recovery_time = {
+        value = minimum_recovery_time
+        add = 69
+}
+ratte_fever_max_recovery_time = 365
+
+weevil_cough_min_recovery_time = minimum_recovery_time
+weevil_cough_max_recovery_time = 150
+
+ochre_pox_min_recovery_time = minimum_recovery_time
+ochre_pox_max_recovery_time = 150
+
+red_pox_min_recovery_time = minimum_recovery_time
+red_pox_max_recovery_time = 150
+
+reikworm_min_recovery_time = minimum_recovery_time
+reikworm_max_recovery_time = 150
+
+neiglish_rot_min_recovery_time = minimum_recovery_time
+neiglish_rot_max_recovery_time = 150
+
+itching_pox_min_recovery_time = minimum_recovery_time
+itching_pox_max_recovery_time = 150
+
+wasting_sickness_min_recovery_time = minimum_recovery_time
+wasting_sickness_max_recovery_time = 150
+
+
+###CONTAGION###
+Kruts_contagion_min = 15
+Kruts_contagion_max = 45
+
+#################
+#	Weight
+################
+
+character_weight_base_value = {
+        # DISEASE
+        if = {
+                limit = {
+                          has_trait = wasting_sickness
+                }
+                add = -200
+        }
+
+
+
+}

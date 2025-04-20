@@ -107,3 +107,744 @@ eyerot = {
 
 	ai_energy = -75
 }
+
+flaming_vomit = { 
+	diplomacy = -2
+	martial = -4
+	intrigue = -6
+	prowess = -20
+	health = -4
+	elderly_health = -2
+	fertility = -0.25
+
+	category = health
+
+	dread_baseline_add = -50
+	dread_loss_mult = 0.5	
+
+	attraction_opinion = -10
+
+	ruler_designer_cost = -20
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_flaming_vomit_desc
+			}
+			desc = trait_flaming_vomit_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
+
+creeping_buboes = { 
+	diplomacy = -5
+	martial = -8
+	stewardship = -1
+	intrigue = -2
+	learning = -2
+	prowess = -15
+	health = -5
+	fertility = -0.15
+
+	category = health
+
+	dread_baseline_add = -25
+	dread_loss_mult = 0.5
+
+	attraction_opinion = -30
+	general_opinion = -15	
+
+	ruler_designer_cost = -20
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_creeping_buboes_desc
+			}
+			desc = trait_creeping_buboes_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
+
+morrsgrippe = {
+	inherit_chance = 10
+	diplomacy = -1
+	health = -2
+	elderly_health = -1
+	fertility = -0.20
+
+	category = health
+
+	dread_baseline_add = 15
+	dread_loss_mult = -0.2
+
+	general_opinion = -15
+	stress_gain_mult = 0.2
+
+	ruler_designer_cost = -10
+
+	flag = illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_morrsgrippe_desc
+			}
+			desc = trait_morrsgrippe_character_desc
+		}
+	}
+
+	ai_energy = -25
+}
+
+wyrdgrippe = {
+	inherit_chance = 20
+	diplomacy = -2
+	health = -3
+	elderly_health = -1
+	fertility = -0.40
+
+	category = health
+
+	dread_baseline_add = 30
+	dread_loss_mult = -0.4
+
+	general_opinion = -30
+	stress_gain_mult = 0.4
+
+	ruler_designer_cost = -10
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_wyrdgrippe_desc
+			}
+			desc = trait_wyrdgrippe_character_desc
+		}
+	}
+
+	ai_energy = -25
+}
+
+deaths_breath = { # only contractable in old tombs, incurable
+	diplomacy = -2
+	stewardship = -1
+	intrigue = -2
+	prowess = -2
+	health = -2
+	child_health = -1
+	elderly_health = -2
+
+	category = health
+
+	dread_baseline_add = -10
+	dread_loss_mult = 1
+
+	attraction_opinion = -10
+
+	ruler_designer_cost = 0
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_deaths_breath_desc
+			}
+			desc = trait_deaths_breath_character_desc
+		}
+	}
+
+	ai_energy = -50
+}
+
+galloping_consumption = { #tuberculosis squared
+	diplomacy = -4
+	stewardship = -2
+	intrigue = -4
+	prowess = -4
+	health = -6
+	child_health = -2
+	elderly_health = -4
+
+	category = health
+
+	dread_baseline_add = -20
+	dread_loss_mult = 1
+
+	attraction_opinion = -20
+
+	ruler_designer_cost = 0
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_galloping_consumption_desc
+			}
+			desc = trait_galloping_consumption_character_desc
+		}
+	}
+
+	ai_energy = -50
+}
+
+grey_ague = { #skaven scam, should only be curable if the player decides to take a decision to go to a skilled apothecary
+	diplomacy = -2
+	stewardship = -2
+	intrigue = -2
+	prowess = -2
+	health = -0.20
+
+	category = health
+	
+	monthly_income_mult = -0.2
+
+	dread_baseline_add = -10
+	dread_loss_mult = 0.5
+
+	attraction_opinion = -10
+
+	ruler_designer_cost = 0
+
+	flag = illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_grey_ague_desc
+			}
+			desc = trait_grey_ague_character_desc
+		}
+	}
+
+	ai_energy = -50
+}
+
+neuepocken = { #Skinkphyhilis
+	inherit_chance = 10
+
+	diplomacy = -2
+	martial = -1
+	intrigue = -1
+	health = -1
+	fertility = -0.4
+
+	monthly_prestige_gain_mult = -0.1
+
+	category = health
+
+	dread_baseline_add = -40
+	dread_loss_mult = 1
+
+	attraction_opinion = -30
+	general_opinion = -30
+
+	ruler_designer_cost = -10
+
+	flag = illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_neuepocken_desc
+			}
+			desc = trait_neuepocken_character_desc
+		}
+	}
+
+	ai_energy = -15
+}
+
+nurgle_disfiguring_disease = { #needs an event where you either die, or join nurgle
+	
+	diplomacy = -6
+	stewardship = -6
+	intrigue = -6
+	learning = -6
+	health = +6
+	fertility = -10
+	prowess = 20
+
+	category = health
+
+	dread_baseline_add = 60
+
+	attraction_opinion = -30
+	general_opinion = -60
+
+	ruler_designer_cost = +20
+
+	flag = illness
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_nurgle_disfiguring_disease_desc
+			}
+			desc = trait_nurgle_disfiguring_disease_character_desc
+		}
+	}
+
+	ai_energy = -15
+}
+
+brown_pox = { # its essentially, weaker creeping buboes, just, more embarassing
+	diplomacy = -6
+	martial = -2
+	intrigue = -4
+	prowess = -5
+	health = -0.5
+
+	monthly_prestige_gain_mult = -0.2
+
+	category = health
+
+	dread_baseline_add = -40
+	dread_loss_mult = 0.5
+
+	attraction_opinion = -30
+	general_opinion = -20
+	
+
+	ruler_designer_cost = -20
+
+	flag = illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_brown_pox_desc
+			}
+			desc = trait_brown_pox_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
+
+foot_warts = { # affects the feet
+	diplomacy = -2
+	stewardship = -2
+	martial = -6
+	intrigue = -2
+	learning = -2
+	prowess = -20
+	health = -2
+
+	stress_gain_mult = 0.8
+	character_travel_speed_mult = -0.2
+
+	category = health
+
+	dread_baseline_add = -20
+	dread_loss_mult = 0.5
+
+	attraction_opinion = -15
+	
+
+	ruler_designer_cost = -10
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_foot_warts_desc
+			}
+			desc = trait_foot_warts_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
+
+kruts = { #its not a sexual disease, but, it being embarassing and painful in the crotch, it should affect reproduction
+	diplomacy = -4
+	intrigue = -2
+	health = -0.2
+	stress_gain_mult = 0.2
+	prestige_gain_mult = -0.2
+	fertility = -0.4	
+
+	category = health
+	
+	dread_baseline_add = -20
+	dread_loss_mult = 0.5
+
+	attraction_opinion = -15
+	general_opinion = -15
+
+	ruler_designer_cost = -15
+
+	flag = illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_kruts_desc
+			}
+			desc = trait_kruts_character_desc
+		}
+	}
+
+	ai_energy = -75
+
+}
+
+ratte_fever = { #skaven rabies
+	diplomacy = -6
+	stewardship = -6
+	intrigue = -8
+	martial = -6
+	learning = -8
+	stress_gain_mult = 2
+	health = -0.5	
+
+	category = health	
+
+	dread_baseline_add = 20
+
+	attraction_opinion = -15
+	
+	ruler_designer_cost = -15
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_ratte_fever_desc
+			}
+			desc = trait_ratte_fever_character_desc
+		}
+	}
+
+	ai_energy = -75
+
+}
+
+weevil_cough = {
+
+	diplomacy = -2
+	stewardship = -2
+	martial = -2
+	intrigue = -2
+	learning = -2
+	health = -3
+	elderly_health = -2
+	prowess = -8
+	fertility = -0.5
+
+	category = health
+
+	dread_baseline_add = -10
+	dread_loss_mult = 1
+
+	ruler_designer_cost = 0
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_weevil_cough_desc
+			}
+			desc = trait_weevil_cough_character_desc
+		}
+	}
+
+	ai_energy = -50
+}
+
+
+ochre_pox = {
+	diplomacy = -2
+	stewardship = -1
+	learning = -2
+	prowess = -10
+	health = -4
+	elderly_health = -1.5
+	fertility = -0.25
+
+	category = health
+
+	dread_baseline_add = -30
+	dread_loss_mult = 1
+
+	attraction_opinion = -20
+
+	ruler_designer_cost = 0
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_ochre_pox_desc
+			}
+			desc = trait_ochre_pox_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
+
+red_pox = {
+	diplomacy = -4
+	stewardship = -2
+	learning = -4
+	prowess = -20
+	health = -6
+	elderly_health = -1
+	fertility = -0.5
+
+	category = health
+
+	dread_baseline_add = -60
+	dread_loss_mult = 1
+
+	attraction_opinion = -40
+
+	ruler_designer_cost = 0
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_red_pox_desc
+			}
+			desc = trait_red_pox_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
+
+reikworm = {
+	prowess = -4
+	stress_gain_mult = 0.2
+	health = -2
+	
+	dread_baseline_add = -15
+	dread_loss_mult = 0.5
+
+	category = health
+	
+	ruler_designer_cost = 0
+	
+	flag = illness
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_reikworm_desc
+			}
+			desc = trait_reikworm_character_desc
+		}
+	}
+
+	ai_energy = -75
+
+}
+
+neiglish_rot = {
+	diplomacy = -2
+	martial = -3
+	stewardship = -2
+	intrigue = -3
+	learning = -2
+	prowess = -10
+	health = -4
+	elderly_health = -2
+	fertility = -0.50
+
+	stress_gain_mult = 1
+
+	category = health
+
+	dread_baseline_add = -30
+	dread_loss_mult = 1
+
+	attraction_opinion = -30
+
+	shown_in_ruler_designer = no
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_neiglish_rot_desc
+			}
+			desc = trait_neiglish_rot_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
+
+itching_pox = {
+	diplomacy = -1
+	stewardship = -1
+	intrigue = -1
+	learning = -4
+	prowess = -4
+	health = -0.2
+	child_health = -2
+
+	category = health
+
+	dread_baseline_add = -5
+
+	attraction_opinion = -10
+
+	ruler_designer_cost = 0
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_itching_pox_desc
+			}
+			desc = trait_itching_pox_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
+
+wasting_sickness = {
+	diplomacy = -6
+	stewardship = -6
+	intrigue = -6
+	prowess = -4
+	learning = -10
+
+	health = -1
+	stress_gain_mult = 1
+	
+	category = health
+
+	dread_baseline_add = 60
+	general_opinion = -50
+	county_opinion_add = -30
+	
+
+	flag = illness
+	flag = debilitating_illness
+	flag = blocks_getting_non_epidemic_disease
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_wasting_sickness_desc
+			}
+			desc = trait_wasting_sickness_character_desc
+		}
+	}
+
+	ai_energy = -75
+}
