@@ -1,4 +1,4 @@
-#max_provinces = 1466
+﻿#max_provinces = 3939
 definitions = "definition.csv"
 provinces = "provinces.png"
 #positions = "positions.txt"
@@ -21,6 +21,7 @@ sea_zones = RANGE { 2596 2602 }
 sea_zones = RANGE { 2611 2621 }
 sea_zones = RANGE { 2641 2649 }
 sea_zones = RANGE { 3124 3199 }
+sea_zones = RANGE { 3930 3939 }
 
 ###############
 # MAJOR RIVERS
@@ -50,7 +51,8 @@ river_provinces = RANGE { 2630 2634 } #BRIENNE_RIVER
 river_provinces = LIST { 2635 } #NIVEAU_RIVER
 river_provinces = RANGE { 2636 2640 }  #Drakfljot and Lake Ladoga
 river_provinces = LIST { 3200 } #RIVER TREBLECZ
-river_provinces = RANGE { 3201 3203 } #RIVER STARNEK
+river_provinces = LIST { 3201 } #RIVER STARNEK
+river_provinces = RANGE { 3202 3203 } #SKULL RIVER
 river_provinces = LIST { 3204 } #BLOOD RIVER
 river_provinces = LIST { 3205 } #HOWLING RIVER
 
@@ -82,7 +84,7 @@ impassable_mountains = RANGE { 1776 1837 }
 impassable_mountains = RANGE { 2352 2595 }
 impassable_mountains = RANGE { 2741 2794 }
 impassable_mountains = RANGE { 3206 3705 }
-impassable_mountains = LIST { 893 894 1169 1640 2609 2888 2945 570 569 568 3757 3806 3807 3808 3809 3810 3811 }
+impassable_mountains = LIST { 893 894 1169 1640 2609 2888 2945 570 569 568 3713 3733 3830 3845 3863 }
 ############
 # WASTELAND
 ############
@@ -96,5 +98,5 @@ impassable_mountains = LIST { 893 894 1169 1640 2609 2888 2945 570 569 568 3757 
 # These provinces cause issues because they are passable land, but not part of any title.
 # They are probably not visible anywhere on the map, so feel free to reuse them (after double checking that they are actually missing).
 
-impassable_mountains = RANGE { 3707 3805 }
+impassable_mountains = RANGE { 3707 3912 }
 impassable_mountains = LIST { 35 115 709 }
