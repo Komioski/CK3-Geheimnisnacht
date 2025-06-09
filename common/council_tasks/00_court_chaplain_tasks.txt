@@ -5,6 +5,13 @@
 	task_type = task_type_general
 	task_progress = task_progress_infinite
 
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_religious_relations.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
 	effect_desc = {
 		### Piety tooltip
 		desc = task_religious_relations_piety_effect_desc
@@ -196,6 +203,13 @@ task_conversion = {
 	task_progress = task_progress_percentage
 	highlight_own_realm = yes
 
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_conversion.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
+
 	effect_desc = {
 		desc = task_conversion_effect_desc
 		triggered_desc = {
@@ -284,17 +298,17 @@ task_conversion = {
 		add = court_chaplain_conversion_contextual_bonuses
 		
 		# Faster conversion for certain special doctrines
-		#if = {
-		#	limit = {
-		#		scope:councillor_liege.faith = { has_doctrine_parameter = adoptionists_attractively_intuitive_theology }
-		#		exists = scope:county
-		#		scope:county.faith.religion = religion:christianity_religion
-		#	}
-		#	add = {
-		#		value = fp2_lyonese_monk_conversion_bonus_actual_value
-		#		desc = fp2_lyonese_monk_faith_conversion_task_desc
-		#	}
-		#}
+		if = {
+			limit = {
+				scope:councillor_liege.faith = { has_doctrine_parameter = adoptionists_attractively_intuitive_theology }
+				exists = scope:county
+				scope:county.faith.religion = religion:christianity_religion
+			}
+			add = {
+				value = fp2_lyonese_monk_conversion_bonus_actual_value
+				desc = fp2_lyonese_monk_faith_conversion_task_desc
+			}
+		}
 
 		# Development reduces the speed. Should be the last non-multiply modifier applied to avoid negative values
 		if = {
@@ -323,94 +337,131 @@ task_conversion = {
 		}
 		
 		# Faster conversion for FP2 Hostility ending, if county is in Iberia and faith was involved
-		#if = {
-		#	limit = {
-		#		exists = scope:councillor.liege.house
-		#		scope:councillor.liege.house = {
-		#			OR = {
-		#				has_house_modifier = fp2_struggle_hostility_house_faith_modifier
-		#				has_house_modifier = fp2_struggle_hostility_house_combined_modifier
-		#			}
-		#		}
-		#		any_in_global_list = {
-		#			variable = fp2_struggle_ending_faith_list
-		#			this = scope:county.faith
-		#		}
-		#		scope:county.title_province = { geographical_region = world_europe_west_iberia }
-		#	}
-		#	multiply = {
-		#		value = fp2_struggle_hostility_conversion_value
-		#		desc = fp2_struggle_hostility_faith_conversion_task_desc
-		#	}
-		#}
+		if = {
+			limit = {
+				exists = scope:councillor.liege.house
+				scope:councillor.liege.house = {
+					OR = {
+						has_house_modifier = fp2_struggle_hostility_house_faith_modifier
+						has_house_modifier = fp2_struggle_hostility_house_combined_modifier
+					}
+				}
+				any_in_global_list = {
+					variable = fp2_struggle_ending_faith_list
+					this = scope:county.faith
+				}
+				scope:county.title_province = { geographical_region = world_europe_west_iberia }
+			}
+			multiply = {
+				value = fp2_struggle_hostility_conversion_value
+				desc = fp2_struggle_hostility_faith_conversion_task_desc
+			}
+		}
 		# Faster conversion of infidels for FP2 Council Toledo Conversion
-		#if = {
-		#	limit = {
-		#		scope:councillor.liege = { has_character_modifier = fp2_council_conversion_modifier }
-		#		NOT = { scope:county.religion = scope:councillor.liege.religion }
-		#	}
-		#	multiply = {
-		#		value = council_toledo_conversion_modifier_value
-		#		desc = council_toledo_conversion_task_desc
-		#	}
-		#}
+		if = {
+			limit = {
+				scope:councillor.liege = { has_character_modifier = fp2_council_conversion_modifier }
+				NOT = { scope:county.religion = scope:councillor.liege.religion }
+			}
+			multiply = {
+				value = council_toledo_conversion_modifier_value
+				desc = council_toledo_conversion_task_desc
+			}
+		}
 		# Faster conversion of heretics for FP2 Council Toledo Heresies
-		#if = {
-		#	limit = {
-		#		scope:councillor.liege = { has_character_modifier = fp2_council_conversion_modifier }
-		#		scope:county.faith = {
-		#			religion = scope:councillor.liege.religion
-		#			fp2_struggle_faith_is_mozarabic_trigger = no
-		#			NOT = { exists = religious_head }
-		#		}
-		#	}
-		#	multiply = {
-		#		value = council_toledo_conversion_modifier_value
-		#		desc = council_toledo_heresies_task_desc
-		#	}
-		#}
+		if = {
+			limit = {
+				scope:councillor.liege = { has_character_modifier = fp2_council_conversion_modifier }
+				scope:county.faith = {
+					religion = scope:councillor.liege.religion
+					NOT = {
+						portrait_religious_faith_or_foundational_trigger = { FAITH = faith:mozarabic_church }
+					}
+					NOT = { exists = religious_head }
+				}
+			}
+			multiply = {
+				value = council_toledo_conversion_modifier_value
+				desc = council_toledo_heresies_task_desc
+			}
+		}
 
 		# Faster conversion of Persian counties with the FP3 Promote Persian Scripture decision
-		#if = {
-		#	limit = {
-		#		scope:councillor.liege = { 
-		#			has_character_modifier = fp3_promoted_persian_scripture_modifier 
-		#			is_ai = no #this is so that we don't get AI converting and homogenizing Persia too quickly
-		#		}
-		#		scope:county.culture = { has_cultural_pillar = heritage_iranian } 
-		#	}
-		#	multiply = {
-		#		value = promote_persian_scripture_conversion_modifier_value
-		#		desc = fp3_promote_persian_scripture_task_desc
-		#	}
-		#}
+		if = {
+			limit = {
+				scope:councillor.liege = { 
+					has_character_modifier = fp3_promoted_persian_scripture_modifier 
+					is_ai = no #this is so that we don't get AI converting and homogenizing Persia too quickly
+				}
+				scope:county.culture = { has_cultural_pillar = heritage_iranian } 
+			}
+			multiply = {
+				value = promote_persian_scripture_conversion_modifier_value
+				desc = fp3_promote_persian_scripture_task_desc
+			}
+		}
 
 		# FP3 faster conversion struggle ending rewards
-		#if = {
-		#	limit = {
-		#		exists = global_var:fp3_struggle_ending_assertion_school
-		#		switch = {
-		#			trigger = global_var:fp3_struggle_ending_assertion_school
-		#			flag:sunni = {
-		#				scope:councillor.liege.faith = { has_doctrine = muhammad_succession_sunni_doctrine }
-		#			}
-		#			flag:shia = {
-		#				scope:councillor.liege.faith = { has_doctrine = muhammad_succession_sunni_doctrine }
-		#			}
-		#			flag:muhakkima = {
-		#				scope:councillor.liege.faith = { has_doctrine = muhammad_succession_muhakkima_doctrine }
-		#			}
-		#			flag:zandaqa = {
-		#				scope:councillor.liege.faith = { has_doctrine = muhammad_succession_zandaqa_doctrine }
-		#			}
-		#		}
-		#	}
-		#	multiply = {
-		#		value = fp3_struggle_ending_conversion_modifier_value
-		#		desc = fp3_struggle_ending_conversion_modifier_desc
-		#	}
-		#}
-
+		if = {
+			limit = {
+				exists = global_var:fp3_struggle_ending_assertion_school
+				switch = {
+					trigger = global_var:fp3_struggle_ending_assertion_school
+					flag:sunni = {
+						scope:councillor.liege.faith = { has_doctrine = muhammad_succession_sunni_doctrine }
+					}
+					flag:shia = {
+						scope:councillor.liege.faith = { has_doctrine = muhammad_succession_shia_doctrine }
+					}
+					flag:muhakkima = {
+						scope:councillor.liege.faith = { has_doctrine = muhammad_succession_muhakkima_doctrine }
+					}
+					flag:zandaqa = {
+						scope:councillor.liege.faith = { has_doctrine = muhammad_succession_zandaqa_doctrine }
+					}
+				}
+			}
+			multiply = {
+				value = fp3_struggle_ending_conversion_modifier_value
+				desc = fp3_struggle_ending_conversion_modifier_desc
+			}
+		}
+		# Court events
+		if = {	#court.6010
+			limit = {
+				scope:councillor.liege = {
+					var:6010_harsh_conversion ?= scope:county.faith
+				}
+			}
+			multiply = {
+				value = 1.2
+				desc = court_6010_harsh_conversions
+			}
+		}
+		if = {	#court.6010
+			limit = {
+				scope:councillor.liege = {
+					var:6010_tolerant_conversion ?= scope:county.faith
+				}
+			}
+			multiply = {
+				value = 0.8
+				desc = court_6010_tolerant_conversions
+			}
+		}
+		# State Faith Boost
+		if = {
+			limit = {
+				scope:councillor.top_liege.primary_title.state_faith ?= {
+					NOT = { this = scope:county.faith }
+					this = scope:councillor.top_liege.faith
+				}
+			}
+			multiply = {
+				value = ep3_state_faith_conversion_mult_value
+				desc = ep3_convert_county_to_state_faith
+			}
+		}
 		
 		# Conversion speed game rules
 		if = {
@@ -449,33 +500,33 @@ task_conversion = {
 				desc = GAME_RULE_SIGNIFICANTLY_FASTER_REASON
 			}
 		}
-		#if = {
-		#	limit = {
-		#		exists = scope:county
-		#		OR = {
-		#			AND = {
-		#				scope:councillor.faith = { has_doctrine_parameter = unreformed_syncretic_actor_opinion_active }
-		#				scope:county.faith = { has_doctrine_parameter = unreformed }
-		#			}
-		#			AND = {
-		#				scope:councillor.faith = { has_doctrine_parameter = christian_syncretic_actor_opinion_active }
-		#				scope:county.faith = { religion_tag = christianity_religion }
-		#			}
-		#			AND = {
-		#				scope:councillor.faith = { has_doctrine_parameter = islamic_syncretic_actor_opinion_active }
-		#				scope:county.faith = { religion_tag = islam_religion }
-		#			}
-		#			AND = {
-		#				scope:councillor.faith = { has_doctrine_parameter = jewish_syncretic_actor_opinion_active }
-		#				scope:county.faith = { religion_tag = judaism_religion }
-		#			}
-		#		}
-		#	}
-		#	min = {
-		#		value = 0.1
-		#		desc = minimum_conversion
-		#	}
-		#}
+		if = {
+			limit = {
+				exists = scope:county
+				OR = {
+					AND = {
+						scope:councillor.faith = { has_doctrine_parameter = unreformed_syncretic_actor_opinion_active }
+						scope:county.faith = { has_doctrine_parameter = unreformed }
+					}
+					AND = {
+						scope:councillor.faith = { has_doctrine_parameter = christian_syncretic_actor_opinion_active }
+						scope:county.faith = { religion_tag = christianity_religion }
+					}
+					AND = {
+						scope:councillor.faith = { has_doctrine_parameter = islamic_syncretic_actor_opinion_active }
+						scope:county.faith = { religion_tag = islam_religion }
+					}
+					AND = {
+						scope:councillor.faith = { has_doctrine_parameter = jewish_syncretic_actor_opinion_active }
+						scope:county.faith = { religion_tag = judaism_religion }
+					}
+				}
+			}
+		}
+		min = {
+			value = 0.1
+			desc = minimum_conversion
+		}
 	}
 
 	potential_county = { 
@@ -543,6 +594,10 @@ task_conversion = {
 					}
 				}
 				OR = {
+					scope:councillor_liege = {
+						has_character_flag = vassal_directive_convert_faith
+						vassal_is_valid_and_follows_directive_trigger = { VASSAL = this LIEGE = liege }
+					}
 					scope:councillor_liege = { ai_zeal >= 50 }
 					scope:county.faith = { has_doctrine_parameter = unreformed }
 					scope:county = { # Always convert holy sites
@@ -568,6 +623,10 @@ task_conversion = {
 					}
 				}
 				OR = {
+					scope:councillor_liege = {
+						has_character_flag = vassal_directive_convert_faith
+						vassal_is_valid_and_follows_directive_trigger = { VASSAL = this LIEGE = liege }
+					}
 					scope:councillor_liege = { ai_zeal >= 100 }
 					scope:county = { # Always convert holy sites
 						any_county_province = {
@@ -598,6 +657,10 @@ task_conversion = {
 						}
 					}
 					OR = {
+						scope:councillor_liege = {
+							has_character_flag = vassal_directive_convert_faith
+							vassal_is_valid_and_follows_directive_trigger = { VASSAL = this LIEGE = liege }
+						}
 						scope:councillor_liege = { ai_zeal >= 50 }
 						scope:county = { county_opinion <= -20 }
 						scope:county = { # Always convert holy sites
@@ -616,6 +679,10 @@ task_conversion = {
 						}
 					}
 					OR = {
+						scope:councillor_liege = {
+							has_character_flag = vassal_directive_convert_faith
+							vassal_is_valid_and_follows_directive_trigger = { VASSAL = this LIEGE = liege }
+						}
 						scope:councillor_liege = { ai_zeal >= 0 }
 						scope:county = { county_opinion <= -10 }
 						scope:county = { # Always convert holy sites
@@ -629,6 +696,10 @@ task_conversion = {
 				}
 				trigger_else = {
 					OR = {
+						scope:councillor_liege = {
+							has_character_flag = vassal_directive_convert_faith
+							vassal_is_valid_and_follows_directive_trigger = { VASSAL = this LIEGE = liege }
+						}
 						scope:councillor_liege = { ai_zeal >= 10 }
 						scope:county = { county_opinion <= -15 }
 						scope:county = { # Always convert holy sites
@@ -642,55 +713,66 @@ task_conversion = {
 				}
 			}
 			# Ash'ari in Spain tend to not convert Muwhalladi often
-			#trigger_if = {
-			#	limit = {
-			#		scope:councillor_liege = {
-			#			is_ai = yes
-			#			faith = faith:ashari
-			#			capital_province ?= { geographical_region = world_europe_west_iberia }
-			#			scope:county.faith = faith:muwalladi
-			#		}
-			#		scope:county = {
-			#			title_province = { geographical_region = world_europe_west_iberia }
-			#		}
-			#	}
-			#	OR = {
-			#		scope:councillor_liege = { ai_zeal >= 50 }
-			#		scope:county = { county_opinion <= -20 }
-			#		scope:county = { # Always convert holy sites
-			#			any_county_province = {
-			#				barony = {
-			#					is_holy_site_of = scope:councillor_liege.faith
-			#				}
-			#			}
-			#		}
-			#	}
-			#}
+			trigger_if = {
+				limit = {
+					scope:councillor_liege = {
+						is_ai = yes
+						faith = faith:ashari
+						capital_province ?= { geographical_region = world_europe_west_iberia }
+						scope:county.faith = faith:muwalladi
+					}
+					scope:county = {
+						title_province = { geographical_region = world_europe_west_iberia }
+					}
+				}
+				OR = {
+					scope:councillor_liege = {
+						has_character_flag = vassal_directive_convert_faith
+						vassal_is_valid_and_follows_directive_trigger = { VASSAL = this LIEGE = liege }
+					}
+					scope:councillor_liege = { ai_zeal >= 50 }
+					scope:county = { county_opinion <= -20 }
+					scope:county = { # Always convert holy sites
+						any_county_province = {
+							barony = {
+								is_holy_site_of = scope:councillor_liege.faith
+							}
+						}
+					}
+				}
+			}
 			# If a ruler has Jizya tax, they'll only convert the same *religious family* when ai_zeal is really high, they're converting unreformed pagans, counties in a kingdom with a Holy Site, or others of the same religion
 			trigger_if = {
 				limit = {
 					scope:councillor_liege = {
 						is_ai = yes
 						faith = {
-							has_doctrine = tenet_tax_nonbelievers
+							OR = {
+								has_doctrine = tenet_tax_nonbelievers
+								has_doctrine = special_doctrine_jizya
+							}
 						}
 					}
-					#OR = {
-					#	AND = {
-					#		scope:councillor_liege.religion = { is_in_family = rf_pagan }
-					#		scope:county.religion = { is_in_family = rf_pagan }
-					#	}
-					#	AND = {
-					#		scope:councillor_liege.religion = { is_in_family = rf_eastern }
-					#		scope:county.religion = { is_in_family = rf_eastern }
-					#	}
-					#	AND = {
-					#		scope:councillor_liege.religion = { is_in_family = rf_abrahamic }
-					#		scope:county.religion = { is_in_family = rf_abrahamic }
-					#	}
-					#}
+					OR = {
+						AND = {
+							scope:councillor_liege.religion = { is_in_family = rf_pagan }
+							scope:county.religion = { is_in_family = rf_pagan }
+						}
+						AND = {
+							scope:councillor_liege.religion = { is_in_family = rf_eastern }
+							scope:county.religion = { is_in_family = rf_eastern }
+						}
+						AND = {
+							scope:councillor_liege.religion = { is_in_family = rf_abrahamic }
+							scope:county.religion = { is_in_family = rf_abrahamic }
+						}
+					}
 				}
 				OR = {
+					scope:councillor_liege = {
+						has_character_flag = vassal_directive_convert_faith
+						vassal_is_valid_and_follows_directive_trigger = { VASSAL = this LIEGE = liege }
+					}
 					scope:councillor_liege = { ai_zeal >= 50 }
 					scope:county.faith = { has_doctrine_parameter = unreformed }
 					scope:councillor_liege.faith = {
@@ -701,12 +783,12 @@ task_conversion = {
 						}
 					}
 					#scope:county.religion = scope:councillor_liege.religion # Excluded, as tax nonbelievers actually works for different faiths within the same religion
-					#AND = { # Islamic heartlands, to help fend off encroaching faiths
-					#	scope:councillor_liege.religion = religion:islam_religion
-					#	scope:county.title_province = {
-					#		geographical_region = islamic_heartlands
-					#	}
-					#}
+					AND = { # Islamic heartlands, to help fend off encroaching faiths
+						scope:councillor_liege.religion = religion:islam_religion
+						scope:county.title_province = {
+							geographical_region = islamic_heartlands
+						}
+					}
 				}
 			}
 			# Struggle phases may sometimes restrict targets for involved characters.
@@ -741,6 +823,42 @@ task_conversion = {
 		trigger_event = {
 			id = court_chaplain_task.8000
 			days = 2 # To ensure it fires after the halted message
+		}
+		#spawn a task contract to counter the missionary, if a nearby adventurer has the same faith as the county
+		if = {
+			limit = {
+				any_pool_character = {
+					province = scope:county.title_province
+					faith = scope:county.faith
+					is_adult = yes
+					save_temporary_scope_as = employer
+				}
+				any_ruler = {
+					is_landless_adventurer = yes
+					is_within_diplo_range = { CHARACTER = scope:councillor }
+					any_character_task_contract = {
+						has_task_contract_type = laamp_fight_faith_conversion_contract
+						count <= council_task_contracts_limit_value
+					}
+					NOT = {
+						any_task_contract = {
+							has_task_contract_type = laamp_fight_faith_conversion_contract
+							task_contract_location = scope:employer.location
+						}
+					}
+					save_temporary_scope_as = player_laamp
+				}
+			}
+			scope:player_laamp = {
+				create_task_contract = {
+					task_contract_type = laamp_fight_faith_conversion_contract
+					task_contract_tier = scope:employer.task_contract_tier_value
+					location = scope:county.title_province
+					task_contract_employer = scope:employer
+					target = scope:councillor
+					destination = scope:county.title_province
+				}
+			}
 		}
 	}
 
@@ -818,6 +936,17 @@ task_conversion = {
 			}
 			multiply = 0
 		}
+
+		# AI directive
+		if = {
+			limit = {
+				scope:councillor_liege = {
+					has_character_flag = vassal_directive_convert_faith
+					vassal_is_valid_and_follows_directive_trigger = { VASSAL = this LIEGE = liege }
+				}
+			}
+			add = 10000
+		}
 	}
 }
 
@@ -829,6 +958,13 @@ task_fabricate_claim = {
 	ai_county_target = neighbor_land
 	task_progress = task_progress_percentage
 	restart_on_finish = yes
+
+	asset = {
+		icon = "gfx/interface/icons/council_task_types/task_fabricate_claim.dds"
+		background = "gfx/interface/buttons/button_round_bg.dds"
+		frame = "gfx/interface/buttons/button_round_frame.dds"
+		glow = "gfx/particles/halo.dds"
+	}
 
 	effect_desc = {
 		desc = task_fabricate_claim_effect_desc
@@ -973,6 +1109,18 @@ task_fabricate_claim = {
 			}
 		}
 
+		if = { # Inspection Reward
+			limit = {
+				scope:councillor_liege = {
+					has_character_modifier = inspection_reward_focused_claims_modifier
+				}
+			}
+			add = {
+				value = scope:councillor.court_chaplain_fabricate_claim_inspection_reward_bonus
+				desc = FABRICATE_CLAIM_INSPECTION_BONUS
+			}
+		}
+
 		# Innovation Bonuses
 		if = {
 			limit = {
@@ -1026,21 +1174,33 @@ task_fabricate_claim = {
 			}
 		}
 		# Misc Bonuses
-		#if = { # FP3
-		#	limit = {
-		#		scope:councillor_liege = {
-		#			any_character_struggle = {
-		#				is_struggle_type = persian_struggle
-		#				is_struggle_phase = struggle_persia_phase_unrest
-		#			}
-		#		}
-		#	}
-		#	add = { # +25% of total
-		#		value = scope:councillor.court_chaplain_fabricate_claim_base_total
-		#		divide = 4
-		#		desc = FABRICATE_CLAIM_ANY_STRUGGLE_BONUS
-		#	}
-		#}
+		if = { # FP3
+			limit = {
+				scope:councillor_liege = {
+					any_character_struggle = {
+						is_struggle_type = persian_struggle
+						is_struggle_phase = struggle_persia_phase_unrest
+					}
+				}
+			}
+			add = { # +25% of total
+				value = scope:councillor.court_chaplain_fabricate_claim_base_total
+				divide = 4
+				desc = FABRICATE_CLAIM_ANY_STRUGGLE_BONUS
+			}
+		}
+		if = {
+			limit = {
+				scope:councillor_liege = {
+					has_title = title:c_byzantion
+					title:c_byzantion = { has_county_modifier = pandidakterion_university_modifier }
+				}
+			}
+			multiply = {
+				value = 1.3
+				desc = pandidakterion_university_modifier
+			}
+		}
 	}
 
 	potential_county = {
@@ -1052,6 +1212,41 @@ task_fabricate_claim = {
 				holder = scope:councillor_liege
 				scope:councillor_liege = {
 					has_claim_on = scope:county
+				}
+			}
+		}
+	}
+
+	on_start_task_county = {
+		#spawn a task contract to counter the missionary, if a nearby adventurer has the same faith as the county
+		if = {
+			limit = {
+				any_task_contract = {
+					has_task_contract_type = laamp_help_fabricate_claim_contract
+					NOT = {	task_contract_location = scope:county.title_province }
+				}
+				any_player = {
+					is_landless_adventurer = yes
+					is_within_diplo_range = { CHARACTER = scope:councillor }
+					any_character_task_contract = {
+						has_task_contract_type = laamp_help_fabricate_claim_contract
+						count <= council_task_contracts_limit_value
+					}
+					can_create_task_contract = {
+						type_name = laamp_help_fabricate_claim_contract
+						employer = scope:councillor
+					}
+					save_temporary_scope_as = player_laamp
+				}
+			}
+			scope:player_laamp = {
+				create_task_contract = {
+					task_contract_type = laamp_help_fabricate_claim_contract
+					task_contract_tier = scope:councillor.task_contract_tier_value
+					location = scope:county.title_province
+					task_contract_employer = scope:councillor
+					target = scope:county.holder
+					destination = scope:county.title_province
 				}
 			}
 		}
@@ -1240,7 +1435,10 @@ task_fabricate_claim = {
 						NOR = {
 							is_allied_to = prev
 							has_truce = prev
+							has_relation_friend = prev
+							has_relation_lover = prev
 						}
+						current_military_strength > prev.current_military_strength
 						has_any_cb_on = prev
 					}			
 				}
@@ -1252,62 +1450,62 @@ task_fabricate_claim = {
 		}
 
 		# Agenda impact
-		#if = {
-		#	limit = {
-		#		any_character_struggle = {
-		#			involvement = involved
-		#			is_struggle_type = iberian_struggle
-		#		}
-		#	}
-		#	add = {
-		#		value = 0
-		#		if = {
-		#			limit = {
-		#				any_character_struggle = {
-		#					phase_has_catalyst = catalyst_gain_claim_on_title_fp2
-		#				}
-		#				has_character_flag = agenda_towards_escalation
-		#			}
-		#			add = 200
-		#		}
-		#		else_if = {
-		#			limit = {
-		#				any_character_struggle = {
-		#					phase_has_catalyst = catalyst_gain_claim_on_title_fp2
-		#				}
-		#			}
-		#			add = -100
-		#		}
-		#	}
-		#}
+		if = {
+			limit = {
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = iberian_struggle
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						any_character_struggle = {
+							phase_has_catalyst = catalyst_gain_claim_on_title_fp2
+						}
+						has_character_flag = agenda_towards_escalation
+					}
+					add = 200
+				}
+				else_if = {
+					limit = {
+						any_character_struggle = {
+							phase_has_catalyst = catalyst_gain_claim_on_title_fp2
+						}
+					}
+					add = -100
+				}
+			}
+		}
 
-		#if = {
-		#	limit = {
-		#		any_character_struggle = {
-		#			involvement = involved
-		#			is_struggle_type = persian_struggle
-		#		}
-		#	}
-		#	add = {
-		#		value = 0
-		#		if = {
-		#			limit = {
-		#				any_character_struggle = {
-		#					phase_has_catalyst = catalyst_gain_claim_on_title_fp3
-		#				}
-		#				has_trait = fp3_struggle_detractor
-		#			}
-		#			add = 200
-		#		}
-		#		else_if = {
-		#			limit = {
-		#				any_character_struggle = {
-		#					phase_has_catalyst = catalyst_gain_claim_on_title_fp3
-		#				}
-		#			}
-		#			add = -100
-		#		}
-		#	}
-		#}
+		if = {
+			limit = {
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = persian_struggle
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						any_character_struggle = {
+							phase_has_catalyst = catalyst_gain_claim_on_title_fp3
+						}
+						has_trait = fp3_struggle_detractor
+					}
+					add = 200
+				}
+				else_if = {
+					limit = {
+						any_character_struggle = {
+							phase_has_catalyst = catalyst_gain_claim_on_title_fp3
+						}
+					}
+					add = -100
+				}
+			}
+		}
 	}
 }
