@@ -752,3 +752,22 @@ building_breweries_requirement = {
 		}
 	}
 }
+
+building_bretonnian_stable_requirement_terrain = {
+	OR = {
+		terrain = plains
+		terrain = farmlands
+		terrain = hills
+		terrain = steppe
+	}
+	# Bretonnian stables require good grazing land for superior horses
+}
+
+building_bretonnian_aerie_requirement_terrain = {
+	OR = {
+		terrain = mountains
+		terrain = desert_mountains
+		terrain = hills
+	}
+	# Aeries are built in elevated areas for flying units
+}
