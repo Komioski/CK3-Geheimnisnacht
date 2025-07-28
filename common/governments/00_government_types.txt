@@ -16,19 +16,7 @@ feudal_government = {
 	primary_holding = castle_holding
 	required_county_holdings = { castle_holding city_holding church_holding }
 
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		succession_rights
-		war_declaration_rights
-		council_rights
-		title_revocation_rights
-		jizya_special_rights
-	}
+	# vassal_contract removed - invalid syntax for CK3
 
 	ai = {
 		use_legends = yes
@@ -57,7 +45,7 @@ republic_government = {
 		use_legends = no
 	}
 
-	vassal_contract = { republic_government_obligations }
+	# vassal_contract removed - invalid syntax for CK3
 
 	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_republic
@@ -91,7 +79,7 @@ theocracy_government = {
 		}
 	}
 
-	vassal_contract = { theocracy_government_obligations }
+	# vassal_contract removed - invalid syntax for CK3
 
 	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_theocracy
