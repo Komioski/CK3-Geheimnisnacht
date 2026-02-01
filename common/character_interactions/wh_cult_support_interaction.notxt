@@ -1,0 +1,46 @@
+﻿wh_cult_support_interaction = {
+	category = interaction_category_vassal
+	desc = wh_seek_cult_support_desc
+	
+	auto_accept = yes
+	can_send_despite_rejection = yes
+
+	interface_priority = 90
+
+	is_shown = {
+		scope:actor = {
+			OR = {
+				is_empire_pretender = yes
+				# Should probably also include electors at some point and move to shared test.
+			}
+		}
+		scope:recipient = scope:recipient.faith.religious_head	
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			NOT = {
+				custom_description = {
+					text = "wh_cult_support_already"
+					object = scope:recipient
+					has_relation_empire_claimant = scope:actor
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			set_relation_cult_supporter = scope:recipient
+		}
+	}
+	
+	ai_potential = {
+		OR = {
+			is_empire_pretender = yes
+			# Should probably also include electors at some point.
+		}
+	}
+	
+	#ai_will_do = no
+}

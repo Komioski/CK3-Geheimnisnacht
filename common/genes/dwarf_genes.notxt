@@ -1,0 +1,83 @@
+﻿age_presets = {
+	age_preset_dwarf_race_mass = {
+		mode = multiply
+		curve = {
+			{ 0.0 0.15 }
+			{ 0.13 0.6 }
+			{ 0.20 1.0 }
+			{ 0.60 1.0 }
+			{ 1.0 0.65 }
+		}
+	}
+	age_preset_dwarf_race_proportions = {
+		mode = multiply
+		curve = {
+			{ 0.0 0.9 }
+			{ 0.9 0.7 }
+			{ 0.20 1.0 }
+			{ 0.70 1.0 }
+			{ 1.0 0.9 }
+		}
+	}
+}
+	
+	
+morph_genes = {
+
+	race_gene_dwarf_body = {
+		can_have_portrait_extremity_shift = no
+		inheritable = yes
+		default_1 = { 
+			index = 0
+			male = {}
+			female = male
+			boy = male
+			girl = male
+		}
+
+		dwarf_body = { 
+			index = 1
+			set_tags = "race_dwarf"
+			male = { 
+				setting = { attribute = "race_dwarf_body_proportions"	value = { min = 0.0 max = 1.0 }	age = age_preset_dwarf_race_proportions } 
+				setting = { attribute = "race_dwarf_head_proportions"	value = { min = 0.0 max = 1.0 }	age = age_preset_dwarf_race_proportions } 
+
+				setting = { attribute = "race_dwarf_body_bs"	value = { min = 0.0 max = 1.0 }	age = age_preset_dwarf_race_mass }  
+				setting = { attribute = "race_dwarf_head_bs"	value = { min = 0.0 max = 1.0 }	age = age_preset_dwarf_race_mass } 
+			}
+			#female = male
+			#boy = male
+			#girl = male
+		}
+	}
+
+
+	race_gene_dwarf_height = { 
+		default_1 = { 
+			index = 0
+			male = {}
+			female = male
+			boy = male
+			girl = male
+	}
+			dwarf_height = { 
+			index = 1
+			male = { 
+				setting = { attribute = "body_height" value = { min = -1.0 max = -0.4 } age = age_preset_height } 
+				#setting = { attribute = "head_body_height" value = { min = -1.0 max = -0.4 } age = age_preset_height }
+				setting = { attribute = "bs_dwarf_1"	value = { min = 0.0 max = 0.0 }  } 
+				setting = { attribute = "bs_body_dwarf_1"	value = { min = 0.0 max = 0.0 }  } 
+			}
+			female = male
+			boy = male
+			girl = male
+	}
+}
+
+}
+
+	
+	
+	
+
+

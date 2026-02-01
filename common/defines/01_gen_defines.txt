@@ -1,0 +1,48 @@
+﻿NGame = {
+	END_DATE = "7100.1.1"
+	GAME_SPEED_TICKS = {	# how many seconds should a day take in every game speed
+		2
+		1
+		0.5
+		0.2
+		0.0
+	}
+	LAG_DECREASE_SPEED_DAYS = 15	# how many days of client lag will cause a speed decrease
+	LAG_PAUSE_DAYS = 30				# how many days should pass will cause a pause
+
+	MULTIPLAYER_EVENT_TIME_OUT = 90 # how many days an event in multiplayer will be around before auto-selecting an option
+	COURT_EVENT_TIME_OUT = 180 # how many days a court event will be around before auto-selecting an option, applies to single and multi player
+
+	BENCHMARK_VIEWS_TEST_DURATION = 135				# How long, in seconds, should the benchmark test using "-benchmark" iterate over views before starting to test royal courts?
+	BENCHMARK_INTERFACE_INTERVAL = 5.0				# How long, in seconds, should the benchmark wait before changing the open UI window?
+	BENCHMARK_OBSERVE_CHARACTER = k_england			# Which character should be observed?
+
+	# Where should we pan the camera?
+	BENCHMARK_WAYPOINTS = {
+		# First number is x
+		# Second is y
+		# Third is zoom level
+		# Fourth is how much time to spend traveling between the waypoint and the next
+		700 3000 2 5
+		1000 2500 7 5
+		1000 2300 2 5
+		700 2000 5 1
+		1200 2000 30 1
+		1500 1800 7 5
+		1900 2200 5 5
+		1500 2400 7 5
+		2200 2700 7 5
+		2500 3500 2 4
+		1850 3700 2 4
+		1650 3200 2 1
+	}
+	MERIT_GUI_UPDATE_INTERVAL = 60 # How often the Merit Pool GUI is updated in frames 
+}
+
+
+NJominiMap = {
+	WORLD_EXTENTS_X = 8192
+	WORLD_EXTENTS_Y = 50
+	WORLD_EXTENTS_Z = 4096
+	WATERLEVEL = 3.6 ### 0.06 in 0-1, 19 in 0-255, use 11% HSB in Photoshop
+}

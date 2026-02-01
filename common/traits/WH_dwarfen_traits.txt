@@ -1,0 +1,399 @@
+﻿# beardling = {
+	# index = 501
+	# opposites = {
+		# #quarreller
+		# #thunderer
+		# dwarf_warrior
+		# longbeard
+		# #ironbreaker
+		# #hammerer
+		# greatbeard
+		# ancestor
+	# }
+	# martial = -1
+	# same_faith_opinion = -10
+	# opposite_opinion = -10
+	# same_opinion = 15
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_beardling_desc
+			# }
+			# desc = trait_beardling_character_desc
+		# }
+	# }
+	# minimum_age = 0
+	# maximum_age = 24
+
+	# group = dwarfen
+	# level = 1
+
+# }
+
+# dwarf_warrior = {
+	# index = 502
+	# opposites = {
+		# beardling
+		# #thunderer
+		# #quarreller
+		# #longbeard
+		# #ironbreaker
+		# #hammerer
+		# greatbeard
+		# ancestor
+	# }
+	# martial = 2
+	# monthly_prestige = 0.50
+	# prowess = 3
+	# same_opinion = 10
+	# same_faith_opinion = 10
+
+	# mountains_advantage = 4
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_dwarf_warrior_desc
+			# }
+			# desc = trait_dwarf_warrior_character_desc
+		# }
+	# }
+	# minimum_age = 25
+	# maximum_age = 119
+
+	# group = dwarfen
+	# level = 2
+# }
+
+# # quarreller = {
+# # 	index = 503
+# # 	opposites = {
+# # 		beardling
+# # 		thunderer
+# # 		longbeard
+# # 		ironbreaker
+# # 		hammerer
+# # 		greatbeard
+# # 		ancestor
+# # 	}
+# # 	martial = 1
+# # 	monthly_prestige = 0.50
+# # 	prowess = 5
+# # 	same_opinion = 10
+# # 	same_faith_opinion = 10
+# # 	mountains_advantage = 4
+# # 	desc = {
+# # 		first_valid = {
+# # 			triggered_desc = {
+# # 				trigger = {
+# # 					NOT = { exists = this }
+# # 				}
+# # 				desc = trait_quarreller_desc
+# # 			}
+# # 			desc = trait_quarreller_character_desc
+# # 		}
+# # 	}
+# # 	minimum_age = 25
+# # 	maximum_age = 119
+
+# # 	group = dwarfen
+# # 	level = 2
+# # }
+
+# # thunderer = {
+# # 	index = 504
+# # 	opposites = {
+# # 		beardling
+# # 		#quarreller
+# # 		longbeard
+# # 		#ironbreaker
+# # 		hammerer
+# # 		greatbeard
+# # 		ancestor
+# # 	}
+# # 	martial = 3
+# # 	monthly_prestige = 0.50
+# # 	prowess = 2
+# # 	same_opinion = 10
+# # 	same_faith_opinion = 10
+# # 	mountains_advantage = 4
+# # 	desc = {
+# # 		first_valid = {
+# # 			triggered_desc = {
+# # 				trigger = {
+# # 					NOT = { exists = this }
+# # 				}
+# # 				desc = trait_thunderer_desc
+# # 			}
+# # 			desc = trait_thunderer_character_desc
+# # 		}
+# # 	}
+# # 	minimum_age = 25
+# # 	maximum_age = 119
+
+# # 	group = dwarfen
+# # 	level = 2
+# # }
+
+# longbeard = {
+	# index = 505
+	# opposites = {
+		# beardling
+		# #quarreller
+		# #thunderer
+		# #ironbreaker
+		# #hammerer
+		# greatbeard
+		# ancestor
+		# dwarf_warrior
+	# }
+	# martial = 3
+	# prowess = 5
+	# monthly_prestige = 1.50
+	# same_opinion = 10
+	# same_faith_opinion = 20
+	# mountains_advantage = 4
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_longbeard_desc
+			# }
+			# desc = trait_longbeard_character_desc
+		# }
+	# }
+	# minimum_age = 120
+	# maximum_age = 174
+
+	# group = dwarfen
+	# level = 3
+# }
+
+# # ironbreaker = {
+# # 	index = 506
+# # 	opposites = {
+# # 		beardling
+# # 		quarreller
+# # 		thunderer
+# # 		longbeard
+# # 		hammerer
+# # 		greatbeard
+# # 		ancestor
+# # 	}
+# # 	martial = 4
+# # 	prowess = 3
+# # 	monthly_prestige = 1.50
+# # 	same_opinion = 10
+# # 	same_faith_opinion = 20
+# # 	mountains_advantage = 4
+# # 	desc = {
+# # 		first_valid = {
+# # 			triggered_desc = {
+# # 				trigger = {
+# # 					NOT = { exists = this }
+# # 				}
+# # 				desc = trait_ironbreaker_desc
+# # 			}
+# # 			desc = trait_ironbreaker_character_desc
+# # 		}
+# # 	}
+# # 	minimum_age = 120
+# # 	maximum_age = 174
+
+# # 	group = dwarfen
+# # 	level = 3
+# # }
+
+# #hammerer = {
+# # 	index = 507
+# # 	opposites = {
+# # 		beardling
+# # 		#quarreller
+# # 		thunderer
+# # 		longbeard
+# # 		#ironbreaker
+# # 		greatbeard
+# # 		ancestor
+# # 	}
+# # 	martial = 2
+# # 	prowess = 7
+# # 	monthly_prestige = 1.50
+# # 	same_opinion = 10
+# # 	same_faith_opinion = 20
+# # 	mountains_advantage = 4
+# # 	desc = {
+# # 		first_valid = {
+# # 			triggered_desc = {
+# # 				trigger = {
+# # 					NOT = { exists = this }
+# # 				}
+# # 				desc = trait_hammerer_desc
+# # 			}
+# # 			desc = trait_hammerer_character_desc
+# # 		}
+# # 	}
+# # 	minimum_age = 120
+# # 	maximum_age = 174
+
+# # 	group = dwarfen
+# # 	level = 3
+# # }
+
+# greatbeard = {
+	# index = 508
+	# opposites = {
+		# beardling
+		# #quarreller
+		# #thunderer
+		# longbeard
+		# #ironbreaker
+		# #hammerer
+		# ancestor
+		# dwarf_warrior
+	# }
+	# martial = 5
+	# prowess = 7
+	# monthly_prestige = 2.50
+	# same_opinion = 10
+	# same_faith_opinion = 30
+	# mountains_advantage = 4
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_greatbeard_desc
+			# }
+			# desc = trait_greatbeard_character_desc
+		# }
+	# }
+	# minimum_age = 175
+	# maximum_age = 249
+
+	# group = dwarfen
+	# level = 4
+# }
+
+# ancestor = {
+	# index = 509
+	# opposites = {
+		# beardling
+		# #quarreller
+		# #thunderer
+		# longbeard
+		# #ironbreaker
+		# #hammerer
+		# greatbeard
+		# dwarf_warrior
+	# }
+	# martial = 10
+	# prowess = 15
+	# monthly_prestige = 5
+	# same_opinion = 10
+	# same_faith_opinion = 40
+	# mountains_advantage = 4
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_ancestor_desc
+			# }
+			# desc = trait_ancestor_character_desc
+		# }
+	# }
+	# minimum_age = 250
+	# maximum_age = 1000
+
+	# group = dwarfen
+	# level = 5
+# }
+
+# slayer = {
+	# #index =
+	# opposites = {
+		# beardling
+		# #quarreller
+		# #thunderer
+		# longbeard
+		# #ironbreaker
+		# #hammerer
+		# greatbeard
+		# dwarf_warrior
+	# }
+	# martial = 2
+	# prowess = 5
+	# monthly_prestige = -1
+	# same_opinion = 10
+	# same_faith_opinion = -10
+	# mountains_advantage = 2
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_slayer_desc
+			# }
+			# desc = trait_slayer_character_desc
+		# }
+	# }
+
+# }
+
+# runesmith = {
+	# #index =
+	# opposites = {
+		# slayer
+		# runelord
+	# }
+	# learning = 1
+	# monthly_prestige = 0.5
+	# same_opinion = 10
+	# same_faith_opinion = 10
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_runesmith_desc
+			# }
+			# desc = trait_runesmith_character_desc
+		# }
+	# }
+
+# }
+
+# runelord = {
+	# #index =
+	# opposites = {
+		# slayer
+		# runesmith
+	# }
+	# learning = 2
+	# monthly_prestige = 1
+	# same_opinion = 10
+	# same_faith_opinion = 20
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_runelord_desc
+			# }
+			# desc = trait_runelord_character_desc
+		# }
+	# }
+
+# }

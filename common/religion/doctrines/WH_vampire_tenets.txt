@@ -1,0 +1,627 @@
+﻿doctrine_core_tenets = {
+	group = "core_tenets"
+	number_of_picks = 3
+	
+	tenet_vampires = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_vampires }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+			tenet_vampires_resistance = yes
+			increased_dynasty_prestige_long_reign_mult = 0.5
+			short_reign_duration_mult = 0.25
+			hostility_override_tenet_vampires = 1
+		}
+
+		traits = {
+			virtues = { ambitious }
+		}
+	}
+	
+	#############################
+	# Bloodline tenets			#
+	#############################
+	
+	tenet_carstein = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_carstein }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+			carstein_conversion_active = yes
+		}
+
+		traits = {
+			virtues = { ambitious }
+			sins = {}
+		}
+	}
+	
+	tenet_blood_dragon = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_blood_dragon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+			cheaper_holy_wars_active = yes
+		}
+
+		character_modifier = {
+			levy_reinforcement_rate_same_faith = 0.25
+		}
+
+		traits = {
+			virtues = { brave }
+			sins = { craven }
+		}
+	}
+	
+	tenet_lahmian = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_lahmian }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+			piety_gain_from_successful_intrigue_schemes = yes
+			adherents_more_likely_to_join_schemes = yes
+		}
+
+		character_modifier = {
+			attraction_opinion = 25
+		}
+
+		traits = {
+			virtues = { lustful gregarious }
+			sins = { chaste shy }
+		}
+	}
+	
+	tenet_strigoi = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_strigoi }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		
+		character_modifier = {
+			forest_advantage = 5
+			forest_attrition_mult = -0.3
+			wetlands_advantage = 5
+			wetlands_attrition_mult = -0.3
+			jungle_advantage = 5
+			jungle_attrition_mult = -0.3
+			hostile_scheme_resistance_mult = 0.25
+		}
+
+		traits = {
+			virtues = { just }
+			sins = { arbitrary }
+		}
+	}
+	
+	tenet_necrarch = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_necrarch }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		character_modifier = {
+			hostile_scheme_resistance_mult = 0.25
+			controlled_province_advantage = 10
+			fort_level = 2
+		}
+
+		traits = {
+			virtues = { paranoid }
+			sins = { trusting }
+		}
+	}
+	
+	tenet_jade = {
+		is_shown = {
+			OR = {
+				religion_tag = vampire_religion
+				religion_tag = cathay_religion
+			}
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_jade }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		traits = {
+			virtues = { 
+				lifestyle_mystic 
+				education_learning_3
+				education_learning_4
+				scholar 
+			}
+		}
+	}
+	
+	tenet_mahtmasi = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_mahtmasi }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		character_modifier = {
+			drylands_advantage = 5
+			desert_advantage = 5
+			desert_mountains_advantage = 5
+			oasis_advantage = 5
+			jungle_advantage = 5
+			jungle_cancel_negative_supply = yes
+			desert_cancel_negative_supply = yes
+		}
+
+		traits = {
+			virtues = { gluttonous }
+			sins = { temperate }
+		}
+	}
+	
+	#############################
+	# Clan tenets				#
+	#############################
+	
+	tenet_midnight_aristocracy = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_midnight_aristocracy }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		character_modifier = {
+			levy_reinforcement_rate_same_faith = 0.25
+			levy_size = 0.1
+		}
+
+		traits = {
+			virtues = { calm just }
+			sins = { arbitrary sadistic }
+		}
+	}
+	
+	tenet_blood_knights = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_blood_knights }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+			clergy_can_fight = yes
+			warmonger = yes
+		}
+
+		traits = {
+			virtues = { lifestyle_blademaster }
+			sins = {}
+		}
+	}
+	
+	tenet_sisterhood = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_sisterhood }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		character_modifier = {
+			owned_personal_scheme_success_chance_add = 15
+			owned_hostile_scheme_success_chance_add = 15
+		}
+
+		traits = {
+			virtues = { deceitful callous }
+			sins = { compassionate }
+		}
+	}
+	
+	tenet_lost_kingdom = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_lost_kingdom }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		
+		parameters = {
+			hostility_override_tenet_lost_kingdom = 0
+		}
+		
+		traits = {
+			virtues = { stubborn vengeful }
+			sins = { forgiving }
+		}
+	}
+	
+	tenet_loyalty_to_nagash = {
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_loyalty_to_nagash }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+			hostility_override_tenet_loyalty_to_nagash = 0
+		}
+
+		character_modifier = {
+			learning = 2
+		}
+
+		traits = {
+			virtues = {
+				lifestyle_mystic 
+				education_learning_3
+				education_learning_4
+				scholar 
+			}
+			sins = {
+				compassionate
+			}
+		}
+	}
+	
+	tenet_celestial_jade = {
+		is_shown = {
+			OR = {
+				religion_tag = vampire_religion
+				religion_tag = cathay_religion
+			}
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_celestial_jade }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		traits = {
+			virtues = { just august }
+			sins = { arbitrary }
+		}
+	}
+	
+	tenet_loyalty_to_maatmeses = {
+		is_shown = {
+			religion_tag = vampire_religion
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_loyalty_to_maatmeses }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		traits = {
+			virtues = { humble }
+			sins = { greedy arrogant }
+		}
+	}
+	
+	tenet_tattered_sails = {
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_tattered_sails }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		character_modifier = {
+			levy_reinforcement_rate_same_faith = 0.35
+			levy_size = 0.15
+			development_growth_factor = -0.2
+		}
+		
+		traits = {
+			virtues = { sadistic lunatic possessed }
+			sins = {}
+		}
+	}
+}

@@ -1,0 +1,3092 @@
+﻿##Holy Orders by Nobu###
+@correct_culture_primary_score = 100
+
+d_lily_knights = {
+
+	color = { 66 135 245 }
+	definite_form = yes
+	capital = c_garamont
+	
+}
+
+d_lady_knights = {
+
+	color = { 65 112 186 }
+	definite_form = yes
+	capital = c_quenelles
+	
+}
+
+d_lambard_knights = {
+
+	color = { 255 31 10 }
+	definite_form = yes
+	capital = c_languille
+	
+}
+
+###End of Holy Orders####
+
+e_bretonnia = {
+	color = { 240 230 10 }
+	definite_form = yes
+	capital = c_bastonne
+	
+	ai_primary_priority = {
+		if = {
+			limit = {
+				culture = { has_cultural_pillar = heritage_bretonnian }
+			}
+		}
+	}
+
+	k_bastonne = {
+		color = { 140 50 80 }
+
+		capital = c_bastonne
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:bastonnian
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:bastonnian }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_bastonne = {
+			capital = c_bastonne
+			color = { 120 50 80 }
+			
+			c_bastonne = {
+				color = { 120 40 80 }
+
+				b_bastonne = {
+					province = 3013
+					color = { 120 40 80 }
+				}
+				b_baux = {
+					province = 3014
+					color = { 120 40 80 }
+				}
+				b_joyaux = {
+					province = 3018
+					color = { 120 40 80 }
+				}
+				b_medeme = {
+					province = 3016
+					color = { 120 40 80 }
+				}
+				b_amargueuse = {
+					province = 3017
+					color = { 120 40 80 }
+				}
+				b_marmin = {
+					province = 3015
+					color = { 120 40 80 }
+				}
+			}
+
+			c_la_chapelle = {
+				color = { 110 50 80 }
+
+				b_carlemont = {
+					province = 3020
+					color = { 110 50 80 }
+				}
+				b_parthillon = {
+					province = 3025
+					color = { 110 50 80 }
+				}
+				b_the_humble_chapel = {
+					province = 3040
+					color = { 110 50 80 }
+				}
+			}
+
+			c_sangasse = {
+				color = { 120 50 70 }
+
+				b_sangasse = {
+					province = 3023
+					color = { 120 50 70 }
+				}
+				b_epre = {
+					province = 3026
+					color = { 120 50 70 }
+				}
+				
+			}
+		}		
+		d_garamont = {
+			capital = c_garamont
+			color = { 140 60 90 }
+
+			c_garamont = {
+				color = { 120 50 90 }
+
+				b_garamont = {
+					province = 3019
+					color = { 120 50 90 }
+				}
+				b_montcadas = {
+					province = 3021
+					color = { 120 50 90 }
+				}
+				b_noireville = {
+					province = 3022
+					color = { 120 50 90 }
+				}
+			}
+			
+			c_gastix = {
+				color = { 140 70 90 }
+
+				b_gastix = {
+					province = 3039
+					color = { 140 70 90 }
+				}
+				b_ogie = {
+					province = 3042
+					color = { 140 70 90 }
+				}
+				b_lautrec = {
+					province = 3041
+					color = { 140 70 90 }
+				}
+			}
+
+			c_chalons = {
+				color = { 140 60 100 }
+
+				b_champebourg = {
+					province = 3043
+					color = { 140 60 100 }
+				}
+				b_sainte_chapelle = {
+					province = 3045
+					color = { 140 60 100 }
+				}
+				b_maisonrie = {
+					province = 3044
+					color = { 140 60 100 }
+				}
+				b_issoroux = {
+					province = 3046
+					color = { 140 60 100 }
+				}
+			}
+		}
+		d_grismer = {
+			capital = c_soudarre
+			color = { 140 50 100 }
+			
+			c_soudarre = {
+				color = { 130 50 100 }
+
+				b_soude = {
+					province = 3031
+					color = { 130 50 100 }
+				}
+				b_bravenac = {
+					province = 3032
+					color = { 130 50 100 }
+				}
+				b_turdome = {
+					province = 3034
+					color = { 130 50 100 }
+				}
+				b_astillon = {
+					province = 3033
+					color = { 130 50 100 }
+				}
+			}
+			c_giennois = {
+				color = { 140 40 100 }
+
+				b_gien = {
+					province = 3035
+					color = { 140 40 100 }
+				}
+				b_sallee = {
+					province = 3038
+					color = { 140 40 100 }
+				}
+				b_chateau_depre = {
+					province = 3024
+					color = { 140 40 100 }
+				}
+			}
+			c_salone = {
+				color = { 140 50 110 }
+
+				b_salone = {
+					province = 3037
+					color = { 140 50 110 }
+				}
+				b_veneve = {
+					province = 3036
+					color = { 140 50 110 }
+				}
+			}
+			c_cabernet = {
+				color = { 150 50 100 }
+
+				b_chateau_caberne = {
+					province = 3027
+					color = { 150 50 100 }
+				}
+				b_thenardier = {
+					province = 3030
+					color = { 150 50 100 }
+				}
+				b_javert = { 
+					province = 3028
+					color = { 150 50 100 }
+				}
+			}
+		}
+		d_toussaint = {
+			capital = c_toussaint
+			color = { 160 50 80 }
+			
+			c_toussaint = {
+				color = { 160 40 80 }
+
+				b_beauclair = { #little easter egg
+					province = 3047
+					color = { 160 40 80 }
+				}
+				b_lochal = {
+					province = 3050
+					color = { 160 40 80 }
+				}
+				b_segovie = {
+					province = 3049
+					color = { 160 40 80 }
+				}
+			}
+			c_mont_real = { #Figured the orc name should be "Krown Peek"
+				color = { 160 50 90 }
+
+				b_bourg_le_roi = {
+					province = 3054
+					color = { 160 50 90 }
+				}
+				b_chapelle_la_dame = {
+					province = 3053
+					color = { 160 50 90 }
+				}
+			}
+			c_yquem = {
+				color = { 170 50 80 }
+
+				b_yquem = {
+					province = 3051
+					color = { 170 50 80 }
+				}
+				b_larrard = {
+					province = 3052
+					color = { 170 50 80 }
+				}
+				b_chablis = {
+					province = 3048
+					color = { 170 50 80 }
+				}
+			}		
+		}	
+	}
+
+	k_mousillon = {
+		color = { 200 200 60 }
+
+		capital = c_mousillon
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:mousillonian
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:mousillonian }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_mousillon = {
+			capital = c_mousillon
+			color = { 200 180 60 }
+			
+			c_mousillon = {
+				color = { 200 180 50 }
+
+				b_palais_damne = {
+					province = 1996
+					color = { 120 40 80 }
+				}
+				b_mousillon = {
+					province = 1998
+					color = { 200 180 50 }
+				}
+				b_donlet = {
+					province = 1997
+					color = { 200 180 50 }
+				}
+			}
+			c_champ_tombe_ = {
+				color = { 210 180 60 }
+
+				b_brignac = {
+					province = 2001
+					color = { 210 180 60 }
+				}
+				b_sigmarsheim = {
+					province = 1999
+					color = { 210 180 60 }
+				}
+				b_triers = {
+					province = 2930
+					color = { 210 180 60 }
+				}
+			}
+			c_dras = {
+				color = { 190 180 60 }
+
+				b_naizon = {
+					province = 2000
+					color = { 190 180 60 }
+				}
+				b_jardins_du_chagrin = {
+					province = 2002
+					color = { 190 180 60 }
+				}
+				b_vauban_la_chaste = {
+					province = 2011
+					color = { 190 180 60 }
+				}
+				b_viercay = {
+					province = 2010
+					color = { 190 180 60 }
+				}
+			}
+			c_elne = {
+				color = { 200 170 60 }
+
+				b_elne = {
+					province = 2003
+					color = { 200 170 60 }
+				}
+				b_buzeols = {
+					province = 2006
+					color = { 200 170 60 }
+				}
+				b_clermont = {
+					province = 2005
+					color = { 200 170 60 }
+				}
+				b_roussion = {
+					province = 2004
+					color = { 200 170 60 }
+				}
+			}
+			c_rachard = {
+				color = { 200 180 50 }
+
+				b_chateau_rachard = {
+					province = 2007
+					color = { 200 180 50 }
+				}
+				b_jonquieres = {
+					province = 2008
+					color = { 200 180 50 }
+				}
+				b_ceyras = {
+					province = 2009
+					color = { 200 180 50 }
+				}
+			}
+		}
+		d_potevenne = {
+			capital = c_carmandois
+			color = { 200 200 40 }
+			
+			c_carmandois = {
+				color = { 200 200 50 }
+
+				b_camiens = {
+					province = 2013
+					color = { 200 200 50 }
+				}
+				b_macy = {
+					province = 2016
+					color = { 200 200 50 }
+				}
+				b_jaraffe = {
+					province = 2015
+					color = { 200 200 50 }
+				}
+			}
+			c_tor_martel = {
+				color = { 190 200 50 }
+
+				b_tor_martel = {
+					province = 1
+					color = { 190 200 50 }
+				}
+			}
+			c_le_bois_sans_vie = {
+				color = { 200 210 40 }
+
+				b_portois = {
+					province = 2020
+					color = { 200 210 40 }
+				}
+				b_pont_du_graal = {
+					province = 2018
+					color = { 200 210 40 }
+				}
+				b_carbonec = {
+					province = 2017
+					color = { 200 210 40 }
+				}
+			}
+			c_dernierarret = {
+				color = { 200 190 40 }
+
+				b_artagnan = {
+					province = 2014
+					color = { 200 190 40 }
+				}
+				b_chateauneuf = {
+					province = 2019
+					color = { 200 190 40 }
+				}
+			}
+			c_mortagne = {
+				color = { 200 200 30 }
+
+				b_mortagne = {
+					province = 2021
+					color = { 200 200 30 }
+				}
+				b_martel = {
+					province = 2022
+					color = { 200 200 30 }
+				}
+				b_graudesange = {
+					province = 2023
+					color = { 200 200 30 }
+				}
+			}
+		}
+	}
+
+	k_artois = {
+		color = { 200 90 50 }
+
+		capital = c_artois
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:artoin
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:artoin }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+
+		d_artois = {
+			capital = c_artois
+			color = { 200 70 50 }
+			
+			c_artois = {
+				color = { 200 60 50 }
+
+				b_castel_artois = {
+					province = 2933
+					color = { 200 60 50 }
+				}
+				b_artois = {
+					province = 2934
+					color = { 200 60 50 }
+				}
+				b_tarjou = {
+					province = 2936
+					color = { 200 60 50 }
+				}
+				b_arnimes = {
+					province = 2935
+					color = { 200 60 50 }
+				}
+				b_the_bitter_convent = {
+					province = 2937
+					color = { 200 60 50 }
+				}
+			}
+			c_larret = {
+				color = { 210 70 50 }
+
+				b_larret = {
+					province = 2938
+					color = { 210 70 50 }
+				}
+				b_nieminges = {
+					province = 2940
+					color = { 210 70 50 }
+				}
+				b_bourvan = {
+					province = 2939
+					color = { 210 70 50 }
+				}
+				b_roanne = {
+					province = 2941
+					color = { 210 70 50 }
+				}
+			}
+			c_yremois = {
+				color = { 190 70 50 }
+
+				b_yremy = {
+					province = 2950
+					color = { 190 70 50 }
+				}
+				b_le_chatre = {
+					province = 2953
+					color = { 190 70 50 }
+				}
+				b_bosquieu = {
+					province = 2951
+					color = { 190 70 50 }
+				}	
+				b_fonte = {
+					province = 2952
+					color = { 190 70 50 }
+				}
+			}
+		}
+		d_guerac = {
+			capital = c_guerac
+			color = { 200 90 30 }
+			
+			c_guerac = {
+				color = { 200 90 20 }
+
+				b_chateau_guerac = {
+					province = 2925
+					color = { 200 90 20 }
+				}
+				b_sable = {
+					province = 2927
+					color = { 200 90 20 }
+				}
+			}
+			c_futaie = {
+				color = { 200 00 30 }
+
+				b_circle_de_guerac = {
+					province = 2926
+					color = { 200 00 30 }
+				}
+				b_meillant = {
+					province = 2928
+					color = { 200 00 30 }
+				}
+			}
+		}
+		d_arden = {
+			capital = c_arden
+			color = { 220 90 50 }
+			
+			c_arden = {
+				color = { 220 90 40 }
+
+				b_marcalon = {
+					province = 2942
+					color = { 220 90 40 }
+				}
+				b_la_foretesse = {
+					province = 2944
+					color = { 220 90 40 }
+				}
+				b_broceliande = {
+					province = 2943
+					color = { 220 90 40 }
+				}
+			}
+			c_uexin = {
+				color = { 230 90 50 }
+
+				b_chateau_uesin = {
+					province = 2946
+					color = { 230 90 50 }
+				}
+				b_the_weeping_chapel = {
+					province = 2947
+					color = { 230 90 50 }
+				}
+				b_le_ruy = {
+					province = 2949
+					color = { 230 90 50 }
+				}
+				b_graalbourg = {
+					province = 2948
+					color = { 230 90 50 }
+				}
+			}
+		}
+	}
+	k_couronne = {
+		color = { 200 5 5 }
+
+		capital = c_couronne
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:couronnean
+
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:couronnean }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		d_couronne = {
+			capital = c_couronne
+			color = { 200 5 25 }
+			
+			c_couronne = {
+				color = { 200 15 25 }
+
+				b_couronne = {
+					province = 2852
+					color = { 200 15 25 }
+				}
+				b_hauteville = {
+					province = 2853
+					color = { 200 15 25 }
+				}
+				b_grand_chapel = {
+					province = 2854
+					color = { 200 15 25 }
+				}
+				b_corlun = {
+					province = 2857
+					color = { 200 15 25 }
+				}
+				b_castel_le_vicomte = {
+					province = 2856
+					color = { 200 15 25 }
+				}
+				b_verena_capitularium = {
+					province = 2855
+					color = { 200 15 25 }
+				}
+			}
+			c_nesleaux = {
+				color = { 200 5 35 }
+
+				b_nesle = {
+					province = 2863
+					color = { 200 5 35 }
+				}
+				b_chapelle_seigneure = {
+					province = 2865
+					color = { 200 5 35 }
+				}
+			}
+			c_langreuil = {
+				color = { 190 5 25 }
+
+				b_langreuil = {
+					province = 2859
+					color = { 190 5 25 }
+				}
+				b_vergirac = {
+					province = 2861
+					color = { 190 5 25 }
+				}
+				b_selignan = {
+					province = 2862
+					color = { 190 5 25 }
+				}
+				b_sege_de_la_dame = {
+					province = 2860
+					color = { 190 5 25 }
+				}
+			}
+			c_carduel = {
+				color = { 210 5 25 }
+
+				b_carduel = {
+					province = 2864
+					color = { 210 5 25 }
+				}
+				b_herment = {
+					province = 2866
+					color = { 210 5 25 }
+				}
+			}
+			c_beaulys = {
+				color = { 200 0 20 }
+
+				b_beaulys = {
+					province = 2881
+					color = { 200 0 20 }
+				}
+				b_pontmagnac = {
+					province = 2858
+					color = { 200 0 20 }
+				}
+			}
+		}	
+		d_normagne = {
+			capital = c_normagne
+			color = { 200 25 5 }
+			
+			c_normagne = {
+				color = { 200 35 5 }
+
+				b_tourroux = {
+					province = 2867
+					color = { 200 35 5 }
+				}
+				b_abbaie_blanche = {
+					province = 2869
+					color = { 200 35 5 }
+				}
+				b_dampierre = {
+					province = 2870
+					color = { 200 35 5 }
+				}
+			}
+			c_point_carleond  = {
+				color = { 210 25 5 }
+
+				b_sintrac = {
+					province = 2868
+					color = { 210 25 5 }
+				}
+				b_bloch = {
+					province = 2876
+					color = { 210 25 5 }
+				}				
+			}
+			c_chantillon = {
+				color = { 200 25 15 }
+
+				b_chantillon = {
+					province = 2871
+					color = { 200 25 15 }
+				}
+				b_baux_le_cloitre = {
+					province = 2874
+					color = { 200 25 15 }
+				}
+				b_tennisson = {
+					province = 2873
+					color = { 200 25 15 }
+				}
+			}
+			c_tintannil = {
+				color = { 190 25 5 }
+
+				b_tintannil = {
+					province = 2879
+					color = { 190 25 5 }
+				}
+				b_sennais = {
+					province = 2882
+					color = { 190 25 5 }
+				}
+				b_euresbourg = {
+					province = 2872
+					color = { 190 25 5 }
+				}
+				b_cardonac = {
+					province = 2880
+					color = { 190 25 5 }
+				}
+			}
+		}
+		d_la_marche = {
+			capital = c_thorn
+			color = { 235 22 22 }
+
+			c_thorn = {
+				color = { 200 15 25 }
+
+				b_lisieux = {
+					province = 3706
+					color = { 200 15 25 }
+				}
+				b_reric = {
+					province = 636
+					color = { 200 15 25 }
+				}
+				b_barb = {
+					province = 637
+					color = { 200 15 25 }
+				}
+			}
+			c_saar = {
+				color = { 0 126 210 }
+
+				b_saar = {
+					province = 640
+					color = { 0 126 210 }
+				}
+				b_sallizes = {
+					province = 642
+					color = { 0 126 210  }
+				}
+			}
+		}				
+		d_quierzy = {
+			capital = c_rouard
+			color = { 220 5 5 }
+			
+			c_rouard = {
+				color = { 230 5 5 }
+
+				b_rouard = {
+					province = 2883
+					color = { 230 5 5 }
+				}
+				b_estagne = {
+					province = 2885
+					color = { 230 5 5 }
+				}
+				b_lencastel = {
+					province = 2886
+					color = { 230 5 5 }
+				}
+				b_montsagnant = {
+					province = 2884
+					color = { 230 5 5 }
+				}
+			}
+			
+			c_eux = {
+				color = { 210 5 5 }
+
+				b_hendaye = {
+					province = 2887
+					color = { 210 5 5 }
+				}
+				
+				b_roche = {
+					province = 1775
+					color = { 210 5 5 }
+				}
+				
+				b_alencon = {
+					province = 2889
+					color = { 210 5 5 }
+				}
+			}
+			
+			c_dun = {
+				color = { 220 0 0 }
+
+				b_dun = {
+					province = 2875
+					color = { 220 0 0 }
+				}
+				b_lefevre = {
+					province = 2877
+					color = { 220 0 0 }
+				}
+				b_braudel = {
+					province = 2878
+					color = { 220 0 0 }
+				}
+			}
+		}
+	}
+	k_languille = {
+		color = { 20 130 190 }
+
+		capital = c_languille
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:l_anguillen 
+
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:l_anguillen }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		d_languille = {
+			capital = c_languille
+			color = { 0 130 190 }
+			
+			c_languille = {
+				color = { 0 120 190 }
+
+				b_languille = {
+					province = 2824
+					color = { 0 120 190 }
+				}
+				b_cigognac = {
+					province = 2827
+					color = { 0 120 190 }
+				}
+				b_eret = {
+					province = 2828
+					color = { 0 120 190 }
+				}
+				b_cove = {
+					province = 2826
+					color = { 0 120 190 }
+				}
+			}
+			c_tourre = {
+				color = { 0 130 200 }
+
+				b_tourrebourg = {
+					province = 2845
+					color = { 0 130 200 }
+				}
+				b_chimay = {
+					province = 2844
+					color = { 0 130 200 }
+				}
+				b_joie_la_dame = {
+					province = 2847
+					color = { 0 130 200 }
+				}
+			}
+			c_fregunerre = {
+				color = { 10 130 190 }
+
+				b_fregune = {
+					province = 2833
+					color = { 10 130 190 }
+				}
+				b_dauphinac = {
+					province = 2825
+					color = { 10 130 190 }
+				}
+				b_cazus = {
+					province = 2832
+					color = { 10 130 190 }
+				}
+			}
+			c_montgland = {
+				color = { 0 130 180 }
+				
+				b_saintard = {
+					province = 2835
+					color = { 0 130 180 }
+				}
+				b_montgland = {
+					province = 2834
+					color = { 0 130 180 }
+				}
+			}
+			c_erguian = {
+				color = { 0 140 190 }
+				
+				b_ergy = {
+					province = 2829
+					color = { 0 140 190 }
+				}
+				b_carlion = {
+					province = 2831
+					color = { 0 140 190 }
+				}
+				b_hires = {
+					province = 2830
+					color = { 0 140 190 }
+				}
+			}
+		}
+		d_armagne = {
+			capital = c_rennais
+			color = { 20 150 190 }
+			
+			c_rennais = {
+				color = { 20 160 190 }
+
+				b_rennesse = {
+					province = 2836
+					color = { 20 160 190 }
+				}
+				b_carette = {
+					province = 2838
+					color = { 20 160 190 }
+				}
+				b_bruleaux = {
+					province = 2837
+					color = { 20 160 190 }
+				}
+			}
+			c_sanz = {
+				color = { 20 150 200 }
+
+				b_sanz = {
+					province = 2848
+					color = { 20 150 200 }
+				}
+				b_ferragus = {
+					province = 2850
+					color = { 20 150 200 }
+				}
+			}
+			c_melis = {
+				color = { 10 150 190 }
+
+				b_melis = {
+					province = 2849
+					color = { 10 150 190 }
+				}
+				b_caradue = {
+					province = 2840
+					color = { 10 150 190 }
+				}
+				b_savuile = {
+					province = 2851
+					color = { 10 150 190 }
+				}
+			}
+			c_ganet = {
+				color = { 30 150 190 }
+
+				b_ganet = {
+					province = 2839
+					color = { 30 150 190 }
+				}
+				b_lesaffre = {
+					province = 2841
+					color = { 30 150 190 }
+				}
+				b_audony = {
+					province = 2842
+					color = { 30 150 190 }
+				}
+
+			}
+			c_havresse = {
+				color = { 20 150 180 }
+
+				b_gresgar = {
+					province = 2843
+					color = { 20 150 180 }
+				}
+				b_vareic = {
+					province = 2846
+					color = { 20 150 180 }
+				}
+			}
+		}
+	}
+
+	k_gisoreux = {
+		color = { 120 210 40 }
+
+		capital = c_gisoreux
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:gisoren
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:gisoren }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_gisoreux = {
+			capital = c_gisoreux
+			color = { 120 210 20 }
+			
+			c_gisoreux = {
+				color = { 130 210 20 }
+
+				b_gisoreux = {
+					province = 2890
+					color = { 130 210 20 }
+				}
+				b_galencay = {
+					province = 2891
+					color = { 130 210 20 }
+				}
+				b_forquelone = {
+					province = 2895
+					color = { 130 210 20 }
+				}
+				b_ceurs = {
+					province = 2893
+					color = { 130 210 20 }
+				}
+			}
+			c_melonge = {
+				color = { 120 200 20 }
+
+				b_melonge = {
+					province = 2894
+					color = { 120 200 20 }
+				}
+				b_vaucou_les_chevaliers = {
+					province = 2892
+					color = { 120 200 20 }
+				}
+			}
+			c_gracay = {
+				color = { 120 210 10 }
+
+				b_grasse = {
+					province = 2900
+					color = { 120 210 10 }
+				}
+				b_cornes = {
+					province = 2903
+					color = { 120 210 10 }
+				}
+				b_tiercay = {
+					province = 2902
+					color = { 120 210 10 }
+				}
+				b_valins = {
+					province = 2901
+					color = { 120 210 10 }
+				}
+			}
+			c_guissans = {
+				color = { 110 210 20 }
+
+				b_guissans = {
+					province = 2932
+					color = { 110 210 20 }
+				}
+				b_orsillac = {
+					province = 2931
+					color = { 110 210 20 }
+				}
+				b_raveris = {
+					province = 2929
+					color = { 110 210 20 }
+				}
+			}
+		}
+		d_gap_de_gisoreux = {
+			capital = c_gruyon
+			color = { 140 210 40 }
+			
+			c_gruyon = {
+				color = { 150 210 40 }
+
+				b_soyons = {
+					province = 2904
+					color = { 150 210 40 }
+				}
+				b_clervais = {
+					province = 2906
+					color = { 150 210 40 }
+				}
+				b_dammartin = {
+					province = 2905
+					color = { 150 210 40 }
+				}
+			}
+			c_gisoreux_gap = {
+				color = { 140 210 50 }
+
+				b_chateau_desfleuve = {
+					province = 2896
+					color = { 140 210 50 }
+				}
+				b_verdemont = {
+					province = 2897
+					color = { 140 210 50 }
+				}
+				b_castenay = {
+					province = 2898
+					color = { 140 210 50 }
+				}
+				b_vaudenancy = {
+					province = 2899
+					color = { 140 210 50 }
+				}
+			}
+			c_valoigne = {
+				color = { 140 220 40 }
+
+				b_chateau_valis = {
+					province = 2907
+					color = { 140 220 40 }
+				}
+				b_manau = {
+					province = 2910
+					color = { 140 220 40 }
+				}
+				b_brie_la_gentile = {
+					province = 2909
+					color = { 140 220 40 }
+				}
+			}
+		}
+		d_grisoeurs = {
+			capital = c_western_vale
+			color = { 120 190 40 }
+
+			c_western_vale = {
+				color = { 120 200 40 }
+
+				b_maisongraal = {
+					province = 2913
+					color = { 120 200 40 }
+				}
+				b_rades = {
+					province = 2915
+					color = { 120 200 40 }
+				}
+				b_nolla = {
+					province = 2917
+					color = { 120 200 40 }
+				}
+				b_queim = {
+					province = 2916
+					color = { 120 200 40 }
+				}
+			}
+			
+			c_frondee = {
+				color = { 120 190 30 }
+
+				b_salignac = {
+					province = 2912
+					color = { 120 190 30 }
+				}
+				b_sablenay = {
+					province = 2911
+					color = { 120 190 30 }
+				}
+			}
+			c_upper_floridian_vale = {
+				color = { 110 190 40 }
+
+				b_jurenne = {
+					province = 2920
+					color = { 110 190 40 }
+				}
+				b_beaussons = {
+					province = 2914
+					color = { 110 190 40 }
+				}
+				b_roucis = {
+					province = 2918
+					color = { 110 190 40 }
+				}
+			}
+			c_lower_floridian_vale = {
+				color = { 120 190 50 }
+
+				b_troucy = {
+					province = 2922
+					color = { 120 190 50 }
+				}
+				b_bar_la_dame = {
+					province = 2923
+					color = { 120 190 50 }
+				}
+				b_la_maisontenay = {
+					province = 2924
+					color = { 120 190 50 }
+				}
+			}
+			c_floridian_peak = {
+				color = { 120 180 40 }
+
+				b_chateau_florian = {
+					province = 2919
+					color = { 120 180 40 }
+				}
+				b_lanterre = {
+					province = 2921
+					color = { 120 180 40 }
+				}
+				b_crepis = {
+					province = 2908
+					color = { 120 180 40 }
+				}
+			}
+		}	
+	}
+	
+	k_lyonesse = { 
+		color = { 160 180 230 }
+
+		capital = c_lyonesse
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:lyonen
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:lyonen }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_lyonesse = {
+			capital = c_lyonesse
+			color = { 160 180 250 }
+			
+			c_lyonesse = {
+				color = { 150 180 260 }
+
+				b_lyonesse = {
+					province = 2795
+					color = { 150 180 260 }
+				}		
+			}
+			c_chagrin = {
+				color = { 150 170 250 }
+
+				b_chagrin = {
+					province = 2819
+					color = { 150 170 250 }
+				}
+				b_sanguenay = {
+					province = 2822
+					color = { 150 170 250 }
+				}
+				
+			}
+			c_tor_soleil = {
+				color = { 150 180 250 }
+				
+				b_le_goff = {
+					province = 2823
+					color = { 150 180 250 }
+				}
+			}
+			
+			c_debarquement_de_lyon = {
+				color = { 160 190 250 }
+
+				b_agarthe = {
+					province = 2820
+					color = { 160 190 250 }
+				}
+				b_camellon = {
+					province = 2821
+					color = { 160 190 250 }
+				}
+				b_juvignac = {
+					province = 2818
+					color = { 160 190 250 }
+				}
+				b_caon = {
+					province = 2815
+					color = { 160 190 250 }
+				}
+			}
+		}
+		d_grand_senlou = {
+			capital = c_senlou
+			color = { 140 180 230 }
+			
+			c_senlou = {
+				color = { 140 170 230 }
+
+				b_portsall = {
+					province = 2805
+					color = { 140 170 230 }
+				}	
+				b_sonteil = {
+					province = 2807
+					color = { 140 170 230 }
+				}	
+				b_leuars = {
+					province = 2806
+					color = { 140 170 230 }
+				}
+				b_limpre = {
+					province = 2813
+					color = { 140 170 230 }
+				}		
+			}
+			c_martonnais = {
+				color = { 140 180 240 }
+
+				b_marton = {
+					province = 2811
+					color = { 140 180 240 }
+				}	
+				b_orcerre = {
+					province = 2814
+					color = { 140 180 240 }
+				}	
+				b_gradlon = {
+					province = 2812
+					color = { 140 180 240 }
+				}
+				b_duclun = {
+					province = 2817
+					color = { 140 180 240 }
+				}	
+			}		
+			c_chastillon = {
+				color = { 130 180 230 }
+
+				b_chastillon = {
+					province = 2808
+					color = { 130 180 230 }
+				}	
+				b_antours = {
+					province = 2816
+					color = { 130 180 230 }
+				}	
+			}
+		}
+
+		d_armorique = {
+			capital = c_rocheil
+			color = { 160 200 230 }
+			
+			c_rocheil = {
+				color = { 160 200 220 }
+
+				b_rocheil = {
+					province = 2797
+					color = { 160 200 220 }
+				}	
+				b_la_paillade = {
+					province = 2800
+					color = { 160 200 220 }
+				}	
+				b_lemasson = {
+					province = 2799
+					color = { 160 200 220 }
+				}
+				b_barley_motte = {
+					province = 2796
+					color = { 160 200 220 }
+				}		
+			}
+			c_moulinsard = {
+				color = { 160 210 230 }
+
+				b_moulinsard = {
+					province = 2801
+					color = { 160 210 230 }
+				}	
+				b_blanchaise = {
+					province = 2803
+					color = { 160 210 230 }
+				}	
+				b_suddene = {
+					province = 2798
+					color = { 160 210 230 }
+				}	
+				b_les_arceaux = {
+					province = 2804
+					color = { 160 210 230 }
+				}		
+			}
+			c_oreal = {
+				color = { 150 200 230 }
+
+				b_oreal = {
+					province = 2802
+					color = { 150 200 230 }
+				}	
+
+				b_blomagne = {
+					province = 2809
+					color = { 150 200 230 }
+				}
+
+				b_pezenance = {
+					province = 2810
+					color = { 150 200 230 }
+				}		
+			}
+		}
+	}
+	
+	k_bordeleaux = {
+		color = { 10 30 190 }
+
+		capital = c_bordeleaux
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:bordelen
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:bordelen }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_bordeleaux = {
+			capital = c_bordeleaux
+			color = { 10 30 210 }
+			
+			c_bordeleaux = {
+				color = { 10 30 220 }
+
+				b_bordeleaux = {
+					province = 1865
+					color = { 10 30 220 }
+				}
+				b_chardonnay = {
+					province = 1867
+					color = { 10 30 220 }
+				}
+				b_cognac = {
+					province = 1868
+					color = { 10 30 220 }
+				}
+				b_la_brandasse = {
+					province = 1869
+					color = { 10 30 220 }
+				}
+			}
+			c_tremonge = {
+				color = { 20 30 210 }
+
+				b_doubourg = {
+					province = 1878
+					color = { 20 30 210 }
+				}
+				b_tremure = {
+					province = 1875
+					color = { 20 30 210 }
+				}
+				b_soire = {
+					province = 1879
+					color = { 20 30 210 }
+				}
+			}
+			c_lile_tranquille = {
+				color = { 10 20 210 }
+
+				b_villa_tranquille = {
+					province = 1874
+					color = { 10 20 210 }
+				}
+			}
+			c_vantes = {
+				color = { 10 30 200 }
+
+				b_vantes = {
+					province = 1876
+					color = { 10 30 200 }
+				}
+				b_thouleon = {
+					province = 1877
+					color = { 10 30 200 }
+				}
+				
+			}
+		}		
+		d_alemoges = {
+			capital = c_feuilly
+			color = { 10 10 190 }
+			
+			c_feuilly = {
+				color = { 0 10 190 }
+
+				b_feuilly = {
+					province = 1880
+					color = { 0 10 190 }
+				}
+				b_sauvignon = {
+					province = 1881
+					color = { 0 10 190 }
+				}
+				b_chateau_eponine = {
+					province = 1866
+					color = { 0 10 190 }
+				}
+				b_demoise = {
+					province = 1882
+					color = { 0 10 190 }
+				}
+			}
+			c_reves = {
+				color = { 10 0 190 }
+
+				b_reves = {
+					province = 1884
+					color = { 10 0 190 }
+				}
+				b_leurs = {
+					province = 1885
+					color = { 10 0 190 }
+				}
+				b_valjean = {
+					province = 3029
+					color = { 10 0 190 }
+				}
+			}
+			c_turris = {
+				color = { 10 10 180 }
+
+				b_turris_vigilans = {
+					province = 1883
+					color = { 10 10 180 }
+				}
+				b_alenfront = {
+					province = 1886
+					color = { 10 10 180 }
+				}
+			}
+			c_laors = {
+				color = { 10 10 200 }
+
+				b_laors = {
+					province = 1870
+					color = { 10 10 200 }
+				}
+				b_charlebourg = {
+					province = 1873
+					color = { 10 10 200 }
+				}
+				b_cahoux = {
+					province = 1871
+					color = { 10 10 200 }
+				}
+				b_vancey = {
+					province = 1872
+					color = { 10 10 200 }
+				}
+			}
+
+		}	
+	}
+
+	k_aquitaine = {
+		color = { 200 150 10 }
+
+		capital = c_aquitaine
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:aquitanian
+				}
+				add = @correct_culture_primary_score
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:aquitanian }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+				add = @correct_culture_primary_score
+			}
+		}
+		
+		d_aquitaine = {
+			capital = c_aquitaine
+			color = { 200 140 0 }
+			
+			c_aquitaine = {
+				color = { 210 140 0 }
+
+				b_chateau_daquitaine = {
+					province = 1927
+					color = { 210 140 0 }
+				}
+				b_aquitaine = {
+					province = 1928
+					color = { 210 140 0 }
+				}
+				b_lac_de_tranquillite = {
+					province = 1930
+					color = { 210 140 0 }
+				}
+				b_querigueux = {
+					province = 1929
+					color = { 210 140 0 }
+				}
+			}
+			c_mainse = {
+				color = { 200 130 0 }
+
+				b_chateau_du_mainse = {
+					province = 1931
+					color = { 200 130 0 }
+				}
+				b_grisances = {
+					province = 1935
+					color = { 200 130 0 }
+				}
+				b_ladamme = {
+					province = 1934
+					color = { 200 130 0 }
+				}
+			}
+			c_anjarlac = {
+				color = { 200 140 10 }
+
+				b_anjarre = {
+					province = 1932
+					color = { 200 140 10 }
+				}
+				b_derrevin = {
+					province = 1933
+					color = { 200 140 10 }
+				}
+			}
+			c_elbiq = {
+				color = { 200 150 0 }
+
+				b_elbiq = {
+					province = 1937
+					color = { 200 150 0 }
+				}
+				b_limars = {
+					province = 1938
+					color = { 200 150 0 }
+				}
+				b_quernes = {
+					province = 1940
+					color = { 200 150 0 }
+				}
+				b_lottes = {
+					province = 1939
+					color = { 200 150 0 }
+				}
+				
+			}
+		}	
+		d_eprenois = {
+			capital = c_giscard
+			color = { 220 150 10 }
+			
+			c_giscard = {
+				color = { 230 150 10 }
+
+				b_giscard = {
+					province = 1942
+					color = { 230 150 10 }
+				}
+				b_ybrain = {
+					province = 1946
+					color = { 230 150 10 }
+				}
+			}
+			c_epee = {
+				color = { 220 160 10 }
+
+				b_epee = {
+					province = 1941
+					color = { 220 160 10 }
+				}
+				b_drengaut = {
+					province = 1945
+					color = { 220 160 10 }
+				}
+				b_cherbourg = {
+					province = 1944
+					color = { 220 160 10 }
+				}
+				b_bordet = {
+					province = 1943
+					color = { 220 160 10 }
+				}
+			}
+			c_vignoble = {
+				color = { 220 150 20 }
+
+				b_genoie = {
+					province = 1949
+					color = { 220 150 20 }
+				}
+				b_tintagel = {
+					province = 1947
+					color = { 220 150 20 }
+				}
+				b_fiers_du_lac = {
+					province = 1948
+					color = { 220 150 20 }
+				}
+				b_vieille_elbique = {
+					province = 1936
+					color = { 220 150 20 }
+				}
+			}
+		}
+	}
+
+	k_montfort = {
+		color = { 80 60 100 }
+
+		capital = c_montfort
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:monfortian
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:monfortian }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_montfort = {
+			capital = c_montfort
+			color = { 100 60 100 }
+			
+			c_montfort = {
+				color = { 110 60 100 }
+
+				b_montfort = {
+					province = 2155
+					color = { 110 60 100 }
+				}
+				b_cantauban = {
+					province = 2159
+					color = { 110 60 100 }
+				}
+				b_rochefort = {
+					province = 2160
+					color = { 110 60 100 }
+				}
+				b_bergereux = {
+					province = 2158
+					color = { 110 60 100 }
+				}
+				b_montjoie = {
+					province = 2156
+					color = { 110 60 100 }
+				} 
+			}
+
+			c_occam = {
+				color = { 100 70 100 }
+
+				b_occam = {
+					province = 2157
+					color = { 100 70 100 }
+				}
+				b_sigorlin = {
+					province = 2167
+					color = { 100 70 100 }
+				}
+				b_mardun = {
+					province = 2175
+					color = { 100 70 100 }
+				}
+			}
+
+			c_beaix = {
+				color = { 100 60 110 }
+
+				b_chateauclair = {
+					province = 2161
+					color = { 100 60 110 }
+				}
+				b_tous = {
+					province = 2163
+					color = { 100 60 110 }
+				}
+				b_lourde_de_lys = {
+					province = 2162
+					color = { 100 60 110 }
+				}
+				b_coix = {
+					province = 2164
+					color = { 100 60 110 }
+				}	
+			}
+
+			c_roderre = {
+				color = { 100 50 110 }
+
+				b_ux = {
+					province = 2165
+					color = { 100 50 110 }
+				}
+				b_larne = {
+					province = 2166
+					color = { 100 50 110 }
+				}
+			}
+		}
+		d_montmagnac = {
+			capital = c_gamay
+			color = { 80 40 100 }
+			
+			c_gamay = {
+				color = { 70 40 100 }
+
+				b_gamelin = {
+					province = 2169
+					color = { 70 40 100 }
+				}
+				b_strancy = {
+					province = 2173
+					color = { 70 40 100 }
+				}
+				b_tharravil = {
+					province = 2168
+					color = { 70 40 100 }
+				}				
+			}
+			c_le_col = {
+				color = { 80 30 100 }
+
+				b_fourier = {
+					province = 2170
+					color = { 80 30 100 }
+				}
+				b_chateaudreux = {
+					province = 2171
+					color = { 80 30 100 }
+				}
+			}
+			c_lorsace = {
+				color = { 80 40 110 }
+
+				b_nantebourg = {
+					province = 2172
+					color = { 80 40 110 }
+				}
+				b_betz= {
+					province = 2174
+					color = { 80 40 110 }
+				}
+			}
+		}
+	}
+
+	k_parravon = {
+		color = { 250 210 30 }
+
+		capital = c_parravon
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:parravonese
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:parravonese }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_parravon = {
+			capital = c_parravon
+			color = { 250 210 10 }
+			
+			c_parravon = {
+				color = { 250 210 0 }
+
+				b_parravon = {
+					province = 2133
+					color = { 250 210 0 }
+				}
+				b_faure = {
+					province = 2143
+					color = { 250 210 0 }
+				}
+				b_jouinard = {
+					province = 2134
+					color = { 250 210 0 }
+				}
+				b_arlasque = {
+					province = 2137
+					color = { 250 210 0 }
+				}
+				b_montgisard = {
+					province = 2144
+					color = { 250 210 0 }
+				}
+			}
+			c_fays = {
+				color = { 250 200 10 }
+
+				b_fays_la_chapelle = {
+					province = 2139
+					color = { 250 200 10 }
+				}
+				b_bois_des_fays = {
+					province = 2140
+					color = { 250 200 10 }
+				}
+			}
+			c_sanglac = {
+				color = { 240 210 10 }
+
+				b_hemmerle = {
+					province = 2135
+					color = { 240 210 10 }
+				}
+				b_brondes = {
+					province = 2149
+					color = { 240 210 10 }
+				}
+				b_vines = {
+					province = 2138
+					color = { 240 210 10 }
+				}
+				b_vingtienne = {
+					province = 2136
+					color = { 240 210 10 }
+				}
+			}
+		}
+		d_beaumont = {
+			capital = c_beaumont
+			color = { 250 230 30 }
+			
+			c_beaumont = {
+				color = { 250 220 30 }
+				b_malmont = {
+					province = 2141
+					color = { 250 220 30 }
+				}
+				b_carras = {
+					province = 2142
+					color = { 250 220 30 }
+				}
+			}
+			c_fume = {
+				color = { 250 230 20 }
+				b_emilion = {
+					province = 2145
+					color = { 250 230 20 }
+				}
+				b_merceaux_descloux = {
+					province = 2147
+					color = { 250 230 20 }
+				}
+				b_leserve = {
+					province = 2148
+					color = { 250 230 20 }
+				}
+				b_chambonnay = {
+					province = 2146
+					color = { 250 230 20 }
+				}
+			}
+		}
+		d_nar = {
+			capital = c_brabillon
+			color = { 230 210 30 }
+			
+			c_brabillon = {
+				color = { 230 210 40 }
+				b_brigendie = {
+					province = 2150
+					color = { 230 210 40 }
+				}
+				b_abrige = {
+					province = 2152
+					color = { 230 210 40 }
+				}
+				b_flabant = {
+					province = 2151
+					color = { 230 210 40 }
+				}
+			}
+			c_vallee_du_sang = {
+				color = { 240 210 30 }
+				b_blood_keep = {
+					province = 2153
+					color = { 240 210 30 }
+				}
+				b_la_maisontaal = {
+					province = 2154
+					color = { 240 210 30 }
+				}
+			}		
+		}
+	}
+	k_quenelles = {
+		color = { 120 170 170 }
+
+		capital = c_quenelles
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:queneller
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:queneller }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_quenelles = {
+			capital = c_quenelles
+			color = { 100 170 170 }
+			
+			c_quenelles = {
+				color = { 100 170 180 }
+
+				b_quenelles = {
+					province = 3061
+					color = { 100 170 180 }
+				}
+				b_clerrard = {
+					province = 3060
+					color = { 100 170 180 }
+				}
+				b_carrard = {
+					province = 3056
+					color = { 100 170 180 }
+				}
+				b_toucon = {
+					province = 3057
+					color = { 100 170 180 }
+				}
+				b_gambette = {
+					province = 3059
+					color = { 100 170 180 }
+				}
+				b_coeur_sacre = {
+					province = 3058
+					color = { 100 170 180 }
+				}
+			}
+			c_sandeuse = {
+				color = { 100 180 170 }
+
+				b_sandeuse = {
+					province = 3073
+					color = { 100 180 170 }
+				}
+				b_la_petite_quenelle = {
+					province = 3055
+					color = { 100 180 170 }
+				}
+				b_jaurras = {
+					province = 3087
+					color = { 100 180 170 }
+				}
+			}
+			c_perrache = {
+				color = { 110 170 170 }
+
+				b_perrache = {
+					province = 3066
+					color = { 110 170 170 }
+				}
+				b_armorac = {
+					province = 3070
+					color = { 110 170 170 }
+				}
+				b_raffard = {
+					province = 3069
+					color = { 110 170 170 }
+				}
+				b_sancers = {
+					province = 3067
+					color = { 110 170 170 }
+				}
+				b_charlac = {
+					province = 3068
+					color = { 110 170 170 }
+				}
+			}
+			c_roucerre = {
+				color = { 90 170 170 }
+
+				b_montair = {
+					province = 3074
+					color = { 90 170 170 }
+				}
+				b_douar = {
+					province = 3072
+					color = { 90 170 170 }
+				}
+				b_roucy = {
+					province = 3071
+					color = { 110 170 170 }
+				}
+			}
+			c_langry = {
+				color = { 100 160 170 }
+
+				b_langry = {
+					province = 3062
+					color = { 100 160 170 }
+				}
+				b_brierennez = {
+					province = 3063
+					color = { 100 160 170 }
+				}
+				b_thiars = {
+					province = 3065
+					color = { 100 160 170 }
+				}
+			}
+		}
+		d_ausanne = {
+			capital = c_meaux
+			color = { 120 190 170 }
+			
+			c_meaux = {
+				color = { 120 200 170 }
+
+				b_meaux = {
+					province = 3086
+					color = { 120 200 170 }
+				}
+				b_massalieu = {
+					province = 3090
+					color = { 120 200 170 }
+				}
+				b_gaumar = {
+					province = 3088
+					color = { 120 200 170 }
+				}
+				b_maconars = {
+					province = 3064
+					color = { 120 200 170 }
+				}
+			}
+			c_orlerre = {
+				color = { 120 200 180 }
+
+				b_orlac = {
+					province = 3091
+					color = { 120 200 180 }
+				}
+				b_clovine = {
+					province = 3092
+					color = { 120 200 180 }
+				}
+				b_cavaignac = {
+					province = 3089
+					color = { 120 200 180 }
+				}	
+			}
+			c_tertres = {
+				color = { 110 200 170 }
+
+				b_hybraseil = {
+					province = 3093
+					color = { 110 200 170 }
+				}
+				b_rollin = {
+					province = 3094
+					color = { 110 200 170 }
+				}
+			}
+		}
+		
+		d_cherry = {
+			capital = c_treims
+			color = { 120 170 190 }
+			
+			c_treims = {
+				color = { 120 170 200 }
+
+				b_treims = {
+					province = 3095
+					color = { 120 170 200 }
+				}
+				b_lannay = {
+					province = 3076
+					color = { 120 170 200 }
+				}
+				b_parsivagne = {
+					province = 3098
+					color = { 120 170 200 }
+				}
+				b_ravagine = {
+					province = 3096
+					color = { 120 170 200 }
+				}
+			}
+			c_montlac = {
+				color = { 110 170 190 }
+
+				b_montlac = {
+					province = 3099
+					color = { 110 170 190 }
+				}
+				b_grisdame = {
+					province = 3102
+					color = { 110 170 190 }
+				}
+				b_velannes = {
+					province = 3097
+					color = { 110 170 190 }
+				}	
+			}
+			c_blarry = {
+				color = { 130 170 190 }
+
+				b_bourg_le_duc = {
+					province = 3101
+					color = { 130 170 190 }
+				}
+				b_blarges = {
+					province = 3100
+					color = { 130 170 190 }
+				}
+			}
+		}
+	}
+
+	k_cuileux = {
+		color = { 140 110 85 }
+
+		capital = c_cuileux
+
+		d_old_cuileux = {
+			capital = c_cuileux
+			color = { 140 110 65 }
+			
+			c_cuileux = {
+				color = { 150 110 65 }
+
+				b_crac_de_sang = {
+					province = 3103
+					color = { 150 110 65 }
+				}
+				b_ville_de_cuileux = {
+					province = 3107
+					color = { 150 110 65 }
+				}
+				b_village_des_damnes = {
+					province = 3105
+					color = { 150 110 65 }
+				}
+				b_sanctuaire_de_voshieme = {
+					province = 3106
+					color = { 150 110 65 }
+				}
+				b_gardez_de_la_peur = {
+					province = 3104
+					color = { 150 110 65 }
+				}
+			}
+			c_bourgou = {
+				color = { 130 110 65 }
+
+				b_richeline = {
+					province = 3110
+					color = { 130 110 65 }
+				}
+				b_degenas = {
+					province = 3108
+					color = { 130 110 65 }
+				}
+			}
+			c_la_mancon = {
+				color = { 140 120 65 }
+
+				b_le_mancon = {
+					province = 3112
+					color = { 140 120 65 }
+				}
+				b_villeneuve = {
+					province = 3113
+					color = { 140 120 65 }
+				}
+			}
+			c_lancienne_marche = {
+				color = { 140 110 75 }
+
+				b_brissonour = {
+					province = 3077
+					color = { 140 110 75 }
+				}
+				b_thirlieu = {
+					province = 3111
+					color = { 140 110 75 }
+				}
+				b_noverre = {
+					province = 3109
+					color = { 140 110 75 }
+				}
+				b_chinon = {
+					province = 3075
+					color = { 140 110 75 }
+				}
+			}
+		}
+		d_marche_orcale = {
+			capital = c_malmont
+			color = { 120 110 85 }
+			
+			c_malmont = {
+				color = { 120 110 75 }
+
+				b_montparnasse = {
+					province = 3114
+					color = { 120 110 75 }
+				}
+				b_montestaire = {
+					province = 3116
+					color = { 120 110 75 }
+				}
+				b_voltansier = {
+					province = 3115
+					color = { 120 110 75 }
+				}
+			}
+			c_pompadour = {
+				color = { 120 120 85 }
+
+				b_pompadour = {
+					province = 3122
+					color = { 120 120 85 }
+				}
+				b_ventallac = {
+					color = { 120 120 85 }
+					province = 3123
+				}
+			}
+			c_enjolras = {
+				color = { 120 100 85 }
+
+				b_enjaux = {
+					province = 3118
+					color = { 120 100 85 }
+				}
+				b_grantaire = {
+					province = 3117
+					color = { 120 100 85 }
+				}
+			}
+			c_gironde = {
+				color = { 110 110 85 }
+
+				b_siorand = {
+					province = 3119
+					color = { 110 110 85 }
+				}
+				b_tencesvaux = {
+					province = 3120
+					color = { 110 110 85 }
+				}
+				b_chateau_gaillard = {
+					province = 3121
+					color = { 110 110 85 }
+				}
+			}
+		}
+		d_ancon = {
+			capital = c_beaujolais
+			color = { 140 110 105 }
+			
+			c_beaujolais = {
+				color = { 140 100 105 }
+
+				b_beauclerc = {
+					province = 3079
+					color = { 140 100 105 }
+				}
+				b_vendaine = {
+					province = 3081
+					color = { 140 100 105 }
+				}
+				b_maulan = {
+					province = 3078
+					color = { 140 100 105 }
+				}
+			}
+			c_montalbau = {
+				color = { 150 110 105 }
+
+				b_montalbau = {
+					province = 3084
+					color = { 120 120 85 }
+				}
+				b_thibaudon = {
+					province = 3080
+					color = { 120 120 85 }
+				}
+			}
+			c_foucault = {
+				color = { 140 120 105 }
+
+				b_foucault = {
+					province = 3082
+					color = { 140 120 105 }
+				}
+				b_milard = {
+					province = 3083
+					color = { 140 120 105 }
+				}
+				b_signe = {
+					province = 3085
+					color = { 140 120 105 }
+				}
+			}
+		}
+	}
+
+	k_brionne = {
+		color = { 240 240 250 }
+
+		capital = c_brionne
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:brionnian
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:brionnian }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_brionne = {
+			capital = c_brionne
+			color = { 220 240 250 }
+			
+			c_brionne = {
+				color = { 230 240 250 }
+
+				b_brionne = {
+					province = 2049
+					color = { 230 240 250 }
+				}
+				b_enguerraux = {
+					province = 2053
+					color = { 230 240 250 }
+				}
+				b_cidatelle = {
+					province = 2052
+					color = { 230 240 250 }
+				}
+				b_encamp = {
+					province = 2050
+					color = { 230 240 250 }
+				}
+				b_sabiant = {
+					province = 2051
+					color = { 230 240 250 }
+				}
+			}
+			c_angour = {
+				color = { 220 250 250 }
+
+				b_anges = {
+					province = 2054
+					color = { 220 250 250 }
+				}
+				b_corvignan = {
+					province = 2068
+					color = { 220 250 250 }
+				}
+				b_roueborne = {
+					province = 2057
+					color = { 220 250 250 }
+				}
+			}
+			c_sable_dore = {
+				color = { 220 240 240 }
+
+				b_chaston = {
+					province = 2056
+					color = { 220 240 240 }
+				}
+				b_dijors = {
+					province = 2055
+					color = { 220 240 240 }
+				}
+			}
+			c_gransette = {
+				color = { 210 240 250 }
+
+				b_brassens = {
+					province = 2058
+					color = { 210 240 250 }
+				}
+				b_chateau_gransette = {
+					province = 2059
+					color = { 210 240 250 }
+				}
+				b_castel_brel = {
+					province = 2060
+					color = { 210 240 250 }
+				}
+			}
+		}	
+		d_querigord = {
+			capital = c_querigord
+			color = { 240 220 250 }
+			
+			c_querigord = {
+				color = { 240 210 250 }
+
+				b_courfeyrac = {
+					province = 2062
+					color = { 240 210 250 }
+				}
+				b_clermomble = {
+					province = 2066
+					color = { 240 210 250 }
+				}
+				b_manse = {
+					province = 2065
+					color = { 240 210 250 }
+				}
+				b_thier = {
+					province = 2064
+					color = { 240 210 250 }
+				}
+			}
+			c_muret = {
+				color = { 230 220 250 }
+
+				b_muret = {
+					province = 2070
+					color = { 230 220 250 }
+				}
+				b_port_de_laigle = {
+					province = 2073
+					color = { 230 220 250 }
+				}
+			}
+			c_peires = {
+				color = { 240 220 240 }
+
+				b_peires = {
+					province = 2071
+					color = { 240 220 240 }
+				}
+				b_mitterrand = {
+					province = 2061
+					color = { 240 220 240 }
+				}
+				b_toursimon = {
+					province = 2072
+					color = { 240 220 240 }
+				}
+			}
+			c_lusidreux = {
+				color = { 240 230 250 }
+
+				b_lusidreux = {
+					province = 2067
+					color = { 240 230 250 }
+				}
+				b_montreuil = {
+					province = 2063
+					color = { 240 230 250 }
+				}
+				b_maux = {
+					province = 2069
+					color = { 240 230 250 }
+				}
+			}
+		}	
+	}
+
+	k_carcassonne = {
+		color = { 50 70 160 }
+
+		capital = c_carcassonne
+
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:carcassonian
+				}
+			}
+			if = {
+				limit = {
+					NOT = { culture = culture:carcassonian }
+					culture = { has_cultural_pillar = heritage_bretonnian }
+				}
+			}
+		}
+		
+		d_carcassonne = {
+			color = { 30 70 160 }
+			capital = c_carcassonne
+			
+			c_carcassonne = {
+				color = { 20 70 160 }
+
+				b_carcassonne = {
+					province = 2954
+					color = { 20 70 160 }
+				}
+				b_narsonne = {
+					province = 2958
+					color = { 20 70 160 }
+				}
+				b_villefranche = {
+					province = 2966
+					color = { 20 70 160 }
+				}
+			}
+			c_terre_lambard = {
+				color = { 30 80 160 }
+
+				b_mayogne = {
+					province = 2959
+					color = { 30 80 160 }
+				}
+				b_albi = {
+					province = 2956
+					color = { 30 80 160 }
+				}
+				b_castres = {
+					province = 2955
+					color = { 30 80 160 }
+				}
+				b_lavaur_du_graal = {
+					province = 2957
+					color = { 30 80 160 }
+				}
+			}
+			c_brussergue = {
+				color = { 30 70 170 }
+
+				b_brusse = {
+					province = 2960
+					color = { 30 70 170 }
+				}
+				b_sombrac = {
+					province = 2964
+					color = { 30 70 170 }
+				}
+				b_balamoir = {
+					province = 2962
+					color = { 30 70 170 }
+				}
+			}
+			c_vieille_marche = {
+				color = { 30 60 160 }
+
+				b_calotte = {
+					province = 2963
+					color = { 30 60 160 }
+				}
+				b_tourasque = {
+					province = 2961
+					color = { 30 60 160 }
+				}
+			}
+			c_servillon = {
+				color = { 30 70 150 }
+
+				b_servillon = {
+					province = 2977
+					color = { 30 70 150 }
+				}
+				b_salagou = {
+					province = 2979
+					color = { 30 70 150 }
+				}
+				b_muscance = {
+					province = 2978
+					color = { 30 70 150 }
+				}
+			}
+        }
+		d_morency = {
+			color = { 50 70 180 }
+			capital = c_morency
+			
+			c_morency = {
+				color = { 40 70 180 }
+
+				b_morency = {
+					province = 3001
+					color = { 40 70 180 }
+				}
+				b_seu = {
+					province = 3004
+					color = { 40 70 180 }
+				}
+				b_aumanches = {
+					province = 3003
+					color = { 40 70 180 }
+				}
+				b_la_maisonrie = {
+					province = 3007
+					color = { 40 70 180 }
+				}
+			}
+			c_embrun = {
+				color = { 50 80 180 }
+
+				b_embrun = {
+					province = 3005
+					color = { 50 80 180 }
+				}
+				b_marange = {
+					province = 3008
+					color = { 50 80 180 }
+				}
+				b_cassiel = {
+					province = 3006
+					color = { 50 80 180 }
+				}
+				b_gommery = {
+					province = 3002
+					color = { 50 80 180 }
+				}
+			}
+			c_tasselonne = {
+				color = { 50 70 190 }
+
+				b_tasselonne = {
+					province = 3009
+					color = { 50 70 190 }
+				}
+				b_mortaux = {
+					province = 3012
+					color = { 50 70 190 }
+				}
+				b_narpellier = {
+					province = 3011
+					color = { 50 70 190 }
+				}
+				b_romny = {
+					province = 3010
+					color = { 50 70 190 }
+				}
+			}
+        }
+		d_aix = {
+			color = { 50 90 160 }
+			capital = c_aix
+			
+			c_aix = {
+				color = { 50 90 150 }
+
+				b_aix_le_comte = {
+					province = 2965
+					color = { 50 90 150 }
+				}
+				b_pierrole = {
+					province = 2967
+					color = { 50 90 150 }
+				}
+				b_colonce = {
+					province = 2968
+					color = { 50 90 150 }
+				}
+			}
+			c_naverre = {
+				color = { 40 90 160 }
+
+				b_agden = {
+					province = 2973
+					color = { 40 90 160 }
+				}
+
+				b_pampelune = {
+					province = 2974
+					color = { 40 90 160 }
+				}
+
+				b_sorneige = {
+					province = 2975
+					color = { 40 90 160 }
+				}
+				
+				b_baynal = {
+					province = 2976
+					color = { 40 90 160 }
+				}
+			}
+			c_foivaux = {
+				color = { 50 80 160 }
+
+				b_roncesaille = {
+					province = 2969
+					color = { 50 80 160 }
+				}
+				b_calun = {
+					province = 2972
+					color = { 50 80 160 }
+				}
+				b_tarbal = {
+					province = 2971
+					color = { 50 80 160 }
+				}
+				b_pax = {
+					province = 2970
+					color = { 50 80 160 }
+				}
+			}
+        }
+    }
+	k_glanborielle = {
+		color = { 125 0 55 }
+		capital = c_maisemane
+		
+		d_charboneau = {
+			color = { 145 0 55 }
+			capital = c_charboneau
+			
+			c_charboneau = {
+				color = { 145 10 55 }
+
+				b_charboneau = {
+					province = 2980
+					color = { 145 10 55 }
+				}
+				b_charlebois = {
+					province = 2982
+					color = { 145 10 55 }
+				}
+				b_montdaure = {
+					province = 2981
+					color = { 145 10 55 }
+				}
+			}
+			c_loren_pass = {
+				color = { 145 0 65 }
+
+				b_lyancon = {
+					province = 2984
+					color = { 145 0 65 }
+				}
+				b_salignac_la_rouge = {
+					province = 2983
+					color = { 145 0 65 }
+				}
+				b_maison_la_dame = {
+					province = 2985
+					color = { 145 0 65 }
+				}
+			}
+			c_paillole = {
+				color = { 155 0 55 }
+
+				b_paillole = {
+					province = 2994
+					color = { 155 0 55 }
+				}
+				b_bois_gisbert = {
+					province = 2996
+					color = { 155 0 55 }
+				}
+				b_montbelion = {
+					province = 2995
+					color = { 155 0 55 }
+				}
+			}
+		}
+		d_glanborielle = {
+			color = { 125 20 55 }
+			capital = c_maisemane
+			
+			c_maisemane = {
+				color = { 115 20 55 }
+
+				b_maisemane = {
+					province = 2987
+					color = { 115 20 55 }
+				}
+				b_chermercy = {
+					province = 2989
+					color = { 115 20 55 }
+				}
+				b_marguilles = {
+					province = 2986
+					color = { 115 20 55 }
+				}
+				b_chausefort = {
+					province = 2988
+					color = { 115 20 55 }
+				}
+			}
+			c_sammergall = {
+				color = { 125 20 65 }
+
+				b_sammergall_fort = {
+					province = 2997
+					color = { 125 20 65 }
+				}
+				b_severel = {
+					province = 2999
+					color = { 125 20 65 }
+				}
+				b_coutancal = {
+					province = 3000
+					color = { 125 20 65 }
+				}
+			}
+			c_riviere_verte = {
+				color = { 125 10 55 }
+
+				b_maisondun = {
+					province = 2998
+					color = { 125 10 55 }
+				}
+				b_herat = {
+					province = 2991
+					color = { 125 10 55 }
+				}
+			}
+			c_forac = {
+				color = { 125 20 45 }
+
+				b_forac = {
+					province = 2990
+					color = { 125 20 45 }
+				}
+				b_marasque = {
+					province = 2992
+					color = { 125 20 45 }
+				}
+				b_lillebourg = {
+					province = 2993
+					color = { 125 20 45 }
+				}	
+			}
+        }
+	}
+}

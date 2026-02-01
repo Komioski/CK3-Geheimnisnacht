@@ -1,0 +1,33 @@
+You can define 
+
+== Structure ==
+
+name_of_the_music_track = {
+	
+	# Path to the audio event for this track
+	music = "event:/..."
+	
+	# How much music weight will playing this music add, default: 0
+	weight = X
+	
+	# Is this track a mood track (i.e. a long track that the game can pick and doesn't need to be explicitly triggered)? default: no
+	mood = yes/no
+	
+	# Should this mood track get prioritized for a first time play over other tracks? (Useful for tracks with a narrow is_valid trigger) default: no
+	prioritized_mood = yes/no
+
+	# Is this mood track valid to be played, only evaluated if playing or observing a specific character
+	is_valid = { <trigger> }
+	
+	# Can this track be interrupted by another track? Long mood track are good candidates for interrupting. default : no
+	can_be_interrupted = yes/no
+	
+	# Cooldown in in-game time, the track will not be played for this amount of time after it has been started
+	years/months/days = X
+	
+	# Cooldown in calls. After the track starts playing, it will not play again for X subsequent requests to play it. default : 0
+	calls = X
+	
+	# Does this track's cooldown reset when starting/loading a game? default : no
+	reset = yes/no
+}

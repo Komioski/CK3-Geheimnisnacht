@@ -1,0 +1,266 @@
+##reload posteffectvolumes
+#PostEffectVolumes.Enabled
+#PostEffectVolumes.ForceUpdate
+#Draw.DebugPostEffectVolumes
+
+posteffect_values = {
+	name = standard
+	lut = "gfx/map/post_effects/colorcorrection_neutral.tga"
+}
+
+posteffect_values = {
+	name = cold
+	inherit = standard
+	saturation_scale = 0.8
+	colorbalance = { 1 1 1.1 }
+	fog_begin = 150
+	fog_end = 400
+}
+
+posteffect_values = {
+	name = southern_realmshot
+	inherit = standard
+	value_scale = 1.15
+	colorbalance = { 1.0 0.9 0.8 }
+}
+
+posteffect_values = {
+	name = default
+	inherit = standard
+}
+
+posteffect_values = {
+	name = zoom_step_00
+	inherit = standard
+}
+posteffect_values = {
+	name = zoom_step_01
+	inherit = zoom_step_00
+	fog_begin = 2000
+	fog_end = 5000
+}
+posteffect_values = {
+	name = flatmap
+	inherit = zoom_step_01
+	exposure = 1.2
+	fog_max = 0
+}
+
+#LotR: Post effects. Desert and Boreal are from Imperator: Rome.
+#Plz Komi ask for permission for us to use these
+posteffect_values = {
+	name = desert
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_desert.tga"
+	fog_color = { 0.55 0.50 0.375 }
+	fog_begin = 10
+	fog_end = 1200.0
+	fog_max = 1.5
+	bloom_width = 2.5
+	bloom_scale = 0.3
+	bright_threshold = 1
+	tonemap_middlegrey = 0.8
+	hue_offset = 0
+	saturation_scale = 1.1
+	value_scale = 1.15
+	colorbalance = { 1.1 1 0.9 }
+	levels_min = hsv{ 0 0 0 }
+	levels_max = hsv{ 0 0 1 }
+}
+posteffect_values = {
+	name = artic
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_arctic.tga"
+	fog_color = { 0.55 0.50 0.375 }
+	fog_begin = 150
+	fog_end = 400.0
+	fog_max = 1.5
+	bloom_width = 2.5
+	bloom_scale = 0.25
+	bright_threshold = 1
+	tonemap_middlegrey = 0.35
+	hue_offset = 0
+	saturation_scale = 0.75
+	value_scale = 1.3
+	colorbalance = { 0.85 0.9 1 }
+	levels_min = hsv{ 0 0 0 }
+	levels_max = hsv{ 0 0 1 }
+}
+posteffect_values = {
+	name = boreal
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_neutral.tga"
+	fog_color = { 0.55 0.50 0.375 }
+	fog_begin = 150
+	fog_end = 400.0
+	fog_max = 1.5
+	bloom_width = 2.5
+	bloom_scale = 0.25
+	bright_threshold = 1
+	tonemap_middlegrey = 0.35
+	hue_offset = 0
+	saturation_scale = 0.75
+	value_scale = 1.3
+	colorbalance = { 0.85 0.9 1 }
+	levels_min = hsv{ 0 0 0 }
+	levels_max = hsv{ 0 0 1 }
+	
+}
+posteffect_values = {
+	name = arid
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_arid.dds"
+}
+posteffect_values = {
+	name = ocean
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_ocean.dds"
+	fog_color = hsv { 0.5 0.7 0.7 }
+	fog_begin = 150
+	fog_end = 800
+	fog_max = 0.25
+}
+posteffect_values = {
+	name = savannah
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_savannah.dds"
+}
+posteffect_values = {
+	name = tropical
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_tropical.dds"
+}
+posteffect_values = {
+	name = vampiric
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_tundra.dds"
+	saturation_scale = 1.4
+	colorbalance = { 0.50 1.03 1.18 }
+	fog_color = hsv { 0.00 0.5 0.5 }
+	fog_begin = 5
+	fog_end = 200
+	fog_max = 50
+}
+posteffect_values = {
+	name = volcanic
+	inherit = standard
+	lut = "gfx/map/post_effects/colorcorrection_volcanic.tga"
+	tonemap_middlegrey = 0.4
+	colorbalance = { 0.00 0.00 1.00 }
+	saturation_scale = 0.7
+	exposure = 0.65
+	
+	bloom_width = 2.5
+	bloom_scale = 0.3
+	bright_threshold = 1
+
+	fog_color = hsv { 0.00 0.5 0.5 }
+	fog_begin = 0
+	fog_end = 140
+	fog_max = 1.5
+}
+
+#################################
+
+############ VOLUMES ############
+############ HEIGHTS ############
+
+#################################
+
+posteffect_volumes = {
+
+	posteffect_height_volume = {
+		name = "zoom_step_00"
+
+		posteffect_values_day = zoom_step_00
+		posteffect_values_night = zoom_step_00
+
+		height = 50
+		fade_distance = 0
+	}
+
+	posteffect_height_volume = {
+		name = "zoom_step_01"
+	
+		posteffect_values_day = zoom_step_01
+		posteffect_values_night = zoom_step_01
+	
+		height = 100
+		fade_distance = 800
+	}
+
+	posteffect_height_volume = {
+		name = "flatmap"
+	
+		posteffect_values_day = flatmap
+		posteffect_values_night = flatmap
+	
+		height = 1218
+		fade_distance = 142
+	}
+}
+
+################################# 
+
+############ VOLUMES ############ 
+############ BOXES	 ############ 
+
+#################################
+
+	
+#Vanilla effects
+
+#posteffect_volume = {
+#	name = "north"
+	
+#	posteffect_values_day = cold
+#	posteffect_values_night = cold
+	
+#	position = { 4000 0 4000 }
+#	size = { 20000 2000 3000 }
+#	fade_distance = 1000
+#}
+
+#posteffect_volume = {
+#	name = "south"
+	
+#	posteffect_values_day = hot
+#	posteffect_values_night = hot
+	
+#	position = { 4000 0 500 }
+#	size = { 20000 2000 3000 }
+#	fade_distance =  1000
+#}
+	
+	
+#posteffect_volume = {
+#	name = "norsca"
+#	posteffect_values_day = norsca
+#	posteffect_values_night = norsca
+#	#position =	{ x-width		z			y-height }
+#	position =	{ 4096.0		400.0		5632.0 }
+#	size =		{ 9000.0		1600.0		1200.0 }
+#	fade_distance = 350.0
+#} 
+
+
+#Local effect
+posteffect_volume = {
+	name = "mousillon"
+	posteffect_values_day = vampiric
+	posteffect_values_night = vampiric
+	position =	{ x-width		z			y-height }
+	position =	{ 3503.0		000.0		2571.0 }
+	size =		{ 155.0			235.0		140.0 }
+	fade_distance = 045.0
+}
+
+posteffect_volume = {
+	name = "Southern_realm"
+	posteffect_values_day = southern_realmshot
+	posteffect_values_night = southern_realmshot
+	position =	{ x-width		z			y-height }
+	position =	{ 3555.0		000.0		1870.0 }
+	size =		{ 1550.0		750.0		1200.0 }
+	fade_distance = 390.0
+}

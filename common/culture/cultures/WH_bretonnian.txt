@@ -1,0 +1,541 @@
+﻿#French Camp
+bastonnian = { #Duchy of Bastonne
+	color = french
+	created = 5477.1.1
+	parents = { breton }
+	
+	ethos = ethos_spiritual
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		#tradition_chanson_de_geste #make a unique that gives them better bonus for upcoming Bretonnian feature
+		tradition_zealous_people
+		tradition_martial_admiration
+	}
+	
+	dlc_tradition = {
+		trait = tradition_staunch_traditionalists
+		requires_dlc_flag = hybridize_culture
+	}
+
+	name_list = name_list_breton
+	
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { western_clothing_gfx }
+	unit_gfx = { western_unit_gfx }
+	
+	ethnicities = {
+		12 = bretonnian_north
+		8 = bretonnian_south
+	}
+}
+
+bordelen = { #Duchy of Bordelaux
+	color = { 129 110 250 }
+	created = 5477.1.1
+	parents = { gascon breton }
+	
+	ethos = ethos_courtly
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_bordelen_tradition
+		tradition_maritime_mercantilism
+		tradition_agrarian
+	}
+	
+	name_list = name_list_breton
+	
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { western_clothing_gfx }
+	unit_gfx = { western_unit_gfx }
+	
+	ethnicities = {
+		9 = bretonnian_north
+		10 = bretonnian_south
+		1 = estalian_north
+	}
+}
+
+gisoren = { #Duchy of Gisoreux
+	color = { 45 85 25 }
+	created = 5477.1.1
+	parents = { gisorii bourgon } 
+	
+	ethos = ethos_egalitarian
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_gisoreux_tradition
+		tradition_stalwart_defenders
+		tradition_esteemed_hospitality
+		tradition_adaptive_skirmishing
+	}
+	
+	name_list = name_list_breton
+
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		16 = bretonnian_north
+		4 = bretonnian_south
+	}
+}
+
+artoin = { #Duchy of Artois
+	color = { 236 80 111 }
+	created = 5477.1.1
+	parents = { armoric gisorii }
+	
+	ethos = ethos_stoic
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain	
+	traditions = {
+		tradition_artoin_tradition
+		tradition_hunters
+		tradition_isolationist
+		tradition_strong_kinship
+	}
+	
+	name_list = name_list_breton
+	
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { western_clothing_gfx }
+	unit_gfx = { western_unit_gfx }
+	
+	ethnicities = {
+		15 = bretonnian_north
+		5 = bretonnian_south
+	}
+}
+
+mousillonian = { #Duchy of Mousillon 
+	color = { 0.7 0.6 0.2 }
+	created = 5477.1.1
+	parents = { armoric } 
+	
+	ethos = ethos_stoic
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_mousillon_tradition
+		tradition_wetlanders
+		tradition_isolationist
+		tradition_spartan 
+	}
+	
+	name_list = name_list_breton
+
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		13 = bretonnian_north
+		7 = bretonnian_south
+	}
+}
+
+#Swiss Camp
+parravonese = { #Duchy of Parravon
+	color = { 165 165 30 }
+	created = 5477.1.1
+	parents = { bourgon } 
+	
+	ethos = ethos_communal
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_parravonese_tradition
+		tradition_sacred_groves
+		tradition_strong_kinship #remove unique MAA stuff from this one.
+		tradition_stand_and_fight
+	}
+	
+	name_list = name_list_bourgon
+
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		7 = bretonnian_north
+		13 = bretonnian_south
+	}
+}
+
+monfortian = { #Duchy of Montfort
+	color = { 65 45 60 }
+	created = 5477.1.1
+	parents = { bourgon } 
+	
+	ethos = ethos_communal
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_montfort_tradition
+		tradition_ancient_miners
+	}
+	
+	name_list = name_list_bourgon
+
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		13 = bretonnian_north
+		7 = bretonnian_south
+	}
+}
+
+#Occitanian Camp
+carcassonian = { #Duchy of Carcassonne
+	color = { 0.8 0.4 0.7 }
+	created = 5477.1.1
+	parents = { carcassi } 
+	
+	ethos = ethos_bellicose
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_carcasonne_tradition
+		tradition_warrior_culture
+		tradition_warriors_by_merit
+		tradition_pastoralists
+	}
+	
+	name_list = name_list_carcassi
+
+	coa_gfx = { occitan_coa_gfx french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		15 = bretonnian_south
+		5 = estalian_north
+	}
+}
+
+brionnian = { #Duchy of Brionne
+	color = { 180 180 210 }
+	created = 5477.1.1
+	parents = { gascon } 
+	
+	ethos = ethos_courtly
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+	 	tradition_brionne_tradition
+		#Make a unique reverse UNO version of Spartan
+		tradition_poetry
+		tradition_culinary_art
+	}
+	
+	name_list = name_list_carcassi
+
+	coa_gfx = { occitan_coa_gfx french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		2 = bretonnian_north
+		15 = bretonnian_south
+		3 = estalian_north
+	}
+}
+
+queneller = { #Duchy of Quenelles
+	color = { 100 125 160 }
+	created = 5477.1.1
+	parents = { breton } 
+	
+	ethos = ethos_egalitarian
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		#tradition_chanson_de_geste which grants a mix of diplomacy bonus for elves and dawi
+		tradition_by_the_sword
+		tradition_welcoming
+		tradition_stalwart_defenders
+	}
+
+	dlc_tradition = {
+		trait = tradition_culture_blending
+		requires_dlc_flag = hybridize_culture
+	}
+	
+	name_list = name_list_carcassi
+
+	coa_gfx = { occitan_coa_gfx french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		3 = bretonnian_north
+		17 = bretonnian_south
+	}
+}
+
+aquitanian = { #Duchy of Aquitain
+	color = { 200 150 10 }
+	created = 5477.1.1
+	parents = { gascon } 
+	
+	ethos = ethos_bellicose
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_aquitanian_tradition
+		tradition_fishermen
+	}
+
+	dlc_tradition = {
+		trait = tradition_staunch_traditionalists
+		requires_dlc_flag = hybridize_culture
+	}
+	
+	name_list = name_list_carcassi
+
+	coa_gfx = { occitan_coa_gfx french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		4 = bretonnian_north
+		14 = bretonnian_south
+		2 = estalian_north
+	}
+}
+
+#Norman Camp
+
+couronnean = { #Duchy of Couronne
+	color = { 180 40 40 }
+	created = 5477.1.1
+	parents = { nortagnese }
+	
+	ethos = ethos_courtly
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_couronnean_tradition
+		tradition_horse_breeder #obviously remove the MAA from this one.
+		tradition_equitable
+	}
+	
+	name_list = nortagnese_name_list
+
+	coa_gfx = { norman_coa_gfx french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		15 = bretonnian_north
+		1 = bretonnian_south
+		4 = norscan
+	}
+}
+
+l_anguillen = { #L ANGUILE HON HON
+	color = { 125 170 215 }
+	created = 5477.1.1
+	parents = { nortagnese }
+	
+	ethos = ethos_egalitarian
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_languile_tradition
+		tradition_maritime_mercantilism
+		tradition_seafaring
+	}
+	
+	name_list = nortagnese_name_list
+
+	coa_gfx = { norman_coa_gfx french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		14 = bretonnian_north
+		2 = bretonnian_south
+		4 = norscan
+	}
+}
+
+lyonen = {
+	color = { 255 128 0 }
+	created = 5477.1.1
+	parents = { armoric }
+	
+	ethos = ethos_stoic
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		#tradition_chanson_de_geste
+		#Unique hird tradition, only avalible to Norscan, yet Lyon has gotten it to...hmm i wonder why
+		tradition_castle_keepers
+		tradition_eye_for_an_eye
+	}
+
+	dlc_tradition = {
+		trait = tradition_culture_blending
+		requires_dlc_flag = hybridize_culture
+	}
+	
+	name_list = nortagnese_name_list
+
+	coa_gfx = { norman_coa_gfx french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		12 = bretonnian_north
+		2 = bretonnian_south
+		6 = norscan
+	}
+}
+
+herrimault = {
+	color = { 63 77 36 }
+	created = 5477.1.1
+	parents = { bretonni }
+	
+	ethos = ethos_communal
+	heritage = heritage_bretonnian
+	language = language_breton
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_hit_and_run
+		tradition_collective_lands
+		tradition_life_is_just_a_joke
+		tradition_crownless_lords
+	}
+	
+
+	name_list = name_list_herrimault
+	
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { western_clothing_gfx }
+	unit_gfx = { western_unit_gfx }
+	
+	ethnicities = {
+		10 = bretonnian_north
+		10 = bretonnian_south
+	}
+}
+
+nordscane = { #Norscan Brets
+	color = { 120 190 230 }
+	created = 6000.1.1
+	
+	ethos = ethos_communal
+	heritage = heritage_bretonnian
+	language = language_norse
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_only_the_strong
+		tradition_eye_for_an_eye
+		tradition_seafaring
+	}
+
+	name_list = nortagnese_name_list
+	
+	coa_gfx = { french_coa_gfx frankish_group_coa_gfx western_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { western_clothing_gfx }
+	unit_gfx = { western_unit_gfx }
+	
+	ethnicities = {
+		9 = bretonnian_north
+		1 = bretonnian_south
+		10 = norscan
+	}
+}
+
+marcheur = { #Estalian Brets
+	color = { 0.7 0.3 0.6 }
+	created = 5650.1.1
+	parents = { carcassonian norteno } 
+	
+	ethos = ethos_bellicose
+	heritage = heritage_bretonnian
+	language = language_estalian
+	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain		
+	traditions = {
+		tradition_carcasonne_tradition
+		# tradition_norteno_codes
+		tradition_fp1_estalian_duel
+		tradition_stalwart_defenders
+	}
+	
+	name_list = name_list_carcassi
+
+	coa_gfx = { occitan_coa_gfx french_coa_gfx frankish_group_coa_gfx western_coa_gfx } 
+	building_gfx = { western_building_gfx } 
+	clothing_gfx = { western_clothing_gfx } 
+	unit_gfx = { western_unit_gfx } 
+
+	ethnicities = {
+		9 = bretonnian_south
+		9 = estalian_north
+		2 = estalian_south
+	}
+}
+
+#Coleur #mountain pass inhabitants, half Imperials
+
+#Kroneneur #Border Prince Brets
+
+#Antochan #Arabyan-Brets
+
+#Bregonnean #New World Brets

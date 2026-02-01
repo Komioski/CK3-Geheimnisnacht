@@ -1,0 +1,19 @@
+﻿on_death = {
+	on_actions = {
+		elector_inheritance
+	}
+}
+
+elector_inheritance = {
+	trigger = {
+		has_character_flag = elector
+	}
+	effect = {
+		every_heir = {
+			limit = {
+				is_primary_heir_of = root
+			}
+			add_character_flag = elector
+		}
+	}
+}

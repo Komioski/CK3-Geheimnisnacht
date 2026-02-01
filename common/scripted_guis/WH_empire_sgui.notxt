@@ -1,0 +1,111 @@
+﻿empire_sgui_elector_list = {
+	scope = character
+	is_valid = {
+		always = yes
+	}
+	effect = {
+		root = {
+			clear_variable_list = electors
+			clear_variable_list = unpromised_electors
+		}
+		root = {
+			every_imperial_elector_ruler = {
+				root = {
+					add_to_variable_list = {
+						name = electors						#TODO: Rename to all_electors
+						target = prev
+					}
+				}
+			}
+		}
+		root = {
+			every_imperial_elector_ruler = {
+				if = {
+					limit = {
+						not = {
+							any_relation = {
+								type = empire_claimant
+							}
+						}
+						is_empire_pretender = no
+					}
+					root = {
+						add_to_variable_list = {
+							name = unpromised_electors
+							target = prev
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+empire_sgui_emperor_pretenders_list = {
+	scope = character
+	is_valid = {
+		always = yes
+	}
+	effect = {
+		root = {
+			clear_variable_list = emperor_pretenders
+		}
+		every_imperial_pretender_ruler = {
+			root = {
+				add_to_variable_list = {
+					name = emperor_pretenders
+					target = prev
+				}
+				prev = {
+					clear_variable_list = public_supporters
+				}
+			}
+			every_relation = {
+				type = elector_public_supporter
+				has_relation_empire_claimant = scope:prev
+				prev = {
+					add_to_variable_list = {
+						name = public_supporters
+						target = prev
+					}
+				}
+			}
+		}
+	}
+}
+
+empire_sgui_faith_list = {
+	scope = character
+	is_valid = {
+		always = yes
+	}
+	effect = {
+		root = {
+			clear_variable_list = imperial_faith
+		}
+		every_imperial_faith_ruler = {
+			root = {
+				add_to_variable_list = {
+					name = imperial_faith
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+empire_sgui_clear_lists = {
+	scope = character
+	is_valid = {
+		always = yes
+	}
+	effect = {
+		root = {
+			clear_variable_list = electors
+			clear_variable_list = unpromised_electors
+			clear_variable_list = emperor_pretenders
+			clear_variable_list = imperial_faith
+			clear_variable_list = public_supporters
+		}
+	}
+}

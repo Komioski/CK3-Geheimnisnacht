@@ -1,0 +1,64 @@
+﻿#Holy Order setup for all the bookmarks
+
+on_game_start_after_lobby = {
+	on_actions = {
+		WH_holy_orders
+	}
+}
+
+WH_holy_orders = {
+
+
+	effect = {
+
+				character:144555 = {
+						trigger_event = {
+							id = WH_Holy_Orders.100 #Blazing Sun Knights creation
+							days = -1
+						}
+				}
+				
+				character:144556 = {
+						trigger_event = {
+							id = WH_Holy_Orders.101 #Knights of Magritta creation
+							days = -1
+						}
+				}
+				
+				character:144557 = {
+						trigger_event = {
+							id = WH_Holy_Orders.102 #Knights of Lily creation
+							days = -1
+						}
+				}
+				
+				character:144558 = {
+						trigger_event = {
+							id = WH_Holy_Orders.103 #Knights of Lady of Battle creation
+							days = -1
+						}
+				}
+				
+				character:144559 = {
+						trigger_event = {
+							id = WH_Holy_Orders.104 #Knights of Lambard creation
+							days = -1
+						}
+				}
+			}
+}
+
+on_title_gain = {
+	on_actions = {
+		on_gain_holy_order
+	}
+}
+
+on_gain_holy_order = {
+	effect = {
+		if = {
+			limit = { NOT = { has_trait = order_member } has_government = holy_order_county_government }
+			add_trait = order_member
+		}
+	}
+ }

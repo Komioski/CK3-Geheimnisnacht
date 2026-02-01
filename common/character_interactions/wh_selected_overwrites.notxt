@@ -1,0 +1,566 @@
+﻿#WH: Overwrite, from 00_religious_interactions.txt. Consider me mad about having to do this one. - Wanderer
+ask_for_conversion_courtier_interaction = {
+	category = interaction_category_religion
+
+	special_interaction = request_conversion_interaction
+	
+	desc = {
+		desc = ask_for_conversion_interaction_desc
+		triggered_desc = {
+			trigger = {
+				scope:actor = {
+					refusing_conversion_is_crime_trigger = {
+						CHARACTER = scope:recipient
+					}
+				}
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+				}
+			}
+			desc = demand_conversion_vassal_ruler_is_crime
+		}
+	}
+	
+	ai_targets = {
+		ai_recipients = courtiers
+		chance = 0.25
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	ai_frequency = 12
+	
+	is_shown = {
+		NOT = { scope:actor.faith = scope:recipient.faith }
+		scope:recipient = { is_courtier_of = scope:actor }
+		scope:recipient = { is_ruler = no }
+		scope:recipient = { is_imprisoned = no }
+	}
+
+	is_valid_showing_failures_only = {
+		valid_demand_conversion_conditions_trigger = yes
+	}
+	
+	ai_accept = {
+		base = 0
+		religion_demand_conversion_default_modifier = yes
+	}
+	
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+			scope:actor = { has_strong_hook = scope:recipient }
+		}
+	}
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	
+	on_accept = {
+		demand_conversion_interaction_effect = yes
+		hidden_effect = {
+			scope:actor = {
+				send_interface_message = {	
+					title = ask_for_conversion_courtier_interaction.tt
+					left_icon = scope:recipient
+					scope:recipient = {
+						show_as_tooltip = { demand_conversion_interaction_effect = yes }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { scope:hook = yes }
+			scope:actor = {
+				if = {
+					limit = {
+						has_usable_hook = scope:recipient
+					}
+					use_hook = scope:recipient
+				}
+			}
+			scope:recipient = {
+				trigger_event = char_interaction.0180
+			}
+		}
+		if = {
+			limit = { scope:recipient = { is_imprisoned_by = scope:actor } }
+			scope:recipient = { release_from_prison = yes }
+			scope:recipient = {
+				trigger_event = char_interaction.0180
+			}
+		}
+	}
+
+	on_decline = {
+		send_interface_toast = {
+			title = ask_for_conversion_decline_notification
+			left_icon = scope:recipient
+		}
+	}
+
+	# Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+			NOT = {
+				scope:recipient = { is_imprisoned_by = scope:actor }
+			}
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+	send_options_exclusive = no
+
+	
+	ai_potential = {
+		is_adult = yes
+	}
+	
+	ai_will_do = {
+		base = 100
+		
+		modifier = { # The AI will only use a Hook if they couldn't otherwise do this
+			scope:hook = yes
+			add = -1
+		}
+		
+		modifier = { # The AI doesn't really want to convert Diasporic culture courtiers
+			scope:recipient = {
+				culture = {
+					has_cultural_tradition = tradition_diasporic
+				}
+			}
+			factor = 0
+		}
+
+		modifier = { # Do not convert Righteous faith subjects, unless disturbingly zealous
+			factor = 0
+			scope:actor = {
+				ai_zeal < 100
+				faith = {
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value <= faith_fully_accepted_level
+					}
+				}
+			}
+			NOT = {
+				scope:recipient = {
+					is_close_family_of = scope:actor
+				}
+			}
+		}
+
+		modifier = { # Astray faiths require specific circumstances to demand conversion of
+			factor = 0
+			scope:actor = {
+				has_tolerant_faith_or_culture_trigger = yes
+				ai_zeal < 50
+				faith = {
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value <= faith_astray_level
+					}
+				}
+			}
+			NOT = {
+				scope:recipient = {
+					is_close_family_of = scope:actor
+				}
+			}
+		}
+
+		modifier = { # Astray faiths require specific circumstances to demand conversion of
+			factor = 0
+			scope:actor = {
+				faith = { has_doctrine = doctrine_pluralism_fundamentalist }
+				ai_zeal < -10
+				faith = {
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value <= faith_astray_level
+					}
+				}
+			}
+			NOT = {
+				scope:recipient = {
+					is_close_family_of = scope:actor
+				}
+			}
+		}
+
+		modifier = { # Astray faiths require specific circumstances to demand conversion of
+			factor = 0
+			scope:actor = {
+				NOR = {
+					faith = { has_doctrine = doctrine_pluralism_fundamentalist }
+					has_tolerant_faith_or_culture_trigger = yes
+				}
+				ai_zeal < 0
+				faith = {
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value <= faith_astray_level
+					}
+				}
+			}
+			NOT = {
+				scope:recipient = {
+					is_close_family_of = scope:actor
+				}
+			}
+		}
+	}
+}
+
+#WH: Overwrite, from 00_scheme_interactions.txt. Reason: Removal of modifiers for spesific faiths - Wanderer
+learn_language_interaction = {
+	icon = icon_culture
+	category = interaction_category_friendly
+	common_interaction = yes
+
+	send_name = START_SCHEME
+
+	interface_priority = 48
+	scheme = learn_language
+	ignores_pending_interaction_block = yes
+
+	ai_targets = {
+		ai_recipients = liege
+		ai_recipients = head_of_faith
+		ai_recipients = spouses
+		ai_recipients = scripted_relations
+	}
+	ai_targets = {
+		ai_recipients = vassals
+		ai_recipients = peer_vassals
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		max = 5
+	}
+	ai_frequency = 60
+
+	is_shown = {
+		scope:actor = {
+			NOT = {
+				culture = {
+					has_same_culture_language = scope:recipient.culture
+				}
+			}
+		}
+		NOT = { scope:actor = scope:recipient }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			can_start_scheme = {
+				type = learn_language
+				target = scope:recipient
+			}
+		}
+	}
+
+	desc = scheme_interaction_tt_learn_language_approved
+
+	on_accept = {
+		hidden_effect = {
+			scope:actor = {
+				send_interface_toast = {
+					title = learn_language_interaction_notification
+
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+
+					start_scheme = {
+						type = learn_language
+						target = scope:recipient
+					}
+				}
+			}
+		}
+	}
+	
+	ai_potential = {
+		primary_title.tier >= tier_county
+		NOR = {
+			has_trait = lazy
+			has_trait = paranoid
+			any_scheme = {
+				OR = {
+					scheme_type = befriend
+					scheme_type = sway
+					scheme_type = seduce
+					scheme_type = courting
+					scheme_type = elope
+					scheme_type = learn_language
+				}
+			}
+			primary_title = {
+				is_mercenary_company = yes
+			}
+		}
+	}
+	
+	auto_accept = yes
+	
+	ai_will_do = {
+		base = 0
+
+		
+		modifier = { # Focus on befriending if that's the path you've chosen
+			add = -50
+			scope:actor = {
+				has_perk = befriend_perk
+			}
+		}
+		
+		modifier = { # Prefer seducing if you've got the focus for it
+			add = -20
+			scope:actor = {
+				has_focus = intrigue_temptation_focus
+			}
+		}
+		
+		modifier = {
+			add = 50
+			scope:actor = {
+				has_perk = open_minded_perk
+			}
+		}
+		
+		modifier = {
+			add = 50
+			scope:actor = {
+				culture = {
+					has_cultural_parameter = rulers_want_to_learn_languages_of_coreligionists
+				}
+			}
+			scope:actor.religion = scope:recipient.religion
+		}
+		
+		modifier = {
+			add = 25
+			scope:actor = {
+				has_trait = curious
+			}
+		}
+		
+		modifier = {
+			add = 50
+			scope:actor = {
+				is_adult = no
+			}
+		}
+		
+		modifier = {
+			add = 25
+			scope:recipient = {
+				has_relation_friend = scope:actor
+			}
+		}
+		
+		modifier = {
+			add = 25
+			scope:recipient = {
+				has_relation_lover = scope:actor
+			}
+		}
+		
+		modifier = {
+			add = 10
+			scope:recipient = {
+				has_relation_potential_friend = scope:actor
+			}
+		}
+		
+		modifier = {
+			add = 5
+			scope:recipient = {
+				is_close_family_of = scope:actor
+				is_ruler = yes
+			}
+		}
+		
+		modifier = { # Clergy/pious people want to learn their HoF's language
+			add = 50
+			scope:actor = {
+				exists = faith.religious_head
+				OR = {
+					has_trait = zealous
+					is_clergy = yes
+				}
+				NOT = { knows_language_of_culture = scope:actor.faith.religious_head.culture }
+			}
+			scope:recipient = { knows_language_of_culture = scope:actor.faith.religious_head.culture }
+		}
+		
+		modifier = {
+			add = 20
+			scope:actor = {
+				has_focus = diplomacy_foreign_affairs_focus
+				any_neighboring_realm_same_rank_owner = {
+					this = scope:recipient
+				}
+			}
+		}
+		
+		modifier = {
+			add = 20
+			scope:actor = {
+				OR = {
+					has_focus = learning_scholarship_focus
+					has_focus = stewardship_duty_focus
+				}
+			}
+			scope:recipient = {
+				is_vassal_of = scope:actor
+			}
+		}
+		
+		modifier = {
+			add = 10
+			exists = scope:actor.capital_county
+			scope:recipient.culture = {
+				has_same_culture_language = scope:actor.capital_county.culture
+			}
+		}
+		
+		modifier = {
+			add = 100
+			scope:actor.culture = {
+				has_cultural_tradition = tradition_loyal_soldiers
+			}
+			is_independent_ruler = no
+			scope:actor = {
+				liege = scope:recipient
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scope:recipient = {
+				is_powerful_vassal_of = scope:actor
+			}
+		}
+		
+		modifier = {
+			factor = 2
+			scope:actor = {
+				learning >= 12
+			}
+		}
+		
+		modifier = {
+			factor = 0.5
+			scope:actor = {
+				learning <= 6
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			
+			scope:actor.num_of_known_languages >= 5
+			scope:actor = {
+				NOR = {
+					has_perk = pedagogy_perk
+					has_trait = intellect_good_2
+					has_trait = intellect_good_3
+					age < 25
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			
+			scope:actor.num_of_known_languages >= language_soft_cap
+		}
+	}
+}
+
+
+###
+# Soft removals below this point
+
+
+#WH: Overwrite, from 00_dynast_interactions.txt - Wanderer
+send_to_varangian_guard_interaction = { 
+	is_shown = {
+		always = no
+	}
+
+	is_valid_showing_failures_only = {
+		always = no
+	}
+
+	ai_frequency = 0
+}
+
+debug_start_era_of_crusades_interaction = {
+	category = interaction_debug_main
+	
+	is_shown = {
+		always = no
+	}
+
+	is_valid_showing_failures_only = {
+		always = no
+	}
+
+	ai_frequency = 0
+}
+
+debug_launch_natural_crusade_interaction = {
+	category = interaction_debug_main
+	
+	is_shown = {
+		always = no
+	}
+
+	is_valid_showing_failures_only = {
+		always = no
+	}
+
+	ai_frequency = 0
+}
+
+debug_start_era_of_jihads_interaction = {
+	category = interaction_debug_main
+	
+	is_shown = {
+		always = no
+	}
+
+	is_valid_showing_failures_only = {
+		always = no
+	}
+
+	ai_frequency = 0
+}
+
+debug_trigger_localization_testing_interaction = {
+	category = interaction_debug_main
+	
+	is_shown = {
+		always = no
+	}
+
+	is_valid_showing_failures_only = {
+		always = no
+	}
+
+	ai_frequency = 0
+}

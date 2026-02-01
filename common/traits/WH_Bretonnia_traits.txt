@@ -1,0 +1,706 @@
+﻿fay_enchantress = {
+	category = fame
+	
+	inheritance_blocker = all
+	flag = can_not_marry
+	claim_inheritance_blocker = all
+	can_have_children = no
+	shown_in_ruler_designer = no
+	
+	the_lady_religion_opinion = 50
+	immortal = yes
+	life_expectancy = 70
+	
+	vassal_opinion = 5
+	martial = 2
+	diplomacy = 2
+	learning = 2
+	intrigue = 2
+	stewardship = 2
+	monthly_prestige = 0.75
+	monthly_piety = 0.75
+ 	defender_advantage = 10
+	
+	ai_zeal = 1000
+}
+
+knight_lady_errant = {
+	category = fame
+	
+	minimum_age = 16
+	
+	incapacitating = yes
+	
+	group = knight_lady
+	level = 1
+	
+	ruler_designer_cost = 10
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knight_lady_errant_desc
+			}
+			desc = trait_knight_lady_errant_character_desc
+		}
+	}
+	
+	prowess = 2
+}
+
+knight_lady_realm = {
+	category = fame
+	
+	minimum_age = 16
+	
+	group = knight_lady
+	level = 2
+	
+	ruler_designer_cost = 30
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knight_lady_realm_desc
+			}
+			desc = trait_knight_lady_realm_character_desc
+		}
+	}
+	
+	negate_health_penalty_add = 0.25
+	county_opinion_add = 5
+	prowess = 4
+	ai_zeal = 15
+}
+
+knight_lady_questing = {
+	category = fame
+	
+	minimum_age = 16
+	
+	group = knight_lady
+	level = 3
+	
+	flag = can_not_marry
+	can_have_children = no
+	
+	ruler_designer_cost = 50
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knight_lady_questing_desc
+			}
+			desc = trait_knight_lady_questing_character_desc
+		}
+	}
+	
+	track = {
+		100 = {
+			
+		}
+	}
+	
+	negate_health_penalty_add = 0.5
+	county_opinion_add = 15
+	prowess = 6
+	ai_zeal = 30
+}
+
+
+knight_lady_grail = {
+	category = fame
+	
+	minimum_age = 16
+	
+	group = knight_lady
+	level = 4
+	
+	ruler_designer_cost = 100
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knight_lady_grail_desc
+			}
+			desc = trait_knight_lady_grail_character_desc
+		}
+	}
+	
+	negate_health_penalty_add = 1.0
+	county_opinion_add = 35
+	life_expectancy = 70
+	prowess = 10
+	ai_zeal = 50
+}
+
+### Knightly Virtues ###
+
+knightly_virtue_audacity = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_audacity_desc
+			}
+			desc = trait_knightly_virtue_audacity_character_desc
+		}
+	}
+	
+	counter_efficiency_per_piety_level = 0.1
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_confidence = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_confidence_desc
+			}
+			desc = trait_knightly_virtue_confidence_character_desc
+		}
+	}
+	
+	prowess = 4
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_discipline = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_discipline_desc
+			}
+			desc = trait_knightly_virtue_discipline_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_duty = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_duty_desc
+			}
+			desc = trait_knightly_virtue_duty_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_empathy = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_empathy_desc
+			}
+			desc = trait_knightly_virtue_empathy_character_desc
+		}
+	}
+	
+	levy_size_per_piety_level = 0.05
+	county_opinion_add = 10
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_heroism = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_heroism_desc
+			}
+			desc = trait_knightly_virtue_heroism_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_ideal = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_ideal_desc
+			}
+			desc = trait_knightly_virtue_ideal_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_impetuous = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_impetuous_desc
+			}
+			desc = trait_knightly_virtue_impetuous_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_joust = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_joust_desc
+			}
+			desc = trait_knightly_virtue_joust_character_desc
+		}
+	}
+	
+	light_cavalry_damage_mult = 0.2
+	heavy_cavalry_damage_mult = 0.2
+	camel_cavalry_damage_mult = 0.2
+
+	ai_zeal = 10
+}
+
+knightly_virtue_temper = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_temper_desc
+			}
+			desc = trait_knightly_virtue_temper_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_disdain = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_disdain_desc
+			}
+			desc = trait_knightly_virtue_disdain_character_desc
+		}
+	}
+	
+	dread_per_piety_level_add = 10
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_penitent = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_penitent_desc
+			}
+			desc = trait_knightly_virtue_penitent_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_purity = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_purity_desc
+			}
+			desc = trait_knightly_virtue_purity_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_stoicism = {
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_stoicism_desc
+			}
+			desc = trait_knightly_virtue_stoicism_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+#Geheimnisnacht only
+
+knightly_virtue_crusade = { #Border Princes and Antoch
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_crusade_desc
+			}
+			desc = trait_knightly_virtue_crusade_character_desc
+		}
+	}
+	
+	tolerance_advantage_mod_piety_level = 5
+	movement_speed = 0.1
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_exploration = { #New World mostly
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_exploration_desc
+			}
+			desc = trait_knightly_virtue_exploration_character_desc
+		}
+	}
+	
+	character_travel_speed = 10
+	
+	ai_zeal = 10
+}
+
+knightly_virtue_grail = { #For non-bretonnians who convert but aren't eligible for other virtues
+	minimum_age = 16
+	category = fame
+
+	same_faith_opinion = 5
+	
+	shown_in_ruler_designer = no
+	
+	potential = {
+		faith = { 
+			has_doctrine = tenet_knightly_virtues 
+		}
+	}
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_knightly_virtue_grail_desc
+			}
+			desc = trait_knightly_virtue_grail_character_desc
+		}
+	}
+	
+	ai_zeal = 10
+}
+
+elevated_peasant = { #for Repanse to prevent inheritance
+	category = fame
+
+	flag = can_not_marry
+	can_have_children = no
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_elevated_peasant_desc
+			}
+			desc = trait_elevated_peasant_character_desc
+		}
+	}
+}

@@ -1,0 +1,178 @@
+﻿# imperial_legitimacy_bar_gui = {
+# 	scope = title
+# 	is_shown = {
+# 		has_variable = imperial_legitimacy_level
+# 	}
+# }
+
+am_hum_emperor_list = {
+	scope =character
+	effect = {
+		if = {
+			limit = {
+				root = {
+					OR = {
+						primary_title = {
+							this = title:e_reikland
+						}
+						any_liege_or_above = {
+							primary_title = {
+								this = title:e_reikland
+							}
+						}
+					}
+				}
+			}
+			clear_variable_list = hum_emperor_list
+			title:e_reikland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = hum_emperor_list
+						target = prev
+					}
+				}					
+			}	
+		}
+	}
+}
+am_hum_emp_successor_list = {
+	scope = character
+	effect = {
+		if = {
+			limit = {
+				root = {
+					OR = {
+						primary_title = {
+							this = title:e_reikland
+						}
+						any_liege_or_above = {
+							primary_title = {
+								this = title:e_reikland
+							}
+						}
+					}
+				}
+			}
+			clear_variable_list = hum_emp_successor_list
+			title:e_reikland.holder.primary_heir = {
+				root = {
+					add_to_variable_list = {
+						name = hum_emp_successor_list
+						target = prev
+					}
+				}					
+			}	
+		}
+	}
+}
+am_elector_count_list = {
+	scope =character
+	effect = {
+		if = {
+			limit = {
+				root = {
+					OR = {
+						primary_title = {
+							this = title:e_reikland
+						}
+						any_liege_or_above = {
+							primary_title = {
+								this = title:e_reikland
+							}
+						}
+					}
+				}
+			}
+			clear_variable_list = elector_count_list
+			title:k_reikland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}	
+			title:k_wissenland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_middenland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_nordland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_westerland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_averland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_talabecland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_mootland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_hochland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_ostermark.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+			title:k_ostland.holder = {
+				root = {
+					add_to_variable_list = {
+						name = elector_count_list
+						target = prev
+					}
+				}					
+			}
+		}
+	}
+}
+

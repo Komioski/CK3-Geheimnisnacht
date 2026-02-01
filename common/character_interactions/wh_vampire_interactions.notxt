@@ -1,0 +1,189 @@
+﻿blood_kiss_interaction = {
+	icon = icon_personal
+	category = interaction_category_vampire
+    common_interaction = yes
+	interface_priority = 1
+	scheme = blood_kiss
+
+
+	send_name = START_SCHEME
+	ignores_pending_interaction_block = yes
+	
+	ai_targets = {
+		ai_recipients = family
+		max = 2
+	}
+	ai_targets = {
+		ai_recipients = guests
+		ai_recipients = courtiers
+	}
+	
+	# We don't want this to grow ludicrously large in big realms
+	ai_targets = {
+		ai_recipients = realm_characters
+		max = 10
+	}
+	
+	ai_target_quick_trigger = {
+		adult = yes
+		attracted_to_owner = yes
+		owner_attracted = yes
+	}
+	ai_frequency = 12
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:recipient = { is_adult = yes }
+		scope:actor = { is_adult = yes }
+		scope:actor = { wh_is_vampire_trigger = yes  }
+		scope:recipient = { wh_is_vampire_trigger = no }
+
+	}
+
+	is_valid_showing_failures_only = {
+		# custom_description = {
+		# 	object = scope:actor
+		# 	text = "I_can_only_plot_one_blood_kiss_at_time"
+		# 	scope:actor = {
+		# 		NOT = {
+		# 			any_scheme = {
+		# 				scheme_type = blood_kiss
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# custom_description = {
+		# 	object = scope:actor
+		# 	text = "I_must_be_at_the_same_location"
+		# 	scope:actor = { exists = location }
+		# 	scope:recipient = { exists = location }
+		# 	scope:actor = { location = scope:recipient.location }
+		# }	
+		scope:actor = {
+			can_start_scheme = {
+				type = blood_kiss
+				target = scope:recipient
+			}
+		}
+		scope:recipient = {
+		is_landed = no
+		}
+	}
+
+	desc = scheme_interaction_tt_blood_kiss_approved
+	on_accept = {
+		hidden_effect = {
+			scope:actor = {
+				start_scheme = {
+					type = blood_kiss
+					target = scope:recipient
+				}
+			}
+		}
+	}
+	
+	auto_accept = yes
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+request_blood_kiss_interaction = {
+	icon = icon_personal
+	category = interaction_category_vampire
+    common_interaction = yes
+	interface_priority = 1
+
+	desc = request_blood_kiss_interaction_desc
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = { wh_is_vampire_trigger = no  }
+		scope:recipient = { wh_is_vampire_trigger = yes }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			can_start_scheme = {
+				type = blood_kiss_request
+				target = scope:recipient
+			}
+		}
+		# scope:recipient = {
+		# is_landed = no
+		# }
+	}
+	auto_accept = yes
+	on_accept = {
+		hidden_effect = {
+			scope:actor = {
+				start_scheme = {
+					type = blood_kiss_request
+					target = scope:recipient
+				}
+			}
+		}
+	}
+
+}
+
+wh_vampshapeshift_interaction = {
+	category = interaction_category_vampire
+	common_interaction = yes
+	interface_priority = 2
+	desc = wh_pass_as_human_interaction_desc
+	is_shown = {
+		scope:actor = scope:recipient
+		scope:actor = { 
+			or = {
+				has_trait  =  vampire_carstein
+				has_trait = vampire_blood_dragon
+				has_trait = vampire_lahmian 
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {}
+	send_option = {
+		is_shown = {
+			not = {
+				scope:actor = {
+					has_character_modifier = wh_pass_as_human_modifier
+				}	
+			}
+		}	
+		flag = pass_as_human
+		localization = wh_vampshapeshift_interaction_pass_as_human
+	}
+	send_option = {
+		is_shown = {
+			 scope:actor = {
+			 	has_character_modifier = wh_pass_as_human_modifier
+			 }			
+		}	
+		flag = pass_as_vampire
+		localization = wh_vampshapeshift_interaction_pass_as_human
+	}
+	send_options_exclusive = yes
+	
+	auto_accept = yes
+	on_accept = {
+		scope:actor = {
+			wh_clean_transformation = yes
+		}
+		if = {
+			limit = {
+				scope:pass_as_human = yes
+			}
+			scope:actor = {
+				add_character_modifier = {
+					modifier = wh_pass_as_human_modifier
+				}
+			}
+		}
+		else = {
+
+		}
+
+	}
+}

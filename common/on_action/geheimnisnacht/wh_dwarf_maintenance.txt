@@ -1,0 +1,51 @@
+﻿# on_action_wh_dwarf_age_trait= {
+    # effect = {
+        # every_living_character = { 
+            # if = { limit = { has_trait = race_dwarf }
+            # add_trait = beardling
+            # add_trait = dwarf_warrior
+            # add_trait = longbeard
+            # add_trait = greatbeard
+            # add_trait = ancestor
+            # } 
+        # }
+# }
+# }
+
+# on_25th_birthday = {
+    # trigger = { age = 25}
+    # effect = {
+        # if = { limit = { has_trait = race_dwarf }
+            # remove_trait = beardling
+            # add_trait = dwarf_warrior
+        # }
+    # }
+# }
+
+# on_120th_birthday = {
+    # trigger = { age = 120}
+    # effect = {
+        # if = { limit = { has_trait = race_dwarf }
+            # remove_trait = dwarf_warrior
+            # add_trait = longbeard
+        # }
+    # }
+# }
+# on_175th_birthday = {
+    # trigger = { age = 175}
+    # effect = {
+        # if = { limit = { has_trait = race_dwarf }
+            # remove_trait = longbeard
+            # add_trait = greatbeard
+        # }
+    # }
+# }
+# on_250th_birthday = {
+    # trigger = { age = 250}
+    # effect = {
+        # if = { limit = { has_trait = race_dwarf }
+            # remove_trait = greatbeard
+            # add_trait = ancestor
+        # }
+    # }
+# }

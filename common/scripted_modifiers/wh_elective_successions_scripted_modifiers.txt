@@ -1,0 +1,41 @@
+﻿elector_grail_knight_pattern_royarch_elective_modifier = { 
+	modifier = { #Grail characters prefer to vote for characters who are already Grail Knights
+		desc = tooltip_royarch_grail_knight
+		#faith = { has_doctrine = tenet_knightly_virtues }
+		scope:candidate = {
+			has_trait = knight_lady_grail
+		}
+		add = {
+			value = 150
+			if = { #Religious gradients.
+				limit = {
+					ai_zeal > 10
+				}
+				add = {
+					value = ai_zeal
+					multiply = 1
+				}
+			}
+		}
+	}
+	
+	modifier = { #Knights of the Realm are better than not being one at all I guess
+		desc = tooltip_royarch_realm_knight
+		#faith = { has_doctrine = tenet_knightly_virtues }
+		scope:candidate = {
+			has_trait = knight_lady_realm
+		}
+		add = {
+			value = 75
+			if = { #Religious gradients.
+				limit = {
+					ai_zeal > 10
+				}
+				add = {
+					value = ai_zeal
+					multiply = 0.5
+				}
+			}
+		}
+	}
+}

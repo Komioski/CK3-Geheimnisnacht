@@ -1,0 +1,1360 @@
+﻿morph_genes = {
+
+
+
+### body tattoos ###
+gene_body_tattoo = {	
+	# blank #
+	body_tattoo_blank = {
+		index = 0
+		male = {}	
+	}
+	# body tattoo #
+	body_tattoo_a = {
+		index = 1
+		male = {
+            decal = {
+                    #type = skin (Unexpected token: type)
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 1.00  1.00 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 1
+            }		
+		}
+	}
+	body_tattoo_b = {
+		index = 2
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_b.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup # custom #TODO: Define a costum?
+            }		
+		}
+	}
+	body_tattoo_c = {
+		index = 3
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_c.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup # custom
+            }		
+		}
+	}
+	body_tattoo_d = {
+		index = 4
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_d.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup # custom
+            }		
+		}
+	}
+	body_tattoo_e = {
+		index = 5
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_e.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.92  0.92 }
+                        { 0.92  0.92 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup # custom
+            }		
+		}
+	}
+	body_tattoo_f = {
+		index = 6
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_f.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup # custom
+            }		
+		}
+	}
+	body_tattoo_g = {
+		index = 7
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_g.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup # custom
+            }		
+		}
+	}
+	body_tattoo_h = {
+		index = 8
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_h.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup # custom
+            }		
+		}
+	}
+	body_tattoo_i = {
+		index = 9
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_i.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }		
+		}
+	}
+	body_tattoo_j = {
+		index = 10
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_j.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }		
+		}
+	}
+	body_tattoo_jb = {
+		index = 11
+		male = {
+            decal = {
+                    body_part = torso
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_jb.dds"
+                        #normal = "gfx/models/portraits/decals/male_body/male_body_tattoo_layer_a0.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.94  0.94 }
+                        { 0.94  0.94 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = multiply
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }		
+		}
+	}
+	
+}
+	## body tattoos end #
+	## face tattoos ##
+gene_face_tattoo = {
+	
+	# blank #
+	face_tattoo_blank = {
+		index = 0
+		male = {}
+		}
+	
+	face_tattoo_1b = {
+		index = 1
+		male = {
+            decal = {
+                    #type = paint (Unexpected token: type)
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_1b.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 1.00  1.00 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+            }	
+		}
+	}
+	face_tattoo_1c = {
+		index = 2
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_1c.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_2 = {
+		index = 3
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_2.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_3 = {
+		index = 4
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_3.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_4 = {
+		index = 5
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_4.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_5 = {
+		index = 6
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_5.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_6b = {
+		index = 7
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_6b.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_7 = {
+		index = 8
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_7.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_8 = {
+		index = 9
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_8.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_9 = {
+		index = 10
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_9.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_11 = {
+		index = 11
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_11.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_12b = {
+		index = 12
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_12b.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_12e = {
+		index = 13
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_12e.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_13 = {
+		index = 14
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_13.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_15 = {
+		index = 15
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_15.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_15b = {
+		index = 16
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_15b.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_16 = {
+		index = 17
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_16.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_17 = {
+		index = 18
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_17.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_18 = {
+		index = 19
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_18.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_20 = {
+		index = 20
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_20.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	## neck layers ##
+	face_tattoo_neck_1 = {
+		index = 21
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_1.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_1b = {
+		index = 22
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_1b.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_1c = {
+		index = 23
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_1c.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_2 = {
+		index = 24
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_2.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_3 = {
+		index = 25
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_3.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_5 = {
+		index = 26
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_5.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_7 = {
+		index = 27
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_7.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_8 = {
+		index = 28
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_8.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_12b = {
+		index = 29
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_12b.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_14 = {
+		index = 30
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_14.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_15 = {
+		index = 31
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_15.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_16 = {
+		index = 32
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_16.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_17 = {
+		index = 33
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_17.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_18 = {
+		index = 34
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_18.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_20a = {
+		index = 35
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_20a.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_21a = {
+		index = 36
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_21a.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_21b = {
+		index = 37
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_21b.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_22 = {
+		index = 38
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_22.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_neck_23c = {
+		index = 39
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_neck_23c.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_21 = {
+		index = 40
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_21.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	face_tattoo_22 = {
+		index = 41
+		male = {
+            decal = {
+					
+                    body_part = head
+                    textures = {
+                        diffuse = "gfx/models/portraits/decals/male_head/male_face_tattoo_layer_22.dds"
+                        #normal = "gfx/models/portraits/decals/male_head/decal_male_head_stubble_avg_normal.dds"
+                    }
+                    alpha_curve = {              #controls decal alpha relative to gene strength. Will give a linear interpolation if left unspecified
+                        #gene strength%, decal alpha
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                        { 0.96  0.96 }
+                    }
+                    blend_modes = {              #overlay/replace/hard_light/multiply
+                        diffuse = replace 
+                        #normal = overlay
+                        # properties = 
+                    }
+                    priority = 10
+                    age = age_preset_makeup
+            }	
+		}
+	}
+	## face tattoos end ##
+	
+	
+}
+
+}
+
+
+

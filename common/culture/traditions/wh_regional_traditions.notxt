@@ -1,0 +1,124 @@
+﻿# to be reimplemented when regions are present
+# tradition_frontier_princes = { #For border princes
+# 	category = regional
+	
+# 	layers = {
+# 		0 = learning
+# 		1 = mediterranean
+# 		4 = conversation.dds
+# 	}
+	
+# 	is_shown = {
+# 		OR = {
+# 			any_culture_county = {
+# 				title_province = {
+# 					geographical_region = world_old_world_southern_realms_borderlands
+# 				}
+# 			}
+# 		}
+# 	}
+	
+# 	parameters = {
+# 		cheaper_to_hybridize = yes
+# 		learns_more_languages = yes
+# 	}
+# 	culture_modifier = {
+# 		cultural_acceptance_gain_mult = 0.25
+# 	}
+# 	character_modifier = {
+# 		max_learn_language_schemes_add = 1
+# 		learn_language_scheme_power_mult = 0.3
+# 		different_culture_opinion = 10
+# 		ignore_negative_opinion_of_culture = yes
+# 	}
+	
+# 	cost = {
+# 		prestige = {
+# 			add = {
+# 				value = tradition_base_cost
+# 				desc = BASE
+# 				format = "BASE_VALUE_FORMAT"
+# 			}
+# 			if = {
+# 				limit = {
+# 					NOR = {
+# 						any_in_list = { list = traits this = flag:ethos_communal }
+# 						any_in_list = { list = traits this = flag:ethos_egalitarian }
+# 					}
+# 				}
+# 				add = {
+# 					value = tradition_incompatible_ethos_penalty
+# 					desc = not_communal_or_egalitarian_desc
+# 				}
+# 			}
+# 			if = {
+# 				limit = {
+# 					NOT = {
+# 						scope:character = {
+# 							any_sub_realm_county = {
+# 								percent >= 0.3
+# 								NOT = { culture = root }
+# 							}
+# 						}
+# 					}
+# 				}
+# 				add = {
+# 					value = tradition_unfulfilled_criteria_penalty
+# 					desc = multiple_cultures_in_realm_percentage_desc
+# 				}
+# 			}
+			
+# 			multiply = tradition_replacement_cost_if_relevant
+# 		}
+# 	}
+	
+# 	ai_will_do = {
+# 		value = 100
+# 		if = {
+# 			limit = {
+# 				is_divergent_culture = no
+# 			}
+# 			multiply = 0
+# 		}
+# 	}
+# }
+
+# tradition_colonials  = {#For Lustria colonial cultures
+# 	category = regional
+
+# 	layers = {
+# 		0 = martial
+# 		1 = mena
+# 		4 = viking.dds
+# 	}
+	
+# 	is_shown = {
+# 		OR = {
+# 			any_culture_county = {
+# 				title_province = {
+# 					geographical_region = world_new_world_lustria
+# 				}
+# 			}
+# 		}
+# 	}
+# 	parameters = {
+# 		castle_fortifications_increase = yes
+# 	}
+# 	province_modifier = {		
+# 		levy_size = -0.2
+# 	}
+# 	character_modifier = {
+# 		cultural_head_fascination_mult = -0.25
+# 		men_at_arms_maintenance = 0.15
+# 		knight_limit = 1
+# 		prowess = 2
+# 		controlled_province_advantage = 15
+# 		attacker_advantage = -10
+# 		additional_fort_level = 2
+# 		ai_boldness = 25
+# 	}
+	
+# 	ai_will_do = {
+# 		value = 100
+# 	}
+# }

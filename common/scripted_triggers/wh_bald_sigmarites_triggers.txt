@@ -1,0 +1,22 @@
+﻿portrait_bald_certain_trigger = {
+	sigmarite_certain_bald = yes
+}
+
+sigmarite_certain_bald = {
+	faith = faith:sigmarite
+	AND = {
+		OR = {
+			primary_title = title:k_cult_of_sigmar
+			has_trait = devoted
+			has_character_flag = need_priest_outfit
+		}
+		is_ai = yes
+	}
+}
+
+sigmarite_chance_bald = {
+	faith = faith:sigmarite
+	AND = {
+		has_trait = zealous
+	}
+}

@@ -1,0 +1,241 @@
+﻿######
+#Bava#
+######
+
+bava_001 = {
+	name = Quinto 
+	dynasty = dynasty_bava
+	religion = myrmidian_eastern
+	culture = umbrian
+	6431.1.1 = {
+		birth = yes	
+	}
+	6476.1.1 = {
+		death = yes
+	}
+}
+
+bava_002 = {
+	name = Giornado 
+	dynasty = dynasty_bava
+	father = bava_001
+	religion = myrmidian_eastern
+	culture = umbrian
+	6455.1.1 = {
+		birth = yes	
+	}
+	6503.1.1 = {
+		death = yes
+	}
+}
+
+bava_100 = {
+	name = Abbondio 
+	dynasty = dynasty_bava
+	father = bava_002
+	martial = 15
+	diplomacy = 14
+	intrigue = 8
+	stewardship = 4
+	religion = myrmidian_eastern
+	culture = umbrian
+	trait = compassionate
+	trait = honest
+	trait = generous
+	trait = diligent
+	trait = education_martial_4
+	6492.4.13 = {
+		birth = yes	
+	}
+}
+
+bava_101 = {
+	name = Valente 
+	dynasty = dynasty_bava
+	father = bava_100
+	mother = pavona_2
+	religion = myrmidian_eastern
+	culture = umbrian
+	6509.2.22 = {
+		birth = yes	
+	}
+}
+
+bava_102 = {
+	name = Valente 
+	female = yes
+	dynasty = dynasty_bava
+	father = bava_002
+	religion = myrmidian_eastern
+	culture = umbrian
+	6474.1.1 = {
+		birth = yes	
+	}
+}
+
+######
+#Cela#
+######
+
+cela_100 = {
+	name = Osvaldo 
+	dynasty = dynasty_cela
+	martial = 7
+	diplomacy = 3
+	intrigue = 5
+	stewardship = 22
+	religion = myrmidian_eastern
+	culture = umbrian
+	trait = wrathful
+	trait = sadistic
+	trait = just
+	trait = education_stewardship_4
+	6493.4.13 = {
+		birth = yes	
+	}
+}
+
+#########
+#Lazzaro#
+#########
+
+lazzaro_001 = {
+	name = Adamo 
+	dynasty = dynasty_lazzaro
+	religion = myrmidian_eastern
+	culture = umbrian
+	6425.1.1 = {
+		birth = yes	
+	}
+	6479.1.1 = {
+		death = yes
+	}
+}
+
+lazzaro_002 = {
+	name = Guerrino 
+	dynasty = dynasty_lazzaro
+	father = lazzaro_001
+	religion = myrmidian_eastern
+	culture = umbrian
+	6452.1.1 = {
+		birth = yes	
+	}
+	6501.1.1 = {
+		death = yes
+	}
+}
+
+lazzaro_100 = {
+	name = Calogero 
+	dynasty = dynasty_lazzaro
+	father = lazzaro_002
+	martial = 7
+	diplomacy = 8
+	intrigue = 13
+	stewardship = 3
+	religion = myrmidian_eastern
+	culture = umbrian
+	trait = cynical
+	trait = craven
+	trait = gluttonous
+	trait = lifestyle_hunter 
+	trait = education_martial_1
+	6481.4.13 = {
+		birth = yes	
+	}	
+	6503.1.1 = {
+		add_spouse = calandra_002
+	}
+}
+
+lazzaro_101 = {
+	name = Michele
+	dynasty = dynasty_lazzaro
+	father = lazzaro_100
+	mother = calandra_002
+	religion = myrmidian_eastern
+	culture = umbrian
+	6504.2.12 = {
+		birth = yes	
+	}	
+}
+
+lazzaro_102 = {
+	name = Giuseppe 
+	dynasty = dynasty_lazzaro
+	father = lazzaro_001
+	religion = myrmidian_eastern
+	culture = umbrian
+	trait = patient
+	trait = generous
+	trait = diligent
+	trait = education_stewardship_3
+	6465.2.18 = {
+		birth = yes	
+	}	
+	6494.1.1 = {
+		add_spouse = bava_102
+	}
+}
+
+lazzaro_103 = {
+	name = Michele 
+	dynasty = dynasty_lazzaro
+	father = lazzaro_102
+	mother = bava_102
+	religion = myrmidian_eastern
+	culture = umbrian
+	trait = ambitious
+	trait = brave
+	trait = diligent
+	trait = bossy
+	disallow_random_traits = yes
+	6496.3.11 = {
+		birth = yes	
+	}
+}
+
+########
+#Labini#
+########
+
+labini_100 = {
+	name = Ezio 
+	dynasty = dynasty_labini
+	martial = 15
+	diplomacy = 8
+	intrigue = 10
+	stewardship = 8
+	religion = myrmidian_eastern
+	culture = umbrian
+	trait = diligent
+	trait = honest
+	trait = shrewd
+	trait = education_learning_4
+	6485.4.13 = {
+		birth = yes	
+	}
+}
+
+
+
+pavona_2 = {
+	name = Carola 
+	female = yes
+	#dynasty = dynasty_reman
+	martial = 5
+	diplomacy = 14
+	intrigue = 3
+	stewardship = 3
+	religion = myrmidian_eastern
+	culture = umbrian
+	trait = greedy
+	trait = trusting
+	trait = lustful
+	trait = education_diplomacy_4 
+	6492.4.13 = {
+		birth = yes	
+		add_spouse = bava_100
+	}
+}

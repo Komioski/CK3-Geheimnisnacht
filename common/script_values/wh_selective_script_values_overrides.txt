@@ -1,0 +1,146 @@
+﻿# Referenced by code when building list of ghw targets
+#Logic reworked by Ewan Cowhig Croft
+great_holy_war_target_kingdom_weight = {
+	#WEIGHTING PROCESS
+	#1. Check how many individual counties within a de jure kingdom have a top-liege with an eligible faith for GHWing. Boost the count a little for kingdoms with existing same-faith monarchs.
+	#2. Modify the count by region location & relative importance to the Faith (is this kingdom in the heartlands of the faith, or one of an increasing gradiant of frontier regions?).
+	#3. Modify the count by region distance from the HoF's capital, or a fallback holy site.
+	#4. Weight up kingdoms containing holy sites directly.
+	#5. Weight up special priority targets (e.g., Jerusalem, Mecca) directly.
+
+	### 1 ###
+	#Is the target kingdom a viable GHW target?
+	every_in_de_jure_hierarchy = {
+		continue = { tier > tier_county }	#Check individual counties within the potential target de jure kingdom.
+		limit = {	#For every county with a GHWable liege...
+			tier = tier_county
+			scope:the_faith = {
+					is_hostile_enough_for_holy_war_trigger = { FAITH = prev.holder.top_liege.faith }
+			}
+		}
+		add = 1	#... Add 1 to the weighting.
+	}
+	#Weight up the kingdom if it either has an existing same-faith holder, or at least a same-faith claimant.
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					exists = holder
+					holder.faith = scope:the_faith
+				}
+				any_claimant = {
+					exists = this
+					faith = scope:the_faith
+					is_available_adult = no
+				}
+			}
+		}
+		multiply = ghw_target_existing_same_faith_ruler
+	}
+	
+	### 2 ###
+	###Abrahamics & Zoroastrians
+	#Documentation = {
+		#Avoid adding lots of reckless GHW stretch goals, as it'll mess up the targeting if every religion has a dozen apiece.
+
+		#Below is an organised, prioritised list of the different target regions for each religion. Update it as you make changes.
+		#}
+		
+	### 3 ###
+	#Factor in the potential target's distance from the faith.
+	#Distance: Rome to Jerusalem-ish
+	#If the HoF is landed, use them.
+		if = {
+		limit = {
+			scope:the_faith.religious_head = { is_landed = yes }
+		}
+		if = {
+			limit = {
+				title_capital_county = {
+					squared_distance >= {
+						target = scope:the_faith.religious_head.capital_county
+						value = ghw_target_distance_03_threshold
+					}
+				}
+			}
+			multiply = ghw_target_distance_03_reduction
+		}
+	}
+	#Otherwise, use a preset fallback holy site.
+	
+	
+	#Distance: Rome to Afghanistan-ish
+	#If the HoF is landed, use them.
+	if = {
+		limit = {
+			scope:the_faith.religious_head = { is_landed = yes }
+		}
+		if = {
+			limit = {
+				title_capital_county = {
+					squared_distance >= {
+						target = scope:the_faith.religious_head.capital_county
+						value = ghw_target_distance_02_threshold
+					}
+				}
+			}
+			multiply = ghw_target_distance_02_reduction
+		}
+	}
+	#Otherwise, use a preset fallback holy site.
+	
+	#Distance: Rome to Bengal-ish
+	#If the HoF is landed, use them.
+	if = {
+		limit = {
+			scope:the_faith.religious_head = { is_landed = yes }
+		}
+		if = {
+			limit = {
+				title_capital_county = {
+					squared_distance >= {
+						target = scope:the_faith.religious_head.capital_county
+						value = ghw_target_distance_03_threshold
+					}
+				}
+			}
+			multiply = ghw_target_distance_03_reduction
+		}
+	}
+	#Otherwise, use a preset fallback holy site.
+	
+	### 4 ###
+		if = {	#Always weight-up kingdoms containing holy sites.
+		limit = {
+			any_in_de_jure_hierarchy = {
+				tier = tier_barony
+				continue = { tier > tier_barony }
+				is_holy_site_of = scope:the_faith
+			}
+		}
+		multiply = ghw_target_has_holy_site
+	}
+	### 5 ###
+	#Christian & Jewish preference for Jerusalem
+	
+	#A defender in the region HumSac'd your HoF
+	if = {
+		limit = {
+			any_in_de_jure_hierarchy = {
+				continue = { tier > tier_county }
+				tier = tier_county
+				holder = {
+					AND = {
+						has_variable_list = humsacd_hofs
+						is_target_in_variable_list = {
+							name = humsacd_hofs
+							target = scope:the_faith
+						}
+					}
+					is_hostile_enough_for_holy_war_trigger = { FAITH = top_liege.faith }
+				}
+			}
+		}
+		multiply = ghw_target_religious_vengeance
+	}
+}

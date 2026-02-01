@@ -1,0 +1,700 @@
+﻿# Accepted categories are: governments, cultures, culture_groups, faiths, religions
+# A Flavorization will apply if ALL specified categories have ANY of their entries
+# represented in the character/title
+# So for example:
+# governments = { feudal_government }
+# culture_groups = { mongolic_group central_germanic_group }
+# religions = { christianity_religion }
+# cultures = { norse }
+# faiths = { catholicism }
+# For this to apply a character MUST BE feudal, AND must also be EITHER altaic OR germanic
+# priority is used to determine priority, if they are the same then the LAST will be selected,
+# and honorifics will be prefered over landed titles. Default priority is 1
+# If a flavorization does not have a tier it can apply to all tiers of characters, too many non-tiered
+# flavorizations is bad for performance though, YOU HAVE BEEN WARNED!
+# 'flavourization_rules = { 
+#		top_liege = no
+#	}' means that its the holder of the title causing the honorific that is tested for
+# the various categories, so for a prince it is the king that is tested, for a queen mother it is her son
+# if this is not specified ( or 'top_liege = yes' the default ) then it is the top liege of that character
+# that is tested, this means that most title flavor comes from the top liege of the title not the holder
+
+
+##############################################
+
+#############
+###General###
+#############
+
+duchy_order_grand_master_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 31
+	titles = { d_irrana_knights d_knights_metla }
+	flavourization_rules = { 
+		only_holder = yes
+		top_liege = no
+	}
+}
+
+duchy_order_grand_master_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 31
+	titles = { d_irrana_knights d_knights_metla }
+	flavourization_rules = {
+		only_holder = yes
+		top_liege = no
+	}
+}
+
+duchy_order = {
+	type = title
+	tier = duchy
+	priority = 31
+	titles = { d_irrana_knights d_knights_metla }
+	flavourization_rules = {
+		only_holder = yes
+	}
+}
+
+####################
+###Religion Heads###
+####################
+
+shallyan_head_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 301
+	titles = { k_cult_of_shallya }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+shallyan_head_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 301
+	titles = { k_cult_of_shallya }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+merry_head_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 301
+	titles = { k_faceless }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+merry_head_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 301
+	titles = { k_faceless }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+morr_head_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 301
+	titles = { k_cult_of_morr }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+morr_head_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 301
+	titles = { k_cult_of_morr }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+################
+###Bretonnian###
+################
+
+duke_feudal_dauphin_male_bretonnian = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 28
+	titles = { d_charboneau d_cherry d_glanborielle d_nar d_quenelles }
+	governments = { feudal_government chivalric_feudal_government }
+	heritages = { heritage_bretonnian }
+}
+duke_feudal_dauphin_female_bretonnian = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 28
+	titles = { d_charboneau d_cherry d_glanborielle d_nar d_quenelles }
+	governments = { feudal_government chivalric_feudal_government }
+	heritages = { heritage_bretonnian }
+}
+duchy_feudal_dauphinate_bretonnian = {
+	type = title
+	tier = duchy
+	priority = 29
+	titles = { d_charboneau d_cherry d_glanborielle d_nar d_quenelles }
+	governments = { feudal_government chivalric_feudal_government }
+	heritages = { heritage_bretonnian }
+}
+
+red_duke_host_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 50
+	titles = { k_red_dukedom }
+}
+
+red_duke_host_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 50
+	titles = { k_red_dukedom }
+}
+
+red_duke_host = {
+	type = title
+	tier = kingdom
+	priority = 51
+	titles = { k_red_dukedom }
+}
+
+##############
+###Estalian###
+##############
+
+wh_high_tribune_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 301
+	governments = { republic_government }
+	titles = { k_communards }
+	flavourization_rules = { 
+		only_holder = yes
+		top_liege = no
+	}
+}
+
+wh_high_tribune_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 301
+	governments = { republic_government }
+	titles = { k_communards }
+	flavourization_rules = { 
+		only_holder = yes
+		top_liege = no
+	}
+}
+
+##############
+###Imperial###
+##############
+
+# Imperial
+# 	Grand County titles
+#	Grand Barony titles
+#	Grand Duchy titles
+#	Grand Principality titles
+# wh_kingdom_grand_county = {
+	# type = title
+	# tier = kingdom
+	# titles = { k_averland k_mootland k_stirland k_wissenland }
+	# priority = 101
+# }
+
+# wh_kingdom_grand_county_male_title = {
+	# type = character
+	# gender = male
+	# special = holder
+	# tier = kingdom
+	# priority = 101
+	# titles = { k_averland k_stirland k_wissenland }
+# }
+
+# wh_kingdom_grand_county_female_title  = {
+	# type = character
+	# gender = female
+	# special = holder
+	# tier = kingdom
+	# priority = 101
+	# titles = { k_averland k_stirland k_wissenland }
+# }
+
+# wh_kingdom_grand_barony = {
+	# type = title
+	# tier = kingdom
+	# titles = { k_hochland k_nordland }
+	# priority = 101
+# }
+
+# wh_kingdom_grand_barony_male_title = {
+	# type = character
+	# gender = male
+	# special = holder
+	# tier = kingdom
+	# priority = 101
+	# titles = { k_hochland k_nordland }
+# }
+
+# wh_kingdom_grand_barony_female_title = {
+	# type = character
+	# gender = female
+	# special = holder
+	# tier = kingdom
+	# priority = 101
+	# titles = { k_hochland k_nordland }
+# }
+
+# wh_kingdom_grand_duchy = {
+	# type = title
+	# tier = kingdom
+	# titles = { k_middenland k_talabecland }
+	# priority = 101
+# }
+
+# wh_kingdom_grand_duchy_male_title = {
+	# type = character
+	# gender = male
+	# special = holder
+	# tier = kingdom
+	# priority = 101
+	# titles = { k_middenland k_talabecland }
+# }
+
+# wh_kingdom_grand_duchy_female_title = {
+	# type = character
+	# gender = female
+	# special = holder
+	# tier = kingdom
+	# priority = 101
+	# titles = { k_middenland k_talabecland }
+# }
+
+# wh_kingdom_grand_principality = {
+	# type = title
+	# tier = kingdom
+	# titles = { k_ostland k_reikland}
+	# priority = 101
+# }
+
+# wh_kingdom_grand_principality_title = {
+	# type = character
+	# special = holder
+	# tier = kingdom
+	# priority = 101
+	# titles = { k_ostland k_reikland}
+# }
+
+# wh_kingdom_league = {
+	# type = title
+	# tier = kingdom
+	# titles = { k_ostermark }
+	# priority = 101
+# }
+
+# wh_kingdom_league_title = {
+	# type = character
+	# special = holder
+	# tier = kingdom
+	# priority = 101
+	# titles = { k_ostermark }
+# }
+
+# wh_kingdom_k_sylvania = {
+	# type = title
+	# tier = kingdom
+	# titles = { k_sylvania }
+	# priority = 101
+# }
+
+# wh_kingdom_k_sylvania_male_title = {
+	# type = character
+	# gender = male
+	# special = holder
+	# tier = kingdom
+	# priority = 200
+	# titles = { k_sylvania }
+# }
+
+# wh_kingdom_k_sylvania_female_title = {
+	# type = character
+	# gender = female
+	# special = holder
+	# tier = kingdom
+	# priority = 200
+	# titles = { k_sylvania }
+# }
+
+# wh_kingdom_k_westerland = {
+	# type = title
+	# tier = kingdom
+	# titles = { k_westerland }
+	# priority = 101
+# }
+
+# wh_kingdom_k_westerland_male_title = {
+	# type = character
+	# gender = male
+	# special = holder
+	# tier = kingdom
+	# priority = 200
+	# titles = { k_westerland }
+# }
+
+# wh_kingdom_k_westerland_female_title = {
+	# type = character
+	# gender = female
+	# special = holder
+	# tier = kingdom
+	# priority = 200
+	# titles = { k_westerland }
+# }
+
+# wh_kingdom_mootland_title = {
+	# type = character
+	# special = holder
+	# tier = kingdom
+	# priority = 200
+	# titles = { k_mootland }
+# }
+
+############
+###Tilean###
+############
+
+wh_feudal_monte_castello_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 301
+	governments = { feudal_government }
+	titles = { k_monte_castello }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_feudal_monte_castello_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 301
+	governments = { feudal_government }
+	titles = { k_monte_castello }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_merchant_remas_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 301
+	governments = { republic_government }
+	titles = { k_remas }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_merchant_remas_duchy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 301
+	governments = { republic_government }
+	titles = { d_remas }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_merchant_remas_duchy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 301
+	governments = { republic_government feudal_government }
+	titles = { d_remas d_bragante }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_merchant_remas_county_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 301
+	governments = { republic_government feudal_government }
+	titles = { c_remas c_pontecorvo c_nucca c_rifraffa c_olesi c_lorenzo c_catrazza c_nonucci_island }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_merchant_verezzo_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 301
+	governments = { republic_government }
+	titles = { k_verezzo }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_merchant_verezzo_duchy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 301
+	governments = { republic_government }
+	titles = { d_verezzo }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_merchant_verezzo_county_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 301
+	governments = { republic_government }
+	titles = { c_portomaggiore c_raverno c_verezzo c_alagona c_volanda }
+	top_liege = yes
+}
+
+wh_luccini_duchy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 301
+	governments = { feudal_government }
+	titles = { d_luccini d_aldente d_pavezzano d_organza }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_luccini_duchy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 301
+	governments = { feudal_government }
+	titles = { d_luccini d_aldente d_pavezzano d_organza }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_pavona_duchy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 301
+	governments = { feudal_government }
+	titles = { d_pavona d_astiano }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_pavona_county_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 301
+	governments = { feudal_government }
+	titles = { c_spomanti c_astiano c_spaarta c_pavona c_scozzese c_umbresco c_stiani }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_trantio_duchy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 301
+	governments = { feudal_government }
+	titles = { d_perigua d_scorcio d_trantio }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_trantio_duchy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 301
+	governments = { feudal_government }
+	titles = { d_perigua d_scorcio d_trantio }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_trantio_county_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 301
+	governments = { feudal_government }
+	titles = { c_trantio c_trantine_hills c_malavigna c_varieno c_sadrono c_andone c_cenona c_vladeza c_urbimo }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_trantio_county_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 301
+	governments = { feudal_government }
+	titles = { c_trantio c_trantine_hills c_malavigna c_varieno c_sadrono c_andone c_cenona c_vladeza c_urbimo }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_sartosa_city = {
+	type = title
+	tier = county
+	priority = 19
+	governments = { pirate_government }
+	titles = { c_sartosa }
+}
+
+wh_sartosa_pirate_duke_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 29
+	governments = { pirate_government }
+	titles = { d_sartosa }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_sartosa_pirate_duke_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 29
+	governments = { pirate_government }
+	titles = { d_sartosa }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_sartosa_pirate_duchy = {
+	type = title
+	tier = kingdom
+	titles = { d_sartosa }
+	priority = 29
+	governments = { pirate_government }
+}
+
+wh_sartosa_pirate_king_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 48
+	governments = { pirate_government }
+	titles = { k_sartosa }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_sartosa_pirate_king_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 48
+	governments = { pirate_government }
+	titles = { k_sartosa }
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+wh_sartosa_pirate_kingdom = {
+	type = title
+	tier = kingdom
+	titles = { k_sartosa }
+	priority = 48
+	governments = { pirate_government }
+}

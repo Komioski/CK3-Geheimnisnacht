@@ -1,0 +1,271 @@
+﻿#Capability triggers
+
+wh_bret_knight = {
+	religion = religion:the_lady_religion
+	is_adult = yes
+	OR = {
+		has_trait = knight_lady
+		AND = {
+			is_male = yes
+			faith = { has_doctrine = doctrine_gender_male_dominated }
+		}
+		faith = { has_doctrine = doctrine_gender_equal }
+		AND = {
+			is_female = yes
+			faith = { has_doctrine = doctrine_gender_female_dominated }
+		}
+	}
+}
+
+wh_bret_capable_audacity = {
+	OR = {
+		culture = culture:parravonese
+		has_trait = brave
+		has_trait = wrathful
+		has_trait = education_martial_3
+		has_trait = education_martial_4
+		has_trait = flexible_leader
+	}
+}
+
+wh_bret_capable_confidence = {
+	OR = {
+		culture = culture:couronnean
+		culture = culture:nordscane
+		has_trait = arrogant
+		has_trait = ambitious
+		has_trait = reckless
+	}
+}
+
+wh_bret_capable_discipline = {
+	OR = {
+		culture = culture:bordelen
+		has_trait = temperate
+		has_trait = patient
+		has_trait = unyielding_defender
+	}
+}
+
+wh_bret_capable_duty = {
+	OR = {
+		culture = culture:lyonen
+		culture = culture:nordscane
+		has_trait = trusting
+		has_trait = honest
+		has_trait = loyal
+		has_trait = logistician
+	}
+}
+
+wh_bret_capable_empathy = {
+	OR = {
+		culture = culture:monfortian
+		culture = culture:herrimault
+		has_trait = compassionate
+		has_trait = eccentric
+		has_trait = rough_terrain_expert
+	}
+}
+
+wh_bret_capable_heroism = {
+	OR = {
+		culture = culture:bastonnian
+		has_trait = brave
+		has_trait = just
+		has_trait = organizer
+	}
+}
+
+wh_bret_capable_temper = {
+	OR = {
+		culture = culture:gisoren
+		has_trait = callous
+		has_trait = vengeful
+		has_trait = forest_fighter
+	}
+}
+
+wh_bret_capable_disdain = {
+	OR = {
+		culture = culture:aquitanian
+		has_trait = sadistic
+		has_trait = stubborn 
+		has_trait = reaver
+	}
+}
+wh_bret_capable_purity = {
+	OR = {
+		culture = culture:queneller
+		has_trait = zealous
+		has_trait = chaste
+		has_trait = pilgrim
+		has_trait = holy_warrior
+	}
+}
+
+wh_bret_capable_stoicism = {
+	OR = {
+		culture = culture:carcassonian
+		culture = culture:marcheur
+		has_trait = calm
+		has_trait = content
+		has_trait = cautious_leader
+	}
+}
+
+wh_bret_capable_ideal = {
+	OR = {
+		culture = culture:mousillonian
+		has_trait = diligent
+		has_trait = ambitious
+		has_trait = depressed_1
+		has_trait = depressed_genetic
+		has_trait = tourney_participant
+		has_trait = open_terrain_expert
+	}
+}
+
+wh_bret_capable_impetuous = {
+	OR = {
+		culture = culture:brionnian
+		has_trait = impatient
+		has_trait = fickle
+		has_trait = poet
+		has_trait = aggressive_attacker
+	}
+}
+
+wh_bret_capable_joust = {
+	OR = {
+		culture = culture:artoin
+		has_trait = diligent
+		has_trait = gregarious
+	}
+}
+
+wh_bret_capable_penitent = {
+	OR = {
+		culture = culture:l_anguillen
+		culture = culture:nordscane
+		has_trait = shy
+		has_trait = humble
+		has_trait = reclusive
+		has_trait = forder
+	}
+}
+
+wh_bret_capable_crusade = {
+	OR = {
+		#culture = culture:Kroneneur
+		#culture = culture:Antochan
+		has_trait = zealous
+		has_trait = desert_warrior
+		has_trait = crusader_king
+		has_trait = faith_warrior
+	}
+}
+
+wh_bret_capable_exploration = {
+	OR = {
+		has_trait = greedy
+		has_trait = cynical
+		has_trait = bastard
+		has_trait = legitimized_bastard
+		has_trait = child_of_concubine
+		has_trait = wild_oat
+		has_trait = adventurer
+	}
+}
+
+#Fallback
+
+wh_bret_capable_grail_fallback = {
+	AND = {
+		wh_bret_capable_audacity = no
+		wh_bret_capable_confidence = no
+		wh_bret_capable_discipline = no
+		wh_bret_capable_duty = no
+		wh_bret_capable_empathy = no
+		wh_bret_capable_heroism = no
+		wh_bret_capable_temper = no
+		wh_bret_capable_disdain = no
+		wh_bret_capable_purity = no
+		wh_bret_capable_stoicism = no
+		wh_bret_capable_ideal = no
+		wh_bret_capable_impetuous = no
+		wh_bret_capable_joust = no
+		wh_bret_capable_penitent = no
+		wh_bret_capable_crusade = no
+		wh_bret_capable_exploration = no
+	}
+}
+
+#Regiment triggers
+
+wh_bret_base_units = {
+	culture = { 
+		has_cultural_pillar = heritage_bretonnian
+		NOT = {
+			has_cultural_parameter = unlock_maa_herrimault
+		}
+	}
+}
+
+wh_bret_crossbow = {
+	culture = { 
+		has_cultural_pillar = heritage_bretonnian
+		has_innovation = innovation_advanced_bowmaking
+		NOT = {
+			
+			has_cultural_parameter = unlock_maa_herrimault
+		}
+	}
+	faith = { 
+		NOT = {
+			has_doctrine_parameter = knightly_virtues_active 
+		}
+	}
+}
+
+wh_bret_heavy_cavalry = {
+	culture = { 
+		has_cultural_pillar = heritage_bretonnian
+		has_innovation = innovation_arched_saddle
+		NOT = {
+			has_cultural_parameter = unlock_maa_herrimault
+		}
+	}
+}
+
+wh_bret_heavy_infantry = {
+	culture = { 
+		has_cultural_pillar = heritage_bretonnian
+		has_innovation = innovation_quilted_armor
+		NOT = {
+			has_cultural_parameter = unlock_maa_herrimault
+		}
+	}
+}
+
+wh_bret_catapult = {
+	culture = { 
+		has_cultural_pillar = heritage_bretonnian
+		has_innovation = innovation_mangonel
+		NOT = {
+			has_cultural_parameter = unlock_maa_herrimault
+		}
+	}
+}
+
+wh_has_dynasty_with_both_parents_trigger = {
+    AND = {
+        dynasty = yes
+        father = {
+            dynasty = yes
+        }
+        mother = {
+            dynasty = yes
+        }
+    }
+}

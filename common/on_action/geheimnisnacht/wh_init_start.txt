@@ -1,0 +1,48 @@
+﻿WHnew_game_start = {
+	effect = {
+		if = {
+			every_imperial_pretender_ruler = {
+				limit = { 
+					is_landed = yes
+				}
+				set_variable = {
+					name = imperial_legitimacy
+					value = 50		## Debug value, need to see how much needs to be set in the very beggining
+				}
+				set_variable = {
+					name = wh_imperial_authority
+					value = 20		## Debug value, need to see how much needs to be set in the very beggining
+				}
+			}
+		}
+		if = {
+			title:e_reikland.holder = {
+			replace_court_chaplain = { 
+				CHARACTER = character:88045
+				CURRENT_DOCTRINE = doctrine_clerical_succession_spiritual_fixed_appointment 
+			}
+		}
+		every_ruler = {
+			if = {
+				limit = {
+					is_empire_pretender = no
+					is_elector = yes
+					liege = {
+						is_empire_pretender = yes
+					}
+				}
+				liege = {
+					set_relation_elector_public_supporter = prev
+				}
+			}
+		}
+	}
+		
+	}	
+}
+Imperial_title_gain = {
+	events= {
+		imperial_event.1
+		imperial_event.2
+	}
+}

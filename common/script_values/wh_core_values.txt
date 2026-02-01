@@ -1,0 +1,78 @@
+﻿ic_date_value = 4500
+bc_date_value = 5478
+gc_date_value = 6024
+dc_date_value = 23
+asc_date_value = 1589
+drc_date_value = 1751
+
+calendar_value = {
+	value = 4500 #Imperial Calendar is Default Year
+	if = {
+		limit = { has_game_rule = wh_bretonnian_calendar }
+		add = 978
+	}
+	else_if = {
+		limit = { has_game_rule = wh_gospodar_calendar }
+		add = 1524
+	}
+	else_if = {
+		limit = { has_game_rule = wh_nehekhara_calendar }
+		subtract = 2500
+	}
+	else_if = {
+		limit = { has_game_rule = wh_reman_calendar }
+		subtract = 1780
+	}
+	else_if = {
+		limit = { has_game_rule = wh_dawi_calendar }
+		subtract = 4523
+	}
+	else_if = {
+		limit = { has_game_rule = wh_asur_calendar }
+		subtract = 4500
+	}
+	else_if = {
+		limit = { has_game_rule = wh_asrai_calendar }
+		subtract = 1589
+	}
+	else_if = {
+		limit = { has_game_rule = wh_druchii_calendar }
+		subtract = 1751
+	}
+}
+
+suffix_value = {
+	value = 0 #Imperial Calendar is Default Year
+	if = {
+		limit = { has_game_rule = wh_bretonnian_calendar }
+		add = 1
+	}
+	else_if = {
+		limit = { has_game_rule = wh_gospodar_calendar }
+		add = 2
+	}
+	else_if = {
+		limit = { has_game_rule = wh_reman_calendar }
+		add = 3
+	}
+	else_if = {
+		limit = { has_game_rule = wh_nehekhara_calendar }
+		add = 4
+	}
+	else_if = {
+		limit = { has_game_rule = wh_dawi_calendar }
+		add = 5
+	}
+	else_if = {
+		limit = { has_game_rule = wh_asur_calendar }
+		add = 6
+	}
+	else_if = {
+		limit = { has_game_rule = wh_asrai_calendar }
+		add = 7
+	}
+	else_if = {
+		limit = { has_game_rule = wh_druchii_calendar }
+		add = 8
+	}
+}

@@ -1,0 +1,152 @@
+﻿#########
+#Calisti#
+#########
+calisti_001 = {
+	dynasty = dynasty_calisti
+	religion = myrmidian_eastern
+	culture = lucian
+	6446.1.1 = {
+		birth = yes	
+	}
+	6490.1.1 = {
+		death = yes	
+	}
+}
+
+calisti_100 = {
+	name = Baldovino 
+	dynasty = dynasty_calisti
+	father = calisti_001
+	martial = 7
+	diplomacy = 15
+	intrigue = 6
+	stewardship = 6
+	religion = myrmidian_eastern
+	culture = lucian
+	trait = generous
+	trait = trusting
+	trait = craven
+	trait = education_learning_3
+	6473.4.13 = {
+		birth = yes	
+	}
+	6500.1.1 = {
+		set_relation_rival = { target = character:calisti_101 reason = rival_historical }
+	}
+}
+
+calisti_101 = {
+	name = Baldovino 
+	dynasty = dynasty_calisti
+	father = calisti_001
+	martial = 10
+	diplomacy = 10
+	intrigue = 15
+	stewardship = 7
+	religion = myrmidian_eastern
+	culture = lucian
+	trait = patient
+	trait = brave
+	trait = diligent
+	trait = education_martial_2
+	6475.7.18 = {
+		birth = yes	
+	}
+}
+
+calisti_102 = {
+	name = Clemente 
+	dynasty = dynasty_calisti
+	martial = 0
+	diplomacy = 7
+	intrigue = 1
+	stewardship = 2
+	religion = myrmidian_eastern
+	culture = lucian
+	father = calisti_100
+	mother = castello_2
+	trait = generous
+	6502.4.13 = {
+		birth = yes	
+	}
+}
+
+calisti_103 = {
+	name = Danilo 
+	dynasty = dynasty_calisti
+	martial = 3
+	diplomacy = 7
+	intrigue = 6
+	stewardship = 7
+	religion = myrmidian_eastern
+	culture = lucian
+	father = calisti_101
+	trait = diligent
+	6503.11.15 = {
+		birth = yes	
+	}
+}
+
+calisti_104 = {
+	name = Iva 
+	female = yes
+	dynasty = dynasty_calisti
+	martial = 6
+	diplomacy = 8
+	intrigue = 3
+	stewardship = 3
+	religion = myrmidian_eastern
+	culture = lucian
+	father = calisti_100
+	mother = castello_2
+	trait = generous
+	6503.7.11 = {
+		birth = yes	
+	}
+}
+
+
+##########
+#Petruzzi#
+##########
+
+petruzzi_100 = {
+	name = Tiziano 
+	dynasty = dynasty_petruzzi
+	martial = 15
+	diplomacy = 13
+	intrigue = 13
+	stewardship = 9
+	religion = myrmidian_eastern
+	culture = lucian
+	trait = trusting
+	trait = humble
+	trait = drunkard
+	trait = legitimized_bastard
+	trait = education_martial_4
+	6483.4.13 = {
+		birth = yes	
+	}
+}
+
+
+
+castello_2 = {
+	name = Iride 
+	female = yes
+	#dynasty = dynasty_reman
+	martial = 5
+	diplomacy = 12
+	intrigue = 8
+	stewardship = 3
+	religion = myrmidian_eastern
+	culture = lucian
+	trait = lustful
+	trait = diligent
+	trait = gregarious
+	trait = education_intrigue_2 
+	6476.4.13 = {
+		birth = yes	
+		add_spouse = calisti_100
+	}
+}

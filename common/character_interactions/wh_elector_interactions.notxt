@@ -1,0 +1,546 @@
+﻿make_elector_interaction = {
+	category = interaction_category_vassal
+
+	desc = make_elector_interaction_desc
+	
+	is_shown = {
+		scope:recipient = {
+			target_is_liege_or_above = scope:actor
+			NOT = { has_character_flag = elector }
+		}
+	}
+
+	auto_accept = yes
+	
+	on_accept = {
+
+		scope:actor = {
+			stress_impact = {
+				just =  medium_stress_loss
+				ambitious = medium_stress_gain
+			}
+		}
+		
+		scope:recipient = {
+			add_opinion = {
+				target = scope:actor
+				modifier = grateful_opinion
+				opinion = 15
+			}
+			add_character_flag = elector
+			capital_county = {
+				add_county_modifier = electoral_county_modifier
+			}
+			
+			send_interface_toast = {
+				title = pardon_interaction_toast
+				left_icon = scope:actor
+            		}			
+		}			
+	}
+	
+	ai_potential = {
+		has_trait = forgiving
+	}
+	ai_targets = {
+		ai_recipients = vassals
+	}
+	ai_frequency = 100	
+	ai_will_do = {
+		base = 0
+		
+		modifier = {
+			add = 100
+			scope:recipient = {
+				OR = {
+					has_relation_friend = scope:actor
+					has_relation_best_friend = scope:actor
+					has_relation_lover = scope:actor
+					has_relation_soulmate = scope:actor
+					is_primary_heir_of = scope:actor
+				}
+			}
+		}
+	}
+}
+
+remove_elector_interaction = {
+
+	category = interaction_category_vassal
+
+	desc = remove_elector_interaction_desc
+
+	ai_maybe = yes
+	can_send_despite_rejection = yes
+	popup_on_receive = yes
+	pause_on_receive = yes
+	
+	is_shown = {
+		scope:recipient = {
+			target_is_liege_or_above = scope:actor
+			has_character_flag = elector
+		}
+	}
+
+	can_send = {
+		scope:actor = {
+			custom_description = {
+				text = "character_interactions_hostile_actions_disabled_delay"
+				NOT = { has_character_flag = flag_hostile_actions_disabled_delay }
+			}
+		}
+	}
+
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+
+	
+
+	on_send = {
+		scope:actor = {
+			add_character_flag = {
+				flag = flag_hostile_actions_disabled_delay
+				days = 10
+			}
+		}
+	}
+	
+	on_auto_accept = {
+		scope:recipient = {
+			if = {
+				limit = {
+					is_a_faction_member = yes
+					liege = scope:actor
+				}
+				joined_faction = { save_scope_as = retaliating_faction }
+			}
+		}
+		
+		scope:recipient = {
+			trigger_event = wh_elector_interaction.0004
+		}
+		scope:actor = {
+			trigger_event = wh_elector_interaction.0002
+			if = {
+				limit = {
+					has_imprisonment_reason = scope:recipient
+				}
+				stress_impact = {
+					compassionate = minor_stress_impact_gain
+					forgiving = minor_stress_impact_gain
+				}
+			}
+			else = {
+				stress_impact = {
+					just = medium_stress_impact_gain
+					compassionate = medium_stress_impact_gain
+				}
+				if = {
+					limit = { exists = scope:retaliating_faction}
+					scope:retaliating_faction = {
+						imprisonment_retribution_start_faction_war_if_valid = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:actor = { has_character_flag = flag_hostile_actions_disabled_delay }
+			}
+			scope:actor = { remove_character_flag = flag_hostile_actions_disabled_delay }
+		}
+	}
+
+	on_accept = {
+		if = {
+			limit = { scope:hook = yes }
+			scope:actor = { use_hook = scope:recipient }
+		}
+
+		scope:actor = {
+			stress_impact = {
+				just =  medium_stress_gain
+				ambitious = medium_stress_loss
+			}
+		}
+		
+		scope:recipient = {
+			add_opinion = {
+				target = scope:actor
+				modifier = hate_opinion
+				opinion = -30
+			}
+			remove_character_flag = elector
+			capital_county = {
+				remove_county_modifier = electoral_county_modifier
+			}
+			
+			send_interface_toast = {
+				title = pardon_interaction_toast
+				left_icon = scope:actor
+            		}			
+		}
+		
+		scope:actor = {
+			trigger_event = wh_elector_interaction.0002
+			if = {
+				limit = {
+					has_imprisonment_reason = scope:recipient
+				}
+				stress_impact = {
+					compassionate = minor_stress_impact_gain
+					forgiving = minor_stress_impact_gain
+				}
+			}
+			else = {
+				stress_impact = {
+					just = medium_stress_impact_gain
+					compassionate = medium_stress_impact_gain
+				}
+				if = {
+					limit = { exists = scope:retaliating_faction}
+					scope:retaliating_faction = {
+						imprisonment_retribution_start_faction_war_if_valid = yes
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				scope:actor = { has_character_flag = flag_hostile_actions_disabled_delay }
+			}
+			scope:actor = { remove_character_flag = flag_hostile_actions_disabled_delay }
+		}			
+	}
+
+	on_decline = {
+		scope:actor = { 
+			imprison_tyranny_effect = yes
+		}
+		scope:recipient = {
+			#If target is count or higher, start war.
+			if = {
+				limit = {
+					is_landed = yes
+					primary_title.tier > tier_barony
+				}
+				if = {
+					limit = {
+						is_a_faction_member = yes
+						liege = scope:actor
+						joined_faction = {
+							faction_target = scope:actor
+							NOT = { faction_is_type = populist_faction }
+						}
+					}
+					joined_faction = {
+						save_scope_as = retaliating_faction # For loc
+						imprisonment_retribution_start_faction_war_if_valid = yes
+					}
+					hidden_effect = {
+						if = {
+							limit = { NOT = { exists = joined_faction.faction_war } }
+							war_for_elector_revocation = yes
+						}
+					}
+				}
+				else = {
+					war_for_elector_revocation = yes
+				}
+			}
+		}
+		
+		scope:actor = {
+			if = {
+				limit = {
+					scope:recipient = {
+						OR = {
+							is_landed = no
+							AND = {
+								is_landed = yes
+								primary_title.tier = tier_barony
+							}
+						}
+					}
+				}
+				trigger_event = wh_elector_interaction.0001
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:actor = { has_character_flag = flag_hostile_actions_disabled_delay }
+			}
+			scope:actor = { remove_character_flag = flag_hostile_actions_disabled_delay }
+		}
+	}
+
+	auto_accept = {
+		OR = {
+			scope:recipient = {
+				highest_held_title_tier = tier_barony
+			}
+			scope:recipient = {
+				is_imprisoned_by = scope:actor
+			}
+			custom_description = {
+				text = "spending_hook"
+				subject = scope:actor
+				object = scope:recipient
+				scope:hook = yes
+				scope:actor = { has_strong_hook = scope:recipient }
+			}
+		}
+	}
+
+	ai_accept = {
+		base = 0 # Try to make it 0 for most interactions
+
+		modifier = {
+			add = {
+				value = scope:actor.diplomacy
+				multiply = 1
+			}
+			desc = IMPRISON_INTRIGUE_ACTOR
+		}
+		modifier = {
+			add = {
+				value = scope:recipient.diplomacy
+				multiply = -1
+			}
+			desc = IMPRISON_INTRIGUE_RECIPIENT
+		}
+
+		modifier = {
+			add = 30
+			scope:hook = yes
+			desc = SCHEME_HOOK_USED
+		}
+		opinion_modifier = { # Opinion Factor
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 0.5
+			desc = AI_OPINION_REASON
+		}
+		ai_value_modifier = {
+			who = scope:recipient
+			ai_boldness = {
+				if = {
+					limit = {
+						scope:recipient = { NOT = { ai_boldness = 0 } }
+					}
+					value = -0.5
+				}
+			}
+			
+		}
+		modifier = {
+			add = 20
+			scope:actor = {
+				any_vassal_or_below = { this = scope:recipient }
+				has_realm_law_flag = vassal_refusal_is_treason
+			}
+			desc = AI_REFUSAL_IS_TREASON
+		}
+		modifier = { #I am a King!
+			desc = offer_vassalization_interaction_aibehavior_amkingtier_tt
+			scope:recipient = { highest_held_title_tier = tier_kingdom }
+			add = -40
+		}
+		modifier = { #Courtiers.
+			desc = AI_REFUSAL_COURTIER
+			scope:recipient = { is_ruler = no }
+			add = 50
+		}
+		modifier = { # Your young children can't really stop you
+			desc = AI_REFUSAL_YOUNG_CHILD
+			scope:recipient = {
+				is_child_of = scope:actor
+				is_courtier_of = scope:actor
+				is_adult = no
+			}
+			add = 200
+		}
+		modifier = { #They're a claimant against you
+			desc = AI_CLAIMANT_PENALTY
+			scope:actor = {
+				OR = {
+					any_targeting_faction = {
+						faction_is_type = claimant_faction
+						faction_is_at_war = yes
+						exists = special_character
+						special_character = scope:recipient
+					}
+					AND = {
+						exists = var:claimant_faction_sent_demand
+						var:claimant_faction_sent_demand = scope:recipient
+					}
+				}
+			}
+			add = -70
+		}
+		modifier = { #Rank difference.
+			desc = AI_REFUSAL_RANK_DIFFERENCE
+			scope:recipient = {
+				is_ruler = yes
+				highest_held_title_tier < tier_kingdom
+			}
+			add = {
+				value = -15
+				if = {
+					limit = {
+						scope:actor = {
+							tier_difference = {
+								target = scope:recipient
+								value >= 2
+							}
+						}
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor = {
+							tier_difference = {
+								target = scope:recipient
+								value >= 3
+							}
+						}
+					}
+					add = 5
+				}
+				if = { #King asking Baron, modifier becomes positive.
+					limit = {
+						scope:actor = {
+							tier_difference = {
+								target = scope:recipient
+								value >= 4
+							}
+						}
+					}
+					add = 10
+				}
+			}
+		}
+		modifier = {
+			add = intimidated_halved_reason_value
+			scope:recipient = {
+				target_is_liege_or_above = scope:actor
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 1
+				}
+			}
+			desc = INTIMIDATED_REASON
+		}
+		modifier = {
+			add = cowed_halved_reason_value
+			scope:recipient = {
+				target_is_liege_or_above = scope:actor
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 2
+				}
+			}
+			desc = COWED_REASON
+		}
+		
+		modifier = {
+			add = intimidated_external_reason_value
+			scope:recipient = {
+				NOT = { target_is_liege_or_above = scope:actor }
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 1
+				}
+			}
+			desc = INTIMIDATED_REASON
+		}
+		modifier = {
+			add = cowed_external_reason_value
+			scope:recipient = {
+				NOT = { target_is_liege_or_above = scope:actor }
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 2
+				}
+			}
+			desc = COWED_REASON
+		}
+		modifier = { #Comparative military strength.
+			desc = offer_vassalization_interaction_aibehavior_power_tt
+			trigger = {
+				scope:actor = { is_ruler = yes }
+				scope:recipient = { is_ruler = yes }
+			}
+			add = {
+				value = 1
+					subtract = {
+					value = scope:recipient.max_military_strength
+					divide = { value = scope:actor.max_military_strength min = 1 }
+					}
+				multiply = 100
+				min = -1000
+				max = 1000
+			}
+		}
+		modifier = { #Rivalry modifier.
+			desc = offer_vassalization_interaction_aibehavior_rival_tt
+			trigger = {
+				scope:recipient = {
+					has_relation_rival = scope:actor
+					NOT = { has_relation_nemesis = scope:actor }
+				}
+			}
+			add = -50
+		}
+		modifier = { #Nemesis modifier.
+			desc = offer_vassalization_interaction_aibehavior_nemesis_tt
+			trigger = {
+				scope:recipient = {
+					has_relation_nemesis = scope:actor
+				}
+			}
+			add = -100
+		}
+	}
+	
+	ai_potential = {
+		has_trait = ambitious
+	}
+	ai_targets = {
+		ai_recipients = vassals
+	}
+	ai_frequency = 100	
+	ai_will_do = {
+		base = 0
+		
+		modifier = {
+			add = 100
+			scope:recipient = {
+				OR = {
+					has_relation_friend = scope:actor
+					has_relation_best_friend = scope:actor
+					has_relation_lover = scope:actor
+					has_relation_soulmate = scope:actor
+					is_primary_heir_of = scope:actor
+				}
+			}
+		}
+	}
+}
+	

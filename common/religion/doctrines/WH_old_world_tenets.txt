@@ -1,0 +1,148 @@
+﻿doctrine_core_tenets = {
+	group = "core_tenets"
+	number_of_picks = 3
+	
+	tenet_empowered_knights = {
+		icon = core_tenet_warmonger
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_empowered_knights }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+			minimum_prowess_for_knights = yes
+			prowess_from_martial_education = yes
+		}
+
+		character_modifier = {
+			tolerance_advantage_mod = 10
+			prowess_per_piety_level = 2
+		}
+
+		traits = {
+			virtues = { 
+				brave
+				education_martial_prowess_3
+				education_martial_prowess_4
+			}
+		}
+
+           
+			
+	}
+	
+	tenet_knightly_virtues = {
+		icon = core_tenet_communion
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_knightly_virtues }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+			knightly_virtues_active = yes
+			excommunication_active = yes
+			ghw_no_hof_conversion_buffs_active = yes
+			cannot_marry_lowborns = yes
+		}
+
+		character_modifier = {
+			monthly_piety_gain_per_knight_mult = 0.01
+		}
+
+		traits = {
+			virtues = {
+				faith_warrior
+				holy_warrior
+			}
+		}
+	}
+	
+	tenet_freedom_of_the_sky = {
+		icon = core_tenet_sky_burials
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_freedom_of_the_sky }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		
+		character_modifier = {
+			character_travel_speed_mult = 0.25
+			movement_speed = 0.25
+			
+			archer_cavalry_pursuit_mult = 0.25
+			light_cavalry_pursuit_mult = 0.25
+			heavy_cavalry_pursuit_mult = 0.25
+			
+			archer_cavalry_damage_mult = 0.25
+			light_cavalry_damage_mult = 0.25
+			heavy_cavalry_damage_mult = 0.25
+		}
+		
+		traits = {
+			virtues = {
+				eccentric
+				lifestyle_traveler
+				adventurer
+			}
+		}
+	}
+}

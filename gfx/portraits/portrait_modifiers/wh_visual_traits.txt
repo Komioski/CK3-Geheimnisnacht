@@ -1,0 +1,43 @@
+﻿
+wh_visual_traits = {
+	usage = game
+	pale_skin = {
+		dna_modifiers = {
+			color = {
+				gene = skin_color
+				mode = modify
+				
+				x = -1.0
+				y = -10.0
+			}
+			morph = {
+				mode = add
+				gene = gene_illness
+				value = 1.0
+				template = illness
+			}
+			color = {
+				gene = eye_color
+				mode = modify
+					
+				x = -1.0
+				y = 0.0
+			}
+
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				AND = {
+					OR = {
+						has_character_modifier = wh_pass_as_human_modifier
+					}
+				}
+			}
+		}
+	}
+
+}
+
+

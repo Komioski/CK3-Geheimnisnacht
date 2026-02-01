@@ -1,0 +1,252 @@
+﻿#<!-- # Historical Artifacts Creation
+
+
+create_artifact_sword_of_lyonesse_effect = {
+		# Get the character the artifact is being made for.
+		$OWNER$ = { save_scope_as = owner }
+		# Not really used, but if we don't set the scopes we get errors in the feature selection
+		set_artifact_rarity_illustrious = yes
+			# Create the artifact
+		scope:owner = {
+			create_artifact = {	
+				name = artifact_sword_of_lyonesse_name
+				description = artifact_sword_of_lyonesse_desc
+				type = sword
+				modifier = wh_sword_of_lyonesse_modifier
+				visuals = sword_lyonesse
+				wealth = scope:wealth
+				quality = scope:quality
+				history = {
+					type = created_before_history
+				}
+
+				decaying = no
+			}
+		}
+}
+
+create_artifact_banner_fleur_de_lys_effect = {
+		# Get the character the artifact is being made for.
+		$OWNER$ = { save_scope_as = owner }
+		# Not really used, but if we don't set the scopes we get errors in the feature selection
+		set_artifact_rarity_famed = yes
+			# Create the artifact
+		scope:owner = {
+			create_artifact = {	
+				name = artifact_banner_fleur_de_lys_name
+				description = artifact_banner_fleur_de_lys_desc
+				type = miscellaneous
+				modifier = wh_banner_fleur_de_lys_modifier
+				visuals = fleur_de_lys
+				wealth = scope:wealth
+				quality = scope:quality
+				history = {
+					type = created_before_history
+				}
+
+				decaying = no
+			}
+		}
+}
+
+
+# create_artifact_sword_blood_drinker_effect = {
+# 	# Get the character the artifact is being made for.
+# 	$OWNER$ = { save_scope_as = owner }
+# 	# Not really used, but if we don't set the scopes we get errors in the feature selection
+# 	set_artifact_rarity_illustrious = yes
+
+# 	# Create the artifact
+# 	scope:owner = {
+# 		create_artifact = {	
+# 			name = artifact_blood_drinker_name
+# 			description = artifact_blood_drinker_desc
+# 			type = sword
+# 			modifier = wh_blood_drinker_modifier
+# 			visuals = blood_drinker
+# 			wealth = scope:wealth
+# 			quality = scope:quality
+# 			history = {
+# 				type = created_before_history
+# 			}
+
+# 			decaying = no
+# 		}
+# 	}
+# }
+
+# create_artifact_sword_timor_noctis_effect = {
+# 	# Get the character the artifact is being made for.
+# 	$OWNER$ = { save_scope_as = owner }
+# 	# Not really used, but if we don't set the scopes we get errors in the feature selection
+# 	set_artifact_rarity_illustrious = yes
+
+# 	# Create the artifact
+# 	scope:owner = {
+# 		create_artifact = {	
+# 			name = artifact_timor_noctis_name
+# 			description = artifact_timor_noctis_desc
+# 			type = sword
+# 			modifier = wh_timor_noctis_modifier
+# 			visuals = blood_drinker
+# 			wealth = scope:wealth
+# 			quality = scope:quality
+# 			history = {
+# 				type = created_before_history
+# 			}
+
+# 			decaying = no
+# 		}
+# 	}
+# }
+
+# create_artifact_sword_waldenhof_effect = {
+# 	# Get the character the artifact is being made for.
+# 	$OWNER$ = { save_scope_as = owner }
+# 	# Not really used, but if we don't set the scopes we get errors in the feature selection
+# 	set_artifact_rarity_illustrious = yes
+
+# 	# Create the artifact
+# 	scope:owner = {
+# 		create_artifact = {	
+# 			name = artifact_sword_waldenhof_name
+# 			description = artifact_sword_waldenhof_desc
+# 			type = sword
+# 			modifier = wh_sword_waldenhof_modifier
+# 			visuals = blood_drinker
+# 			wealth = scope:wealth
+# 			quality = scope:quality
+# 			history = {
+# 				type = created_before_history
+# 			}
+
+# 			decaying = no
+# 		}
+# 	}
+# }
+
+# create_artifact_armour_templehof_effect = {
+# 	# Get the character the artifact is being made for.
+# 	$OWNER$ = { save_scope_as = owner }
+# 	# Not really used, but if we don't set the scopes we get errors in the feature selection
+# 	set_artifact_rarity_illustrious = yes
+
+# 	# Create the artifact
+# 	scope:owner = {
+# 		create_artifact = {	
+# 			name = artifact_armour_templehof_name
+# 			description = artifact_armour_templehof_desc
+# 			type = armor_plate
+# 			modifier = wh_sword_waldenhof_modifier
+# 			visuals = armor
+# 			wealth = scope:wealth
+# 			quality = scope:quality
+# 			history = {
+# 				type = created_before_history
+# 			}
+
+# 			decaying = no
+# 		}
+# 	}
+# }
+
+# create_artifact_sword_runefang_effect = {
+# 	# Get the character the artifact is being made for.
+# 	$OWNER$ = { save_scope_as = owner }
+# 	# Not really used, but if we don't set the scopes we get errors in the feature selection
+# 	set_artifact_rarity_famed = yes
+
+# 	# Create the artifact
+# 	scope:owner = {
+# 		create_artifact = {	
+# 			name = $NAME$
+# 			description = $DESC$
+# 			type = sword
+# 			modifier = wh_runefang_modifier
+# 			visuals = sword
+# 			wealth = scope:wealth
+# 			quality = scope:quality
+# 			history = {
+# 				type = created_before_history
+# 			}
+
+# 			decaying = no
+# 		}
+# 	}
+# }
+
+# create_artifact_trinket_carstein_ring_effect = {
+# 	# Get the character the artifact is being made for.
+# 	$OWNER$ = { save_scope_as = owner }
+# 	# Not really used, but if we don't set the scopes we get errors in the feature selection
+# 	set_artifact_rarity_illustrious = yes
+
+# 	# Create the artifact
+# 	scope:owner = {
+# 		create_artifact = {	
+# 			name = artifact_trinket_carstein_ring_name
+# 			description = artifact_trinket_carstein_ring_desc
+# 			type = miscellaneous
+# 			modifier = wh_carstein_ring_modifier
+# 			visuals = ring
+# 			template = carstein_ring_template 
+# 			wealth = scope:wealth
+# 			quality = scope:quality
+# 			history = {
+# 				type = created_before_history
+# 			}
+
+# 			decaying = no
+# 		}
+# 	}
+# }
+
+# create_artifact_trinket_chalice_bathori_effect = {
+# 	# Get the character the artifact is being made for.
+# 	$OWNER$ = { save_scope_as = owner }
+# 	# Not really used, but if we don't set the scopes we get errors in the feature selection
+# 	set_artifact_rarity_famed = yes
+
+# 	# Create the artifact
+# 	scope:owner = {
+# 		create_artifact = {	
+# 			name = artifact_trinket_chalice_bathori_name
+# 			description = artifact_trinket_chalice_bathori_desc
+# 			type = miscellaneous
+# 			modifier = wh_chalice_bathori_modifier
+# 			visuals = pocket_goblet
+# 			wealth = scope:wealth
+# 			quality = scope:quality
+# 			history = {
+# 				type = created_before_history
+# 			}
+
+# 			decaying = no
+# 		}
+# 	}
+# }
+
+# create_artifact_trinket_nyklaus_charm_effect = {
+# 	# Get the character the artifact is being made for.
+# 	$OWNER$ = { save_scope_as = owner }
+# 	# Not really used, but if we don't set the scopes we get errors in the feature selection
+# 	set_artifact_rarity_famed = yes
+
+# 	# Create the artifact
+# 	scope:owner = {
+# 		create_artifact = {	
+# 			name = artifact_trinket_nyklaus_charm_name
+# 			description = artifact_trinket_nyklaus_charm_desc
+# 			type = miscellaneous
+# 			modifier = wh_nyklaus_charm_modifier
+# 			visuals = medallion
+# 			wealth = scope:wealth
+# 			quality = scope:quality
+# 			history = {
+# 				type = created_before_history
+# 			}
+
+# 			decaying = no
+# 		}
+# 	}
+# } -->

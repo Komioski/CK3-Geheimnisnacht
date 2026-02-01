@@ -1,0 +1,18 @@
+﻿character_has_warhammerlore_sgui = {
+    scope = character
+	is_shown = {
+	    OR = {
+			this = character:dame_100
+			this = character:lyonesse_104
+		}
+	}
+}
+
+trigger_warhammerlore_sgui = {
+    scope = character
+	effect = {
+	    ROOT = {
+		    trigger_event = GH_Lore.001
+		}
+	}
+}

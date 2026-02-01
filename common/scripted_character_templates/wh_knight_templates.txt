@@ -1,0 +1,47 @@
+﻿bret_errant_character = {
+	age = { 16 20 }
+	random_traits = no
+	culture = root.location.culture
+	faith = root.location.faith
+	random_traits_list = {
+		count = 1
+		education_martial_2 = {}
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	random_traits_list = {
+		count = 2
+		brave = {}
+		just = {}
+		gallant = {}
+	}
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		chaste = {}
+		wrathful = {}
+		arrogant = {}
+		impatient = {}
+		ambitious = {}
+		stubborn = {}
+		beauty_good_1 = {}
+	}
+	random_traits_list = {
+		count = 1
+		knight_lady_errant = {}
+	}
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = { 10 12 }
+	gender_female_chance = root_soldier_female_chance
+	after_creation = {
+		if = {
+			limit = { has_dlc = tours_and_tournaments }
+			add_trait = tourney_participant
+			add_random_tourney_participant_level_effect = yes
+		}
+		urf_template_base_race_init = yes
+	}
+}

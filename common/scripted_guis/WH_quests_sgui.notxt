@@ -1,0 +1,33 @@
+﻿quests_sgui = {
+	scope = character
+	
+	is_valid = {
+		NOT = { has_character_flag = on_quest }
+	}
+	
+	effect = {
+		liege = {
+			set_variable = {
+				name = potential_knight
+				value = prev
+			}
+		}
+	}	
+}
+
+wh_quest_1_sgui = {
+	scope = character
+
+	is_valid = {
+		NOT = { has_character_flag = on_quest }
+	}
+	
+	effect = {
+		trigger_event = {
+			id = wh_quest.0001
+			days = 1
+		}
+		add_character_flag = on_quest
+			
+	}
+}

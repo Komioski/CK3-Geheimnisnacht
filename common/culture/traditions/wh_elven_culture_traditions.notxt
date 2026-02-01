@@ -1,0 +1,823 @@
+﻿#######
+#Asrai#
+#######
+
+tradition_forest_harmony = {
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asrai
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_dryads = yes 
+		unlock_maa_treemen = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_rangers = {
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asrai
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_waywatchers = yes 
+		unlock_maa_deepwood_scouts = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+######
+#Asur#
+######
+
+tradition_colonial_militias = {
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_colonial_infantry = yes 
+		unlock_maa_colonial_horsemen = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_ellyrian_reavers = { #Ellyrion
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_ellyrian_reavers = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_cothique_banner_marines = { #Cothique
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_cothique_marines = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_yvressian_mistwalkers = { #Yvresse
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_mistwalkers = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_avelorni_sisters_of_avelorn = { #Avelorn
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_sisters_of_avelorn = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_swordmasters_hoeth = { #Saphery
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_swordmasters = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_sea_guards = { #Eataine
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_sea_guards = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_tiranoc_chariots = { #Tiranoci
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_tiranoc_chariots = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_shadow_warriors = { #Nagarythe
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_shadow_warriors = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_white_lions = { #Chrace
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_white_lions = yes 
+		unlock_maa_lion_chariots = yes
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_dragon_princes = { #Caledor
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_asur
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_dragon_princes = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+#########
+#Druchii#
+#########
+
+tradition_cabals_of_ghrond = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_druchii
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_magic_cabal = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_slave_economy = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_druchii
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		development_gain_on_building_complete = yes
+		unlock_maa_slave_conscripts = yes 
+	}
+	character_modifier = {
+		build_speed = -0.15
+		stress_gain_mult = 0.15
+		stewardship_per_prestige_level = 1 #changed from FAME, Check in EK2 hegemon for bonus based on fame
+	}
+	county_modifier = {
+		development_growth_factor = 0.3
+		monthly_county_control_change_factor = -0.3
+		county_opinion_add = -10
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_slave_corsairs = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_druchii
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_black_ark_corsairs = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}

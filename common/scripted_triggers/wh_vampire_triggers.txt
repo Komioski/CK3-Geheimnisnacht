@@ -1,0 +1,50 @@
+﻿# VAMPIRE Crime
+wh_is_vampire_trigger = {
+	OR = {
+		OR = {
+			#has_trait = vampire_carstein
+			#has_trait = vampire_lahmian
+			has_trait = vampire_blood_dragon
+			#has_trait = vampire_strigoi
+			#has_trait = vampire_necrarch
+			#has_trait = vampire_jade
+			#has_trait = vampire_mahtmasi
+		}
+		any_secret = { secret_type = secret_vampire }
+	}
+}
+
+
+# SECRET VAMPIRE
+secret_vampire_is_valid_trigger = {
+	$OWNER$ = {
+		NOR = {
+			#has_trait = vampire_carstein
+			#has_trait = vampire_lahmian
+			has_trait = vampire_blood_dragon
+			#has_trait = vampire_strigoi
+			#has_trait = vampire_necrarch
+			#has_trait = vampire_jade
+			#has_trait = vampire_mahtmasi
+		}
+	}
+}
+
+secret_vampire_antipathy_trigger = {
+	$OWNER$ = {
+		OR = {
+		#	faith = { has_doctrine_parameter = vampire_antipathy }
+		#	any_liege_or_above = { faith = { has_doctrine_parameter = vampire_antipathy } }
+		}
+	}
+}
+
+secret_vampire_hated_trigger = {
+	$OWNER$ = {
+		OR = {
+		#	faith = { has_doctrine_parameter = vampire_hated }
+		#	any_liege_or_above = { faith = { has_doctrine_parameter = vampire_hated } }
+		}
+	}
+}
+

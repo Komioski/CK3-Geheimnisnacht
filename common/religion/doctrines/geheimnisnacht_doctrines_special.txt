@@ -1,0 +1,984 @@
+﻿raiding_special = {
+	group = "special"
+	is_available_on_create = {
+		has_doctrine = raiding_doctrine
+	}
+	raiding_doctrine = {
+		visible = no
+		parameters = {
+			conquest_cb_enabled = yes
+		}
+	}
+}
+old_world_values = {
+	group = "special"
+	
+	#Northern
+	##Imperial
+	sigmarite_doctrine = {
+		#is_available_on_create = {
+		#	has_doctrine = sigmarite_doctrine
+		#}
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { 
+				just 
+				gregarious 
+				flagellant = {
+					prowess = 4
+					health = 0.3
+				}
+			}
+			sins = { arrogant sadistic }
+		}
+	}
+	ulrican_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = ulrican_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { wrathful stubborn }
+			sins = { lazy ambitious }
+		}
+	}
+	taalite_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = taalite_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { chaste content generous }
+			sins = { greedy lustful sadistic }
+		}
+	}
+	manannite_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = manannite_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { generous patient temperate }
+			sins = { greedy impatient gluttonous }
+		}
+	}
+	handrichan_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = handrichan_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { 
+				greedy = 2 
+				calm 
+				honest
+			}
+			sins = { deceitful arbitrary }
+		}
+	}
+	sollian_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = sollian_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { just stubborn generous }
+			sins = { arbitrary lazy wrathful }
+		}
+	}
+	luposan_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = luposan_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { patient diligent honest }
+			sins = { impatient greedy arrogant }
+		}
+	}
+	halfling_gods_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = halfling_gods_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { forgiving trusting }
+			sins = { vengeful arrogant }
+		}
+	}
+	ahaltan_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = ahaltan_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { wrathful sadistic vengeful }
+			sins = { craven impatient compassionate }
+		}
+	}
+	#sheirrichan_doctrine
+	#bylorakan_doctrine
+	arisen_dead_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = arisen_dead_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { cynical humble generous }
+			sins = { deceitful arrogant impatient }
+		}
+	}
+	
+	##Kislev
+	ursunite_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = ursunite_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { stubborn diligent arrogant }
+			sins = { lazy calm impatient }
+		}
+	}
+	dazhan_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = dazhan_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { diligent compassionate }
+			sins = { lazy paranoid }
+		}
+	}
+	torran_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = torran_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { stubborn brave }
+			sins = { lazy calm }
+		}
+	}
+	northern_gods_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = northern_gods_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { brave gregarious generous }
+			sins = { craven shy arbitrary }
+		}
+	}
+	
+	#Southern
+	myrmidian_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = myrmidian_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { just calm diligent education_martial_3 education_martial_4 }
+			sins = { craven wrathful fickle }
+		}
+	}
+	shallyan_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = shallyan_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { calm compassionate humble }
+			sins = { vengeful callous sadistic }
+		}
+	}
+	morrian_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = morrian_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { compassionate temperate humble }
+			sins = { callous paranoid wrathful }
+		}
+	}
+	verenan_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = verenan_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { just calm temperate }
+			sins = { arbitrary wrathful stubborn }
+		}
+	}
+	solkanian_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = solkanian_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { just vengeful zealous }
+			sins = { deceitful craven forgiving }
+		}
+	}
+	lucan_and_luccinian_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = lucan_and_luccinian_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { honest arrogant ambitious }
+			sins = { wrathful craven content }
+		}
+	}
+	
+	#Outlaw
+	gunndredian_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = gunndredian_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { greedy callous }
+			sins = { compassionate just }
+		}
+	}
+	stromfels_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = stromfels_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { arrogant ambitious greedy }
+			sins = { craven content compassionate }
+		}
+	}
+	ranaldian_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = ranaldian_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { fickle deceitful cynical }
+			sins = { sadistic arrogant honest }
+		}
+	}
+	khainean_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = khainean_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { patient vengeful sadistic }
+			sins = { impatient deceitful forgiving  }
+		}
+	}
+	
+	#Lady
+	grail_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = grail_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { brave just chaste }
+			sins = { craven wrathful lustful }
+		}
+	}
+	bloody_grail_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = bloody_grail_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { brave vengeful sadistic }
+			sins = { craven compassionate humble }
+		}
+	}
+	merryman_doctrine = {
+		# is_available_on_create = {
+		# 	has_doctrine = grail_doctrine
+		# }
+		visible = no
+		parameters = {
+			same_hof_hostility_override = 0
+		}
+		traits = {
+			virtues = { brave just generous }
+			sins = { craven greedy fickle }
+		}
+	}
+}
+doctrine_divine_lores = {
+	group = "special"
+	
+	#No Lores
+	doctrine_lore_none = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_none }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_none = yes
+		}
+	}
+	#Colour Lores
+	doctrine_lore_beasts = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_beasts }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_beasts = yes
+		}
+		traits = {
+			virtues = { lore_beasts }
+		}
+	}
+	
+	doctrine_lore_death = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_death }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_death = yes
+		}
+		traits = {
+			virtues = { lore_death }
+		}
+	}
+	
+	doctrine_lore_fire = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_fire }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_fire = yes
+		}
+		traits = {
+			virtues = { lore_fire }
+		}
+	}
+	
+	doctrine_lore_heavens = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_heavens }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_heavens = yes
+		}
+		traits = {
+			virtues = { lore_heavens }
+		}
+	}
+	
+	doctrine_lore_life = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_life }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_life = yes
+		}
+		traits = {
+			virtues = { lore_life }
+		}
+	}
+	
+	doctrine_lore_light = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_light }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_light = yes
+		}
+		traits = {
+			virtues = { lore_light }
+		}
+	}
+	
+	doctrine_lore_metal = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_metal }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_metal = yes
+		}
+		traits = {
+			virtues = { lore_metal }
+		}
+	}
+	
+	doctrine_lore_shadows = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_shadows }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_shadows = yes
+		}
+		traits = {
+			virtues = { lore_shadows }
+		}
+	}
+	
+	#Old World Divine Lores
+	doctrine_lore_druids = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_druids }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_druids = yes
+		}
+		traits = {
+			virtues = { lore_druids }
+		}
+	}
+	
+	doctrine_lore_gunndred = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_gunndred }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_gunndred = yes
+		}
+		traits = {
+			virtues = { lore_gunndred }
+		}
+	}
+	
+	doctrine_lore_great_maw = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_great_maw }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_great_maw = yes
+		}
+		traits = {
+			virtues = { lore_great_maw }
+		}
+	}
+	
+	doctrine_lore_handrich = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_handrich }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_handrich = yes
+		}
+		traits = {
+			virtues = { lore_handrich }
+		}
+	}
+	
+	doctrine_lore_khaine = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_khaine }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_khaine = yes
+		}
+		traits = {
+			virtues = { lore_khaine }
+		}
+	}
+	
+	doctrine_lore_manann = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_manann }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_manann = yes
+		}
+		traits = {
+			virtues = { lore_manann }
+		}
+	}
+	
+	doctrine_lore_morr = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_morr }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_morr = yes
+		}
+		traits = {
+			virtues = { lore_morr }
+		}
+	}
+	
+	doctrine_lore_myrmidia = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_myrmidia }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_myrmidia = yes
+		}
+		traits = {
+			virtues = { lore_myrmidia }
+		}
+	}
+	
+	doctrine_lore_ranald = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_ranald }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_ranald = yes
+		}
+		traits = {
+			virtues = { lore_ranald }
+		}
+	}
+	
+	doctrine_lore_shallya = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_shallya }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_shallya = yes
+		}
+		traits = {
+			virtues = { lore_shallya }
+		}
+	}
+	
+	doctrine_lore_sigmar = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_sigmar }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_sigmar = yes
+		}
+		traits = {
+			virtues = { lore_sigmar }
+		}
+	}
+	
+	doctrine_lore_taal_rhya = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_taal_rhya }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_taal_rhya = yes
+		}
+		traits = {
+			virtues = { lore_taal_rhya }
+		}
+	}
+	
+	doctrine_lore_ulric = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_ulric }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_ulric = yes
+		}
+		traits = {
+			virtues = { lore_ulric }
+		}
+	}
+	
+	doctrine_lore_ursun = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_ursun }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_ursun = yes
+		}
+		traits = {
+			virtues = { lore_ursun }
+		}
+	}
+	
+	doctrine_lore_verena = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_verena }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_verena = yes
+		}
+		traits = {
+			virtues = { lore_verena }
+		}
+	}
+	#High Magic
+	doctrine_lore_high_magic = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_high_magic }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_high_magic = yes
+		}
+		traits = {
+			virtues = { lore_high_magic }
+		}
+	}
+	
+	#Chaos Lores
+	doctrine_lore_chaos = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_chaos }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_chaos = yes
+		}
+		traits = {
+			virtues = { lore_chaos }
+		}
+	}
+	
+	doctrine_lore_hashut = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_hashut }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_hashut = yes
+		}
+		traits = {
+			virtues = { lore_hashut }
+		}
+	}
+	
+	doctrine_lore_nurgle = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_nurgle }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_nurgle = yes
+		}
+		traits = {
+			virtues = { lore_nurgle }
+		}
+	}
+	
+	doctrine_lore_slaanesh = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_slaanesh }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_slaanesh = yes
+		}
+		traits = {
+			virtues = { lore_slaanesh }
+		}
+	}
+	
+	doctrine_lore_tzeentch = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_tzeentch }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_tzeentch = yes
+		}
+		traits = {
+			virtues = { lore_tzeentch }
+		}
+	}
+	#Necromantic Lores
+	doctrine_lore_deep = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_deep }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_deep = yes
+		}
+		traits = {
+			virtues = { lore_deep }
+		}
+	}
+	
+	doctrine_lore_necromancy = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_necromancy }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_necromancy = yes
+		}
+		traits = {
+			virtues = { lore_necromancy }
+		}
+	}
+	
+	doctrine_lore_nehekhara = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_nehekhara }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_nehekhara = yes
+		}
+		traits = {
+			virtues = { lore_nehekhara }
+		}
+	}
+	
+	#Other Lores
+	doctrine_lore_waaagh = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_waaagh }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_waaagh = yes
+		}
+		traits = {
+			virtues = { lore_waaagh }
+		}
+	}
+	
+	doctrine_lore_vermin = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_lore_vermin }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_vermin = yes
+		}
+		traits = {
+			virtues = { lore_vermin }
+		}
+	}
+	
+	#Not really a lore
+	doctrine_rune_magic = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_rune_magic }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			divine_lore_rune = yes
+		}
+		traits = {
+			virtues = { lore_rune }
+		}
+	}
+}
+malekith_special = {
+	group = "special"
+	is_available_on_create = {
+		has_doctrine = malekith_doctrine
+		#has_trait = Malekith We need trait defined to avoid errors
+	}
+	malekith_doctrine = {
+		visible = no
+		parameters = {
+			malekith_hates_mages = yes
+		}
+	}
+}

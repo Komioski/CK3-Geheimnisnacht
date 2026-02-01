@@ -1,0 +1,1321 @@
+﻿# race_human = {
+	# # index  = 520
+	# #genetic = yes
+	# physical = yes
+	# inherit_chance = 100
+	# parent_inheritance_sex = male
+	# # opposites = {
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+	# # }
+	
+	# same_opinion = 10
+
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_human_desc
+			# }
+			# desc = trait_human_character_desc
+		# }
+	# }
+
+
+	# # compatibility = {
+		# # race_elf = @neg_compat_low
+		# # race_dwarf = @pos_compat_low
+		# # race_chaos_dwarf = @neg_compat_medium
+		# # race_halfling = @pos_compat_low 
+		# # race_orc = @neg_compat_high 
+		# # race_goblin = @neg_compat_high 
+		# # race_snotling = @neg_compat_high 
+		# # race_nehekharan = @neg_compat_medium
+		# # race_skaven = @neg_compat_high 
+		# # race_ogre = @neg_compat_medium
+		# # race_beastman = @neg_compat_medium
+		# # race_skink = @neg_compat_medium
+		# # race_slann = @neg_compat_medium
+		# # race_saurus = @neg_compat_medium
+	# # }
+# }
+
+# race_elf = {
+	# # index  = 521
+	# #genetic = yes
+	# physical = yes
+	# immortal = yes
+	# inherit_chance = 100
+	# parent_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+
+	# learning = 2
+	# diplomacy = 2
+	# martial = 2
+	# intrigue = 1
+	# stewardship = 1
+	# health = 5.0
+	# prowess = 2
+	# same_opinion = 10
+	# monthly_lifestyle_xp_gain_mult = -0.4
+	# faith_conversion_piety_cost_mult = 1.0
+
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_elf_desc
+			# }
+			# desc = trait_elf_character_desc
+		# }
+	# }
+
+
+	# # compatibility = {
+		# # race_human = @neg_compat_low 
+		# # race_dwarf = @neg_compat_medium
+		# # race_chaos_dwarf = @neg_compat_medium
+		# # race_halfling = @neg_compat_low 
+		# # race_orc = @neg_compat_high
+		# # race_goblin = @neg_compat_high
+		# # race_snotling = @neg_compat_high
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_high
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @neg_compat_low
+		# # race_slann = @neg_compat_low
+		# # race_saurus = @neg_compat_low
+	# # }
+# }
+
+# race_dwarf = {
+	# # index  = 522
+	# #genetic = yes
+	# physical = yes
+	# immortal = yes
+	# inherit_chance = 100
+	# parent_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+
+	# stewardship = 1
+	# learning = 1
+	# martial = 1
+	# health = 5.0
+	# same_opinion = 10
+	# monthly_lifestyle_xp_gain_mult = -0.4
+	# faith_conversion_piety_cost_mult = 1.0
+
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_dwarf_desc
+			# }
+			# desc = trait_dwarf_character_desc
+		# }
+	# }
+
+	# ai_greed = 50
+	# ai_honor = 100
+
+	# # compatibility = {
+		# # race_human = @pos_compat_low
+		# # race_elf = @neg_compat_medium
+		# # race_chaos_dwarf = @neg_compat_high
+		# # race_halfling = @pos_compat_low
+		# # race_orc = @neg_compat_high
+		# # race_goblin = @neg_compat_high
+		# # race_snotling = @neg_compat_high
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_medium
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @neg_compat_medium
+		# # race_slann = @neg_compat_medium
+		# # race_saurus = @neg_compat_medium
+	# # }
+# }
+
+# race_chaos_dwarf = {
+	# # index  = 523
+	# #genetic = yes
+	# physical = yes
+	# immortal = yes
+	# inherit_chance = 100
+	# parent_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+
+	# stewardship = 1
+	# learning = 1
+	# martial = 1
+	# intrigue = 1
+	# health = 5.0
+	# prowess = 2
+	# same_opinion = 10
+	# dread_baseline_add = 10
+	# monthly_lifestyle_xp_gain_mult = -0.4
+	# faith_conversion_piety_cost_mult = 1.0
+
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_chaos_dwarf_desc
+			# }
+			# desc = trait_chaos_dwarf_character_desc
+		# }
+	# }
+
+	# # compatibility = {
+		# # race_human = @neg_compat_medium
+		# # race_elf = @neg_compat_medium
+		# # race_dwarf = @neg_compat_high
+		# # race_halfling = @neg_compat_low
+		# # race_orc = @neg_compat_high
+		# # race_goblin = @neg_compat_high
+		# # race_snotling = @neg_compat_high
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_high
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @neg_compat_high
+		# # race_slann = @neg_compat_high
+		# # race_saurus = @neg_compat_high
+	# # }
+# }
+
+# race_halfling = {
+	# # index  = 524
+	# #genetic = yes
+	# physical = yes
+	# inherit_chance = 100
+	# parent_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+
+	# stewardship = 1
+	# martial = -1
+	# prowess = 1
+	# same_opinion = 10
+	# dread_baseline_add = -10
+
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_halfling_desc
+			# }
+			# desc = trait_halfling_character_desc
+		# }
+	# }
+
+	# ai_energy = -50
+
+	# # compatibility = {
+		# # race_human = @pos_compat_low 
+		# # race_elf = @neg_compat_low
+		# # race_dwarf = @pos_compat_low 
+		# # race_chaos_dwarf = @neg_compat_low
+		# # race_orc = @neg_compat_high
+		# # race_goblin = @neg_compat_high
+		# # race_snotling = @neg_compat_high
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_low
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @neg_compat_medium
+		# # race_slann = @neg_compat_medium
+		# # race_saurus = @neg_compat_medium
+	# # }
+# }
+
+# race_orc = {
+	# # index  = 525
+	# #genetic = yes
+	# physical = yes
+	# immortal = yes
+	# inherit_chance = 100
+	# parent_inheritance_sex = male
+	# child_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+	
+	# learning = -3
+	# diplomacy = -2
+	# stewardship = -2
+	# intrigue = -2
+	# health = 1.0
+	# prowess = 2
+	# same_opinion = 10
+	# dread_baseline_add = 20
+	# flag = can_not_marry
+	# can_have_children = no
+	# monthly_lifestyle_xp_gain_mult = -0.3
+	# faith_conversion_piety_cost_mult = 1.0
+
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_orc_desc
+			# }
+			# desc = trait_orc_character_desc
+		# }
+	# }
+
+	# ai_rationality = -50
+	# ai_honor = -20
+	# ai_zeal = 20
+
+	# # compatibility = {
+		# # race_human =@neg_compat_high
+		# # race_elf = @neg_compat_high
+		# # race_dwarf = @neg_compat_high
+		# # race_chaos_dwarf = @neg_compat_high
+		# # race_halfling = @neg_compat_high
+		# # race_goblin = @neg_compat_low
+		# # race_snotling = @pos_compat_medium
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_high
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @neg_compat_high
+		# # race_slann = @neg_compat_high
+		# # race_saurus = @neg_compat_high
+	# # }
+# }
+
+# race_goblin = {
+	# # index  = 526
+	# #genetic = yes
+	# physical = yes
+	# immortal = yes
+	# inherit_chance = 100
+	# parent_inheritance_sex = male
+	# child_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+
+	# learning = -2
+	# diplomacy = -2
+	# stewardship = -1
+	# martial = -2
+	# same_opinion = 10
+	# dread_baseline_add = -5
+	# flag = can_not_marry
+	# can_have_children = no
+	# monthly_lifestyle_xp_gain_mult = -0.3
+	# faith_conversion_piety_cost_mult = 1.0
+
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_goblin_desc
+			# }
+			# desc = trait_goblin_character_desc
+		# }
+	# }
+	
+	# ai_rationality = -50
+	# ai_honor = -30
+	# ai_zeal = 20
+
+	# # compatibility = {
+		# # race_human = @neg_compat_high
+		# # race_elf = @neg_compat_high
+		# # race_dwarf = @neg_compat_high
+		# # race_chaos_dwarf = @neg_compat_high
+		# # race_halfling = @neg_compat_high
+		# # race_orc = @neg_compat_low
+		# # race_snotling = @pos_compat_medium
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_high
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @neg_compat_high
+		# # race_slann = @neg_compat_high
+		# # race_saurus = @neg_compat_high
+	# # }
+# }
+
+# # race_snotling = {
+	# # # index  = 527
+	# # #genetic = yes
+	# # physical = yes
+	# # immortal = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # child_inheritance_sex = male
+	# # # opposites = {
+		# # # race_human
+		# # # race_elf
+		# # # race_dwarf
+		# # # race_chaos_dwarf
+		# # # race_halfling
+		# # # race_orc 
+		# # # race_goblin
+		# # # race_nehekharan
+		# # # race_skaven 
+		# # # race_ogre
+		# # # race_beastman
+		# # # race_skink
+		# # # race_slann
+		# # # race_saurus
+		# # # race_dragon_ogre
+		# # # race_dragon_ogre_shaggoth
+		# # # race_troll
+		# # # race_fimir
+		# # # vampire_carstein
+		# # # vampire_lahmian
+		# # # vampire_blood_dragon
+		# # # vampire_strigoi
+		# # # vampire_necrarch
+		# # # vampire_jade
+		# # # vampire_mahtmasi
+	# # # }
+
+	# # learning = -4
+	# # diplomacy = -3
+	# # stewardship = -3
+	# # intrigue = -1
+	# # martial = -2
+	# # prowess = -1
+	# # same_opinion = 10
+	# # dread_baseline_add = -100
+	# # flag = can_not_marry
+	# # can_have_children = no
+	# # monthly_lifestyle_xp_gain_mult = -1.0
+	# # faith_conversion_piety_cost_mult = 10.0
+
+	# # desc = {
+		# # first_valid = {
+			# # triggered_desc = {
+				# # trigger = {
+					# # NOT = { exists = this }
+				# # }
+				# # desc = trait_snotling_desc
+			# # }
+			# # desc = trait_snotling_character_desc
+		# # }
+	# # }
+
+	# # # compatibility = {
+		# # # race_human = @neg_compat_high
+		# # # race_elf = @neg_compat_high
+		# # # race_dwarf = @neg_compat_high
+		# # # race_chaos_dwarf = @neg_compat_high
+		# # # race_halfling = @neg_compat_high
+		# # # race_orc = @pos_compat_medium
+		# # # race_goblin = @pos_compat_medium
+		# # # race_nehekharan = @neg_compat_high
+		# # # race_skaven = @neg_compat_high
+		# # # race_ogre = @neg_compat_high
+		# # # race_beastman = @neg_compat_high
+		# # # race_skink = @neg_compat_high
+		# # # race_slann = @neg_compat_high
+		# # # race_saurus = @neg_compat_high
+	# # # }
+# # }
+
+# # race_nehekharan = {
+	# # # index  = 528
+	# # #genetic = yes
+	# # physical = yes
+	# # immortal = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # # opposites = {
+		# # # race_human
+		# # # race_elf
+		# # # race_dwarf
+		# # # race_chaos_dwarf
+		# # # race_halfling
+		# # # race_orc 
+		# # # race_goblin
+		# # # race_snotling
+		# # # race_skaven 
+		# # # race_ogre
+		# # # race_beastman
+		# # # race_skink
+		# # # race_slann
+		# # # race_saurus
+		# # # race_dragon_ogre
+		# # # race_dragon_ogre_shaggoth
+		# # # race_troll
+		# # # race_fimir
+		# # # vampire_carstein
+		# # # vampire_lahmian
+		# # # vampire_blood_dragon
+		# # # vampire_strigoi
+		# # # vampire_necrarch
+		# # # vampire_jade
+		# # # vampire_mahtmasi
+	# # # }
+
+	# # health = 15.0
+	# # dread_baseline_add = 25
+	# # can_have_children = no
+	# # monthly_lifestyle_xp_gain_mult = -0.5
+	# # faith_conversion_piety_cost_mult = 50.0
+
+	# # desc = {
+		# # first_valid = {
+			# # triggered_desc = {
+				# # trigger = {
+					# # NOT = { exists = this }
+				# # }
+				# # desc = trait_nehekharan_desc
+			# # }
+			# # desc = trait_nehekharan_character_desc
+		# # }
+	# # }
+
+	# # # compatibility = {
+		# # # race_human = @neg_compat_medium
+		# # # race_elf = @neg_compat_high
+		# # # race_dwarf = @neg_compat_high
+		# # # race_chaos_dwarf = @neg_compat_high
+		# # # race_halfling = @neg_compat_high
+		# # # race_orc = @neg_compat_high
+		# # # race_goblin = @neg_compat_high
+		# # # race_snotling = @neg_compat_high
+		# # # race_nehekharan = @neg_compat_high
+		# # # race_skaven = @neg_compat_high
+		# # # race_ogre = @neg_compat_high
+		# # # race_beastman = @neg_compat_high
+		# # # race_skink = @neg_compat_high
+		# # # race_slann = @neg_compat_high
+		# # # race_saurus = @neg_compat_high
+		# # # vampire_carstein = @neg_compat_high
+		# # # vampire_lahmian = @neg_compat_high
+		# # # vampire_blood_dragon = @neg_compat_high
+		# # # vampire_strigoi = @neg_compat_high
+		# # # vampire_necrarch = @neg_compat_medium
+		# # # vampire_jade = @neg_compat_high
+		# # # vampire_mahtmasi = @neg_compat_high
+	# # # }
+# # }
+
+# # race_skaven = {
+	# # # index  = 529
+	# # #genetic = yes
+	# # physical = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # # opposites = {
+		# # # race_human
+		# # # race_elf
+		# # # race_dwarf
+		# # # race_chaos_dwarf
+		# # # race_halfling
+		# # # race_orc 
+		# # # race_goblin
+		# # # race_snotling
+		# # # race_nehekharan 
+		# # # race_ogre
+		# # # race_beastman
+		# # # race_skink
+		# # # race_slann
+		# # # race_saurus
+		# # # race_dragon_ogre
+		# # # race_dragon_ogre_shaggoth
+		# # # race_troll
+		# # # race_fimir
+		# # # vampire_carstein
+		# # # vampire_lahmian
+		# # # vampire_blood_dragon
+		# # # vampire_strigoi
+		# # # vampire_necrarch
+		# # # vampire_jade
+		# # # vampire_mahtmasi
+	# # # }
+
+	# # intrigue = 2
+	# # diplomacy = -1
+	# # dread_baseline_add = 10
+	# # flag = can_not_marry
+	# # can_have_children = no
+	# # faith_conversion_piety_cost_mult = 0.5
+
+	# # desc = {
+		# # first_valid = {
+			# # triggered_desc = {
+				# # trigger = {
+					# # NOT = { exists = this }
+				# # }
+				# # desc = trait_skaven_desc
+			# # }
+			# # desc = trait_skaven_character_desc
+		# # }
+	# # }
+
+	# # # compatibility = {
+		# # # race_human = @neg_compat_high
+		# # # race_elf = @neg_compat_high
+		# # # race_dwarf = @neg_compat_high
+		# # # race_chaos_dwarf = @neg_compat_high
+		# # # race_halfling = @neg_compat_high
+		# # # race_orc = @neg_compat_high
+		# # # race_goblin = @neg_compat_high
+		# # # race_snotling = @neg_compat_high
+		# # # race_nehekharan = @neg_compat_high
+		# # # race_skaven = @neg_compat_high
+		# # # race_ogre = @neg_compat_high
+		# # # race_beastman = @neg_compat_high
+		# # # race_skink = @neg_compat_high
+		# # # race_slann = @neg_compat_high
+		# # # race_saurus = @neg_compat_high
+	# # # }
+# # }
+
+# race_ogre = {
+	# # index  = 530
+	# #genetic = yes
+	# physical = yes
+	# inherit_chance = 100
+	# parent_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+
+	# diplomacy = -2
+	# learning = -2
+	# intrigue = -2
+	# stewardship = -2
+	# martial = 2
+	# health = 1.0
+	# prowess = 6
+	# fertility = -0.15
+	# dread_baseline_add = 15
+	# faith_conversion_piety_cost_mult = 1.0
+
+	# desc = {
+		# first_valid = {
+			# triggered_desc = {
+				# trigger = {
+					# NOT = { exists = this }
+				# }
+				# desc = trait_ogre_desc
+			# }
+			# desc = trait_ogre_character_desc
+		# }
+	# }
+
+	# # compatibility = {
+		# # race_human = @neg_compat_high
+		# # race_elf = @neg_compat_high
+		# # race_dwarf = @neg_compat_high
+		# # race_chaos_dwarf = @neg_compat_high
+		# # race_halfling = @neg_compat_low
+		# # race_orc = @neg_compat_low
+		# # race_goblin = @neg_compat_low
+		# # race_snotling = @neg_compat_low
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @neg_compat_high
+		# # race_slann = @neg_compat_high
+		# # race_saurus = @neg_compat_high
+	# # }
+# }
+
+# # race_beastman = {
+	# # # index  = 531
+	# # #genetic = yes
+	# # physical = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # # opposites = {
+		# # # race_human
+		# # # race_elf
+		# # # race_dwarf
+		# # # race_chaos_dwarf
+		# # # race_halfling
+		# # # race_orc 
+		# # # race_goblin
+		# # # race_snotling
+		# # # race_nehekharan
+		# # # race_skaven 
+		# # # race_ogre
+		# # # race_skink
+		# # # race_slann
+		# # # race_saurus
+		# # # race_dragon_ogre
+		# # # race_dragon_ogre_shaggoth
+		# # # race_troll
+		# # # race_fimir
+		# # # vampire_carstein
+		# # # vampire_lahmian
+		# # # vampire_blood_dragon
+		# # # vampire_strigoi
+		# # # vampire_necrarch
+		# # # vampire_jade
+		# # # vampire_mahtmasi
+	# # # }
+
+	# # martial = 1
+	# # diplomacy = -5
+	# # intrigue = -2
+	# # stewardship = -3
+	# # learning = -3
+	# # fertility = 0.2
+	# # prowess = 3
+	# # dread_baseline_add = 20
+	# # faith_conversion_piety_cost_mult = 1.0
+
+	# # desc = {
+		# # first_valid = {
+			# # triggered_desc = {
+				# # trigger = {
+					# # NOT = { exists = this }
+				# # }
+				# # desc = trait_skaven_desc
+			# # }
+			# # desc = trait_skaven_character_desc
+		# # }
+	# # }
+
+	# # # compatibility = {
+		# # # race_human = @neg_compat_medium
+		# # # race_elf = @neg_compat_medium
+		# # # race_dwarf = @neg_compat_high
+		# # # race_chaos_dwarf = @neg_compat_high
+		# # # race_halfling = @neg_compat_high
+		# # # race_orc = @neg_compat_high
+		# # # race_goblin = @neg_compat_high
+		# # # race_snotling = @neg_compat_high
+		# # # race_nehekharan = @neg_compat_high
+		# # # race_skaven = @neg_compat_high
+		# # # race_ogre = @neg_compat_high
+		# # # race_skink = @neg_compat_high
+		# # # race_slann = @neg_compat_high
+		# # # race_saurus = @neg_compat_high
+	# # # }
+# # }
+
+# # race_skink = {
+	# # # index  = 532
+	# # #genetic = yes
+	# # physical = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # child_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+
+	# # martial = -2
+	# # learning = 1
+	# # diplomacy = 2
+	# # stewardship = 3
+	# # intrigue = 1
+	# # health = 4.0
+	# # same_opinion = 30
+	# # flag = can_not_marry
+	# # can_have_children = no
+	# # faith_conversion_piety_cost_mult = 5.0
+
+	# # desc = {
+		# # first_valid = {
+			# # triggered_desc = {
+				# # trigger = {
+					# # NOT = { exists = this }
+				# # }
+				# # desc = trait_skink_desc
+			# # }
+			# # desc = trait_skink_character_desc
+		# # }
+	# # }
+
+
+	# # compatibility = {
+		# # race_human = @neg_compat_medium 
+		# # race_elf = @neg_compat_low 
+		# # race_dwarf = @neg_compat_medium
+		# # race_chaos_dwarf = @neg_compat_high
+		# # race_halfling = @neg_compat_medium
+		# # race_orc = @neg_compat_high
+		# # race_goblin = @neg_compat_high
+		# # race_snotling = @neg_compat_high
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_high
+		# # race_beastman = @neg_compat_high
+		# # race_slann = @pos_compat_high
+		# # race_saurus = @pos_compat_high
+	# # }
+# # }
+
+# # race_slann = {
+	# # # index  = 533
+	# # #genetic = yes
+	# # physical = yes
+	# # immortal = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # child_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+	
+	# # learning = 5	
+	# # health = 15.0
+	# # same_opinion = 30
+	# # flag = can_not_marry
+	# # can_have_children = no
+	# # monthly_lifestyle_xp_gain_mult = -0.5
+	# # faith_conversion_piety_cost_mult = 50.0
+	
+	# # desc = {
+		# # first_valid = {
+			# # triggered_desc = {
+				# # trigger = {
+					# # NOT = { exists = this }
+				# # }
+				# # desc = trait_slann_desc
+			# # }
+			# # desc = trait_sla_character_desc
+		# # }
+	# # }
+
+	# # compatibility = {
+		# # race_human = @neg_compat_medium
+		# # race_elf = @neg_compat_low
+		# # race_dwarf = @neg_compat_medium
+		# # race_chaos_dwarf = @neg_compat_high
+		# # race_halfling = @neg_compat_medium
+		# # race_orc = @neg_compat_high
+		# # race_goblin = @neg_compat_high
+		# # race_snotling = @neg_compat_high
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_high
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @pos_compat_high
+		# # race_saurus = @pos_compat_high
+	# # }
+# # }
+
+# # race_saurus = {
+	# # # index  = 534
+	# # #genetic = yes
+	# # physical = yes
+	# # immortal = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # child_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+
+	# # martial = 5
+	# # diplomacy = -3
+	# # intrigue = -3
+	# # stewardship = -3
+	# # learning = -5
+	# # prowess = 3
+	# # same_opinion = 30
+	# # dread_baseline_add = 20
+	# # flag = can_not_marry
+	# # can_have_children = no
+	# # monthly_lifestyle_xp_gain_mult = -0.4
+	# # faith_conversion_piety_cost_mult = 5.0
+
+	# # desc = {
+		# # first_valid = {
+			# # triggered_desc = {
+				# # trigger = {
+					# # NOT = { exists = this }
+				# # }
+				# # desc = trait_saurus_desc
+			# # }
+			# # desc = trait_saurus_character_desc
+		# # }
+	# # }
+
+	# # compatibility = {
+		# # race_human = @neg_compat_medium
+		# # race_elf = @neg_compat_low
+		# # race_dwarf = @neg_compat_medium
+		# # race_chaos_dwarf = @neg_compat_high
+		# # race_halfling = @neg_compat_medium
+		# # race_orc = @neg_compat_high
+		# # race_goblin = @neg_compat_high
+		# # race_snotling = @neg_compat_high
+		# # race_nehekharan = @neg_compat_high
+		# # race_skaven = @neg_compat_high
+		# # race_ogre = @neg_compat_high
+		# # race_beastman = @neg_compat_high
+		# # race_skink = @pos_compat_high
+		# # race_slann = @pos_compat_high
+	# # }
+# # }
+
+# # race_dragon_ogre = { 
+	# # # index  = 535
+	# # #genetic = yes
+	# # physical = yes
+	# # immortal = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # child_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+	# # martial = 5
+	# # diplomacy = -2
+	# # intrigue = -2
+	# # stewardship = -2
+	# # learning = -2
+	# # prowess = 5
+	# # health = 5.0
+	# # dread_baseline_add = 30
+	# # monthly_lifestyle_xp_gain_mult = -0.4
+	# # faith_conversion_piety_cost_mult = 5.0
+	
+	# # group = dragon_ogre_race
+	# # level = 1 
+# # }
+
+# # race_dragon_ogre_shaggoth = {
+	# # # index  = 536
+	# # #genetic = yes
+	# # physical = yes
+	# # immortal = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # child_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_troll
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+	# # martial = 7
+	# # diplomacy = -4
+	# # intrigue = -2
+	# # stewardship = -2
+	# # learning = -2
+	# # prowess = 8
+	# # health = 7.0
+	# # dread_baseline_add = 45
+	# # monthly_lifestyle_xp_gain_mult = -0.5
+	# # faith_conversion_piety_cost_mult = 5.0
+# # }
+
+# # race_troll = {
+	# # # index  = 537
+	# # #genetic = yes
+	# # physical = yes
+	# # inherit_chance = 100
+	# # parent_inheritance_sex = male
+	# # child_inheritance_sex = male
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_fimir
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+	# # martial = 3
+	# # diplomacy = -10
+	# # intrigue = -10
+	# # stewardship = -5
+	# # learning = -12
+	# # prowess = 4
+	# # health = 5.0
+	# # general_opinion = -30
+	# # same_opinion = 30
+	# # dread_baseline_add = 25
+	# # monthly_lifestyle_xp_gain_mult = -0.5
+	# # faith_conversion_piety_cost_mult = 5.0
+# # }
+
+# # race_fimir = {
+	# # index = 557
+	# # opposites = {
+		# # race_human
+		# # race_elf
+		# # race_dwarf
+		# # race_chaos_dwarf
+		# # race_halfling
+		# # race_orc 
+		# # race_goblin
+		# # race_snotling
+		# # race_nehekharan
+		# # race_skaven 
+		# # race_ogre
+		# # race_beastman
+		# # race_skink
+		# # race_slann
+		# # race_saurus
+		# # race_dragon_ogre
+		# # race_dragon_ogre_shaggoth
+		# # race_troll
+		# # vampire_carstein
+		# # vampire_lahmian
+		# # vampire_blood_dragon
+		# # vampire_strigoi
+		# # vampire_necrarch
+		# # vampire_jade
+		# # vampire_mahtmasi
+	# # }
+	# # martial = 3
+	# # diplomacy = -3
+	# # intrigue = -3
+	# # stewardship = -3
+	# # learning = -6
+	# # prowess = 6
+	# # general_opinion = -20
+	# # same_opinion = 20
+	# # health = 5
+	# # shown_in_ruler_designer = no
+	# # random_creation  = 0
+	# # flag = can_not_marry
+# # }

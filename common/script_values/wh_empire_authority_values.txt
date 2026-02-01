@@ -1,0 +1,606 @@
+﻿# Traits
+# Bonus
+wh_authority_trait_high_bonus = 0.03
+wh_authority_trait_medium_bonus = 0.02
+wh_authority_trait_low_bonus = 0.01
+#Malus
+wh_authority_trait_high_malus = -0.03
+wh_authority_trait_medium_malus = -0.02
+wh_authority_trait_low_malus = -0.01
+#Head of Faith / Cult support
+
+#Special regency
+wh_authority_regency_malus = -0.05
+#Personal Fame/Devotion level
+wh_authority_personal_level_one_malus = -0.05
+wh_authority_personal_level_two = 0.01
+wh_authority_personal_level_three = 0.02
+wh_authority_personal_level_four = 0.03
+wh_authority_personal_level_five = 0.04
+wh_authority_personal_level_six = 0.05
+#Dynasty splendor
+wh_authority_dynasty_splendor_low = 0.01
+wh_authority_dynasty_splendor_low_to_medium = 0.02
+wh_authority_dynasty_splendor_medium = 0.03
+wh_authority_dynasty_splendor_medium_to_high = 0.04
+wh_authority_dynasty_splendor_high = 0.05
+# Vassal Elector counts
+wh_authority_vassal_elector_multiplier = 0.05
+# Dread points
+wh_authority_dread_multiplier = 0.05
+# WoS C	0,25	-0,3
+# WoS D	1	-1,5
+# WoS K	2,5	-3
+# Child ascends to Emperor	-10	
+# Gain/lose HoF approval	5	-5
+# Establish new EC	-20	
+# Push through Imperial Reform	-20	
+
+wh_authority_own_HoF_support_bonus = {
+	if = {
+		limit = {
+			exists = faith.religious_head
+			has_relation_cult_supporter = faith.religious_head
+		}
+		add = 0.1
+	}
+}
+wh_authority_own_HoF_support_malus = { 
+	if = {
+		limit = {
+			exists = faith.religious_head
+			NOT = {
+				has_relation_cult_supporter = faith.religious_head
+			}
+		}
+		add = -0.05
+	}
+}
+
+wh_other_HoF_support_number = {
+	every_ruler = {
+		if = {
+			limit = {
+				OR = {
+					primary_title = title:k_cult_of_sigmar
+					primary_title = title:k_cult_of_ulric
+					primary_title = title:k_cult_of_taal
+					primary_title = title:k_cult_of_rhya
+					primary_title = title:k_cult_of_manann
+				}
+				has_relation_empire_claimant = root
+			}
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			exists = faith.religious_head
+			has_relation_cult_supporter = faith.religious_head
+		}
+		add = -1
+	}
+}
+
+wh_authority_other_HoF_support_bonus = {
+	value = 0.025
+	multiply = wh_other_HoF_support_number
+} 
+
+wh_imperial_authority_monthly = {
+	#Positive Traits 
+	add = wh_authority_brave_bonus
+	add = wh_authority_diligent_bonus
+	add = wh_authority_just_bonus
+	add = wh_authority_ambitious_bonus
+	add = wh_authority_shrewd_bonus
+	add = wh_authority_august_bonus
+	add = wh_authority_diplomat_bonus
+	add = wh_authority_overseer_bonus
+	add = wh_authority_administrator_bonus
+	add = wh_authority_holy_warrior_bonus
+	#Negative Traits
+	add = wh_authority_craven_malus
+	add = wh_authority_nonhuman_malus
+	add = wh_authority_hunchback_malus
+	add = wh_authority_lunatic_malus
+	add = wh_authority_dull_malus
+	add = wh_authority_lazy_malus
+	#Other
+	add = wh_authority_own_HoF_support_bonus
+	add = wh_authority_own_HoF_support_malus
+	add = wh_authority_other_HoF_support_bonus
+	add = wh_authority_EC_vassals_bonus
+	add = wh_authority_piety_level_bonus
+	add = wh_authority_fame_level_bonus
+	add = wh_authority_intelligence_bonus
+	add = wh_authority_education_bonus
+	add = wh_authority_incapable_malus
+	add = wh_authority_child_malus
+	add = wh_authority_dread_bonus
+}
+
+# Positive Traits
+wh_authority_brave_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = brave
+		}
+		add = wh_authority_trait_low_bonus
+	}
+}
+
+wh_authority_diligent_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = diligent
+		}
+		add = wh_authority_trait_low_bonus
+	}
+}
+
+wh_authority_just_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = just
+		}
+		add = wh_authority_trait_low_bonus
+	}
+}
+
+wh_authority_ambitious_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = ambitious
+		}
+		add = wh_authority_trait_low_bonus
+	}
+}
+
+wh_authority_shrewd_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = shrewd
+		}
+		add = wh_authority_trait_medium_bonus
+	}
+}
+
+wh_authority_august_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = august
+		}
+		add = wh_authority_trait_high_bonus
+	}
+}
+
+wh_authority_diplomat_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = diplomat
+		}
+		add = wh_authority_trait_medium_bonus
+	}
+}
+
+wh_authority_overseer_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = overseer
+		}
+		add = wh_authority_trait_high_bonus
+	}
+}
+
+wh_authority_administrator_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = administrator
+		}
+		add = wh_authority_trait_medium_bonus
+	}
+}
+
+wh_authority_holy_warrior_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = holy_warrior
+		}
+		add = wh_authority_trait_low_bonus
+	}
+}
+
+# Negative Traits
+wh_authority_craven_malus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = craven
+		}
+		add = wh_authority_trait_low_malus
+	}
+}
+
+wh_authority_nonhuman_malus = {
+	if = {
+		limit = {
+			OR = {
+				NOT = {
+					has_trait = race_human
+				}
+				OR = {
+					has_trait = vampire_lahmian
+					has_trait = vampire_carstein
+					has_trait = vampire_blood_dragon
+					has_trait = vampire_strigoi
+					has_trait = vampire_necrarch
+					has_trait = vampire_jade
+					has_trait = vampire_mahtmasi
+				}		
+			}
+		}
+		add = wh_authority_trait_high_malus
+	}
+	else_if = {
+		limit = {
+			exists = this
+			has_trait = race_human
+			NOT = {
+				OR = {
+					has_trait = vampire_lahmian
+					has_trait = vampire_carstein
+					has_trait = vampire_blood_dragon
+					has_trait = vampire_strigoi
+					has_trait = vampire_necrarch
+					has_trait = vampire_jade
+					has_trait = vampire_mahtmasi
+				}	
+			}
+		}
+		add = 0
+	}
+}
+
+wh_authority_hunchback_malus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = hunchbacked
+		}
+		add = wh_authority_trait_medium_malus
+	}
+}
+
+wh_authority_lunatic_malus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = lunatic_1
+		}
+		add = -0.02
+	}
+}
+
+wh_authority_dull_malus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = dull
+		}
+		add = wh_authority_trait_medium_malus
+	}
+}
+
+wh_authority_lazy_malus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = lazy
+		}
+		add = wh_authority_trait_low_malus
+	}
+}
+
+wh_authority_dread_bonus = {
+	value = dread
+	multiply = wh_authority_dread_multiplier
+}
+
+wh_authority_EC_vassals_bonus = {
+	value = wh_elector_vassal_number
+	multiply = wh_authority_vassal_elector_multiplier
+}
+
+wh_authority_piety_level_bonus = {
+	if = {
+		limit = {
+			piety_level < 1
+		}
+		subtract = 0.02
+	}
+	if = {
+		limit = {
+			piety_level = 1
+		}
+		add = 0.01
+	}
+	if = {
+		limit = {
+			piety_level = 2
+		}
+		add = 0.02
+	}
+	if = {
+		limit = {
+			piety_level = 3
+		}
+		add = 0.03
+	}
+	if = {
+		limit = {
+			piety_level = 4
+		}
+		add = 0.04
+	}
+	if = {
+		limit = {
+			piety_level = 5
+		}
+		add = 0.05
+	}
+}
+
+wh_authority_fame_level_bonus = {
+	if = {
+		limit = {
+			prestige_level < 1
+		}
+		add = -0.02
+	}
+	if = {
+		limit = {
+			prestige_level = 1
+		}
+		add = 0.01
+	}
+	if = {
+		limit = {
+			prestige_level = 2
+		}
+		add = 0.02
+	}
+	if = {
+		limit = {
+			prestige_level = 3
+		}
+		add = 0.03
+	}
+	if = {
+		limit = {
+			prestige_level = 4
+		}
+		add = 0.04
+	}
+	if = {
+		limit = {
+			prestige_level = 5
+		}
+		add = 0.05
+	}
+}
+
+wh_authority_intelligence_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = intellect_bad_1
+		}
+		add = -0.01
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = intellect_bad_2
+		}
+		add = -0.02
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = intellect_bad_3
+		}
+		add = -0.03
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = intellect_good_1
+		}
+		add = 0.01
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = intellect_good_2
+		}
+		add = 0.02
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = intellect_good_3
+		}
+		add = 0.03
+	}
+}
+
+wh_authority_splendor_bonus = {
+	root.dynasty = {
+		if = {
+			limit = {
+				dynasty_prestige_level = 3
+			}
+			add = 0.01
+		}
+		if = {
+			limit = {
+				dynasty_prestige_level = 4
+			}
+			add = 0.01
+		}
+		if = {
+			limit = {
+				dynasty_prestige_level = 5
+			}
+			add = 0.02
+		}
+		if = {
+			limit = {
+				dynasty_prestige_level = 6
+			}
+			add = 0.02
+		}
+		if = {
+			limit = {
+				dynasty_prestige_level = 7
+			}
+			add = 0.03
+		}
+		if = {
+			limit = {
+				dynasty_prestige_level = 8
+			}
+			add = 0.03
+		}
+		if = {
+			limit = {
+				dynasty_prestige_level = 9
+			}
+			add = 0.04
+		}
+		if = {
+			limit = {
+				dynasty_prestige_level = 10
+			}
+			add = 0.04
+		}
+		if = {
+			limit = {
+				dynasty_prestige_level = 11
+			}
+			add = 0.05
+		}
+	}
+}
+
+wh_authority_education_bonus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_martial_3
+		}
+		add = 0.01
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_martial_4
+		}
+		add = 0.02
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_diplomacy_3
+		}
+		add = 0.01
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_diplomacy_4
+		}
+		add = 0.02
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_stewardship_3
+		}
+		add = 0.01
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_stewardship_4
+		}
+		add = 0.02
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_intrigue_3
+		}
+		add = 0.01
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_intrigue_4
+		}
+		add = 0.02
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_learning_3
+		}
+		add = 0.01
+	}
+	if = {
+		limit = {
+			exists = this
+			has_trait = education_learning_4
+		}
+		add = 0.02
+	}
+}
+
+wh_authority_incapable_malus = {
+	if = {
+		limit = {
+			exists = this
+			has_trait = incapable
+		}
+		add = -0.05
+	}
+}
+
+wh_authority_child_malus = {
+	if = {
+		limit = {
+			age < 16
+		}
+		add = -0.05
+	}
+}
+
+wh_elector_vassal_number = {
+	every_vassaL = {
+		limit = {
+			has_character_flag = elector
+		}
+		add = 1
+	}
+}

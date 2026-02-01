@@ -1,0 +1,213 @@
+﻿#########
+#Arborea#
+#########
+
+arborea_100 = {
+	name = Delmo 
+	dynasty = dynasty_arborea
+	martial = 7
+	diplomacy = 3
+	intrigue = 5
+	stewardship = 18
+	religion = myrmidian_eastern
+	culture = miraglian
+	trait = gluttonous
+	trait = wrathful
+	trait = sadistic
+	trait = education_stewardship_4
+	6492.4.13 = {
+		birth = yes	
+	}
+}
+
+########
+#Draxas#
+########
+
+draxas_100 = {
+	name = Rametep 
+	dynasty = dynasty_draxas
+	martial = 10
+	diplomacy = 0
+	intrigue = 8
+	stewardship = 2
+	religion = strigoi_faith
+	culture = strigany
+	trait = lunatic_1 
+	trait = content
+	trait = greedy
+	trait = patient
+	trait = education_stewardship_2
+	trait = vampire_strigoi
+	6329.4.13 = {
+		give_nickname = nick_the_monster
+		birth = yes	
+	}
+}
+
+#############
+#Mastorpiero#
+#############
+
+mastorpiero_100 = {
+	name = Orazio 
+	dynasty = dynasty_mastorpiero
+	martial = 15
+	diplomacy = 5
+	intrigue = 20
+	stewardship = 1
+	religion = myrmidian_eastern
+	culture = miraglian
+	trait = ambitious
+	trait = greedy
+	trait = paranoid
+	trait = wrathful
+	trait = education_intrigue_3
+	6488.4.13 = {
+		birth = yes	
+	}
+}
+
+############
+#Miragliano#
+############
+
+miragliano_001 = {
+	name = Severino 
+	dynasty = dynasty_miragliano
+	religion = myrmidian_eastern
+	culture = miraglian
+	6427.1.1 = {
+		birth = yes	
+	}
+	6480.1.1 = {
+		death = yes
+	}
+}
+
+miragliano_002 = {
+	name = Fabio 
+	dynasty = dynasty_miragliano
+	father = miragliano_001
+	religion = myrmidian_eastern
+	culture = miraglian
+	6460.8.12 = {
+		birth = yes	
+	}
+	6489.1.1 = {
+		add_spouse = castellani_101
+	}
+	6509.12.1 = {
+		death = yes
+	}
+}
+
+miragliano_100 = {
+	name = Fabio 
+	dynasty = dynasty_miragliano
+	father = miragliano_002
+	mother = castellani_101
+	martial = 15
+	diplomacy = 14
+	intrigue = 8
+	stewardship = 4
+	religion = myrmidian_eastern
+	culture = miraglian
+	trait = patient
+	trait = compassionate
+	trait = honest
+	trait = gregarious
+	trait = education_martial_4
+	6491.4.13 = {
+		birth = yes	
+	}
+}
+#########
+#Saluzzo#
+#########
+
+saluzzo_100 = {
+	name = Santo 
+	dynasty = dynasty_saluzzo
+	martial = 19
+	diplomacy = 2
+	intrigue = 14
+	stewardship = 13
+	religion = myrmidian_eastern
+	culture = miraglian
+	trait = deceitful
+	trait = humble
+	trait = temperate
+	trait = diligent
+	trait = education_martial_4
+	6488.4.13 = {
+		birth = yes	
+	}
+}
+
+##########
+#Sangreal#
+##########
+
+sangreal_100 = {
+	name = Ilario 
+	dynasty = dynasty_sangreal
+	martial = 6
+	diplomacy = 11
+	intrigue = 9
+	stewardship = 4
+	religion = myrmidian_eastern
+	culture = miraglian
+	trait = craven
+	trait = ambitious
+	trait = lifestyle_hunter 
+	trait = arbitrary
+	trait = education_martial_1
+	6470.4.13 = {
+		birth = yes	
+	}
+}
+
+miraglio_6 = {
+	name = Ilaria 
+	female = yes
+	#dynasty = dynasty_reman
+	martial = 14
+	diplomacy = 16
+	intrigue = 17
+	stewardship = 9
+	religion = myrmidian_eastern
+	culture = miraglian
+	trait = wrathful
+	trait = diligent
+	trait = compassionate
+	trait = ambitious
+	trait = education_intrigue_4 
+	6483.4.13 = {
+		birth = yes	
+		add_spouse = miragliano_100
+	}
+}
+
+ganacci_1 = {
+	name = Salvatore 
+	dynasty = dynasty_ganacci
+	martial = 5
+	diplomacy = 10
+	intrigue = 5
+	stewardship = 5
+	religion = taalite
+	culture = lucian
+	trait = eccentric
+	trait = calm
+	trait = content
+	trait = poet
+	trait = education_intrigue_2 
+	6472.7.29 = {
+		birth = yes	
+	}
+	6496.3.17 = {
+		employer = miragliano_100 #miragliano
+		move_to_pool = yes #must travel to save horse
+	}
+}

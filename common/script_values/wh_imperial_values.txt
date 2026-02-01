@@ -1,0 +1,214 @@
+﻿#Commenting out for now - Skald
+# ##General multipliers 
+# emperor_score_per_prestige 				=		0.0001
+
+# #BUGs: 
+# #[21:34:45][jomini_scriptvalue.h:447]: Cannot read [emperor_just_bonus] as a script value
+# #[21:34:45][jomini_scriptvalue.h:255]: Badly read script value emperor_just_bonus at  file: common/script_values/wh_imperial_values.txt line: 21
+# #[21:34:45][jomini_scriptvalue.h:447]: Cannot read [emperor_genius_bonus] as a script value
+# #[21:34:45][jomini_scriptvalue.h:255]: Badly read script value emperor_genius_bonus at  file: common/script_values/wh_imperial_values.txt line: 22
+
+# ##General additives
+# emperor_score_per_EC					=		0.05
+# emperor_score_per_virtue 				=		0.01
+# emperor_score_per_sin					=		-0.01
+# emperor_score_per_brave					=		0.02
+# emperor_score_per_just					=		0.01
+
+# #Re loc for shared base
+# emperor_virtue_count 			= {value = num_virtuous_traits}
+# emperor_sin_count 				= {value = num_sinful_traits}
+
+# imperial_legitimacy_monthly = {
+	# #value = 0.01
+	# #add = emperor_prestige_bonus
+	# add = emperor_virtue_bonus
+	# add = emperor_sins_malus
+	# add = emperor_brave_bonus
+	# #add = emperor_just_bonus
+	# #add = emperor_genius_bonus
+	# add = emperor_EC_vassals_bonus
+	# add = emperor_piety_level_bonus
+	# add = emperor_fame_level_bonus
+	# add = emperor_intelligence_bonus
+	# add = emperor_education_bonus
+	# add = emperor_diligent_bonus
+	# add = emperor_incapable_malus
+	# add = emperor_child_malus
+	# add = emperor_ambitious_bonus
+	# add = emperor_shrewd_bonus
+	# add = emperor_august_bonus
+	# add = emperor_diplomat_bonus
+	# add = emperor_overseer_bonus
+	# add = emperor_administrator_bonus
+	# add = emperor_holy_warrior_bonus
+	# add = emperor_nonhuman_malus
+	# add = emperor_hunchback_malus
+	# add = emperor_lunatic_malus
+	# add = emperor_dull_malus
+	# add = emperor_lazy_malus
+# }
+
+# emperor_prestige_bonus = {
+	# value = prestige
+	# multiply = emperor_score_per_prestige
+# }
+# emperor_virtue_bonus = {
+	# value = num_virtuous_traits
+	# multiply = emperor_score_per_virtue
+# }
+# emperor_sins_malus = {
+	# value = num_sinful_traits
+	# multiply = emperor_score_per_sin
+# }
+# emperor_brave_bonus = {
+	# value = 0
+	# if = {limit = {exists = this has_trait = brave}}
+	# add = emperor_score_per_brave
+# }
+# emperor_EC_vassals_bonus = {      ### DO THAT Better to integrate FLAG EC instead of just K_title level vassal
+	# #value = 0
+	# value = wh_elector_vassal_number
+	# multiply = emperor_score_per_EC
+# }
+# emperor_piety_level_bonus = {
+	# if = { limit = { piety_level < 1 }subtract = 0.02}
+	# if = { limit = { piety_level = 1 }add = 0.01}
+	# if = { limit = { piety_level = 2 }add = 0.02}
+	# if = { limit = { piety_level = 3 }add = 0.03}
+	# if = { limit = { piety_level = 4 }add = 0.04}
+	# if = { limit = { piety_level = 5 }add = 0.05}
+# }
+# emperor_fame_level_bonus = {
+	# if = { limit = { prestige_level < 1 }add = -0.02}
+	# if = { limit = { prestige_level = 1 }add = 0.01}
+	# if = { limit = { prestige_level = 2 }add = 0.02}
+	# if = { limit = { prestige_level = 3 }add = 0.03}
+	# if = { limit = { prestige_level = 4 }add = 0.04}
+	# if = { limit = { prestige_level = 5 }add = 0.05}
+# }
+# emperor_intelligence_bonus = {
+	# if = {limit = { exists = this has_trait = intellect_bad_1} add = -0.01}
+	# if = {limit = { exists = this has_trait = intellect_bad_2} add = -0.02}
+	# if = {limit = { exists = this has_trait = intellect_bad_3} add = -0.03}
+	# if = {limit = { exists = this has_trait = intellect_good_1} add = 0.01}
+	# if = {limit = { exists = this has_trait = intellect_good_2} add = 0.02}
+	# if = {limit = { exists = this has_trait = intellect_good_3} add = 0.03}
+# }
+# emperor_splendor_bonus = {
+	# root.dynasty = {
+		# if = { limit = { dynasty_prestige_level = 3 } add = 0.01}
+		# if = { limit = { dynasty_prestige_level = 4 } add = 0.01}
+
+		# if = { limit = { dynasty_prestige_level = 5 } add = 0.02}
+		# if = { limit = { dynasty_prestige_level = 6 } add = 0.02}
+
+		# if = { limit = { dynasty_prestige_level = 7 } add = 0.03}
+		# if = { limit = { dynasty_prestige_level = 8 } add = 0.03}
+
+		# if = { limit = { dynasty_prestige_level = 9 } add = 0.04}
+		# if = { limit = { dynasty_prestige_level = 10 } add = 0.04}
+
+		# if = { limit = { dynasty_prestige_level = 11 } add = 0.05}
+	# }
+# }
+# emperor_education_bonus = {
+	# if = {limit = { exists = this has_trait =  	education_martial_3 } add = 0.01}
+	# if = {limit = { exists = this has_trait =  	education_martial_4 } add = 0.02}
+
+	# if = {limit = { exists = this has_trait =  	education_diplomacy_3  } add = 0.01}
+	# if = {limit = { exists = this has_trait =  	education_diplomacy_4  } add = 0.02}
+
+	# if = {limit = { exists = this has_trait =  	education_stewardship_3 } add = 0.01}
+	# if = {limit = { exists = this has_trait =  	education_stewardship_4 } add = 0.02}
+
+	# if = {limit = { exists = this has_trait =  	education_intrigue_3  } add = 0.01}
+	# if = {limit = { exists = this has_trait =  	education_intrigue_4  } add = 0.02}
+
+	# if = {limit = { exists = this has_trait =  	education_learning_3 } add = 0.01}
+	# if = {limit = { exists = this has_trait =  	education_learning_4 } add = 0.02}
+# }
+# emperor_brave_bonus = {
+	# if = {limit = {exists = this has_trait = brave} add = 0.02}
+# }
+# emperor_incapable_malus = {
+	# if = {limit = { exists = this has_trait = incapable} add = -0.05} 
+# }
+# emperor_child_malus = {
+	# if = { limit = { age < 16 } add = -0.05}
+# }
+# emperor_diligent_bonus = {
+	# if = {limit = { exists = this has_trait = diligent} add = 0.01}
+# }
+# emperor_ambitious_bonus = {
+	# if = {limit = { exists = this has_trait = ambitious} add = 0.01}
+# }
+# emperor_shrewd_bonus = {
+	# if = {limit = { exists = this has_trait = shrewd} add = 0.02}
+# }
+# emperor_august_bonus = {
+	# if = {limit = { exists = this has_trait = august} add = 0.03}
+# }
+# emperor_diplomat_bonus = {
+	# if = {limit = { exists = this has_trait = diplomat} add = 0.02}
+# }
+# emperor_overseer_bonus = {
+	# if = {limit = { exists = this has_trait = overseer} add = 0.03}
+# }
+# emperor_administrator_bonus = {
+	# if = {limit = { exists = this has_trait = administrator} add = 0.02}
+# }
+# emperor_holy_warrior_bonus = {
+	# if = {limit = { exists = this has_trait = holy_warrior} add = 0.01}
+# }
+# emperor_nonhuman_malus = {
+	# if = {
+		# limit = {
+			# OR = {
+				# NOT = {
+					# has_trait = race_human
+				# }
+				# OR = {
+					# has_trait = vampire_lahmian
+					# has_trait = vampire_carstein
+					# has_trait = vampire_blood_dragon
+					# has_trait = vampire_strigoi
+					# has_trait = vampire_necrarch
+					# has_trait = vampire_jade
+					# has_trait = vampire_mahtmasi
+				# }		
+			# }
+		# }
+			# add = -0.03
+	# }
+	# else_if = {
+		# limit = {
+			# exists = this
+			# has_trait = race_human
+			# NOT = {
+				# OR = {
+					# has_trait = vampire_lahmian
+					# has_trait = vampire_carstein
+					# has_trait = vampire_blood_dragon
+					# has_trait = vampire_strigoi
+					# has_trait = vampire_necrarch
+					# has_trait = vampire_jade
+					# has_trait = vampire_mahtmasi
+				# }	
+			# }
+		# }
+		# add = 0
+	# }
+# } 
+# emperor_hunchback_malus = {
+	# if = {limit = { exists = this has_trait = hunchbacked} add = -0.02 } #substract = 0.01}
+# }
+# emperor_lunatic_malus = {
+	# if = {limit = { exists = this has_trait = lunatic_1} add = -0.02 }#substract = 0.02}
+# }
+# emperor_dull_malus = {
+	# if = {limit = { exists = this has_trait = dull} add = -0.02 } #substract = 0.02}
+# }
+# emperor_lazy_malus = {
+	# if = {limit = { exists = this has_trait = lazy} add = -0.01 } #substract = 0.01} 
+# }

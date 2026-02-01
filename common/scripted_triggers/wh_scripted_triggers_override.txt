@@ -1,0 +1,179 @@
+﻿#########################
+# Triggers for Event Availability 
+# 00_available_for_events_triggers.txt
+#########################
+# Not overriding a file to override one trigger.
+roman_restoration_is_valid_roman_empire_trigger = {
+	always = no
+}
+
+
+#########################
+# Triggers for Education
+# 00_education_triggers.txt
+#########################
+has_university_building_trigger = {
+	OR = {
+		#has_building_or_higher = generic_university
+		always = no
+	}
+}
+
+#########################
+# Triggers for Elections
+# 00_elective_triggers.txt
+#########################
+this_is_martial_society_trigger = {
+	NOT = {
+		faith = { has_doctrine = tenet_pacifism }
+		#faith = { has_doctrine = tenet_dharmic_pacifism }
+	}
+	OR = {
+		has_government = clan_government
+		has_government = tribal_government
+		has_government = mercenary_government
+		has_government = holy_order_government
+		faith = {
+			OR = {
+				has_doctrine_parameter = great_holy_wars_active
+				has_doctrine_parameter = great_holy_wars_active_if_reformed
+				has_doctrine_parameter = cheaper_holy_wars_active
+			}
+		}
+	}
+}
+
+this_is_diplomatic_society_trigger = {
+	OR = {
+		has_government = feudal_government
+		has_government = republic_government
+		has_government = theocracy_government
+	}
+	OR = {
+		faith = { has_doctrine = tenet_communal_identity }
+		#faith = { has_doctrine = tenet_alexandrian_catechism }
+		faith = { has_doctrine = tenet_legalism }
+	}
+}
+
+this_is_spiritual_society_trigger = {
+	faith = {
+		NOR = {
+			has_doctrine = tenet_false_conversion_sanction
+			has_doctrine = tenet_hedonistic
+			has_doctrine = tenet_carnal_exaltation
+			has_doctrine = tenet_exaltation_of_pain
+			has_doctrine = tenet_pursuit_of_power
+		}
+		OR = {
+			has_doctrine = tenet_inner_journey
+			has_doctrine = tenet_asceticism
+			has_doctrine = tenet_literalism
+			has_doctrine = tenet_esotericism
+			has_doctrine = tenet_astrology
+			has_doctrine = tenet_monasticism
+		}
+	}
+}
+
+#########################
+# Triggers for Titles
+# 00_title_triggers.txt
+#########################
+# The one that was important to do selectively.
+# has_mythical_founder_trigger - Does the title have a mythical or semi-mythical founder?
+has_mythical_founder_trigger = {
+	always = no
+}
+
+#########################
+# Triggers for War and Peace
+# 00_war_and_peace_triggers.txt
+#########################
+#None, yet. Potentially some CB-related that should be.
+
+#########################
+# Triggers for Stress
+# 00_stress_triggers.txt
+#########################
+# Basically just related to religions, currently just removed.
+
+can_be_drunkard = {
+	is_adult = yes
+	NOR = { # Can not be Temperate or already have a Substance Abuse trait.
+		has_trait = drunkard
+		has_trait = hashishiyah
+		has_trait = temperate
+	}
+}
+
+can_be_hashishiyah = {
+	is_adult = yes
+	NOR = { # Can not be Temperate or already have a Substance Abuse trait.
+		has_trait = drunkard
+		has_trait = hashishiyah
+		has_trait = temperate
+	}
+}
+
+can_do_lustful_stress_conversion = {
+	is_ai = no # AI picks this way too often and makes the map predominantly Paulician/Orthodox/Karite
+	is_adult = yes
+}
+
+#########################
+# Triggers for Special succession types
+# 00_succession_triggers.txt
+#########################
+#This is basically the entire file.
+#If adding new types to the decision, use a trigger, otherwise they may break if the culture is split.
+
+special_succession_witengamot_trigger = {
+	#culture = culture:anglo_saxon
+	always = no
+}
+
+special_succession_thing_trigger = {
+	OR = {
+		#culture = culture:norse
+	}
+	always = no
+}
+
+special_succession_tanistry_trigger = {
+	#culture_group = culture_group:goidelic_group
+	always = no
+}
+
+historical_succession_access_single_heir_succession_law_trigger = {
+	OR = {
+		#has_title = title:e_byzantium
+		AND = {
+			#has_title = title:e_france
+			#is_target_in_global_variable_list = {
+			#	name = unavailable_unique_decisions
+			#	target = flag:flag_reformed_carolingian_empire
+			}
+		#Add any subsequent exceptions here.
+	}
+	always = no
+}
+
+historical_succession_access_single_heir_succession_law_youngest_trigger = {
+	OR = {
+		has_title = title:e_byzantium
+		#Add any subsequent exceptions here.
+	}
+	always = no
+}
+
+historical_succession_access_single_heir_dynasty_house_trigger = {
+	#OR = {
+	#	AND = {
+		#	has_title = title:d_bohemia
+		#	culture = { has_innovation = innovation_table_of_princes }
+	#	}
+	#	#has_title = title:d_verona
+	#}
+	always = no
+}

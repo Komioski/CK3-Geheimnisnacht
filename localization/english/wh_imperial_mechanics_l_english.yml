@@ -1,0 +1,71 @@
+﻿l_english:
+# Imperial Mechanics Tooltips
+ ## Traits
+ wh_brave:0 "[GetTrait('brave').GetName( Character.Self )]:"
+ wh_diligent:0 "[GetTrait('diligent').GetName( Character.Self )]:"
+ wh_incapable:0 "[GetTrait('incapable').GetName( Character.Self )]:"
+ wh_ambitious:0 "[GetTrait('ambitious').GetName( Character.Self )]:"
+ wh_shrewd:0 "[GetTrait('shrewd').GetName( Character.Self )]:"
+ wh_august:0 "[GetTrait('august').GetName( Character.Self )]:"
+ wh_diplomat:0 "[GetTrait('diplomat').GetName( Character.Self )]:"
+ wh_overseer:0 "[GetTrait('overseer').GetName( Character.Self )]:"
+ wh_administrator:0 "[GetTrait('administrator').GetName( Character.Self )]:" 
+ wh_holy_warrior:0 "[GetTrait('holy_warrior').GetName( Character.Self )]:"
+ wh_hunchbacked:0 "[GetTrait('hunchbacked').GetName( Character.Self )]:"
+ wh_lazy:0 "[GetTrait('lazy').GetName( Character.Self )]:"
+
+ ## Other
+ wh_vassal_elector_counts:0 "[Character.MakeScope.ScriptValue('wh_elector_vassal_number')|0] Vassal [elector_count|E]s:"
+ wh_piety_level:0 "[GetPietyLevelName( Character.GetPietyLevel )|L]:"
+ wh_prestige_level:0 "[GetPrestigeLevelName( Character.GetPrestigeLevel )|L] :"
+ wh_dynasty_splendor:0 "[GetDynastyPrestigeLevelName( Character.GetDynasty.GetPrestigeLevel )|L]:"
+ wh_dread:0 "[Character.GetDread|0] [dread|E]:"
+ wh_own_hof_support:0 "[Character.GetFaith.GetName] support:"
+ wh_own_hof_support_other:0 "No [Character.GetFaith.GetName] support:"
+ wh_other_hof_support:0 "Supported by [Character.MakeScope.ScriptValue('wh_other_HoF_support_number')|0] other faith"
+ wh_Non_human_emperor:0 "Non-[GetTrait('race_human').GetName( Character.Self )]:"
+ 
+ ## WIP - Work in progress below this line
+ #########################################
+imperial_legitimacy_pr_month:0 "[TopScope.ScriptValue('imperial_legitimacy_monthly')|3=+]/month"
+imperial_gui_cults:0 "Cults"
+imperial_gui_votes:0 "Votes:"
+imperial_gui_empire:0 "Empire"
+imperial_gui_emperor:0 "Emperor" #TODO: Make genderfluid
+imperial_gui_reforms:0 "@warning_icon! Reforms"
+
+imperial_gui_emperor_name:0 "Rightful [GetPlayer.GetNameNoTooltip]"
+imperial_gui_pretenders:0 "False Pretenders"
+imperial_gui_elector_plural:0 "Electors"
+
+
+
+ wh_intelligence:0 "Intelligence bonus:"
+ wh_education:0 "Education:"
+ wh_not_adult:0 "Not adult:"
+ wh_virtues:0 "Virtues bonus:"
+ wh_sins:0 "Sins malus:"
+ wh_lunatic_fool:0 "Is a lunatic fool:"
+ wh_dull:0 "Is dull:"
+ trait_race_human:0 "Human"
+
+ game_concept_imperial_authority:0 "Imperial Authority"
+ game_concept_imperial_authority_desc:0 "Placeholder" #TODO: game_concept_imperial_authority_desc
+ game_concept_imperial_legitimacy:0 "Imperial Legitimacy"
+ game_concept_imperial_legitimacy_desc:0 "Placeholder" #TODO: game_concept_imperial_legitimacy_desc
+ game_concept_elector_count:0 "Elector Count"
+ game_concept_elector_count_desc:0 "Placeholder" #TODO: game_concept_elector_count_desc
+
+ wh_empire_button:0 "Empire Mechanics" #TODO: figure out what it actually should say
+
+ wh_elector_interaction.0230.title:0 "PLACEHOLDER"
+
+wh_elector_interaction.0001.a:0 "PLACEHOLDER"
+wh_elector_interaction.0002.title:0 "PLACEHOLDER"
+wh_elector_interaction.0002.desc:0 "PLACEHOLDER"
+wh_elector_interaction.0002.a:0 "PLACEHOLDER"
+wh_elector_interaction.0003.desc:0 "PLACEHOLDER"
+wh_elector_interaction.0003.a:0 "PLACEHOLDER"
+wh_elector_interaction.0003.b:0 "PLACEHOLDER"
+wh_elector_interaction.0004.desc:0 "PLACEHOLDER"  
+wh_elector_interaction.0004.a:0 "PLACEHOLDER"

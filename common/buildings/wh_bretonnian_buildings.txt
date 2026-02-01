@@ -1,0 +1,1190 @@
+﻿bretonnian_ducal_castle_01 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_tribal = no
+		scope:holder = {
+			has_government = chivalric_feudal_government
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		
+		culture = {
+			has_innovation = innovation_burhs
+		}
+	}
+	is_enabled = {
+		county.holder = { has_title = prev.duchy }
+		county.holder.culture = { has_cultural_pillar = heritage_bretonnian }
+	}
+	show_disabled = yes
+	
+	cost_gold = expensive_building_tier_3_cost
+	
+	max_garrison = good_building_max_garrison_tier_1
+	
+	province_modifier = {
+		fort_level = 2
+		defender_holding_advantage = 5
+		stationed_heavy_cavalry_damage_mult = very_high_maa_damage_tier_1
+		stationed_heavy_cavalry_toughness_mult = very_high_maa_toughness_tier_1
+		stationed_heavy_cavalry_pursuit_mult = very_high_maa_pursuit_tier_1
+		stationed_heavy_cavalry_screen_mult = very_high_maa_screen_tier_1
+	}
+	
+	county_modifier = {
+		levy_size = 0.1
+		tax_mult = 0.1
+	}
+	
+	duchy_capital_county_modifier = {
+		monthly_county_control_growth_add = 0.1
+	}
+	
+	next_building = bretonnian_ducal_castle_02
+
+	type_icon = "icon_building_ramparts.dds"
+	
+	type = duchy_capital
+	
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+}
+
+bretonnian_ducal_castle_02 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_tribal = no
+	}
+	
+	can_construct_showing_failures_only = {
+		
+		culture = {
+			has_innovation = innovation_castle_baileys
+		}
+	}
+	
+	is_enabled = {
+		county.holder = { has_title = prev.duchy }
+		county.holder.culture = { has_cultural_pillar = heritage_bretonnian }
+	}
+	show_disabled = yes
+	
+	cost_gold = expensive_building_tier_4_cost
+	
+	max_garrison = good_building_max_garrison_tier_2
+	
+	province_modifier = {
+		fort_level = 5
+		defender_holding_advantage = 10
+		stationed_heavy_cavalry_damage_mult = very_high_maa_damage_tier_2
+		stationed_heavy_cavalry_toughness_mult = very_high_maa_toughness_tier_2
+		stationed_heavy_cavalry_pursuit_mult = very_high_maa_pursuit_tier_2
+		stationed_heavy_cavalry_screen_mult = very_high_maa_screen_tier_2
+	}
+	
+	county_modifier = {
+		levy_size = 0.2
+		tax_mult = 0.2
+	}
+	
+	duchy_capital_county_modifier = {
+		monthly_county_control_growth_add = 0.2
+	}
+	
+	next_building = bretonnian_ducal_castle_03
+	
+	type = duchy_capital
+	
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+}
+
+bretonnian_ducal_castle_03 = {
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_tribal = no
+	}
+	
+	can_construct_showing_failures_only = {
+		
+		culture = {
+			has_innovation = innovation_royal_armory
+		}
+	}
+	
+	is_enabled = {
+		county.holder = { has_title = prev.duchy }
+		county.holder.culture = { has_cultural_pillar = heritage_bretonnian }
+	}
+	show_disabled = yes
+	
+	cost_gold = expensive_building_tier_5_cost
+	
+	max_garrison = good_building_max_garrison_tier_4
+	
+	province_modifier = {
+		fort_level = 8
+		defender_holding_advantage = 20
+		stationed_heavy_cavalry_damage_mult = very_high_maa_damage_tier_3
+		stationed_heavy_cavalry_toughness_mult = very_high_maa_toughness_tier_3
+		stationed_heavy_cavalry_pursuit_mult = very_high_maa_pursuit_tier_3
+		stationed_heavy_cavalry_screen_mult = very_high_maa_screen_tier_3
+	}
+	
+	county_modifier = {
+		levy_size = 0.3
+		tax_mult = 0.3
+	}
+	
+	duchy_capital_county_modifier = {
+		monthly_county_control_growth_add = 0.3
+	}
+	
+	type = duchy_capital
+	
+	flag = fully_upgraded_duchy_capital_building
+	
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+}
+
+### Military Building  ####
+
+#Bretonnian Stables superior to normal stables
+bretonnian_stables_01 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_bretonnian_stable_requirement_terrain = yes
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		scope:holder = {
+			has_government = chivalric_feudal_government
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_1_cost
+	
+	levy = 50
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_1
+		character_travel_speed_mult = normal_movement_speed_tier_1
+	}
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = 0.01
+	}
+	
+	province_modifier = {
+		stationed_heavy_cavalry_damage_mult = 0.25
+		stationed_heavy_cavalry_pursuit_mult = 0.25
+		stationed_light_cavalry_pursuit_mult = 0.20
+	}
+	
+	next_building = bretonnian_stables_02
+
+	type_icon = "icon_placeholder_building_WH.dds"
+	
+	ai_value = {
+		base = 10
+		ai_tier_1_building_modifier = yes
+		ai_general_building_modifier = yes
+		ai_stacking_bonus_camel_farms_modifier = yes
+		ai_stacking_bonus_horse_pastures_modifier = yes
+		ai_stacking_bonus_hillside_grazing_modifier = yes
+		ai_anti_synergy_armored_infantry_modifier = yes
+		ai_anti_synergy_light_infantry_modifier = yes
+		ai_light_cavalry_modifier = yes
+		ai_heavy_cavalry_modifier = yes
+		ai_compensate_light_cavalry_modifier = yes # Specifically for buildings that boosts HC and LC
+		ai_compensate_heavy_cavalry_modifier = yes # Specifically for buildings that boosts HC and LC
+		modifier = {
+			add = non_stationed_maa_bonus
+			has_stationed_regiment = yes
+			NOR = {
+				has_stationed_regiment_of_base_type = light_cavalry
+				has_stationed_regiment_of_base_type = heavy_cavalry
+			}
+		}
+		modifier = {
+			factor = 0
+			building_regimental_grounds_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = regimental_grounds_01
+			}
+		}
+		modifier = {
+			factor = 0
+			building_farm_estates_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = farm_estates_01
+			}
+		}
+		modifier = {
+			factor = 0
+			building_orchards_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = orchards_01
+			}
+		}
+		modifier = {
+			factor = 0
+			building_hillside_grazing_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = hillside_grazing_01
+			}
+		}
+		modifier = {
+			factor = 0
+			building_warrior_lodges_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = warrior_lodges_01
+			}
+		}
+		modifier = {
+			add = -9
+			has_building_or_higher = city_01
+		}
+		modifier = {
+			add = -3
+			OR = {
+				exists = barony.lessee
+				scope:holder = {
+					highest_held_title_tier <= tier_barony
+				}
+			}
+		}
+		modifier = {
+			add = -10
+			scope:holder = {
+				OR = {
+					AND = {
+						government_has_flag = government_is_theocracy
+						highest_held_title_tier <= tier_barony
+					}
+					is_theocratic_lessee = yes
+				}
+			}
+		}
+	}
+}
+
+bretonnian_stables_02 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_stables_requirement_terrain = yes
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		scope:holder.culture = {
+			has_innovation = innovation_barracks
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_2_cost
+	
+	levy = normal_building_levy_tier_2
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_2
+		character_travel_speed_mult = normal_movement_speed_tier_2
+	}
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.02
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_2
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_2	
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_2
+	}
+	
+	next_building = bretonnian_stables_03
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+		modifier = { # Fill all building slots before going for upgrades
+			factor = 0
+			free_building_slots > 0 years_from_game_start > 0.01
+		}
+	}
+}
+
+bretonnian_stables_03 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+	
+	can_construct_potential = {
+		building_stables_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		scope:holder.culture = {
+			has_innovation = innovation_burhs
+		}
+	}
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.03
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_3_cost
+	
+	levy = normal_building_levy_tier_3
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_3
+		character_travel_speed_mult = normal_movement_speed_tier_3
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_3
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_3	
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_3
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_1
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_1
+	}
+	
+	next_building = bretonnian_stables_04
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_stables_04 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_stables_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		scope:holder.culture = {
+			has_innovation = innovation_burhs
+		}
+	}
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.04
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_4_cost
+	
+	levy = normal_building_levy_tier_4
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_4
+		character_travel_speed_mult = normal_movement_speed_tier_4
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_4
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_4	
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_4
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_2
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_2
+	}
+	
+	next_building = bretonnian_stables_05
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_stables_05 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_stables_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		scope:holder.culture = {
+			has_innovation = innovation_castle_baileys
+		}
+	}
+
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.05
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_5_cost
+	
+	levy = normal_building_levy_tier_5
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_5
+		character_travel_speed_mult = normal_movement_speed_tier_5
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_3
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_5
+		stationed_light_cavalry_screen_mult = normal_maa_screen_tier_1
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_5
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_3
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_5
+		stationed_heavy_cavalry_screen_mult = normal_maa_screen_tier_1
+		stationed_heavy_cavalry_pursuit_mult = normal_maa_pursuit_tier_1
+	}
+	
+	next_building = bretonnian_stables_06
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_stables_06 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_stables_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		scope:holder.culture = {
+			has_innovation = innovation_royal_armory
+		}
+	}
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.06
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_6_cost
+	
+	levy = normal_building_levy_tier_6
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_6
+		character_travel_speed_mult = normal_movement_speed_tier_6
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_4
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_6
+		stationed_light_cavalry_screen_mult = normal_maa_screen_tier_2
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_6
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_4
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_6
+		stationed_heavy_cavalry_screen_mult = normal_maa_screen_tier_2
+		stationed_heavy_cavalry_pursuit_mult = normal_maa_pursuit_tier_2
+	}
+	
+	next_building = bretonnian_stables_07
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_stables_07 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_stables_requirement_terrain = yes
+	}
+	
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		scope:holder.culture = {
+			has_innovation = innovation_royal_armory
+		}
+	}
+
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.07
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_7_cost
+	
+	levy = normal_building_levy_tier_7
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_7
+		character_travel_speed_mult = normal_movement_speed_tier_7
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_5
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_7
+		stationed_light_cavalry_screen_mult = normal_maa_screen_tier_3
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_7
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_5
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_7
+		stationed_heavy_cavalry_screen_mult = normal_maa_screen_tier_3
+		stationed_heavy_cavalry_pursuit_mult = normal_maa_pursuit_tier_3
+	}
+	
+	next_building = bretonnian_stables_08
+	
+	ai_value = {
+		base = 4
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_stables_08 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_stables_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		scope:holder.culture = {
+			has_innovation = innovation_royal_armory
+		}
+	}
+
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.08
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_8_cost
+	
+	levy = normal_building_levy_tier_8
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_8
+		character_travel_speed_mult = normal_movement_speed_tier_8
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_6
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_8
+		stationed_light_cavalry_screen_mult = normal_maa_screen_tier_4
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_8
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_6
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_8
+		stationed_heavy_cavalry_screen_mult = normal_maa_screen_tier_4
+		stationed_heavy_cavalry_pursuit_mult = normal_maa_pursuit_tier_4
+	}
+	
+	ai_value = {
+		base = 3
+		ai_general_building_modifier = yes
+		
+	}
+}
+
+#Mountain Stable, helps flying units, does not provide superior mounts tho.
+
+bretonnian_aerie_01 = {
+	construction_time = quick_construction_time
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_bretonnian_aerie_requirement_terrain = yes
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		scope:holder = {
+			has_government = chivalric_feudal_government
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_1_cost
+	
+	levy = 50
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_1
+		character_travel_speed_mult = normal_movement_speed_tier_1
+		heavy_cavalry_maintenance_mult = 0.01
+	}
+
+	province_culture_modifier = {
+		parameter = bretonnian_aerie_bonuses
+		stationed_flying_unit_damage_mult = 0.05
+		stationed_flying_unit_pursuit_mult = 0.05		
+	}
+
+	province_modifier = {
+		stationed_heavy_cavalry_pursuit_mult = 0.10
+		stationed_light_cavalry_damage_mult = 0.10
+		stationed_light_cavalry_pursuit_mult = 0.05
+	}
+	
+	next_building = bretonnian_aerie_02
+
+	type_icon = "icon_placeholder_building_WH.dds"
+	
+	ai_value = {
+		base = 10
+		ai_tier_1_building_modifier = yes
+		ai_general_building_modifier = yes
+		ai_stacking_bonus_camel_farms_modifier = yes
+		ai_stacking_bonus_horse_pastures_modifier = yes
+		ai_stacking_bonus_hillside_grazing_modifier = yes
+		ai_anti_synergy_armored_infantry_modifier = yes
+		ai_anti_synergy_light_infantry_modifier = yes
+		ai_light_cavalry_modifier = yes
+		ai_heavy_cavalry_modifier = yes
+		ai_compensate_light_cavalry_modifier = yes # Specifically for buildings that boosts HC and LC
+		ai_compensate_heavy_cavalry_modifier = yes # Specifically for buildings that boosts HC and LC
+		modifier = {
+			add = non_stationed_maa_bonus
+			has_stationed_regiment = yes
+			NOR = {
+				has_stationed_regiment_of_base_type = light_cavalry
+				has_stationed_regiment_of_base_type = heavy_cavalry
+			}
+		}
+		modifier = {
+			factor = 0
+			building_regimental_grounds_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = regimental_grounds_01
+			}
+		}
+		modifier = {
+			factor = 0
+			building_farm_estates_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = farm_estates_01
+			}
+		}
+		modifier = {
+			factor = 0
+			building_orchards_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = orchards_01
+			}
+		}
+		modifier = {
+			factor = 0
+			building_hillside_grazing_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = hillside_grazing_01
+			}
+		}
+		modifier = {
+			factor = 0
+			building_warrior_lodges_requirement_terrain = yes
+			NOT = {
+				has_building_or_higher = warrior_lodges_01
+			}
+		}
+		modifier = {
+			add = -9
+			has_building_or_higher = city_01
+		}
+		modifier = {
+			add = -3
+			OR = {
+				exists = barony.lessee
+				scope:holder = {
+					highest_held_title_tier <= tier_barony
+				}
+			}
+		}
+		modifier = {
+			add = -10
+			scope:holder = {
+				OR = {
+					AND = {
+						government_has_flag = government_is_theocracy
+						highest_held_title_tier <= tier_barony
+					}
+					is_theocratic_lessee = yes
+				}
+			}
+		}
+	}
+}
+
+bretonnian_aerie_02 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_bretonnian_aerie_requirement_terrain = yes
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		scope:holder.culture = {
+			has_innovation = innovation_barracks
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_2_cost
+	
+	levy = normal_building_levy_tier_2
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_2
+		character_travel_speed_mult = normal_movement_speed_tier_2
+	}
+	province_culture_modifier = {
+		parameter = parravon_bonuses
+		stationed_flying_unit_damage_mult = 0.10
+		stationed_flying_unit_pursuit_mult = 0.10
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_2
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_2	
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_2
+	}
+	
+	next_building = bretonnian_aerie_03
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+		modifier = { # Fill all building slots before going for upgrades
+			factor = 0
+			free_building_slots > 0 years_from_game_start > 0.01
+		}
+	}
+}
+
+bretonnian_aerie_03 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+	
+	can_construct_potential = {
+		building_bretonnian_aerie_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		scope:holder.culture = {
+			has_innovation = innovation_burhs
+		}
+	}
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.03
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_3_cost
+	
+	levy = normal_building_levy_tier_3
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_3
+		character_travel_speed_mult = normal_movement_speed_tier_3
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_3
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_3	
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_3
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_1
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_1
+	}
+	
+	next_building = bretonnian_aerie_04
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_aerie_04 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_bretonnian_aerie_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		scope:holder.culture = {
+			has_innovation = innovation_burhs
+		}
+	}
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.04
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_4_cost
+	
+	levy = normal_building_levy_tier_4
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_4
+		character_travel_speed_mult = normal_movement_speed_tier_4
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_4
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_4	
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_4
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_2
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_2
+	}
+	
+	next_building = bretonnian_aerie_05
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_aerie_05 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_bretonnian_aerie_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		scope:holder.culture = {
+			has_innovation = innovation_castle_baileys
+		}
+	}
+
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.05
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_5_cost
+	
+	levy = normal_building_levy_tier_5
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_5
+		character_travel_speed_mult = normal_movement_speed_tier_5
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_3
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_5
+		stationed_light_cavalry_screen_mult = normal_maa_screen_tier_1
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_5
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_3
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_5
+		stationed_heavy_cavalry_screen_mult = normal_maa_screen_tier_1
+		stationed_heavy_cavalry_pursuit_mult = normal_maa_pursuit_tier_1
+	}
+	
+	next_building = bretonnian_aerie_06
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_aerie_06 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_bretonnian_aerie_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		scope:holder.culture = {
+			has_innovation = innovation_royal_armory
+		}
+	}
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.06
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_6_cost
+	
+	levy = normal_building_levy_tier_6
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_6
+		character_travel_speed_mult = normal_movement_speed_tier_6
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_4
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_6
+		stationed_light_cavalry_screen_mult = normal_maa_screen_tier_2
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_6
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_4
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_6
+		stationed_heavy_cavalry_screen_mult = normal_maa_screen_tier_2
+		stationed_heavy_cavalry_pursuit_mult = normal_maa_pursuit_tier_2
+	}
+	
+	next_building = bretonnian_aerie_07
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_aerie_07 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_bretonnian_aerie_requirement_terrain = yes
+	}
+	
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		scope:holder.culture = {
+			has_innovation = innovation_royal_armory
+		}
+	}
+
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.07
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_7_cost
+	
+	levy = normal_building_levy_tier_7
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_7
+		character_travel_speed_mult = normal_movement_speed_tier_7
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_5
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_7
+		stationed_light_cavalry_screen_mult = normal_maa_screen_tier_3
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_7
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_5
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_7
+		stationed_heavy_cavalry_screen_mult = normal_maa_screen_tier_3
+		stationed_heavy_cavalry_pursuit_mult = normal_maa_pursuit_tier_3
+	}
+	
+	next_building = bretonnian_aerie_08
+	
+	ai_value = {
+		base = 4
+		ai_general_building_modifier = yes
+	}
+}
+
+bretonnian_aerie_08 = {
+	construction_time = quick_construction_time
+	effect_desc = stables_effect_desc
+
+	is_enabled = {
+		scope:holder = { has_government = chivalric_feudal_government }
+	}
+
+	can_construct_potential = {
+		building_bretonnian_aerie_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		scope:holder.culture = {
+			has_innovation = innovation_royal_armory
+		}
+	}
+
+	character_culture_modifier = {
+		parameter = bretonnian_stables_bonuses
+		heavy_cavalry_maintenance_mult = -0.08
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_8_cost
+	
+	levy = normal_building_levy_tier_8
+	
+	character_modifier = {
+		movement_speed = normal_movement_speed_tier_8
+		character_travel_speed_mult = normal_movement_speed_tier_8
+	}
+	
+	province_modifier = {
+		stationed_light_cavalry_toughness_mult = high_maa_toughness_tier_6
+		stationed_light_cavalry_damage_mult = high_maa_damage_tier_8
+		stationed_light_cavalry_screen_mult = normal_maa_screen_tier_4
+		stationed_light_cavalry_pursuit_mult = normal_maa_pursuit_tier_8
+		stationed_heavy_cavalry_toughness_mult = high_maa_toughness_tier_6
+		stationed_heavy_cavalry_damage_mult = high_maa_damage_tier_8
+		stationed_heavy_cavalry_screen_mult = normal_maa_screen_tier_4
+		stationed_heavy_cavalry_pursuit_mult = normal_maa_pursuit_tier_4
+	}
+	
+	ai_value = {
+		base = 3
+		ai_general_building_modifier = yes
+		
+	}
+}

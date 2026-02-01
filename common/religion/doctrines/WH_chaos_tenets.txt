@@ -1,0 +1,287 @@
+﻿doctrine_core_tenets = {
+	group = "core_tenets"
+	number_of_picks = 3
+	
+	#############################
+	# Chaos Gods tenets	 		#
+	#############################
+	
+	tenet_hashut = {
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+			#	limit = { has_doctrine = tenets }
+			#	multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		parameters = {
+
+		}
+
+		character_modifier = {
+
+		}
+
+		traits = {
+			virtues = {}
+			sins = {}
+		}
+	}
+	
+	tenet_horned_rat = {
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			# if = {
+			# 	limit = { has_doctrine = tenets }
+			# 	multiply = faith_unchanged_doctrine_cost_mult
+			# }
+		}
+
+		parameters = {
+		}
+
+		character_modifier = {
+
+		}
+
+		traits = {
+			virtues = { brave = 2}
+			sins = { craven = 2}
+		}
+	}
+	
+	tenet_khorne = { #Blood and Skulls
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			# if = {
+			# 	limit = { has_doctrine = tenets }
+			# 	multiply = faith_unchanged_doctrine_cost_mult
+			# }
+		}
+
+		parameters = {
+			tenets_active = yes
+		}
+
+		character_modifier = {
+
+		}
+
+		traits = {
+			virtues = { brave = 2}
+			sins = { craven = 2}
+		}
+	}
+	
+	tenet_nurgle = { #Filth and Decay
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			# if = {
+			# 	limit = { has_doctrine = tenets }
+			# 	multiply = faith_unchanged_doctrine_cost_mult
+			# }
+		}
+
+		parameters = {
+			tenets_active = yes
+		}
+
+		character_modifier = {
+
+		}
+
+		traits = {
+			virtues = { brave = 2}
+			sins = { craven = 2}
+		}
+	}
+	
+	tenet_slaanesh = { #Pleasure and Pain
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			# if = {
+			# 	limit = { has_doctrine = tenets }
+			# 	multiply = faith_unchanged_doctrine_cost_mult
+			# }
+		}
+
+		parameters = {
+			tenets_active = yes
+		}
+
+		character_modifier = {
+
+		}
+
+		traits = {
+			virtues = { brave = 2}
+			sins = { craven = 2}
+		}
+	}
+	
+	tenet_tzeentch = { #Knowledge and Change
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			# if = {
+			# 	limit = { has_doctrine = tenets }
+			# 	multiply = faith_unchanged_doctrine_cost_mult
+			# }
+		}
+
+		parameters = {
+			tenets_active = yes
+		}
+
+		character_modifier = {
+
+		}
+
+		traits = {
+			virtues = { brave = 2}
+			sins = { craven = 2}
+		}
+	}
+	
+	tenet_undivided = { #Knowledge and Change
+		is_shown = {
+			always = no
+		}
+		can_pick = {
+			always = yes
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					always = no
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			# if = {
+			# 	limit = { has_doctrine = tenets }
+			# 	multiply = faith_unchanged_doctrine_cost_mult
+			# }
+		}
+
+		parameters = {
+			tenets_active = yes
+		}
+
+		character_modifier = {
+
+		}
+
+		traits = {
+			virtues = { brave = 2}
+			sins = { craven = 2}
+		}
+	}
+}

@@ -1,0 +1,186 @@
+﻿####################
+#Historical History#
+####################
+
+catena_100 = {
+	name = Luciano
+	dynasty_house = house_catena
+	religion = lucan_and_luccinian
+	culture = lucian
+	5962.1.1 = {
+		birth = yes	
+	}
+	6023.1.1 = {
+		death = yes	
+	}
+}
+
+########
+#Adolfo#
+########
+
+adolfo_100 = {
+	name = Tranquilla 
+	female = yes
+	dynasty = dynasty_adolfo
+	martial = 9
+	diplomacy = 8
+	intrigue = 13
+	stewardship = 5
+	religion = lucan_and_luccinian
+	culture = lucian
+	trait = gluttonous
+	trait = greedy
+	trait = arbitrary
+	trait = education_martial_1 
+	6485.4.13 = {
+		birth = yes	
+	}
+}
+
+##########
+#Jannacci#
+##########
+
+jannacci_100 = {
+	name = Dalila 
+	female = yes
+	dynasty = dynasty_jannacci
+	martial = 11
+	diplomacy = 1
+	intrigue = 7
+	stewardship = 11
+	religion = myrmidian_eastern
+	culture = lucian
+	trait = shy
+	trait = lustful
+	trait = trusting
+	trait = education_stewardship_3 
+	6493.4.13 = {
+		birth = yes	
+	}
+}
+
+######
+#Lupo#
+######
+
+lupo_001 = {
+	name = Callisto
+	dynasty_house = house_lupo
+	religion = lucan_and_luccinian
+	culture = lucian
+	6436.1.1 = {
+		birth = yes	
+	}
+	6478.1.1 = {
+		death = yes
+	}
+}
+
+lupo_002 = {
+	name = Leopoldo
+	dynasty_house = house_lupo
+	father = lupo_001
+	religion = lucan_and_luccinian
+	culture = lucian
+	6460.4.13 = {
+		birth = yes	
+	}
+	6480.2.12 = {
+		add_spouse = calandra_004
+	}
+	6509.12.3 = {
+		death = yes
+	}
+}
+
+lupo_100 = {
+	name = Callisto 
+	dynasty_house = house_lupo
+	father = lupo_002
+	mother = calandra_004
+	martial = 15
+	diplomacy = 13
+	intrigue = 8
+	stewardship = 4
+	religion = lucan_and_luccinian
+	culture = lucian
+	trait = arbitrary
+	trait = compassionate
+	trait = honest
+	trait = education_martial_4
+	6483.4.13 = {
+		birth = yes	
+	}
+}
+
+lupo_101 = {
+	name = Costante
+	dynasty_house = house_lupo
+	father = lupo_100
+	mother = luccini_2
+	culture = lucian
+	religion = lucan_and_luccinian
+	6510.4.17 = {
+		birth = yes	
+	}
+}
+
+######
+#Rosa#
+######
+
+rosa_001 = {
+	name = Settimo 
+	dynasty = dynasty_rosa
+	religion = lucan_and_luccinian
+	culture = lucian
+	6468.1.1 = {
+		birth = yes	
+	}	
+	6510.1.1 = {
+		death = yes	
+	}
+}
+
+rosa_100 = {
+	name = Umberto 
+	dynasty = dynasty_rosa
+	father = rosa_001
+	martial = 9
+	diplomacy = 5
+	intrigue = 1
+	stewardship = 20
+	religion = lucan_and_luccinian
+	culture = lucian
+	trait = humble
+	trait = zealous
+	trait = wrathful
+	trait = education_stewardship_4
+	6493.4.13 = {
+		birth = yes	
+	}
+}
+
+#
+
+luccini_2 = {
+	name = Azzurra 
+	female = yes
+	#dynasty = dynasty_reman
+	martial = 8
+	diplomacy = 6
+	intrigue = 7
+	stewardship = 4
+	religion = myrmidian_eastern
+	culture = lucian
+	trait = brave
+	trait = sadistic
+	trait = deceitful
+	trait = education_diplomacy_2 
+	6483.4.13 = {
+		birth = yes	
+		add_spouse = lupo_100
+	}
+}

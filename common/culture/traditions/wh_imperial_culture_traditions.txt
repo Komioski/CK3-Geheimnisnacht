@@ -1,0 +1,1840 @@
+﻿##########
+#Imperial#
+##########
+
+###Monoculture
+
+#Talabecland
+
+tradition_talabeclander_tradition = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = forest.dds
+	}
+
+	is_shown = {
+		OR = {
+			this = culture:talabeclander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:talabeclander
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_forest_fighters 
+			has_cultural_tradition = tradition_modest
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:talabeclander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:talabeclander
+				}
+			}
+		}
+	}
+
+	parameters = {
+		humble_temperate_trait_more_common = yes #Talabeclanders are very humble folks, who even at tourneys dont use their family colors
+		#temperate_trait_more_common = yes #Living off the land is part of Talabeclander lifestyle and garb  is often pratical
+		ambitious_trait_penalty = yes #People often give credit as a group, and not to an individual, someone who focus on themselvs is looked down on
+		hunting_traits_more_common = yes #Hunting is an essential part of Talabec life, and even urban bourgers and nobles learn how to hunt 
+	}
+	character_modifier = {
+		monthly_prestige_gain_mult = -0.40
+		ai_boldness = -25
+		monthly_learning_lifestyle_xp_gain_mult = -0.10 #Scholarly ways are often seen as second rate in Talabecland, main focus should be on pratical matters
+		forest_travel_danger = forest_medium_danger_reduction
+		taiga_travel_danger = taiga_medium_danger_reduction
+	}
+	province_modifier = { #living in the forest has helped this culture know how to exploit it.
+		forest_supply_limit_mult = 0.05
+		taiga_supply_limit_mult = 0.05
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					any_in_list = { list = traits this = flag:ethos_bellicose }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									terrain = forest
+									terrain = taiga
+								}
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = forest_percentage_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_sub_realm_county = {
+							percent >= 0.2
+							culture = scope:character.culture
+							any_county_province = {
+								OR = {
+									terrain = forest
+									terrain = taiga
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+
+#Averland
+
+tradition_moon_touched = { #For Averland primarilly
+	category = regional
+
+	layers = {
+		0 = steward
+		1 = mena
+		4 = speech.dds
+	}
+	
+	is_shown = {
+		OR = {
+			this = culture:averlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:averlander
+				}
+			}
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:averlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:averlander
+				}
+			}
+		}
+	}
+
+	parameters = {
+		lunatic_1_possessed_1_trait_more_common = yes #Moontouched is something that can occur
+		#possessed_1_trait_more_common = yes #Moontouched is something that can occur
+		lunatic_1_possessed_1_trait_bonuses = yes
+		#possessed_1_trait_bonuses = yes
+		fickle_honest_trait_more_common = yes #called flighty and unreliable by many people in the empire
+		#honest_trait_more_common = yes #Direct and honest, wont lie to you about stuff..unless their moontouched...well the world is weird according to their honest opinion
+	}
+	character_modifier = { #the more stressed and cooky you are, the more bonouses and handicaps you get
+		enemy_hostile_scheme_success_chance_add = -10
+		monthly_income_per_stress_level_mult = 0.05
+		prowess_per_stress_level = 3
+		stress_gain_mult = 0.20
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+#Drakwald
+
+tradition_drakwalder_legacy = {
+	category = regional
+
+	layers = {
+		0 = intrigue
+		1 = indian
+		4 = king.dds
+	}
+
+	is_shown = {
+		OR = {
+			this = culture:drakwalder
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:drakwalder
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_forest_folk
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:drakwalder
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:drakwalder
+				}
+			}
+		}
+	}
+
+	parameters = {
+		logging_camps_building_bonuses = yes #the entire province is part of the old drakwald forest, and the people know how to exploit these resources
+		arbitrary_trait_more_common = yes #Drakwald was notorious for its line of horrible emperors who were very arbitrary
+		arbitrary_trait_bonuses = yes #To a Drakwalder certain rule breakings and other less lawful things might be okay.
+	}
+	character_modifier = { #Having the horros of Drakwald, and the HORRIBLE emperors have left many imperials not trust the Drakwalders. 
+		controlled_province_advantage = 3 #Fighting for what few of the remaining cities left in Drakwald is imperative for this cultures survival 
+		different_culture_opinion = -15
+		forest_travel_danger = forest_medium_danger_reduction
+		drakwald_travel_danger = taiga_small_danger_reduction
+	}
+	province_modifier = { #living in the forest has helped this culture know how to exploit it.
+		drakwald_supply_limit_mult = 0.15
+		forest_construction_gold_cost = -0.10
+		taiga_construction_gold_cost = -0.10
+		forest_holding_construction_gold_cost = -0.10
+		taiga_holding_construction_gold_cost = -0.10
+		garrison_size = 0.10
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					any_in_list = { list = traits this = flag:ethos_bellicose }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									terrain = forest
+									terrain = taiga
+								}
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = forest_percentage_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_sub_realm_county = {
+							percent >= 0.2
+							culture = scope:character.culture
+							any_county_province = {
+								OR = {
+									terrain = forest
+									terrain = taiga
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+
+tradition_drakwald_hunters = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_imperial
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_drakwald_hunters = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+#Hochland
+
+tradition_hochlander_tradition = { #loyal and more open minded than any other province in the Empire, but also a bit too naive for their own good.
+	category = regional
+
+	layers = {
+		0 = steward
+		1 = mediterranean
+		4 = conversation.dds
+	}
+	
+	is_shown = {
+		OR = {
+			this = culture:hochlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:hochlander
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_xenophilic 
+			has_cultural_tradition = tradition_charitable
+			has_cultural_tradition = tradition_fp2_ritualised_friendship
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:hochlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:hochlander
+				}
+			}
+		}
+	}
+
+	parameters = { #Hochlanders are very open minded people, and often invite others into their homes. kindess and trust is a valued trait among Hochlanders
+		trusting_compassionate_trait_more_common = yes
+		#compassionate_trait_more_common = yes
+		automatic_befriend_access = yes
+		may_propose_best_friendship = yes
+	}
+	culture_modifier = {
+		cultural_acceptance_gain_mult = 0.25 #same as before, these boys do love to meet new peoples, be they imperial or others. Often attributed to their location as they meet many cultures
+	}
+	character_modifier = {
+		different_culture_opinion = 10
+		ignore_negative_opinion_of_culture = yes
+		enemy_hostile_scheme_success_chance_add = 20 #Hochlanders are a bit...too naive and trusting which can often lead...mishaps
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_communal }
+						any_in_list = { list = traits this = flag:ethos_egalitarian }
+						#any_in_list = { list = traits this = flag:ethos_bureaucratic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_communal_or_egalitarian_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_global = {
+							count >= xenophilic_nr_of_cultures_cost_value
+							NOT = { this = prev }
+							cultural_acceptance = { target = prev value >= xenophilic_acceptance_cost_value }
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = culture_acceptance_cost_desc
+				}
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = { # Avoid stacking similar traditions
+				any_in_list = { list = traits this = flag:tradition_culture_blending }
+			}
+			multiply = 0.25
+		}
+		if = {
+			limit = { # If you like to invade people, don't pick this tradition
+				any_in_list = { list = traits this = flag:tradition_malleable_invaders }
+			}
+			multiply = 0
+		}
+	
+	}
+}
+tradition_long_riflemen = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_imperial
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_long_riflemen = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+#Middenland
+
+tradition_middenlander_tradition = {
+	category = regional
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers.dds
+	}
+	
+	is_shown = {
+		OR = {
+			this = culture:middenlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:middenlander
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_warrior_culture
+			has_cultural_tradition = tradition_eye_for_an_eye
+			has_cultural_tradition = tradition_warrior_monks
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:middenlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:middenlander
+				}
+			}
+		}
+	}
+	
+	parameters = { 
+		impatient_wrathful_strong_trait_more_common = yes #Middenlanders got little patients for others and their bullshit
+		#wrathful_trait_more_common = yes #Bad temper and often start fights over stupid stuff
+		blademaster_traits_more_common = yes #Warrior culture that puts alot of weight of being able to fight
+		prowess_from_religious_traits = yes #Middenlander priests fight as much as any other, if not more so
+		#strong_traits_more_common = yes #Warrior culture in CK3 gives this little thing, which i find fitting to their sterotype
+		rivalries_more_common = yes #Never cross a middenlander, they want to smack most people down for some reason or another
+		vengeful_positive_forgiving_negative = yes
+		knights_slightly_more_prone_to_injury = yes #Middenlanders are more prone to go FIGHT!
+	}
+	character_modifier = { #Quarrelsome the middenlanders often known for badattitude and sometimes a bit too warlike
+		different_culture_opinion = -10
+		monthly_county_control_change_factor = -0.5
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_or_spiritual_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NOT = {
+							scope:character = {
+								save_temporary_scope_as = culture_head_link
+								faith = {
+									any_faith_character = {
+										count >= 15
+										culture = scope:culture_head_link.culture
+										prowess >= 10
+										OR = {
+											is_clergy = yes
+											has_education_learning_trigger = yes
+										}
+									}
+								}
+							}
+						}
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = culture_head_faith_clergy_prowess_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+	}
+}
+
+#Nordland
+
+tradition_nordland_tradition = {
+	category = regional
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = battle.dds
+	}
+
+	is_shown = {
+		OR = {
+			this = culture:nordlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:nordlander
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_storytellers 
+			has_cultural_tradition = tradition_fp1_northern_stories
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:nordlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:nordlander
+				}
+			}
+		}
+	}
+
+	parameters = {
+		poet_honest_trait_more_common = yes #The old Norse ways of boasting have turned into epic storytelling, very common in nordland
+		characters_are_better_court_poets = yes #Often talented storytales travel between courts retelling epic tales
+		#honest_trait_more_common = yes #Mnay Nordlander tales often recount how an Epic Warrior saves the day by telling the truth at the right moment
+		better_ward_education = yes #Story teller bonous from Vanilla
+		coastal_holdings_give_defensive_bonus = yes
+	}
+	character_modifier = { #If you want to kill somebody DONT INVITE A NORDLANDER THEY CANT LIE FOR SHIT also they are great trackers of the woods and use to costal invasion by their norscan cousins.
+		forest_advantage = 3
+		owned_scheme_secrecy_add  = -25
+
+	}
+	province_modifier = { #Masters of forests
+		forest_construction_gold_cost = -0.05
+		taiga_construction_gold_cost = -0.05
+
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					any_in_list = { list = traits this = flag:ethos_bellicose }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									terrain = forest
+									terrain = taiga
+								}
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = forest_percentage_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_sub_realm_county = {
+							percent >= 0.2
+							culture = scope:character.culture
+							any_county_province = {
+								OR = {
+									terrain = forest
+									terrain = taiga
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+#tradition_nordland_berserkers = { 
+#	category = combat
+#
+#	layers = {
+#		0 = diplo
+#		1 = mena
+#		4 = soldiers3.dds
+#
+#	is_shown = {
+#		has_cultural_pillar = heritage_imperial
+#	}
+#	can_pick = {
+#		culture_not_pacifistic_trigger = yes
+#	}
+#	parameters = {
+#		unlock_maa_nordland_berserkers = yes 
+#	}
+#	character_modifier = {
+#		prowess_per_prestige_level = 1
+#	}
+#	cost = {
+#		prestige = {
+#			add = {
+#				value = tradition_base_cost
+#				desc = BASE
+#				format = "BASE_VALUE_FORMAT"
+#			}
+#			if = {
+#					NOR = {
+#						any_in_list = { list = traits this = flag:ethos_bellicose }
+#						any_in_list = { list = traits this = flag:ethos_spiritual }
+#						any_in_list = { list = traits this = flag:ethos_stoic }
+#					}
+#				}
+#				add = {
+#					value = tradition_incompatible_ethos_penalty
+#					desc = not_bellicose_spiritual_or_stoic_desc
+#				}
+#			}
+#			
+#			multiply = tradition_replacement_cost_if_relevant
+#		}
+#	}
+#	ai_will_do = {
+#		value = 100
+#	}
+#}
+#Ostermark
+
+tradition_ostermark_tradition = { 
+	category = regional
+	
+	layers = {
+		0 = learning
+		1 = indian
+		4 = ceremony.dds
+	}
+	
+	is_shown = {
+		OR = {
+			this = culture:ostermarker
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:ostermarker
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_culture_blending
+			has_cultural_tradition = tradition_forbearing
+			has_cultural_tradition = tradition_festivities
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:ostermarker
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:ostermarker
+				}
+			}
+		}
+	}
+
+	parameters = { #As open to other cultures as the Hochlanders, but they have a longer history of integrating different costumes as well
+		cheaper_to_hybridize = yes
+		learns_more_languages = yes
+		patient_wrathful_trait_more_common = yes #understanding and patient often waiting for others to say stuff
+		#wrathful_trait_more_common = yes #Also temperamental 
+		reveler_traits_more_common = yes
+	}
+	culture_modifier = { #Openess is alwayse awesome for Oster
+		cultural_acceptance_gain_mult = 0.20
+	}
+	character_modifier = {
+		max_learn_language_schemes_add = 1
+		learn_language_scheme_power_mult = 0.10
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_communal }
+						any_in_list = { list = traits this = flag:ethos_egalitarian }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_communal_or_egalitarian_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:character = {
+							any_sub_realm_county = {
+								percent >= 0.3
+								NOT = { culture = root }
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = multiple_cultures_in_realm_percentage_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				is_divergent_culture = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+
+tradition_ostergunners = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_imperial
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_ostergunners = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+#Ostland
+
+tradition_ostland_tradition = {
+	category = regional
+
+	layers = {
+		0 = learning
+		1 = indian
+		4 = council.dds
+	}
+
+	is_shown = {
+		OR = {
+			this = culture:ostlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:ostlander
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_staunch_traditionalists 
+			has_cultural_tradition = tradition_spartan 
+			has_cultural_tradition = tradition_forbearing
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:ostlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:ostlander
+				}
+			}
+		}
+	}
+
+	parameters = { #A Common joke about the Ostlanders is that they are as stubborn as dwares
+		stubborn_arrogant_trait_more_common = yes
+		#arrogant_trait_more_common = yes #and really proud of their ways, constantly boasting bout how more awesome they are
+		calm_trait_bonuses = yes #stoic and calm in the face of danger, especially chaotic forces
+	}
+	
+	character_modifier = { #based off Spartan, since Ostlanders leave nothing to waste, but dont want to over do stuf feither.
+		monthly_prestige_gain_mult = -0.20
+		castle_holding_build_speed = -0.1
+		castle_holding_build_gold_cost = -0.1
+		castle_holding_holding_build_gold_cost = -0.1
+		castle_holding_holding_build_speed = -0.1
+		cultural_head_fascination_mult = -0.05 #A Ostlander elector count once lost a battle for not adopting firearms since that would waste perfectly good bows he had.
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_stoic }
+						any_in_list = { list = traits this = flag:ethos_communal }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_stoic_or_communal_desc
+				}
+			}
+			if = {
+				limit = {
+					scope:character.prestige_level >= 3
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = prestige_level_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 50
+		if = {
+			limit = {
+				is_divergent_culture = no
+			}
+			multiply = 0
+		}
+	}
+}
+
+#Reikland
+
+tradition_reiklander_tradition = {
+	category = regional
+
+	layers = {
+		0 = learning
+		1 = indian
+		4 = crown.dds
+	}
+
+	is_shown = {
+		OR = {
+			this = culture:reiklander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:reiklander
+				}
+			}
+		}
+		NOT = { has_cultural_tradition = tradition_festivities }
+	}
+	can_pick = {
+		OR = {
+			this = culture:reiklander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:reiklander
+				}
+			}
+		}
+	}
+
+	parameters = {
+		gregarious_fickle_arrogant_trait_more_common = yes #Open minded and talkative, very socialble and sociable
+		#fickle_trait_more_common = yes #bit meddelsome, and can ofetn switch opinion very fast een in war
+		#arrogant_trait_more_common = yes #SIGMAR CAME FROM REIKLAND OH MAH GAAAWD WE ARE THE BEST IMPERIALS HORY SHIEEEEEEET
+
+		more_frequent_feasts = yes #reiklanders party at the drop of a hat
+		reveler_traits_more_common = yes
+		reveler_traits_more_valued = yes
+
+		ai_romance_scheme_increase = yes #Reiklanders are infamous for wanting to..."woo" alot of the empire
+		ai_seduce_scheme_increase = yes
+		romance_scheme_penalty = yes
+		seduce_scheme_penalty = yes
+	}
+
+	character_modifier = {
+		tyranny_gain_mult = 0.15
+	}
+
+	culture_modifier = { #very urbane and accepting of other imperial cultures....sometimes too much
+		cultural_acceptance_gain_mult = 0.05
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_courtly }
+						any_in_list = { list = traits this = flag:ethos_communal }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_courtly_communal_or_stoic_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NOT = {
+							any_ruler = {
+								count >= 5
+								culture = prev
+								primary_title.tier >= tier_county
+								has_trait = lifestyle_reveler
+							}
+						}
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = rulers_with_reveler_lifestyle_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						has_trait = lifestyle_reveler
+					}
+				}
+			}
+			multiply = 0.5
+		}
+	}
+}
+
+tradition_rikesguard_knights = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_imperial
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_rikesguard_knights = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+#Solland
+
+#need to figure out something for Solland and Stirland
+
+#Stirland 
+tradition_stirland_tradition = {
+	category = regional
+
+	layers = {
+		0 = steward
+		1 = western
+		4 = king.dds
+	}
+	
+	is_shown = {
+		OR = {
+			this = culture:stirlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:stirlander
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_staunch_traditionalists 
+			has_cultural_tradition = tradition_tribe_unity
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:stirlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:stirlander
+				}
+			}
+		}
+	}
+	
+	parameters = { 
+		paranoid_stubborn_trait_more_common = yes #What?! Foreigners!? IN MY STIRLAND?! ARGH!
+		#stubborn_trait_more_common = yes #Stirlanders are infamous for their belief in "the good old ways"
+		expensive_convert_to_local_culture = yes
+		harder_to_hybridize = yes
+		cultural_house_personal_scheme_success_chance = yes
+		landing_house_members_give_prestige = yes
+		penalty_for_revoking_titles_from_house_members = yes
+	}
+	character_modifier = {
+		different_culture_opinion = -10 #"Stirland does not take kindly to strangers, Elves, or modern ways"
+		controlled_province_advantage = 5
+		monthly_county_control_change_add = 0.5
+		cultural_head_fascination_mult = -0.15
+		opinion_of_liege = -5
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_communal }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_communal_spiritual_or_stoic_desc
+				}
+			}
+			if = {
+				limit = {
+					scope:character = {
+						any_sub_realm_county = {
+							NOT = {
+								culture = scope:character.culture
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = has_other_cultures_in_realm_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					is_divergent_culture = yes
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				any_in_list = { list = traits this = flag:ethos_egalitarian }
+			}
+			multiply = 0
+		}
+	}
+}
+
+#Westerlander
+
+tradition_westerlander_tradition = { 
+	category = regional
+
+	layers = {
+		0 = steward
+		1 = mena
+		4 = ship.dds
+	}
+	is_shown = {
+		OR = {
+			this = culture:westerlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:westerlander
+				}
+			}
+		}
+		NOT = { 
+			has_cultural_tradition = tradition_maritime_mercantilism
+			has_cultural_tradition = tradition_parochialism
+			has_cultural_tradition = tradition_swords_for_hire
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:westerlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:westerlander
+				}
+			}
+		}
+	}
+
+	parameters = {
+		greedy_trait_more_common = yes #Maybe a sterotype BUUUUUUUUUUT...A Westerlander alwayse knows how to make money in the worst situations
+		next_level_trade_ports = yes #the Entire Westerlands build upon sea trade and so they have the largest ports
+		maritime_mercantilism_coastal_holdings = yes 
+		city_buildings_more_powerful = yes
+		city_buildings_less_control = yes #Ah the local guilds HAAAAATE having to deal with meddling nobles...maybe we declare independce...sooooon
+	}	
+	culture_modifier = {
+		mercenary_count_mult = 0.25 #Later on one of the main ways the Westerlands defended themselves was through mercenaries 
+	}
+	character_modifier = {
+		same_culture_mercenary_hire_cost_mult = -0.05
+		republic_government_vassal_opinion = -15
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_merchant_retinues = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_imperial
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_merchant_retinues = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+#Wissenland
+
+tradition_wissenlander_tradition = { 
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = noble.dds
+	}
+	
+	is_shown = {
+		OR = {
+			this = culture:wissenlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:wissenlander
+				}
+			}
+		}
+		NOT = { has_cultural_tradition = tradition_winter_warriors }
+	}
+	can_pick = {
+		OR = {
+			this = culture:wissenlander
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:wissenlander
+				}
+			}
+		}
+	}
+	
+	parameters = {
+		depressed_1_trait_more_common = yes #yea set bois
+		depressed_1_trait_bonuses = yes #dour lot often bordering on depression
+		diligent_temperate_trait_more_common = yes #Hardworking though and will alwayse ppush through
+		winter_trait_bonuses = yes #Wissenland is INFAMOUS for its harsh winters, but its people have learned how to deal with it
+		can_recruit_winter_specialist = yes
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_nuln_repeater_guns = { 
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_imperial
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_nuln_repeater_guns = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
+
+###Sylvania
+
+tradition_sylvanian_tradition = {
+	category = realm
+
+	layers = {
+		0 = intrigue
+		1 = western
+		4 = svamp.dds
+	}
+
+	is_shown = {
+		OR = {
+			this = culture:sylvanian
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:sylvanian
+				}
+			}
+		}
+		NOT = { has_cultural_tradition = tradition_wetlanders }
+	}
+	can_pick = {
+		OR = {
+			this = culture:sylvanian
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:sylvanian
+				}
+			}
+		}
+	}
+	
+	parameters = {
+		peat_quarries_building_bonuses = yes
+		beauty_bad_2_clubfooted_hunchbacked_albino_trait_more_common = yes
+		albino_deviant_trait_gives_bonuses = yes
+	}
+	character_modifier = {
+		long_reign_bonus_mult = 0.15
+		retreat_losses = -0.05	
+		cursed_swamp_advantage = 2
+	}
+	county_modifier = {
+		cursed_swamp_development_growth_factor = 0.10
+	}
+	province_modifier = {
+		cursed_swamp_supply_limit_mult = 0.10
+		cursed_swamp_construction_gold_cost = -0.05
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					any_in_list = { list = traits this = flag:ethos_bellicose }
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							count >= 3
+							any_county_province = {
+								terrain = wetlands
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = culture_in_wetlands_count_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_sub_realm_county = {
+							count >= 3
+							culture = scope:character.culture
+							any_county_province = {
+								terrain = wetlands
+							}
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+tradition_vampiric_ambition = { #Only place holder tradition, removes once better feature is made
+	category = ritual
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = swords.dds
+	}
+	
+	can_pick = {
+		OR = {
+			this = culture:sylvanian
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:sylvanian
+				}
+			}
+		}
+	}
+	
+	parameters = {
+		no_limit_to_kingdom_level_holy_wars = yes
+		cb_lower_piety_level_requirement = yes
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_spiritual_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NOT = {
+							any_ruler = {
+								count >= 5
+								culture = prev
+								primary_title.tier >= tier_county
+								faith = scope:character.faith
+								has_trait = zealous
+							}
+						}
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = rulers_with_same_faith_zealous_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				scope:character = {
+					has_trait = zealous
+				}
+			}
+			add = 100
+		}
+	}
+}
+
+
+###Culture group
+
+tradition_state_troops = {
+	category = combat
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_imperial
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	parameters = {
+		unlock_maa_imperial_swordsmen = yes 
+		unlock_maa_imperial_spearmen = yes 
+		unlock_maa_imperial_crossbowmen = yes 
+		unlock_maa_imperial_archers = yes 
+		unlock_maa_imperial_huntsmen = yes
+		unlock_maa_imperial_knights = yes 
+		unlock_maa_demigryph_knights = yes
+		unlock_maa_imperial_halberdiers = yes 
+		unlock_maa_imperial_greatswords = yes 
+	}
+	character_modifier = {
+		prowess_per_prestige_level = 1
+		levy_size = -0.5
+		men_at_arms_recruitment_cost = -0.25
+		men_at_arms_maintenance = -0.25
+		levy_reinforcement_rate = -0.5
+		heavy_infantry_max_size_add = 2
+		pikemen_max_size_add = 2
+		archers_max_size_add = 2
+		skirmishers_max_size_add = 2
+		heavy_cavalry_max_size_add = 2
+		light_cavalry_max_size_add = 2
+	}
+	province_modifier = {
+		garrison_size = 0.25
+	}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_spiritual_or_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	ai_will_do = {
+		value = 100
+	}
+}
