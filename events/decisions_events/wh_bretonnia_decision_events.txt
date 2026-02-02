@@ -1,0 +1,48 @@
+﻿namespace = wh_bretonnia_decision_events
+
+
+wh_bretonnia_decision_events.0010 = { # Luiss objective sucess
+    type = character_event
+	theme = dynasty
+    title = wh_bretonnia_decision_events.0010.t
+    desc = wh_bretonnia_decision_events.0010.d
+    
+    option = {
+        name = wh_bretonnia_decision_events.0010.a1
+        add_prestige = 200
+    }
+}
+
+wh_bretonnia_decision_events.0020 = { # Lambert objective success
+    type = character_event
+	theme = dynasty
+    title = wh_bretonnia_decision_events.0020.t
+    desc = wh_bretonnia_decision_events.0020.d
+
+    option = {
+        name = wh_bretonnia_decision_events.0020.a1
+        add_prestige = 500
+
+
+    }
+}
+
+
+wh_bretonnia_decision_events.0100 = {
+	type = character_event
+	theme = dynasty
+	title = repanse_dynasty_decision_title
+	desc = repanse_dynasty_decision_desc
+	theme = dynasty
+
+	immediate = {
+		character:lyonesse_104 = {
+			remove_trait = elevated_peasant
+		}
+	}
+
+	option = {
+		name = repanse_dynasty_decision_option
+		custom_tooltip = repanse_dynasty_decision_tooltip
+	}
+}

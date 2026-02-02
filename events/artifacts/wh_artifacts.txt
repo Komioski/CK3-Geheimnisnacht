@@ -1,0 +1,163 @@
+﻿namespace = wh_artifacts
+
+
+wh_artifacts.0001 = { 
+	scope = none
+	hidden = yes
+	immediate = {
+		if = { #Sword of Lyoness
+			limit = {
+				exists = character:lyonesse_104
+				character:lyonesse_104 = { is_alive = yes }
+				}
+			create_artifact_sword_of_lyonesse_effect = { OWNER = character:lyonesse_104 }	#Repanse
+		}
+		if = { #Fleur de Lys Banner
+			limit = {
+				exists = character:lyonesse_104
+				character:lyonesse_104 = { is_alive = yes }
+				}
+			create_artifact_banner_fleur_de_lys_effect = { OWNER = character:lyonesse_104 }	#Repanse
+		}
+		# if = { #blood drinker
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:80000
+		# 		character:80000 = { is_alive = yes }
+		# 		}
+		# create_artifact_sword_blood_drinker_effect = { OWNER = character:80000 }	#Vlad
+		# }
+		# if = { #Carstein Ring
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:80000
+		# 		character:80000 = { is_alive = yes }
+		# 		}
+		# create_artifact_trinket_carstein_ring_effect = { OWNER = character:80000 }	#Vlad
+		# }
+		# if = { #sword of waldenhof
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:80005
+		# 		character:80005 = { is_alive = yes }
+		# 		}
+		# create_artifact_sword_waldenhof_effect = { OWNER = character:80005 }	#Konrad
+		# }
+		# if = { #Timor Noctis
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:80008
+		# 		character:80008 = { is_alive = yes }
+		# 		}
+		# create_artifact_sword_timor_noctis_effect = { OWNER = character:80008 }	#Mannfred
+		# }
+		# if = { #Armour of Templehof
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:80008
+		# 		character:80008 = { is_alive = yes }
+		# 		}
+		# 		create_artifact_armour_templehof_effect = { OWNER = character:80008 }	#Mannfred
+		# }
+		# if = { #Nyklaus Charm
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:80008
+		# 		character:80008 = { is_alive = yes }
+		# 		}
+		# 		create_artifact_trinket_nyklaus_charm_effect = { OWNER = character:80008 }	#Mannfred
+		# }
+		# if = { #Chalice of Bathori
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:80026
+		# 		character:80026 = { is_alive = yes }
+		# 		}
+		# create_artifact_trinket_chalice_bathori_effect = { OWNER = character:80026 }	#Isabella
+		# }
+		# if = { #dragon tooth
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:88000
+		# 		character:80000 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:88000
+		# 											  DESC = artifact_runefang_dragon_tooth_desc
+		# 											  NAME = artifact_runefang_dragon_tooth_name }	#Siegfried
+		# }
+		# if = { #stone breaker
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:84000
+		# 		character:80000 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:84000
+		# 											  DESC = artifact_runefang_stone_breaker_desc
+		# 											  NAME = artifact_runefang_stone_breaker_name }	#Ottila
+		# }
+		# if = { #legbiter
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:81000
+		# 		character:81000 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:81000
+		# 											  DESC = artifact_runefang_legbiter_desc
+		# 											  NAME = artifact_runefang_legbiter_name }	#Mannfred
+		# }
+		# if = { #goblin bane
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:82022
+		# 		character:82022 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:82022
+		# 											  DESC = artifact_runefang_goblin_bane_desc
+		# 											  NAME = artifact_runefang_goblin_bane_name }	#Baldemar
+		# }
+		# if = { #blood bringer
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:89000
+		# 		character:89000 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:89000
+		# 											  DESC = artifact_runefang_blood_bringer_desc
+		# 											  NAME = artifact_runefang_blood_bringer_name }	#Konrad Blutheim
+		# }
+		# if = { #crow feeder
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:51000
+		# 		character:51000 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:51000
+		# 											  DESC = artifact_runefang_crow_feeder_desc
+		# 											  NAME = artifact_runefang_crow_feeder_name }	#Magritta
+		# }
+		# if = { #troll cleaver
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:85000
+		# 		character:85000 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:85000
+		# 											  DESC = artifact_runefang_troll_cleaver_desc
+		# 											  NAME = artifact_runefang_troll_cleaver_name }	#Erich
+		# }
+		# if = { #Mother's Ruin
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:83068
+		# 		character:83068 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:83068
+		# 											  DESC = artifact_runefang_mothers_ruin_desc
+		# 											  NAME = artifact_runefang_mothers_ruin_name }	#Seiger
+		# }
+		# if = { #Orc Hewer
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:79000
+		# 		character:79000 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:79000
+		# 											  DESC = artifact_runefang_orc_hewer_desc
+		# 											  NAME = artifact_runefang_orc_hewer_name }	#Sepp
+		# }
+		# if = { #Brain Wounder
+		# 	limit = { has_dlc_feature = royal_court
+		# 		exists = character:86000
+		# 		character:86000 = { is_alive = yes }
+		# 		}
+		# 	create_artifact_sword_runefang_effect = { OWNER = character:86000
+		# 											  DESC = artifact_runefang_brain_wounder_desc
+		# 											  NAME = artifact_runefang_brain_wounder_name }	#Timotheus
+		# }
+	}
+}
+

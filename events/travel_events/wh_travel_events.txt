@@ -1,0 +1,629 @@
+﻿namespace = wh_travel_events
+
+###	wh_travel_events.0001	Archery Contest - Sakkar
+###	wh_travel_events.0002	Beastmen ambush (danger event) - Sakkar
+###	wh_travel_events.1000	Bretonnian version of vanilla knight errant event  
+
+
+#	Archery Contest	#
+wh_travel_events.0001 = {	# needs to be called in "\common\on_action\travel_on_actions.txt" in "travel_events_on_action"
+	content_source = dlc_Geheimnisnacht
+
+	type = character_event
+	title = wh_travel_events.0001.t	# localization file: \localization\english\event_localization\wh_travel_events_l_english.yml
+	desc = wh_travel_events.0001.desc
+
+	theme = feast_activity
+	override_background = tavern
+
+	# trigger
+	trigger = {
+		is_available_travelling_adult = yes
+		is_location_valid_for_travel_event_on_land = yes
+    }
+
+	# position of character portrait
+	left_portrait = {
+		character = root
+		triggered_animation = {	# different animation pose for craven character
+			trigger = { 
+				has_trait = craven
+			}
+			animation = personality_coward
+		}
+		animation = personality_bold	# animation pose for remaining character traits
+	}
+
+	# cooldown
+	cooldown = { months = 1 }
+
+	# option 1 - participate in the contest
+	option = {
+		name = wh_travel_events.0001.a
+
+		# Duel/skill challange
+		skill = prowess
+		duel = {
+			skill = prowess
+			value = 10
+			20 = {
+				desc = wh_travel_events.0001.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+
+				add_prestige = 50
+				add_gold = 20
+				if = {
+					limit = { has_trait = tourney_participant }
+					add_trait_xp = {trait = tourney_participant track=bow value=20}
+				}
+				if = {
+					limit = { NOT = {has_trait = tourney_participant }}
+					add_trait = tourney_participant
+				}
+			}
+
+			20 = {
+				desc = wh_travel_events.0001.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+
+				remove_short_term_gold = 5
+				if = {
+					limit = { has_trait = tourney_participant }
+					add_trait_xp = {trait = tourney_participant track=bow value=5}
+				}
+				if = {
+					limit = { NOT = {has_trait = tourney_participant }}
+					add_trait = tourney_participant
+				}
+			}
+		}
+		stress_impact = { 
+			bold = minor_stress_impact_loss
+			craven = medium_stress_impact_gain
+		}
+	}
+
+	# option 2 - I will hire the best of them to escort me !
+	option = {
+		name = wh_travel_events.0001.b
+
+		remove_short_term_gold = 20
+
+		add_character_modifier = {
+			modifier = wh_travel_archery_contest_escort_modifier	# modifier defined in \common\modifiers\wh_modifiers.txt
+			year = 1
+		}	
+
+		stress_impact = { 
+			bold = minor_stress_impact_gain
+			greedy = medium_stress_impact_gain
+			craven = medium_stress_impact_loss
+		}
+	}
+
+	# option 3 - I will gladly assist to this contest
+	option = {
+		name = wh_travel_events.0001.c
+
+		stress_impact = { 
+			base = minor_stress_impact_loss
+			arrogant = minor_stress_impact_gain
+		}
+	}
+}
+
+#	Beastmen ambush	- Danger event #
+wh_travel_events.0002 = {	# needs to be called in "\common\on_action\travel_on_actions.txt" in "travel_events_on_action"
+	content_source = dlc_Geheimnisnacht
+
+	type = character_event
+	title = wh_travel_events.0002.t	# localization file: \localization\english\event_localization\wh_travel_events_l_english.yml
+	desc = wh_travel_events.0002.desc
+
+	theme = travel_danger
+
+	# trigger
+	trigger = {
+		is_available_travelling_adult = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = {
+			OR = {
+				travel_danger_type = {
+					travel_plan = root.current_travel_plan
+					terrain = mountains
+				}
+				travel_danger_type = {
+					travel_plan = root.current_travel_plan
+					terrain = hills
+				}
+				travel_danger_type = {
+					travel_plan = root.current_travel_plan
+					terrain = forest
+				}
+				travel_danger_type = {
+					travel_plan = root.current_travel_plan
+					terrain = taiga
+				}
+				travel_danger_type = {
+					travel_plan = root.current_travel_plan
+					terrain = jungle
+				}
+			}
+		}
+    }
+
+	# position of character portrait
+	left_portrait = {
+		character = root
+		triggered_animation = {	# different animation pose for craven character
+			trigger = { 
+				has_trait = brave
+			}
+			animation = celebrate_sword
+		}
+		animation = worry	# animation pose for remaining character traits
+	}
+
+	# cooldown
+	cooldown = { months = 1 }
+
+	# option 1 - fight the beastmen
+	option = {
+		name = wh_travel_events.0002.a
+
+		# Duel/skill challange
+		skill = prowess
+		duel = {
+			skill = prowess
+			value = 10
+			20 = {
+				desc = wh_travel_events.0002.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+
+				add_prestige = 100
+
+				mp_delay_travel_plan = { DAYS = 5 }
+			}
+
+			20 = {
+				desc = wh_travel_events.0002.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				random_list = {
+					80 = {
+						desc = wh_travel_events.0002.a.failure.succes
+						add_prestige = 20
+
+						increase_wounds_effect = { REASON = fight }
+
+						mp_delay_travel_plan = { DAYS = 20 }
+					}
+					20 = {
+						desc = wh_travel_events.0002.a.failure.failure
+						death = { death_reason = death_ripped_apart_limb_by_limb }
+					}
+				}
+			}
+		}
+		stress_impact = { 
+			brave = minor_stress_impact_loss
+			craven = medium_stress_impact_gain
+		}
+	}
+
+	# option 2 - recruit the beastmen - chaos worshiper option
+	option = {
+		name = wh_travel_events.0002.b
+
+		trigger = {
+			root.faith = {
+				OR = {
+					has_doctrine = tenet_undivided
+					has_doctrine = tenet_tzeentch
+					has_doctrine = tenet_khorne
+					has_doctrine = tenet_slaanesh
+					has_doctrine = tenet_nurgle
+				}
+				
+			}
+		}
+
+		# Duel/skill challange
+		skill = diplomacy
+		duel = {
+			skill = diplomacy
+			value = 10
+			20 = {
+				desc = wh_travel_events.0002.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+
+				add_piety = 100
+
+				custom_tooltip = wh_travel_events.0002.b.success_message
+				hidden_effect = {
+					spawn_army = {
+						name = wh_travel_events_beastmen_name
+						men_at_arms = { type = ungor_spearmen_unit men = 200 }
+						location = capital_province
+					}
+				}	
+
+				mp_delay_travel_plan = { DAYS = 5 }
+			}
+
+			20 = {
+				desc = wh_travel_events.0002.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				random_list = {
+					80 = {
+						desc = wh_travel_events.0002.b.failure.succes
+						add_prestige = 20
+
+						increase_wounds_effect = { REASON = fight }
+
+						mp_delay_travel_plan = { DAYS = 20 }
+					}
+					20 = {
+						desc = wh_travel_events.0002.b.failure.failure
+						death = { death_reason = death_ripped_apart_limb_by_limb }
+					}
+				}
+			}
+		}
+		stress_impact = { 
+			brave = minor_stress_impact_loss
+			craven = medium_stress_impact_gain
+		}
+	}
+
+	# option 3 - Escape and find another way around
+	option = {
+		name = wh_travel_events.0002.c
+
+		mp_delay_travel_plan = { DAYS = 90 }
+
+		random_list = {
+			50 = {
+				desc = wh_travel_events.0002.c.succes
+			}
+			50 = {
+				desc = wh_travel_events.0002.c.failure
+
+				increase_wounds_effect = { REASON = fight }
+			}
+		}
+		stress_impact = { 
+			brave = minor_stress_impact_gain
+		}
+	}
+
+	# what will be done after the event
+	after = {
+		mp_resume_travel_plan = yes
+	}
+}
+
+
+
+wh_travel_events.1000 = { #Bretonnian version of vanilla knight errant event
+	type = character_event
+	title = travel_events.3080.t
+	desc = {
+		desc = travel_events.3080.desc_intro
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					current_travel_plan = {
+						any_entourage_character = {
+							culture = scope:knight_errant.culture
+						}
+					}
+				}
+				desc = travel_events.3080.desc_anagnorisis
+			}
+		}
+	}
+	theme = travel
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	right_portrait = {
+		character = scope:knight_errant
+		animation = personality_honorable
+	}
+	cooldown = { years = 1 }
+	
+	trigger = {
+		is_available_travelling_adult = yes
+		is_landed = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location.faith = { wh_bret_knight = yes }
+    }
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			factor = 5
+			has_variable = good_prophecy_var
+		}
+		modifier = {
+			factor = 5
+			has_trait = gallant
+		}
+		upweight_for_focus_modifier = { FOCUS = martial_chivalry_focus }
+	}
+	
+	immediate = {
+		create_character = {
+			template = bret_errant_character
+			location = root.location
+			culture = location.culture
+			faith = location.faith
+			save_scope_as = knight_errant
+		}
+		scope:knight_errant = { add_character_flag = forced_knight_armor } #so they look like a knight if you click on them to check the traits, etc
+		if = {
+			limit = {
+				current_travel_plan = {
+					any_entourage_character = {
+						culture = scope:knight_errant.culture
+					}
+				}
+			}
+			current_travel_plan = {
+				random_entourage_character = {
+					limit = { culture = scope:knight_errant.culture }
+					save_scope_as = same_culture_companion
+				}
+			}
+		}
+		scope:knight_errant = {
+			add_character_flag = wear_armor
+		}
+	}
+	
+    #Help them
+	option = { 
+		name = travel_events.3080.a
+		custom_tooltip = travel_events.3080.a.tt
+		current_travel_plan = {
+			delay_travel_plan = { days = 3 }
+		}
+		trigger_event = travel_events.3081
+		stress_impact = {
+			craven = minor_stress_impact_gain
+			lazy = minor_stress_impact_gain
+			callous = medium_stress_impact_gain
+		}
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_trait = craven
+			}
+			modifier = {
+				factor = 0
+				has_trait = lazy
+			}
+			modifier = {
+				factor = 0.5
+				has_trait = deceitful
+			}
+			modifier = {
+				factor = 0
+				has_trait = callous
+			}
+			ai_value_modifier = {
+				ai_compassion = 0.25
+				ai_boldness = 0.25
+				ai_sociability = 0.25
+				ai_honor = 1
+			}
+		}
+    }
+	
+	#Convince them to join you regardless
+	option = {
+		name = travel_events.3080.b
+		trigger = {
+			current_travel_plan = {
+				NOT = {
+					any_entourage_character = {
+						culture = scope:knight_errant.culture
+					}
+				}
+			}
+		}
+		duel = {
+			skill = diplomacy
+			target = scope:knight_errant
+			50 = { #they join you
+				desc = travel_events.3080.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				send_interface_toast = {
+					title = travel_events.3080.b.success
+					left_icon = scope:knight_errant
+					add_courtier = scope:knight_errant
+					current_travel_plan = {	add_companion = scope:knight_errant }
+					if = {
+						limit = { 
+							number_of_knights < max_number_of_knights
+							scope:knight_errant = {
+								can_be_knight_trigger = { ARMY_OWNER = root }
+							}
+						}
+						scope:knight_errant = { set_knight_status = force }
+					}
+					scope:knight_errant = { remove_character_flag = forced_knight_armor } #they get their own knight armor/courtier thing organically
+				}
+			}
+			50 = { #they go back to their quest
+				desc = travel_events.3080.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				send_interface_toast = {
+					title = travel_events.3080.b.failure
+					left_icon = scope:knight_errant
+				}
+				hidden_effect = {
+					scope:knight_errant = { silent_disappearance_effect = yes }
+				}
+			}
+		}
+		stress_impact = {
+			paranoid = minor_stress_impact_gain #you're inviting a random
+			callous = medium_stress_impact_gain
+		}
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = -50
+				has_trait = paranoid
+			}
+			modifier = {
+				add = -75
+				has_trait = callous
+			}
+		}
+	}
+	
+	#Steal from them
+	option = {
+		name = travel_events.3080.c
+		trigger = {
+			OR = {
+				has_trait = callous
+				has_trait = sadistic
+				has_trait = greedy
+				has_trait = avaricious
+				has_trait = arbitrary
+				has_trait = deceitful
+				has_trait = ambitious
+				has_trait = fickle
+			}
+		}
+		scope:knight_errant = {
+			pay_short_term_gold = {
+				target = root
+				gold = medium_gold_value
+			}
+			hidden_effect = {
+				silent_disappearance_effect = yes
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			just = medium_stress_impact_gain
+			brave = medium_stress_impact_gain
+			gallant = major_stress_impact_gain
+			generous = major_stress_impact_gain
+		}
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = 50
+				has_trait = greedy
+			}
+			modifier = {
+				add = 50
+				has_trait = avaricious
+			}
+			modifier = {
+				add = -75
+				has_trait = compassionate
+			}
+			modifier = {
+				add = -75
+				has_trait = just
+			}
+			modifier = {
+				add = -75
+				has_trait = brave
+			}
+			modifier = {
+				factor = 0
+				has_trait = gallant
+			}
+			modifier = {
+				factor = 0
+				has_trait = generous
+			}
+		}
+	}
+	
+	#A member of your entourage recognises them and convinces them to join
+	option = {
+		name = travel_events.3080.d
+		trigger = {
+			current_travel_plan = {
+				any_entourage_character = {
+					culture = scope:knight_errant.culture
+				}
+			}
+		}
+		add_courtier = scope:knight_errant
+		current_travel_plan = {	add_companion = scope:knight_errant }
+		if = {
+			limit = {
+				scope:knight_errant = {
+					can_be_knight_trigger = { ARMY_OWNER = root }
+				}
+				number_of_knights < max_number_of_knights
+			}
+			scope:knight_errant = { set_knight_status = force }
+		}
+		scope:knight_errant = { remove_character_flag = forced_knight_armor } #they get their own armor/courtier when they join
+		stress_impact = {
+			paranoid = medium_stress_impact_gain #they're confabulating
+			callous = medium_stress_impact_gain
+		}
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = -50
+				has_trait = paranoid
+			}
+			modifier = {
+				add = -75
+				has_trait = callous
+			}
+		}
+	}
+	after = {
+		scope:knight_errant = {
+			if = {
+				limit = { is_alive = yes }
+				remove_character_flag = wear_armor
+			}
+		}
+	}
+}

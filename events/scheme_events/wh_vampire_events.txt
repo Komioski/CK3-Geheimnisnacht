@@ -1,0 +1,197 @@
+﻿namespace = wh_blood_kiss
+
+wh_blood_kiss.001 = {
+	type = character_event
+	title = wh_blood_kiss.001.t
+	desc =  wh_blood_kiss.001.desc		
+	theme = generic_intrigue_scheme
+	left_portrait = {
+		character = root
+		animation = angry
+	}
+	
+	right_portrait = {
+		character = scope:target
+		animation = shock
+	}
+	
+	immediate = {
+		scope:target = {
+			save_scope_as = vampnew	
+	 
+		}
+		
+		root = {
+			save_scope_as = vampold
+		}
+		
+	}
+	
+	option = {
+		name = wh_blood_kiss.001.option.a
+		#custom_tooltip = wh_blood_kiss.a.tt
+		
+		hidden_effect = {
+			scope:vampnew	= {
+				trigger_event = {
+					id = wh_blood_kiss.020
+					days = 1
+				}
+			}
+			wh_create_vampire_effect = yes
+		}
+		
+	}
+
+
+
+	option = {
+		name = wh_blood_kiss.001.option.b
+		#custom_tooltip = wh_blood_kiss.a.tt
+		
+		hidden_effect = {
+
+			wh_create_vampire_effect = yes
+		}
+		
+	}
+
+	
+
+	after = {
+		scope:scheme = {
+			end_scheme = yes
+		}	
+	}
+}
+
+
+wh_blood_kiss.020 = {
+	type = character_event
+	title = wh_blood_kiss.001.t
+	desc =  wh_blood_kiss.001.desc		
+	theme = generic_intrigue_scheme
+	left_portrait = {
+		character = scope:vampold
+		animation = angry
+	}
+	right_portrait = {
+		character = root
+		animation = shock
+	}
+	option = {
+		name = wh_blood_kiss.001.option.a
+		#custom_tooltip = wh_blood_kiss.a.tt
+		wh_set_parent_effect = { PARENT = scope:vampold}
+
+	}
+}
+
+wh_blood_kiss.030 = {
+	type = character_event
+
+	hidden = yes
+
+	immediate = {
+		#SUCCESS ROLL
+		random = {
+			chance = scope:scheme.scheme_success_chance
+		
+			save_scope_value_as = {
+				name = scheme_successful
+				value = yes
+			}
+		}
+		scope:target = {
+			save_scope_as = vampold
+	
+		}
+	   
+		root = {
+			save_scope_as = vampnew
+		}
+
+
+		#FOR AI TARGETS, SEND ON_ACTIONS
+		if = {
+			limit = { scope:target = { is_ai = yes } }
+			if = {
+				limit = {
+					exists = scope:scheme_successful
+				}
+				trigger_event = {
+					id = wh_blood_kiss.031 # replace it later with on_action
+				}
+			}
+			# else = {
+			# 	trigger_event = {
+			# 		on_action = seduce_failure
+			# 	}
+			# }
+		}
+		#FOR PLAYER CHARACTER, SEND CHOICE EVENT
+		else = {
+			scope:target = {
+				trigger_event = {
+					id = wh_blood_kiss.031
+				}
+			}
+		}
+		scope:scheme = {
+			end_scheme = yes
+		}	
+	} 
+	# after = {
+	# 	scope:scheme = {
+	# 		end_scheme = yes
+	# 	}	
+	# }
+}
+
+
+wh_blood_kiss.031 = {
+	type = character_event
+	title = wh_blood_kiss.030.t
+	desc =  wh_blood_kiss.030.desc		
+	theme = generic_intrigue_scheme
+	left_portrait = {
+		character = root
+		animation = angry
+	}
+	
+	right_portrait = {
+		character = scope:target
+		animation = shock
+	}
+	
+	 immediate = {
+	 	scope:target = {
+	 		save_scope_as = vampold
+	 
+	 	}
+		
+	 	root = {
+	 		save_scope_as = vampnew
+	 	}
+		
+	 }
+	
+	option = {
+		name = wh_blood_kiss.030.option.a
+		#custom_tooltip = wh_blood_kiss.a.tt
+		
+		hidden_effect = {
+			# scope:vampnew	= {
+			# 	trigger_event = {
+			# 		id = wh_blood_kiss.020
+			# 		days = 1
+			# 	}
+			# }
+			wh_create_vampire_effect = yes
+		}
+		
+	}
+
+
+
+}
