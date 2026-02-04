@@ -20,7 +20,7 @@ wh_travel_events.0001 = {	# needs to be called in "\common\on_action\travel_on_a
 	trigger = {
 		is_available_travelling_adult = yes
 		is_location_valid_for_travel_event_on_land = yes
-    }
+	}
 
 	# position of character portrait
 	left_portrait = {
@@ -53,8 +53,8 @@ wh_travel_events.0001 = {	# needs to be called in "\common\on_action\travel_on_a
 					multiplier = 1
 				}
 
-				add_prestige = 50
-				add_gold = 20
+				add_prestige = small_presitige_value
+				add_gold = small_gold_value
 				if = {
 					limit = { has_trait = tourney_participant }
 					add_trait_xp = {trait = tourney_participant track=bow value=20}
@@ -156,7 +156,7 @@ wh_travel_events.0002 = {	# needs to be called in "\common\on_action\travel_on_a
 				}
 			}
 		}
-    }
+	}
 
 	# position of character portrait
 	left_portrait = {
@@ -203,7 +203,7 @@ wh_travel_events.0002 = {	# needs to be called in "\common\on_action\travel_on_a
 				random_list = {
 					80 = {
 						desc = wh_travel_events.0002.a.failure.succes
-						add_prestige = 20
+						add_prestige = medium_value
 
 						increase_wounds_effect = { REASON = fight }
 
@@ -356,7 +356,7 @@ wh_travel_events.1000 = { #Bretonnian version of vanilla knight errant event
 		is_landed = yes
 		is_location_valid_for_travel_event_on_land = yes
 		location.faith = { wh_bret_knight = yes }
-    }
+	}
 	
 	weight_multiplier = {
 		base = 1
@@ -400,8 +400,8 @@ wh_travel_events.1000 = { #Bretonnian version of vanilla knight errant event
 		}
 	}
 	
-    #Help them
-	option = { 
+   
+	option = { #Help them
 		name = travel_events.3080.a
 		custom_tooltip = travel_events.3080.a.tt
 		current_travel_plan = {
@@ -439,7 +439,7 @@ wh_travel_events.1000 = { #Bretonnian version of vanilla knight errant event
 				ai_honor = 1
 			}
 		}
-    }
+	}
 	
 	#Convince them to join you regardless
 	option = {
