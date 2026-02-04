@@ -1,0 +1,379 @@
+﻿######################
+###Base Governments###
+######################
+
+feudal_government = {
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		dynasty_named_realms = yes
+		royal_court = yes
+		legitimacy = yes
+	}
+	
+	can_get_government = {
+		wh_use_feudal_government = yes
+	}
+
+	primary_holding = castle_holding
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		title_revocation_rights
+	}
+	
+	ai = {
+		use_legends = yes
+	}
+	
+	flag = may_elevate_co_monarch
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_feudal
+	color = hsv{ 0.67 1.00 0.78 }
+}
+
+administrative_government = {
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		dynasty_named_realms = no
+		royal_court = yes
+		administrative = yes
+		landless_playable = yes
+		legitimacy = yes
+		state_faith = yes
+		use_as_base_on_landed = yes
+		use_as_base_on_rank_up = yes
+		inherit_from_dynastic_government = no
+	}
+	
+	can_get_government = {
+		wh_use_admin_government = yes
+	}
+
+	domicile_type = estate
+
+	primary_holding = castle_holding
+	valid_holdings = { city_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	vassal_contract = {
+		administrative_obligations
+		administrative_themes
+	}
+
+	character_modifier = {
+		levy_size = -0.5
+		feudal_government_tax_contribution_mult = -0.5
+		feudal_government_levy_contribution_mult = -0.5
+		clan_government_tax_contribution_mult = -0.5
+		clan_government_levy_contribution_mult = -0.5
+		men_at_arms_cap = -2
+		men_at_arms_limit = -2
+		knight_limit = -5
+		vassal_limit = 100
+		active_accolades = -1
+	}
+
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_administrative
+
+	# These flags only exist for loc and in-game descriptions
+	flag = government_has_influence
+	flag = government_has_title_men_at_arms
+	flag = government_has_powerful_families
+	color = { 72 6 92 }
+}
+
+#######################
+###Human Governments###
+#######################
+
+aristocratic_republic_government = {
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		dynasty_named_realms = no
+		royal_court = yes
+		administrative = yes
+		landless_playable = yes
+		legitimacy = yes
+		state_faith = yes
+		use_as_base_on_landed = yes
+		use_as_base_on_rank_up = yes
+		inherit_from_dynastic_government = no
+	}
+	
+	can_get_government = {
+		wh_use_admin_government = yes
+	}
+
+	domicile_type = estate
+
+	primary_holding = castle_holding
+	valid_holdings = { city_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	vassal_contract = { republic_government_obligations }
+
+	character_modifier = {
+		levy_size = -0.5
+		feudal_government_tax_contribution_mult = -0.5
+		feudal_government_levy_contribution_mult = -0.5
+		clan_government_tax_contribution_mult = -0.5
+		clan_government_levy_contribution_mult = -0.5
+		men_at_arms_cap = -2
+		men_at_arms_limit = -2
+		knight_limit = -5
+		vassal_limit = 100
+		active_accolades = -1
+	}
+
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_administrative
+	flag = government_is_republic
+
+	# These flags only exist for loc and in-game descriptions
+	flag = government_has_influence
+	flag = government_has_title_men_at_arms
+	flag = government_has_powerful_families
+	color = hsv{ 0.00 1.00 0.98 }
+}
+
+chivalric_feudal_government = {
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		dynasty_named_realms = yes
+		royal_court = yes
+		legitimacy = yes
+		state_faith = yes
+	}
+	
+	can_get_government = {
+		wh_use_chivalric_government = yes
+	}
+
+	primary_holding = castle_holding
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		title_revocation_rights
+	}
+	
+	ai = {
+		use_legends = yes
+	}
+	
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	#flag = may_appoint_castellans
+	flag = government_is_feudal
+	color = { 100 145 200 }
+}
+
+outlaw_kingdom_government = {
+	primary_holding = castle_holding
+	
+	can_get_government = {
+		wh_use_outlaw_government = yes
+	}
+	
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		royal_court = yes
+		legitimacy = yes
+	}
+
+	valid_holdings = { castle_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
+	dynasty_named_realms = yes
+
+	vassal_contract = { clan_government_obligations }
+	
+	opinion_of_liege = {
+		scope:vassal = {
+			if = {
+				limit = {
+					NOT = {
+						is_allied_to = scope:liege
+					}
+				}
+				if = {
+					limit = {
+						is_powerful_vassal = yes
+					}
+					value = -30
+				}
+				else = {
+					value = -15
+				}
+			}
+		}
+	}
+	opinion_of_liege_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:vassal = {
+						NOT = {
+							is_allied_to = scope:liege
+						}
+						is_powerful_vassal = yes
+					}
+				}
+				desc = "GOVERNMENT_CLAN_NOT_ALLIED_POWERFUL"
+			}
+			triggered_desc = {
+				trigger = {
+					scope:vassal = {
+						NOT = {
+							is_allied_to = scope:liege
+						}
+						is_powerful_vassal = no
+					}
+				}
+				desc = "GOVERNMENT_CLAN_NOT_ALLIED"
+			}
+		}
+	}
+	
+	ai = {
+		use_legends = yes
+	}
+	
+	color = { 164 141 141 }
+}
+
+pirate_government = {
+	primary_holding = castle_holding
+	
+	can_get_government = {
+		wh_use_pirate_government = yes
+	}
+	
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		royal_court = yes
+		legitimacy = yes
+	}
+
+	valid_holdings = { castle_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
+	dynasty_named_realms = no
+
+	vassal_contract = { clan_government_obligations }
+	
+	opinion_of_liege = {
+		scope:vassal = {
+			if = {
+				limit = {
+					NOT = {
+						is_allied_to = scope:liege
+					}
+				}
+				if = {
+					limit = {
+						is_powerful_vassal = yes
+					}
+					value = -30
+				}
+				else = {
+					value = -15
+				}
+			}
+		}
+	}
+	opinion_of_liege_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:vassal = {
+						NOT = {
+							is_allied_to = scope:liege
+						}
+						is_powerful_vassal = yes
+					}
+				}
+				desc = "GOVERNMENT_CLAN_NOT_ALLIED_POWERFUL"
+			}
+			triggered_desc = {
+				trigger = {
+					scope:vassal = {
+						NOT = {
+							is_allied_to = scope:liege
+						}
+						is_powerful_vassal = no
+					}
+				}
+				desc = "GOVERNMENT_CLAN_NOT_ALLIED"
+			}
+		}
+	}
+	
+	ai = {
+		use_legends = yes
+	}
+
+	flag = government_is_pirate
+	color = { 84 72 72 }
+}
+
+#########################
+###Dwarfen Governments###
+#########################
+
+dwarf_alliance_government = {
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		dynasty_named_realms = yes
+		royal_court = yes
+		legitimacy = yes
+	}
+
+	primary_holding = castle_holding
+	required_county_holdings = { castle_holding city_holding church_holding }
+	
+	primary_heritages = { heritage_dawi }
+
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		title_revocation_rights
+	}
+	
+	ai = {
+		use_legends = yes
+	}
+	
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_feudal
+	color = { 10 82 165 }
+}
