@@ -1,9 +1,10 @@
 ﻿# Geographical regions
 # Regions can be declared with one or more of the following fields:
-#	duchies = { }, takes duchy title names declared in landed_titles.txt
-#	counties = { }, takes county title names declared in landed_titles.txt
+#	kingdoms = { }, takes de-jure kingdom title names declared in landed_titles.txts 
+#	duchies = { }, takes de-jure duchy title names declared in landed_titles.txt
+#	counties = { }, takes de-jure county title names declared in landed_titles.txt
 #	provinces = { }, takes province id numbers declared in /history/provinces
-#	regions = { }, a region can also include other regions, however the subregions needs to be declared before the parent region. 
+#	regions = { }, a region can also include other regions, however the subregions needs to be declared before the parent region.
 #		E.g. If the region world_europe contains the region world_europe_west then world_europe_west needs to be declared as a region before (i.e. higher up in this file) world_europe.
 
 # Regions provide the following modifiers:
@@ -215,6 +216,7 @@ world_old_world = {
 # > world_india_deccan
 # > world_india_bengal
 # > world_india_rajastan
+# > custom_lanka
 
 # world_africa
 # > world_africa_north
@@ -226,11 +228,61 @@ world_old_world = {
 # world_steppe
 # > world_steppe_tarim
 # > world_steppe_west
+# > world_steppe_central
 # > world_steppe_east
+
+# world_siberia
 
 # world_tibet
 
 # world_burma
+# > custom_arakan_mountains
+
+# world_asia
+# > world_asia_north_east
+# > world_asia_korea
+# > world_asia_china
+# > world_asia_southeast
+# > world_asia_japan
+# > world_asia_sakhalin_hokkaido
+# >> world_asia_southeast_mainland
+# >> world_asia_southeast_islands
+# >>> world_asia_philippines
+# >>> world_asia_borneo
+# >>> world_asia_sulawesi_maluku
+# >>> world_asia_indonesia
+
+
+# sea_atlantic_ocean
+# > sea_north_atlantic
+# >> sea_baltic_sea
+# >> sea_north_sea
+# >> sea_english_channel
+# >> sea_irish_sea
+# >> sea_bay_of_biscay
+# >> sea_macaronesia
+# >> sea_mediterranean_sea
+# >>> sea_western_mediterranean_sea
+# >>> sea_ionian_sea
+# >>> sea_adriatic_sea
+# >>> sea_aegean_sea
+# >>> sea_black_sea
+# > sea_south_atlantic
+# >> sea_gulf_of_guinea
+
+# sea_indian_ocean
+# > sea_bay_of_somalia
+# > sea_swahili_coast
+# > sea_red_sea
+# > sea_gulf_of_aden
+# > sea_persian_gulf
+# > sea_arabian_sea
+# > sea_bay_of_bengal
+
+# sea_inland_steppe_seas
+# > sea_caspian_sea
+# > sea_aral_sea
+
 
 world_europe_west_britannia = {}
 world_europe_west_germania = {}
@@ -249,6 +301,7 @@ world_middle_east_persia = {}
 world_india_deccan = {}
 world_india_bengal = {}
 world_india_rajastan = {}
+custom_lanka = {}
 world_africa_north_west = {}
 world_africa_north_east = {}
 world_africa_sahara = {}
@@ -258,6 +311,7 @@ world_africa_east = {}
 world_africa = {}
 world_steppe_tarim = {}
 world_steppe_west = {}
+world_steppe_central = {}
 world_steppe_east = {}
 world_tibet = {}
 world_himalaya = {}
@@ -266,6 +320,50 @@ world_steppe = {}
 world_europe = {}
 world_middle_east = {}
 world_india = {}
+
+world_asia_north_east = {}
+world_asia_korea = {}
+world_asia_china = {}
+world_asia_southeast = {}
+world_asia_japan = {}
+world_asia_sakhalin_hokkaido = {}
+world_asia_southeast_mainland = {}
+world_asia_southeast_islands = {}
+world_asia_philippines = {}
+world_asia_borneo = {}
+world_asia_sulawesi_maluku = {}
+world_asia_indonesia = {}
+
+
+sea_atlantic_ocean = {}
+sea_north_atlantic = {}
+sea_baltic_sea = {}
+sea_north_sea = {}
+sea_english_channel = {}
+sea_irish_sea = {}
+sea_bay_of_biscay = {}
+sea_macaronesia = {}
+sea_mediterranean_sea = {}
+sea_western_mediterranean_sea = {}
+sea_ionian_sea = {}
+sea_adriatic_sea = {}
+sea_aegean_sea = {}
+sea_black_sea = {}
+sea_south_atlantic = {}
+sea_gulf_of_guinea = {}
+
+sea_indian_ocean = {}
+sea_bay_of_somalia = {}
+sea_swahili_coast = {}
+sea_red_sea = {}
+sea_gulf_of_aden = {}
+sea_persian_gulf = {}
+sea_arabian_sea = {}
+sea_bay_of_bengal = {}
+
+sea_inland_steppe_seas = {}
+sea_caspian_sea = {}
+sea_aral_sea = {}
 
 ###########################################################################
 # Material Regions
@@ -496,6 +594,12 @@ custom_stretch_austria = {}
 custom_fennoscandia = {}
 custom_iceland = {}
 
+custom_viet_lands = {}
+custom_majapahit = {}
+custom_gotland = {}
+custom_polabia = {}
+custom_beth_nahrain = {}
+
 ###########################################################################
 # Graphical Regions
 ###########################################################################
@@ -526,6 +630,9 @@ graphical_mediterranean = {
 }
 
 graphical_steppe = {}
+graphical_siberia = {}
+
+graphical_east_asia = {}
 
 ##############################
 # Misc
@@ -554,12 +661,14 @@ world_jazira = {}
 
 ### Mongol Conquest regions
 special_mongol_empire_start_region = {}
+special_mongol_empire_conquest_region_prio_1_alpha = {}
 special_mongol_empire_conquest_region_prio_1 = {}
 special_mongol_empire_conquest_region_prio_2 = {}
 special_mongol_empire_conquest_region_prio_3 = {}
 special_mongol_empire_conquest_region_prio_4 = {}
 special_mongol_empire_conquest_region_prio_5 = {}
 special_mongol_empire_conquest_region_cleanup = {}
+special_mongol_empire_conquest_region_bonus = {}
 special_mongol_empire_conquest_all_regions = {}
 special_mongol_empire_ilkhanate_region = {}
 special_mongol_empire_chagatai_region = {}
@@ -569,6 +678,19 @@ special_mongol_empire_white_horde_region = {}
 special_mongol_empire_aarlud_khanate_region = {}
 special_mongol_empire_togskol_khanate_region = {}
 special_mongol_empire_baruun_khanate_region = {}
+
+special_mongol_empire_great_yuan_region = {}
+
+great_yuan_de_jure_region = {}
+
+special_mongol_empire_blue_horde_region = {}
+
+blue_horde_de_jure_region = {}
+
+special_mongol_empire_omnod_dalai_khanate_region = {}
+
+omnod_dalai_khanate_de_jure_region = {}
+
 ### END Mongol Conquest regions
 
 ### Special Sicilian Culture region
@@ -730,35 +852,50 @@ dlc_ep1_southwest_silk_road_trade_region = {}
 
 divergence_island_regions = {}
 
-### SEAZONES ###
 
-sea_atlantic_ocean = {}
-sea_north_atlantic = {}
-sea_baltic_sea = {}
-sea_north_sea = {}
-sea_white_sea = {}
-sea_english_channel = {}
-sea_irish_sea = {}
-sea_bay_of_biscay = {}
-sea_macaronesia = {}
-sea_mediterranean_sea = {}
-sea_western_mediterranean_sea = {}
-sea_ionian_sea = {}
-sea_adriatic_sea = {}
-sea_aegean_sea = {}
-sea_black_sea = {}
-sea_south_atlantic = {}
-sea_gulf_of_guinea = {}
-sea_indian_ocean = {}
-sea_bay_of_somalia = {}
-sea_red_sea = {}
-sea_gulf_of_aden = {}
-sea_persian_gulf = {}
-sea_arabian_sea = {}
-sea_bay_of_bengal = {}
-sea_inland_steppe_seas = {}
-sea_caspian_sea = {}
-sea_aral_sea = {}
+### SILK ROAD
+
+dlc_tgp_silk_road_route_region = {}
+tgp_silk_road_region = {}
+dlc_tgp_silk_road_route_china = {}
+
+tgp_silk_road_china_region = {}
+
+dlc_tgp_silk_road_route_tibet = {}
+tgp_silk_road_tibet_region = {}
+
+dlc_tgp_silk_road_route_india = {}
+tgp_silk_road_india_region = {}
+
+dlc_tgp_silk_road_route_central_asia = {}
+
+tgp_silk_road_central_asia_region = {}
+
+dlc_tgp_silk_road_route_transcaspia = {}
+
+tgp_silk_road_transcaspia_region = {}
+
+dlc_tgp_silk_road_route_occident = {}
+
+tgp_silk_road_occident_region = {}
+
+tgp_silk_road_asia_minor_minus_georgia = {}
+
+dlc_tgp_mainland_southeast_asia_region = {}
+dlc_tgp_great_wall_shanhai = {}
+
+dlc_tgp_great_wall_liaodong = {}
+
+dlc_tgp_grand_canal_region = {}
+
+dlc_tgp_grand_canal_1_region = {}
+
+dlc_tgp_grand_canal_2_region = {}
+dlc_tgp_grand_canal_3_region = {}
+
+dlc_tgp_grand_canal_4_region = {}
+
+
 
 ### Hunts
 
@@ -814,3 +951,4 @@ hunt_animal_elk_region = {}
 
 # Chiefly the Celtic Rim.
 board_game_fidchell_region = {}
+
