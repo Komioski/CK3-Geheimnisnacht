@@ -4465,8 +4465,8 @@ tradition_chanson_de_geste = {
 
 	parameters = {
 		unlock_valets_innovation = yes
-		poet_trait_gives_bonuses = yes
-		poet_trait_more_common = yes
+		lifestyle_poet_trait_gives_bonuses = yes
+		lifestyle_poet_trait_more_common = yes
 		martial_education_more_valued = yes
 		prowess_traits_more_valued = yes
 		blademaster_trait_bonuses = yes
@@ -10964,7 +10964,7 @@ tradition_runestones = {
 					desc = not_bellicose_or_bureaucratic_desc
 				}
 			}
-			# Poet, Arrogant, or Journaller requirement.
+			# lifestyle_poet, Arrogant, or Journaller requirement.
 			if = {
 				limit = {
 					trigger_if = {
@@ -10979,7 +10979,7 @@ tradition_runestones = {
 								culture = prev
 								primary_title.tier >= tier_county
 								OR = {
-									has_trait = poet
+									has_trait = lifestyle_poet
 									has_trait = arrogant
 									has_trait = journaller
 								}
@@ -11211,7 +11211,7 @@ tradition_chivalry = {
 		romance_scheme_bonuses = yes
 		romance_scheme_penalty = yes
 		ai_romance_scheme_increase = yes
-		poet_trait_romance_bonuses = yes
+		lifestyle_poet_trait_romance_bonuses = yes
 		can_host_joust_contests = yes
 		knight_errant_trait_bonuses = yes
 	}
@@ -12120,7 +12120,7 @@ tradition_storytellers = {
 								count >= 3
 								culture = prev
 								primary_title.tier >= tier_county
-								has_trait = poet
+								has_trait = lifestyle_poet
 							}
 						}
 					}
@@ -12130,7 +12130,7 @@ tradition_storytellers = {
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
-					desc = rulers_with_poet_desc
+					desc = rulers_with_lifestyle_poet_desc
 				}
 			}
 
@@ -12232,7 +12232,7 @@ tradition_music_theory = {
 								count >= 3
 								culture = prev
 								primary_title.tier >= tier_county
-								has_trait = poet
+								has_trait = lifestyle_poet
 							}
 						}
 					}
@@ -12242,7 +12242,7 @@ tradition_music_theory = {
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
-					desc = rulers_with_poet_desc
+					desc = rulers_with_lifestyle_poet_desc
 				}
 			}
 
@@ -12268,14 +12268,14 @@ tradition_music_theory = {
 		value = 50
 		if = {
 			limit = { # AI should avoid stacking traditions for court positions
-				culture_tradition:tradition_poetry = { is_in_list = traits }
+				culture_tradition:tradition_lifestyle_poetry = { is_in_list = traits }
 			}
 			multiply = 0.25
 		}
 	}
 }
 
-tradition_poetry = {
+tradition_lifestyle_poetry = {
 	category = societal
 
 	layers = {
@@ -12300,9 +12300,9 @@ tradition_poetry = {
 	}
 	
 	parameters = {
-		poet_trait_gives_bonuses = yes
-		poet_trait_more_common = yes
-		characters_are_better_court_poets = yes
+		lifestyle_poet_trait_gives_bonuses = yes
+		lifestyle_poet_trait_more_common = yes
+		characters_are_better_court_lifestyle_poets = yes
 	}
 
 	character_modifier = {
@@ -12342,7 +12342,7 @@ tradition_poetry = {
 								count >= 3
 								culture = prev
 								primary_title.tier >= tier_county
-								has_trait = poet
+								has_trait = lifestyle_poet
 							}
 						}
 					}
@@ -12352,14 +12352,14 @@ tradition_poetry = {
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
-					desc = rulers_with_poet_desc
+					desc = rulers_with_lifestyle_poet_desc
 				}
 			}
 
 			if = {
 				limit = {
 					scope:character = {
-						has_variable = tradition_poetry_travel_discount
+						has_variable = tradition_lifestyle_poetry_travel_discount
 					}
 					
 				}
@@ -14123,8 +14123,8 @@ tradition_fp1_northern_stories = {
 			NOT = { culture_tradition:tradition_runestones = { is_in_list = traits } }
 		}
 		custom_tooltip = {
-			text = cannot_have_tradition_poetry
-			NOT = { culture_tradition:tradition_poetry = { is_in_list = traits } }
+			text = cannot_have_tradition_lifestyle_poetry
+			NOT = { culture_tradition:tradition_lifestyle_poetry = { is_in_list = traits } }
 		}
 		custom_tooltip = {
 			text = cannot_have_tradition_storytellers
@@ -14134,8 +14134,8 @@ tradition_fp1_northern_stories = {
 	
 	parameters = {
 		has_access_to_runestones = yes
-		poet_trait_gives_bonuses = yes
-		poet_trait_more_common = yes
+		lifestyle_poet_trait_gives_bonuses = yes
+		lifestyle_poet_trait_more_common = yes
 		better_ward_education = yes
 		tells_stories = yes
 	}
@@ -14179,7 +14179,7 @@ tradition_fp1_northern_stories = {
 								count >= 3
 								culture = prev
 								primary_title.tier >= tier_county
-								has_trait = poet
+								has_trait = lifestyle_poet
 							}
 						}
 					}
@@ -14189,7 +14189,7 @@ tradition_fp1_northern_stories = {
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
-					desc = rulers_with_poet_desc
+					desc = rulers_with_lifestyle_poet_desc
 				}
 			}
 			
@@ -15231,7 +15231,7 @@ tradition_fp3_beacon_of_learning = { # Offshoot of tradition_philosopher_culture
 	}
 }
 
-# Replaces Refined Poetry
+# Replaces Refined lifestyle_poetry
 tradition_fp3_enlightened_magnates = {
 	category = societal
 
@@ -15244,13 +15244,13 @@ tradition_fp3_enlightened_magnates = {
 	is_shown = {
 		has_fp3_dlc_trigger = yes
 		has_cultural_pillar = heritage_iranian
-		NOT = { has_cultural_tradition = tradition_poetry }
+		NOT = { has_cultural_tradition = tradition_lifestyle_poetry }
 	}
 
 	parameters = {
-		poet_trait_gives_bonuses = yes
-		poet_trait_more_common = yes
-		characters_are_better_court_poets = yes
+		lifestyle_poet_trait_gives_bonuses = yes
+		lifestyle_poet_trait_more_common = yes
+		characters_are_better_court_lifestyle_poets = yes
 		characters_are_better_tax_collector = yes
 		unlock_tax_obligation_deqhan = yes
 	}
@@ -15292,7 +15292,7 @@ tradition_fp3_enlightened_magnates = {
 								count >= 3
 								culture = prev
 								primary_title.tier >= tier_county
-								has_trait = poet
+								has_trait = lifestyle_poet
 							}
 						}
 					}
@@ -15302,14 +15302,14 @@ tradition_fp3_enlightened_magnates = {
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
-					desc = rulers_with_poet_desc
+					desc = rulers_with_lifestyle_poet_desc
 				}
 			}
 
 			if = {
 				limit = {
 					scope:character = {
-						has_variable = tradition_poetry_travel_discount
+						has_variable = tradition_lifestyle_poetry_travel_discount
 					}
 
 				}

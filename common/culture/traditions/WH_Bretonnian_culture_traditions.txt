@@ -31,8 +31,8 @@ tradition_chanson_de_geste = {
 
 	parameters = {
 		unlock_valets_innovation = yes
-		poet_trait_gives_bonuses = yes
-		poet_trait_more_common = yes
+		lifestyle_poet_trait_gives_bonuses = yes
+		lifestyle_poet_trait_more_common = yes
 		martial_education_more_valued = yes
 		prowess_traits_more_valued = yes
 		blademaster_trait_bonuses = yes
@@ -970,9 +970,9 @@ tradition_brionne_tradition = {
 	}
 	
 	parameters = {
-		poet_trait_gives_bonuses = yes
-		poet_trait_more_common = yes
-		characters_are_better_court_poets = yes
+		lifestyle_poet_trait_gives_bonuses = yes
+		lifestyle_poet_trait_more_common = yes
+		characters_are_better_court_lifestyle_poets = yes
 		martial_education_more_valued = yes
 		prowess_traits_more_valued = yes
 		can_duel_rivals = yes
@@ -1022,7 +1022,7 @@ tradition_brionne_tradition = {
 								count >= 3
 								culture = prev
 								primary_title.tier >= tier_county
-								has_trait = poet
+								has_trait = lifestyle_poet
 							}
 						}
 					}
@@ -1032,14 +1032,14 @@ tradition_brionne_tradition = {
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
-					desc = rulers_with_poet_desc
+					desc = rulers_with_lifestyle_poet_desc
 				}
 			}
 
 			if = {
 				limit = {
 					scope:character = {
-						has_variable = tradition_poetry_travel_discount
+						has_variable = tradition_lifestyle_poetry_travel_discount
 					}
 					
 				}
@@ -1225,9 +1225,9 @@ tradition_couronnean_tradition = {
 	
 	parameters = {
 		bretonnian_stables_bonuses = yes
-		poet_trait_gives_bonuses = yes
-		poet_trait_more_common = yes
-		characters_are_better_court_poets = yes
+		lifestyle_poet_trait_gives_bonuses = yes
+		lifestyle_poet_trait_more_common = yes
+		characters_are_better_court_lifestyle_poets = yes
 		martial_education_more_valued = yes
 		prowess_traits_more_valued = yes
 		can_duel_rivals = yes
