@@ -3,7 +3,10 @@ tags={
 	"Total Conversion"
 }
 name="WHDEVs"
-
+replace_path="common/dynasties"
+replace_path="common/religion/religions"
+replace_path="common/culture/cultures"
+replace_path="common/culture/name_lists"
 replace_path="common/landed_titles"
 replace_path="common/province_terrain"
 replace_path="history/characters"
