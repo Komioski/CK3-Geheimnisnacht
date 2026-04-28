@@ -392,17 +392,17 @@ maturkan_warriors = {
 	}
 
 	#access_through_subject = { lotr_orc_can_recruit_from_subject = no } # Keep for GH2 for none humans
-    can_recruit = {
-		OR = {
-			AND = {
-				OR = { 
-					culture = culture:baradhrim 
-					culture = { any_parent_culture_or_above = { this = culture:baradhrim } }
-				}
-				has_mpo_dlc_trigger = yes
-			}
-		}
-	}
+#    can_recruit = {
+#		OR = {
+#			AND = {
+#				OR = { 
+#					culture = culture:baradhrim 
+#					culture = { any_parent_culture_or_above = { this = culture:baradhrim } }
+#				}
+#				has_mpo_dlc_trigger = yes
+#			}
+#		}
+#	}
 
 	buy_cost = { gold = maturkan_warriors_recruitment_cost }
 	low_maintenance_cost = { gold = maturkan_warriors_low_maint_cost }
