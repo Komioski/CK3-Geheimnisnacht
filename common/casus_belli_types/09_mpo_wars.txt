@@ -21,7 +21,6 @@ migration_cb = {
 	target_de_jure_regions_above = yes
 	allowed_for_character = {
 		government_has_flag = government_is_nomadic
-		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	ignore_effect = change_title_holder
@@ -319,7 +318,6 @@ mpo_nomad_invasion_cb = {
 				}
 			}
 		}
-		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_for_character_display_regardless = {
@@ -481,8 +479,6 @@ mpo_nomad_invasion_cb = {
 		multiply = muslim_invasions_prefer_nonmuslims_ai_score_value
 
 		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	valid_to_start = {
@@ -538,7 +534,6 @@ mpo_nomad_invasion_cb = {
 			}
 			
 		}
-		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	should_invalidate = {
@@ -1445,7 +1440,6 @@ humiliation_cb = {
 	allowed_for_character = {
 		government_has_flag = government_is_nomadic
 		is_landed = yes
-		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_against_character = {
@@ -1462,7 +1456,6 @@ humiliation_cb = {
 			# They're the Gurkhan
 			scope:defender = { is_gurkhan = yes }
 		}
-		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	ignore_effect = change_title_holder
@@ -1754,7 +1747,6 @@ retaliation_cb = {
 			target = scope:defender
 		}
 		is_landed = yes
-		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 	
 	allowed_for_character_display_regardless = { # They're already your Tributary
@@ -1768,7 +1760,6 @@ retaliation_cb = {
 		scope:defender = {
 			government_has_flag = government_is_nomadic
 		}
-		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 	
 	ai_score = {
@@ -1794,13 +1785,6 @@ retaliation_cb = {
 				multiply = scope:attacker.ai_vengefulness
 			}
 		}
-	}
-	
-	ai_score_mult = {
-		value = 3
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	ignore_effect = change_title_holder
@@ -2136,13 +2120,6 @@ domination_cb = {
 	defender_score_from_battles_scale = 150
 	imprisonment_by_attacker_give_war_score = no
 
-	ai_score_mult = {
-		value = 1
-
-		#LotR
-		multiply = elf_target_ai_score_value
-	}
-
 	on_invalidated_desc = msg_county_conquest_war_invalidated_message
 
 	cost = {
@@ -2367,7 +2344,6 @@ de_jure_cb_nomadic = {
 			government_has_flag = government_is_nomadic
 			highest_held_title_tier >= tier_duchy
 		}
-		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_against_character = {
@@ -2375,7 +2351,6 @@ de_jure_cb_nomadic = {
 			scope:defender = { target_is_liege_or_above = scope:attacker }
 			scope:attacker = { target_is_liege_or_above = scope:defender }
 		}
-		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 	target_titles = neighbor_land
 	target_title_tier = all
@@ -2751,9 +2726,6 @@ de_jure_cb_nomadic = {
 			}
 			multiply = 0
 		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
 
@@ -2776,7 +2748,6 @@ sovereignty_cb = {
 			}
 			government_has_flag = government_is_nomadic
 		}
-		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_against_character = {
@@ -2788,7 +2759,6 @@ sovereignty_cb = {
 			scope:defender = { target_is_liege_or_above = scope:attacker }
 			scope:attacker = { target_is_liege_or_above = scope:defender }
 		}
-		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 	target_titles = none
 	ignore_effect = change_title_holder
@@ -3072,14 +3042,6 @@ sovereignty_cb = {
 			}
 		}
 	}
-
-	ai_score_mult = {
-		value = 1
-
-		#LotR
-		multiply = elf_target_ai_score_value
-		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
-	}
 }
 
 
@@ -3115,7 +3077,6 @@ mpo_great_war_of_defiance_cb = {
 		}
 		government_has_flag = government_is_nomadic
 		highest_held_title_tier >= tier_empire
-		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	white_peace_possible = no
@@ -3664,7 +3625,6 @@ mpo_gok_onslaught_cb = {
 			}
 		}
 		has_mpo_dlc_trigger = yes
-		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_for_character_display_regardless = {
@@ -3685,7 +3645,6 @@ mpo_gok_onslaught_cb = {
 				liege = scope:defender
 			}
 		}
-		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	should_invalidate = {
@@ -4576,8 +4535,5 @@ mpo_gok_onslaught_cb = {
 			}
 			multiply = 0
 		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
