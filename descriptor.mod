@@ -4,10 +4,12 @@ tags={
 }
 name="WHDEVs"
 replace_path="common/dynasties"
-replace_path="common/religion/religions"
 replace_path="common/culture/cultures"
 replace_path="common/culture/name_lists"
 replace_path="common/landed_titles"
+replace_path="common/religion/holy_site_types"
+replace_path="common/religion/religion_family_types"
+replace_path="common/religion/religion_types"
 replace_path="common/province_terrain"
 replace_path="history/characters"
 replace_path="history/provinces"
