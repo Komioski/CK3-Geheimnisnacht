@@ -1165,7 +1165,7 @@ baron_feudal_male_bretonnian = {
 	gender = male
 	special = holder
 	tier = barony
-	priority = 7
+	priority = 9
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_bretonnian }
 }
@@ -1174,14 +1174,14 @@ baron_feudal_female_bretonnian = {
 	gender = female
 	special = holder
 	tier = barony
-	priority = 7
+	priority = 9
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_bretonnian }
 }
 barony_feudal_bretonnian = {
 	type = title
 	tier = barony
-	priority = 7
+	priority = 9
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_bretonnian }
 }
@@ -1190,7 +1190,7 @@ duke_feudal_male_bretonnian = {
 	gender = male
 	special = holder
 	tier = duchy
-	priority = 27
+	priority = 28
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_bretonnian }
 }
@@ -1199,14 +1199,14 @@ duke_feudal_female_bretonnian = {
 	gender = female
 	special = holder
 	tier = duchy
-	priority = 27
+	priority = 28
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_bretonnian }
 }
 duchy_feudal_bretonnian = {
 	type = title
 	tier = duchy
-	priority = 27
+	priority = 28
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_bretonnian }
 }
@@ -1261,11 +1261,21 @@ empire_feudal_bretonnian = {
 	heritages = { heritage_bretonnian }
 }
 	#Republic#
-baron_republic_bretonnian = {
+baron_republic_male_bretonnian = {
 	type = character
+	gender = male
 	special = holder
 	tier = barony
-	priority = 7
+	priority = 1
+	governments = { republic_government }
+	heritages = { heritage_bretonnian }
+}
+baron_republic_female_bretonnian = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 1
 	governments = { republic_government }
 	heritages = { heritage_bretonnian }
 }
@@ -1298,7 +1308,7 @@ duke_republic_bretonnian = {
 	type = character
 	special = holder
 	tier = duchy
-	priority = 27
+	priority = 28
 	governments = { republic_government }
 	heritages = { heritage_bretonnian }
 }
@@ -1351,7 +1361,7 @@ baron_feudal_male_estalian = {
 	gender = male
 	special = holder
 	tier = barony
-	priority = 7
+	priority = 3
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_estalian }
 }
@@ -1360,14 +1370,14 @@ baron_feudal_female_estalian = {
 	gender = female
 	special = holder
 	tier = barony
-	priority = 7
+	priority = 3
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_estalian }
 }
 barony_feudal_estalian = {
 	type = title
 	tier = barony
-	priority = 7
+	priority = 3
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_estalian }
 }
@@ -1567,30 +1577,30 @@ empire_republic_estalian = {
 
 # #North Imperial
 
-# baron_republic_male_northimperial = {
-	# type = character
-	# gender = male
-	# special = holder
-	# tier = barony
-	# priority = 8
-	# flavourization_rules = { 
+baron_republic_male_northimperial = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	flavourization_rules = { 
 		top_liege = no
-	#}
-	# governments = { republic_government }
-	# name_lists = { middenlander_name_list ostlander_name_list drakwalder_name_list hochlander_name_list ostermarker_name_list }
-# }
-# baron_republic_female_northimperial = {
-	# type = character
-	# gender = female
-	# special = holder
-	# tier = barony
-	# priority = 8
-	# flavourization_rules = { 
-#		top_liege = no
-	#}
-	# governments = { republic_government }
-	# name_lists = { middenlander_name_list ostlander_name_list drakwalder_name_list hochlander_name_list ostermarker_name_list }
-# }
+	}
+	governments = { republic_government }
+	name_lists = { middenlander_name_list ostlander_name_list drakwalder_name_list hochlander_name_list ostermarker_name_list }
+}
+baron_republic_female_northimperial = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+	name_lists = { middenlander_name_list ostlander_name_list drakwalder_name_list hochlander_name_list ostermarker_name_list }
+}
 # count_republic_male_northimperial = {
 	# type = character
 	# gender = male
@@ -1976,31 +1986,31 @@ empire_republic_estalian = {
 # }
 
 
-# baron_republic_male_nordlander = {
-	# type = character
-	# gender = male
-	# special = holder
-	# tier = barony
-	# priority = 8
-	# flavourization_rules = { 
-#		top_liege = no
-#	}
-	# governments = { republic_government }
-	# name_lists = { nordlander_name_list }
-# }
-# baron_republic_female_nordlander = {
-	# type = character
-	# gender = female
-	# special = holder
-	# tier = barony
-	# priority = 8
-	# flavourization_rules = { 
-#		top_liege = no
-#	}
-	# governments = { republic_government }
-	# name_lists = { nordlander_name_list }
-# }
-# count_republic_male_nordlander = {
+baron_republic_male_nordlander = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+	name_lists = { nordlander_name_list }
+}
+baron_republic_female_nordlander = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+	name_lists = { nordlander_name_list }
+}
+#count_republic_male_nordlander = {
 	# type = character
 	# gender = male
 	# special = holder
@@ -2049,54 +2059,54 @@ empire_republic_estalian = {
 	# governments = { republic_government }
 	# name_lists = { nordlander_name_list }
 # }
-# king_republic_male_nordlander = {
-	# type = character
-	# gender = male
-	# special = holder
-	# tier = kingdom
-	# priority = 48
-	# flavourization_rules = { 
-#		top_liege = no
-#	}
-	# governments = { republic_government }
-	# name_lists = { nordlander_name_list }
-# }
-# king_republic_female_nordlander = {
-	# type = character
-	# gender = female
-	# special = holder
-	# tier = kingdom
-	# priority = 48
-	# flavourization_rules = { 
-#		top_liege = no
-#	}
-	# governments = { republic_government }
-	# name_lists = { nordlander_name_list }
-# }
-# emperor_republic_male_nordlander = {
-	# type = character
-	# gender = male
-	# special = holder
-	# tier = empire
-	# priority = 103
-	# flavourization_rules = { 
-#		top_liege = no
-#	}
-	# governments = { republic_government }
-	# name_lists = { nordlander_name_list }
-# }
-# emperor_republic_female_nordlander = {
-	# type = character
-	# gender = female
-	# special = holder
-	# tier = empire
-	# priority = 103
-	# flavourization_rules = { 
-#		top_liege = no
-#	}
-	# governments = { republic_government }
-	# name_lists = { nordlander_name_list }
-# }
+king_republic_male_nordlander = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 48
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+	name_lists = { nordlander_name_list }
+}
+king_republic_female_nordlander = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 48
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+	name_lists = { nordlander_name_list }
+}
+emperor_republic_male_nordlander = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 103
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+	name_lists = { nordlander_name_list }
+}
+emperor_republic_female_nordlander = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 103
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+	name_lists = { nordlander_name_list }
+}
 
 ##############
 ###Sartosan###
@@ -2193,7 +2203,7 @@ baron_feudal_male_tilean = {
 	gender = male
 	special = holder
 	tier = barony
-	priority = 7
+	priority = 2
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_tilean }
 }
@@ -2202,14 +2212,14 @@ baron_feudal_female_tilean = {
 	gender = female
 	special = holder
 	tier = barony
-	priority = 7
+	priority = 2
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_tilean }
 }
 barony_feudal_tilean = {
 	type = title
 	tier = barony
-	priority = 7
+	priority = 2
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_tilean }
 }
@@ -2231,6 +2241,13 @@ count_feudal_female_tilean = {
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_tilean }
 }
+county_feudal_tilean = {
+	type = title
+	tier = county
+	priority = 18
+	governments = { feudal_government chivalric_feudal_government }
+	heritages = { heritage_tilean }
+}
 duke_feudal_male_tilean = {
 	type = character
 	gender = male
@@ -2246,6 +2263,13 @@ duke_feudal_female_tilean = {
 	special = holder
 	tier = duchy
 	priority = 27
+	governments = { feudal_government chivalric_feudal_government }
+	heritages = { heritage_tilean }
+}
+duchy_feudal_tilean = {
+	type = title
+	tier = duchy
+	priority = 18
 	governments = { feudal_government chivalric_feudal_government }
 	heritages = { heritage_tilean }
 }
