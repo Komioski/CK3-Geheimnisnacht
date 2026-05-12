@@ -346,15 +346,15 @@ convert_feudalism_to_clan_through_liege_decision = {
 # A decision to feudalize the entire realm (wow!)
 ### Adopt [ROOT.Char.Custom('GetTribalReformGovernment')|U] Ways ###
 convert_whole_realm_to_feudalism_decision = {
-#	picture = {
-#		trigger = {
-#			has_tgp_dlc_trigger = yes
-#			liege = {
-#				culture = { has_cultural_pillar = heritage_japonic }
-#			}
-#		}
-#		reference = "gfx/interface/illustrations/decisions/tgp_dominance.dds"
-#	}
+	#picture = {
+		#trigger = {
+			#has_tgp_dlc_trigger = yes
+			#liege = {
+				#culture = { has_cultural_pillar = heritage_japonic }
+			#}
+		#}
+		#reference = "gfx/interface/illustrations/decisions/tgp_dominance.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
 	}
@@ -420,13 +420,13 @@ convert_whole_realm_to_feudalism_decision = {
 				}
 			}
 		}
-#		trigger_if = {
-#			limit = { 
-#				government_has_flag = government_is_wanua
-#				is_ai = yes
-#			}
-			faith = { has_doctrine = doctrine_monotheist }
-		}
+		#trigger_if = {
+			#limit = { 
+				#government_has_flag = government_is_wanua
+				#is_ai = yes
+			#}
+			#faith = { has_doctrine = doctrine_monotheist }
+		#}
 	}
 
 	is_valid_showing_failures_only = {
@@ -456,13 +456,14 @@ convert_whole_realm_to_feudalism_decision = {
 		}
 	}
 
-#	ai_potential = {
-#		NOT = { mpo_has_gok_mongol_empire_trigger = yes } #Stop the Mongols from slowing their conquest. 
-#	}
+ #	ai_potential = {
+ #		NOT = { mpo_has_gok_mongol_empire_trigger = yes } #Stop the Mongols from slowing their conquest. 
+ #	}
 
 	ai_will_do = {
 		base = 100
 	}
+
 }
 
 ##################################################
@@ -1222,15 +1223,15 @@ found_empire_decision = {
 					}
 				}
 				# and living nearby
-#				any_realm_county = {
- #					title_province = {
- #						OR = {
- #							geographical_region = ghw_region_north_africa
- #							geographical_region = world_europe_west
- #							geographical_region = world_europe_south
-#					 	}
- #					}
- 				}
+				#any_realm_county = {
+ 					#title_province = {
+ 						#OR = {
+ 							#geographical_region = ghw_region_north_africa
+ 							#geographical_region = world_europe_west
+ 							#geographical_region = world_europe_south
+					 	#}
+ 					#}
+ 				#}
 			}
 			custom_description = {
 				text = found_empire_decision_not_part_of_iberian_struggle
@@ -2808,3 +2809,4 @@ set_de_jure_capital_decision = {
 }
 
 # Restore Carthage 
+}
