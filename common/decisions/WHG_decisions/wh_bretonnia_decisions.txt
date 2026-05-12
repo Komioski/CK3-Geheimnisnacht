@@ -1,0 +1,560 @@
+﻿###Bretonnia decisions
+
+
+grail_virtues_knighthood_decision = {
+	ai_check_interval = 12
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
+	}
+	
+	decision_group_type = major
+	
+	cooldown = { years = 30 }
+
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = knightly_virtues_active
+		}
+		NOR = {
+			has_trait = knightly_virtue_audacity
+			has_trait = knightly_virtue_confidence
+			has_trait = knightly_virtue_discipline
+			has_trait = knightly_virtue_duty
+			has_trait = knightly_virtue_empathy
+			has_trait = knightly_virtue_heroism
+			has_trait = knightly_virtue_ideal
+			has_trait = knightly_virtue_impetuous
+			has_trait = knightly_virtue_joust
+			has_trait = knightly_virtue_temper
+			has_trait = knightly_virtue_disdain
+			has_trait = knightly_virtue_penitent
+			has_trait = knightly_virtue_purity
+			has_trait = knightly_virtue_stoicism
+			has_trait = knightly_virtue_grail
+			has_trait = knightly_virtue_exploration
+			has_trait = knightly_virtue_crusade
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		always = yes
+	}
+
+	is_valid = {
+		wh_bret_knight = yes
+	}
+	
+	widget = {
+		gui = "decision_view_widget_generic_multichoice_with_effects"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "CHOOSE_VIRTUE"
+		show_from_start = yes
+		
+		### Virtue of Audacity
+		item = {
+			value = choose_audacity
+			is_valid = {
+				wh_bret_capable_audacity = yes
+			}
+			current_description = choose_audacity_desc
+			localization = choose_audacity_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_audacity.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Confidence
+		item = {
+			value = choose_confidence
+			is_valid = {
+				wh_bret_capable_confidence = yes
+			}
+			current_description = choose_confidence_desc
+			localization = choose_confidence_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_confidence.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Discipline
+		item = {
+			value = choose_discipline
+			is_valid = {
+				wh_bret_capable_discipline = yes
+			}
+			current_description = choose_discipline_desc
+			localization = choose_discipline_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_discipline.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Duty
+		item = {
+			value = choose_duty
+			is_valid = {
+				wh_bret_capable_duty = yes
+			}
+			current_description = choose_duty_desc
+			localization = choose_duty_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_duty.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+
+		### Virtue of Empathy
+		item = {
+			value = choose_empathy
+			is_valid = {
+				wh_bret_capable_empathy = yes
+			}
+			current_description = choose_empathy_desc
+			localization = choose_empathy_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_empathy.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Heroism
+		item = {
+			value = choose_heroism
+			is_valid = {
+				wh_bret_capable_heroism = yes
+
+			}
+			current_description = choose_heroism_desc
+			localization = choose_heroism_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_heroism.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Knightly Temper
+		item = {
+			value = choose_temper
+			is_valid = {
+				wh_bret_capable_temper = yes
+			}
+			current_description = choose_temper_desc
+			localization = choose_temper_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_temper.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Noble Disdain
+		item = {
+			value = choose_disdain
+			is_valid = {
+				wh_bret_capable_disdain = yes
+			}
+			current_description = choose_disdain_desc
+			localization = choose_disdain_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_disdain.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Purity
+		item = {
+			value = choose_purity
+			is_valid = {
+				wh_bret_capable_purity = yes
+			}
+			current_description = choose_purity_desc
+			localization = choose_purity_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_purity.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Stoicism
+		item = {
+			value = choose_stoicism
+			is_valid = {
+				wh_bret_capable_stoicism = yes
+			}
+			current_description = choose_stoicism_desc
+			localization = choose_stoicism_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_stoicism.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of the Ideal
+		item = {
+			value = choose_ideal
+			is_valid = {
+				wh_bret_capable_ideal = yes
+			}
+			current_description = choose_ideal_desc
+			localization = choose_ideal_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_ideal.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of the Impetuous Knight
+		item = {
+			value = choose_impetuous
+			is_valid = {
+				wh_bret_capable_impetuous = yes
+			}
+			current_description = choose_impetuous_desc
+			localization = choose_impetuous_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_impetuous.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of the Joust
+		item = {
+			value = choose_joust
+			is_valid = {
+				wh_bret_capable_joust = yes
+			}
+			current_description = choose_joust_desc
+			localization = choose_joust_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_joust.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of the Penitent
+		item = {
+			value = choose_penitent
+			is_valid = {
+				wh_bret_capable_penitent = yes
+			}
+			current_description = choose_penitent_desc
+			localization = choose_penitent_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_penitent.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Crusade
+		item = {
+			value = choose_crusade
+			is_valid = {
+				wh_bret_capable_crusade = yes
+			}
+			current_description = choose_crusade_desc
+			localization = choose_crusade_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_crusade.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of Exploration
+		item = {
+			value = choose_exploration
+			is_valid = {
+				wh_bret_capable_exploration = yes
+			}
+			current_description = choose_exploration_desc
+			localization = choose_exploration_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_exploration.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+		### Virtue of the Grail
+		item = {
+			value = choose_grail
+			is_valid = {
+				wh_bret_capable_grail_fallback = yes
+			}
+			current_description = choose_grail_desc
+			localization = choose_grail_name
+			icon = "gfx/interface/icons/traits/knightly_virtue_grail.dds"
+			ai_chance = {
+				value = 0
+			}
+		}
+	}
+
+	effect = {
+		if = {
+			limit = { scope:choose_audacity = yes }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_audacity }
+			hidden_effect = {
+				add_trait = knightly_virtue_audacity
+			}
+		}
+		else_if = {
+			limit = { scope:choose_confidence = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_confidence }
+			hidden_effect = {
+				add_trait = knightly_virtue_confidence
+			}
+		}
+		else_if = {
+			limit = { scope:choose_discipline = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_discipline }
+			hidden_effect = {
+				add_trait = knightly_virtue_discipline
+			}
+		}
+		else_if = {
+			limit = { scope:choose_duty = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_duty }
+			hidden_effect = {
+				add_trait = knightly_virtue_duty
+			}
+		}
+		else_if = {
+			limit = { scope:choose_empathy = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_empathy }
+			hidden_effect = {
+				add_trait = knightly_virtue_empathy
+			}
+		}
+		else_if = {
+			limit = { scope:choose_heroism = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_heroism }
+			hidden_effect = {
+				add_trait = knightly_virtue_heroism
+			}
+		}
+		else_if = {
+			limit = { scope:choose_temper = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_temper }
+			hidden_effect = {
+				add_trait = knightly_virtue_temper
+			}
+		}
+		else_if = {
+			limit = { scope:choose_disdain = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_disdain }
+			hidden_effect = {
+				add_trait = knightly_virtue_disdain
+			}
+		}
+		else_if = {
+			limit = { scope:choose_purity = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_purity }
+			hidden_effect = {
+				add_trait = knightly_virtue_purity
+			}
+		}
+		else_if = {
+			limit = { scope:choose_stoicism = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_stoicism }
+			hidden_effect = {
+				add_trait = knightly_virtue_stoicism
+			}
+		}
+		else_if = {
+			limit = { scope:choose_ideal = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_ideal }
+			hidden_effect = {
+				add_trait = knightly_virtue_ideal
+			}
+		}
+		else_if = {
+			limit = { scope:choose_impetuous = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_impetuous }
+			hidden_effect = {
+				add_trait = knightly_virtue_impetuous
+			}
+		}
+		else_if = {
+			limit = { scope:choose_joust = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_joust }
+			hidden_effect = {
+				add_trait = knightly_virtue_joust
+			}
+		}
+		else_if = {
+			limit = { scope:choose_penitent = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_penitent }
+			hidden_effect = {
+				add_trait = knightly_virtue_penitent
+			}
+		}
+		else_if = {
+			limit = { scope:choose_crusade = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_crusade }
+			hidden_effect = {
+				add_trait = knightly_virtue_crusade
+			}
+		}
+		else_if = {
+			limit = { scope:choose_exploration = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_exploration }
+			hidden_effect = {
+				add_trait = knightly_virtue_exploration
+			}
+		}
+		else_if = {
+			limit = { scope:choose_grail = yes  }
+			
+			show_as_tooltip = { add_trait = knightly_virtue_grail }
+			hidden_effect = {
+				add_trait = knightly_virtue_grail
+			}
+		}
+	}
+	
+	cost = {
+		piety = {
+			value = major_piety_value
+		}
+	}
+	
+	ai_potential = {
+		highest_held_title_tier >= tier_county
+		is_landed = yes
+	}
+
+	ai_will_do = {
+		base = 20
+		
+		modifier = {
+			add = {
+				value = ai_zeal
+				multiply = 0.5
+			}
+		}
+		
+		modifier = {
+			add = -20
+			has_trait = cynical
+		}
+		
+		modifier = {
+			add = 20
+			has_trait = zealous
+		}
+	}
+}
+
+repanse_dynasty_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_repanse.dds"
+	}
+
+	desc = repanse_dynasty_decision_desc
+	selection_tooltip = repanse_dynasty_decision_tooltip
+	decision_group_type = major
+	ai_check_interval = 60
+
+	is_shown = {
+		this = character:lyonesse_104
+		
+	}
+
+	is_valid = {
+		completely_controls = title:k_lyonesse
+		piety_level >= 4
+		prestige_level >= 4
+		has_usable_hook = title:k_cult_of_the_lady.holder
+	}
+
+
+	effect = {
+		trigger_event = wh_bretonnia_decision_events.0100
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 10
+	}
+}
+
+king_louis_respect_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_louis.dds"
+	} 
+	decision_group_type = major
+	is_shown = {
+		this = character:dame_100
+		age < 30
+		is_ruler = yes
+	}
+	
+	desc = "wh_decision_gain_respect_desc"
+	ai_will_do = {
+		base = 10 
+	}
+	ai_check_interval = 60
+
+	is_valid = {
+		has_character_flag = had_warhorse_story # we check if he ever had a horse, we could also check for all possible horse modifiers
+		# won a tournament
+		# hunted beast
+	}
+
+	
+	effect = {
+		trigger_event = wh_bretonnia_decision_events.0010
+	}
+
+	
+}
+
+lambert_good_boy_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_good_boy.dds"
+	}
+	is_shown = {
+		this = character:savaric_101
+		is_ruler = yes
+	}
+
+	decision_group_type = major
+	
+	desc = lambert_good_boy_decision_desc
+	ai_will_do = {
+		base = 10
+	}
+	ai_check_interval = 60
+
+	is_valid = {
+		has_trait = lifestyle_poet
+		exists = player_heir
+		player_heir = {
+			is_adult = yes
+			is_male = yes
+		}
+		and = {
+			exists = dynasty
+			dynasty =  {
+				any_dynasty_member = {
+					count >= 30
+				}
+			}
+		}
+	
+		any_character_artifact = {
+			artifact_type = book
+		}
+		has_named_cat_or_dog_trigger = yes
+	}
+	
+	effect = {
+		trigger_event = wh_bretonnia_decision_events.0020
+	}
+	
+}

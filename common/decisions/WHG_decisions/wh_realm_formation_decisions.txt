@@ -1,0 +1,128 @@
+﻿assert_sartosan_independence_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	}
+	decision_group_type = major
+	ai_check_interval = 60
+	desc = assert_sartosan_independence_decision_desc
+	selection_tooltip = assert_sartosan_independence_decision_tooltip
+
+	is_shown = {
+		is_landed = yes # Redundancy check
+		# Not relevant for characters who are already kings.
+		highest_held_title_tier <= tier_duchy
+		# Cast a broad net for folks who might like to try this.
+		capital_province = { geographical_region = custom_form_sartosa_region }
+		OR = { #Gotta be a pirate or Sartosan of some sort
+			culture = {
+				OR = {
+					has_pillar = heritage_sartosan
+					has_cultural_tradition = tradition_practiced_pirates
+				}
+			}
+			faith = {
+				has_doctrine = tenet_piracy
+			}
+		}
+		#Can't have happened already.
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_kingdom_of_sartosa
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		completely_controls = title:d_sartosa
+		prestige_level >= high_prestige_level
+	}
+
+	effect = {
+		# Grab scopes for loc.
+		save_scope_as = founder
+		culture:aragonese = { save_scope_as = aragonese_culture }
+		title:k_sartosa = { save_scope_as = k_sartosa }
+		title:d_sartosa = { save_scope_as = d_sartosa }
+		title:d_nacary_isles = { save_scope_as = d_nacary_isles }
+		title:d_metla = { save_scope_as = d_metla }
+		title:d_siren_isles = { save_scope_as = d_siren_isles }
+		# Create kingdom title.
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+		}
+		title:k_sartosa = {
+			change_title_holder = {
+				holder = scope:founder
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		# Gain some prestige.
+		add_prestige = major_prestige_gain
+		# De jure shifts.
+		## Take care of the preferred empire.
+		if = {
+			limit = { NOT = { title:k_sartosa.empire = title:d_sartosa.empire } }
+			title:k_sartosa = { set_de_jure_liege_title = title:d_sartosa.empire }
+		}
+		## The island itself drifts over
+		title:d_sartosa = { set_de_jure_liege_title = title:k_sartosa }
+		## Various Piratical duchies can be drifted over, after all they are basically already Sartosan!
+		### From Estalia.
+		if = {
+			limit = { completely_controls = title:d_nacary_isles }
+			title:d_nacary_isles = { set_de_jure_liege_title = title:k_sartosa }
+			title:d_santa_clair = { set_de_jure_liege_title = title:k_astarios } #Calafina is basically defunct if Nacary joins Sartosa so might as well just merge the singular island into Astarios, good for Astarios at least.
+		}
+		else = { custom_tooltip = assert_sartosan_independence_decision.tt.drift.d_nacary_isles }
+		### From North Araby.
+		if = {
+			limit = { completely_controls = title:d_metla }
+			title:d_metla = { set_de_jure_liege_title = title:k_sartosa }
+		}
+		else = { custom_tooltip = assert_sartosan_independence_decision.tt.drift.d_metla }
+		### From Tilea.
+		if = {
+			limit = { completely_controls = title:d_siren_isles }
+			title:d_siren_isles = { set_de_jure_liege_title = title:k_sartosa }
+		}
+		else = { custom_tooltip = assert_sartosan_independence_decision.tt.drift.d_siren_isles }
+		# Once per game.
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_formed_kingdom_of_sartosa
+		}
+		# Note this for books and such.
+		set_global_variable = {
+			name = flag_formed_kingdom_of_sartosa
+			value = scope:founder
+		}
+		house = {
+			add_house_modifier = {
+				modifier = wh_prince_of_sartosa #Better Raiding
+				years = 100
+			}
+		}
+	}
+
+	cost = {
+		gold = {
+			# Since we want this to happen, it free for the AI...
+			value = 0
+			# ... but costs for players.
+			if = {
+				limit = { is_ai = no }
+				add = 500 #For bribes to stay off their land
+			}
+		}
+	}
+
+	ai_potential = {
+		any_held_title = { this = title:d_sartosa }
+	}
+
+	ai_will_do = { base = 100 }
+}

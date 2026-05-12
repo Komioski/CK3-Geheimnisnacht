@@ -1,0 +1,142 @@
+﻿
+# Hegemony Ending #
+
+struggle_imperial_ending_hegemony_decision = {
+	major = yes
+	title = struggle_imperial_ending_hegemony_decision
+	picture = {
+		reference ="gfx/interface/illustrations/decisions/imperial_decision_struggle_hostility.dds"
+	}
+	extra_picture = {
+		reference ="gfx/interface/illustrations/struggle_decisions_buttons/imperial_decision_hostility.dds"
+	}
+	desc = struggle_imperial_ending_hegemony_decision_desc
+	selection_tooltip = struggle_imperial_ending_hegemony_decision_tooltip
+	confirm_click_sound = "event:/DLC/imperial/SFX/UI/imperial_struggle_ending_decision_confirm"
+	is_invisible = yes
+	sort_order = 80
+
+	is_shown = {
+		has_imperial_dlc_trigger = yes
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+
+		custom_tooltip = {
+			text = struggle_imperial_ending_hostility_decision_correct_phase_tt
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = imperial_struggle
+				is_struggle_phase = struggle_imperial_phase_hostility
+			}
+		}
+
+		custom_tooltip = {
+			text = struggle_ending_decision_correct_involvement_tt
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = imperial_struggle
+			}
+		}
+
+		# Hold and completely control most of the de jure empire
+		calc_true_if = {
+			amount >= 7
+			completely_controls = title:k_reikland
+			completely_controls = title:k_averland
+			completely_controls = title:k_hochland
+			completely_controls = title:k_middenland
+			completely_controls = title:k_mootland
+			completely_controls = title:k_nordland
+			completely_controls = title:k_ostermark
+			completely_controls = title:k_ostland
+			completely_controls = title:k_stirland
+			completely_controls = title:k_sylvania
+			completely_controls = title:k_talabecland
+			completely_controls = title:k_westerland
+			completely_controls = title:k_wissenland
+			completely_controls = title:k_solland
+			completely_controls = title:k_drakwald
+			completely_controls = title:k_lichtenberg
+			completely_controls = title:k_west_mark
+		}
+
+		# No other realm controls more than 20% of the imperial region
+		custom_tooltip = {
+			text = struggle_imperial_ending_hostility_decision_region_tt
+			NOT = {
+				struggle:imperial_struggle = {
+					any_involved_ruler = {
+						NOT = { this = root }
+						is_independent_ruler = yes
+						exists = primary_title
+						primary_title = { is_mercenary_company = no }
+						save_temporary_scope_as = imperial_realm
+						any_county_in_region = {
+							region = world_old_world_empire
+							percent > imperial_struggle_hostility_region_percent_decimal_value
+							holder.top_liege = scope:imperial_realm
+						}
+					}
+				}
+			}
+		}
+
+		# Completely control at least 3 of the important imperial duchies
+		calc_true_if = {
+			amount >= 3
+			completely_controls = title:d_altdorf
+			completely_controls = title:d_middenheim
+			completely_controls = title:d_talabheim
+			completely_controls = title:d_marienburg
+			completely_controls = title:d_nuln
+			completely_controls = title:d_carroburg
+		}
+	}
+
+	effect = {
+		##### Major Effects #####
+		show_as_tooltip = {
+			dynasty = { add_dynasty_prestige = 10000 }
+			imperial_struggle_hostility_ender_effect = yes
+		}
+		# Hispania is available!
+		custom_tooltip = imperial_struggle_can_create_empire_of_hispania_tt
+		custom_description_no_bullet = { text = imperial_struggle_house_tt }
+		# Keep the Struggle Clash for your House
+		custom_tooltip = imperial_struggle_can_keep_using_struggle_clash_tt
+		# Boost to culture and faith conversion
+		custom_tooltip = imperial_struggle_hostility_conversion_tt
+		# Damage opinion with other culture/faiths
+		custom_tooltip = imperial_struggle_hostility_opinion_tt
+		custom_tooltip = imperial_struggle_hostility_opinion_negative_tt
+		# Choose Holy War boost, Culture War boost, or both
+		custom_description_no_bullet = { text = imperial_struggle_hostility_list_tt }
+		#custom_tooltip = imperial_struggle_hostility_holy_cb_joint_tt
+		#custom_tooltip = imperial_struggle_hostility_culture_cb_tt
+
+
+
+		show_as_tooltip = {
+			stress_impact = {
+				humble = medium_stress_impact_gain
+				cynical = medium_stress_impact_gain
+			}
+		}
+
+		# Trigger a player facing event as a coda
+		trigger_event = imperial_struggle.0900
+	}
+
+	cost = {}
+
+	ai_check_interval = 120
+
+	ai_potential = { always = yes }
+
+	ai_will_do = { base = 100 }
+}
+
+# Compromise/ Ending	
+
