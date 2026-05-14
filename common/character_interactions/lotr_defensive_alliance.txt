@@ -1,0 +1,761 @@
+﻿# Purchase resource from another character
+establish_defensive_alliance_interaction = {
+	category = interaction_category_diplomacy
+	ai_min_reply_days = 4
+	ai_max_reply_days = 9
+	icon = alliance
+
+	send_name = establish_defensive_alliance_interaction
+
+	interface_priority = 60
+	desc = establish_defensive_alliance_interaction_desc
+
+	greeting = positive
+	notification_text = NEGOTIATE_ALLIANCE_NOTIFICATION
+
+	answer_accept_key = SEND_GIFT_ACCEPT
+	answer_reject_key = SEND_GIFT_REJECT
+
+	is_shown = {
+		scope:actor = { 
+			is_independent_ruler = yes
+			is_wastelands = no
+			is_sauron = no
+			is_nazgul = no
+			has_perk = defensive_negotiations_perk
+			has_defensive_alliance = no
+			is_in_valinor = no
+			top_overlord != scope:recipient
+		}
+		scope:recipient = {
+			is_independent_ruler = yes
+			is_sauron = no
+			is_nazgul = no
+			scope:recipient != scope:actor
+			is_in_valinor = no
+		}
+		trigger_if = {
+			limit = { #Allow lore-breaking alliances between players
+				OR = {
+					scope:actor = { is_ai = yes } 
+					scope:recipient = { is_ai = yes } 
+				}
+			}
+			scope:actor = { lotr_tolerance_trigger = { CHARACTER = scope:recipient } } #Basic racial and alignment compatibility
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			is_independent_ruler = yes
+			NOT = { is_allied_to = scope:recipient }
+			is_confederation_member = no
+			is_landed = yes
+			is_imprisoned = no
+			NOT = { is_at_war_with = scope:recipient }
+			highest_held_title_tier < tier_hegemony
+			custom_tooltip = {
+				text = establish_defensive_alliance_interaction_tier_difference_tt
+				tier_difference = {
+					target = scope:recipient
+					value <= 1
+				}
+			}
+		}
+		scope:recipient = {
+			is_independent_ruler = yes
+			is_landed = yes
+			is_imprisoned = no
+			is_confederation_member = no
+			NOT = { is_vassal_or_below_of = scope:actor }
+			NOT = { is_tributary_of_suzerain_or_above = scope:actor }
+			custom_tooltip = {
+				text = recipient_already_has_defensive_ally
+				has_defensive_alliance = no
+			}
+		}
+		trigger_if = {
+			limit = { exists = scope:recipient.suzerain }
+			custom_tooltip = {
+				text = lotr_defensive_ally_my_tributary
+				NOT = { scope:recipient.suzerain = scope:actor }
+			}
+		}
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+		}
+	}
+
+	#Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = GENERIC_SPEND_A_HOOK
+	}
+
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+
+	on_accept = {
+		scope:actor = {
+			lotr_create_defensive_alliance = {
+				DEFENSIVE_ALLY = scope:recipient
+				LOC_KEY = two_realm_name
+			}
+
+			trigger_event = lotr_interaction_events.0001
+
+			stress_impact = {
+				shy = minor_stress_impact_gain
+			}
+
+			if = {
+				limit = {
+					has_hook = scope:recipient
+				}
+				use_hook = scope:recipient
+			}
+		}
+
+		scope:recipient = {
+			custom_tooltip = negotiate_defensive_alliance_effect_recipient_tooltip
+		}
+
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_gain
+			DESC = clan_unity_alliance.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
+	}
+
+	on_decline = {
+		scope:actor = {
+			trigger_event = char_interaction.0236
+		}
+		scope:actor = {
+			add_opinion = {
+				modifier = refused_alliance_opinion
+				target = scope:recipient
+			}
+		}
+
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_loss
+			DESC = clan_unity_alliance_refusal.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
+	}
+
+	ai_accept = {
+		base = 0
+		modifier = {
+			add = 20
+			scope:recipient = {
+				is_close_family_of = scope:actor
+			}
+			desc = CLOSE_FAMILY_REASON
+		}
+		
+		modifier = {
+			add = -2000
+			scope:recipient = { opposite_alignment = { TARGET = scope:actor } }
+		}
+
+		modifier = {
+			add = 10
+			scope:recipient = {
+				NOT = { is_close_family_of = scope:actor }
+				is_extended_family_of = scope:actor
+			}
+			desc = EXTENDED_FAMILY_REASON
+		}
+
+		modifier = {
+			add = -20
+			scope:recipient = {
+				NOT = { is_close_or_extended_family_of = scope:actor }
+				any_spouse = {
+					NOT = { is_close_family_of = scope:actor }
+					is_extended_family_of = scope:actor
+				}
+			}
+			desc = DISTANT_FAMILY_CONNECTION_REASON
+		}
+
+		modifier = {
+			add = -1000
+			trigger_if = {
+				scope:actor = {
+					has_culture = culture:wastelands
+				}
+			}
+		}
+
+		modifier = {
+			add = -1000
+			trigger_if = {
+				scope:recipient = {
+					has_culture = culture:wastelands
+				}
+			}
+		}
+
+		# Tier Differences
+		modifier = {
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value >= 1
+				}
+			}
+			add = {
+				value = 30
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:recipient
+							value = 2
+						}
+					}
+					add = 30
+				}
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:recipient
+							value = 3
+						}
+					}
+					add = 60
+				}
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:recipient
+							value = 4
+						}
+					}
+					add = 90
+				}
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:recipient
+							value = 5
+						}
+					}
+					add = 120
+				}
+			}
+			desc = RANK_DIFFERENCE_REASON
+		}
+		modifier = {
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value <= -1
+				}
+			}
+			add = {
+				value = -30
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:recipient
+							value = -2
+						}
+					}
+					add = -30
+				}
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:recipient
+							value = -3
+						}
+					}
+					add = -60
+				}
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:recipient
+							value = -4
+						}
+					}
+					add = -90
+				}
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:recipient
+							value = -5
+						}
+					}
+					add = -120
+				}
+			}
+			desc = RANK_DIFFERENCE_REASON
+		}
+
+		modifier = {
+			scope:recipient = {
+				is_heir_of = scope:actor
+			}
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value > 0
+				}
+			}
+			add = {
+				value = 10
+				if = {
+					limit = {
+						scope:actor = { player_heir = scope:recipient }
+					}
+					add = 10
+				}
+			}
+			desc = IS_HEIR_REASON
+		}
+		opinion_modifier = { # More likely to accept if Recipient likes the Actor
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 1
+			desc = AI_OPINION_REASON
+		}
+
+		modifier = {
+			add = 20
+			scope:recipient = {
+				has_trait = trusting
+			}
+			desc = INTERACTION_TRUSTING
+		}
+
+		modifier = {
+			add = 5
+			scope:recipient = {
+				has_trait = craven
+			}
+			desc = INTERACTION_CRAVEN
+		}
+
+		modifier = {
+			add = -20
+			scope:recipient = {
+				has_trait = paranoid
+			}
+			desc = INTERACTION_PARANOID
+		}
+
+		modifier = {
+			add = -20
+			scope:recipient = {
+				has_trait = arrogant
+			}
+			desc = INTERACTION_ARROGANT
+		}
+
+		modifier = {
+			add = -20
+			scope:recipient = {
+				has_trait = ambitious
+			}
+			desc = INTERACTION_AMBITIOUS
+		}
+
+		modifier = {
+			add = -40
+			scope:recipient = {
+				has_trait = disloyal
+			}
+			desc = INTERACTION_DISLOYAL
+		}
+
+		modifier = {
+			add = -10
+			scope:recipient = {
+				has_trait = fickle
+			}
+			desc = INTERACTION_FICKLE
+		}
+
+		# Rivalry
+		modifier = { # Say no to rivals
+			add = -100
+			scope:recipient = {
+				has_relation_rival = scope:actor
+				NOT = { has_relation_nemesis = scope:actor }
+			}
+			desc = "ACTOR_RIVAL_TO_ME_REASON"
+		}
+		modifier = { # Say no to nemesis
+			add = -300
+			scope:recipient = {
+				has_relation_nemesis = scope:actor
+			}
+			desc = "ACTOR_NEMESIS_TO_ME_REASON"
+		}
+
+		# Dynasty Prestige Levels
+		modifier = {
+			add = -5
+			desc = AI_DYNASTY_PRESTIGE_REASON
+			scope:actor = { has_dynasty = yes }
+			NOT = { scope:actor.dynasty = scope:recipient.dynasty }
+			scope:actor.dynasty = { dynasty_prestige_level = 0 }
+		}
+		modifier = {
+			desc = AI_DYNASTY_PRESTIGE_REASON
+			scope:actor = { has_dynasty = yes }
+			NOT = { scope:actor.dynasty = scope:recipient.dynasty }
+			scope:actor.dynasty = { dynasty_prestige_level >= 2 }
+			add = {
+				value = 10
+				if = {
+					limit = {
+						scope:actor.dynasty = { dynasty_prestige_level >= 3 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor.dynasty = { dynasty_prestige_level >= 4 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor.dynasty = { dynasty_prestige_level >= 5 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor.dynasty = { dynasty_prestige_level >= 6 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor.dynasty = { dynasty_prestige_level >= 7 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor.dynasty = { dynasty_prestige_level >= 8 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor.dynasty = { dynasty_prestige_level >= 9 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor.dynasty = { dynasty_prestige_level >= 10 }
+					}
+					add = 5
+				}
+			}
+		}
+		modifier = { #Faith compatibility
+			scope:recipient.faith = {
+				faith_hostility_level = {
+					target = scope:actor.faith
+					value > faith_fully_accepted_level
+				}
+			}
+			NOT = {
+				scope:recipient.ai_zeal <= -50
+			}
+			add = {
+				value = -20
+				if = {
+					limit = {
+						# Exempt certain struggle phases.
+						NOT = { is_struggle_parameter_active_interfaith_marriages_available_between_involved_characters_trigger = yes }
+					}
+					if = {
+						limit = {
+							scope:recipient.faith = {
+								faith_hostility_level = {
+									target = scope:actor.faith
+									value >= faith_astray_level
+								}
+							}
+						}
+						subtract = 20
+					}
+					if = {
+						limit = {
+							scope:recipient.faith = {
+								faith_hostility_level = {
+									target = scope:actor.faith
+									value >= faith_hostile_level
+								}
+							}
+						}
+						subtract = 40
+					}
+					if = {
+						limit = {
+							scope:recipient.faith = {
+								faith_hostility_level = {
+									target = scope:actor.faith
+									value >= faith_evil_level
+								}
+							}
+						}
+						subtract = 980 #LotR: increased value
+					}
+					if = {
+						limit = {
+							scope:recipient.ai_zeal <= -25
+						}
+						divide = 2
+					}
+				}
+			}
+			desc = MARRY_DIFFERENT_FAITH_REASON
+		}
+
+		modifier = {
+			add = {
+				value = 1
+				subtract = {
+					value = scope:recipient.max_military_strength # For foreign diplomacy, consider recipients max
+					divide = { value = scope:actor.current_military_strength min = 1 }
+				}
+				multiply = 20
+				min = -1000
+				max = 1000
+			}
+			desc = AI_MILITARY_BALANCE_REASON
+		}
+
+		# Don't form new alliances with people already at war.
+		modifier = {
+			scope:actor = {
+				is_at_war = yes
+
+				# Since vassals and lieges can't call us into wars, this doesn't matter for us if we have that relationship.
+				NOR = {
+					target_is_liege_or_above = scope:recipient
+					target_is_vassal_or_below = scope:recipient
+				}
+			}
+			add = -50
+			desc = IS_AT_WAR_REASON
+		}
+
+		#Bonus from Tradition Astute Diplomats
+		modifier = {
+			scope:actor.culture = { has_cultural_parameter = facilitate_alliance_acceptance }
+			add = 50 #should be in a file 00_traditions_values
+			desc = TRADITION_ASTUTE_DIPLOMATS_ACCEPTANCE_MODIFIER
+		}
+
+		# The AI doesn't want to form alliances with AI vassals within its capital duchy, so it can revoke them
+		modifier = {
+			scope:actor = {
+				is_ai = yes
+				is_vassal_or_below_of = scope:recipient
+				any_held_title = {
+					tier = tier_county
+					de_jure_liege = scope:actor.primary_title.title_capital_county.de_jure_liege
+				}
+			}
+			scope:recipient = {
+				is_ai = yes
+			}
+			add = -5000
+		}
+
+		# Feud
+		modifier = {
+			add = -25
+			scope:recipient = {
+				house_has_feud_relation_with_trigger = { TARGET = scope:actor }
+			}
+			desc = MARRY_FAMILY_FEUD_REASON
+		}
+
+		modifier = {
+			add = intimidated_reason_value
+			scope:recipient = {
+				target_is_liege_or_above = scope:actor
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 1
+				}
+			}
+			desc = INTIMIDATED_REASON
+		}
+		modifier = {
+			add = cowed_reason_value
+			scope:recipient = {
+				target_is_liege_or_above = scope:actor
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 2
+				}
+			}
+			desc = COWED_REASON
+		}
+
+		modifier = {
+			add = intimidated_external_reason_value
+			scope:recipient = {
+				NOT = { target_is_liege_or_above = scope:actor }
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 1
+				}
+			}
+			desc = INTIMIDATED_REASON
+		}
+		modifier = {
+			add = cowed_external_reason_value
+			scope:recipient = {
+				NOT = { target_is_liege_or_above = scope:actor }
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 2
+				}
+			}
+			desc = COWED_REASON
+		}
+
+		# Unity modifiers
+		evaluate_action_increasing_house_unity = {
+			VALUE = 100
+		}
+
+		fp3_struggle_resist_allied_wars_modifier = yes
+		
+		#LotR - Elves won't ally other races in LotE difficulty setting
+		modifier = {
+			desc = DIFFERENT_RACE_REASON
+			trigger_if = { 
+				scope:recipient = { is_elf = yes }
+				OR = {
+					has_game_rule = very_strong_sauron_strength
+					has_game_rule = apocalyptic_sauron_strength
+				}
+			}
+			scope:actor = { NOT = { is_elf = yes } }
+			add = -500
+		}
+		
+		#LotR - AI won't ally characters it does't tolerate
+		modifier = {
+			scope:actor = { 
+				NOT = { lotr_tolerance_trigger = { CHARACTER = scope:recipient } }
+				is_ai = yes
+			}
+			add = -5000
+		}
+	}
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_targets = {
+		ai_recipients = dynasty
+		max = 20
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		max = 5
+	}
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 72
+		duchy = 72
+		kingdom = 72
+		empire = 72
+		hegemony = 0
+	}
+
+	ai_min_reply_days = 1
+	ai_max_reply_days = 1
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 100
+			scope:recipient = { # Don't propose alliances to tiny insignificant rulers just because
+				OR = {
+					current_military_strength >= scope:actor.eighty_percent_of_current_military_strength
+					primary_title.tier >= scope:actor.primary_title.tier
+				}
+			}
+		}
+
+		# Unity modifiers
+		evaluate_action_increasing_house_unity = {
+			VALUE = 100
+		}
+
+		modifier = { # The AI shouldn't propose to their Lieges
+			factor = 0
+			is_liege_or_above_of = scope:recipient
+		}
+
+		modifier = { # The AI shouldn't propose to their Vassals unless Clan
+			factor = 0
+			scope:actor = {
+				NOT = { government_has_flag = government_is_clan }
+			}
+			scope:recipient = {
+				is_vassal_of = scope:actor
+			}
+		}
+		
+		#LotR - Elves won't ally other races in LotE difficulty setting
+		modifier = {
+			desc = DIFFERENT_RACE_REASON
+			trigger_if = { 
+				scope:actor = { is_elf = yes }
+				OR = {
+					has_game_rule = very_strong_sauron_strength
+					has_game_rule = apocalyptic_sauron_strength
+				}
+			}
+			scope:recipient = { NOT = { is_elf = yes } }
+			add = -500
+		}
+
+		modifier = {
+			add = -2000
+			scope:recipient = { opposite_alignment = { TARGET = scope:actor } }
+		}
+	}
+}

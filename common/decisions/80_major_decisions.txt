@@ -1,57 +1,61 @@
-﻿
-##################################################
-# GOVERNMENT DECISIONS
+﻿# LotR: removed real world references.
 
-##################################################
-# Convert to Feudalism
-# by Mathilda Bjarnehed
-##################################################
+#convert_whole_realm_to_feudalism_decision
+#decision_declare_bloodline_holy
+#decision_strenghten_bloodline
+#decision_dynasty_of_many_crowns
+#decision_accept_cannibalism
+#decision_found_university
+#decision_lunatic_building
+#decision_found_witch_coven
+#decision_found_kingdom
+#decision_found_empire
+#repay_loan_decision
+#adopt_special_succession_decision
+#escape_from_prison_decision
 
-# Deprecated decision of yore.
-#convert_to_feudalism_decision = {
-	#picture = {
-		#reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-	#}
-	#decision_group_type = major
-	#desc = convert_to_feudalism_decision_desc
-	#
-	#ai_check_interval = 36
-	#
-	#is_shown = {
-		#government_has_flag = government_is_tribal
-	#}
-	#
-	#is_valid = {
-		#has_realm_law = tribal_authority_3
-		#custom_description = {
-			#text = faith_is_reformed
-			#subject = root
-			#faith = { NOT = { has_doctrine_parameter = unreformed } }
-		#}
-		#prestige_level = 5
-	#}
-	#
-	#cost = {
-		#prestige = 150
-	#}
-	#
-	#effect = {
-		#change_government = feudal_government
-		#trigger_event = major_decisions.0001
-		#add_realm_law_skip_effects = crown_authority_0
-	#}
-	#
-	#ai_potential = {
-		##always = yes
-	#}
-	#
-	#ai_will_do = {
-		#base = 100
-		#modifier = { #Go for the more lenient decision if this is the case
-			#add = -100
-			#liege = { government_has_flag = government_is_feudal }
-		#}
-	#}
+#convert_to_feudalism_decision = { #by Mathilda Bjarnehed
+#	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+#	
+#	desc = convert_to_feudalism_decision_desc
+#	
+#	ai_check_interval = 36
+#	
+#	is_shown = {
+#		government_has_flag = government_is_tribal
+#	}
+#	
+#	is_valid = {
+#		has_realm_law = tribal_authority_3
+#		custom_description = {
+#			text = faith_is_reformed
+#			subject = root
+#			faith = { NOT = { has_doctrine_parameter = unreformed } }
+#		}
+#		prestige_level = 5
+#	}
+#	
+#	cost = {
+#		prestige = 150
+#	}
+#	
+#	effect = {
+#		change_government = feudal_government
+#		trigger_event = major_decisions.0001
+#		add_realm_law_skip_effects = crown_authority_0
+#	}
+#	
+#	ai_potential = {
+#		#always = yes
+#	}
+#	
+#	ai_will_do = {
+#		base = 100
+#		modifier = { #Go for the more lenient decision if this is the case
+#			add = -100
+#			liege = { government_has_flag = government_is_feudal }
+#		}
+#	}
 #}
 
 ##################################################
@@ -62,15 +66,15 @@
 # A more lenient decision to convert if your liege is feudal
 ### Adopt [ROOT.Char.GetLiege.GetGovernment.GetNameNoTooltip] Ways through Liege ###
 convert_to_feudalism_liege_converted_decision = {
-#	picture = {
-#		trigger = {
-#			has_tgp_dlc_trigger = yes
-#			liege = {
-#				culture = { has_cultural_pillar = heritage_japonic }
-#			}
-#		}
-#		reference = "gfx/interface/illustrations/decisions/tgp_dominance.dds"
-#	}
+	#picture = { #LotR
+	#	trigger = {
+	#		has_tgp_dlc_trigger = yes
+	#		liege = {
+	#			culture = { has_cultural_pillar = heritage_japonic }
+	#		}
+	#	}
+	#	reference = "gfx/interface/illustrations/decisions/tgp_dominance.dds"
+	#}
 	picture = {
 		trigger = {
 			liege = {
@@ -98,7 +102,7 @@ convert_to_feudalism_liege_converted_decision = {
 		government_has_flag = government_is_tribal
 		liege = {
 			OR = {
-#				government_has_flag = government_is_japan_feudal
+				government_has_flag = government_is_japan_feudal
 				government_has_flag = government_is_feudal
 				government_has_flag = government_is_clan
 			}
@@ -106,24 +110,38 @@ convert_to_feudalism_liege_converted_decision = {
 	}
 
 	is_valid = {
-		OR = {
-			has_realm_law = tribal_authority_1
-			has_realm_law = tribal_authority_2
-			has_realm_law = tribal_authority_3
-		}
-		custom_description = {
-			text = faith_is_reformed
-			subject = root
-			faith = { NOT = { has_doctrine_parameter = unreformed } }
-		}
-#		trigger_if = {
-#			limit = { government_has_flag = government_is_wanua }
-#			faith = { has_doctrine = doctrine_monotheist }
-#		}
-		custom_description = {
-			text = recent_conversion_to_tribalism
-			NOT = { has_character_flag = just_converted_to_tribalism }
-		}
+		OR = { # LOTR
+			AND = { #LOTR
+				OR = { # Vanilla
+					has_realm_law = tribal_authority_1
+					has_realm_law = tribal_authority_2
+					has_realm_law = tribal_authority_3
+				}
+				custom_description = {
+					text = faith_is_reformed
+					subject = root
+					faith = { NOT = { has_doctrine_parameter = unreformed } }
+				}
+				trigger_if = {
+					limit = { government_has_flag = government_is_wanua }
+					faith = { has_doctrine = doctrine_monotheist }
+				}
+				custom_description = {
+					text = recent_conversion_to_tribalism
+					NOT = { has_character_flag = just_converted_to_tribalism }
+				} # Vanilla
+			} # LOTR
+			trigger_if = {
+				limit = {
+					culture = { has_cultural_parameter = can_always_convert_to_feudal }
+					liege = { government_has_flag = government_is_feudal }
+				}
+				custom_description = { # LOTR
+					text = umbar_feudal_allowed
+					culture = { has_cultural_parameter = can_always_convert_to_feudal }
+				}
+			}
+		} # LOTR
 	}
 
 	is_valid_showing_failures_only = {
@@ -338,6 +356,67 @@ convert_feudalism_to_clan_through_liege_decision = {
 	}
 }
 
+# A more lenient decision to convert if your liege is Elven
+convert_to_feudalism_elven_liege_converted_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	
+	desc = convert_to_feudalism_elven_liege_converted_decision_desc
+
+	ai_check_interval = 36
+
+	is_shown = {
+		government_has_flag = government_is_tribal
+		liege = {
+			government_has_flag = government_is_elven # LotR
+		}
+	}
+
+	is_valid = {
+		OR = {
+			has_realm_law = tribal_authority_1
+			has_realm_law = tribal_authority_2
+			has_realm_law = tribal_authority_3
+		}
+		custom_description = {
+			text = faith_is_reformed
+			subject = root
+			faith = { NOT = { has_doctrine_parameter = unreformed } }
+		}
+		custom_description = {
+			text = recent_conversion_to_tribalism
+			NOT = { has_character_flag = just_converted_to_tribalism }
+		}
+	}
+
+	cost = {
+		prestige = 150
+	}
+
+	effect = {
+		trigger_event = major_decisions.0001
+		save_scope_as = actor
+		convert_whole_realm_to_feudalism_effect = yes
+		hidden_effect = {
+			every_vassal = {
+				trigger_event = {
+					id = major_decisions.0002
+					days = 3
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
 ##################################################
 # Convert Realm to Feudalism/Clan
 # by Linnéa Thimrén
@@ -346,14 +425,14 @@ convert_feudalism_to_clan_through_liege_decision = {
 # A decision to feudalize the entire realm (wow!)
 ### Adopt [ROOT.Char.Custom('GetTribalReformGovernment')|U] Ways ###
 convert_whole_realm_to_feudalism_decision = {
-	#picture = {
-		#trigger = {
-			#has_tgp_dlc_trigger = yes
-			#liege = {
-				#culture = { has_cultural_pillar = heritage_japonic }
-			#}
-		#}
-		#reference = "gfx/interface/illustrations/decisions/tgp_dominance.dds"
+	#picture = { #LotR
+	#	trigger = {
+	#		has_tgp_dlc_trigger = yes
+	#		liege = {
+	#			culture = { has_cultural_pillar = heritage_japonic }
+	#		}
+	#	}
+	#	reference = "gfx/interface/illustrations/decisions/tgp_dominance.dds"
 	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
@@ -371,7 +450,10 @@ convert_whole_realm_to_feudalism_decision = {
 	}
 
 	is_shown = {
-		government_has_flag = government_is_tribal
+		OR = {
+			government_has_flag = government_is_tribal
+			culture = { has_cultural_parameter = can_always_convert_to_feudal } # LOTR
+		}
 		OR = {
 			top_liege = this
 			AND = {
@@ -380,6 +462,7 @@ convert_whole_realm_to_feudalism_decision = {
 					NOR = {
 						government_has_flag = government_is_feudal
 						government_has_flag = government_is_clan
+						government_has_flag = government_is_elven #LotR
 					}
 				}
 			}
@@ -387,46 +470,65 @@ convert_whole_realm_to_feudalism_decision = {
 	}
 
 	is_valid = {
-		has_realm_law = tribal_authority_3
-		custom_description = {
-			text = faith_is_reformed
-			subject = root
-			faith = { NOT = { has_doctrine_parameter = unreformed } }
-		}
-		prestige_level >= 2
-		capital_province.county = {
-			development_level >= convert_to_feudalism_development_requirement
-		}
-		custom_description = { #You need to have 70% of all (non-regional/unique) tribal innovations!
-			text = has_all_tribal_innovations
-			subject = root.culture
-			culture = {
-				calc_true_if = {
-					amount >= 9
-					has_innovation = innovation_motte
-					has_innovation = innovation_catapult
-					has_innovation = innovation_barracks
-					has_innovation = innovation_mustering_grounds
-					has_innovation = innovation_bannus
-					has_innovation = innovation_quilted_armor
-					has_innovation = innovation_gavelkind
-					has_innovation = innovation_crop_rotation
-					has_innovation = innovation_city_planning
-					has_innovation = innovation_casus_belli
-					has_innovation = innovation_plenary_assemblies
-					has_innovation = innovation_ledger
-					has_innovation = innovation_development_01
-					has_innovation = innovation_currency_01
+		OR = { # LOTR
+			AND = { # LOTR
+				has_realm_law = tribal_authority_3 # Vanilla
+				custom_description = {
+					text = faith_is_reformed
+					subject = root
+					faith = { NOT = { has_doctrine_parameter = unreformed } }
 				}
+				prestige_level >= 2
+				capital_province.county = {
+					development_level >= convert_to_feudalism_development_requirement
+				}
+
+				custom_description = { #You need to have 70% of all (non-regional/unique) tribal innovations!
+					text = has_all_tribal_innovations
+					subject = root.culture
+					culture = {
+						calc_true_if = {
+							amount >= 9
+							has_innovation = innovation_motte
+							has_innovation = innovation_catapult
+							has_innovation = innovation_barracks
+							has_innovation = innovation_mustering_grounds
+							has_innovation = innovation_bannus
+							has_innovation = innovation_quilted_armor
+							has_innovation = innovation_gavelkind
+							has_innovation = innovation_crop_rotation
+							has_innovation = innovation_city_planning
+							has_innovation = innovation_casus_belli
+							has_innovation = innovation_plenary_assemblies
+							has_innovation = innovation_ledger
+							has_innovation = innovation_development_01
+							has_innovation = innovation_currency_01
+						}
+					}
+				}
+				# trigger_if = { #LOTR - Powan Wanua can become clan, etc
+				# 	limit = { government_has_flag = government_is_wanua }
+				# 	faith = { has_doctrine = doctrine_monotheist }
+				# } #Vanilla
+			} #LOTR
+			trigger_if = {
+				limit = {
+					culture = { has_cultural_parameter = can_always_convert_to_feudal }
+				}
+				custom_description = { # LOTR
+					text = umbar_feudal_allowed
+					culture = { has_cultural_parameter = can_always_convert_to_feudal }
+				}
+				prestige_level >= 3
 			}
 		}
-		#trigger_if = {
-			#limit = { 
-				#government_has_flag = government_is_wanua
-				#is_ai = yes
-			#}
-			#faith = { has_doctrine = doctrine_monotheist }
-		#}
+		trigger_if = {
+			limit = { 
+				government_has_flag = government_is_wanua
+				is_ai = yes
+			}
+			faith = { has_doctrine = doctrine_monotheist }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -456,14 +558,13 @@ convert_whole_realm_to_feudalism_decision = {
 		}
 	}
 
- #	ai_potential = {
- #		NOT = { mpo_has_gok_mongol_empire_trigger = yes } #Stop the Mongols from slowing their conquest. 
- #	}
+	ai_potential = {
+		NOT = { mpo_has_gok_mongol_empire_trigger = yes } #Stop the Mongols from slowing their conquest. 
+	}
 
 	ai_will_do = {
 		base = 100
 	}
-
 }
 
 ##################################################
@@ -504,6 +605,7 @@ convert_to_tribalism_decision = {
 			government_has_flag = government_is_feudal
 			government_has_flag = government_is_clan
 			government_has_flag = government_is_mandala
+			government_has_flag = government_is_oligarchy #LotR
 		}
 	}
 
@@ -543,107 +645,118 @@ convert_to_tribalism_decision = {
 
 # A decision for West African pagans to feudalise without reforming.
 ### Adopt [ROOT.Char.Custom('GetTribalReformGovernment')|U] Ways: #weak (West African Pagan)#! ###
-#convert_whole_realm_to_feudalism_west_african_pagan_decision = {
-#	picture = {
-#		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-#	}
-#	decision_group_type = major
-#	desc = convert_whole_realm_to_feudalism_west_african_pagan_decision_desc
+convert_whole_realm_to_feudalism_west_african_pagan_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = convert_whole_realm_to_feudalism_west_african_pagan_decision_desc
 
-#	ai_check_interval_by_tier = {
-#		barony = 0
-#		county = 72
-#		duchy = 36
-#		kingdom = 36
-#		empire = 36
-#		hegemony = 36
-#	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 72
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
 
-#	is_shown = {
+	is_shown = {
 		# Only tribals need formalise.
-#		government_has_flag = government_is_tribal
+		government_has_flag = government_is_tribal
 		# Unreformed West African Pagans are our targets.
-#		faith_qualifies_for_west_african_pagan_feudalisation_trigger = yes
-#	}
+		#faith_qualifies_for_west_african_pagan_feudalisation_trigger = yes #LotR
+		always = no #LotR
+	}
 
-#	is_valid = {
+	is_valid = {
 		# Repeat the faith requirements, so that the player knows what's up.
-#		faith_qualifies_for_west_african_pagan_feudalisation_trigger = yes
+		#faith_qualifies_for_west_african_pagan_feudalisation_trigger = yes #LotR
 		# Must have suitable authority.
-#		has_realm_law = tribal_authority_3
+		has_realm_law = tribal_authority_3
 		# Independents only.
-#		top_liege = this
+		top_liege = this
 		# West Africans feudalise from large empires.
-#		calc_true_if = {
-#			amount >= 4
-#			realm_size >= minor_realm_size
-#			highest_held_title_tier >= tier_kingdom
-#			custom_tooltip = {
-#				text = convert_whole_realm_to_feudalism_west_african_pagan_decision.tt.vassal_count
-#				any_vassal = { count >= convert_whole_realm_to_feudalism_west_african_pagan_decision_vassal_count_value }
-#			}
-#			prestige_level >= high_prestige_level
-#			piety_level >= high_piety_level
-#			custom_tooltip = {
-#				text = convert_whole_realm_to_feudalism_west_african_pagan_decision.tt.wa_capital_development
-#				capital_county = {
-#					development_level >= convert_whole_realm_to_feudalism_west_african_pagan_decision_wa_capital_development_value
-#					title_province = { geographical_region = world_africa_west }
-#				}
-#			}
-#		}
+		calc_true_if = {
+			amount >= 4
+			realm_size >= minor_realm_size
+			highest_held_title_tier >= tier_kingdom
+			custom_tooltip = {
+				text = convert_whole_realm_to_feudalism_west_african_pagan_decision.tt.vassal_count
+				any_vassal = { count >= convert_whole_realm_to_feudalism_west_african_pagan_decision_vassal_count_value }
+			}
+			prestige_level >= high_prestige_level
+			piety_level >= high_piety_level
+			custom_tooltip = {
+				text = convert_whole_realm_to_feudalism_west_african_pagan_decision.tt.wa_capital_development
+				capital_county = {
+					development_level >= convert_whole_realm_to_feudalism_west_african_pagan_decision_wa_capital_development_value
+					# title_province = { geographical_region = world_africa_west }
+				}
+			}
+		}
 		# You need to have 70% of all (non-regional/unique) tribal innovations!
-#		custom_description = {
-#			text = has_all_tribal_innovations
-#			subject = root.culture
-#			culture = {
-#				calc_true_if = {
-#					amount >= 9
-#					has_innovation = innovation_motte
-#					has_innovation = innovation_catapult
-#					has_innovation = innovation_barracks
-#					has_innovation = innovation_mustering_grounds
-#					has_innovation = innovation_bannus
-#					has_innovation = innovation_quilted_armor
-#					has_innovation = innovation_gavelkind
-#					has_innovation = innovation_crop_rotation
-#					has_innovation = innovation_city_planning
-#					has_innovation = innovation_casus_belli
-#					has_innovation = innovation_plenary_assemblies
-#					has_innovation = innovation_ledger
-#					has_innovation = innovation_development_01
-#					has_innovation = innovation_currency_01
-#				}
-#			}
-#		}
-#	}
+		custom_description = {
+			text = has_all_tribal_innovations
+			subject = root.culture
+			culture = {
+				calc_true_if = {
+					amount >= 9
+					has_innovation = innovation_motte
+					has_innovation = innovation_catapult
+					has_innovation = innovation_barracks
+					has_innovation = innovation_mustering_grounds
+					has_innovation = innovation_bannus
+					has_innovation = innovation_quilted_armor
+					has_innovation = innovation_gavelkind
+					has_innovation = innovation_crop_rotation
+					has_innovation = innovation_city_planning
+					has_innovation = innovation_casus_belli
+					has_innovation = innovation_plenary_assemblies
+					has_innovation = innovation_ledger
+					has_innovation = innovation_development_01
+					has_innovation = innovation_currency_01
+				}
+			}
+		}
+	}
 
-#	cost = { prestige = 500 }
+	cost = { prestige = 500 }
 
-#	effect = {
-#		trigger_event = major_decisions.0001
-#		save_scope_as = actor
-#		convert_whole_realm_to_feudalism_effect = yes
-#		hidden_effect = {
-#			every_vassal = {
-#				trigger_event = {
-#					id = major_decisions.0002
-#					days = 3
-#				}
-#			}
-#		}
-#	}
+	effect = {
+		trigger_event = major_decisions.0001
+		save_scope_as = actor
+		convert_whole_realm_to_feudalism_effect = yes
+		hidden_effect = {
+			every_vassal = {
+				trigger_event = {
+					id = major_decisions.0002
+					days = 3
+				}
+			}
+		}
+	}
 
-#	ai_potential = {
+	ai_potential = {
 		# Cut down on checks for other tribals.
-#		exists = capital_county.title_province
-#		capital_county.title_province = { geographical_region = world_africa_west }
-#	}
+		exists = capital_county.title_province
+		# capital_county.title_province = { geographical_region = world_africa_west }
+	}
 
-#	ai_will_do = {
-#		base = 100
-#	}
-#}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+
+
+
+
+
+
+
+
+
 
 
 ##################################################
@@ -656,18 +769,18 @@ convert_to_tribalism_decision = {
 
 ### Consecrate Bloodline ###
 declare_bloodline_holy_decision = {
-#	picture = {
-#		trigger = {
-#			culture = { has_graphical_east_asia_culture_group_trigger = yes }
-#		}
-#			reference = "gfx/interface/illustrations/event_scenes/tgp_holysite_asia.dds"
-#	}
-#	picture = {
-#		trigger = {
-#			culture = { has_graphical_india_culture_group_trigger = yes }
-#		}
-#		reference = "gfx/interface/illustrations/event_scenes/ep2_holysite_indian.dds"
-#	}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = { has_graphical_east_asia_culture_group_trigger = yes }
+	#	}
+	#		reference = "gfx/interface/illustrations/event_scenes/tgp_holysite_asia.dds"
+	#}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = { has_graphical_india_culture_group_trigger = yes }
+	#	}
+	#	reference = "gfx/interface/illustrations/event_scenes/ep2_holysite_indian.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds"
 	}
@@ -684,6 +797,8 @@ declare_bloodline_holy_decision = {
 	}
 
 	is_shown = {
+		is_maiar = no #LotR
+		NOT = { is_elf = yes } #LotR
 		is_lowborn = no
 		is_landless_adventurer = no
 		highest_held_title_tier >= 3 #Dukes and higher.
@@ -701,11 +816,11 @@ declare_bloodline_holy_decision = {
 			has_trait = divine_blood
 			has_trait = paragon
 			has_trait = consecrated_blood
-			faith.religion = faith:ashari.religion #Uses Sayyid mechanics already.
-			faith.religion = faith:mazdayasna.religion #Must aim to become Saoshyant instead.
+			# faith.religion = faith:ashari.religion #Uses Sayyid mechanics already.
+			# faith.religion = faith:mazdayasna.religion #Must aim to become Saoshyant instead.
 			dynasty = {
 				exists = var:variable_made_bloodline_holy
-				dynasty:japanese_yamato ?= this # Already divine
+				#dynasty:japanese_yamato ?= this # Already divine #LotR
 			}
 		}
 		OR = { #Should not be available to non-Temporal religious heads.
@@ -803,6 +918,8 @@ strengthen_bloodline_decision = {
 	}
 
 	is_shown = {
+		#is_maiar = no #LotR
+		cannot_be_killed = no #LotR
 		is_lowborn = no
 		NOT = {
 			dynasty = {
@@ -886,20 +1003,20 @@ strengthen_bloodline_decision = {
 
 ### Dynasty of Many Crowns ###
 dynasty_of_many_crowns_decision = {
-#	picture = {
-#		trigger = {
-#			government_is_japanese_trigger = yes
-#		}
-#		reference = "gfx/interface/illustrations/event_story/tgp_japanese_shogunate.dds"
-#	}
-#	picture = {
-#		trigger = { culture = { has_graphical_east_asia_culture_group_trigger = yes } }
-#		reference = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_stability.dds"
-#	}
-#	picture = {
-#		trigger = { culture = { has_graphical_india_culture_group_trigger = yes } }
-#		reference = "gfx/interface/illustrations/holding_types/tgp_castle_se_asia.dds"
-#	}
+	picture = {
+		trigger = {
+			government_is_japanese_trigger = yes
+		}
+		reference = "gfx/interface/illustrations/event_story/tgp_japanese_shogunate.dds"
+	}
+	#picture = { #LotR
+	#	trigger = { culture = { has_graphical_east_asia_culture_group_trigger = yes } }
+	#	reference = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_stability.dds"
+	#}
+	#picture = { #LotR
+	#	trigger = { culture = { has_graphical_india_culture_group_trigger = yes } }
+	#	reference = "gfx/interface/illustrations/holding_types/tgp_castle_se_asia.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	}
@@ -923,6 +1040,7 @@ dynasty_of_many_crowns_decision = {
 			}
 		}
 		highest_held_title_tier >= tier_kingdom
+		is_maiar = no #LotR
 	}
 
 	is_valid = {
@@ -989,18 +1107,18 @@ dynasty_of_many_crowns_decision = {
 
 ### Found a New Kingdom ###
 found_kingdom_decision = {
-#	picture = {
-#		trigger = {
-#			culture = { has_graphical_east_asia_culture_group_trigger = yes }
-#		}
-#		reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_asia_welcome.dds"
-#	}
-#	picture = {
-##		trigger = {
-#			culture = { has_graphical_india_culture_group_trigger = yes }
-#		}
-#		reference = "gfx/interface/illustrations/event_scenes/ep2_feast_indian.dds"
-#	}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = { has_graphical_east_asia_culture_group_trigger = yes }
+	#	}
+	#	reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_asia_welcome.dds"
+	#}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = { has_graphical_india_culture_group_trigger = yes }
+	#	}
+	#	reference = "gfx/interface/illustrations/event_scenes/ep2_feast_indian.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
 	}
@@ -1122,20 +1240,20 @@ found_kingdom_decision = {
 
 ### Found a New Empire ###
 found_empire_decision = {
-#	picture = {
-#		trigger = {
-#			government_is_japanese_trigger = yes
-#		}
-#		reference = "gfx/interface/illustrations/event_story/tgp_japanese_shogunate.dds"
-#	}
-#	picture = {
-#		trigger = { culture = { has_graphical_east_asia_culture_group_trigger = yes } }
-#		reference = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_stability.dds"
-#	}
-#	picture = {
-#		trigger = { culture = { has_graphical_india_culture_group_trigger = yes } }
-#		reference = "gfx/interface/illustrations/decisions/tgp_decision_mandala.dds"
-#	}
+	picture = {
+		trigger = {
+			government_is_japanese_trigger = yes
+		}
+		reference = "gfx/interface/illustrations/event_story/tgp_japanese_shogunate.dds"
+	}
+	#picture = { #LotR
+	#	trigger = { culture = { has_graphical_east_asia_culture_group_trigger = yes } }
+	#	reference = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_stability.dds"
+	#}
+	#picture = { #LotR
+	#	trigger = { culture = { has_graphical_india_culture_group_trigger = yes } }
+	#	reference = "gfx/interface/illustrations/decisions/tgp_decision_mandala.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	}
@@ -1223,15 +1341,15 @@ found_empire_decision = {
 					}
 				}
 				# and living nearby
-				#any_realm_county = {
- 					#title_province = {
- 						#OR = {
- 							#geographical_region = ghw_region_north_africa
- 							#geographical_region = world_europe_west
- 							#geographical_region = world_europe_south
-					 	#}
- 					#}
- 				#}
+				# any_realm_county = {
+ 				# 	title_province = {
+ 				# 		OR = {
+ 				# 			geographical_region = ghw_region_north_africa
+ 				# 			geographical_region = world_europe_west
+ 				# 			geographical_region = world_europe_south
+				# 	 	}
+ 				# 	}
+ 				# }
 			}
 			custom_description = {
 				text = found_empire_decision_not_part_of_iberian_struggle
@@ -1243,6 +1361,37 @@ found_empire_decision = {
 			}
 		}
 
+		#trigger_if = {
+		#	limit = {
+		#		exists = struggle:iberian_struggle
+		#		# only display the condition for people from relevant faiths and cultures
+		#		struggle:iberian_struggle = {
+		#			OR = {
+		#				is_culture_involved_in_struggle = root.culture
+		#				is_faith_involved_in_struggle = root.faith
+		#			}
+		#		}
+		#		# and living nearby
+		#		any_realm_county = {
+ 		#			title_province = {
+ 		#				OR = {
+ 		#					geographical_region = ghw_region_north_africa
+ 		#					geographical_region = world_europe_west
+ 		#					geographical_region = world_europe_south
+		#			 	}
+ 		#			}
+ 		#		}
+		#	}
+		#	custom_description = {
+		#		text = found_empire_decision_not_part_of_iberian_struggle
+		#		NOT = {
+		#			any_character_struggle = {
+		#				is_struggle_type = iberian_struggle
+		#			}
+		#		}
+		#	}
+		#}
+		
 		rule_title_creation_imperial_power_projection_title_creation_trigger = yes
 	}
 
@@ -1380,23 +1529,23 @@ adopt_special_succession_decision = {
 				}
 			}
 		}
-		current_date < 1100.1.1	#Curtail special succession types as the centuries wear on. Ever on.
-
-#		trigger_if = { # Prevent Norway from essentially giving England back to the Anglo-Saxons
-#			limit = {
-#				is_ai = yes
-#				special_succession_thing_trigger = yes
-#				any_held_title = {
-#					this = title:k_england
-#				}
-#				NAND = { # If they're on the isle itself, it's fine
-#					primary_title = title:k_england
-#					capital_county.kingdom = title:k_england
-#				}
-#			}
-#			always = no
-#		}
-#	}
+		#current_date < 1100.1.1	#Curtail special succession types as the centuries wear on. Ever on.
+		trigger_if = { # Prevent Norway from essentially giving England back to the Anglo-Saxons
+			limit = {
+				always = no #LotR
+				is_ai = yes
+				special_succession_thing_trigger = yes
+				#any_held_title = {
+				#	this = title:k_england
+				#}
+				#NAND = { # If they're on the isle itself, it's fine
+				#	primary_title = title:k_england
+				#	capital_county.kingdom = title:k_england
+				#}
+			}
+			always = no
+		}
+	}
 
 	is_valid = {
 		trigger_if = {
@@ -1572,13 +1721,13 @@ tribal_challenge_ruler_decision = {
 			liege = { is_ai = no }
 		}
 
-		modifier = {
-			add = -5000
-			liege = {
-				is_ai = yes
-				mpo_has_gok_mongol_empire_trigger = yes
-			}
-		}
+		# modifier = { #LotR
+		# 	add = -5000
+		# 	liege = {
+		# 		is_ai = yes
+		# 		has_title = title:e_mongol_empire
+		# 	}
+		# }
 	}
 }
 
@@ -1653,6 +1802,15 @@ accept_cannibalism_decision = {
 	}
 
 	effect = {
+		if = { # We're Not Picky | Achievement
+			limit = {
+				NOT = { exists = global_var:lotr_achievement_49 }
+				realms_achievements_enabled = yes
+				is_ai = no
+				root.faith = faith:faith_goblin_town
+			}
+			set_global_variable = lotr_achievement_49
+		}
 		save_scope_as = cannibal
 		root.cp:councillor_court_chaplain = {
 			save_scope_as = court_chaplain
@@ -1683,6 +1841,413 @@ accept_cannibalism_decision = {
 # Found University
 # by (probably) Linnéa Thimrén
 ##################################################
+# major_decisions.2001 = {
+# 	type = character_event
+# 	title = major_decisions.2001.t
+# 	desc = {
+# 			desc = major_decisions.2001.desc_first
+# 			first_valid = {
+# 					triggered_desc = {
+# 							trigger = {
+# 									calc_true_if = {
+# 											amount >= 2
+# 											any_sub_realm_barony = { this = title:b_fes }
+# 											any_sub_realm_barony = { this = title:b_cairo }
+# 											any_sub_realm_barony = { this = title:b_bologna }
+# 											any_sub_realm_barony = { this = title:b_salamanca }
+# 											any_sub_realm_barony = { this = title:b_madrid }
+# 											any_sub_realm_barony = { this = title:b_oxford }
+# 											any_sub_realm_barony = { this = title:b_cambridge }
+# 											any_sub_realm_barony = { this = title:b_padua }
+# 											any_sub_realm_barony = { this = title:b_siena }
+# 											any_sub_realm_barony = { this = title:b_coimbra }
+# 											any_sub_realm_barony = { this = title:b_napoli }
+# 											any_sub_realm_barony = { this = title:b_tirakka }
+# 									}
+# 							}
+# 							desc = major_decisions.2001.desc_more
+# 					}
+# 					desc = major_decisions.2001.desc
+# 			}
+# 	}
+# 	theme = learning
+# 	left_portrait = {
+# 			character = scope:founder
+# 			animation = personality_rational
+# 	}
+# 	immediate = {
+# 			found_university_decision_event_effect = yes
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_fes }
+# 					title:b_fes = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_fes.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_fes = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_fes
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_cairo }
+# 					title:b_cairo = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_cairo.title_province = {
+# 					add_special_building_slot = al_azhar_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_cairo = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_cairo
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_bologna }
+# 					title:b_bologna = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_bologna.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_bologna = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_bologna
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_salamanca }
+# 					title:b_salamanca = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_salamanca.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_salamanca = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_salamanca
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_madrid }
+# 					title:b_madrid = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_madrid.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_madrid = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_madrid
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_oxford }
+# 					title:b_oxford = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_oxford.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_oxford = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_oxford
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_cambridge }
+# 					title:b_cambridge = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_cambridge.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_cambridge = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_cambridge
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_padua }
+# 					title:b_padua = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_padua.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_padua = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_padua
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_siena }
+# 					title:b_siena = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_siena.title_province = {
+# 					add_special_building_slot = siena_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_siena = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_siena
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_coimbra }
+# 					title:b_coimbra = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_coimbra.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_coimbra = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_coimbra
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_napoli }
+# 					title:b_napoli = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_napoli.title_province = {
+# 					add_special_building_slot = generic_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_napoli = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_napoli
+# 	}
+# 	option = {
+# 			trigger = {
+# 					any_sub_realm_barony = { this = title:b_tirakka }
+# 					title:b_tirakka = {
+# 							county = { development_level >= medium_development_level }
+# 							title_province = { has_special_building_slot = no }
+# 					}
+# 			}
+# 			title:b_tirakka.title_province = {
+# 					add_special_building_slot = sankore_university
+# 					set_variable = { #To unlock the building
+# 							name = university
+# 							value = yes
+# 					}
+# 					title:b_tirakka = {
+# 							if = {
+# 									limit = { NOT = { holder = root } }
+# 									holder = {
+# 											add_opinion = {
+# 													target = root
+# 													modifier = pleased_opinion
+# 													opinion = 30
+# 											}
+# 									}
+# 							}
+# 					}
+# 			}
+# 			name = major_decisions.2001.b_tirakka
+# 	}
+# 	option = { # fallback in case development somehow tumbles
+# 			trigger = { always = no }
+# 			fallback = yes
+# 			name = major_decisions.2001.fallback
+# 			custom_tooltip = major_decisions.2001.fallback.tt
+# 	}
+# }
+
+#Other players informed
+#major_decisions.2002 = {
+#	type = character_event
+#	title = major_decisions.2001.t
+#	desc = major_decisions.2002.desc
+#	left_portrait = {
+#			character = scope:founder
+#			animation = personality_rational
+#	}
+#	theme = learning
+#	option = {
+#			name = major_decisions.2002.a
+#	}
+#}
 
 
 ##################################################
@@ -2222,10 +2787,10 @@ expand_duchy_decision = {
 		}
 		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_sunder.dds"
 	}
-#	picture = {
-#		trigger = { culture = { has_building_gfx = southeast_asian_building_gfx } }
-#		reference = "gfx/interface/illustrations/decisions/tgp_projects_mandala_capital.dds"
-#	}
+	picture = {
+		trigger = { culture = { has_building_gfx = southeast_asian_building_gfx } }
+		reference = "gfx/interface/illustrations/decisions/tgp_projects_mandala_capital.dds"
+	}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
 	}
@@ -2385,6 +2950,11 @@ expand_duchy_decision = {
 				title_held_years >= 5
 			}
 		}
+		#LOTR Added
+		custom_tooltip = {
+			text = not_balin
+			NOT = { primary_title = title:d_balins_expedition }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2476,30 +3046,30 @@ set_de_jure_capital_decision = {
 		}
 		reference = "gfx/interface/illustrations/event_scenes/mpo_city_steppe.dds"
 	}
-#	picture = {
-#		trigger = {
-#			OR = {
-#				government_has_flag = government_is_celestial
-#				government_has_flag = government_is_meritocratic
-#			}
-#		}
-#		reference = "gfx/interface/illustrations/holding_types/tgp_city_china.dds"
-#	}
-#	picture = {
-#		trigger = {
-#			government_is_japanese_trigger = yes 
-#		}
-#		reference = "gfx/interface/illustrations/holding_types/tgp_city_japan.dds"
-#	}
-#	picture = {
-#		trigger = {
-#			OR = {
-#				government_has_flag = government_is_mandala
-#				culture = { has_graphical_india_culture_group_trigger = yes }
-#			}
-#		}
-#		reference = "gfx/interface/illustrations/holding_types/city_india.dds"
-#	}
+	picture = {
+		trigger = {
+			OR = {
+				government_has_flag = government_is_celestial
+				government_has_flag = government_is_meritocratic
+			}
+		}
+		reference = "gfx/interface/illustrations/holding_types/tgp_city_china.dds"
+	}
+	picture = {
+		trigger = {
+			government_is_japanese_trigger = yes 
+		}
+		reference = "gfx/interface/illustrations/holding_types/tgp_city_japan.dds"
+	}
+	picture = {
+		trigger = {
+			OR = {
+				government_has_flag = government_is_mandala
+				#culture = { has_graphical_india_culture_group_trigger = yes } #LotR
+			}
+		}
+		reference = "gfx/interface/illustrations/holding_types/city_india.dds"
+	}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/ep3_decision_city.dds"
 	}
@@ -2581,6 +3151,7 @@ set_de_jure_capital_decision = {
 				is_noble_family_title = yes
 			}
 		}
+		NOT = { has_title = title:k_wastelands } # LotR
 		OR = {
 			AND = {
 				highest_held_title_tier >= tier_duchy
@@ -2779,7 +3350,13 @@ set_de_jure_capital_decision = {
 			}
 			scope:old_capital ?= {
 				duchy = { save_scope_as = current_duchy }
-				title:d_zun_warriors = {
+				#title:d_zun_warriors = { #LotR
+				random_duchy = { #LotR
+					limit = {
+						NOT = { this = scope:current_duchy }
+						is_noble_family_title = no
+						is_mercenary_company = no
+					}
 					save_scope_as = placeholder_duchy
 				}
 				scope:current_duchy = {
@@ -2809,4 +3386,79 @@ set_de_jure_capital_decision = {
 }
 
 # Restore Carthage 
+
+restore_carthage_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
+	decision_group_type = major
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 120
+		empire = 0
+		hegemony = 0
+	}
+
+	desc = restore_carthage_decision_desc
+	selection_tooltip = restore_carthage_decision_tooltip
+
+	is_shown = {
+		always = no #LotR
+		is_ruler = yes
+		is_playable_character = yes
+
+		#OR = { #LotR
+		#	culture = { has_cultural_pillar = heritage_syriac }
+		#	culture = culture:levantine		
+		#}
+
+		# Not repeatable.
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_restored_carthage
+			}
+		}
+	}
+
+	is_valid = { 
+		is_independent_ruler = yes
+		highest_held_title_tier < tier_empire
+
+		prestige_level >= 4
+
+		#completely_controls_region = custom_carthage #LotR
+		#completely_controls_region = custom_tripolitania #LotR
+		#completely_controls_region = custom_mauretania #LotR
+		#completely_controls_region = custom_carthago_nova #LotR
+		
+	}
+
+	is_valid_showing_failures_only = {
+		top_liege = this
+		is_available_adult = yes
+	}
+
+	cost = {
+		gold = {
+			value = 1200
+		}
+	}
+
+	effect = {
+		save_scope_as = founder 
+		show_as_tooltip = { restore_carthage_scripted_effect = yes }
+
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_restored_carthage
+			}
+		}
+
+		#trigger_event = major_decisions.3300 #LotR
+	}
 }

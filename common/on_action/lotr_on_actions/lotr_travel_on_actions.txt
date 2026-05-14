@@ -1,0 +1,460 @@
+﻿maglor_khazad_dum_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:4337 } } # Rivendell
+			if = {
+				limit = { has_royal_court = yes }
+				title:k_imladris.holder = { trigger_event = maglor_event_chain.0054 }
+				trigger_event = maglor_event_chain.0053
+			}
+			if = {
+				limit = { has_royal_court = no } # Fallback if no RC
+				title:k_imladris.holder = { trigger_event = maglor_event_chain.0055 }
+				trigger_event = maglor_event_chain.0053
+			}
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:4913 } } # Endless Stairs
+			trigger_event = maglor_event_chain.0056
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:4351 } }
+			trigger_event = maglor_event_chain.0060
+		}
+	}
+}
+
+imrazor_firsttrip_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5458 } } # Ûruloni
+			title:c_uruloni.holder.top_liege = { trigger_event = lotr_thani_hazad.3030 }
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5526 } } # Azarîdeth
+			title:c_azarideth.holder.top_liege = { trigger_event = lotr_thani_hazad.3031 }
+		}
+	}
+}
+
+imrazor_secondtrip_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5497 } } # Inzilloni
+			title:c_inzilloni.holder.top_liege = { trigger_event = lotr_thani_hazad.3032 }
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5532 } } # Holzôreth
+			title:c_holzoreth.holder.top_liege = { trigger_event = lotr_thani_hazad.3033 }
+		}
+	}
+}
+
+imrazor_thirdtrip_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5401 } } # Gimileth
+			title:c_gimileth.holder.top_liege = { trigger_event = lotr_thani_hazad.3034 }
+		}
+	}
+}
+
+imrazor_fourthtrip_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5342 } } # Karasalas
+			trigger_event = lotr_thani_hazad.3013
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5331 } } # Alsarias
+			trigger_event = lotr_thani_hazad.3013
+		}
+	}
+}
+
+imrazor_fifthtrip_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5411 } } # Arpêl
+			title:k_pel.holder = { trigger_event = lotr_thani_hazad.3035 }
+		}
+	}
+}
+
+eira_tharbad_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = title:c_harabad.title_province } } 
+			trigger_event = bloody_swan.0003
+		}
+	}
+}
+
+terilaen_library_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5356 } } # Taurengille
+			start_travel_plan = {
+				destination = province:5355 # Ainglad
+				players_use_planner = no
+				on_arrival_event = elven.0900
+			}
+		}
+	}
+}
+
+lotr_on_travel_plan_movement = {
+	effect = {
+		if = { #LotR
+			limit = {
+				any_maa_regiment = { is_maa_type = laamp_settler_maa }
+				current_travel_plan = { is_travel_with_domicile = yes }
+				current_travel_plan.current_location = { has_holding = yes }
+				NOT = { current_travel_plan.current_location = { has_holding_type = wastelands_holding } }
+				NOT = { current_travel_plan.current_location = { has_variable = no_more_settlers } }
+			}
+			random_maa_regiment = {
+				limit = { is_maa_type = laamp_settler_maa }
+				change_maa_troops_count = 50
+			}
+			current_travel_plan.current_location = { set_variable = { name = no_more_settlers value = yes months = 6 } }
+		}
+		if = { #LotR One does not simply walk into Mordor | Achievement
+			limit = {
+				realms_achievements_enabled = yes
+				is_ai = no
+				NOT = { exists = global_var:lotr_achievement_19 }
+				root.location = province:620
+			}
+			set_global_variable = lotr_achievement_19
+		}
+		#LotR Dune Sea trade travel
+		current_travel_plan ?= {
+			if = {
+				limit = {
+					has_travel_option = trans_haradric_merchants_option
+					any_entourage_character = {
+						count >= 1 
+						NOT = { this = root }
+						has_trait = lifestyle_trans_haradric_merchant
+					}
+					# Wilderness doesnt trade
+					current_location = {
+						is_sea_province = no
+						NOT = { is_wastelands = yes }
+					}
+					# Orcs only deal with evil
+					NAND = {
+						current_location = { is_orc = yes }
+						NOT = { ROOT.faith.religion = { is_in_family = rf_forcesofevil } }
+					}
+					# Elves only deal with good
+					NAND = {
+						current_location = { is_elf = yes }
+						ROOT = { faith_is_good = no }
+					}
+				}
+				root = {				
+					random = {
+						chance = trans_haradric_merchant_travel_option_event_chance
+						trigger_event = harad.0600
+					}
+				}
+			}
+		}
+	}
+}
+
+lotr_on_travel_plan_start = {
+	effect = {
+		# Trans-Haradric Merchant System
+		if = {
+			limit = {
+				current_travel_plan ?= {
+					any_entourage_character = {
+						exists = var:trans_haradric_merchant_temp
+						is_courtier_of = root
+					}
+				}
+			}
+			current_travel_plan = {
+				every_entourage_character = {
+					limit = {
+						exists = var:trans_haradric_merchant_temp
+						is_courtier_of = root
+					}
+					move_to_pool = yes
+				}
+			}
+		}
+	}
+	events = {
+		#LotR travel start events 
+		explore_history.0560 #Travelling to the archives #LotR
+		ancestor_veneration.0041 #Travelling to the archives #LotR
+		lotr_horse_race.0020 # Travelling to a horse race #LotR
+	}
+}
+
+lotr_on_travel_plan_complete = {
+	effect = {
+		if = { #LotR One does not simply walk into Mordor | Achievement
+			limit = {
+				realms_achievements_enabled = yes
+				is_ai = no
+				NOT = { exists = global_var:lotr_achievement_19 }
+				root.location = province:620
+			}
+			set_global_variable = lotr_achievement_19
+		}
+		if = { # I’m going on an adventure! | Achievement
+			limit = {
+				NOT = { exists = global_var:lotr_achievement_02 }
+				realms_achievements_enabled = yes
+				is_ai = no
+				is_hobbit = yes
+				has_trait_xp = {
+					trait = lifestyle_traveler
+					track = travel
+					value = 100
+				}
+				has_trait_xp = {
+					trait = lifestyle_traveler
+					track = danger
+					value = 100
+				}
+			}
+			set_global_variable = lotr_achievement_02
+		}
+
+		# Kill off any Merchant characters still left, because they always join the court for some reason
+		current_travel_plan = {
+			every_entourage_character = {
+				limit = {
+					has_variable = RICE_is_travel_option_merchant
+				}
+				# If they are a human player or a ruler for some reason, don't kill them, just remove the variable
+				if = {
+					limit = {		
+						OR = {
+							is_ai = no
+							is_landed = yes
+						}		
+					}
+					remove_variable = RICE_is_travel_option_merchant
+				}
+				else = {
+					death = {
+						death_reason = death_vanished
+					}
+				}
+			}
+		}
+	}
+}
+
+lotr_on_visited_grand_city = {
+	events = {
+		delay = { days = 1 }
+		lotr_travel_events_cities.1010
+		lotr_travel_events_cities.1020
+		lotr_travel_events_cities.1030
+		lotr_travel_events_cities.1040
+		lotr_travel_events_cities.1050
+	}
+}
+
+lotr_travel_danger_events_on_action = {
+	random_events = {
+		chance_of_no_event = {
+			value = {
+				add = 100
+				if = {
+					limit = {
+						exists = root.current_travel_plan
+						exists = root.location
+					}
+					subtract = root.current_travel_plan.current_danger_value
+					add = root.current_travel_plan.travel_safety
+				}
+			}
+			max = {
+				value = 100
+				subtract = define:NTravel|TRAVEL_DANGER_MINIMUM
+			}
+		}
+		#Lotr Danger Events
+		100 = lotr_travel_events.0002 # Danger! Giant Scorpion Attack - Dune Sea and surrounding desert Only
+		100 = lotr_travel_events.0003 # Danger! Sandstorm! - Desert/ Dune Sea Only
+		300 = lotr_travel_events.0010 # Danger! Mount Doom's Breath - Volcanic Plains Only
+		10 = lotr_travel_events.0011 # Danger! Troll Attack!
+		300 = lotr_travel_events.0017 # Danger! Earthquake in Mordor - Gorgoroth, Volcanic Plains only 
+		20 = lotr_travel_events.0021 # Danger ! Orc Encounter
+		20 = lotr_travel_events.0022 # You paid the orc
+		20 = lotr_travel_events.0023 # You killed the orc (Cheats Death)
+		20 = lotr_travel_events.0024 # You dominated the orc 
+		20 = lotr_travel_events.0025 # The Orc beat you
+		# 100 = lotr_travel_events.0026 # Danger! Dead Marshes
+		100 = lotr_travel_events.0101 # Danger! Corsair Attack - Greater Corsair Coast only
+		100 = lotr_travel_events.0103 # Danger! Anbaluk Slavers - Neighbors of An-Balkumagan Only
+	}
+}
+
+lotr_travel_events_on_action = {
+	random_events = {
+		chance_of_no_event = {
+			value = 80
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				add = 19 # Not very important that AI's get these
+			}
+			if = { # Less regular travel events when you're migrating
+				limit = {
+					is_migrating = yes
+				}
+				add = 15
+			}
+		}
+		#LotR Travel Events
+		100 = lotr_travel_events.0001 # A Colossal Wreck - Ozymandias Poem Reference
+		1000 = lotr_travel_events.0007  # Travelling past Fangorn makes you feel uneasy
+		200 = lotr_travel_events.0008 # Endless Darkness
+		100 = lotr_travel_events.0009 # Local Storyteller
+		1000 = lotr_travel_events.0012 # Wonders of a Mallorn Forest
+		200 = lotr_travel_events.0013 # Call of the Sea
+		200 = lotr_travel_events.0014 # Ruins of the North
+		200 = lotr_travel_events.0015 # Flies and Spiders
+		200 = lotr_travel_events.0016 # The Haunted Ruins
+		15 = lotr_travel_events.0018 # A Gruesome Cave
+		200 = lotr_travel_events.0020 # Trans-Haradric Merchants: The Tongue of Trade
+		200 = lotr_travel_events.0102 # Nothing Ever Happens in Thani Hazad
+		100 = lotr_travel_events.0200 # Old Flames
+		# LotR Elven Travel Events
+		100 = lotr_travel_events.0500 # Elf comes across a burned village
+		100 = lotr_travel_events.0501 # Elf feels sea longing
+		100 = lotr_travel_events.0502 # Elf encounters impoverished village
+		100 = lotr_travel_events.0503 # Elf sees the mountains at dawn
+		100 = lotr_travel_events.0504 # Elf sees sunset over plains
+		100 = lotr_travel_events.0505 # Elf sees straggler, can help
+		50 = lotr_travel_events.0506 # Elf has epiphany
+	}
+}
+
+lotr_on_travel_plan_arrival = {
+	effect = {
+		if = { #LotR
+			limit = {
+				any_maa_regiment = { is_maa_type = laamp_settler_maa }
+				current_travel_plan = { is_travel_with_domicile = yes }
+				current_travel_plan.current_location = { has_holding = yes }
+				NOT = { current_travel_plan.current_location = { has_holding_type = wastelands_holding } }
+				NOT = { current_travel_plan.current_location = { has_variable = no_more_settlers } }
+			}
+			random_maa_regiment = {
+				limit = { is_maa_type = laamp_settler_maa }
+				change_maa_troops_count = 50
+			}
+			current_travel_plan.current_location = { set_variable = { name = no_more_settlers value = yes months = 6 } }
+		}
+		if = { #LotR One does not simply walk into Mordor | Achievement
+			limit = {
+				realms_achievements_enabled = yes
+				is_ai = no
+				NOT = { exists = global_var:lotr_achievement_19 }
+				root.location = province:620
+			}
+			set_global_variable = lotr_achievement_19
+		}
+		# LotR - Rangers can't leave their liege's realm for too long, or else
+		if = {
+			limit = {
+				has_realm_law = camp_purpose_rangers
+				exists = root.suzerain
+				trigger_if = { #Dunedain rangers can roam the whole Eriador
+					root.suzerain = {
+						primary_title = title:d_northern_dunedain
+					}
+					NOT = {
+						domicile.domicile_location = {
+							geographical_region = custom_eriador
+						}
+					}
+				}
+				trigger_else = { #Others must remain within their liege's territory, or at least not too far from their capital
+					OR = {
+						NOT = { domicile.domicile_location.county.holder.top_suzerain ?= root.top_suzerain }
+						top_suzerain.capital_province = {
+							squared_distance = {
+								target = root.domicile.domicile_location
+								value >= squared_distance_medium #250 map-pixels. Roughly one Ireland away (top to bottom).
+							}
+						}
+					}
+				}
+			}
+			add_character_flag = wayward_ranger 
+			trigger_event = {
+				id = rangers.9100
+				months = 1
+			}
+		}
+	}
+}
+
+derei_zimrathani_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5342 } } # Karasalas
+			trigger_event = derei.1003
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5331 } } # Alsarias
+			trigger_event = derei.1004
+		}
+	}
+}
+
+derei_north_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5526 } } # Azarideth
+			trigger_event = derei.1005
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5497 } } # Inzilloni
+			trigger_event = derei.1006
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5532 } } # Holzôreth
+			trigger_event = derei.1007
+		}
+	}
+}
+
+derei_lasttrip_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5411 } } # Pel
+			trigger_event = derei.1008
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5317 } } # Mispir
+			trigger_event = derei.1009
+		}
+	}
+}
+
+derei_vassals_on_action = {
+	effect = {
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5402 } }
+			trigger_event = derei.1016
+		}
+		if = {
+			limit = { current_travel_plan ?= { current_location = province:5407 } }
+			trigger_event = derei.1017
+		}
+	}
+}
