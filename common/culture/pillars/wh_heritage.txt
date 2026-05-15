@@ -969,3 +969,22 @@ heritage_none = {
 		unlock_maa_ck3 = yes 
 	}
 }
+
+heritage_wastelands = {
+	type = heritage	
+	character_modifier = {
+		life_expectancy = 10000
+		fertility = -1000
+		health = 1000
+		attraction_opinion = 1000
+		general_opinion = 1000
+		epidemic_resistance = 40
+		diplomatic_range_mult = -10
+	}
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_wastelands
+		}
+	}
+	audio_parameter = european
+}

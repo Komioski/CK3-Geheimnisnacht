@@ -26,6 +26,7 @@ minor_religious_war = {
 			government_has_flag = government_is_celestial
 		}
 		
+		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_for_character_display_regardless = {
@@ -98,13 +99,25 @@ minor_religious_war = {
 			}
 			custom_tooltip = {
 				text = "only_zealous_elves_can_holy_war"
-				has_trait = zealous
+				OR = {
+					has_trait = zealous
+					has_game_rule = strong_gondor_strength
+					has_game_rule = very_strong_gondor_strength
+					has_game_rule = apocalyptic_gondor_strength
+				}
 			}
 		}
 	}
 
 	allowed_against_character = {
-		
+		scope:defender = { #LotR
+			NOR = {
+				government_has_flag = government_is_landless_adventurer
+				government_has_flag = government_is_nomadic
+				government_has_flag = government_is_wastelands
+			}
+		}
+
 		scope:attacker = {
 			faith = {
 				faith_hostility_level = {
@@ -117,7 +130,7 @@ minor_religious_war = {
 				liege = scope:defender
 			}
 		}
-#		scope:defender = { lotr_can_declare_war = yes } # LOTR
+		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 	target_titles = neighbor_land_or_water
 	target_title_tier = all
@@ -132,10 +145,16 @@ minor_religious_war = {
 		# Filter for struggles
 		trigger_if = {
 			limit = {
+				scope:attacker = {
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_type = iberian_struggle
+					}
+				}
 				scope:defender = {
 					any_character_struggle = {
 						involvement = involved
-						is_struggle_type = iberian_struggle #LotR
+						is_struggle_type = iberian_struggle
 					}
 				}
 			}
@@ -145,7 +164,7 @@ minor_religious_war = {
 		dwarf_and_goblin_underground_county_cb_trigger = yes
 
 		# LOTR Hostile Holy Wars gamerule
-#		lotr_hostile_holy_wars_allowed_trigger = yes
+		lotr_hostile_holy_wars_allowed_trigger = yes
 	}
 
 	should_invalidate = {
@@ -167,10 +186,10 @@ minor_religious_war = {
 			#Faith change does not immediately invalidate, it's run through event war_event.3100
 			scope:war = { exists = var:invalidate_defender_faith_change }
 			scope:war = { exists = var:invalidate_attacker_faith_change }
-			scope:attacker = {
+			scope:attacker = { #LotR
 				has_culture = culture:wastelands
 			}
-			scope:defender = {
+			scope:defender = { #LotR
 				has_culture = culture:wastelands
 			}
 		}
@@ -265,6 +284,54 @@ minor_religious_war = {
 			}
 			multiply = 0
 		}
+
+		# LotR - Sauron and Nazgul should not target eachother
+		add = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							scope:attacker = { is_sauron = yes }
+							scope:defender = { has_trait = nazgul }
+						}
+						AND = {
+							scope:defender = { is_sauron = yes }
+							scope:attacker = { has_trait = nazgul }
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Non-Evil faith characters leave poor Radagast alone! 
+		add = {
+			if = {
+				limit = {
+					scope:attacker = { faith_is_evil = no }
+					scope:defender.culture = culture:istari
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Protectorates are much less aggressive
+		add = {
+			if = {
+				limit = {
+					scope:attacker = {
+						any_tributary = { 
+							this = scope:defender
+							has_subject_contract_group = tributary_protectorate
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		#LotR
+		multiply = elf_target_ai_score_value
 	}
 
 	cost = {
@@ -321,6 +388,20 @@ minor_religious_war = {
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
+		scope:attacker = { # LotR
+			if = { # Gains hope by winning a county war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_county_war_won }
+			}
+		}
+		
+		# Hope loss for the defender
+		scope:defender = { # LotR
+			if = { # Loses hope by losing a county war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = medium_elven_hope_loss HOPE_EFFECT = effect_elven_hope_county_war_lost }
+			}
+		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -472,6 +553,21 @@ minor_religious_war = {
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
+		# Hope gain for the defender
+		scope:defender = { # LotR
+			if = { # Gains hope by winning a county war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_county_war_won }
+			}
+		}
+		
+		# Hope loss for the attacker
+		scope:attacker = { # LotR
+			if = { # Loses hope by losing a county war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = medium_elven_hope_loss HOPE_EFFECT = effect_elven_hope_county_war_lost }
+			}
+		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -596,14 +692,17 @@ religious_war = {
 	# Additional requirements to the defines in 00_casus_belli_groups.txt
 	allowed_for_character = {
 		scope:attacker.faith = {
-			NOT = { has_doctrine_parameter = unreformed }
-			NOT = { has_doctrine_parameter = holy_wars_forbidden }
+			NOR = { 
+				has_doctrine_parameter = unreformed
+				has_doctrine_parameter = holy_wars_forbidden
+			}
 		}
 		NOR = { 
 			government_has_flag = government_is_nomadic
 			government_has_flag = government_is_celestial
 		}
 
+		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_for_character_display_regardless = {
@@ -676,13 +775,24 @@ religious_war = {
 			}
 			custom_tooltip = {
 				text = "only_zealous_elves_can_holy_war"
-				has_trait = zealous
+				OR = {
+					has_trait = zealous
+					has_game_rule = strong_gondor_strength
+					has_game_rule = very_strong_gondor_strength
+					has_game_rule = apocalyptic_gondor_strength
+				}
 			}
 		}
 	}
 
 	allowed_against_character = {
-	
+		scope:defender = { #LotR
+			NOR = {
+				government_has_flag = government_is_landless_adventurer
+				government_has_flag = government_is_nomadic
+				government_has_flag = government_is_wastelands
+			}
+		}
 
 		scope:attacker = {
 			faith = {
@@ -697,6 +807,7 @@ religious_war = {
 			}
 		}
 
+		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 	
 	allowed_against_character_display_regardless = {}
@@ -733,6 +844,12 @@ religious_war = {
 		# Filter for struggles
 		trigger_if = {
 			limit = {
+				scope:attacker = {
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_type = iberian_struggle
+					}
+				}
 				scope:defender = {
 					any_character_struggle = {
 						involvement = involved
@@ -743,7 +860,7 @@ religious_war = {
 			are_holy_wars_disabled_in_struggle_phase_trigger = yes
 		}
 		are_holy_wars_disabled_by_struggle_conciliation_trigger = no # Disabled against other involved faiths in FP2 Conciliation ending
-		trigger_if = {
+		trigger_if = { #LotR
 			limit = {
 				OR = {
 					dwarf_and_goblin_underground_county_cb_trigger = no
@@ -752,6 +869,8 @@ religious_war = {
 			}
 			always = no
 		}
+		# LOTR Hostile Holy Wars gamerule
+		lotr_hostile_holy_wars_allowed_trigger = yes
 	}
 
 	should_invalidate = {
@@ -773,10 +892,10 @@ religious_war = {
 			#Faith change does not immediately invalidate, it's run through event war_event.3100
 			scope:war = { exists = var:invalidate_defender_faith_change }
 			scope:war = { exists = var:invalidate_attacker_faith_change }
-			scope:attacker = {
+			scope:attacker = { #LotR
 				has_culture = culture:wastelands
 			}
-			scope:defender = {
+			scope:defender = { #LotR
 				has_culture = culture:wastelands
 			}
 		}
@@ -916,6 +1035,21 @@ religious_war = {
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
+		scope:attacker = { # LotR
+			if = { # Gains hope by winning a duchy war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_duchy_war_won }
+			}
+		}
+		
+		# Hope loss for the defender
+		scope:defender = { # LotR
+			if = { # Loses hope by losing a duchy war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_duchy_war_lost }
+			}
+		}
+		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
 
@@ -1022,6 +1156,22 @@ religious_war = {
 		#Mandalas gain or lose piety/devotion depending on Decree
 		mandala_war_victory_effects = yes
 
+
+		# LotR: Radyani converts all Arien counties if she wins
+		if = {
+		    limit = { 
+			    scope:attacker = { 
+		           has_character_flag = radyani_holy_war
+                }
+				scope:defender.faith = faith:faith_arienism
+			}
+			scope:attacker = { 
+				trigger_event = {
+					id = sirayn.1602 
+					days = 1
+				}
+			}
+		}
 	}
 
 	on_white_peace_desc = {
@@ -1071,7 +1221,21 @@ religious_war = {
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-
+		# Hope gain for the defender
+		scope:defender = { # LotR
+			if = { # Gains hope by winning a duchy war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_duchy_war_won }
+			}
+		}
+		
+		# Hope loss for the attacker
+		scope:attacker = { # LotR
+			if = { # Loses hope by losing a duchy war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_duchy_war_lost }
+			}
+		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -1231,7 +1395,55 @@ religious_war = {
 			}
 			multiply = 0
 		}
-	}	
+
+		# LotR - Sauron and Nazgul should not target eachother
+		add = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							scope:attacker = { is_sauron = yes }
+							scope:defender = { has_trait = nazgul }
+						}
+						AND = {
+							scope:defender = { is_sauron = yes }
+							scope:attacker = { has_trait = nazgul }
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Non-Evil faith characters leave poor Radagast alone! 
+		add = {
+			if = {
+				limit = {
+					scope:attacker = { faith_is_evil = no }
+					scope:defender.culture = culture:istari
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Protectorates are much less aggressive
+		add = {
+			if = {
+				limit = {
+					scope:attacker = {
+						any_tributary = { 
+							this = scope:defender
+							has_subject_contract_group = tributary_protectorate
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		#LotR
+		multiply = elf_target_ai_score_value
+	}
 }
 
 major_religious_war = {
@@ -1254,6 +1466,7 @@ major_religious_war = {
 			government_has_flag = government_is_celestial
 		}
 		
+		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_for_character_display_regardless = {
@@ -1338,7 +1551,12 @@ major_religious_war = {
 			}
 			custom_tooltip = {
 				text = "only_zealous_elves_can_holy_war"
-				has_trait = zealous
+				OR = {
+					has_trait = zealous
+					has_game_rule = strong_gondor_strength
+					has_game_rule = very_strong_gondor_strength
+					has_game_rule = apocalyptic_gondor_strength
+				}
 			}
 		}
 	}
@@ -1356,7 +1574,15 @@ major_religious_war = {
 				liege = scope:defender
 			}
 		}
+
+		scope:defender = { #LotR
+			NOR = {
+				government_has_flag = government_is_landless_adventurer
+				government_has_flag = government_is_nomadic
+			}
+		}
 		
+		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 	
 	allowed_against_character_display_regardless = {}
@@ -1373,10 +1599,16 @@ major_religious_war = {
 		# Filter for struggles
 		trigger_if = {
 			limit = {
+				scope:attacker = {
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_type = iberian_struggle
+					}
+				}
 				scope:defender = {
 					any_character_struggle = {
 						involvement = involved
-						is_struggle_type = iberian_struggle #LotR
+						is_struggle_type = iberian_struggle
 					}
 				}
 			}
@@ -1405,7 +1637,7 @@ major_religious_war = {
 			}
 		}
 		
-		trigger_if = {
+		trigger_if = { #LotR
 			limit = {
 				OR = {
 					dwarf_and_goblin_underground_county_cb_trigger = no
@@ -1414,6 +1646,8 @@ major_religious_war = {
 			}
 			always = no
 		}
+		# LOTR Hostile Holy Wars gamerule
+		lotr_hostile_holy_wars_allowed_trigger = yes
 	}
 
 	should_invalidate = {
@@ -1435,10 +1669,10 @@ major_religious_war = {
 			#Faith change does not immediately invalidate, it's run through event war_event.3100
 			scope:war = { exists = var:invalidate_defender_faith_change }
 			scope:war = { exists = var:invalidate_attacker_faith_change }
-			scope:attacker = {
+			scope:attacker = { #LotR
 				has_culture = culture:wastelands
 			}
-			scope:defender = {
+			scope:defender = { #LotR
 				has_culture = culture:wastelands
 			}
 		}
@@ -1525,6 +1759,12 @@ major_religious_war = {
 				}
 				remove_character_flag = bonus_major_holy_war
 			}
+			else = {
+				add_character_flag = { #LotR
+					flag = declared_major_religious_war_flag
+					years = 100
+				}
+			}
 		}
 	}
 
@@ -1570,6 +1810,21 @@ major_religious_war = {
 			}
 		}
 		scope:attacker = { show_pow_release_message_effect = yes }
+		
+		scope:attacker = { # LotR
+			if = { # Gains hope by winning a kingdom war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
+			}
+		}
+		
+		# Hope loss for the defender
+		scope:defender = { # LotR
+			if = { # Loses hope by losing a major war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
+			}
+		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -1726,7 +1981,20 @@ major_religious_war = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
 		# Hope gain for the defender
-
+		scope:defender = { # LotR
+			if = { # Gains hope by winning a kingdom war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
+			}
+		}
+		
+		# Hope loss for the attacker
+		scope:attacker = { # LotR
+			if = { # Loses hope by losing a kingdom war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
+			}
+		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -1886,7 +2154,55 @@ major_religious_war = {
 			}
 			multiply = 0
 		}
-	}	
+
+		# LotR - Sauron and Nazgul should not target eachother
+		add = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							scope:attacker = { is_sauron = yes }
+							scope:defender = { has_trait = nazgul }
+						}
+						AND = {
+							scope:defender = { is_sauron = yes }
+							scope:attacker = { has_trait = nazgul }
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Non-Evil faith characters leave poor Radagast alone! 
+		add = {
+			if = {
+				limit = {
+					scope:attacker = { faith_is_evil = no }
+					scope:defender.culture = culture:istari
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Protectorates are much less aggressive
+		add = {
+			if = {
+				limit = {
+					scope:attacker = {
+						any_tributary = { 
+							this = scope:defender
+							has_subject_contract_group = tributary_protectorate
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		#LotR
+		multiply = elf_target_ai_score_value
+	}
 }
 
 excommunication_war = {
@@ -1937,6 +2253,7 @@ excommunication_war = {
 			}
 		}
 		
+		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	target_de_jure_regions_above = yes
@@ -2211,7 +2528,55 @@ excommunication_war = {
 			}
 			multiply = 0
 		}
-	}	
+		
+		# LotR - Sauron and Nazgul should not target eachother
+		add = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							scope:attacker = { is_sauron = yes }
+							scope:defender = { has_trait = nazgul }
+						}
+						AND = {
+							scope:defender = { is_sauron = yes }
+							scope:attacker = { has_trait = nazgul }
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Non-Evil faith characters leave poor Radagast alone! 
+		add = {
+			if = {
+				limit = {
+					scope:attacker = { faith_is_evil = no }
+					scope:defender.culture = culture:istari
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Protectorates are much less aggressive
+		add = {
+			if = {
+				limit = {
+					scope:attacker = {
+						any_tributary = { 
+							this = scope:defender
+							has_subject_contract_group = tributary_protectorate
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		#LotR
+		multiply = elf_target_ai_score_value
+	}
 }
 
 flowery_war_cb = {
@@ -2225,6 +2590,7 @@ flowery_war_cb = {
 		NOT = {	#Must not have any leftover sacrificial prisoners/easy ability to get any.
 			any_prisoner = { has_character_modifier = designated_human_sacrifice_modifier }
 		}
+		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	# Root is the title
@@ -2259,6 +2625,7 @@ flowery_war_cb = {
 				government_has_flag = government_is_nomadic
 			}
 		}
+		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_against_character_display_regardless = {}
@@ -2329,7 +2696,20 @@ flowery_war_cb = {
 
 		#EP2 Accolade glory gain from winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_low_effect = yes }
-
+		
+		# Hope 
+		scope:attacker = { # LotR 
+			if = { 
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
+			}
+		}
+		scope:defender = { # LotR 
+			if = { 
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
+			}
+		}
 
 		scope:attacker = {
 			if = {	#If the attacker enjoys human sacrifice, then this was sacred.
@@ -2816,6 +3196,20 @@ flowery_war_cb = {
 
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
+		
+		# Hope 
+		scope:attacker = { # LotR 
+			if = { 
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
+			}
+		}
+		scope:defender = { # LotR 
+			if = { 
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
+			}
+		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -3330,7 +3724,55 @@ flowery_war_cb = {
 			}
 			multiply = 0
 		}
-	}	
+
+		# LotR - Sauron and Nazgul should not target eachother
+		add = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							scope:attacker = { is_sauron = yes }
+							scope:defender = { has_trait = nazgul }
+						}
+						AND = {
+							scope:defender = { is_sauron = yes }
+							scope:attacker = { has_trait = nazgul }
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Non-Evil faith characters leave poor Radagast alone! 
+		add = {
+			if = {
+				limit = {
+					scope:attacker = { faith_is_evil = no }
+					scope:defender.culture = culture:istari
+				}
+				add = -1000
+			}
+		}
+
+		# LotR - Protectorates are much less aggressive
+		add = {
+			if = {
+				limit = {
+					scope:attacker = {
+						any_tributary = { 
+							this = scope:defender
+							has_subject_contract_group = tributary_protectorate
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+
+		#LotR
+		multiply = elf_target_ai_score_value
+	}
 }
 
 undirected_great_holy_war = {
@@ -3373,7 +3815,8 @@ undirected_great_holy_war = {
 	white_peace_possible = no
 
 	allowed_for_character = {
-		 always = yes
+		# always = yes
+		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_for_character_display_regardless = {
@@ -3385,7 +3828,23 @@ undirected_great_holy_war = {
 			}
 			custom_tooltip = {
 				text = "only_zealous_elves_can_holy_war"
-				has_trait = zealous
+				OR = {
+					has_trait = zealous
+					has_game_rule = strong_gondor_strength
+					has_game_rule = very_strong_gondor_strength
+					has_game_rule = apocalyptic_gondor_strength
+				}
+			}
+		}
+	}
+	
+	allowed_against_character = {
+
+		scope:defender = { lotr_can_declare_war = yes } # LOTR
+
+		scope:defender = { #LotR
+			NOR = {
+				government_has_flag = government_is_landless_adventurer
 			}
 		}
 	}
@@ -3566,6 +4025,20 @@ undirected_great_holy_war = {
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
+		scope:attacker = { # LotR
+			if = { # Gains hope by winning a major war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
+			}
+		}
+		
+		# Hope loss for the defender
+		scope:defender = { # LotR
+			if = { # Loses hope by losing a major war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
+			}
+		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -4081,6 +4554,22 @@ undirected_great_holy_war = {
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
+		# Hope gain for the defender
+		scope:defender = { # LotR
+			if = { # Gains hope by winning a major war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
+			}
+		}
+		
+		# Hope loss for the attacker
+		scope:attacker = { # LotR
+			if = { # Loses hope by losing a major war
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
+			}
+		}
+		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
 
@@ -4257,6 +4746,7 @@ directed_great_holy_war = {
 			}
 			religion = { exists = var:variable_ghw_unlocked } #Activated by event for every religion.
 		}
+		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
 	allowed_for_character_display_regardless = {
@@ -4273,7 +4763,12 @@ directed_great_holy_war = {
 			}
 			custom_tooltip = {
 				text = "only_zealous_elves_can_holy_war"
-				has_trait = zealous
+				OR = {
+					has_trait = zealous
+					has_game_rule = strong_gondor_strength
+					has_game_rule = very_strong_gondor_strength
+					has_game_rule = apocalyptic_gondor_strength
+				}
 			}
 		}
 	}
@@ -4281,6 +4776,14 @@ directed_great_holy_war = {
 	allowed_against_character = {
 		scope:attacker.faith = {
 			is_hostile_enough_for_holy_war_trigger = { FAITH = scope:defender.faith }
+		}
+		
+		scope:defender = { lotr_can_declare_war = yes } # LOTR
+
+		scope:defender = { #LotR
+			NOR = {
+				government_has_flag = government_is_landless_adventurer
+			}
 		}
 	}
 
@@ -4454,7 +4957,20 @@ directed_great_holy_war = {
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-
+		# Hope 
+		scope:attacker = { # LotR 
+			if = { 
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
+			}
+		}
+		scope:defender = { # LotR 
+			if = { 
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
+			}
+		}
+		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
 
@@ -4693,7 +5209,21 @@ directed_great_holy_war = {
 
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
-				
+		
+		# Hope 
+		scope:attacker = { # LotR 
+			if = { 
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
+			}
+		}
+		scope:defender = { # LotR 
+			if = { 
+				limit = { is_elf = yes }
+				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
+			}
+		}
+		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
 

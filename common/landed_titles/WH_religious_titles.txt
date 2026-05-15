@@ -320,3 +320,28 @@ k_faceless = {
 		add = @always_primary_score
 	}
 }
+
+###WASTELANDS###
+k_wastelands = { # For Wastelands to not show their CoA. Do not add additional provinces
+	color = wastelands
+	definite_form = yes
+	landless = yes
+	de_jure_drift_disabled = yes
+	no_automatic_claims = yes
+	capital = c_wastelands
+
+	d_wastelands = {
+		color = wastelands
+
+
+		c_wastelands = {
+
+			color = wastelands
+
+			b_wastelands = {
+				province = 3903
+				color = wastelands
+			}
+		}
+	}
+}

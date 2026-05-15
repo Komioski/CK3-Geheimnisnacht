@@ -1,0 +1,144 @@
+﻿set_signature_weapon_interaction = {
+	category = interaction_category_friendly
+	desc = set_signature_weapon_interaction_desc
+	use_diplomatic_range = no
+	icon = icon_combat
+	common_interaction = yes
+	is_shown = {
+		scope:recipient = scope:actor
+		scope:actor = { 
+			is_ai = no
+			is_maiar = no
+		}
+	}
+
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = sword_person }
+			}
+		}
+		flag = sword_person
+		localization = set_signature_weapon_sword_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = swordshield_person }
+			}
+		}
+		flag = swordshield_person
+		localization = set_signature_weapon_swordshield_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = mace_person }
+			}
+		}
+		flag = mace_person
+		localization = set_signature_weapon_mace_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = maceshield_person }
+			}
+		}
+		flag = maceshield_person
+		localization = set_signature_weapon_maceshield_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = spear_person }
+			}
+		}
+		flag = spear_person
+		localization = set_signature_weapon_spear_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = spearshield_person }
+			}
+		}
+		flag = spearshield_person
+		localization = set_signature_weapon_spearshield_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = axe_person }
+			}
+		}
+		flag = axe_person
+		localization = set_signature_weapon_axe_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = axeshield_person }
+			}
+		}
+		flag = axeshield_person
+		localization = set_signature_weapon_axeshield_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = hammer_person }
+			}
+		}
+		flag = hammer_person
+		localization = set_signature_weapon_hammer_person
+	}
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				NOT = { has_character_flag = longaxe_person }
+			}
+		}
+		flag = longaxe_person
+		localization = set_signature_weapon_longaxe_person
+	}
+
+	on_accept = {
+		scope:recipient = {
+			switch = {
+				trigger = yes
+				scope:swordshield_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:sword_and_shield }
+				}
+				scope:axeshield_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:axe_and_shield }
+				}
+				scope:maceshield_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:mace_and_shield }
+				}
+				scope:spearshield_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:spear_and_shield }
+				}
+				scope:sword_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:sword }
+				}
+				scope:axe_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:axe }
+				}
+				scope:mace_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:mace }
+				}
+				scope:spear_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:spear }
+				}
+				scope:hammer_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:hammer }
+				}
+				scope:longaxe_person = {
+					lotr_set_signature_weapon_effect = { WEAPON = flag:longaxe }
+				}
+			}
+		}
+	}
+	auto_accept = yes
+}

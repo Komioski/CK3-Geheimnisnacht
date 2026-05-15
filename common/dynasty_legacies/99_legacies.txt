@@ -1,0 +1,94 @@
+﻿ep1_culture_legacy_track = {
+	is_shown = {
+		has_dlc_feature = hybridize_culture
+		dynasty = {
+			OR = {
+				dynast = {
+					culture = {
+						NOR = {
+							has_cultural_pillar = heritage_wastelands
+							has_cultural_pillar = heritage_undead
+							has_cultural_pillar = heritage_orc
+							has_cultural_pillar = heritage_goblin
+						}
+					}
+				}
+				has_dynasty_perk = ep1_culture_legacy_1
+			}
+		}
+	}
+}
+
+ep2_activities_legacy_track = {
+	is_shown = { has_dlc_feature = tours_and_tournaments }
+}
+
+warfare_legacy_track = {
+	# is_shown = { # Aerien note: we have the option of having the northron legacy replace this vanilla legacy. Commenting out for now until a decision is made
+		# dynasty = {
+			# OR = {
+				# dynast = {
+					# culture = {
+						# NOR = {
+							# has_cultural_pillar = heritage_northron
+							# has_cultural_pillar = heritage_eotheod
+						# }
+					# }
+				# }
+				# has_dynasty_perk = warfare_legacy_1
+			# }
+		# }
+	# }
+}
+
+law_legacy_track = {
+	
+}
+
+guile_legacy_track = {
+	
+}
+
+blood_legacy_track = {
+	is_shown = {
+		dynasty = {
+			OR = {
+				dynast = {
+					culture = {
+						NOR = {
+							has_cultural_pillar = heritage_wastelands
+							has_cultural_pillar = heritage_undead
+						}
+					}
+				}
+				has_dynasty_perk = blood_legacy_1
+			}
+		}
+	}
+}
+
+erudition_legacy_track = {
+	
+}
+
+glory_legacy_track = {
+	
+}
+
+kin_legacy_track = {
+	is_shown = {
+		dynasty = {
+			OR = {
+				dynast = {
+					culture = {
+						NOR = {
+							has_cultural_pillar = heritage_wastelands
+							has_cultural_pillar = heritage_undead
+						}
+					}
+				}
+				has_dynasty_perk = kin_legacy_1
+			}
+		}
+	}
+}

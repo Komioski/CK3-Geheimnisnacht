@@ -1,0 +1,47 @@
+﻿### Wastelands ###
+
+tradition_wastelands = {
+	category = realm
+
+	layers = {
+		0 = learning
+		1 = indian
+		4 = desert_mountains.dds
+	}
+	
+	county_modifier = {
+		development_growth_factor = -1.0
+		monthly_county_control_growth_factor = 1.0
+		build_speed = -10.0
+		monthly_county_control_growth_add = 1
+	}
+	
+	character_modifier = { 
+		monthly_county_control_growth_factor = 1.0
+		vassal_opinion = 100 
+		general_opinion = 1000
+		
+		ai_greed = -100
+		ai_honor = 100
+		ai_war_chance = -1
+		ai_war_cooldown = 0
+	}
+	culture_modifier = {
+		mercenary_count_mult = -1
+	}
+	
+	is_shown = {
+		scope:character = {
+			has_culture = culture:wastelands
+		}
+	}
+
+	can_pick = {
+		always = yes
+	}
+	
+	ai_will_do = {
+		value = 0
+	}
+
+}

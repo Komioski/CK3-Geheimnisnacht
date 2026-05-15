@@ -12,15 +12,38 @@
 # by Joe Parkin								#
 #############################################
 
+### Become Adventurer ###
 become_landless_adventurer_decision = {
+	picture = {
+		trigger = {
+			government_is_japanese_trigger = yes
+		}
+		reference = "gfx/interface/illustrations/decisions/tgp_dominance.dds"
+	}
+	#picture = { #LotR
+	#	trigger = {
+	#		OR = {
+	#			culture = { has_graphical_east_asia_culture_group_trigger = yes }
+	#			culture = { has_graphical_india_culture_group_trigger = yes }
+	#		}
+	#	}
+	#	reference = "gfx/interface/illustrations/decisions/tgp_silk_road.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/ep3_decision_laamp_neutral_mountain.dds"
 	}
 	sort_order = 82
-	ai_check_interval = 120
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 120
+		duchy = 120
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 
 	desc = become_landless_adventurer_decision_desc
-	decision_group_type = major
 	selection_tooltip = become_landless_adventurer_decision_tooltip
 
 	is_shown = {
@@ -31,14 +54,34 @@ become_landless_adventurer_decision = {
 			is_ai = no
 		}
 		#Standard filter checks.
-		is_landed = yes
+		OR = {
+			is_landed = yes
+			AND = {
+				is_ai = no
+				government_allows = administrative
+				top_liege = this
+				is_landed = no
+			}
+		}
 		# Relevant cultures/faiths
 		OR = {
 			culture = { has_cultural_parameter = unlock_voluntary_laampdom }
 			faith = { has_doctrine_parameter = unlock_voluntary_laampdom_faith }
+			has_trait = nomadic_philosophy
+			has_character_modifier = tgp_gave_up_modifier
+			AND = {
+				is_ai = no
+				government_allows = administrative
+				top_liege = this
+				is_landed = no
+			}
 		}
 		save_temporary_scope_as = potential_laamp_temp
 		can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:potential_laamp_temp } # Registered fighting license
+		NAND = { #LotR - AI canon characters don't go laamping on lore-friendly
+			lotr_canon_safe_from_harm_trigger = yes
+			is_ai = yes
+		}
 	}
 
 	is_valid = {
@@ -46,7 +89,7 @@ become_landless_adventurer_decision = {
 		# Is not HOF
 		custom_tooltip = {
 			text = become_landless_adventurer_decision_hof_tt
-			NOT = { faith.religious_head_title.holder = root }
+			faith.religious_head_title.holder != root
 		}
 		# Counts and dukes only
 		custom_tooltip = {
@@ -60,9 +103,25 @@ become_landless_adventurer_decision = {
 			domain_size <= 3
 		}
 		# Relevant cultures/faiths
-		OR = {
-			culture = { has_cultural_parameter = unlock_voluntary_laampdom }
-			faith = { has_doctrine_parameter = unlock_voluntary_laampdom_faith }
+		trigger_if = {
+			limit = {
+				NAND = {
+					is_ai = no
+					government_allows = administrative
+					top_liege = this
+					is_landed = no
+				}
+			}
+			OR = {
+				culture = { has_cultural_parameter = unlock_voluntary_laampdom }
+				faith = { has_doctrine_parameter = unlock_voluntary_laampdom_faith }
+				has_trait = nomadic_philosophy
+				custom_tooltip = {
+					text = nomadic_government_tt
+					government_has_flag = government_is_nomadic
+				}
+				has_character_modifier = tgp_gave_up_modifier
+			}
 		}
 	}
 
@@ -78,7 +137,7 @@ become_landless_adventurer_decision = {
 		if = {
 			limit = {
 				player_heir ?= {
-					NOT = { this = root }
+					this != root
 					is_adult = yes
 				}
 			}
@@ -89,7 +148,7 @@ become_landless_adventurer_decision = {
 			}
 		}
 		else_if = {
-			limit = { is_independent_ruler = no }
+			limit = { top_liege != this }
 			liege = {
 				save_scope_as = laamp_liege
 				save_scope_as = laamp_inheritor
@@ -155,16 +214,32 @@ become_landless_adventurer_decision = {
 		}
 	}
 
-	ai_potential = { is_valid_for_laampdom = yes }
+	ai_potential = {
+		is_valid_for_laampdom = yes
+		#trigger_if = { # Temujun stays, he needs to become Genghis Khan after all!
+		#	limit = {
+		#		exists = character:125501
+		#	}
+		#	NOT = { this = character:125501 }
+		#}
+	}
 
 	ai_will_do = {
-		base = -30
+		base = -75
 		modifier = { add = ep3_laamp_chance_score_value }
+		modifier = { # If we don't have this, everyone will leave your realm constantly
+			add = -45
+			culture = { has_cultural_parameter = much_more_likely_to_be_laamps }
+		}
+		modifier = { # If we don't have this, everyone will leave your realm constantly
+			add = -20
+			culture = { has_cultural_parameter = more_likely_to_be_laamps }
+		}
 		modifier = {
 			factor = 0
 			OR = {
 				#Stahp it, John de Courcy
-				this = character:214000
+				# this = character:214000 #LotR
 				#No adventurer should want to be one again... right?
 				has_variable = adventurer_creation_reason
 			}
@@ -177,11 +252,19 @@ become_landless_adventurer_decision = {
 # by Joe Parkin & Ewan Cowhig Croft			#
 #############################################
 
+### Wipe Slate ###
 wipe_slate_decision = {
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_recruitment.dds" }
 	desc = wipe_slate_decision_desc
 	selection_tooltip = wipe_slate_decision_tooltip
-	ai_check_interval = 36
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 36
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	decision_group_type = adventurer_minor
 
 	cooldown = { years = 1 }
@@ -471,7 +554,14 @@ adopt_a_kennel_dog = {
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_pet_dog.dds" }
 	desc = adopt_a_kennel_dog_desc
 	selection_tooltip = adopt_a_kennel_dog_tooltip
-	ai_check_interval = 36
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 36
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	decision_group_type = adventurer_minor
 
 	cooldown = { years = 5 }
@@ -482,7 +572,7 @@ adopt_a_kennel_dog = {
 		domicile ?= { has_domicile_parameter = camp_unlocks_adopt_a_kennel_dog_decision }
 		NOT = {
 			any_owned_story = {
-				story_type = story_cycle_pet_dog
+				type = story_cycle_pet_dog
 			}
 		}
 	}
@@ -532,33 +622,38 @@ adopt_a_kennel_dog = {
 # Treasure Hunting Contract					#
 # by Arkadiusz Majewski						#
 #############################################
+### Search for Treasures ###
 treasure_hunting_contract_decision = {
 	picture = { reference = "gfx/interface/illustrations/army_status/moving.dds" }
 	desc = treasure_hunting_contract_decision_desc
 	selection_tooltip = treasure_hunting_contract_decision_tooltip
-	ai_check_interval = 36
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 32
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	decision_group_type = adventurer_minor
-
-	#cooldown = { years = 5 }
 
 	is_shown = {
 		#DLC check.
 		has_ep3_dlc_trigger = yes
 
 		any_character_active_contract = {
-			has_task_contract_type = laamp_treasure_hunting_contract
+			task_contract_type = laamp_treasure_hunting_contract
 		}
 	}
 
 	is_valid_showing_failures_only = {
 		is_available_adult = yes
 		has_contagious_deadly_disease_trigger = no
-		is_travelling = no
 	}
 
 	is_valid = {
 		any_character_active_contract = {
-			has_task_contract_type = laamp_treasure_hunting_contract
+			task_contract_type = laamp_treasure_hunting_contract
 		}
 	}
 	widget = {
@@ -566,394 +661,434 @@ treasure_hunting_contract_decision = {
 		controller = decision_option_list_controller
 		decision_to_second_step_button = "TREASURE_HUNTING_CONTRACT_DECISION_NEXT_STEP_BUTTON"
 		#cover world regions, have to be the same as in get_adventure_inspiration_start_location 
-		item = {
-			value = search_europe_north
+
+		item = { #Beleriand
+			value = search_beleriand
 			is_valid = {
 				custom_description = {
 					text = treasure_hunting_contract_decision_limit
 					capital_province = {
-						OR = {
-							geographical_region = world_europe
-							geographical_region = world_steppe_west
-						}
+						geographical_region = middleearth_west_beleriand
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_west_beleriand
+						is_wastelands = no
+						count > 0
 					}
 				}
 			}
-			localization = treasure_hunting_contract_decision_option_search_europe_north
-			icon = "gfx/interface/icons/terrain_types/taiga.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_europe_west
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe
-							geographical_region = world_africa_north
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_europe_west
-			icon = "gfx/interface/icons/terrain_types/plains.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_europe_east
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe
-							geographical_region = world_steppe_west
-							geographical_region = world_asia_minor		
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_europe_east
-			icon = "gfx/interface/icons/terrain_types/forest.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_europe_south
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe
-							geographical_region = world_steppe_west
-							geographical_region = world_asia_minor
-							geographical_region = world_africa_north
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_europe_south
-			icon = "gfx/interface/icons/terrain_types/coastal_sea.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_africa_north
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe_south
-							geographical_region = world_europe_west
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east_jerusalem
-							geographical_region = world_africa
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_africa_north
-			icon = "gfx/interface/icons/terrain_types/drylands.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_africa_west
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe_south
-							geographical_region = world_africa
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_africa_west
-			icon = "gfx/interface/icons/terrain_types/jungle.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_africa_east
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe_south
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east_jerusalem
-							geographical_region = world_middle_east_arabia
-							geographical_region = world_africa
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_africa_east
-			icon = "gfx/interface/icons/terrain_types/hills.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_middle_east_jerusalem
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe_south
-							geographical_region = world_asia_minor
-							geographical_region = world_middle_east
-							geographical_region = world_africa_north
-							geographical_region = world_africa_east
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_middle_east_jerusalem
-			icon = "gfx/interface/icons/terrain_types/drylands.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_asia_minor
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe_south
-							geographical_region = world_middle_east
-							geographical_region = world_africa_north
-							geographical_region = world_africa_east
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_asia_minor
-			icon = "gfx/interface/icons/terrain_types/hills.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_middle_east_arabia
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe_south
-							geographical_region = world_middle_east
-							geographical_region = world_africa_north
-							geographical_region = world_africa_east
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_middle_east_arabia
-			icon = "gfx/interface/icons/terrain_types/desert.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_middle_east_persia
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_europe_south
-							geographical_region = world_middle_east
-							geographical_region = world_africa_north
-							geographical_region = world_africa_east
-							geographical_region = world_india_rajastan
-							geographical_region = world_steppe_west
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_middle_east_persia
-			icon = "gfx/interface/icons/terrain_types/desert_mountains.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_india_rajastan
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_middle_east
-							geographical_region = world_india
-							geographical_region = world_steppe_west
-							geographical_region = world_burma
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_india_rajastan
-			icon = "gfx/interface/icons/terrain_types/desert.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_india_deccan
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_middle_east
-							geographical_region = world_india
-							geographical_region = world_steppe_west
-							geographical_region = world_burma
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_india_deccan
-			icon = "gfx/interface/icons/terrain_types/drylands.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_india_bengal
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_middle_east
-							geographical_region = world_india
-							geographical_region = world_steppe_west
-							geographical_region = world_burma
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_india_bengal
-			icon = "gfx/interface/icons/terrain_types/jungle.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_burma
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_india
-							geographical_region = world_tibet
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_burma
-			icon = "gfx/interface/icons/terrain_types/floodplains.dds"
-			ai_chance = {
-				value = 50
-			}
-		}
-		item = {
-			value = search_tibet
-			is_valid = {
-				custom_description = {
-					text = treasure_hunting_contract_decision_limit
-					capital_province = {
-						OR = {
-							geographical_region = world_india
-							geographical_region = world_steppe
-						}
-					}
-				}
-			}
-			localization = treasure_hunting_contract_decision_option_search_tibet
+			localization = treasure_hunting_contract_decision_option_search_beleriand 
 			icon = "gfx/interface/icons/terrain_types/mountains.dds"
 			ai_chance = {
 				value = 50
 			}
 		}
-		item = {
-			value = search_steppe_tarim
+		item = { #Blue Mountains
+			value = search_mountains_blue
 			is_valid = {
 				custom_description = {
 					text = treasure_hunting_contract_decision_limit
 					capital_province = {
-						OR = {
-							geographical_region = world_india
-							geographical_region = world_tibet
-							geographical_region = world_steppe
-						}
+						geographical_region = middleearth_mountains_blue
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_mountains_blue
+						is_wastelands = no
+						count > 0
 					}
 				}
 			}
-			localization = treasure_hunting_contract_decision_option_search_steppe_tarim
-			icon = "gfx/interface/icons/terrain_types/desert.dds"
+			localization = treasure_hunting_contract_decision_option_search_mountains_blue
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
 			ai_chance = {
 				value = 50
 			}
 		}
-		item = {
-			value = search_steppe_west
+		item = { #Arnor
+			value = search_arnor
 			is_valid = {
 				custom_description = {
 					text = treasure_hunting_contract_decision_limit
 					capital_province = {
-						OR = {
-							geographical_region = world_india
-							geographical_region = world_tibet
-							geographical_region = world_steppe
-							geographical_region = world_europe_east
-							geographical_region = world_europe_north
-							geographical_region = world_asia_minor
-						}
+						geographical_region = middleearth_west_arnor
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_west_arnor
+						is_wastelands = no
+						count > 0
 					}
 				}
 			}
-			localization = treasure_hunting_contract_decision_option_search_steppe_west
-			icon = "gfx/interface/icons/terrain_types/steppe.dds"
+			localization = treasure_hunting_contract_decision_option_search_arnor
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
 			ai_chance = {
 				value = 50
 			}
 		}
-		item = {
-			value = search_steppe_east
+		item = { #Forodwaith
+			value = search_forodwaith
 			is_valid = {
 				custom_description = {
 					text = treasure_hunting_contract_decision_limit
 					capital_province = {
-						OR = {
-							geographical_region = world_india
-							geographical_region = world_tibet
-							geographical_region = world_steppe
-						}
+						geographical_region = middleearth_forodwaith
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_forodwaith
+						is_wastelands = no
+						count > 0
 					}
 				}
 			}
-			localization = treasure_hunting_contract_decision_option_search_steppe_east
+			localization = treasure_hunting_contract_decision_option_search_forodwaith
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Eregion
+			value = search_eregion
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_west_eregion
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_west_eregion
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_eregion
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Misty Mountains
+			value = search_mountains_misty
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_mountains_misty
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_mountains_misty
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_mountains_misty
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Gondor
+			value = search_gondor
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_west_gondor
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_west_gondor
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_gondor
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #White Mountains
+			value = search_mountains_white
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_mountains_white
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_mountains_white
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_mountains_white
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Westlands
+			value = search_west
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = adventure_west
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = adventure_west
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_west
+			icon = "gfx/interface/icons/terrain_types/plains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Rhovanion
+			value = search_rhovanion
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_west_rhovanion
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_west_rhovanion
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_rhovanion
+			icon = "gfx/interface/icons/terrain_types/forest.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Iron Mountains
+			value = search_mountains_iron
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_mountains_iron
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_mountains_iron
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_mountains_iron
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Rhun/Khand
+			value = search_rhun
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_rhun
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_rhun
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_rhun
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Mordor 
+			value = search_mordor
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_mordor
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_mordor
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_mordor
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Near Harad
+			value = search_nearharad
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_harad_near
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_harad_near
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_nearharad
+			icon = "gfx/interface/icons/terrain_types/drylands.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Far Harad
+			value = search_farharad
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_harad_far
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_harad_far
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_farharad
+			icon = "gfx/interface/icons/terrain_types/jungle.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Utter South
+			value = search_uttersouth
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_uttersouth
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_uttersouth
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_uttersouth
+			icon = "gfx/interface/icons/terrain_types/jungle.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Yellow Mountains
+			value = search_mountains_yellow
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_mountains_yellow
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_mountains_yellow
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_mountains_yellow
+			icon = "gfx/interface/icons/terrain_types/mountains.dds"
+			ai_chance = {
+				value = 50
+			}
+		}
+		item = { #Bay of Ormal
+			value = search_bay_of_ormal
+			is_valid = {
+				custom_description = {
+					text = treasure_hunting_contract_decision_limit
+					capital_province = {
+						geographical_region = middleearth_harad_bayoformal
+					}
+				}
+				custom_tooltip = {
+					text = no_settled_counties
+					any_county_in_region = {
+						region = middleearth_harad_bayoformal
+						is_wastelands = no
+						count > 0
+					}
+				}
+			}
+			localization = treasure_hunting_contract_decision_option_search_bay_of_ormal
 			icon = "gfx/interface/icons/terrain_types/mountains.dds"
 			ai_chance = {
 				value = 50
@@ -964,185 +1099,123 @@ treasure_hunting_contract_decision = {
 	effect = {
 		switch = {
 			trigger = yes
-			scope:search_africa_north = {
+			scope:search_beleriand = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:africa_north
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:beleriand
 				}
 			}
-			scope:search_africa_west = {
+			scope:search_mountains_blue = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:africa_west
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:mountains_blue
 				}
 			}
-			scope:search_africa_east = {
+			scope:search_arnor = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:africa_east
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:arnor
 				}
 			}
-			scope:search_europe_north = {
+			scope:search_forodwaith = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:europe_north
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:forodwaith
 				}
 			}
-			scope:search_europe_west = {
+			scope:search_eregion = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:europe_west
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:eregion
 				}
 			}
-			scope:search_europe_east = {
+			scope:search_mountains_misty = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:europe_east
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:mountains_misty
 				}
 			}
-			scope:search_europe_south = {
+			scope:search_gondor = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:europe_south
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:gondor
 				}
 			}
-			scope:search_middle_east_jerusalem = {
+			scope:search_mountains_white = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:middle_east_jerusalem
+					value = flag:mountains_white
 				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
-				}
-			}
-			scope:search_middle_east_arabia = {
+			} 
+			scope:search_west = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:middle_east_arabia
+					value = flag:west
 				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
-				}
-			}
-			scope:search_middle_east_persia = {
+			} 
+			scope:search_rhovanion = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:middle_east_persia
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:rhovanion
 				}
 			}
-			scope:search_india_deccan = {
+			scope:search_mountains_iron = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:india_deccan
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:mountains_iron
 				}
 			}
-			scope:search_india_bengal = {
+			scope:search_rhun = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:india_bengal
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:rhun
 				}
 			}
-			scope:search_india_rajastan = {
+			scope:search_mordor = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:india_rajastan
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:mordor
 				}
 			}
-			scope:search_steppe_west = {
+			scope:search_nearharad = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:steppe_west
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:nearharad
 				}
 			}
-			scope:search_steppe_east = {
+			scope:search_farharad = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:steppe_east
+					value = flag:farharad
 				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
-				}
-			}
-			scope:search_steppe_tarim = {
+			} 
+			scope:search_uttersouth = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:steppe_tarim
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:uttersouth
 				}
 			}
-			scope:search_asia_minor = {
+			scope:search_mountains_yellow = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:asia_minor
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:mountains_yellow
 				}
 			}
-			scope:search_burma = {
+			scope:search_bay_of_ormal = { 
 				set_variable = {
 					name = adventure_destination
-					value = flag:burma
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
+					value = flag:bayoformal
 				}
 			}
-			scope:search_tibet = {
-				set_variable = {
-					name = adventure_destination
-					value = flag:tibet
-				}
-				get_adventure_inspiration_start_location = {
-					ADVENTURER = root
-				}
-			}
+		}
+		get_adventure_inspiration_start_location = {
+			ADVENTURER = root
 		}
 		random_character_task_contract = {
-			limit = {
-				has_task_contract_type = laamp_treasure_hunting_contract
-			}
+			task_contract_type = laamp_treasure_hunting_contract
 			save_scope_as = task_contract
 		}
-		scope:location.county = {
+		scope:location.county ?= {
 			random_county_province = {
 				save_scope_as = task_contract_destination
 			}
@@ -1173,7 +1246,207 @@ treasure_hunting_contract_decision = {
 # Visit Local Settlement					#
 #############################################
 
+### Visit [ROOT.Char.Custom('LocalHoldingTypeCapitalized')] ###
 visit_local_settlement_decision = {
+	picture = {
+		trigger = {
+			root.location = { geographical_region = middleearth_mordor_gorgoroth }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_barad_dur_01.dds"
+	}
+	picture = {
+		trigger = {
+			#root.location = { has_holding_type = dwarven_holding }
+			root.location = { has_holding_type = dwarven_holding NOT = { is_orc = yes } }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_dwarves_02.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				is_elf = yes
+				is_coastal = yes
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_mithlond_02.dds"
+	}
+	picture = {
+		trigger = {
+			#root.location = { has_holding_type = elven_holding }
+			root.location = { is_elf = yes }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_nelornieth_embassy.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = { is_hobbit = yes }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_shire_01.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = { is_orc = yes }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_gundabad_grey_mountains.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = { is_druedain = yes }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_druadan_01.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				culture = { has_cultural_pillar = heritage_dunedain }
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_fornost_02.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				is_coastal = yes
+				culture = { has_cultural_parameter = heritage_group_numenorean }
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_adunai_01.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				has_holding_type = castle_holding
+				geographical_region = middleearth_harad
+				#culture = {
+				#	has_cultural_pillar = heritage_northern_apysaic
+				#	has_cultural_pillar = heritage_middle_apysaic
+				#	has_cultural_pillar = heritage_tedjin
+				#}
+				OR = {
+					terrain = desert
+					terrain = desert_mountains
+					terrain = dune_sea
+					terrain = red_desert
+					terrain = drylands
+					terrain = savanna
+					terrain = oasis
+					terrain = steppe
+				}
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_harad_01.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				has_holding_type = city_holding
+				geographical_region = middleearth_harad
+				#culture = {
+				#	has_cultural_pillar = heritage_northern_apysaic
+				#	has_cultural_pillar = heritage_middle_apysaic
+				#	has_cultural_pillar = heritage_tedjin
+				#}
+				OR = {
+					terrain = desert
+					terrain = desert_mountains
+					terrain = dune_sea
+					terrain = red_desert
+					terrain = drylands
+					terrain = savanna
+					terrain = oasis
+					terrain = steppe
+				}
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_harad_02.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				geographical_region = middleearth_harad
+				#culture = {
+				#	has_cultural_pillar = heritage_northern_apysaic
+				#	has_cultural_pillar = heritage_middle_apysaic
+				#	has_cultural_pillar = heritage_tedjin
+				#}
+				OR = {
+					terrain = desert
+					terrain = desert_mountains
+					terrain = dune_sea
+					terrain = red_desert
+					terrain = drylands
+					terrain = savanna
+					terrain = oasis
+					terrain = steppe
+				}
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_harad_04.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				geographical_region = middleearth_forodwaith_angmar
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_angmar_01.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				is_wastelands = yes
+				geographical_region = middleearth_west_enedhwaith
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_dunland_02.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				is_wastelands = yes
+				geographical_region = middleearth_west_arnor
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_barrow_02.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = { is_wastelands = yes }
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_dol_guldur_subjugate_mount_gundabad.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				geographical_region = middleearth_west_rhovanion_dorwinion
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_dorwinion_01.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				geographical_region = middleearth_west_rohan
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_edoras_01.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				geographical_region = middleearth_west_enedhwaith
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_dunland_01.dds"
+	}
+	picture = {
+		trigger = {
+			root.location = {
+				is_coastal = yes
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/decision_set_sail.dds"
+	}
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds" }
 	desc = visit_local_settlement_decision_desc
 	selection_tooltip = visit_local_settlement_decision_tooltip
@@ -1185,18 +1458,23 @@ visit_local_settlement_decision = {
 	is_shown = {
 		#DLC check.
 		has_ep3_dlc_trigger = yes
-		is_landless_adventurer = yes
+		has_government = landless_adventurer_government
+		root.location = { is_wastelands = no } #LotR
 	}
 
 	is_valid_showing_failures_only = {
 		is_alive = yes
-		is_available_adult = yes
+		# is_available_adult = yes #LotR
+		is_available = yes #LotR
+		is_adult = yes #LotR
 		has_contagious_deadly_disease_trigger = no
 		root.location = {
 			has_holding = yes
 			is_occupied = no
 			is_raided = no	
+			# NOT = { has_holding_type = wastelands_holding }
 		}
+		lotr_laamp_can_visit_location = yes #LotR
 		custom_description = {
 			text = "visit_local_settlement_decision_sieged"
 			subject = root
@@ -1222,22 +1500,48 @@ visit_local_settlement_decision = {
 					OR = {
 						has_holding = no
 						has_holding_type = tribal_holding
+						has_holding_type = nomad_holding
+						has_holding_type = herder_holding
 					} 
 				}
 			}
 			#The base tooltip
 			custom_tooltip = visit_local_settlement_tribal_holding_decision_tt
 		}
+		else_if = { #LotR
+			limit = {
+				#root.location = { has_holding_type = dwarven_holding }
+				root.location = { has_holding_type = dwarven_holding NOT = { is_orc = yes } }
+			}
+			#Add on castle holding-specific effects
+			custom_tooltip = visit_local_settlement_dwarven_holding_decision_tt
+		}
+		else_if = { #LotR
+			limit = {
+				root.location = { has_holding_type = elven_holding }
+			}
+			#Add on castle holding-specific effects
+			custom_tooltip = visit_local_settlement_elven_holding_decision_tt
+		}
 		else_if = {
 			limit = {
-				root.location = { has_holding_type = church_holding }
+				root.location = {
+					OR = {
+						has_holding_type = church_holding
+						has_holding_type = temple_citadel_holding
+					}
+				}
 			}
 			#Add on church holding-specific effects
 			custom_tooltip = visit_local_settlement_church_holding_decision_tt
 		}
 		else_if = {
 			limit = {
-				root.location = { has_holding_type = castle_holding }
+				#root.location = { has_holding_type = castle_holding } #LOTR
+				OR = { #LOTR
+					root.location = { has_holding_type = castle_holding }
+					root.location = { has_holding_type = dwarven_holding is_orc = yes }
+				}
 			}
 			#Add on castle holding-specific effects
 			custom_tooltip = visit_local_settlement_castle_holding_decision_tt
@@ -1249,19 +1553,29 @@ visit_local_settlement_decision = {
 			#Add on castle holding-specific effects
 			custom_tooltip = visit_local_settlement_city_holding_decision_tt
 		}
+		else_if = { #LotR
+			limit = {
+				root.location = { has_holding_type = settlement_holding }
+			}
+			#Add on castle holding-specific effects
+			custom_tooltip = visit_local_settlement_tribal_holding_decision_tt
+		}
 		set_variable = ep3_laamp_decision_1000_is_visiting
 		trigger_event =  ep3_laamp_decision_event.1000
+		close_view = {
+			view = decisions
+			player = root
+		}
 	}
 	
-	ai_check_interval = 12
+	ai_check_interval = 0
 
 	ai_potential = {
-		government_has_flag = government_is_landless_adventurer
-		is_available = yes
+		always = no
 	}
 	
 	ai_will_do = {
-		base = 100
+		base = 0
 	}
 }
 
@@ -1269,17 +1583,25 @@ visit_local_settlement_decision = {
 # Visit Local Settlement - Use Treasure Map	#
 #############################################
 
+### Excavate Treasure ###
 treasure_map_contract_decision = {
 	picture = { reference = "gfx/interface/illustrations/army_status/moving.dds" }
 	desc = treasure_map_contract_decision_desc
 	selection_tooltip = treasure_map_contract_decision_tooltip
-	ai_check_interval = 36
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 36
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	decision_group_type = adventurer_minor
 
 	is_shown = {
 		#DLC check.
 		has_ep3_dlc_trigger = yes
-		any_character_active_contract = { has_task_contract_type = laamp_treasure_map_contract }
+		any_character_active_contract = { task_contract_type = laamp_treasure_map_contract }
 		any_character_artifact = { has_variable = 1025_treasure_map }
 	}
 
@@ -1296,7 +1618,7 @@ treasure_map_contract_decision = {
 	}
 
 	is_valid = {
-		any_character_task_contract = { has_task_contract_type = laamp_treasure_map_contract }
+		any_character_task_contract = { task_contract_type = laamp_treasure_map_contract }
 	}
 
 	widget = {
@@ -1368,10 +1690,11 @@ treasure_map_contract_decision = {
 # by Ewan Cowhig Croft						#
 #############################################
 
+### Reject Inheritance ###
 reject_inheritance_decision = {
 	# Laamp picture.
 	picture = {
-		trigger = { is_landless_adventurer = yes }
+		trigger = { has_government = landless_adventurer_government }
 		reference = "gfx/interface/illustrations/decisions/ep3_decision_laamp_negative.dds"
 	}
 	# Everyone else's picture.
@@ -1518,10 +1841,17 @@ reject_inheritance_decision = {
 			has_trait = ambitious
 		}
 		can_access_reject_inheritance_decision_trigger = yes
-		any_heir_title = { count >= 1 }
+		any_heir_title = { }
 	}
 
-	ai_check_interval = 36
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 36
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 
 	ai_will_do = {
 		# Start the base low so that you need a fair amount of positive reasons to take it.
@@ -1597,6 +1927,7 @@ reject_inheritance_decision = {
 # Renounce Vows								#
 #############################################
 
+### Renounce Vows ###
 renounce_vows_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/ep3_decision_laamp_neutral_mountain.dds"
@@ -1606,7 +1937,7 @@ renounce_vows_decision = {
 	decision_group_type = adventurer_minor
 
 	is_shown = {
-		is_landless_adventurer = yes
+		has_government = landless_adventurer_government
 		has_trait = devoted
 	}
 
@@ -1629,7 +1960,14 @@ renounce_vows_decision = {
 		has_trait = devoted
 	}
 
-	ai_check_interval = 64
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 64
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 
 	ai_will_do = {
 		base = 0
@@ -1646,6 +1984,7 @@ renounce_vows_decision = {
 	}
 }
 
+### Embrace Responsibilities ###
 embrace_responsibilities_decision = {
 	# Everyone else's picture.
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds" }
@@ -1738,7 +2077,7 @@ embrace_responsibilities_decision = {
 							# Holds an elective title, which will generally make families candidates.
 							any_held_title = {
 								# Pre-filter out to higher tiers.
-								tier >= tier_kingdom
+								title_tier >= kingdom
 								# Aaand then check if they're actually elective.
 								has_title_law_flag = elective_succession_law
 							}
@@ -1789,6 +2128,7 @@ embrace_responsibilities_decision = {
 # by Ewan Cowhig Croft						#
 #############################################
 
+### Change Election Candidacy Status ###
 change_election_candidacy_status_decision = {
 	# Everyone else's picture.
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds" }
@@ -1807,7 +2147,7 @@ change_election_candidacy_status_decision = {
 		is_ai = no
 		liege = {
 			any_held_title = {
-				tier >= tier_kingdom
+				title_tier >= kingdom
 				has_title_law_flag = elective_succession_law
 			}
 		}
@@ -1818,7 +2158,7 @@ change_election_candidacy_status_decision = {
 			text = change_election_candidacy_status_decision.tt.you_are_an_election_candidate
 			liege = {
 				any_held_title = {
-					tier >= tier_kingdom
+					title_tier >= kingdom
 					has_title_law_flag = elective_succession_law
 					any_election_candidate = { this = root }
 				}
@@ -1835,10 +2175,15 @@ change_election_candidacy_status_decision = {
 			remove_variable = rejects_electioneering
 			custom_tooltip = change_election_candidacy_status_decision.tt.embraces_candidacy
 			liege = {
-				add_opinion = {
-					target = root
-					modifier = indecision_opinion
-					opinion = -25
+				if = {
+					limit = {
+						this != root
+					}
+					add_opinion = {
+						target = root
+						modifier = indecision_opinion
+						opinion = -25
+					}
 				}
 				every_vassal = {
 					custom = custom.every_co_vassal_not_arrogant_or_ambitious
@@ -1847,6 +2192,7 @@ change_election_candidacy_status_decision = {
 							has_trait = arrogant
 							has_trait = ambitious
 						}
+						this != root
 					}
 					add_opinion = {
 						target = root
@@ -1864,10 +2210,15 @@ change_election_candidacy_status_decision = {
 			}
 			custom_tooltip = change_election_candidacy_status_decision.tt.renounces_candidacy
 			liege = {
-				add_opinion = {
-					target = root
-					modifier = respect_opinion
-					opinion = -25
+				if = {
+					limit = {
+						this != root
+					}
+					add_opinion = {
+						target = root
+						modifier = respect_opinion
+						opinion = -25
+					}
 				}
 				every_vassal = {
 					custom = custom.every_co_vassal_not_humble_or_content
@@ -1876,6 +2227,7 @@ change_election_candidacy_status_decision = {
 							has_trait = humble
 							has_trait = content
 						}
+						this != root
 					}
 					add_opinion = {
 						target = root
@@ -1895,6 +2247,7 @@ change_election_candidacy_status_decision = {
 # Bandit King
 #############################################
 
+### Levy the Outcasts ###
 bandit_king_decision = {
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_levy_outcasts.dds" }
 	desc = bandit_king_decision_desc
@@ -1953,7 +2306,14 @@ bandit_king_decision = {
 		prestige = 2000
 	}
 	
-	ai_check_interval = 32
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 32
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	
 	ai_potential = {
 		government_has_flag = government_is_landless_adventurer
@@ -1969,11 +2329,19 @@ bandit_king_decision = {
 # by Joe Parkin
 #############################################
 
+### Gather Provisions ###
 gather_provisions_decision = {
 	picture = { reference = "gfx/interface/illustrations/decisions/ep3_decision_laamp_neutral_mountain.dds" }
 	desc = gather_provisions_decision_desc
 	selection_tooltip = gather_provisions_decision_tooltip
-	ai_check_interval = 36
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 36
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	sort_order = 200
 	cooldown = { years = 3 }
 	decision_group_type = adventurer_minor
@@ -1981,7 +2349,7 @@ gather_provisions_decision = {
 	is_shown = {
 		#DLC check.
 		has_ep3_dlc_trigger = yes
-		is_landless_adventurer = yes
+		has_government = landless_adventurer_government
 	}
 
 	is_valid_showing_failures_only = {
@@ -1992,6 +2360,10 @@ gather_provisions_decision = {
 		custom_tooltip = {
 			text = gather_provisions_decision_effect_tt
 			trigger_event = ep3_decisions_event.7000
+		}
+		close_view = {
+			view = decisions
+			player = root
 		}
 	}
 
@@ -2010,6 +2382,7 @@ gather_provisions_decision = {
 # by Krzysztof Lankowski
 #############################################
 
+### The Travels of [ROOT.Char.GetFullNameNoTooltip] ###
 seasoned_visitor_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_foundation.dds"
@@ -2069,7 +2442,14 @@ seasoned_visitor_decision = {
 		}
 	}
 
-	ai_check_interval = 32
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 32
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	
 	ai_potential = {
 		government_has_flag = government_is_landless_adventurer
@@ -2085,6 +2465,7 @@ seasoned_visitor_decision = {
 # by Krzysztof Lankowski
 #############################################
 
+### The [ROOT.Char.GetFaith.GetAdherentNameNoTooltip] Path — Ascension ###
 zealous_missionary_prep_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
@@ -2118,6 +2499,10 @@ zealous_missionary_prep_decision = {
 			}
 			has_trait = theologian
 			piety_level >= 4
+			trigger_if = { #LotR
+				limit = { has_character_flag = is_paul_flag } 
+				faith = faith:faith_iunast
+			}
 		}
 		
 
@@ -2144,6 +2529,10 @@ zealous_missionary_prep_decision = {
 						}
 					}
 					current_month = 4 # 12 times less ai missionaries getting spawned 
+				}
+				AND = { #LotR
+					has_character_flag = is_paul_flag 
+	        		faith = faith:faith_iunast
 				}
 			}
 		}
@@ -2176,9 +2565,24 @@ zealous_missionary_prep_decision = {
 		custom_tooltip = {
 			text = zealous_missionary_prep_decision_reward_desc
 		}
+		#if = {
+		#	limit = {
+		#		any_owned_story = {
+		#			story_type = story_hasan
+		#		}
+		#	}
+		#	custom_tooltip = chance_to_advance_to_the_assassins_tt
+		#}
 	}
-	
-	ai_check_interval = 32
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 32
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	
 	ai_potential = {
 		ai_zeal >= 50
@@ -2190,6 +2594,7 @@ zealous_missionary_prep_decision = {
 	}
 }
 
+### The [ROOT.Char.GetFaith.GetAdherentNameNoTooltip] Path — Prelude ###
 zealous_missionary_start_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
@@ -2203,11 +2608,8 @@ zealous_missionary_start_decision = {
 		has_ep3_dlc_trigger = yes
 		government_has_flag = government_is_landless_adventurer
 		has_character_flag = zealous_missionary_prep
-		NOT = {
+		NOR = {
 			has_character_flag = zealous_missionary_start
-
-		}
-		NOT = {
 			is_ai = yes
 			any_player = {
 				OR = {
@@ -2219,12 +2621,7 @@ zealous_missionary_start_decision = {
 	}
 
 	is_valid = {
-		custom_tooltip = {
-			text = zealous_missionary_start_decision_other_faith_location
-			NOT = {
-				location.county.faith = root.faith
-			} 
-		}	
+		location.county = { hasan_evangelize_province_trigger = yes }
 	}
 
 	is_valid_showing_failures_only = {
@@ -2244,8 +2641,15 @@ zealous_missionary_start_decision = {
 			trigger_event = ep3_laamp_decision_event.1102
 		}
 	}
-	
-	ai_check_interval = 32
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 32
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	
 	ai_potential = {
 		ai_zeal >= 50
@@ -2263,6 +2667,7 @@ zealous_missionary_start_decision = {
 # by Krzysztof Lankowski
 #############################################
 
+### Become a Great Conqueror ###
 become_conqueror_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/fp2_decision_struggle_hostility.dds"
@@ -2381,6 +2786,11 @@ become_conqueror_decision = {
 			}
 			
 		}
+		# LOTR Added
+		custom_tooltip = {
+			text = is_settled_area
+			location.county.holder = { is_wastelands = no }
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2451,6 +2861,7 @@ become_conqueror_decision = {
 # by Krzysztof Lankowski
 #############################################
 
+### Found a Holding ###
 start_city_construction_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/ep3_decision_city.dds"
@@ -2466,19 +2877,44 @@ start_city_construction_decision = {
 		NOT = {
 			has_character_flag = laamp_city_builder
 		}
+		location.county.holder ?= { # LOTR
+			is_wastelands = no
+			OR = {
+				same_race = { TARGET = ROOT }
+				AND = { # Hobbits sometimes settle among humans
+					is_human = yes
+					ROOT = { is_hobbit = yes }
+				}
+				AND = { # But generally not the other way around (players get special treatment)
+					is_hobbit = yes
+					ROOT = { is_human = yes }
+					ROOT = { is_ai = no }
+				}
+				AND = { # Hobbits and Druedain could get along?
+					is_hobbit = yes
+					ROOT = { is_druedain = yes }
+				}
+				AND = { # Druedain and Hobbits could get along?
+					is_druedain = yes
+					ROOT = { is_hobbit = yes }
+				}
+				AND = { # Dark beings attract orcs
+					cannot_be_killed = yes
+					faith_is_evil = yes
+					ROOT = { is_orc = yes }
+				}
+			}
+		}
+		location = { NOT = { terrain = halls } } #Don't go building Underground !
 	}
 
 	is_valid = {
 		custom_tooltip = {
 			text = start_city_construction_decision_empty_holding
 			exists = location.county.holder
-			location = {
-				has_holding = no
-			}
-		} 
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+			location = { has_holding = no }
+		}	
+		culture = { has_innovation = innovation_city_planning }
 		location.county.holder ?= {
 			opinion = {
 				target = root
@@ -2493,11 +2929,16 @@ start_city_construction_decision = {
 			has_trait = architect
 			stewardship >= 18
 		}
+		NOT = { opposite_alignment = { TARGET = location.county.holder }} #LOTR
 	}
 
 	is_valid_showing_failures_only = {
 		NOT = {
 			has_trait = incapable
+		}
+		custom_tooltip = {
+			text = county_is_wilderness_culture_tt
+			location.county = { is_wastelands = no } #LotR
 		}
 	}
 
@@ -2506,7 +2947,26 @@ start_city_construction_decision = {
 	}
 
 	effect = {
-		show_as_tooltip = {
+		# show_as_tooltip = { #LotR
+		# 	location = {
+		# 		begin_create_holding = {
+		# 			type = castle_holding
+		# 		}
+		# 	}
+		# }
+		if = {
+			limit = { location.culture = { is_elf_culture = yes } }
+			location = {
+				begin_create_holding = { type = elven_holding }
+			}
+		} 
+		else_if = {
+			limit = { location.culture = { is_hobbit_culture = yes } }
+			location = {
+				begin_create_holding = { type = city_holding }
+			}
+		} 
+		else = {
 			location = {
 				begin_create_holding = {
 					type = castle_holding
@@ -2516,8 +2976,15 @@ start_city_construction_decision = {
 		custom_tooltip = start_city_construction_decision_more_rewards
 		trigger_event = ep3_laamp_decision_event.1130
 	}
-	
-	ai_check_interval = 32
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 32
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	
 	ai_potential = {
 		government_has_flag = government_is_landless_adventurer
@@ -2532,6 +2999,7 @@ start_city_construction_decision = {
 # Become a Knight Errant
 #############################################
 
+### The $knight_culture_player_no_tooltip$ of the [ROOT.Char.CustomFixedRandom('GetKnightErrantAnimal')|U] ###
 knight_errant_decision = {
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_tale.dds" }
 	desc = knight_errant_decision_desc
@@ -2541,7 +3009,7 @@ knight_errant_decision = {
 
 	is_shown = {
 		has_ep3_dlc_trigger = yes
-		is_landless_adventurer = yes
+		has_government = landless_adventurer_government
 		NOT = { has_trait = knight_errant }
 		NOT = { has_variable = knight_errant_decision_var }
 	}
@@ -2549,8 +3017,12 @@ knight_errant_decision = {
 	is_valid = {
 		prestige_level >= 4
 		custom_tooltip = {
-			text = camp_purpose_mercenaries_tt
-			has_realm_law = camp_purpose_mercenaries
+			# text = camp_purpose_mercenaries_tt
+			text = camp_purpose_mercenaries_or_rangers_tt
+			OR = {
+				has_realm_law = camp_purpose_mercenaries
+				has_realm_law = camp_purpose_rangers #LotR
+			}
 		}
 		NOT = { has_trait = gallowsbait }
 		trigger_if = {
@@ -2594,8 +3066,15 @@ knight_errant_decision = {
 		}
 		trigger_event = ep3_decisions_event.5001
 	}
-	
-	ai_check_interval = 32
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 32
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	
 	ai_potential = {
 		ai_honor >= 25
@@ -2618,6 +3097,7 @@ knight_errant_decision = {
 # by Ewan Cowhig Croft						#
 #############################################
 
+### Butcher Animals Decision ###
 butcher_animals_decision = {
 	title = butcher_animals_decision_name
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_pet_dog.dds" }
@@ -2631,7 +3111,7 @@ butcher_animals_decision = {
 		# DLC check.
 		has_ep3_dlc_trigger = yes
 		# Standard filters.
-		is_landless_adventurer = yes
+		has_government = landless_adventurer_government
 		# Flavour checks.
 		## We deliberately don't show you this most of the time — it should be hidden unless things are absolutely dire.
 		domicile.provisions <= 500
@@ -2759,11 +3239,20 @@ butcher_animals_decision = {
 # Humiliate the Stooge
 #############################################
 
+### Humiliate the Stooge ###
 humiliate_the_stooge_decision = {
 	picture = { reference = "gfx/interface/illustrations/decisions/decision_prison.dds" }
 	desc = humiliate_the_stooge_decision_desc
 	selection_tooltip = humiliate_the_stooge_decision_tooltip
-	ai_check_interval = 24
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 24
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
 	sort_order = 150
 	decision_group_type = adventurer_minor
 	
@@ -2775,7 +3264,7 @@ humiliate_the_stooge_decision = {
 
 	is_shown = {
 		has_ep3_dlc_trigger = yes
-		is_landless_adventurer = yes
+		has_government = landless_adventurer_government
 	}
 	
 	is_valid = {
@@ -2804,6 +3293,10 @@ humiliate_the_stooge_decision = {
 			humiliate_stooge_counter_effect = yes
 		}
 		humiliate_stooge_reward_effect = yes
+		close_view = {
+			view = decisions
+			player = root
+		}
 	}
 
 	ai_will_do = {
