@@ -1,0 +1,109 @@
+﻿####################
+#Standard MaA types#
+####################
+
+##Reikland MaA - by Nobu###
+
+reikland_spearmen = {
+	type = skirmishers
+	
+	damage = 30
+	toughness = 15
+	pursuit = 10
+	screen = 10
+	
+	terrain_bonus = {
+	}
+	
+	counters = {
+		light_cavalry = 1
+	}
+	
+	can_recruit = {
+		wh_reikland_base_units = yes
+	}
+
+	winter_bonus = {
+	}
+	
+	buy_cost = { gold = skirmisher_recruitment_cost }
+	low_maintenance_cost = { gold = skirmisher_low_maint_cost }
+	high_maintenance_cost = { gold = skirmisher_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
+	
+	stack = 100
+	ai_quality = { value = culture_ai_weight_skirmishers }
+	icon = reikland_spearmen
+	
+	illustration = {
+		reference = wip_reikland
+	}
+}
+
+heavy_reikland_infantry = {
+	type = heavy_infantry
+
+	damage = 40
+	toughness = 15
+	pursuit = 0
+	screen = 0
+
+	counters = {
+		skirmishers = 1
+		peasant_militia = 3
+	}
+
+	can_recruit = {
+		wh_reikland_base_units = yes
+	}
+
+	buy_cost = { gold = heavy_infantry_recruitment_cost }
+	low_maintenance_cost = { gold = heavy_infantry_low_maint_cost }
+	high_maintenance_cost = { gold = heavy_infantry_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_moderate
+
+
+	stack = 100
+	ai_quality = { value = culture_ai_weight_heavy_infantry }
+	icon = heavy_reikland_infantry
+
+	illustration = {
+		reference = wip_reikland
+	}
+}
+
+reikland_halberdiers = {
+	type = pikemen
+
+	damage = 45
+	toughness = 25
+	pursuit = 0
+	screen = 0
+
+	terrain_bonus = {
+	}
+
+	counters = {
+		light_cavalry = 1
+		heavy_cavalry = 1
+		camel_cavalry = 1
+		elephant_cavalry = 1
+	}
+
+	can_recruit = {
+		wh_reikland_base_units = yes
+	}
+	
+	buy_cost = { gold = pikemen_recruitment_cost }
+	low_maintenance_cost = { gold = pikemen_low_maint_cost }
+	high_maintenance_cost = { gold = pikemen_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_expensive
+
+	stack = 100
+	ai_quality = {	value = culture_ai_weight_pikemen	}
+	icon = pikemen
+
+	illustration = {
+		reference = wip_reikland
+	}
+}
