@@ -512,9 +512,9 @@ stewardship_oath_2_decision = {
 				}
 			}
 		}
-
-		show_as_tooltip = {
-			add_character_modifier = oath_of_buildings
+		add_character_modifier = { # LotR - to account for long lived races
+			modifier = oath_of_buildings
+			years = 50 
 		}
 
 		hidden_effect = {
@@ -963,14 +963,14 @@ purge_pretenders_oath_decision = {
 
 ## End the Struggle
 end_the_struggle_oath_decision = {
-	#picture = {
-	#	trigger = { var:end_the_struggle_oath_type_var = flag:persian_struggle }
-	#	reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_foundation.dds"
-	#}
-	#picture = {
-	#	trigger = { var:end_the_struggle_oath_type_var = flag:iberian_struggle }
-	#	reference = "gfx/interface/illustrations/decisions/fp2_decision_struggle_compromise.dds"
-	#}
+	picture = {
+		trigger = { var:end_the_struggle_oath_type_var = flag:persian_struggle }
+		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_foundation.dds"
+	}
+	picture = {
+		trigger = { var:end_the_struggle_oath_type_var = flag:iberian_struggle }
+		reference = "gfx/interface/illustrations/decisions/fp2_decision_struggle_compromise.dds"
+	}
 	decision_group_type = oaths
 
 	ai_check_interval_by_tier = {
@@ -982,36 +982,36 @@ end_the_struggle_oath_decision = {
 		hegemony = 12
 	}
 
-	#title = {
-	#	first_valid = {
-	#		triggered_desc = {
-	#			trigger = {
-	#				var:end_the_struggle_oath_type_var = flag:persian_struggle
-	#				exists = struggle:persian_struggle
-	#			}
-	#			desc = end_the_struggle_oath_decision_title_persian
-	#		}
-	#		triggered_desc = {
-	#			trigger = {
-	#				var:end_the_struggle_oath_type_var = flag:persian_struggle
-	#			}
-	#			desc = end_the_struggle_oath_decision_title_persian_ended
-	#		}
-	#		triggered_desc = {
-	#			trigger = {
-	#				var:end_the_struggle_oath_type_var = flag:iberian_struggle
-	#				exists = struggle:iberian_struggle
-	#			}
-	#			desc = end_the_struggle_oath_decision_title_iberian
-	#		}
-	#		triggered_desc = {
-	#			trigger = {
-	#				var:end_the_struggle_oath_type_var = flag:iberian_struggle
-	#			}
-	#			desc = end_the_struggle_oath_decision_title_iberian_ended
-	#		}
-	#	}
-	#}
+	title = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					var:end_the_struggle_oath_type_var = flag:persian_struggle
+					exists = struggle:persian_struggle
+				}
+				desc = end_the_struggle_oath_decision_title_persian
+			}
+			triggered_desc = {
+				trigger = {
+					var:end_the_struggle_oath_type_var = flag:persian_struggle
+				}
+				desc = end_the_struggle_oath_decision_title_persian_ended
+			}
+			triggered_desc = {
+				trigger = {
+					var:end_the_struggle_oath_type_var = flag:iberian_struggle
+					exists = struggle:iberian_struggle
+				}
+				desc = end_the_struggle_oath_decision_title_iberian
+			}
+			triggered_desc = {
+				trigger = {
+					var:end_the_struggle_oath_type_var = flag:iberian_struggle
+				}
+				desc = end_the_struggle_oath_decision_title_iberian_ended
+			}
+		}
+	}
 
 	desc = {
 		first_valid = {

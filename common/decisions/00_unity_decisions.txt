@@ -971,8 +971,7 @@ unity_improve_logistics_decision = {
 
 	is_shown = {
 		has_fp3_dlc_trigger = yes
-		#WHG disabled
-		#culture = { has_cultural_pillar = heritage_iranian }
+		# culture = { has_cultural_pillar = heritage_iranian } # LotR
 		government_has_flag = government_is_clan
 		is_landed = yes
 		exists = house
@@ -980,8 +979,7 @@ unity_improve_logistics_decision = {
 
 	is_valid = {
 		# We show the culture requirement here to tell the player why they have the decision available
-		#WHG disabled
-		#culture = { has_cultural_pillar = heritage_iranian }
+		# culture = { has_cultural_pillar = heritage_iranian } # LotR
 		house = {
 			OR = {
 				has_house_unity_stage = antagonistic
@@ -1064,8 +1062,7 @@ unity_promote_development_decision = {
 
 	is_shown = {
 		has_fp3_dlc_trigger = yes
-		#WHG disabled
-		#culture = { has_cultural_pillar = heritage_iranian }
+		# culture = { has_cultural_pillar = heritage_iranian } # LotR
 		government_has_flag = government_is_clan
 		is_landed = yes
 		exists = house
@@ -1073,8 +1070,7 @@ unity_promote_development_decision = {
 
 	is_valid = {
 		# We show the culture requirement here to tell the player why they have the decision available
-		#WHG disabled
-		#culture = { has_cultural_pillar = heritage_iranian }
+		# culture = { has_cultural_pillar = heritage_iranian } # LotR
 		house = {
 			OR = {
 				has_house_unity_stage = friendly
@@ -1293,8 +1289,8 @@ unity_establish_futuwaa_lodges_decision = {
 		is_landed = yes
 		exists = house
 		exists = capital_province
-		#WHG disabled
-		#culture = { has_cultural_tradition = tradition_futuwaa }
+		# culture = { has_cultural_tradition = tradition_futuwaa } # LotR
+		always = no # LotR
 	}
 
 	is_valid = {

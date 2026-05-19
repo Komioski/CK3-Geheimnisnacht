@@ -13,15 +13,15 @@
 ### Train For Tournament Decision ###
 train_for_tournament_decision = {
 	title = train_for_tournament_decision_name
-	picture = {
-		trigger = {
-			OR = {
-				culture = { has_graphical_east_asia_culture_group_trigger = yes }
-				culture = { has_graphical_india_culture_group_trigger = yes }
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/tgp_camp_asia.dds"
-	}
+	#picture = { #LotR
+	#	trigger = {
+	#		OR = {
+	#			culture = { has_graphical_east_asia_culture_group_trigger = yes }
+	#			culture = { has_graphical_india_culture_group_trigger = yes }
+	#		}
+	#	}
+	#	reference = "gfx/interface/illustrations/event_scenes/tgp_camp_asia.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/activity_header_backgrounds/activity_tournament.dds"
 	}
@@ -144,7 +144,7 @@ train_for_tournament_decision = {
 					has_cultural_tradition = tradition_chivalry
 					has_cultural_tradition = tradition_warrior_culture
 					has_cultural_tradition = tradition_martial_admiration
-					has_cultural_tradition = tradition_chanson_de_geste
+					# has_cultural_tradition = tradition_chanson_de_geste #LotR
 				}
 			}
 		}

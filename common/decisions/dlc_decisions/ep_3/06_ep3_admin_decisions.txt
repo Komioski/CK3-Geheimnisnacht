@@ -485,28 +485,28 @@ admin_confirmation_decision = {
 		hegemony = 0
 	}
 	sort_order = 1000
-	#WHG disabled
-	#picture = {
-	#	trigger = {
-	#		NOR = {
-	#			government_has_flag = government_is_tribal
-	#			government_has_flag = government_is_theocracy
-	#			top_liege ?= { government_has_flag = government_is_tribal }
-	#			top_liege ?= { government_has_flag = government_is_theocracy }
-	#		}
-	#		OR = {
-	#			culture = { has_cultural_pillar = heritage_byzantine }
-	#			top_liege ?= {
-	#				OR = {
-	#					culture = { has_cultural_pillar = heritage_byzantine }
-	#					capital_barony ?= title:b_constantinople
-	#					is_roman_emperor_primary_title_trigger = yes
-	#				}
-	#			}
-	#		}
-	#	}
-	#	reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
-	#}
+	# picture = { #LotR
+	# 	trigger = {
+	# 		NOR = {
+	# 			government_has_flag = government_is_tribal
+	# 			government_has_flag = government_is_theocracy
+	# 			top_liege ?= { government_has_flag = government_is_tribal }
+	# 			top_liege ?= { government_has_flag = government_is_theocracy }
+	# 		}
+	# 		OR = {
+	# 			culture = { has_cultural_pillar = heritage_byzantine }
+	# 			top_liege ?= {
+	# 				OR = {
+	# 					culture = { has_cultural_pillar = heritage_byzantine }
+	# 					capital_barony ?= title:b_constantinople
+	# 					primary_title ?= title:e_byzantium
+	# 					primary_title ?= title:e_roman_empire
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
+	# }
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
 	}
@@ -723,13 +723,12 @@ consolidate_rule_decision = {
 
 ### Adopt Centralized Administration ###
 convert_to_administrative_decision = {
-	#WHG disabled
-	#picture = {
-	#	trigger = {
-	#		culture_has_asian_heritage_pillar_trigger = yes
-	#	}
-	#	reference = "gfx/interface/illustrations/decisions/tgp_kowtow.dds"
-	#}
+	picture = {
+		trigger = {
+			culture_has_asian_heritage_pillar_trigger = yes
+		}
+		reference = "gfx/interface/illustrations/decisions/tgp_kowtow.dds"
+	}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
 	}
@@ -787,11 +786,13 @@ convert_to_administrative_decision = {
 			government_has_flag = government_is_feudal
 			government_has_flag = government_is_clan
 			government_has_flag = government_is_japan_feudal
+			government_has_flag = government_is_hobbit #LOTR
 		}
 		trigger_if = {
 			limit = { top_liege != this }
 			liege = { government_allows = administrative }
 		}
+		lotr_can_become_admin_gov = yes #LOTR
 	}
 
 	is_valid = {
@@ -801,15 +802,15 @@ convert_to_administrative_decision = {
 		}
 		trigger_else = {
 			OR = {
-				custom_tooltip = {
-					text = HAS_SEAL_OF_INVESTITURE
-					any_character_artifact = {
-						OR = {
-							artifact_type = seal_of_investiture
-							artifact_type = seal_of_investiture_court
-						}
-					}
-				}
+				# custom_tooltip = { # LOTR - Not Implemented yet
+				# 	text = HAS_SEAL_OF_INVESTITURE
+				# 	any_character_artifact = {
+				# 		OR = {
+				# 			artifact_slot_type = seal_of_investiture
+				# 			artifact_slot_type = seal_of_investiture_court
+				# 		}
+				# 	}
+				# }
 				trigger_if = {
 					limit = {
 						culture = { has_cultural_parameter = can_adopt_administrative_government_as_kingdom_tier }
@@ -871,6 +872,17 @@ convert_to_administrative_decision = {
 				dynasty = { has_dynasty_perk = erudition_legacy_5 }
 				dynasty = { has_dynasty_perk = law_legacy_5 }
 			}
+		}
+		trigger_if = { #LOTR
+			limit = {
+				culture = {
+					has_cultural_tradition = tradition_variag_succession
+				}
+			}
+			custom_tooltip = {
+                text = cant_have_variag_succession
+                NOT = { culture = { has_cultural_tradition = tradition_variag_succession } } #To prevent bordergore
+            }
 		}
 	}
 	
@@ -1092,6 +1104,7 @@ convert_to_administrative_decision = {
 			value = go_celestial_government
 			is_shown = {
 				has_tgp_dlc_trigger = yes
+				always = no #LOTR
 			}
 			is_valid = {
 				top_liege = {
@@ -1117,6 +1130,7 @@ convert_to_administrative_decision = {
 			value = go_meritocratic_government
 			is_shown = {
 				has_tgp_dlc_trigger = yes
+				always = no #LOTR TODO
 			}
 			is_valid = {
 				top_liege = {
@@ -1142,6 +1156,7 @@ convert_to_administrative_decision = {
 			value = go_japan_administrative_government
 			is_shown = {
 				has_tgp_dlc_trigger = yes
+				always = no #LOTR TODO
 			}
 			is_valid = {
 				top_liege = {
@@ -1195,33 +1210,32 @@ convert_to_administrative_decision = {
 		trigger_event = ep3_decisions_event.4060 #Also sends information event to human vassals
 		#Letter event for the vassals
 		hidden_effect = {
-			#WHG disabled
-			#if = {
-			#	limit = {
-			#		is_ai = no
-			#	}
-			#	add_achievement_global_variable_effect = {
-			#		VARIABLE = achieved_epic_paperwork_achievement
-			#		VALUE = yes
-			#	}
-			#}
-			#if = {
-			#	limit = {
-			#		is_ai = no
-			#		religion = religion:islam_religion
-			#		has_title = title:k_rum
-			#		OR = {
-			#			has_title = title:c_byzantion
-			#			any_sub_realm_title = {
-			#				this = title:c_byzantion
-			#			}
-			#		}
-			#	}
-			#	add_achievement_global_variable_effect = {
-			#		VARIABLE = finished_new_management_achievement
-			#		VALUE = yes
-			#	}
-			#}
+			if = {
+				limit = {
+					is_ai = no
+				}
+				add_achievement_global_variable_effect = {
+					VARIABLE = achieved_epic_paperwork_achievement
+					VALUE = yes
+				}
+			}
+			# if = { #LotR
+			# 	limit = {
+			# 		is_ai = no
+			# 		religion = religion:islam_religion
+			# 		has_title = title:k_rum
+			# 		OR = {
+			# 			has_title = title:c_byzantion
+			# 			any_sub_realm_title = {
+			# 				this = title:c_byzantion
+			# 			}
+			# 		}
+			# 	}
+			# 	add_achievement_global_variable_effect = {
+			# 		VARIABLE = finished_new_management_achievement
+			# 		VALUE = yes
+			# 	}
+			# }
 		}
 	}
 
@@ -1235,13 +1249,13 @@ convert_to_administrative_decision = {
 
 	ai_will_do = {
 		base = 0
-		#WHG disabled
-		#modifier = {
-		#	OR = {
-		#		is_roman_emperor_primary_title_trigger = yes
-		#	}
-		#	add = 100
-		#}
+		# modifier = { #LotR
+		# 	OR = {
+		# 		primary_title = title:e_byzantium
+		# 		primary_title = title:e_roman_empire
+		# 	}
+		# 	add = 100
+		# }
 		modifier = {
 			culture = {
 				OR = {
@@ -1255,6 +1269,12 @@ convert_to_administrative_decision = {
 		modifier = {
 			culture = {
 				has_cultural_tradition = tradition_legalistic
+			}
+			add = 50
+		}
+		modifier = { #LotR
+			culture = {
+				has_cultural_tradition = tradition_hereditary_hierarchy
 			}
 			add = 50
 		}
@@ -1303,18 +1323,17 @@ convert_to_administrative_decision = {
 			}
 			add = -50
 		}
-		#WHG disabled
-		#modifier = {
-		#	culture = {
-		#		any_parent_culture_or_above = {
-		#			OR = {
-		#				this = culture:han
-		#				this = culture:greek
-		#			}
-		#		}
-		#	}
-		#	add = 100
-		#}
+		# modifier = { #LotR
+		# 	culture = {
+		# 		any_parent_culture_or_above = {
+		# 			OR = {
+		# 				this = culture:han
+		# 				this = culture:greek
+		# 			}
+		# 		}
+		# 	}
+		# 	add = 100
+		# }
 	}
 }
 
@@ -1331,16 +1350,14 @@ convert_to_feudalism_from_administrative_decision = {
 	desc = convert_to_feudalism_from_administrative_decision_desc
 
 	is_shown = {
-		#WHG disabled
-		#trigger_if = {
-		#	limit = { has_title = title:h_china }
-		#	NOT = { government_has_flag = government_is_celestial }
-		#}
+		trigger_if = {
+			limit = { has_title = title:h_china }
+			NOT = { government_has_flag = government_is_celestial }
+		}
 		government_allows = administrative
 		tgp_is_ceremonial_liege_trigger = no
 		tgp_is_ceremonial_regent_trigger = no
-		#WHG disabled
-		#tgp_is_any_minister = no
+		tgp_is_any_minister = no
 		# Ritsuryo gov has its own decisions
 		NOT = { government_has_flag = government_is_japan_administrative }
 	}
@@ -1617,13 +1634,12 @@ renounce_governorship_decision = {
 	}
 	title = {
 		first_valid = {
-			#WHG disabled
-			#triggered_desc = {
-			#	trigger = {
-			#		tgp_is_any_minister = yes
-			#	}
-			#	desc = renounce_ministership_decision
-			#}
+			triggered_desc = {
+				trigger = {
+					tgp_is_any_minister = yes
+				}
+				desc = renounce_ministership_decision
+			}
 			desc = renounce_governorship_decision
 		}
 	}
@@ -1646,13 +1662,12 @@ renounce_governorship_decision = {
 	}
 	selection_tooltip = {
 		first_valid = {
-			#WHG disabled
-			#triggered_desc = {
-			#	trigger = {
-			#		tgp_is_any_minister = yes
-			#	}
-			#	desc = renounce_ministership_decision_tooltip
-			#}
+			triggered_desc = {
+				trigger = {
+					tgp_is_any_minister = yes
+				}
+				desc = renounce_ministership_decision_tooltip
+			}
 			desc = renounce_governorship_decision_tooltip
 		}
 	}
@@ -1662,8 +1677,7 @@ renounce_governorship_decision = {
 		is_playable_character = yes
 		OR = {
 			is_governor_or_admin_count = yes
-			#WHG disabled
-			#tgp_is_any_minister = yes
+			tgp_is_any_minister = yes
 		}
 	}
 
@@ -1679,16 +1693,15 @@ renounce_governorship_decision = {
 	}
 
 	effect = {
-		#WHG disabled
-		#if = {
-		#	limit = {
-		#		tgp_is_any_minister = yes
-		#	}
-		#	custom_tooltip = renounce_ministership_decision_effect_tt
-		#}
-		#else = {
-		#	custom_tooltip = renounce_governorship_decision_effect_tt
-		#}
+		if = {
+			limit = {
+				tgp_is_any_minister = yes
+			}
+			custom_tooltip = renounce_ministership_decision_effect_tt
+		}
+		else = {
+			custom_tooltip = renounce_governorship_decision_effect_tt
+		}
 		show_as_tooltip = {
 			tgp_step_down_title_recipient_tooltip_effect = yes
 			if = {
@@ -1722,14 +1735,13 @@ renounce_governorship_decision = {
 					years = 15
 				}
 			}
-			#WHG disabled
-			#if = {
-			#	limit = {
-			#		tgp_is_any_minister = yes
-			#	}
-			#	liege = { save_scope_as = councillor_liege } # Needed for the effect
-			#	fired_minister_position_effect = yes
-			#}
+			if = {
+				limit = {
+					tgp_is_any_minister = yes
+				}
+				liege = { save_scope_as = councillor_liege } # Needed for the effect
+				fired_minister_position_effect = yes
+			}
 		}
 		trigger_event = ep3_decisions_event.4090
 		close_view = {

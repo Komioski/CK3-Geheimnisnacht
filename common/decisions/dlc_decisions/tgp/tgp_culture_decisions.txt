@@ -1,6 +1,5 @@
 ﻿# Write a book, poetry, fiction, philosophy or governance
 
-### Author Book ###
 author_book_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/tgp_study_asia.dds"
@@ -65,14 +64,13 @@ author_book_decision = {
 					text = scholarship.requirements.tt
 					OR = {
 						learning >= 15
-						#WHG disabled
-						#AND = {
-						#	has_trait = confucian_education
-						#	has_trait_xp = {
-						#		trait = confucian_education
-						#		value >= 40
-						#	}
-						#}
+						AND = {
+							has_trait = confucian_education
+							has_trait_xp = {
+								trait = confucian_education
+								value >= 40
+							}
+						}
 					}
 				}
 			}
@@ -102,21 +100,19 @@ author_book_decision = {
 			scope:prose = {
 				custom_tooltip = prose_book_desc
 				custom_tooltip = prose_book_effect_desc
-				#WHG disabled
-				#if = {
-				#	limit = {
-				#		NOT = { has_trait = confucian_education }
-				#	}
-				#	show_as_tooltip = { add_trait = confucian_education }
-				#}
-				#trigger_event = author_book.0004
+				if = {
+					limit = {
+						NOT = { has_trait = confucian_education }
+					}
+					show_as_tooltip = { add_trait = confucian_education }
+				}
+				trigger_event = author_book.0004
 				show_as_tooltip = {
 					stress_impact = {
 						base = medium_stress_impact_gain
 						lazy = minor_stress_impact_gain
 						journaller = minor_stress_impact_loss #offsets penalty a bit
-						#WHG disabled
-						#confucian_education = minor_stress_impact_loss #offsets penalty a bit
+						confucian_education = minor_stress_impact_loss #offsets penalty a bit
 					}
 				}
 			}
@@ -130,8 +126,7 @@ author_book_decision = {
 						base = major_stress_impact_gain
 						lazy = minor_stress_impact_gain
 						journaller = minor_stress_impact_loss #offsets penalty a bit
-						#WHG disabled
-						#confucian_education = minor_stress_impact_loss #offsets penalty a bit
+						confucian_education = minor_stress_impact_loss #offsets penalty a bit
 					}
 				}
 			}

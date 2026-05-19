@@ -1,257 +1,5 @@
-﻿##################################################
-# Islamic Decisions
+﻿# LotR: removed real world references.
 
-### Appoint a Righteous Caliph ###
-#appoint_a_righteous_caliph_decision = { # Appoint a righteous caliph
-#	picture = {
-#		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-#	}
-#	decision_group_type = major
-#
-#	ai_check_interval_by_tier = {
-#		barony = 0
-#		county = 0
-#		duchy = 48
-#		kingdom = 24
-#		empire = 24
-#		hegemony = 24
-#	}
-#
-#	title = {
-#		first_valid = {
-#			triggered_desc = {
-#				trigger = { faith = faith:mutazila }
-#				desc = appoint_a_righteous_caliph_decision_mutazila_variant
-#			}
-#			triggered_desc = {
-#				trigger = {
-#					culture = { has_cultural_pillar = heritage_iranian }
-#				}
-#				desc = appoint_a_righteous_caliph_decision_general_iranian_variant
-#			}
-#			desc = appoint_a_righteous_caliph_decision
-#		}
-#	}
-
-#	desc = {
-#		first_valid = {
-#			triggered_desc = {
-#				trigger = { faith = faith:mutazila }
-#				desc = appoint_a_righteous_caliph_decision_mutazila_variant_desc
-#			}
-#			triggered_desc = {
-#				trigger = {
-#					culture = { has_cultural_pillar = heritage_iranian }
-#				}
-#				desc = appoint_a_righteous_caliph_decision_general_iranian_variant_desc
-#			}
-#			desc = appoint_a_righteous_caliph_decision_desc
-#		}
-#	}
-
-#	selection_tooltip = appoint_a_righteous_caliph_decision_tooltip
-
-
-#	is_shown = {
-		# Standard filter checks.
-#		is_landed_or_landless_administrative = yes
-#		exists = dynasty
-		# Check some religious stuff; namely that you're the correct religion and your existing-HoF doesn't share your faith.
-#		religion = religion:islam_religion
-#		exists = faith.religious_head
-#		faith != faith.religious_head.faith
-		# And filter out anyone who'd make this unreliable.
-#		OR = {
-#			government_has_flag = government_is_tribal
-#			government_has_flag = government_is_feudal
-#			government_has_flag = government_is_clan
-#			government_allows = administrative
-#		}
-#	}
-
-#	is_valid = {
-		# Must be independent.
-#		top_liege = this
-		# Not during the Persian struggle
-#		trigger_if = { # Done this way to hide it for Spanish muslims and the like
-#			limit = {
-#				any_character_struggle = {
-#					involvement = involved
-#					is_struggle_type = persian_struggle
-#				}
-#			}
-#			custom_tooltip = {
-#				text = must_not_be_persia_involved_tt
-#				NOT = {
-#					any_character_struggle = {
-#						involvement = involved
-#						is_struggle_type = persian_struggle
-#					}
-#				}
-#			}
-#		}
-		# Should have a decent piety level.
-#		piety_level >= high_piety_level
-		# Must have a decent proportion of sub-realm counties of the faith.
-#		custom_description = {
-#			text = appoint_a_righteous_caliph_decision.need_at_least_ten_same_faith_counties
-#			any_sub_realm_county = {
-#				count >= appoint_a_righteous_caliph_decision_same_faith_county_count
-#				faith = root.faith
-#			}
-#		}
-		# Can't be the current caliphal controller
-#		custom_description = {
-#			text = appoint_a_righteous_caliph_decision.cant_be_caliphal_controller
-#			NOT = {
-#				faith.religious_head = {
-#					any_liege_or_above = { this = root }
-#				}
-#			}
-#		}
-		# Plus, you shouldn't be _too_ sinful, even with your piety level.
-#		custom_description = {
-#			text = appoint_a_righteous_caliph_decision.no_more_than_x_sinful_traits
-#			num_sinful_traits <= 2
-#		}
-		# Now, pick any three of the valid reasons.
-#		calc_true_if = {
-#			amount >= 3
-
-			# Sayyids get a free pass.
-#			has_trait = sayyid
-			# Being outside of your caliph's diplo range helps.
-#			custom_description = {
-#				text = appoint_a_righteous_caliph_decision.caliph_not_in_diplo_range
-#				NOT = { in_diplomatic_range = faith.religious_head }
-#			}
-			# Having a holy site.
-#			custom_description = {
-#				text = appoint_a_righteous_caliph_decision.control_one_holy_site
-#				faith = {
-#					any_holy_site = {
-#						count >= 1
-#						holder.top_liege = root
-#					}
-#				}
-#			}
-			# Having *2* holy sites.
-#			custom_description = {
-#				text = appoint_a_righteous_caliph_decision.control_two_holy_sites
-#				faith = {
-#					any_holy_site = {
-#						count >= 2
-#						holder.top_liege = root
-#					}
-#				}
-#			}
-			# Having a higher-than-minimum piety level.
-#			piety_level >= very_high_piety_level
-			# And just having a caliph who doesn't live up to the root's faith's ideals.
-#			custom_description = {
-#				text = appoint_a_righteous_caliph_decision.caliph_has_x_or_more_traits_sinful_to_your_faith
-#				faith.religious_head = {
-#					num_sinful_traits = {
-#						value >= 2
-#						target = root.faith
-#					}
-#				}
-#			}
-			# Has planned to schism off for a *while*.
-#			custom_description = {
-#				text = appoint_a_righteous_caliph_decision.has_wishes_to_schism_caliphate_flag
-#				has_character_flag = wishes_to_schism_caliphate_flag
-#			}
-#		}
-#	}
-
-#	is_valid_showing_failures_only = {
-#		is_available_adult = yes
-		# Has to be around for the ceremony.
-#		not = { exists = involved_activity }
-#		has_contagious_deadly_disease_trigger = no
-		# Has to be a valid priestly gender for the current faith.
-#		faith = { has_allowed_gender_for_clergy = root }
-#	}
-
-#	effect = {
-#		save_scope_as = founder
-#		faith.religious_head = { save_scope_as = old_caliph }
-#		show_as_tooltip = { appoint_a_righteous_caliph_scripted_effect = yes }
-		# Notify co-faithists; we do this first so we can sort the feed message for how many did/didn't convert.
-#		faith = {
-#			every_faith_ruler = {
-#				limit = {
-#					highest_held_title_tier >= tier_county
-#					this != root
-#				}
-#				trigger_event = religious_decision.0602
-#			}
-#		}
-		# Now notify other players.
-#		every_player = {
-#			limit = {
-#				OR = {
-#					religion = religion:islam_religion
-#					any_neighboring_and_across_water_top_liege_realm_owner = { this = root }
-#					any_liege_or_above = { religion = religion:islam_religion }
-#				}
-				# Exempt same-faith characters, who already got an event.
-#				faith != root.faith
-#			}
-			# Players who share the faith get
-#			trigger_event = religious_decision.0603
-#		}
-		# Finally, we trigger the main conversion.
-#		trigger_event = religious_decision.0601
-#	}
-
-#	cost = {
-#		gold = {
-#			value = 0
-#			if = {
-#				limit = {
-#					has_treasury = no
-#				}
-#				add = 500
-#			}
-#		}
-#		treasury = {
-#			value = 0
-#			if = {
-#				limit = {
-#					has_treasury = yes
-#				}
-#				add = 500
-#			}
-#		}
-#		piety = 1000
-#	}
-
-#	ai_potential = {
-		# Must be independent.
-#		top_liege = this
-		# Should have a decent piety level.
-#		piety_level >= high_piety_level
-#		OR = {
-			# Zealous people think they know better.
-#			has_trait = zealous
-			# And cynics want that power for themselves.
-#			has_trait = cynical
-			# We guide Muwalladi towards this at the first opportunity.
-#			faith = faith:muwalladi
-#		}
-#	}
-
-#	ai_will_do = {
-#		base = 100
-#	}
-#}
-
-##################################################
-# General Religious Decisions
-
-### Take Vow of Poverty ###
 take_vow_of_poverty_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
@@ -364,92 +112,172 @@ renounce_vow_of_poverty_decision = {
 }
 
 ### Consolamentum: Initiate Endura ###
-#initiate_consolamentum_decision = {
-#	picture = {
-#		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
-#	}
-#	title = {
-#		first_valid = {
-#			triggered_desc = {
-#				trigger = {
-#					religion = religion:christianity_religion
-#				}
-#				desc = initiate_consolamentum_decision
-#			}
-#			desc = initiate_consolamentum_decision_alternate
-#		}
-#	}
-#	desc = {
-#		first_valid = {
-#			triggered_desc = {
-#				trigger = {
-#					religion = religion:christianity_religion
-#				}
-#				desc = initiate_consolamentum_decision_desc
-#			}
-#			desc = initiate_consolamentum_decision_desc_alternate
-#		}
-#	}
+initiate_consolamentum_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
+	title = {
+		first_valid = {
+			#triggered_desc = { #LotR
+			#	trigger = {
+			#		religion = religion:christianity_religion
+			#	}
+			#	desc = initiate_consolamentum_decision
+			#}
+ 			triggered_desc = { #LotR
+ 				trigger = {
+ 					faith = {
+ 						has_doctrine = tenet_gift_of_men
+ 					}
+ 				}
+ 				desc = lotr_lay_down_life_decision
+ 			}
+			desc = initiate_consolamentum_decision_alternate
+		}
+	}
+	desc = {
+		first_valid = {
+			#triggered_desc = { #LotR
+			#	trigger = {
+			#		religion = religion:christianity_religion
+			#	}
+			#	desc = initiate_consolamentum_decision_desc
+			#}
+ 			triggered_desc = { #LotR
+ 				trigger = {
+ 					faith = {
+ 						has_doctrine = tenet_gift_of_men
+ 					}
+ 				}
+ 				desc = lotr_lay_down_life_decision_desc
+ 			}
+			desc = initiate_consolamentum_decision_desc_alternate
+		}
+	}
 
-#	selection_tooltip = initiate_consolamentum_decision_tooltip
+	# selection_tooltip = initiate_consolamentum_decision_tooltip #LOTR
 
-#	is_shown = {
-#		faith = {
-#			has_doctrine_parameter = consolamentum_active
-#		}
-#	}
+	selection_tooltip = { #LOTR
+		first_valid = {
+ 			triggered_desc = {
+ 				trigger = {
+ 					faith = {
+ 						has_doctrine = tenet_gift_of_men
+ 					}
+ 				}
+ 				desc = lotr_lay_down_life_decision_tooltip
+ 			}
+			desc = initiate_consolamentum_decision_tooltip
+		}
+	}
+	confirm_text = {
+		first_valid = {
+ 			triggered_desc = { #LotR
+ 				trigger = {
+ 					faith = {
+ 						has_doctrine = tenet_gift_of_men
+ 					}
+ 				}
+ 				desc = lotr_lay_down_life_decision_confirm
+ 			}
+			desc = initiate_consolamentum_decision_confirm
+		}
+	}
+	decision_group_type = realms_in_exile_minor #LOTR
 
-#	is_valid = {
-#		OR = {
-#			age >= ritual_suicide_age
-#			custom_description = {
-#				text = decision_consolamentum_health
-#				health <= 1
-#			}
-#			has_trait = incapable
-#		}
-#	}
+	is_shown = {
+		faith = {
+			has_doctrine_parameter = consolamentum_active
+		}
+	}
 
-#	effect = {
-#		hidden_effect = {
-#			add_piety_level = 1
-#		}
-#		death = { death_reason = death_ritual_suicide }
-##		show_as_tooltip = {
-#			add_piety_level = 1
-#		}
-#	}
-
-#	ai_check_interval_by_tier = {
-#		barony = 0
-#		county = 60
-#		duchy = 60
-#		kingdom = 60
-#		empire = 60
-#		hegemony = 60
-#	}
+	is_valid = {
+		OR = {
+			custom_tooltip = { #LOTR
+				text = age_equivalent_advanced_eighty
+				age >= total_life_expectancy
+			}
+			custom_description = {
+				text = decision_consolamentum_health
+				health <= 1
+			}
+			has_trait = incapable
+			has_trait_xp = {
+				trait = infirm
+				value >= 25
+			}
+			has_trait_xp = {
+				trait = withering_mind
+				value >= 25
+			}
+			has_trait_xp = {
+				trait = clouded_eyes
+				value >= 25
+			}
+			has_trait_xp = {
+				trait = faltering_heart
+				value >= 25
+			}
+			has_trait_xp = {
+				trait = fragile_bones
+				value >= 25
+			}
+		}
+	}
 	
-#	ai_potential = {		
-#		primary_heir ?= {
-#			dynasty = root.dynasty
-#		}
-#		is_at_war = no
-#	}
+	is_valid_showing_failures_only = {
+		# LotR - Immortal limits
+		custom_tooltip = {
+			text = immortals_cannot_commit_suicide
+			cannot_be_killed = no
+		}
+		# LotR - Elven limits
+		custom_tooltip = {
+			text = elves_cannot_accept_the_gift_of_men
+			NOT = { is_elf = yes }
+		}
+	}
 
-#	ai_will_do = {
-#		base = 0
+	effect = {
+		hidden_effect = {
+			add_piety_level = 1
+		}
+		death = { death_reason = death_laid_down_life } #LOTR
+		show_as_tooltip = {
+			add_piety_level = 1
+		}
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+	
+	ai_potential = {		
+		primary_heir ?= {
+			dynasty = root.dynasty
+		}
+		is_at_war = no
+	}
+
+	ai_will_do = {
+		base = 0
 
 		# 100% chance at 50 zeal
-#		ai_value_modifier = {
-#			ai_zeal = 2
-#		}
+		ai_value_modifier = {
+			ai_zeal = 2
+		}
 
-#		modifier = {
-#			add = 40
-#			is_close_family_of = primary_heir
-#		}
-#	}
-#}
+		modifier = {
+			add = 40
+			is_close_family_of = primary_heir
+		}
+	}
+}
 
 ### Seek Aid of the Spirits ###
 seek_aid_of_the_spirits_decision = {
@@ -535,20 +363,17 @@ seek_aid_of_the_spirits_decision = {
 	}
 }
 
-### Determine Bhakti ### 
 #select_personal_deity_hinduism_decision = {
-#	picture = {
-#		reference = "gfx/interface/illustrations/decisions/hindu_religious.dds"
-#	}
+#	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
 #	desc = select_personal_deity_hinduism_decision_desc
 #	selection_tooltip = select_personal_deity_hinduism_decision_tooltip
 
 #	is_shown = {
-#		religion = religion:hinduism_religion
+#		#religion = religion:hinduism_religion
 #		faith = {
 #			has_doctrine_parameter = select_personal_god_active
 #		}
-#		NOT = { government_has_flag = government_is_mandala }
 #	}
 
 #	is_valid = {
@@ -566,15 +391,8 @@ seek_aid_of_the_spirits_decision = {
 #		trigger_event = religious_decision.0101
 #	}
 
-#	ai_check_interval_by_tier = {
-#		barony = 0
-#		county = 96
-#		duchy = 96
-#		kingdom = 96
-#		empire = 96
-#		hegemony = 96
-#	}
-
+#	ai_check_interval = 96
+#	
 #	ai_potential = {
 #		piety >= minor_piety_value
 #		NOR = {
@@ -600,11 +418,9 @@ seek_aid_of_the_spirits_decision = {
 #	}
 #}
 
-### Determine Personal Deity ###
 #select_personal_deity_germanic_decision = {
-#	picture = {
-#		reference = "gfx/interface/illustrations/decisions/fp1_decisons_hold_bolt.dds"
-#	}
+#	picture = "gfx/interface/illustrations/decisions/fp1_decisons_hold_bolt.dds"
+#
 #	desc = select_personal_deity_germanic_decision_desc
 #	selection_tooltip = select_personal_deity_germanic_decision_tooltip
 #
@@ -615,19 +431,19 @@ seek_aid_of_the_spirits_decision = {
 #		religion = religion:germanic_religion
 #		faith = { has_doctrine_parameter = select_personal_god_active }
 #	}
-
+#
 #	is_valid = {
 #	}
-
+#
 #	is_valid_showing_failures_only = {
-		# Have to at _least_ not be in piety debt.
+#		# Have to at _least_ not be in piety debt.
 #		piety >= 0
 #	}
-
+#
 #	cooldown = { years = 2 }
-
+#
 #	effect = {
-		# Show the possible options.
+#		# Show the possible options.
 #		show_as_tooltip = {
 #			random_list = {
 #				desc = select_personal_deity_germanic_decision_tt
@@ -660,19 +476,12 @@ seek_aid_of_the_spirits_decision = {
 #				}
 #			}
 #		}
-		# And the actual effect.
+#		# And the actual effect.
 #		trigger_event = religious_decision.0102
 #	}
-
-#	ai_check_interval_by_tier = {
-#		barony = 0
-#		county = 96
-#		duchy = 96
-#		kingdom = 96
-#		empire = 96
-#		hegemony = 96
-#	}
-
+#
+#	ai_check_interval = 96
+#	
 #	ai_potential = {
 #		piety >= minor_piety_value
 #		NOR = {
@@ -683,26 +492,156 @@ seek_aid_of_the_spirits_decision = {
 #			has_character_modifier = bhakti_germanic_generic_freyr
 #		}
 #	}
-
+#
 #	ai_will_do = {
 #		base = 100
 #	}
 #}
 
-### Meditate in Seclusion ###
+select_personal_deity_mumakan_decision = { # LOTR
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp1_decisons_hold_bolt.dds"
+	}
+
+	desc = select_personal_deity_germanic_decision_desc
+	selection_tooltip = select_personal_deity_germanic_decision_tooltip
+
+	is_shown = {
+		# Following a valid religion & faith.
+		religion = religion:mumakan_religion
+		faith = { has_doctrine_parameter = select_personal_god_active }
+		NOT = {
+			faith = { has_doctrine = tenet_cult_of_saints }
+		}
+	}
+
+	is_valid = {
+	}
+
+	is_valid_showing_failures_only = {
+		# Have to at _least_ not be in piety debt.
+		piety >= 0
+	}
+
+	cooldown = { years = 2 }
+
+	effect = {
+		# Show the possible options.
+		show_as_tooltip = {
+			random_list = {
+				desc = select_personal_deity_germanic_decision_tt
+				100 = {
+					show_chance = no
+					desc = select_personal_deity_mumakan_decision.select_mumathumur
+					add_character_modifier = bhakti_mumakan_mumathumur
+				}
+				100 = {
+					show_chance = no
+					desc = select_personal_deity_mumakan_decision.select_lakabah
+					add_character_modifier = bhakti_mumakan_lakabah
+				}
+				100 = {
+					show_chance = no
+					desc = select_personal_deity_mumakan_decision.select_mubadahr
+					add_character_modifier = bhakti_mumakan_mubadahr
+				}
+				100 = {
+					show_chance = no
+					desc = select_personal_deity_mumakan_decision.select_amav
+					add_character_modifier = bhakti_mumakan_amav
+				}
+				100 = {
+					show_chance = no
+					desc = select_personal_deity_mumakan_decision.select_ahsuli
+					add_character_modifier = bhakti_mumakan_ahsuli
+				}
+			}
+		}
+		# And the actual effect.
+		trigger_event = religious_decision.0104
+	}
+
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 96
+		duchy = 96
+		kingdom = 96
+		empire = 96
+		hegemony = 96
+	}
+
+	ai_potential = {
+		piety >= minor_piety_value
+		NOR = {
+			has_character_modifier = bhakti_germanic_generic_odin
+			has_character_modifier = bhakti_germanic_not_danish_ullr
+			has_character_modifier = bhakti_germanic_danish_tyr
+			has_character_modifier = bhakti_germanic_generic_thor
+			has_character_modifier = bhakti_germanic_generic_freyr
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+select_personal_deity_saints_decision = { # LOTR
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
+
+	desc = select_personal_deity_saints_decision_desc
+	selection_tooltip = select_personal_deity_saints_decision_tooltip
+
+	is_shown = {
+		AND = {
+			faith = { has_doctrine_parameter = select_personal_god_active }
+			faith = {
+				has_doctrine = tenet_cult_of_saints
+			}
+		}
+	}
+
+	is_valid = {
+	}
+
+	is_valid_showing_failures_only = {
+		# Have to at _least_ not be in piety debt.
+		piety >= 0
+	}
+
+	cooldown = { years = 2 }
+
+	effect = {
+		# Show the possible options.
+		custom_tooltip = select_personal_deity_saints_decision_tt
+		custom_tooltip = select_personal_deity_saints_decision_tt2
+		# And the actual effect.
+		trigger_event = religious_decision.0103
+	}
+
+	ai_check_interval = 96
+	
+	ai_potential = {
+		piety >= minor_piety_value
+		NOR = {
+			has_character_modifier = patron_saint_prophet_modifier
+			has_character_modifier = patron_saint_militant_modifier
+			has_character_modifier = patron_saint_wise_modifier
+			has_character_modifier = patron_saint_pilgrim_modifier
+			has_character_modifier = patron_saint_anointed_modifier
+			has_character_modifier = patron_saint_chaste_modifier
+			has_character_modifier = patron_saint_reformer
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
 meditate_in_seclusion_decision = {
-#	picture = {
-#		trigger = { religion = religion:shintoism_religion }
-#		reference = "gfx/interface/illustrations/holding_types/tgp_shinto_temple.dds"
-#	}
-#	picture = {
-#		trigger = { culture = { has_graphical_east_asia_culture_group_trigger = yes } }
-#		reference = "gfx/interface/illustrations/holding_types/tgp_chinese_pagoda.dds"
-#	}
-#	picture = {
-#		trigger = { culture = { has_graphical_india_culture_group_trigger = yes } }
-#		reference = "gfx/interface/illustrations/holding_types/temple_india.dds"
-#	}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
 	}
@@ -912,32 +851,32 @@ raise_runestone_decision = {
 			text = raise_runestone_decision_warning
 		}
 
-		# Saga in Stone achievement tracking.
-		if = {
-			limit = {
-				# Grab the player and any dynasty members of theirs.
-				any_player = { dynasty = root.dynasty }
-			}
-			dynasty = {
-				# Start a count if we don't have one.
-				if = {
-					limit = {
-						NOT = { exists = var:saga_in_stone_achievement_tally }
-					}
-					set_variable = {
-						name = saga_in_stone_achievement_tally
-						value = 1
-					}
-				}
-				# Otherwise, increment it.
-				else = {
-					change_variable = {
-						name = saga_in_stone_achievement_tally
-						add = 1
-					}
-				}
-			}
-		}
+#		# Saga in Stone achievement tracking.
+#		if = {
+#			limit = {
+#				# Grab the player and any dynasty members of theirs.
+#				any_player = { dynasty = root.dynasty }
+#			}
+#			dynasty = {
+#				# Start a count if we don't have one.
+#				if = {
+#					limit = {
+#						NOT = { exists = var:saga_in_stone_achievement_tally }
+#					}
+#					set_variable = {
+#						name = saga_in_stone_achievement_tally
+#						value = 1
+#					}
+#				}
+#				# Otherwise, increment it.
+#				else = {
+#					change_variable = {
+#						name = saga_in_stone_achievement_tally
+#						add = 1
+#					}
+#				}
+#			}
+#		}
 	}
 
 	ai_check_interval_by_tier = {
@@ -1303,21 +1242,148 @@ abandon_crypto_faith_decision = {	#Abandon your secret faith.
 	}
 }
 
-### Return Rome ###
-#return_rome_decision = {
-#	picture = {
-#		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+# Deprecated
+#go_on_pilgrimage_decision = {
+#	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+#	ai_check_interval = 60
+#	
+#	sort_order = 64
+#
+#	desc = go_on_pilgrimage_decision_desc
+#	selection_tooltip = go_on_pilgrimage_decision_tooltip
+#
+#	cooldown = { years = pilgrimage_cooldown_year_amount }
+#
+#	is_shown = {
+#		is_landed = yes
+#
+#		# Also we must have an actual holy site we can visit and must believe in pilgrimages
+#		faith = {	
+#			has_doctrine_parameter = can_go_on_pilgrimage
+#			any_holy_site = {
+#				exists = this
+#			}
+#		}
+#		always = no
 #	}
+#
+#	is_valid_showing_failures_only = {
+#		is_available_adult = yes
+#		is_at_war = no
+#	}
+#
+#	effect = {
+#		custom_tooltip = pilgrimage_effect_1
+#		custom_tooltip = pilgrimage_effect_2
+#		if = { #What is the minimum you will have to pay?
+#			limit = {
+#				faith = {
+#					any_holy_site = {
+#						squared_distance = {
+#							target = root.capital_province
+#							value <= short_pilgrimage_max_length
+#						}
+#					}
+#				}
+#			}
+#			custom_tooltip = pilgrimage_effect_3
+#		}
+#		else_if = {
+#			limit = {
+#				faith = {
+#					any_holy_site = {
+#						squared_distance = {
+#							target = root.capital_province
+#							value <= medium_pilgrimage_max_length
+#						}
+#					}
+#				}
+#			}
+#			custom_tooltip = pilgrimage_effect_4
+#		}
+#		else_if = {
+#			limit = {
+#				faith = {
+#					any_holy_site = {
+#						squared_distance = {
+#							target = root.capital_province
+#							value <= long_pilgrimage_max_length
+#						}
+#					}
+#				}
+#			}
+#			custom_tooltip = pilgrimage_effect_5
+#		}
+#		else = {
+#			custom_tooltip = pilgrimage_effect_6
+#		}
+#		if = {
+#			limit = { has_trait = ill }
+#			custom_tooltip = line_break
+#			custom_tooltip = pilgrimage_illness_warning
+#		}
+#		if = {
+#			limit = { is_ai = yes }
+#			trigger_event = pilgrimage.0999
+#		}
+#		else = {
+#			trigger_event = pilgrimage.0001
+#		}
+#	}
+#
+#	ai_potential = {
+#		is_landed = yes
+#		is_available_adult = yes
+#		short_term_gold > pilgrimage_minimum_cost
+#	}
+#
+#	ai_will_do = {
+#		base = 20
+#		modifier = {
+#			add = -100
+#			NOT = { short_term_gold >= pilgrimage_medium_extra_cost }
+#		}
+#		modifier = {
+#			add = 30
+#			short_term_gold >= pilgrimage_long_extra_cost
+#		}
+#		modifier = {
+#			add = 20
+#			piety_level <= 2
+#		}
+#		modifier = {
+#			add = 20
+#			has_trait = zealous
+#		}
+#		modifier = {
+#			add = 20
+#			has_trait = zealous
+#			NOT = { has_trait = pilgrim }
+#		}
+#		modifier = {
+#			add = -30
+#			has_trait = cynical
+#		}
+#		modifier = {
+#			add = -30
+#			has_trait = pilgrim
+#		}
+#	}
+#}
+
+#return_rome_decision = {
+#	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+#
 #	desc = return_rome_decision_desc
 #	selection_tooltip = return_rome_decision_tooltip
-
+#
 #	is_shown = {
-#		top_liege = this
+#		is_independent_ruler = yes
 #		faith = faith:catholic
 #		exists = faith.religious_head
 #		faith.religious_head = {
 #			OR = {
-#				top_liege = this
+#				is_independent_ruler = yes
 #				NOT = {
 #					any_liege_or_above = {
 #						this = root
@@ -1338,9 +1404,11 @@ abandon_crypto_faith_decision = {	#Abandon your secret faith.
 #				}
 #			}
 #		}
-#		root != root.faith.religious_head
+#		NOT = {
+#			root = root.faith.religious_head
+#		}
 #	}
-
+#
 #	effect = {
 #		create_title_and_vassal_change = {
 #			type = returned
@@ -1354,41 +1422,28 @@ abandon_crypto_faith_decision = {	#Abandon your secret faith.
 #			}
 #		}
 #		resolve_title_and_vassal_change = scope:change
-
+#		
 #		add_piety = major_piety_value
-#		if = {
-#			limit = {
-#				faith.religious_head ?= {
-#					this != root
-#				}
-#			}
-#			faith.religious_head = {
-#				add_opinion = {
-#					target = root
-#					modifier = grateful_opinion
-#					opinion = 20
-#				}
+#		
+#		faith.religious_head = {
+#			add_opinion = {
+#				target = root
+#				modifier = grateful_opinion
+#				opinion = 20
 #			}
 #		}
-
+#
 #		stress_impact = {
 #			cynical = medium_stress_impact_gain
 #			ambitious = minor_stress_impact_gain
 #		}
 #	}
-
-#	ai_check_interval_by_tier = {
-#		barony = 0
-#		county = 12
-#		duchy = 12
-#		kingdom = 12
-#		empire = 12
-#		hegemony = 12
-#	}
-
+#	
+#	ai_check_interval = 12
+#
 #	ai_potential = {
 #		is_at_war = no
-#		top_liege = this
+#		is_independent_ruler = yes
 #		faith = faith:catholic
 #		ai_zeal > very_high_negative_ai_value
 #		title:c_roma = {
@@ -1397,10 +1452,10 @@ abandon_crypto_faith_decision = {	#Abandon your secret faith.
 #			}
 #		}
 #	}
-
+#
 #	ai_will_do = {
 #		base = 100
-
+#
 #		modifier = { # If you fought the pope to get rome, don't immediately hand it back
 #			factor = 0
 #			faith.religious_head = {
@@ -1412,8 +1467,6 @@ abandon_crypto_faith_decision = {	#Abandon your secret faith.
 #		}
 #	}
 #}
-
-### Ai Create Head Of Faith Decision ###
 ai_create_head_of_faith_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
@@ -1489,18 +1542,18 @@ invite_religious_exiles_decision = {
 	is_shown = {
 		has_tgp_dlc_trigger = yes
 		NOT = { government_has_flag = government_is_herder }
-#		OR = {
-#			is_open_to_inviting_other_faiths_trigger = yes
-#			government_has_flag = government_is_mandala
-#		}
+		OR = {
+			is_open_to_inviting_other_faiths_trigger = yes
+			government_has_flag = government_is_mandala
+		}
 	}
 
-#	is_valid = {
-#		OR = {
-#			is_open_to_inviting_other_faiths_trigger = yes
-#			government_has_flag = government_is_mandala
-#		}
-#	}
+	is_valid = {
+		OR = {
+			is_open_to_inviting_other_faiths_trigger = yes
+			government_has_flag = government_is_mandala
+		}
+	}
 
 	is_valid_showing_failures_only = {
 		is_landed = yes
@@ -1905,252 +1958,254 @@ invite_religious_exiles_decision = {
 	}
 }
 
-#convert_to_confucianism = {
-#	picture = {
-#		reference = "gfx/interface/illustrations/decisions/tgp_debate.dds"
-#	}
-#	sort_order = 101
+convert_to_confucianism = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/tgp_debate.dds"
+	}
+	sort_order = 101
 
-#	is_shown = {
-#		culture = { has_cultural_parameter = can_always_convert_to_confucianism }
-#		faith.religion != religion:confucianism_religion
-#	}
+	is_shown = {
+		culture = { has_cultural_parameter = can_always_convert_to_confucianism }
+		#faith.religion != religion:confucianism_religion #LotR
+		always = no #LotR
+	}
 
-#	is_valid = {
+	is_valid = {
 		 
-#	}
+	}
 
-#	cooldown = { years = 15 }
+	cooldown = { years = 15 }
 
-#	desc = convert_to_confucianism_desc
+	desc = convert_to_confucianism_desc
 
-#	widget = {
-#		gui = "decision_view_widget_option_list_generic"
-#		controller = decision_option_list_controller
-#		decision_to_second_step_button = "CHOOSE_CONFUCIAN_FAITH_TO_CONVERT_TO"
-#		show_from_start = yes
+	widget = {
+		gui = "decision_view_widget_option_list_generic"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "CHOOSE_CONFUCIAN_FAITH_TO_CONVERT_TO"
+		show_from_start = yes
 
-#		item = {
-#			value = jingxue
-#			current_description = convert_to_jingxue_via_tradition_desc
-#			localization = convert_to_jingxue
-#			icon = "gfx/interface/icons/faith/jingxue.dds"
-#			is_valid = {
+		item = {
+			value = jingxue
+			current_description = convert_to_jingxue_via_tradition_desc
+			localization = convert_to_jingxue
+			icon = "gfx/interface/icons/faith/jingxue.dds"
+			is_valid = {
 				
-#			}
-#			ai_chance = {
-#				value = {
-#					add = root.ai_rationality
-#					min = 1
-#				}
-#			}
-#		}
+			}
+			ai_chance = {
+				value = {
+					add = root.ai_rationality
+					min = 1
+				}
+			}
+		}
 
-#		item = {
-#			value = daoxue
-#			current_description = convert_to_daoxue_via_tradition_desc
-#			localization = convert_to_daoxue
-#			icon = "gfx/interface/icons/faith/daoxue.dds"
-#			is_valid = {
-#			}
-#			ai_chance = {
-#				value = {
-#					add = root.ai_sociability
-#					min = 1
-#				}
-#			}
-#		}
-#	}
+		item = {
+			value = daoxue
+			current_description = convert_to_daoxue_via_tradition_desc
+			localization = convert_to_daoxue
+			icon = "gfx/interface/icons/faith/daoxue.dds"
+			is_valid = {
+			}
+			ai_chance = {
+				value = {
+					add = root.ai_sociability
+					min = 1
+				}
+			}
+		}
+	}
 
-#	cost = {
-#		piety = {
-#			value = 50
-#		}
-#	}
+	cost = {
+		piety = {
+			value = 50
+		}
+	}
 
-#	effect = {
-#		if = {
-#			limit = {
-#				scope:jingxue = yes
-#			}
-#			set_character_faith = faith:jingxue
-#		}
-#		else = {
-#			set_character_faith = faith:daoxue
-#		}
+	effect = {
+		#if = { #LotR
+		#	limit = {
+		#		scope:jingxue = yes
+		#	}
+		#	set_character_faith = faith:jingxue
+		#}
+		#else = {
+		#	set_character_faith = faith:daoxue
+		#}
 
-#		trigger_event = faith_conversion.1001
-#	}
+		trigger_event = faith_conversion.1001
+	}
 	
-#	ai_check_interval_by_tier = {
-#		barony = 0
-#		county = 120
-#		duchy = 120
-#		kingdom = 120
-#		empire = 120
-#		hegemony = 0
-#	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 120
+		duchy = 120
+		kingdom = 120
+		empire = 120
+		hegemony = 0
+	}
 
-#	ai_will_do = {
-#		base = 0
-#		modifier = {
-#			add = 100
-#			static_group_filter = {
-#				group = confucianism_drawn
-#				match = 0.05
-#			}
-#		}
-#		modifier = {
-#			add = -500
-#			has_character_flag = recent_convert
-#		}
-#	}
-#}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 100
+			static_group_filter = {
+				group = confucianism_drawn
+				match = 0.05
+			}
+		}
+		modifier = {
+			add = -500
+			has_character_flag = recent_convert
+		}
+	}
+}
 
-#convert_to_taoism = {
-#	picture = {
-#		reference = "gfx/interface/illustrations/holding_types/tgp_chinese_pagoda.dds"
-#	}
-#	sort_order = 101
-#	
-#	cooldown = { years = 15 } #No cooldown needed as its not available if you take it
-#
-#	is_shown = {
-#		culture = { has_cultural_parameter = can_always_convert_to_taoism }
-#		faith.religion != religion:taoism_religion
-#	}
+convert_to_taoism = {
+	picture = {
+		reference = "gfx/interface/illustrations/holding_types/tgp_chinese_pagoda.dds"
+	}
+	sort_order = 101
+	
+	cooldown = { years = 15 } #No cooldown needed as its not available if you take it
 
-#	is_valid = {
+	is_shown = {
+		culture = { has_cultural_parameter = can_always_convert_to_taoism }
+		#faith.religion != religion:taoism_religion #LotR
+		always = no #LotR
+	}
+
+	is_valid = {
 		 
-#	}
+	}
 
-#	is_valid_showing_failures_only = {
+	is_valid_showing_failures_only = {
 		
-#	}
+	}
 
-#	desc = convert_to_taoism_desc
+	desc = convert_to_taoism_desc
 
-#	cost = { #Uses normal conversion cost (which is discounted by the same tradition)
-#	}
+	cost = { #Uses normal conversion cost (which is discounted by the same tradition)
+	}
 
-#	widget = {
-#		gui = "decision_view_widget_option_list_generic"
-#		controller = decision_option_list_controller
-#		decision_to_second_step_button = "CHOOSE_TAOIST_FAITH_TO_CONVERT_TO"
-#		show_from_start = yes
+	widget = {
+		gui = "decision_view_widget_option_list_generic"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "CHOOSE_TAOIST_FAITH_TO_CONVERT_TO"
+		show_from_start = yes
 
-#		item = {
-#			value = zhengyi
-#			current_description = convert_to_zhengyi_via_decision_desc
-#			localization = convert_to_zhengyi
-#			icon = "gfx/interface/icons/faith/taoism.dds"
-#			is_valid = {
+		item = {
+			value = zhengyi
+			current_description = convert_to_zhengyi_via_decision_desc
+			localization = convert_to_zhengyi
+			icon = "gfx/interface/icons/faith/taoism.dds"
+			is_valid = {
 				
-#			}
-#			ai_chance = {
-#				value = {
-#					add = root.ai_rationality
-#					multiply = -1
-#					min = 0
-#				}
-#			}
-#		}
+			}
+			ai_chance = {
+				value = {
+					add = root.ai_rationality
+					multiply = -1
+					min = 0
+				}
+			}
+		}
 
-#		item = {
-#			value = shangqing
-#			current_description = convert_to_shangqing_via_decision_desc
-#			localization = convert_to_shangqing
-#			icon = "gfx/interface/icons/faith/shangqing.dds"
-#			is_valid = {
-#			}
-#			ai_chance = {
-#				value = {
-#					add = root.ai_greed
-#					multiply = -1
-#					min = 1
-#				}
-#			}
-#		}
+		item = {
+			value = shangqing
+			current_description = convert_to_shangqing_via_decision_desc
+			localization = convert_to_shangqing
+			icon = "gfx/interface/icons/faith/shangqing.dds"
+			is_valid = {
+			}
+			ai_chance = {
+				value = {
+					add = root.ai_greed
+					multiply = -1
+					min = 1
+				}
+			}
+		}
 
-#		item = {
-#			value = quanzhen
-#			current_description = convert_to_quanzhen_via_decision_desc
-#			localization = convert_to_quanzhen
-#			icon = "gfx/interface/icons/faith/quanzhen.dds"
-#			is_valid = {
-#			}
-#			ai_chance = {
-#				value = {
-#					add = root.ai_zeal
-#					min = 1
-#				}
-#			}
-#		}
-#	}
+		item = {
+			value = quanzhen
+			current_description = convert_to_quanzhen_via_decision_desc
+			localization = convert_to_quanzhen
+			icon = "gfx/interface/icons/faith/quanzhen.dds"
+			is_valid = {
+			}
+			ai_chance = {
+				value = {
+					add = root.ai_zeal
+					min = 1
+				}
+			}
+		}
+	}
 
-#	cost = {
-#		piety = {
-#			value = 50
-#		}
-#	}
+	cost = {
+		piety = {
+			value = 50
+		}
+	}
 
 
-#	effect = {
+	effect = {
 
-#		save_scope_as = root_scope
+		save_scope_as = root_scope
 
-#		if = {
-#			limit = {
-#				scope:zhengyi = yes
-#			}
+		#if = { #LotR
+		#	limit = {
+		#		scope:zhengyi = yes
+		#	}
 
-#			set_character_faith = faith:zhengyi
+		#	set_character_faith = faith:zhengyi
 
-#		}
-#		else_if = {
-#			limit = {
-#				scope:shangqing = yes
-#			}
-#			set_character_faith = faith:shangqing
-#		}
-#		else = {
-#			set_character_faith = faith:quanzhen
+		#}
+		#else_if = {
+		#	limit = {
+		#		scope:shangqing = yes
+		#	}
+		#	set_character_faith = faith:shangqing
+		#}
+		#else = {
+		#	set_character_faith = faith:quanzhen
 
-#		}
-#		trigger_event = faith_conversion.1001
-#	}
+		#}
+		trigger_event = faith_conversion.1001
+	}
 	
-#	ai_check_interval_by_tier = {
-#		barony = 0
-#		county = 120
-#		duchy = 120
-#		kingdom = 120
-#		empire = 120
-#		hegemony = 0
-#	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 120
+		duchy = 120
+		kingdom = 120
+		empire = 120
+		hegemony = 0
+	}
 
-#	ai_will_do = {
-#		base = 0
+	ai_will_do = {
+		base = 0
 		
 
-#		modifier = {
-#			add = -20
-#			has_trait = zealous
-#		}
-#		modifier = {
-#			add = 100
-#			static_group_filter = {
-#				group = taoism_drawn
-#				match = 0.05
-#			}
-#		}
-#		modifier = {
-#			add = 10
-#			has_trait = lifestyle_mystic
-#		}
-#		modifier = {
-#			add = -500
-#			has_character_flag = recent_convert
-#		}
-#	}
-#}
+		modifier = {
+			add = -20
+			has_trait = zealous
+		}
+		modifier = {
+			add = 100
+			static_group_filter = {
+				group = taoism_drawn
+				match = 0.05
+			}
+		}
+		modifier = {
+			add = 10
+			has_trait = lifestyle_mystic
+		}
+		modifier = {
+			add = -500
+			has_character_flag = recent_convert
+		}
+	}
+}

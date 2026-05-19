@@ -7,28 +7,28 @@
 # By James Beaumont
 ###########################
 legend_demand_fealty = {
-	#WHG disabled
-	#picture = {
-	#	trigger = {
-	#		NOR = {
-	#			government_has_flag = government_is_tribal
-	#			government_has_flag = government_is_theocracy
-	#			top_liege ?= { government_has_flag = government_is_tribal }
-	#			top_liege ?= { government_has_flag = government_is_theocracy }
-	#		}
-	#		OR = {
-	#			culture = { has_cultural_pillar = heritage_byzantine }
-	#			top_liege ?= {
-	#				OR = {
-	#					culture = { has_cultural_pillar = heritage_byzantine }
-	#					capital_barony ?= title:b_constantinople
-	#					is_roman_emperor_primary_title_trigger = yes
-	#				}
-	#			}
-	#		}
-	#	}
-	#	reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
-	#}
+	# picture = { #LotR
+	# 	trigger = {
+	# 		NOR = {
+	# 			government_has_flag = government_is_tribal
+	# 			government_has_flag = government_is_theocracy
+	# 			top_liege ?= { government_has_flag = government_is_tribal }
+	# 			top_liege ?= { government_has_flag = government_is_theocracy }
+	# 		}
+	# 		OR = {
+	# 			culture = { has_cultural_pillar = heritage_byzantine }
+	# 			top_liege ?= {
+	# 				OR = {
+	# 					culture = { has_cultural_pillar = heritage_byzantine }
+	# 					capital_barony ?= title:b_constantinople
+	# 					primary_title ?= title:e_byzantium
+	# 					primary_title ?= title:e_roman_empire
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
+	# }
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_knight_kneeling.dds"
 	}
@@ -466,6 +466,7 @@ legendary_conversion = {
 			}
 			has_character_flag = major_religious_inspiration
 		}
+		cannot_be_killed = no #LotR
 	}
 
 	is_valid = {
@@ -473,6 +474,7 @@ legendary_conversion = {
 			text = leg_conv_valid_county
 			any_sub_realm_county = {
 				faith != root.faith
+				culture = { same_race_culture = { TARGET = root.culture } } #LotR
 			}
 		}
 		is_landless_adventurer = no
@@ -484,9 +486,11 @@ legendary_conversion = {
 			remove_character_flag = legendary_conversion
 			remove_character_flag = major_religious_inspiration
 			random_sub_realm_county = { # Give em a freebie
+				limit = { culture = { same_race_culture = { TARGET = root.culture } } } #LotR
 				set_county_faith = root.faith
 			}
 			every_sub_realm_county = {
+				limit = { culture = { same_race_culture = { TARGET = root.culture } } } #LotR
 				random = {
 					chance = 50
 					set_county_faith = root.faith

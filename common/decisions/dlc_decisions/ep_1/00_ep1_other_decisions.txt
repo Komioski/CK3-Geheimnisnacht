@@ -156,31 +156,30 @@ adopt_puppy_decision = {
 
 ### Introduce a New Fashion at Court ###
 introduce_a_new_fashion_at_court_decision = {
-	#WHG disabled
-	#picture = {
-	#	trigger = {
-	#		NOR = {
-	#			government_has_flag = government_is_tribal
-	#			government_has_flag = government_is_theocracy
-	#			government_has_flag = government_is_nomadic
-	#			top_liege ?= { government_has_flag = government_is_tribal }
-	#			top_liege ?= { government_has_flag = government_is_theocracy }
-	#		}
-	#		OR = {
-	#			culture = { has_cultural_pillar = heritage_byzantine }
-	#			top_liege ?= {
-	#				OR = {
-	#					culture = { has_cultural_pillar = heritage_byzantine }
-	#					capital_barony ?= title:b_constantinople
-	#					primary_title ?= title:e_byzantium
-	#					primary_title ?= title:h_roman_empire
-	#					primary_title ?= title:h_eastern_roman_empire
-	#				}
-	#			}
-	#		}
-	#	}
-	#	reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
-	#}
+	picture = {
+		trigger = {
+			NOR = {
+				government_has_flag = government_is_tribal
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_nomadic
+				top_liege ?= { government_has_flag = government_is_tribal }
+				top_liege ?= { government_has_flag = government_is_theocracy }
+			}
+			# OR = { #LotR
+			# 	culture = { has_cultural_pillar = heritage_byzantine }
+			# 	top_liege ?= {
+			# 		OR = {
+			# 			culture = { has_cultural_pillar = heritage_byzantine }
+			# 			capital_barony ?= title:b_constantinople
+			# 			primary_title ?= title:e_byzantium
+			# 			primary_title ?= title:e_roman_empire
+			# 		}
+			# 	}
+			# }
+			always = no #LotR
+		}
+		reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
+	}
 	picture = {
 		trigger = {
 			government_has_flag = government_is_nomadic
@@ -196,8 +195,7 @@ introduce_a_new_fashion_at_court_decision = {
 	sort_order = 80
 
 	is_shown = {
-		#WHG disabled
-		#NOT = { has_title = title:k_fashion } # Kingdom of Fashion is very much the end-game of this interaction
+		NOT = { has_title = title:k_fashion } # Kingdom of Fashion is very much the end-game of this interaction
 		NOT = { faith = { has_doctrine_parameter = naked_adherents_active } } # Must wear clothes
 		NOT = { culture = { has_cultural_parameter = naked_culture_active } } # Must wear clothes
 		is_available_at_peace_adult = yes

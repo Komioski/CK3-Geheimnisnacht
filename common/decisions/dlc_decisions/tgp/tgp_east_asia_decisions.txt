@@ -75,6 +75,7 @@ convert_to_mandala_government_decision = {
 		is_landed = yes
 		has_mandala_culture_trigger = yes
 		NOT = { government_has_flag = government_is_mandala }
+		NOT = { religion = religion:sirayn_religion } # LoTR (they have their own path for this)
 		#We have a special decision for Mandala subjects...
 		trigger_if = {
 			limit = { is_tributary = yes }
@@ -95,6 +96,10 @@ convert_to_mandala_government_decision = {
 			}
 			legitimacy_level >= 4
 		}
+		piety_level >= 4 # LOTR to make it a bit harder
+		prestige_level >= 4 # LOTR
+		lotr_has_max_authority = yes # LOTR
+
 		has_mandala_faith_trigger = yes
 		is_independent_ruler = yes
 		# This logic is necessary for the triggers in the options in the subsequent event, or else the player will not get the event
@@ -142,9 +147,30 @@ convert_to_mandala_government_decision = {
 				divide = 2
 			}
 		}
+		piety = { #LOTR
+			value = 0
+			if = {
+				limit = { government_has_flag = government_is_tribal }
+				add = convert_to_mandala_government_tribal_value
+			}
+			else = { add = convert_to_mandala_government_nontribal_value }
+			#'s cheap!
+			if = {
+				limit = { has_character_modifier = divine_happenstance_modifier }
+				divide = 2
+			}
+		}
 	}
 
 	effect = {
+		# LotR - account for oligarchies 
+		if = {
+			limit = { has_government = oligarchy_government }
+			hidden_effect = {
+				primary_title.title_province = { set_holding_type = castle_holding }
+				change_government = clan_government
+			}
+		}
 		#GoK stops really being GoK
 		gok_government_change_story_end_effect = yes
 		#Out with the old laws, in with the new
@@ -162,12 +188,11 @@ convert_to_mandala_government_decision = {
 			change_government = mandala_government
 		}
 		#Huh, guess you _are_ divine
-		#WHG Disabled
-		# if = {
-		# 	limit = { has_variable = vying_for_mandala_divinity }
-		# 	custom_description_no_bullet = { text = because_of_your_divine_happenstance_tt }
-		# 	show_as_tooltip = { divine_happenstance_adopt_mandala_effect = yes }
-		# }
+		if = {
+			limit = { has_variable = vying_for_mandala_divinity }
+			custom_description_no_bullet = { text = because_of_your_divine_happenstance_tt }
+			show_as_tooltip = { divine_happenstance_adopt_mandala_effect = yes }
+		}
 		if = {
 			limit = {
 				culture = {
@@ -224,8 +249,7 @@ convert_to_mandala_government_decision = {
 			any_owned_story = {
 				OR = {
 					story_type = story_greatest_of_khans
-					#WHG Disabled
-					# story_type = story_mongol_invasion
+					story_type = story_mongol_invasion
 				}
 			}
 		}
@@ -277,6 +301,10 @@ assimilate_to_mandala_decision = {
 			faith = overlord.faith
 		}
 		highest_held_title_tier > tier_barony
+		OR = { #LotR
+			is_human = yes
+			is_druedain = yes
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -447,8 +475,7 @@ assimilate_to_mandala_decision = {
 		NOT = {
 			any_owned_story = {
 				OR = {
-					#WHG Disabled
-					# story_type = story_mongol_invasion
+					story_type = story_mongol_invasion
 					story_type = story_greatest_of_khans
 				}
 			}
@@ -504,71 +531,70 @@ assimilate_to_mandala_decision = {
 }
 
 ### Adopt Clan Ways ###
-#WHG Disabled
-# mandala_adopt_clan_government_decision = {
-# 	picture = {
-# 		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
-# 	}
-# 	decision_group_type = major
-# 	desc = mandala_adopt_clan_government_decision_desc
+mandala_adopt_clan_government_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	decision_group_type = major
+	desc = mandala_adopt_clan_government_decision_desc
 	
-# 	ai_check_interval_by_tier = {
-# 		barony = 0
-# 		county = 36
-# 		duchy = 36
-# 		kingdom = 36
-# 		empire = 36
-# 		hegemony = 36
-# 	}
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
 
-# 	is_shown = {
-# 		has_tgp_dlc_trigger = yes
-# 		government_has_flag = government_is_mandala
-# 		is_landed = yes
-# 		faith.religion = religion:islam_religion
-# 		highest_held_title_tier > tier_barony
-# 	}
+	is_shown = {
+		has_tgp_dlc_trigger = yes
+		government_has_flag = government_is_mandala
+		is_landed = yes
+		# faith.religion = religion:islam_religion #LOTR
+		highest_held_title_tier > tier_barony
+	}
 
-# 	is_valid_showing_failures_only = {
-# 		custom_tooltip = {
-# 			text = not_changed_government_recently_tt
-# 			NOT = { has_variable = changed_government_recently }
-# 		}
-# 	}
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = not_changed_government_recently_tt
+			NOT = { has_variable = changed_government_recently }
+		}
+	}
 
-# 	cost = {
-# 		piety = {
-# 			value = convert_to_mandala_government_nontribal_value
-# 		}
-# 	}
+	cost = {
+		piety = {
+			value = convert_to_mandala_government_nontribal_value
+		}
+	}
 
-# 	effect = {
-# 		mandala_adopt_clan_government_effect = yes
-# 	}
+	effect = {
+		mandala_adopt_clan_government_effect = yes
+	}
 
-# 	ai_potential = {
-# 		government_has_flag = government_is_mandala
-# 		faith.religion = religion:islam_religion
-# 		piety >= convert_to_mandala_government_nontribal_value
-# 	}
+	ai_potential = {
+		government_has_flag = government_is_mandala
+		# faith.religion = religion:islam_religion #LOTR
+		piety >= convert_to_mandala_government_nontribal_value
+	}
 
-# 	ai_will_do = {
-# 		base = 20
-# 		modifier = {
-# 			OR = {
-# 				piety_level >= high_piety_level
-# 				capital_province = {
-# 					OR = {
-# 						has_building_with_flag = third_tier_mandala_capital_building
-# 						has_building_with_flag = fourth_tier_mandala_capital_building
-# 						has_building_with_flag = final_tier_mandala_capital_building
-# 					}
-# 				}
-# 			}
-# 			factor = 0
-# 		}
-# 	}
-# }
+	ai_will_do = {
+		base = 20
+		modifier = {
+			OR = {
+				piety_level >= high_piety_level
+				capital_province = {
+					OR = {
+						has_building_with_flag = third_tier_mandala_capital_building
+						has_building_with_flag = fourth_tier_mandala_capital_building
+						has_building_with_flag = final_tier_mandala_capital_building
+					}
+				}
+			}
+			factor = 0
+		}
+	}
+}
 
 ### Perform a Ritual Sacrifice ###
 visit_local_shrine_decision = {
@@ -731,6 +757,7 @@ create_bunga_mas_decision = {
 	ai_check_interval = 0 #Not for AI
 
 	is_shown = {
+		always = no #LotR
 		#Tease Mandala rulers
 		trigger_if = {
 			limit = { is_tributary = no }

@@ -26,6 +26,7 @@ separatist_uprising_decision = {
 		has_government = landless_adventurer_government
 		NOT = { has_trait = populist_leader }
 		NOT = { has_variable = separatist_uprising_decision_var }
+		cannot_be_killed = no #LotR
 	}
 	
 	is_valid = {
@@ -94,10 +95,9 @@ separatist_uprising_decision = {
 			prestige <= 300
 			gold <= 150
 		}
-		#WHG disabled
-		#modifier = { # Asen and Peter always try to do this
-		#	add = 1000
-		#	primary_title = title:d_laamp_asen
-		#}
+		# modifier = { # Asen and Peter always try to do this #LotR
+		# 	add = 1000
+		# 	primary_title = title:d_laamp_asen
+		# }
 	}
 }

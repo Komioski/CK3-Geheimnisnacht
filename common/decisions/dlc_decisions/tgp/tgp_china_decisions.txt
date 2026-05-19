@@ -104,10 +104,10 @@ tgp_china_attend_child_exam_decision = {
 			has_trait = content
 			add = -25
 		}
-		#modifier = {
-		#	has_religion = religion:confucianism_religion
-		#	add = 25
-		#}
+		# modifier = {
+		# 	has_religion = religion:confucianism_religion
+		# 	add = 25
+		# }
 		modifier = {
 			learning > high_skill_rating
 			add = 25
@@ -923,14 +923,15 @@ tgp_china_study_confucian_classics_decision = {
 	}
 
 	is_shown = {
-		has_tgp_dlc_trigger = yes
-		government_allows = merit
-		is_playable_character = yes
-		NOT = { top_liege = root }
+		always = no # LotR
+		# has_tgp_dlc_trigger = yes
+		# government_allows = merit
+		# is_playable_character = yes
+		# NOT = { top_liege = root }
 	}
 
 	is_valid = {
-		knows_language = language_chinese
+		# knows_language = language_chinese # LotR
 		custom_tooltip = {
 			text = tgp_china_study_confucian_classics_decision_req_tt
 			NOT = {
@@ -1092,12 +1093,12 @@ tgp_tea_ceremony_decision = {
 	}
 	title = {
 		first_valid = {
-			triggered_desc = {
-				trigger = {
-					culture = { has_cultural_pillar = heritage_chinese }
-				}
-				desc = tgp_tea_ceremony_decision
-			}
+			# triggered_desc = {
+			# 	trigger = {
+			# 		culture = { has_cultural_pillar = heritage_chinese }
+			# 	}
+			# 	desc = tgp_tea_ceremony_decision
+			# }
 			desc = tgp_tea_ceremony_decision_ceremony_name
 		}
 	}

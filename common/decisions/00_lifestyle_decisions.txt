@@ -25,12 +25,12 @@ embrace_celibacy_decision = {
 	is_shown = {
 		has_perk = restraint_perk
 		NOT = { has_trait = celibate }
+		NOT = { is_nazgul = yes } #LotR
 	}
 
 	is_valid_showing_failures_only = {
 		NOR = {
-			#WHG disabled
-			#has_trait = lifestyle_reveler
+			has_trait = lifestyle_reveler
 			has_trait = seducer
 		}
 		is_adult = yes
@@ -138,14 +138,14 @@ abandon_celibacy_decision = {
 # Unlocked by: At Any Cost
 ### Sell Trivial Titles ###
 sale_of_titles_decision = {
-	picture = {
-		trigger = {
-			culture = {
-				has_graphical_east_asia_culture_group_trigger = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/decisions/tgp_debate.dds"
-	}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = {
+	#			has_graphical_east_asia_culture_group_trigger = yes
+	#		}
+	#	}
+	#	reference = "gfx/interface/illustrations/decisions/tgp_debate.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
 	}
@@ -159,14 +159,13 @@ sale_of_titles_decision = {
 		is_landed = yes
 		OR = {
 			has_perk = at_any_cost_perk
-			#WHG disabled
-			# AND = {
-			# 	highest_held_title_tier >= tier_kingdom
-			# 	any_character_struggle = {
-			# 		involvement = involved
-			# 		has_struggle_phase_parameter = unlocks_sell_minor_title_for_kings_and_higher
-			# 	}
-			# }
+			AND = {
+				highest_held_title_tier >= tier_kingdom
+				any_character_struggle = {
+					involvement = involved
+					has_struggle_phase_parameter = unlocks_sell_minor_title_for_kings_and_higher
+				}
+			}
 		}
 	}
 
@@ -177,14 +176,13 @@ sale_of_titles_decision = {
 	is_valid = {
 		OR = {
 			has_perk = at_any_cost_perk
-			#WHG disabled
-			# AND = {
-			# 	highest_held_title_tier >= tier_kingdom
-			# 	any_character_struggle = {
-			# 		involvement = involved
-			# 		has_struggle_phase_parameter = unlocks_sell_minor_title_for_kings_and_higher
-			# 	}
-			# }
+			AND = {
+				highest_held_title_tier >= tier_kingdom
+				any_character_struggle = {
+					involvement = involved
+					has_struggle_phase_parameter = unlocks_sell_minor_title_for_kings_and_higher
+				}
+			}
 		}
 	}
 
@@ -343,30 +341,30 @@ extort_subjects_decision = {
 # Unlocked by: Making History
 ### Commission Epic ###
 commission_epic_decision = {
-	picture = {
-		trigger = {
-			culture = { has_graphical_mediterranean_culture_group_trigger = yes }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/ep3_medi_study.dds"
-	}
-	picture = {
-		trigger = {
-			culture = { has_building_gfx = japanese_building_gfx } #Just Japan
-		}
-		reference = "gfx/interface/illustrations/event_scenes/tgp_study_japan.dds"
-	}
-	picture = {
-		trigger = {
-			culture = { has_graphical_east_asia_culture_group_trigger = yes } #Rest of East Asia
-		}
-		reference = "gfx/interface/illustrations/event_scenes/tgp_study_asia.dds"
-	}
-	picture = {
-		trigger = {
-			culture = { has_graphical_india_culture_group_trigger = yes }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/bp2_study_indian.dds"
-	}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = { has_graphical_mediterranean_culture_group_trigger = yes }
+	#	}
+	#	reference = "gfx/interface/illustrations/event_scenes/ep3_medi_study.dds"
+	#}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = { has_building_gfx = japanese_building_gfx } #Just Japan
+	#	}
+	#	reference = "gfx/interface/illustrations/event_scenes/tgp_study_japan.dds"
+	#}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = { has_graphical_east_asia_culture_group_trigger = yes } #Rest of East Asia
+	#	}
+	#	reference = "gfx/interface/illustrations/event_scenes/tgp_study_asia.dds"
+	#}
+	#picture = { #LotR
+	#	trigger = {
+	#		culture = { has_graphical_india_culture_group_trigger = yes }
+	#	}
+	#	reference = "gfx/interface/illustrations/event_scenes/bp2_study_indian.dds"
+	#}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	}

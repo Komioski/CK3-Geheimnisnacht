@@ -6,14 +6,14 @@
 ### Recruit for a Court Position ###
 recruit_court_position_decision = {
 	ai_check_interval = 0
-	picture = {
-		trigger = { culture = { has_graphical_east_asia_culture_group_trigger = yes } }
-		reference = "gfx/interface/illustrations/decisions/tgp_scholars.dds"
-	}
-	picture = {
-		trigger = { culture = { has_graphical_india_culture_group_trigger = yes } }
-		reference = "gfx/interface/illustrations/decisions/hindu_religious.dds"
-	}
+	#picture = { # LotR
+	#	trigger = { culture = { has_graphical_east_asia_culture_group_trigger = yes } }
+	#	reference = "gfx/interface/illustrations/decisions/tgp_scholars.dds"
+	#}
+	#picture = { # LotR
+	#	trigger = { culture = { has_graphical_india_culture_group_trigger = yes } }
+	#	reference = "gfx/interface/illustrations/decisions/hindu_religious.dds"
+	#}
 	picture = {
 		trigger = {
 			NOT = { government_has_flag = government_is_nomadic }
@@ -123,7 +123,8 @@ recruit_court_position_decision = {
 							mother ?= {
 								OR = {
 									is_alive = no
-									age > 45
+									# age > 45
+									fertility_age_equivalent > 45 #LotR
 									health < 3
 								}
 							}
@@ -455,41 +456,40 @@ recruit_court_position_decision = {
 				}
 			}
 		}
-		#WHG disabled
-		#item = { # Court Brahmin
-		#	value = invite_a_court_brahmin_decision
-		#	is_shown = {
-		#		government_has_flag = government_is_mandala
-		#		exists = primary_title 
-		#		primary_title.tier >= tier_county
-		#	}
-		#	is_valid = {
-		#		NOR = {
-		#			employs_court_position = court_brahmin_court_position
-		#			custom_tooltip = {
-		#				text = recruit_court_brahmin_cooldown_tt
-		#				has_character_flag = recruit_court_brahmin_cooldown
-		#			}
-		#		}
-		#		exists = capital_province
-		#	}
-		#	current_description = invite_a_court_brahmin_decision_desc
-		#	localization = invite_a_court_brahmin_decision
-		#	icon = "gfx/interface/icons/court_position_types/court_brahmin_court_position.dds"
-		#	ai_chance = {
-		#		value = 100
-		#		if = {
-		#			limit = {
-		#				NOR = {
-		#					highest_held_title_tier > tier_barony
-		#					gold > low_skill_court_physician_cost
-		#					is_at_war = no
-		#				}
-		#			}
-		#			multiply = 0
-		#		}
-		#	}
-		#}
+		item = { # Court Brahmin
+			value = invite_a_court_brahmin_decision
+			is_shown = {
+				government_has_flag = government_is_mandala
+				exists = primary_title 
+				primary_title.tier >= tier_county
+			}
+			is_valid = {
+				NOR = {
+					employs_court_position = court_brahmin_court_position
+					custom_tooltip = {
+						text = recruit_court_brahmin_cooldown_tt
+						has_character_flag = recruit_court_brahmin_cooldown
+					}
+				}
+				exists = capital_province
+			}
+			current_description = invite_a_court_brahmin_decision_desc
+			localization = invite_a_court_brahmin_decision
+			icon = "gfx/interface/icons/court_position_types/court_brahmin_court_position.dds"
+			ai_chance = {
+				value = 100
+				if = {
+					limit = {
+						NOR = {
+							highest_held_title_tier > tier_barony
+							gold > low_skill_court_physician_cost
+							is_at_war = no
+						}
+					}
+					multiply = 0
+				}
+			}
+		}
 		item = { # Khlon Glan
 			value = invite_a_khlon_glan_decision
 			is_shown = {
@@ -761,18 +761,17 @@ recruit_court_position_decision = {
 					days = { 7 14 }
 				}
 			}
-			#WHG disabled
-			#else_if = { # Court Brahmin
-			#	limit = { scope:invite_a_court_brahmin_decision = yes }
-			#	add_character_flag = {
-			#		flag = recruit_court_brahmin_cooldown
-			#		years = 1
-			#	}
-			#	trigger_event = {
-			#		id = tgp_east_asia_decision_events.0200
-			#		days = { 7 14 }
-			#	}
-			#}
+			else_if = { # Court Brahmin
+				limit = { scope:invite_a_court_brahmin_decision = yes }
+				add_character_flag = {
+					flag = recruit_court_brahmin_cooldown
+					years = 1
+				}
+				trigger_event = {
+					id = tgp_east_asia_decision_events.0200
+					days = { 7 14 }
+				}
+			}
 			else_if = { # Khlon Glan
 				limit = { scope:invite_a_khlon_glan_decision = yes }
 				add_character_flag = {
@@ -966,6 +965,10 @@ commit_suicide_decision = { #by Linnéa Thimrén
 				trigger = { has_trait = leper }
 				desc = commit_suicide_decision_desc_leper
 			}
+			triggered_desc = { # LotR
+				trigger = { has_trait = black_breath }
+				desc = commit_suicide_decision_desc_black_breath
+			}
 			triggered_desc = {
 				trigger = { has_variable = messy_divorce }
 				desc = commit_suicide_decision_desc_divorce
@@ -1102,6 +1105,16 @@ commit_suicide_decision = { #by Linnéa Thimrén
 		not = { exists = involved_activity }
 		is_imprisoned = no
 		is_commanding_army = no
+		# LotR - Immortal limits
+		custom_tooltip = {
+			text = immortals_cannot_commit_suicide
+			cannot_be_killed = no
+		}
+		# LotR - Elven limits
+		custom_tooltip = {
+			text = elves_cannot_commit_suicide
+			NOT = { is_elf = yes }
+		}
 	}
 
 	effect = {
@@ -1315,23 +1328,23 @@ secede_from_empire_decision = { #by Sean Hughes
 			highest_held_title_tier = tier_kingdom
 		}
 
-		modifier = {
-			add = -35
-			# Electors in the HRE are far less likely to seceede.
-			liege.primary_title = title:e_hre
-			title:e_hre = {
-				has_title_law = princely_elective_succession_law
-				any_elector = {
-					this = root
-				}
-			}
-		}
+		# modifier = {
+		# 	add = -35
+		# 	# Electors in the HRE are far less likely to seceede.
+		# 	liege.primary_title = title:e_hre
+		# 	title:e_hre = {
+		# 		has_title_law = princely_elective_succession_law
+		# 		any_elector = {
+		# 			this = root
+		# 		}
+		# 	}
+		# }
 
-		modifier = {
-			add = -60 
-			# Satraps of the Mongol Empire should (almost) never seceede.
-			liege.primary_title = title:e_mongolia  
-		}
+		# modifier = {
+		# 	add = -60 
+		# 	# Satraps of the Mongol Empire should (almost) never seceede.
+		# 	liege.primary_title = title:e_mongolia  
+		# }
 
 		# 'Soft' Modifiers, e.g., Opinion and Personality
 		ai_value_modifier = {

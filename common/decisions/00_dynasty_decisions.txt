@@ -137,6 +137,13 @@ create_cadet_branch_decision = {
 			limit = { has_trait = bastard }
 			NOT = { has_trait = bastard }
 		}
+		
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}
+			always = no
+		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -146,33 +153,33 @@ create_cadet_branch_decision = {
 
 	effect = {
 		house.house_head ?= { save_scope_as = old_head }
-		#WHG disabled
-		#if = {
-		#	limit = {
-		#		has_tgp_dlc_trigger = yes
-		#		culture = {
-		#			OR = {
-		#				has_cultural_pillar = language_japonic
-		#				has_name_list = name_list_yamato
-		#			}
-		#		}
-		#	}
-		#	add_character_flag = found_cadet_branch
-		#	trigger_event = tgp_japan_decision.9001
-		#	show_as_tooltip = {
-		#		create_cadet_branch = { save_scope_as = new_house }
-		#		if = {
-		#			limit = { government_allows = create_cadet_branches }
-		#			create_noble_family_effect = { GOVERNMENT_GIVER = scope:old_head }
-		#		}
-		#	}
-		#}
-		#else = {
-		found_cadet_house_decision_effect = {
-			CHARACTER = root
-			PRESTIGE = major_prestige_gain
+		if = {
+			limit = {
+				has_tgp_dlc_trigger = yes
+				# culture = { #LotR
+				# 	OR = {
+				# 		has_cultural_pillar = language_japonic
+				# 		has_name_list = name_list_yamato
+				# 	}
+				# }
+				always = no #LotR
+			}
+			add_character_flag = found_cadet_branch
+			trigger_event = tgp_japan_decision.9001
+			show_as_tooltip = {
+				create_cadet_branch = { save_scope_as = new_house }
+				if = {
+					limit = { government_allows = create_cadet_branches }
+					create_noble_family_effect = { GOVERNMENT_GIVER = scope:old_head }
+				}
+			}
 		}
-		#}
+		else = {
+			found_cadet_house_decision_effect = {
+				CHARACTER = root
+				PRESTIGE = major_prestige_gain
+			}
+		}
 	}
 	
 	ai_potential = {

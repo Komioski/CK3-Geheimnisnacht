@@ -20,8 +20,7 @@ diarch_attempt_to_overthrow_liege = {
 		}
 	}
 	selection_tooltip = diarch_attempt_to_overthrow_liege_tooltip
-	#WHG Disabled
-	# picture = {
+	# picture = { #LotR
 	# 	trigger = {
 	# 		NOR = {
 	# 			government_has_flag = government_is_tribal
@@ -35,7 +34,8 @@ diarch_attempt_to_overthrow_liege = {
 	# 				OR = {
 	# 					culture = { has_cultural_pillar = heritage_byzantine }
 	# 					capital_barony ?= title:b_constantinople
-	# 					is_roman_emperor_primary_title_trigger = yes
+	# 					primary_title ?= title:e_byzantium
+	# 					primary_title ?= title:e_roman_empire
 	# 				}
 	# 			}
 	# 		}
@@ -55,6 +55,11 @@ diarch_attempt_to_overthrow_liege = {
 				is_diarch_of_target = liege
 			}
 			is_designated_diarch = yes
+		}
+		is_wastelands = no #LOTR
+		NAND = { #LOTR
+			is_ai = yes
+			is_elf = yes
 		}
 	}
 
