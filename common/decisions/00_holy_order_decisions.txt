@@ -1,17 +1,17 @@
 ﻿### Found Holy Order ###
 create_holy_order_decision = {
-	#picture = { #LotR
-	#	trigger = {
-	#		culture = { has_graphical_east_asia_culture_group_trigger = yes }
-	#	}
-	#	reference = "gfx/interface/illustrations/holding_types/tgp_chinese_pagoda.dds"
-	#}
-	#picture = { #LotR
-	#	trigger = {
-	#		culture = { has_graphical_india_culture_group_trigger = yes }
-	#	}
-	#	reference = "gfx/interface/illustrations/holding_types/tgp_castle_se_asia.dds"
-	#}
+	picture = {
+		trigger = {
+			culture = { has_graphical_east_asia_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/holding_types/tgp_chinese_pagoda.dds"
+	}
+	picture = {
+		trigger = {
+			culture = { has_graphical_india_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/holding_types/tgp_castle_se_asia.dds"
+	}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
 	}
@@ -31,15 +31,14 @@ create_holy_order_decision = {
 					save_temporary_scope_as = order
 				}
 			}
-			faith = faith:faith_ainur #LotR - Ainur don't have holy orders
 		}
 		# Jomsvikings should use their special decision if appropriate.
-#		trigger_if = {
-#			limit = { has_fp1_dlc_trigger = yes }
-#			faith = {
-#				NOT = { fp1_valid_norse_faith_for_jomsvikings_trigger = yes }
-#			}
-#		}
+		trigger_if = {
+			limit = { has_fp1_dlc_trigger = yes }
+			faith = {
+				NOT = { fp1_valid_norse_faith_for_jomsvikings_trigger = yes }
+			}
+		}
 
 		trigger_if = {
 			limit = {
@@ -201,14 +200,6 @@ create_holy_order_decision = {
 				location = scope:barony.title_province
 				save_scope_as = leader
 			}
-			scope:leader = { #LotR - Making sure we don't get Undying holy order leaders
-				if = {
-					limit = {
-						scope:leader = { cannot_be_killed = yes }
-					}
-					set_culture = scope:barony.culture
-				}
-			}
 
 			create_holy_order_neutral_effect = {
 				LEADER = scope:leader
@@ -258,12 +249,12 @@ create_holy_order_decision = {
 
 ### Borrow Gold from Holy Order ###
 borrow_from_holy_order_decision = { #by Linnéa Thimrén
-	#picture = { #LotR
-	#	trigger = { 
-	#		culture = { has_graphical_india_culture_group_trigger = yes }
-	#	}
-	#	reference = "gfx/interface/illustrations/decisions/hindu_religious.dds"
-	#}
+	picture = {
+		trigger = { 
+			culture = { has_graphical_india_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/decisions/hindu_religious.dds"
+	}
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_spend_money.dds"
 	}

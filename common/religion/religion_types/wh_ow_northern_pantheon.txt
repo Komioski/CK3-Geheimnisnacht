@@ -54,11 +54,11 @@
 		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 ibadi_custom muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1
 	}
 
-	# holy_order_names = {
-	# 	{ name = "" }
-	# }
+	holy_order_names = {
+		{ name = "" }
+	}
 
-	# holy_order_maa = { order_knights }
+	holy_order_maa = { order_knights }
 	holy_order_maa = { myrmidia_knights }
 
 	localization = {
@@ -499,7 +499,7 @@
 		sigmarite = {
 			color = { 0.8 0.3 0.1 }
 			icon = "sigmarite.dds"
-			#religious_head = k_cult_of_sigmar
+			religious_head = k_cult_of_sigmar
 
 			doctrine = doctrine_clerical_function_recruitment
 			doctrine = doctrine_clerical_gender_male_only
@@ -519,6 +519,11 @@
 			doctrine = tenet_monasticism
 			doctrine = tenet_pentarchy
 			doctrine = tenet_legalism
+			
+			holy_order_names = {
+				{ name = "holy_order_sigmar_blood_knights" coat_of_arms = "ho_sigmar_blood_knights" }
+				{ name = "holy_order_fiery_heart_knights" coat_of_arms = "ho_fiery_heart_knights"  }
+			}
 
             localization = {
                 WarGodName = sigmarite_war_god_name
@@ -637,7 +642,11 @@
 				ReligiousSymbol = taalite_religious_symbol
 				ReligiousSymbol2 = taalite_religious_symbol2
 				ReligiousSymbol3 = taalite_religious_symbol3
-            }
+			}
+			holy_order_names = {
+				{ name = "holy_order_taal_fury_knights" coat_of_arms = "ho_taal_fury_knights" }
+				{ name = "holy_order_longshanks_knights" coat_of_arms = "ho_longshanks_knights" }
+			}					
 		}
 		ulrican = {
 			color = { 0.1 0.1 0.6 }
@@ -664,10 +673,10 @@
 			doctrine = tenet_ritual_celebrations
             
 			holy_order_names = {
-				{ name = "The Knights of the White Wolf" }
+				{ name = "holy_order_white_wolf_knights" coat_of_arms = "ho_white_wolf_knights" }
+				{ name = "holy_order_winter_throne_knights" coat_of_arms = "ho_winter_throne_knights"  }
 			}
-
-
+			
             localization = {
 				HighGodName = ulrican_high_god_name
 				HighGodName2 = ulrican_high_god_name2
