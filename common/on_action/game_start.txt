@@ -1,6 +1,6 @@
 ﻿# Empty scope
 on_game_start = { 
-	{
+
 	events = {
 		fp1_scandinavian_adventurers.0004	# FP1 - Organise Norse adventurers.
 		fp1_scandinavian_adventurers.0011	# FP1 - Corral famous Norse adventurers that haven't done much yet.
@@ -2590,6 +2590,18 @@ on_game_start_after_lobby = {
 			}
 		}
 
+		# Troll Country stuff.
+		every_county_in_region = {
+			region = world_old_world_troll_country
+			# Every county is in the region, not every province of every county, so we go to county to avoid iterating over every world province _then_ check which ones are in the region.
+			every_county_province = { 
+				limit = {
+					is_coastal = no
+				}
+				add_province_modifier = troll_country_province_modifier
+			}
+		}
+
 		# Extra Nomad Regions
 		#Tibet
 #		if = {
@@ -2885,7 +2897,7 @@ on_game_start_after_lobby = {
 #					}
 #				}
 #			}
-		}
+#		}
 		### INITIAL BUDGET CALC, ONE MORE AFTER THE EVERY_RULER ASSIGNS PROVINCE TYPES ###
 		if = {
 			limit = {
@@ -7903,5 +7915,3 @@ on_game_start_after_lobby = {
 #				desc = $DESC$
 #			}
 #		}
-
-}
