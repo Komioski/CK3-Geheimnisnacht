@@ -15,6 +15,17 @@ portrait_hobbit_clothing_spouse_trigger = {
 portrait_hobbit_clothing_contents_trigger = {
 	portrait_shared_clothing_contents_trigger = { #LotR
 		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = hobbit
+		CULTURE_FLAG = halfling
 	}
+}
+
+
+is_halfling = {
+	culture = {
+		has_cultural_pillar = heritage_halflings
+	}
+}
+
+is_halfling_culture = {
+	has_cultural_pillar = heritage_halflings
 }
