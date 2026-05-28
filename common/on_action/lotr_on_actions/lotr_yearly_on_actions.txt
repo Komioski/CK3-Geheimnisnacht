@@ -45,7 +45,7 @@
 						title_province = { set_holding_type = elven_holding }
 					}
 				} else_if = {
-					limit = { holder = { government_has_flag = government_is_hobbit } }
+					limit = { holder = { government_has_flag = government_is_halfling } }
 					if = {
 						limit = { title_province = { has_holding_type = settlement_holding } }
 						title_province = { set_holding_type = city_holding }
@@ -785,11 +785,11 @@ lotr_five_year_everyone_pulse = {
 					OR = {
 						any_relation = {
 							type = friend
-							is_hobbit = yes
+							is_halfling = yes
 						}
 						any_relation = {
 							type = best_friend
-							is_hobbit = yes
+							is_halfling = yes
 						}
 					}
 				}

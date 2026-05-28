@@ -482,8 +482,8 @@ lotr_on_title_gain = {
 						is_child_of = character:lineofuri122
 					}
 					OR = {
-						any_relation = { type = friend is_hobbit = yes }
-						any_relation = { type = best_friend is_hobbit = yes }
+						any_relation = { type = friend is_halfling = yes }
+						any_relation = { type = best_friend is_halfling = yes }
 					}
 				}
 				set_global_variable = lotr_achievement_64
@@ -630,7 +630,7 @@ lotr_on_title_gain = {
 				root = { change_government = tribal_government }
 			}
 			else_if = {
-				limit = { is_hobbit = yes }
+				limit = { is_halfling = yes }
 				root = { change_government = hobbit_government }
 			}
 			else_if = {
@@ -667,7 +667,7 @@ lotr_on_title_gain = {
 						set_holding_type = tribal_holding
 					}
 					else_if = {
-						limit = { is_hobbit = yes }
+						limit = { is_halfling = yes }
 						set_holding_type = city_holding
 					}
 					else_if = {
@@ -1833,7 +1833,7 @@ lotr_on_title_gain = {
 		## Hobbits can be laamps
 		if = {
 			limit = {
-				is_hobbit = yes
+				is_halfling = yes
 				is_landless_adventurer = no
 				NOT = { government_has_flag = government_is_administrative }
 			}
@@ -1950,7 +1950,7 @@ lotr_on_title_gain = {
 				OR = {
 					is_dwarf = yes
 					is_elf = yes
-					is_hobbit = yes
+					is_halfling = yes
 				}
 				age < lotr_coronation_minimum_age_value
 			}
@@ -1959,7 +1959,7 @@ lotr_on_title_gain = {
 				add_character_modifier = dwarven_child_legitimacy_boost_modifier
 			}
 			else_if = {
-				limit = { is_hobbit = yes }
+				limit = { is_halfling = yes }
 				add_character_modifier = hobbit_child_legitimacy_boost_modifier
 			}
 			else = { add_character_modifier = elven_child_legitimacy_boost_modifier }
@@ -2163,7 +2163,7 @@ lotr_on_title_gain_inheritance = {
 		#LotR - make sure hobbits remain with the hobbit government type
 		if = {
 			limit = {
-				is_hobbit = yes
+				is_halfling = yes
 				is_landless_adventurer = no
 				NOT = { government_has_flag = government_is_administrative }
 			}
@@ -2965,7 +2965,7 @@ lotr_on_rank_up = {# Will not fire during history execution or for dying charact
 				OR = {
 					is_dwarf = yes
 					is_elf = yes
-					is_hobbit = yes
+					is_halfling = yes
 				}
 				age < lotr_coronation_minimum_age_value
 			}
@@ -2974,7 +2974,7 @@ lotr_on_rank_up = {# Will not fire during history execution or for dying charact
 				add_character_modifier = dwarven_child_legitimacy_boost_modifier
 			}
 			else_if = {
-				limit = { is_hobbit = yes }
+				limit = { is_halfling = yes }
 				add_character_modifier = hobbit_child_legitimacy_boost_modifier
 			}
 			else = { add_character_modifier = elven_child_legitimacy_boost_modifier }

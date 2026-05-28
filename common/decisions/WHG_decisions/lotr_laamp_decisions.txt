@@ -230,10 +230,10 @@ settle_wilderness_county_or_duchy_decision = {
 					limit = { is_elf = yes }
 					change_government = elven_government
 				} 
-				else_if = {
-					limit = { is_hobbit = yes }
-					change_government = hobbit_government
-				} 
+				# else_if = {
+				# 	limit = { is_halfling = yes }
+				# 	change_government = hobbit_government
+				# } 
 				else_if = {
 					limit = { is_orc = yes }
 					change_government = orcish_government
@@ -286,7 +286,7 @@ settle_wilderness_county_or_duchy_decision = {
 						title_province = { set_holding_type = dwarven_holding }
 					} 
 					else_if = {
-						limit = { root = { is_hobbit = yes } }
+						limit = { root = { is_halfling = yes } }
 						title_province = { set_holding_type = city_holding }
 					} 
 					else = {
@@ -345,7 +345,7 @@ settle_wilderness_county_or_duchy_decision = {
 									limit = { root = { is_elf = yes } }
 									root = { change_government = elven_government }
 								} else_if = {
-									limit = { root = { is_hobbit = yes } }
+									limit = { root = { is_halfling = yes } }
 									root = { change_government = hobbit_government }
 								} else = {
 									if = {
@@ -384,7 +384,7 @@ settle_wilderness_county_or_duchy_decision = {
 										limit = { title_province = { terrain = halls } }
 										title_province = { set_holding_type = dwarven_holding }
 									} else_if = {
-										limit = { root = { is_hobbit = yes } }
+										limit = { root = { is_halfling = yes } }
 										title_province = { set_holding_type = city_holding }
 									} else = {
 										if = {

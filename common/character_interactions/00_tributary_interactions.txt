@@ -600,7 +600,7 @@ become_tributary_interaction = {
 					is_elf = yes
 					is_orc = yes
 					cannot_be_killed = yes
-					is_hobbit = yes
+					is_halfling = yes
 				}
 			}
 			add = -950 #Some races are especially unlikely to offer
@@ -738,12 +738,12 @@ become_tributary_interaction = {
 			add = -100
 			trigger = {
 				scope:actor = {
-					is_hobbit = no
+					is_halfling = no
 					is_druedain = no
 				}
 				scope:recipient = {
 					OR = {
-						is_hobbit = yes
+						is_halfling = yes
 						is_druedain = yes
 					}
 				}
@@ -1545,11 +1545,11 @@ demand_tributary_interaction = {
 			desc = small_harmless_hobbit_reason
 			trigger = {
 				scope:recipient = {
-					is_hobbit = no
+					is_halfling = no
 					is_druedain = no
 				}
 				scope:actor = {
-					is_hobbit = yes
+					is_halfling = yes
 				}
 			}
 		}
@@ -1559,7 +1559,7 @@ demand_tributary_interaction = {
 			desc = small_harmless_druedain_reason
 			trigger = {
 				scope:recipient = {
-					is_hobbit = no
+					is_halfling = no
 					is_druedain = no
 				}
 				scope:actor = {

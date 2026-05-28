@@ -1279,7 +1279,7 @@ visit_local_settlement_decision = {
 	}
 	picture = {
 		trigger = {
-			root.location = { is_hobbit = yes }
+			root.location = { is_halfling = yes }
 		}
 		reference = "gfx/interface/illustrations/decisions/decision_shire_01.dds"
 	}
@@ -2883,20 +2883,20 @@ start_city_construction_decision = {
 				same_race = { TARGET = ROOT }
 				AND = { # Hobbits sometimes settle among humans
 					is_human = yes
-					ROOT = { is_hobbit = yes }
+					ROOT = { is_halfling = yes }
 				}
 				AND = { # But generally not the other way around (players get special treatment)
-					is_hobbit = yes
+					is_halfling = yes
 					ROOT = { is_human = yes }
 					ROOT = { is_ai = no }
 				}
 				AND = { # Hobbits and Druedain could get along?
-					is_hobbit = yes
+					is_halfling = yes
 					ROOT = { is_druedain = yes }
 				}
 				AND = { # Druedain and Hobbits could get along?
 					is_druedain = yes
-					ROOT = { is_hobbit = yes }
+					ROOT = { is_halfling = yes }
 				}
 				AND = { # Dark beings attract orcs
 					cannot_be_killed = yes
@@ -2961,7 +2961,7 @@ start_city_construction_decision = {
 			}
 		} 
 		else_if = {
-			limit = { location.culture = { is_hobbit_culture = yes } }
+			limit = { location.culture = { is_halfling_culture = yes } }
 			location = {
 				begin_create_holding = { type = city_holding }
 			}
