@@ -73,16 +73,112 @@ ho_lily_knights = {
 
 }
 
-
-
 ho_lady_knights = {
-	pattern = "pattern_solid.dds"
-	color1 = "black"
-	textured_emblem = {
-		texture = "knights_of_our_lady_of_battle.dds"
-	}
-}
+	pattern="pattern_solid.dds"
+	color1=rgb { 50 112 153 }
+	color2=yellow
+	color3=blue
+	colored_emblem={
+		color1=rgb { 162 168 168 }
+		texture="empire_gauntlet.dds"
+		instance={
+			position={ 0.380000 0.670000 }
+			scale={ -0.525000 0.525000 }
+			depth=6.010000
+			rotation=27
+		}
 
+	}
+
+	colored_emblem={
+		color1=rgb { 199 199 199 }
+		color2=rgb { 207 37 44 }
+		color3=rgb { 50 112 153 }
+		texture="cat_lion_head2.dds"
+		instance={
+			position={ 0.645000 0.595000 }
+			scale={ 0.870000 0.870000 }
+			depth=5.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 162 168 168 }
+		color2=rgb { 241 224 53 }
+		color3=rgb { 53 58 61 }
+		texture="cat_sword_wappen.dds"
+		instance={
+			position={ 0.300000 0.375000 }
+			scale={ 0.470000 0.800000 }
+			depth=7.010000
+			rotation=8
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 217 175 19 }
+		texture="cat_crown4.dds"
+		instance={
+			position={ 0.740000 0.255000 }
+			scale={ 0.375000 0.375000 }
+			rotation=15
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 217 175 19 }
+		texture="ce_fleur.dds"
+		instance={
+			position={ 0.845000 0.110000 }
+			scale={ 0.110000 0.110000 }
+			depth=2.010000
+			rotation=17
+		}
+
+		instance={
+			position={ 0.735000 0.075000 }
+			scale={ 0.110000 0.110000 }
+			depth=3.010000
+			rotation=17
+		}
+
+		instance={
+			position={ 0.790000 0.095000 }
+			scale={ 0.110000 0.110000 }
+			depth=4.010000
+			rotation=17
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 217 175 19 }
+		texture="ce_chalice.dds"
+		instance={
+			position={ 0.755000 0.205000 }
+			scale={ 0.320000 0.320000 }
+			depth=1.010000
+			rotation=16
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 230 230 230 }
+		texture="cat_media_sun_totalwar.dds"
+		instance={
+			position={ 0.315000 0.270000 }
+			scale={ 0.695000 0.695000 }
+			depth=8.010000
+			rotation=15
+		}
+
+	}
+
+}
 
 ho_lambard_knights = {
 	pattern="pattern_solid.dds"
@@ -900,28 +996,42 @@ ho_white_wolf_knights = {
 
 }
 
-ho_winter_throne_knights = {	
+ho_winter_throne_knights = {
 	pattern="pattern_solid.dds"
-	color1=red
+	color1=wh_plain_blue
 	color2=white
 	color3=blue
 	colored_emblem={
-		color1=yellow
-		texture="ce_rune_futhark_ur.dds"
-		instance={
-			position={ 0.500000 0.180000 }
-			scale={ 0.130000 -0.130000 }
-		}
-
-	}
-
-	colored_emblem={
-		color1=yellow
+		color1=wh_argent
+		color2=wh_argent
 		texture="ce_wolf.dds"
 		instance={
 			position={ 0.490000 0.505000 }
 			scale={ -0.380000 0.555000 }
 			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_argent
+		color2=wh_azure
+		color3=wh_warm_lagoon
+		texture="cat_throne.dds"
+		instance={
+			position={ 0.500000 0.425000 }
+			scale={ 0.815000 0.815000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_open_sky
+		texture="ce_rune_futhark_ur.dds"
+		instance={
+			position={ 0.500000 0.180000 }
+			scale={ 0.130000 -0.130000 }
 		}
 
 	}
@@ -957,17 +1067,6 @@ ho_winter_throne_knights = {
 			position={ 0.170000 0.210000 }
 			scale={ 0.300000 0.300000 }
 			depth=7.010000
-		}
-
-	}
-
-	colored_emblem={
-		color1=white
-		texture="cat_throne.dds"
-		instance={
-			position={ 0.500000 0.425000 }
-			scale={ 0.815000 0.815000 }
-			depth=2.010000
 		}
 
 	}
@@ -1155,25 +1254,313 @@ ho_taal_fury_knights = {
 }
 
 ho_everlasting_light_knights = {
-	pattern = "pattern_solid.dds"
-	color1 = "black"
-	textured_emblem = {
-		texture = "knights_of_the_everlasting_light.dds"
+	pattern="pattern_solid.dds"
+	color1=rgb { 34 55 114 }
+	color2=yellow
+	color3=black
+	colored_emblem={
+		color1=rgb { 55 77 37 }
+		texture="cat_laurel_wreath16.dds"
+		instance={
+			position={ 0.345000 0.440000 }
+			scale={ 0.195000 0.195000 }
+			depth=2.010000
+		}
+
+		instance={
+			position={ 0.670000 0.440000 }
+			scale={ 0.195000 0.195000 }
+			depth=3.010000
+		}
+
 	}
+
+	colored_emblem={
+		color1=rgb { 214 206 148 }
+		texture="cat_skull_warhammer.dds"
+		instance={
+			position={ 0.670000 0.445000 }
+			scale={ 0.200000 0.200000 }
+		}
+
+		instance={
+			position={ 0.345000 0.445000 }
+			scale={ 0.200000 0.200000 }
+			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 215 175 25 }
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.415000 0.405000 }
+			scale={ 0.470000 0.470000 }
+			depth=18.010000
+		}
+
+		instance={
+			position={ 0.500000 0.520000 }
+			scale={ 0.470000 0.470000 }
+			depth=19.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 13 14 13 }
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.585000 0.395000 }
+			scale={ 0.440000 0.440000 }
+			depth=12.010000
+		}
+
+		instance={
+			position={ 0.500000 0.520000 }
+			scale={ 0.440000 0.440000 }
+			depth=13.010000
+		}
+
+		instance={
+			position={ 0.500000 0.325000 }
+			scale={ 0.450000 0.450000 }
+			depth=14.010000
+		}
+
+		instance={
+			position={ 0.415000 0.405000 }
+			scale={ 0.440000 0.440000 }
+			depth=16.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 241 240 233 }
+		color2=rgb { 241 240 233 }
+		texture="ce_cross_06.dds"
+		instance={
+			position={ 0.870000 0.110000 }
+			scale={ 0.120000 0.120000 }
+			depth=8.010000
+		}
+
+		instance={
+			position={ 0.135000 0.110000 }
+			scale={ 0.120000 0.120000 }
+			depth=9.010000
+		}
+
+		instance={
+			position={ 0.135000 0.760000 }
+			scale={ 0.120000 0.120000 }
+			depth=10.010000
+		}
+
+		instance={
+			position={ 0.870000 0.760000 }
+			scale={ 0.120000 0.120000 }
+			depth=11.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 215 175 25 }
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.585000 0.395000 }
+			scale={ 0.470000 0.470000 }
+			depth=17.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 215 175 25 }
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.500000 0.325000 }
+			scale={ 0.480000 0.480000 }
+			depth=20.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 13 14 13 }
+		texture="ce_block_02.dds"
+		instance={
+			position={ 0.500000 0.355000 }
+			scale={ 0.135000 0.135000 }
+			depth=6.010000
+		}
+
+		instance={
+			position={ 0.500000 0.410000 }
+			scale={ 0.470000 0.470000 }
+			depth=15.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 247 247 247 }
+		texture="ce_pillar_liege.dds"
+		instance={
+			position={ 0.500000 0.535000 }
+			scale={ 0.425000 0.425000 }
+			depth=7.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 215 175 25 }
+		texture="ce_block_02.dds"
+		instance={
+			position={ 0.500000 0.410000 }
+			scale={ 0.500000 0.500000 }
+			depth=21.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 224 178 20 }
+		color2=rgb { 194 166 36 }
+		texture="cat_twin_comet.dds"
+		instance={
+			position={ 0.540000 0.305000 }
+			scale={ 0.345000 0.345000 }
+			depth=5.010000
+			rotation=350
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 224 178 20 }
+		color2=rgb { 194 166 36 }
+		texture="ce_fire.dds"
+		instance={
+			position={ 0.500000 0.375000 }
+			scale={ 0.135000 0.135000 }
+			depth=4.010000
+		}
+
+	}
+
 }
 
 ho_undying_sun_knights = {
-	pattern = "pattern_solid.dds"
-	color1 = "black"
-	textured_emblem = {
-		texture = "undying_sun_knights.dds"
+	pattern="pattern_solid.dds"
+	color1=rgb { 240 182 20 }
+	color2=white
+	color3=green
+	colored_emblem={
+		color1=rgb { 22 24 26 }
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.500000 0.460000 }
+			scale={ 0.290000 0.290000 }
+			depth=1.010000
+		}
+
 	}
+
+	colored_emblem={
+		color1=rgb { 22 24 26 }
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.500000 0.460000 }
+			scale={ 0.875000 0.875000 }
+			depth=4.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 240 182 20 }
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.500000 0.460000 }
+			scale={ 0.835000 0.835000 }
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 22 24 26 }
+		color2=rgb { 240 182 20 }
+		texture="cat_sun3.dds"
+		instance={
+			position={ 0.500000 0.460000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 240 182 20 }
+		texture="ce_circle_mask.dds"
+		instance={
+			position={ 0.500000 0.460000 }
+			scale={ 0.240000 0.240000 }
+		}
+
+	}
+
 }
 
 ho_manaan_sons_knights = {
-	pattern = "pattern_solid.dds"
-	color1 = "black"
-	textured_emblem = {
-		texture = "sons_of_manann.dds"
+	pattern="pattern_solid.dds"
+	color1=wh_ancient_river
+	color2=yellow
+	color3=blue
+	colored_emblem={
+		color1=wh_argent
+		color2=wh_argent
+		color3=wh_argent
+		texture="cat_fish3_wappen.dds"
+		instance={
+			position={ 0.475000 0.590000 }
+			scale={ -0.665000 0.845000 }
+			rotation=8
+		}
+
 	}
+
+	colored_emblem={
+		color1=wh_ancient_river
+		texture="ce_block_02.dds"
+		instance={
+			position={ 0.500000 0.640000 }
+			scale={ 0.090000 0.315000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.500000 0.165000 }
+			scale={ 0.180000 0.380000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_ancient_river
+		color2=wh_light_silver
+		color3=wh_light_silver
+		texture="cat_petersburg_anchor.dds"
+		instance={
+			position={ 0.500000 0.390000 }
+			depth=3.010000
+		}
+
+	}
+
 }
