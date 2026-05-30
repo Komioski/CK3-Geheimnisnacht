@@ -766,115 +766,115 @@ tradition_saharan_nomads = {
 	ai_will_do = { value = 400 }
 }
 
-# tradition_visigothic_codes = {
-# 	category = regional
+tradition_visigothic_codes = {
+	category = regional
 
-# 	layers = {
-# 		0 = intrigue
-# 		1 = mediterranean
-# 		4 = crown.dds
-# 	}
+	layers = {
+		0 = intrigue
+		1 = mediterranean
+		4 = crown.dds
+	}
 
-# 	is_shown = {
-# 		OR = {
-# 			this = culture:visigothic
-# 			this = culture:basque
-# 			any_parent_culture_or_above = {
-# 				OR = {
-# 					this = culture:visigothic
-# 					this = culture:basque
-# 				}
-# 			}
-# 		}
-# 	}
-# 	can_pick = {
-# 		OR = {
-# 			this = culture:visigothic
-# 			this = culture:basque
-# 			any_parent_culture_or_above = {
-# 				OR = {
-# 					this = culture:visigothic
-# 					this = culture:basque
-# 				}
-# 			}
-# 		}
-# 		scope:character = {
-# 			has_religion = religion:christianity_religion #The Visigothic code is strongly associated with Christian canon law.
-# 		}
-# 	}
+	is_shown = {
+		OR = {
+			this = culture:visigothic
+			this = culture:basque
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:visigothic
+					this = culture:basque
+				}
+			}
+		}
+	}
+	can_pick = {
+		OR = {
+			this = culture:visigothic
+			this = culture:basque
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:visigothic
+					this = culture:basque
+				}
+			}
+		}
+		scope:character = {
+			has_religion = religion:christianity_religion #The Visigothic code is strongly associated with Christian canon law.
+		}
+	}
 
-# 	parameters = {
-# 		can_enact_high_partition_succession_law = yes
-# 		gender_equal_inheritance = yes
-# 	}
+	parameters = {
+		can_enact_high_partition_succession_law = yes
+		gender_equal_inheritance = yes
+	}
 
-# 	cost = {
-# 		prestige = {
-# 			add = {
-# 				value = tradition_base_cost
-# 				desc = BASE
-# 				format = "BASE_VALUE_FORMAT"
-# 			}
-# 			if = {
-# 				limit = {
-# 					NOT = {
-# 						culture_pillar:ethos_egalitarian = { is_in_list = traits }
-# 					}
-# 				}
-# 				add = {
-# 					value = tradition_incompatible_ethos_penalty
-# 					desc = not_egalitarian_desc
-# 				}
-# 			}
-# 			if = {
-# 				limit = {
-# 					trigger_if = {
-# 						limit = {
-# 							scope:character = {
-# 								is_ai = no
-# 							}
-# 						}
-# 						NAND = {
-# 							any_ruler = {
-# 								count >= 3
-# 								culture = prev
-# 								primary_title.tier >= tier_county
-# 								is_male = yes
-# 							}
-# 							any_ruler = {
-# 								count >= 3
-# 								culture = prev
-# 								primary_title.tier >= tier_county
-# 								is_female = yes
-# 							}
-# 						}
-# 					}
-# 					trigger_else = {
-# 						always = yes
-# 					}
-# 				}
-# 				add = {
-# 					value = tradition_unfulfilled_criteria_penalty
-# 					desc = three_gender_rulers_desc
-# 				}
-# 			}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOT = {
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_egalitarian_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NAND = {
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier >= tier_county
+								is_male = yes
+							}
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier >= tier_county
+								is_female = yes
+							}
+						}
+					}
+					trigger_else = {
+						always = yes
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = three_gender_rulers_desc
+				}
+			}
 
-# 			if = {
-# 				limit = {
-# 					culture_tradition_reduction_trigger = { TRADITION = tradition_visigothic_codes }
-# 				}
-# 				multiply = {
-# 					value = 0.5
-# 					desc = inspired_by_culture_desc
-# 				}
-# 			}
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_visigothic_codes }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
 
-# 			multiply = tradition_replacement_cost_if_relevant
-# 		}
-# 	}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
 
-# 	ai_will_do = { value = 200 }
-# }
+	ai_will_do = { value = 200 }
+}
 
 tradition_himalayan_settlers = {
 	category = regional
@@ -1008,10 +1008,10 @@ tradition_desert_nomads = {
 
 	is_shown = {
 		OR = {
-			# this = culture:bedouin
-			# any_parent_culture_or_above = {
-			# 	this = culture:bedouin
-			# }
+			this = culture:bedouin
+			any_parent_culture_or_above = {
+				this = culture:bedouin
+			}
 			any_parent_culture = {
 				has_cultural_tradition = tradition_desert_nomads
 			}
@@ -1357,206 +1357,206 @@ tradition_steppe_tolerance = {
 	}
 }
 
-# tradition_nubian_warrior_queens = {
-# 	category = regional
+tradition_nubian_warrior_queens = {
+	category = regional
 
-# 	layers = {
-# 		0 = intrigue
-# 		1 = mediterranean
-# 		4 = crown.dds
-# 	}
+	layers = {
+		0 = intrigue
+		1 = mediterranean
+		4 = crown.dds
+	}
 
-# 	is_shown = {
-# 		NOT = { has_game_rule = inversed_gender_equality }
-# 		any_parent_culture_or_above = {
-# 			OR = {
-# 				this = culture:nubian
-# 				this = culture:daju
-# 			}
-# 		}
-# 	}
-# 	can_pick = {
-# 		any_parent_culture_or_above = {
-# 			OR = {
-# 				this = culture:nubian
-# 				this = culture:daju
-# 			}
-# 		}
-# 	}
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		any_parent_culture_or_above = {
+			OR = {
+				this = culture:nubian
+				this = culture:daju
+			}
+		}
+	}
+	can_pick = {
+		any_parent_culture_or_above = {
+			OR = {
+				this = culture:nubian
+				this = culture:daju
+			}
+		}
+	}
 
-# 	parameters = {
-# 		gender_equal_inheritance = yes
-# 		female_only_inheritance = yes
-# 		female_preference_inheritance = yes
-# 		prowess_from_martial_education = yes
-# 	}
+	parameters = {
+		gender_equal_inheritance = yes
+		female_only_inheritance = yes
+		female_preference_inheritance = yes
+		prowess_from_martial_education = yes
+	}
 
-# 	cost = {
-# 		prestige = {
-# 			add = {
-# 				value = tradition_base_cost
-# 				desc = BASE
-# 				format = "BASE_VALUE_FORMAT"
-# 			}
-# 			if = {
-# 				limit = {
-# 					NOT = {
-# 						culture_pillar:ethos_egalitarian = { is_in_list = traits }
-# 					}
-# 				}
-# 				add = {
-# 					value = tradition_incompatible_ethos_penalty
-# 					desc = not_egalitarian_desc
-# 				}
-# 			}
-# 			if = {
-# 				limit = {
-# 					trigger_if = {
-# 						limit = {
-# 							scope:character = {
-# 								is_ai = no
-# 							}
-# 						}
-# 						NAND = {
-# 							any_ruler = {
-# 								count >= 3
-# 								culture = prev
-# 								primary_title.tier > tier_barony
-# 								is_male = yes
-# 							}
-# 							any_ruler = {
-# 								count >= 3
-# 								culture = prev
-# 								primary_title.tier > tier_barony
-# 								is_female = yes
-# 							}
-# 						}
-# 					}
-# 					trigger_else = {
-# 						always = yes
-# 					}
-# 				}
-# 				add = {
-# 					value = tradition_unfulfilled_criteria_penalty
-# 					desc = three_gender_rulers_desc
-# 				}
-# 			}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOT = {
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_egalitarian_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NAND = {
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier > tier_barony
+								is_male = yes
+							}
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier > tier_barony
+								is_female = yes
+							}
+						}
+					}
+					trigger_else = {
+						always = yes
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = three_gender_rulers_desc
+				}
+			}
 
-# 			if = {
-# 				limit = {
-# 					culture_tradition_reduction_trigger = { TRADITION = tradition_nubian_warrior_queens }
-# 				}
-# 				multiply = {
-# 					value = 0.5
-# 					desc = inspired_by_culture_desc
-# 				}
-# 			}
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_nubian_warrior_queens }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
 
-# 			multiply = tradition_replacement_cost_if_relevant
-# 		}
-# 	}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
 
-# 	ai_will_do = { value = 200 }
-# }
+	ai_will_do = { value = 200 }
+}
 
-# tradition_nubian_warrior_kings = {
-# 	category = regional
+tradition_nubian_warrior_kings = {
+	category = regional
 
-# 	layers = {
-# 		0 = intrigue
-# 		1 = mediterranean
-# 		4 = crown.dds
-# 	}
+	layers = {
+		0 = intrigue
+		1 = mediterranean
+		4 = crown.dds
+	}
 
-# 	is_shown = {
-# 		has_game_rule = inversed_gender_equality
-# 		any_parent_culture_or_above = {
-# 			OR = {
-# 				this = culture:nubian
-# 				this = culture:daju
-# 			}
-# 		}
-# 	}
-# 	can_pick = {
-# 		any_parent_culture_or_above = {
-# 			OR = {
-# 				this = culture:nubian
-# 				this = culture:daju
-# 			}
-# 		}
-# 	}
+	is_shown = {
+		has_game_rule = inversed_gender_equality
+		any_parent_culture_or_above = {
+			OR = {
+				this = culture:nubian
+				this = culture:daju
+			}
+		}
+	}
+	can_pick = {
+		any_parent_culture_or_above = {
+			OR = {
+				this = culture:nubian
+				this = culture:daju
+			}
+		}
+	}
 
-# 	parameters = {
-# 		gender_equal_inheritance = yes
-# 		male_only_inheritance = yes
-# 		male_preference_inheritance = yes
-# 		prowess_from_martial_education = yes
-# 	}
+	parameters = {
+		gender_equal_inheritance = yes
+		male_only_inheritance = yes
+		male_preference_inheritance = yes
+		prowess_from_martial_education = yes
+	}
 
-# 	cost = {
-# 		prestige = {
-# 			add = {
-# 				value = tradition_base_cost
-# 				desc = BASE
-# 				format = "BASE_VALUE_FORMAT"
-# 			}
-# 			if = {
-# 				limit = {
-# 					NOT = {
-# 						culture_pillar:ethos_egalitarian = { is_in_list = traits }
-# 					}
-# 				}
-# 				add = {
-# 					value = tradition_incompatible_ethos_penalty
-# 					desc = not_egalitarian_desc
-# 				}
-# 			}
-# 			if = {
-# 				limit = {
-# 					trigger_if = {
-# 						limit = {
-# 							scope:character = {
-# 								is_ai = no
-# 							}
-# 						}
-# 						NAND = {
-# 							any_ruler = {
-# 								count >= 3
-# 								culture = prev
-# 								primary_title.tier > tier_barony
-# 								is_male = yes
-# 							}
-# 							any_ruler = {
-# 								count >= 3
-# 								culture = prev
-# 								primary_title.tier > tier_barony
-# 								is_female = yes
-# 							}
-# 						}
-# 					}
-# 					trigger_else = {
-# 						always = yes
-# 					}
-# 				}
-# 				add = {
-# 					value = tradition_unfulfilled_criteria_penalty
-# 					desc = three_gender_rulers_desc
-# 				}
-# 			}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOT = {
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_egalitarian_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NAND = {
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier > tier_barony
+								is_male = yes
+							}
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier > tier_barony
+								is_female = yes
+							}
+						}
+					}
+					trigger_else = {
+						always = yes
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = three_gender_rulers_desc
+				}
+			}
 
-# 			if = {
-# 				limit = {
-# 					culture_tradition_reduction_trigger = { TRADITION = tradition_nubian_warrior_kings }
-# 				}
-# 				multiply = {
-# 					value = 0.5
-# 					desc = inspired_by_culture_desc
-# 				}
-# 			}
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_nubian_warrior_kings }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
 
-# 			multiply = tradition_replacement_cost_if_relevant
-# 		}
-# 	}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
 
-# 	ai_will_do = { value = 200 }
-# }
+	ai_will_do = { value = 200 }
+}

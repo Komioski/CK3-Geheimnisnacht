@@ -212,147 +212,147 @@ tradition_legalistic = {
 	}
 }
 
-# tradition_republican_legacy = {
-# 	category = regional
+tradition_republican_legacy = {
+	category = regional
 
-# 	layers = {
-# 		0 = steward
-# 		1 = mediterranean
-# 		4 = laurel.dds
-# 	}
+	layers = {
+		0 = steward
+		1 = mediterranean
+		4 = laurel.dds
+	}
 
-# 	is_shown = {
-# 		OR ={
-# 			this = culture:roman
-# 			any_parent_culture_or_above = {
-# 				this = culture:roman
-# 			}
-# 		}
-# 		NOT = { has_cultural_tradition = tradition_parochialism }
-# 	}
-# 	can_pick = {
-# 		OR ={
-# 			this = culture:roman
-# 			any_parent_culture_or_above = {
-# 				this = culture:roman
-# 			}
-# 		}
-# 		NOT = { has_cultural_tradition = tradition_parochialism }
-# 		custom_tooltip = {
-# 			text = cultrad_not_nomadic_government_type
-# 			scope:character = {
-# 				NOT = {
-# 					government_has_flag = government_is_nomadic
-# 				}
-# 			}
-# 		}
-# 	}
+	is_shown = {
+		OR ={
+			this = culture:roman
+			any_parent_culture_or_above = {
+				this = culture:roman
+			}
+		}
+		NOT = { has_cultural_tradition = tradition_parochialism }
+	}
+	can_pick = {
+		OR ={
+			this = culture:roman
+			any_parent_culture_or_above = {
+				this = culture:roman
+			}
+		}
+		NOT = { has_cultural_tradition = tradition_parochialism }
+		custom_tooltip = {
+			text = cultrad_not_nomadic_government_type
+			scope:character = {
+				NOT = {
+					government_has_flag = government_is_nomadic
+				}
+			}
+		}
+	}
 	
-# 	parameters = {
-# 		can_make_republican_vassals = yes
-# 		unlock_innovation_pike_columns = yes
-# 		city_buildings_more_powerful = yes
-# 		city_buildings_less_control = yes
-# 		republican_vassals_pay_more = yes
-# 		more_parochial_vassals = yes
-# 		next_level_cities = yes
-# 	}
-# 	character_modifier = {
-# 		city_holding_build_gold_cost = -0.05
-# 		city_holding_holding_build_gold_cost = -0.05
-# 		barons_and_minor_landholders_opinion = -20
-# 		parochial_opinion = -20
-# 		parochial_tax_contribution_mult = 0.1
-# 		parochial_levy_contribution_mult = 0.1
-# 	}
+	parameters = {
+		can_make_republican_vassals = yes
+		unlock_innovation_pike_columns = yes
+		city_buildings_more_powerful = yes
+		city_buildings_less_control = yes
+		republican_vassals_pay_more = yes
+		more_parochial_vassals = yes
+		next_level_cities = yes
+	}
+	character_modifier = {
+		city_holding_build_gold_cost = -0.05
+		city_holding_holding_build_gold_cost = -0.05
+		barons_and_minor_landholders_opinion = -20
+		parochial_opinion = -20
+		parochial_tax_contribution_mult = 0.1
+		parochial_levy_contribution_mult = 0.1
+	}
 	
-# 	cost = {
-# 		prestige = {
-# 			add = {
-# 				value = tradition_base_cost
-# 				desc = BASE
-# 				format = "BASE_VALUE_FORMAT"
-# 			}
-# 			if = {
-# 				limit = {
-# 					NOR = {
-# 						culture_pillar:ethos_courtly = { is_in_list = traits }
-# 						culture_pillar:ethos_communal = { is_in_list = traits }
-# 						culture_pillar:ethos_spiritual = { is_in_list = traits }
-# 					}
-# 				}
-# 				add = {
-# 					value = tradition_incompatible_ethos_penalty
-# 					desc = not_courtly_communal_or_spiritual_desc
-# 				}
-# 			}
-# 			if = {
-# 				limit = {
-# 					NOT = {
-# 						scope:character = {
-# 							any_sub_realm_county = {
-# 								percent >= 0.9
-# 								culture = scope:character.culture
-# 								any_county_province = {
-# 									has_holding_type = city_holding
-# 								}
-# 							}
-# 						}
-# 					}
-# 				}
-# 				add = {
-# 					value = tradition_unfulfilled_criteria_penalty
-# 					desc = 90_percent_cities_desc
-# 				}
-# 			}
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_courtly_communal_or_spiritual_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:character = {
+							any_sub_realm_county = {
+								percent >= 0.9
+								culture = scope:character.culture
+								any_county_province = {
+									has_holding_type = city_holding
+								}
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = 90_percent_cities_desc
+				}
+			}
 
-# 			if = {
-# 				limit = {
-# 					culture_tradition_reduction_trigger = { TRADITION = tradition_republican_legacy }
-# 				}
-# 				multiply = {
-# 					value = 0.5
-# 					desc = inspired_by_culture_desc
-# 				}
-# 			}
+			if = {
+				limit = {
+					culture_tradition_reduction_trigger = { TRADITION = tradition_republican_legacy }
+				}
+				multiply = {
+					value = 0.5
+					desc = inspired_by_culture_desc
+				}
+			}
 			
-# 			multiply = tradition_replacement_cost_if_relevant
-# 		}
-# 	}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
 	
-# 	ai_will_do = {
-# 		value = 200
-# 		if = {
-# 			limit = {
-# 				NOT = {
-# 					scope:character = {
-# 						any_sub_realm_county = {
-# 							percent >= 0.15
-# 							culture = scope:character.culture
-# 							any_county_province = {
-# 								has_holding_type = city_holding
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 			multiply = 0
-# 		}
-# 		if = {
-# 			limit = {
-# 				NOT = {
-# 					scope:character = {
-# 						any_vassal = {
-# 							primary_title.tier > tier_county
-# 							government_has_flag = government_is_republic
-# 						}
-# 					}
-# 				}
-# 			}
-# 			multiply = 0
-# 		}
-# 	}
-# }
+	ai_will_do = {
+		value = 200
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_sub_realm_county = {
+							percent >= 0.15
+							culture = scope:character.culture
+							any_county_province = {
+								has_holding_type = city_holding
+							}
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_vassal = {
+							primary_title.tier > tier_county
+							government_has_flag = government_is_republic
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
 
 tradition_hereditary_hierarchy = {
 	category = realm
@@ -643,18 +643,18 @@ tradition_tribe_unity = {
 		4 = crown.dds
 	}
 	
-	# is_shown = { #Replaced by Strong Kinship
-	# 	NOR = {
-	# 		this = culture:gaelic
-	# 		this = culture:scottish
-	# 		any_parent_culture_or_above = {
-	# 			OR = {
-	# 				this = culture:gaelic
-	# 				this = culture:scottish
-	# 			}
-	# 		}
-	# 	}
-	# }
+	is_shown = { #Replaced by Strong Kinship
+		NOR = {
+			this = culture:gaelic
+			this = culture:scottish
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:gaelic
+					this = culture:scottish
+				}
+			}
+		}
+	}
 	can_pick = {
 		custom_tooltip = {
 			text = requires_tribal_or_clan_government_trigger
@@ -841,7 +841,6 @@ tradition_collective_lands = {
 	parameters = {
 		grants_to_lowborns_bonuses = yes
 		collective_lands_farms_bonuses = yes
-		peasant_leader_is_inherited = yes
 	}
 	county_modifier = {
 		development_growth_factor = 0.1
@@ -951,12 +950,12 @@ tradition_female_only_inheritance = {
 				has_cultural_pillar = heritage_akan
 				has_cultural_pillar = heritage_west_african
 				has_cultural_pillar = heritage_yoruba
-				# any_parent_culture_or_above = {
-				# 	OR = {
-				# 		this = culture:nubian
-				# 		this = culture:daju
-				# 	}
-				# }
+				any_parent_culture_or_above = {
+					OR = {
+						this = culture:nubian
+						this = culture:daju
+					}
+				}
 				scope:character.faith = {
 					has_doctrine_parameter = female_dominated_law
 				}
@@ -2167,20 +2166,20 @@ tradition_parochialism = {
 
 	is_shown = { #Replaced by tradition_republican_legacy
 		NOT = { has_cultural_tradition = tradition_republican_legacy }
-		# NOR ={
-		# 	this = culture:roman
-		# 	any_parent_culture_or_above = {
-		# 		this = culture:roman
-		# 	}
-		# }
+		NOR ={
+			this = culture:roman
+			any_parent_culture_or_above = {
+				this = culture:roman
+			}
+		}
 	}
 	can_pick = {
-		# NOR ={
-		# 	this = culture:roman
-		# 	any_parent_culture_or_above = {
-		# 		this = culture:roman
-		# 	}
-		# }
+		NOR ={
+			this = culture:roman
+			any_parent_culture_or_above = {
+				this = culture:roman
+			}
+		}
 		NOT = { has_cultural_tradition = tradition_republican_legacy }
 		custom_tooltip = {
 			text = cultrad_not_nomadic_government_type
@@ -2514,12 +2513,12 @@ tradition_hill_dwellers = {
 
 	is_shown = { #Cannot be picked if you have access to Highland Farming
 		NOT = { has_cultural_tradition = tradition_amharic_highlanders }
-		# NOR = {
-		# 	this = culture:ethiopian
-		# 	any_parent_culture_or_above = {
-		# 		this = culture:ethiopian
-		# 	}
-		# }
+		NOR = {
+			this = culture:ethiopian
+			any_parent_culture_or_above = {
+				this = culture:ethiopian
+			}
+		}
 	}
 	can_pick = {
 		custom_description = {
