@@ -11,28 +11,7 @@ lotr_on_building_completed = {
 				save_scope_as = character
 			}
 		}
-		if = { #Juke note: Split from vanilla catalyst_new_building_in_holdings catalyst to allow for additional checks (without interfering in other struggles with the generic catalyst)
-			limit = {
-				scope:character = {
-					any_character_struggle = {
-						involvement = involved
-						phase_has_catalyst = catalyst_new_building_in_moria
-					}
-					NOT = { has_character_flag = immune_from_balrog_building_anger }
-				}
-				has_holding_type = dwarven_holding # Colonies handled separately
-				geographical_region = middleearth_mountains_misty_balrog_struggle_region
-			}
-			scope:character = {
-				every_character_struggle = {
-					involvement = involved
-					activate_struggle_catalyst = {
-						catalyst = catalyst_new_building_in_moria
-						character = scope:character
-					}
-				}
-			}
-		}
+
 
 		root = {
 			if = { # Colony Blocker Cleanup
@@ -40,33 +19,6 @@ lotr_on_building_completed = {
 				delayed_blockers_cleanup_effect = { DAYS = 1 }
 			}
 
-			if = {
-				limit = { 
-					scope:character = { is_ai = no }
-					realms_achievements_enabled = yes
-				}
-				if = { # The Very Image of Eldamar | Achievement
-					limit = {
-						NOT = { exists = global_var:lotr_achievement_33 } 
-						has_building = elven_settlement_07
-						county.holder = {
-							any_held_county = {
-								any_county_province = { has_building = elven_settlement_07 }
-								any_county_province = { has_building = elven_settlement_07 }
-								count > 2
-							}
-						}
-					}
-					set_global_variable = lotr_achievement_33
-				}
-				if = { # From the deepest cave to the highest peak | Achievement
-					limit = { 
-						NOT = { exists = global_var:lotr_achievement_32 }
-						has_building = dwarven_depths_10 
-					}
-					set_global_variable = lotr_achievement_32
-				}
-			}
 		}
 	}
 }

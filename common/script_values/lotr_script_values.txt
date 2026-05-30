@@ -1,0 +1,1296 @@
+﻿# Standard colonization costs
+@count_colonize_cost = 75
+@duke_colonize_cost = 100
+@king_colonize_cost = 125
+@emporer_colonize_cost = 150
+
+count_colonize_cost = @count_colonize_cost
+duke_colonize_cost = @duke_colonize_cost
+king_colonize_cost = @king_colonize_cost
+emporer_colonize_cost = @emporer_colonize_cost
+
+count_base_limit = 1
+duke_base_limit = 2
+king_base_limit = 3
+emporer_base_limit = 4
+
+base_colony_upkeep = 1
+
+
+### RACIAL VALUES ###
+
+is_elf_bool = { #Used for fertility filter in marriage gui
+  if = {
+    limit = {NOT = { is_elf = yes }}
+    value = 1
+  }
+}
+
+### Elven holding building limits
+
+counties_in_subrealm = {
+	value = 0
+	every_sub_realm_county = {
+		add = 1
+	}
+}
+
+elven_holdings_in_realm = {
+	value = 0
+	every_realm_province = {
+		limit = {
+			has_building_or_higher = elven_settlement_01
+		}
+		add = 1
+	}
+}
+
+elven_strongholds_in_realm = {
+	value = 0
+	every_realm_province = {
+		limit = {
+			OR = {
+				has_building = elven_settlement_03
+				has_building = elven_settlement_04
+				has_building = elven_settlement_05
+			}
+		}
+		add = 1
+	}
+}
+
+elven_cities_in_realm = {
+	value = 0
+	every_realm_province = {
+		limit = {
+			OR = {
+				has_building = elven_settlement_06
+				has_building = elven_settlement_07
+			}
+		}
+		add = 1
+	}
+}
+
+elven_stronghold_limit = {
+	value = elven_holdings_in_realm
+	divide = 5
+	floor = yes
+}
+
+elven_stronghold_additional_required = {
+	value = elven_holdings_in_realm
+	modulo = 5
+	multiply = -1
+	add = 5
+}
+
+elven_city_limit = {
+	value = elven_holdings_in_realm
+	divide = 10
+	floor = yes
+}
+
+elven_city_additional_required = {
+	value = elven_holdings_in_realm
+	modulo = 10
+	multiply = -1
+	add = 10
+}
+
+### WILDERNESS SCRIPT VALUES ###
+# Used to display colonisation cost in sGUI.
+colonise_cost = {
+	value = 0
+
+	add = colonise_cost_val
+	add = colonise_island_cost_val
+}
+
+# Determines cost for colonisation for provinces on mainland.
+colonise_cost_val = {
+	value = 0
+
+	if = { # Adding cost for count
+		limit = { highest_held_title_tier = tier_county }
+		if = {
+			limit = { dynasty ?= { has_dynasty_modifier = easy_arnor_settle } }
+			add = {
+				value = count_colonize_cost.bitshift
+				desc = "colonisation_cost_lord_tier"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+		else = {
+			add = { # Adding base cost for count
+				value = count_colonize_cost
+				desc = "colonisation_cost_lord_tier"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	else_if = { # Adding cost for duke
+		limit = { highest_held_title_tier = tier_duchy }
+		if = {
+			limit = { dynasty ?= { has_dynasty_modifier = easy_arnor_settle } }
+			add = {
+				value = duke_colonize_cost.bitshift
+				desc = "colonisation_cost_lord_tier"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+		else = {
+			add = {
+				value = duke_colonize_cost
+				desc = "colonisation_cost_lord_tier"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	else_if = {# Adding cost for king
+		limit = { highest_held_title_tier = tier_kingdom }
+		if = {
+			limit = { dynasty ?= { has_dynasty_modifier = easy_arnor_settle } }
+			add = {
+				value = king_colonize_cost.bitshift
+				desc = "colonisation_cost_lord_tier"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+		else = {
+			add = {
+				value = king_colonize_cost
+				desc = "colonisation_cost_lord_tier"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	else_if = { # Adding cost for emporer if has special modifier
+		limit = {
+			highest_held_title_tier = tier_empire
+			dynasty ?= { has_dynasty_modifier = easy_arnor_settle }
+		}
+		add = {
+			value = emporer_colonize_cost.bitshift
+			desc = "colonisation_cost_lord_tier"
+			format = "BASE_VALUE_FORMAT"
+		}
+	}
+	else = { # Adding base cost for emporer
+		add = {
+			value = emporer_colonize_cost
+			desc = "colonisation_cost_lord_tier"
+			format = "BASE_VALUE_FORMAT"
+		}
+	}
+
+	if = {
+		limit = {
+			exists = scope:wastelands.county
+			OR = {
+				title:d_andunaloni ?= {
+					any_in_de_jure_hierarchy = {
+						this = scope:wastelands.county
+					}
+				}
+				title:d_tolfalas ?= {
+					any_in_de_jure_hierarchy = {
+						this = scope:wastelands.county
+					}
+				}
+			}
+			not_has_county_on_island_region = yes # Checks for county on island | If county present, whether fully upgraded
+		}
+		if = {
+			limit = { highest_held_title_tier = tier_county }
+			add = {
+				value = count_colonize_cost.mult3
+				desc = "colonisation_cost_over_water"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_duchy }
+			add = {
+				value = duke_colonize_cost.mult3
+				desc = "colonisation_cost_over_water"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			add = {
+				value = king_colonize_cost.mult3
+				desc = "colonisation_cost_over_water"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+		else = {
+			add = {
+				value = emporer_colonize_cost.mult3
+				desc = "colonisation_cost_over_water"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+}
+
+# Adds additional cost for colonisation for provinces located on islands.
+colonise_island_cost_val = {
+	value = 0
+
+	if = {
+		limit = {
+			highest_held_title_tier = tier_county
+			not_has_county_on_island_region = yes
+		}
+		add = {
+			value = count_colonize_cost.mult3
+			desc = "colonisation_cost_over_water"
+			format = "BASE_VALUE_FORMAT"
+		}
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier = tier_duchy
+			not_has_county_on_island_region = yes
+		}
+		add = {
+			value = duke_colonize_cost.mult3
+			desc = "colonisation_cost_over_water"
+			format = "BASE_VALUE_FORMAT"
+		}
+	}
+	else_if = {
+		limit = {
+			highest_held_title_tier = tier_kingdom
+			not_has_county_on_island_region = yes
+		}
+		add = {
+			value = king_colonize_cost.mult3
+			desc = "colonisation_cost_over_water"
+			format = "BASE_VALUE_FORMAT"
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				highest_held_title_tier = tier_empire
+				not_has_county_on_island_region = yes
+			}
+			add = {
+				value = emporer_colonize_cost.mult3
+				desc = "colonisation_cost_over_water"
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+}
+
+##########################
+### LOTR Gender Values ###
+##########################
+
+holder_faith_dominant_gender_female_chance = { # Sets gender for new ruler based on their new faith. Used in Vanquish Darkness CB, requires scope:holder_faith to exist
+	value = 0
+	if = {
+		limit = { scope:holder_faith ?= { has_doctrine = doctrine_gender_male_dominated } }
+		add = 0
+	}
+	else_if = {
+		limit = { scope:holder_faith ?= { has_doctrine = doctrine_gender_male_orientated } }
+		add = 25
+	}
+	else_if = {
+		limit = { scope:holder_faith ?= { has_doctrine = doctrine_gender_female_orientated } }
+		add = 75
+	}
+	else_if = {
+		limit = { scope:holder_faith ?= { has_doctrine = doctrine_gender_female_dominated } }
+		add = 100
+	}
+	else = {
+		add = 50
+	}
+}
+
+### COUNCILLOR ACTION VALUES ###
+half_county_development_reduction = {
+	value = development_level
+	multiply = -0.5
+	ceiling = yes
+}
+
+### DECISION VALUES ###
+decision_wildmen_troops_value = { # Scale summoned levies with dread level.
+	value = { 50 200 }
+	add = this.dread
+	multiply = { 2 5 }
+}
+
+antisaruman_value = {
+	value = this.learning
+	multiply = 2
+	add = this.diplomacy
+}
+
+total_strength = {
+	value = 0
+    add = max_military_strength
+	every_ally = {
+		add = max_military_strength
+	}
+	every_tributary = {
+		limit = {
+			vassal_contract_has_flag = tributary_contract_tributary_forced_war_override
+		}
+		add = max_military_strength
+	}
+}
+
+total_military_power = {
+	value = 0
+    add = military_power
+	every_ally = {
+		add = military_power
+	}
+	every_tributary = {
+		limit = {
+			vassal_contract_has_flag = tributary_contract_tributary_forced_war_override
+		}
+		add = military_power
+	}
+}
+
+# total_strength_times_two = {
+# 	value = 0
+#     add = total_strength
+# 	multiply = 2
+# }
+
+# total_strength_times_three = {
+# 	value = 0
+#     add = total_strength
+# 	multiply = 3
+# }
+
+total_ally_strength = {
+    value = 0
+    add = root.military_power
+    every_war_ally = {
+        add = military_power
+    }
+}
+
+total_enemy_strength = {
+    value = 0
+    every_war_enemy = {
+        add = military_power
+    }
+}
+
+# chelkar_military_strength_times_two = {
+#     value = 0
+# 	title:k_chelkar.holder = {
+# 		add = max_military_strength
+# 	}
+# 	multiply = 2
+# }
+
+### NÚMENÓREAN BLOOD VALUES ###
+get_numenorean_blood_tier = {
+	value = 0
+	if = { # Level 1 numenorean
+		limit = {
+			has_trait = blood_of_numenor_1
+		}
+		add = 1
+	}
+	else_if = { # Level 2 numenorean
+		limit = {
+			has_trait = blood_of_numenor_2
+		}
+		add = 2
+	}
+	else_if = { # Level 3 numenorean
+		limit = {
+			has_trait = blood_of_numenor_3
+		}
+		add = 3
+	}
+	else_if = { # Level 4 numenorean
+		limit = {
+			has_trait = blood_of_numenor_4
+		}
+		add = 4
+	}
+	else_if = { # Level 5 numenorean
+		limit = {
+			has_trait = blood_of_numenor_5
+		}
+		add = 5
+	}
+	else_if = { # Level 6 numenorean
+		limit = {
+			has_trait = blood_of_numenor_6
+		}
+		add = 6
+	}
+	else_if = { # Level 7 numenorean
+		limit = {
+			has_trait = blood_of_numenor_7
+		}
+		add = 7
+	}
+	else_if = { # Level 8 numenorean
+		limit = {
+			has_trait = blood_of_numenor_8
+		}
+		add = 8
+	}
+	else_if = { # Level 9 numenorean
+		limit = {
+			has_trait = blood_of_numenor_9
+		}
+		add = 9
+	}
+	else_if = { # Level 10 numenorean
+		limit = {
+			has_trait = blood_of_numenor_10
+		}
+		add = 10
+	}
+}
+
+numenorean_blood_tier = { value = get_numenorean_blood_tier }
+
+### Uses "scope:real_father" & "scope:mother" for the blood_of_numenor_events
+get_numenorean_tier_difference = {
+	value = 0
+
+	if = {
+		limit = { scope:real_father.numenorean_blood_tier >= scope:mother.numenorean_blood_tier }
+		add = {
+			value = scope:real_father.numenorean_blood_tier
+			subtract = scope:mother.numenorean_blood_tier
+		}
+	}
+	else_if = {
+		limit = { scope:mother.numenorean_blood_tier >= scope:real_father.numenorean_blood_tier }
+		add = {
+			value = scope:mother.numenorean_blood_tier
+			subtract = scope:real_father.numenorean_blood_tier
+		}
+	}
+}
+
+## MEN-AT-ARMS VALUES ###
+# culture_ai_weight_monsters = {
+# 	value = -10
+
+# 	if = { # Cultures that favours monsters
+# 		limit = {
+# 			OR = {
+# 				culture = { has_cultural_pillar = heritage_fallen_ainur }
+# 				culture = { has_cultural_pillar = heritage_orc }
+# 				culture = { has_cultural_pillar = heritage_goblin }
+# 				# culture = { has_cultural_pillar = heritage_geshan } #Former Nafarati
+# 				culture = { has_cultural_pillar = heritage_undead }
+# 			}
+# 		}
+# 		add = 20
+# 	}
+# 	if = { # Cultures that dislike monsters
+# 		limit = {
+# 			OR = {
+# 				culture = { has_cultural_pillar = heritage_atanatari }
+# 				culture = { has_cultural_pillar = heritage_dunedain }
+# 				culture = { has_cultural_pillar = heritage_quendi }
+# 				culture = { has_cultural_pillar = heritage_calaquendi }
+# 				culture = { has_cultural_pillar = heritage_lomiquendi }
+# 				culture = { has_cultural_pillar = heritage_moriquendi }
+# 			}
+# 		}
+# 		add = -100
+# 	}
+# }
+
+settle_settlement_holding_interaction_cost = {
+	value = 150
+}
+
+settlement_title_tier_limit = {
+	value = 0
+
+	if = {
+		limit = { highest_held_title_tier = tier_county }
+		value = 1
+	}
+	if = {
+		limit = { highest_held_title_tier = tier_duchy }
+		value = 2
+	}
+	if = {
+		limit = { highest_held_title_tier = tier_kingdom }
+		value = 3
+	}
+	if = {
+		limit = { highest_held_title_tier = tier_empire }
+		value = 4
+	}
+	if = {
+		limit = { highest_held_title_tier = tier_hegemony }
+		value = 5
+	}
+}
+
+number_of_held_colonies = {
+	value = 0
+	every_held_title = {
+		limit = {
+			tier = tier_county
+			title_province = { has_holding_type = settlement_holding }
+		}
+		add = 1
+	}
+}
+
+## Mumakil Balues
+base_mumakil_purchase_cost = 500
+
+mumakil_purchase_cost = {
+	value = base_mumakil_purchase_cost
+	if = {
+		limit = {
+			palace_of_haruzan_cheaper_purchase_mumakil_trigger = yes
+		}
+		multiply = 0.8
+	}
+}
+
+increased_mumakil_purchase_cost = {
+	value = mumakil_purchase_cost
+	multiply = 1.2
+}
+
+decreased_mumakil_purchase_cost = {
+	value = mumakil_purchase_cost
+	multiply = 0.8
+}
+
+## Easterling invasion values
+request_easterling_invasion_troop_value_estimate = {
+	value = scope:recipient.max_military_strength
+	subtract = scope:secondary_recipient.max_military_strength
+	divide = 10
+	round = yes
+}
+
+kill_balrog_chance_value = {
+	value = 0
+	add = held_counties_value
+	add = friends_with_elves
+	add = prowess_martial_value
+	add = durins_helm_value
+	max = 50
+}
+
+held_counties_value = {
+	value = 0
+	every_sub_realm_county = {
+		if = {
+			limit = {
+				title_province = { geographical_region = middleearth_mountains_misty_balrog_struggle_region }
+				OR = {
+					title_province = { has_holding_type = dwarven_holding }
+					title_province = { has_holding_type = settlement_holding }
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+friends_with_elves = { # 5%
+	value = 0
+
+	if = {
+		limit = {
+			any_relation = { type = friend }
+		}
+		every_relation = {
+			type = friend
+			limit = {
+				OR = {
+					is_elf = yes
+					is_maiar = yes
+				}
+				prowess >= 55
+			}
+		}
+		add = 5
+	}
+}
+
+prowess_martial_value = { # 20%
+	value = 0
+
+	add = {
+		value = root.prowess
+		divide = 10
+		floor = yes
+	}
+	add = {
+		value = root.martial
+		divide = 10
+		floor = yes
+	}
+}
+
+durins_helm_value = { # 5%
+	value = 0
+	if = {
+		limit = {
+			any_equipped_character_artifact = {
+				OR = {
+					has_variable = durins_helm
+					has_variable = azaghal_helmet
+				}
+			}
+		}
+		add = 5
+	}
+}
+
+# Smaug values
+
+lake_town_final_script_value = {
+	value = 0
+	add = living_barding_value
+	add = burglar_hobbit_value
+	add = dwarven_helm_value
+	add = elven_sword_value
+	add = prowess_value
+	add = dragonslayer_artifact_value
+	if = {
+		limit = { title:k_dale = { has_variable = planned_dragon_attack } }
+		add = 20
+		max = 95
+	}
+	else = { max = 80 }
+}
+
+living_barding_value = { # 30%
+	value = 0
+	if = {
+		limit = { top_liege = { dynasty = dynasty:dynasty_aivadiuria } }
+		add = 50
+	}
+	else_if = {
+		limit = { dynasty = dynasty:dynasty_aivadiuria }
+		add = 50
+	}
+	else_if = {
+		limit = {
+			any_courtier = {
+				dynasty = dynasty:dynasty_aivadiuria
+			}
+		}
+		add = 50
+	}
+}
+
+burglar_hobbit_value = { # 10%
+	value = 0
+	if = {
+		limit = { exists = scope:leader }
+		if = {
+			limit = {
+				scope:leader ?= {
+					any_courtier = {
+						is_hobbit = yes
+						intrigue >= 15
+					}
+				}
+			}
+			add = 10
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				any_courtier = {
+					is_hobbit = yes
+					intrigue >= 15
+				}
+			}
+			add = 10
+		}
+	}
+}
+
+prowess_value = { # 10%
+	value = 0
+
+	add = {
+		value = prowess
+		divide = 3
+		# max = 10
+		floor = yes
+	}
+}
+
+entourage_prowess_value_sum = {
+	value = 0
+
+	add = {
+		value = 0
+		current_travel_plan ?= {
+			every_entourage_character = {
+				add = prowess_value.div2
+			}
+		}
+	}
+}
+
+dwarven_helm_value = { # 10%
+	value = 0
+	if = {
+		limit = {
+			NOT = { has_ep3_dlc_trigger = no }
+			NOT = { has_dlc_feature = royal_court }
+		}
+		add = 10
+	}
+	else_if = {
+		limit = {
+			scope:leader ?= {
+				any_equipped_character_artifact = {
+					OR = {
+						has_variable = durins_helm
+						has_variable = azaghal_helmet
+						has_variable = dragon_helm_of_dor_lomin
+					}
+				}
+			}
+		}
+		add = 10
+	}
+}
+
+elven_sword_value = {
+	value = 0
+	if = {
+		limit = {
+			NOT = { has_ep3_dlc_trigger = no }
+			NOT = { has_dlc_feature = royal_court }
+		}
+		add = 10
+	}
+	else_if = {
+		limit = {
+			scope:leader ?= {
+				any_equipped_character_artifact = {
+					OR = {
+						has_variable = dramborleg
+						has_variable = anguirel
+						has_variable = fated_heir
+						has_variable = hadhafang
+						has_variable = anduril
+						has_variable = sword_of_manwe
+						has_variable = glamdring
+						has_variable = orcrist
+						has_variable = hyandolire
+						has_variable = sting
+						has_variable = aeglos
+					}
+				}
+			}
+		}
+		add = 10
+	}
+}
+
+dragonslayer_artifact_value = {
+	value = 0
+	if = {
+		limit = {
+			any_character_artifact = {
+				OR = {
+					has_variable = black_arrow
+					has_variable = windlance_bolt
+				}
+			}
+		}
+		add = 20
+	}
+}
+
+################################
+### LotR Domain Limit Values ###
+################################
+
+character_domain_limit = {
+	value = 0
+
+	add = character_stewardship_domain_limit
+	add = character_rank_domain_limit
+	add = character_perks_domain_limit
+	add = character_domain_domain_limit
+	add = character_pacifism_domain_limit
+}
+
+character_rank_domain_limit = { # Done
+	value = 0
+
+	if = {
+		limit = { highest_held_title_tier = tier_empire }
+		add = 3
+	}
+	if = {
+		limit = { highest_held_title_tier = tier_kingdom }
+		add = 3
+	}
+	if = {
+		limit = { highest_held_title_tier = tier_duchy }
+		add = 2
+	}
+	if = {
+		limit = { highest_held_title_tier = tier_county }
+		add = 2
+	}
+}
+
+character_stewardship_domain_limit = { # Done
+	value = 0
+
+	add = {
+		value = stewardship
+		divide = 7
+		floor = yes
+	}
+}
+
+character_perks_domain_limit = {
+	value = 0
+
+	if = {
+		limit = { has_perk = divided_attention_perk }
+		value = 2
+	}
+}
+
+character_domain_domain_limit = {
+	value = 0
+
+
+	every_held_title = {
+		limit = { tier = tier_county }
+		every_county_province = {
+			limit = {
+				OR = {
+					has_building = economic_specialization_03
+					has_building = wonder_edhellond_02
+				}
+				barony.holder = root
+			}
+			add = 1
+		}
+	}
+}
+
+character_pacifism_domain_limit = {
+	value = 0
+
+	if = {
+		limit = { faith = { has_doctrine = tenet_pacifism } }
+		add = 1
+	}
+}
+
+character_castles_held = {
+	value = 0
+
+	every_held_title = {
+		limit = { tier = tier_county }
+		every_county_province = {
+			limit = {
+				has_holding_type = castle_holding
+				barony.holder = root
+			}
+			add = 1
+		}
+	}
+}
+
+character_cities_held = {
+	value = 0
+
+	every_held_title = {
+		limit = { tier = tier_county }
+		every_county_province = {
+			limit = {
+				has_holding_type = city_holding
+				barony.holder = root
+			}
+			add = 1
+		}
+	}
+}
+
+character_churches_held = {
+	value = 0
+
+	every_held_title = {
+		limit = { tier = tier_county }
+		every_county_province = {
+			limit = {
+				has_holding_type = church_holding
+				barony.holder = root
+			}
+			add = 1
+		}
+	}
+}
+
+character_elven_refuge_held = {
+	value = 0
+
+	every_held_title = {
+		limit = { tier = tier_county }
+		every_county_province = {
+			limit = {
+				has_holding_type = elven_holding
+				barony.holder = root
+			}
+			add = 1
+		}
+	}
+}
+
+character_delving_held = {
+	value = 0
+
+	every_held_title = {
+		limit = { tier = tier_county }
+		every_county_province = {
+			limit = {
+				has_holding_type = dwarven_holding
+				barony.holder = root
+			}
+			add = 1
+		}
+	}
+}
+
+character_tribe_held = {
+	value = 0
+
+	every_held_title = {
+		limit = { tier = tier_county }
+		every_county_province = {
+			limit = {
+				has_holding_type = tribal_holding
+				barony.holder = root
+			}
+			add = 1
+		}
+	}
+}
+
+character_settlement_amount = {
+	value = 0
+
+	every_held_title = {
+		limit = {
+			title_province ?= { has_holding_type = settlement_holding }
+			tier = tier_county
+		}
+		add = 1
+	}
+}
+
+lotr_buy_blacklock_mercenaries = {
+	value = 0
+
+	if = {
+		limit = { scope:minor_mercenaries = yes }
+		add = 150
+	} else_if = {
+		limit = { scope:medium_mercenaries = yes }
+		add = 250
+	} else_if = {
+		limit = { scope:large_mercenaries = yes }
+		add = 350
+	}
+
+	if = {
+		limit = {
+			any_character_struggle = { has_struggle_phase_parameter = blacklock_mercenaries_more_expensive }
+		}
+		multiply = 1.1
+	}
+	if = {
+		limit = {
+			any_character_struggle = { has_struggle_phase_parameter = blacklock_mercenaries_less_expensive }
+		}
+		multiply = 0.8
+	}
+}
+
+lotr_independent_kharadunaim_rulers = {
+	value = 0
+
+	struggle:thani_hazad_struggle = {
+		every_involved_ruler = {
+			limit = { is_independent_ruler = yes }
+			add = 1
+		}
+	}
+}
+
+lotr_settle_wilderness_as_adventurer_county_limit = {
+	value = 0
+
+	every_maa_regiment = {
+		limit = { is_maa_type = laamp_settler_maa }
+		add = maa_current_troops_count
+	}
+
+	divide = 100
+	floor = yes
+}
+
+lotr_current_maa_size = {
+	value = 0
+
+	add = {
+		value = maa_size
+		multiply = 0.5
+		multiply = -1
+	}
+	floor = yes
+}
+
+lotr_derei_convinced_percentage = {
+	value = 0
+	confederation = {
+		every_confederation_member = {
+			limit = {
+				has_faith = faith:faith_gimileth
+			}
+			add = 1
+		}
+	}
+	divide = every_confederation_member_value
+	multiply = 100
+}
+
+every_confederation_member_value = {
+	value = 0
+	confederation = { 
+		every_confederation_member = { add = 1 }
+	}
+}
+
+lotr_seregul_stabilize_values = {
+	value = 0
+	title:k_pel = {
+		every_de_jure_county_holder = {
+			limit = {
+				is_vassal_of = root
+				OR = {
+					opinion = {
+						target = root
+						value >= 50
+					}
+					has_dread_level_towards = {
+						target = root
+						level = 2
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+lotr_seregul_total = {
+	value = 0
+	title:k_pel = {
+		every_de_jure_county_holder = { 
+			limit = {
+				is_vassal_of = root 
+			}
+		add = 1
+		}
+	}
+}
+
+##########################################
+#### Stormhost Tulwangi Rebellion Values ####
+##########################################
+
+tulwangi_rebellion_strength_score_levy = {
+	value = 10
+	if = {
+		limit = { has_variable = tulwangi_rebellion_strength_score }
+		add = var:tulwangi_rebellion_strength_score
+	}
+	multiply = 237
+}
+
+tulwangi_rebellion_strength_score_skirmishers = {
+	value = 3
+	if = {
+		limit = { has_variable = tulwangi_rebellion_strength_score }
+		add = var:tulwangi_rebellion_strength_score
+	}
+}
+
+tulwangi_rebellion_strength_score_bowmen = {
+	value = 3
+	if = {
+		limit = { has_variable = tulwangi_rebellion_strength_score }
+		add = var:tulwangi_rebellion_strength_score
+	}
+}
+
+tulwangi_rebellion_strength_score_pikemen = {
+	value = 4
+	if = {
+		limit = { has_variable = tulwangi_rebellion_strength_score }
+		add = var:tulwangi_rebellion_strength_score
+	}
+	multiply = 0.5
+}
+tulwangi_rebellion_strength_score_onagers = {
+	value = 4
+	if = {
+		limit = { has_variable = tulwangi_rebellion_strength_score }
+		add = var:tulwangi_rebellion_strength_score
+	}
+	multiply = 0.5
+}
+
+##########################################
+### Bay of Ormal General Script Values ###
+##########################################
+
+decision_unite_poa_martial_route = {
+	value = 0
+
+	add = {
+		value = {
+			title:k_poa = {
+				every_de_jure_county = {
+					limit = {
+						OR = {
+							holder = root
+							holder = { is_vassal_or_below_of = root }
+						}
+					}
+					add = 1
+				}
+			}
+		}
+	}
+	divide = {
+		value = {
+			title:k_poa = {
+				every_de_jure_county = { add = 1 }
+			}
+		}
+	}
+	multiply = 100
+}
+
+decision_unite_poa_value_normalized = {
+	value = 0
+	add = {
+		value = decision_unite_poa_diplo_route
+		divide = decision_unite_poa_independent_poan_rulers
+		multiply = 100
+	}
+}
+
+decision_unite_poa_diplo_route = {
+	value = 0
+
+	if = {
+		limit = {
+			has_variable = powan_unification
+			var:powan_unification = flag:diplomacy
+		}
+		title:k_poa = {
+			every_de_jure_county_holder = {
+				limit = {
+					highest_held_title_tier > tier_barony
+					OR = {
+						this = root
+						is_vassal_or_below_of = root
+						top_liege = { has_relation_friend = root }
+						top_liege = { has_relation_lover = root }
+						root = { top_liege = { has_hook = prev } }
+						trigger_if = {
+							limit = {
+								root = { is_confederation_member = yes }
+								root.confederation = { save_temporary_scope_as = root_confederation }
+							}
+							OR = {
+								is_member_of_confederation = scope:root_confederation
+								top_liege = { is_member_of_confederation = scope:root_confederation }
+							}
+						}
+					}
+				}
+				add = 1
+			}
+		}
+	}
+}
+
+decision_unite_poa_independent_poan_rulers = {
+	value = 0
+	title:k_poa = {
+		every_de_jure_county_holder = {
+			limit = {
+				highest_held_title_tier > tier_barony
+			}
+			add = 1
+		}
+	}
+}
+
+decision_unite_poa_percent_required = {
+	value = 0
+	if = {
+		limit = { has_title = title:k_poa }
+		add = 50
+	} else = { add = 80 }
+}
+
+decision_unite_poa_neighboring_rulers_count = {
+	value = 0
+	every_neighboring_top_liege_realm_owner = {
+		limit = {
+			OR = {
+				root = { has_hook = prev }
+				has_relation_friend = root
+				has_relation_lover = root
+				is_tributary_of_suzerain_or_above = root
+			}
+		}
+		add = 1
+	}
+}
+
+lotr_defensive_wars_joined = {
+	value = 0
+	confederation ?= {
+		if = {
+			limit = { has_variable = lotr_defensive_wars_called_into }
+			add = var:lotr_defensive_wars_called_into
+		}
+	}
+}

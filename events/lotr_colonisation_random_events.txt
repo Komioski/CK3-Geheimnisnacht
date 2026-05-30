@@ -1,0 +1,4941 @@
+﻿##############################
+# RANDOM COLONISATION EVENTS #
+##############################
+
+###############
+## Terrain-Specific
+# colonisation_random.0001 — [Forest] The Squirrel
+# colonisation_random.0002 — [Forest] The White Hart
+# colonisation_random.0003 — [Highlands] Hard Scrabble
+## Location-Specific
+# colonisation_random.1001 — [Dwarf Road] The Burial
+# colonisation_random.1002 — [Orc Lands] Goblin Raid
+# colonisation_random.1003 — [Brownlands] The Brownlands
+# colonisation_random.1004 — [Mirkwood] Feeling Gloomy
+# colonisation_random.1005 — [Orc Lands] The Ruins
+# colonisation_random.1006 — [Ettenmoors] Ettenmoors Trolls rampage
+# colonisation_random.1007 — [Ettenmoors] Ettenmoors cleared!
+## General Events
+# colonisation_random.2001 — Recruitment Drive
+# colonisation_random.2002 — A New Life
+# colonisation_random.2003 — The Blaze
+# colonisation_random.2004 — A Den of Sin
+# colonisation_random.2005 — Thick as Thieves
+# colonisation_random.2006 — Colonial Feud
+# colonisation_random.2007 — Boycott
+# colonisation_random.2008 — Plague
+# colonisation_random.2009 — Prospecting
+# colonisation_random.2010 — Lupine Threat
+# colonisation_random.2011 — Bandit Country
+# colonisation_random.2012 — A Plea from the Settlers
+# colonisation_random.2013 — Marauding Orcs
+# colonisation_random.2014 — Astonishing Progress
+# colonisation_random.2015 — A Disturbing Discovery: Spider Nest
+# colonisation_random.2016 — Heresy Outbreak
+# colonisation_random.2017 — A Disturbing Discovery: Scorpion Bed
+# colonisation_random.2018 — The Pirate Cove
+# colonisation_random.2019 — The Earth Quakes
+# colonisation_random.2020 — The Treasure Chest
+# colonisation_random.2021 — Unnatural Frost
+
+namespace = colonisation_random
+
+## Terrain-Specific
+colonisation_random.0001 = { # [Forest] The Squirrel
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.0001.t
+	desc = colonisation_random.0001.desc
+	theme = hunting
+
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+
+	override_background = {
+		reference = wilderness_forest
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_0001 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			OR = {
+				terrain = forest
+				terrain = taiga
+				terrain = deep_forest
+				terrain = mallorn_forest
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_0001
+			years = 50
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				OR = {
+					terrain = forest
+					terrain = taiga
+					terrain = deep_forest
+					terrain = mallorn_forest
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # Attempt to fend off the squirrel
+		name = colonisation_random.0001.a
+		skill = prowess
+		duel = {
+			skill = prowess
+			value = 8
+			20 = {
+				desc = colonisation_random.0001.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				show_as_tooltip = {
+					add_prestige = 25
+					add_character_modifier = {
+						modifier = ate_good_meal
+						years = 2
+					}
+				}
+			}
+
+			20 = {
+				desc = colonisation_random.0001.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -19
+				}
+				increase_wounds_no_death_effect = { REASON = wild_animal }
+				random = {
+					chance = 25
+					add_trait = one_eyed
+				}
+			}
+		}
+		stress_impact = {
+			craven = major_stress_gain
+			arrogant = minor_stress_gain
+			brave = minor_stress_loss
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+	
+	option = { # Call on your guards to help
+		name = colonisation_random.0001.b
+		add_prestige = -50
+		add_dread = -10
+		stress_impact = {
+			brave = medium_stress_gain
+			arrogant = minor_stress_gain
+			humble = minor_stress_loss
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+colonisation_random.0002 = { # [Forest] The White Hart
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.0002.t
+	desc = colonisation_random.0002.desc
+	theme = hunting
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	right_portrait = {
+		character = scope:martial_companion
+		animation = disbelief
+	}
+
+	override_background = {
+		reference = wilderness_forest
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_0002 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			OR = {
+				terrain = forest
+				terrain = taiga
+				terrain = deep_forest
+				terrain = mallorn_forest
+			}
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_touching_moment"
+		add_character_flag = {
+			flag = had_event_colonisation_random_0002
+			years = 50
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				OR = {
+					terrain = forest
+					terrain = taiga
+					terrain = deep_forest
+					terrain = mallorn_forest
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		random_martial_councillor = {
+			limit = { is_ai = yes }
+			save_scope_as = martial_companion
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:martial_companion }
+			}
+			random_courtier = {
+				limit = { is_ai = yes }
+				save_scope_as = martial_companion
+			}
+		}
+	}
+
+	option = { # Attempt to bring down the hart yourself - skilled hunter
+		name = colonisation_random.0002.a
+		trigger = {
+			has_trait = lifestyle_hunter
+		}
+		trait = lifestyle_hunter
+		duel = {
+			skill = prowess
+			value = 8
+			15 = {
+				desc = hunt.4007.a.success
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				send_interface_toast = {		
+					title = hunt.4007.a.success			
+					add_character_modifier = {
+						modifier = modifier_hunt_hunting_trophy
+						days = 3650
+					}
+				}
+			}
+			8 = {
+				desc = hunt.4007.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {	
+					title = hunt.4007.a.failure				
+					increase_wounds_effect = { REASON = hunting_accident }
+				}
+			}
+			1 = {
+				trigger = { 
+					cannot_be_killed = no
+					is_elf = no
+					lotr_canon_safe_from_harm_trigger = no
+				}
+				desc = hunt.4007.a.critical_failure
+				send_interface_toast = {
+					title = hunt.4007.a.critical_failure				
+					death = {
+						death_reason = death_hunting_accident
+					}
+				}
+			}
+		}
+		stress_impact = {
+			lifestyle_hunter = medium_stress_loss
+			craven = medium_stress_gain
+			brave = minor_stress_loss
+			arrogant = minor_stress_loss
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { # Attempt to bring down the hart yourself - no hunting experience
+		name = colonisation_random.0002.a
+		trigger = {
+			NOT = { has_trait = lifestyle_hunter }
+		}
+		skill = prowess
+		duel = {
+			skill = prowess
+			value = 12
+			15 = {
+				desc = colonisation_random.0002.a.success
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				send_interface_toast = {		
+					title = hunt.4007.a.success			
+					add_character_modifier = {
+						modifier = modifier_hunt_hunting_trophy
+						days = 3650
+					}
+				}
+			}
+			8 = {
+				desc = colonisation_random.0002.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {	
+					title = hunt.4007.a.failure				
+					increase_wounds_effect = { REASON = hunting_accident }
+				}
+			}
+			1 = {
+				desc = colonisation_random.0002.a.critical_failure
+				trigger = { 
+					cannot_be_killed = no
+					is_elf = no
+					lotr_canon_safe_from_harm_trigger = no
+				}
+				send_interface_toast = {
+					title = hunt.4007.a.critical_failure				
+					death = {
+						death_reason = death_hunting_accident
+					}
+				}
+			}
+		}
+		stress_impact = {
+			craven = medium_stress_gain
+			brave = minor_stress_loss
+			arrogant = minor_stress_loss
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+	
+	option = { # Quickly, companion, bring it down!
+		name = colonisation_random.0002.b
+		add_prestige = -150
+		scope:martial_companion = {
+			random_list = {
+				85 = { 
+					desc = colonisation_random.0002.b.success
+					if = {
+						limit = {
+							can_add_hook = {
+								target = root
+								type = favor_hook
+							}
+						}
+						add_hook = {
+							type = favor_hook
+							target = root
+						}
+					}
+					else = {
+						add_prestige = 150
+					} 
+				}
+				10 = { 
+					desc = colonisation_random.0002.b.failure
+					if = {
+						limit = {
+							can_add_hook = {
+								target = root
+								type = favor_hook
+							}
+						}
+						add_hook = {
+							type = favor_hook
+							target = root
+						}
+					}
+					else = {
+						add_prestige = 100
+					}
+					increase_wounds_effect = { REASON = hunting_accident }
+					modifier = {
+						add = 5
+						prowess < 20
+					}
+					modifier = {
+						add = 5
+						prowess < 15
+					}
+					modifier = {
+						add = 5
+						prowess < 10
+					}
+					modifier = {
+						add = 5
+						prowess < 5
+					}
+				}
+				5 = { 
+					desc = colonisation_random.0002.b.critical_failure
+					trigger = { 
+						cannot_be_killed = no
+						is_elf = no
+						lotr_canon_safe_from_harm_trigger = no
+					}
+					death = { death_reason = death_hunting_accident }
+					modifier = {
+						add = 5
+						prowess < 20
+					}
+					modifier = {
+						add = 5
+						prowess < 15
+					}
+					modifier = {
+						add = 5
+						prowess < 10
+					}
+					modifier = {
+						add = 5
+						prowess < 5
+					}
+				}
+			}
+		}
+		stress_impact = {
+			craven = minor_stress_loss
+			arrogant = minor_stress_gain
+			humble = minor_stress_loss
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { # The white hart is sacred, let us leave it be.
+		name = colonisation_random.0002.c
+		trigger = {
+			faith = { has_doctrine = tenet_sanctity_of_nature }
+			NOT = { has_trait = cynical }
+		}
+		show_as_unavailable = {
+			has_trait = cynical
+		}
+		add_piety = 150
+		stress_impact = {
+			zealous = major_stress_loss
+			craven = minor_stress_loss
+			arrogant = minor_stress_gain
+			humble = minor_stress_loss
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 500
+		}
+	}
+
+}
+
+colonisation_random.0003 = { # [Highlands] Hard Scrabble
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.0003.t
+	desc = colonisation_random.0003.desc
+	theme = realm
+
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+	}
+
+	right_portrait = {
+		character = scope:colonist
+		animation = personality_zealous
+	}
+
+	override_background = {
+		reference = wilderness_mountains
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_0003 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			OR = {
+				terrain = hills
+				terrain = mountains
+			}
+			county = {
+				NOR = {
+					has_county_modifier = well_supplied_colony_county_modifier
+					has_county_modifier = poorly_supplied_colony_county_modifier
+				}
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_0003
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				OR = {
+					terrain = hills
+					terrain = mountains
+				}
+				county = {
+					NOR = {
+						has_county_modifier = well_supplied_colony_county_modifier
+						has_county_modifier = poorly_supplied_colony_county_modifier
+					}
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		if = {
+			limit = {
+				any_stewardship_councillor = {
+					count > 0
+				}
+			}
+			random_stewardship_councillor = {
+				save_scope_as = steward
+			}
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_county.culture
+			faith = scope:colony_county.faith
+			location = scope:colony_province
+			gender_female_chance = 50
+			save_scope_as = colonist
+			after_creation = {
+				remove_trait = peasant_leader
+			}
+		}
+	}
+
+	option = { # I will oversee the deal myself
+		name = colonisation_random.0003.a
+		skill = stewardship
+		duel = {
+			skill = stewardship
+			value = 10
+			20 = {
+				desc = colonisation_random.0003.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.0003.a.success.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = well_supplied_colony_county_modifier
+							years = 5
+						}
+					}
+				}
+			}
+
+			20 = {
+				desc = colonisation_random.0003.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -19
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.0003.a.failure.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = poorly_supplied_colony_county_modifier
+							years = 5
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			shy = medium_stress_gain
+			arrogant = minor_stress_loss
+			gregarious = minor_stress_loss
+			just = minor_stress_loss
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	
+	option = { # My Steward can handle this
+		name = colonisation_random.0003.b
+		trigger = {
+			exists = scope:steward
+		}
+		add_prestige = -100
+		scope:steward = {
+			duel = {
+				skill = stewardship
+				value = 10
+				20 = {
+					desc = colonisation_random.0003.a.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 1
+					}
+					root = {
+						send_interface_toast = {
+							left_icon = root
+							title = colonisation_random.0003.a.success.toast
+							scope:colony_county = {
+								add_county_modifier = {
+									modifier = well_supplied_colony_county_modifier
+									years = 5
+								}
+							}
+						}
+					}
+				}
+	
+				20 = {
+					desc = colonisation_random.0003.a.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -1
+						min = -19
+					}
+					root = {
+						send_interface_toast = {
+							left_icon = root
+							title = colonisation_random.0003.a.failure.toast
+							scope:colony_county = {
+								add_county_modifier = {
+									modifier = poorly_supplied_colony_county_modifier
+									years = 5
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					can_add_hook = {
+						target = root
+						type = favor_hook
+					}
+				}
+				add_hook = {
+					type = favor_hook
+					target = root
+				}
+			}
+			else = {
+				add_prestige = 100
+			} 
+		}
+		stress_impact = {
+			arrogant = medium_stress_gain
+			humble = minor_stress_loss
+			shy = minor_stress_loss
+		}
+		ai_chance = {
+			base = 70
+		}
+	}
+
+	option = { #  Figure this out for yourselves...
+		name = colonisation_random.0003.c
+		random_list = {
+			70 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.0003.a.failure.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = poorly_supplied_colony_county_modifier
+							years = 5
+						}
+					}
+				}
+			}
+			20 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.0003.a.success.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = well_supplied_colony_county_modifier
+							years = 5
+						}
+					}
+				}
+			}
+			10 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.0003.a.critical_failure.toast
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+		}
+		stress_impact = {
+			just = medium_stress_gain
+			arrogant = minor_stress_gain
+			humble = minor_stress_loss
+			shy = minor_stress_loss
+			arbitrary = minor_stress_loss
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+
+	after = {
+		scope:colonist = {
+			silent_disappearance_effect = yes
+		}
+	}
+}
+
+## Location-Specific
+colonisation_random.1001 = { # [Dwarf Road] The Burial
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.1001.t
+	desc = {
+		desc = colonisation_random.1001.desc.1
+		triggered_desc = { # We call it Men-i-Naugrim
+			trigger = { 
+				is_elf = yes
+			} 
+			desc = colonisation_random.1001.desc.2.elf
+		}
+		triggered_desc = { # We call it Viduweg
+			trigger = {
+				culture = culture:woodmen
+			} 
+			desc = colonisation_random.1001.desc.2.woodmen
+		}
+		desc = colonisation_random.1001.desc.3
+	}
+	theme = realm
+
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+
+	override_background = {
+		reference = wilderness_forest
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_1001 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			OR = {
+				county = title:c_dunmen_i_naugrim
+				county = title:c_enedhmen_i_naugrim
+				county = title:c_rhumen_i_naugrim
+				county = title:c_senn_i_naugrim
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_1001
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				OR = {
+					county = title:c_dunmen_i_naugrim
+					county = title:c_enedhmen_i_naugrim
+					county = title:c_rhumen_i_naugrim
+					county = title:c_senn_i_naugrim
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # Lift the stone
+		name = colonisation_random.1001.a
+		create_artifact = {	
+			name = ancient_dwarven_battleaxe
+			description = placeholder # Will be re-generated once decorations are added in the post-creation effects.
+			visuals = axe
+			type = axe 
+			modifier = artifact_prowess_7_modifier
+			modifier = artifact_hills_advantage_2_modifier
+			modifier = artifact_mountains_advantage_3_modifier
+			modifier = artifact_monthly_prestige_2_modifier
+			wealth = 60
+			quality = 60
+			history = {
+				location = scope:colony_province
+				actor = root
+				recipient = root
+				type = discovered
+			}
+			save_scope_as = newly_created_artifact
+		}
+		scope:newly_created_artifact = {
+			get_axe_decoration_effect = yes
+			get_artifact_feature_references_effect = yes
+			set_artifact_description = artifact_axe_description
+		}
+		if = {
+			limit = { faith_is_evil = yes }
+			add_piety = 50
+		}
+		else = {
+			add_piety = -50
+		}
+		random = {
+			chance = 50
+			add_character_modifier = {
+				modifier = cursed_spirits_modifier
+				years = 30
+			}
+		}
+		stress_impact = {
+			paranoid = medium_stress_gain
+			greedy = medium_stress_loss
+		}
+		ai_chance = {
+			base = 75
+		}
+	}
+	
+	option = { # Perhaps we'd better leave well alone
+		name = colonisation_random.1001.b
+		if = {
+			limit = { faith_is_evil = no }
+			add_piety = 150
+		}
+		stress_impact = {
+			greedy = medium_stress_gain
+			paranoid = medium_stress_loss
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+}
+
+colonisation_random.1002 = { # [Orc Lands] Goblin Raid
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.1002.t
+	desc = colonisation_random.1002.desc
+	theme = raid
+
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	right_portrait = {
+		character = scope:martial_companion
+		animation = personality_compassionate
+	}
+
+	override_background = {
+		reference = wilderness
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_1002 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			OR = {
+				duchy = title:d_men_i_naugrim
+				duchy = title:d_grey_mountain_narrows
+				duchy = title:d_drakkenvast
+				kingdom = title:k_langwell
+			}
+		}
+		NOT = { is_orc = yes }
+		NOT = { religion = { is_in_family = rf_forcesofevil } }
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_1002
+			years = 20
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				OR = {
+					duchy = title:d_men_i_naugrim
+					duchy = title:d_grey_mountain_narrows
+					duchy = title:d_drakkenvast
+					kingdom = title:k_langwell
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		random_martial_councillor = {
+			save_scope_as = martial_companion
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:martial_companion }
+			}
+			ordered_courtier = {
+				order_by = martial
+				save_scope_as = martial_companion
+			}
+		}
+	}
+
+	option = { # Devote a portion of your levies to defend the colony
+		name = colonisation_random.1002.a
+		add_character_modifier = {
+			modifier = levies_guarding_colony_modifier
+			years = 5
+		}
+		stress_impact = {
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+	
+	option = { # Pay a mercenary band to do the job
+		name = colonisation_random.1002.b
+		remove_short_term_gold = 150
+		stress_impact = {
+			greedy = medium_stress_gain
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = { # Evacuate the colony
+		name = colonisation_random.1002.c
+		make_settlement_county_wilderness = {
+			COUNTY = scope:colony_county
+		}
+		stress_impact = {
+			arbitrary = medium_stress_loss
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+colonisation_random.1003 = { # [Brownlands] The Brownlands
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.1003.t
+	desc = colonisation_random.1003.desc
+	theme = dread
+
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	override_background = {
+		reference = wilderness_steppe
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_1003 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			kingdom = title:k_brownlands
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_1003
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				kingdom = title:k_brownlands
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # Grant the colony an endowment to fund its needs
+		name = colonisation_random.1003.a
+		remove_short_term_gold = 300
+		stress_impact = {
+			greedy = major_stress_gain
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+	
+	option = { # Allocate part of your tax income to the colony
+		name = colonisation_random.1003.b
+		add_character_modifier = {
+			modifier = tax_income_spent_on_colony_modifier
+			years = 10
+		}
+		stress_impact = {
+			greedy = medium_stress_gain
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+
+	option = { # Abandon the colony
+		name = colonisation_random.1003.c
+		make_settlement_county_wilderness = {
+			COUNTY = scope:colony_county
+		}
+		stress_impact = {
+			arbitrary = medium_stress_loss
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+colonisation_random.1004 = { # [Mirkwood] Feeling Gloomy
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.1004.t
+	desc = colonisation_random.1004.desc
+	theme = dread
+
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+
+	right_portrait = {
+		character = scope:colonist
+		animation = sadness
+	}
+
+	override_background = {
+		reference = wilderness
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_1004 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			empire = title:e_greenwood
+			terrain = deep_forest
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_1004
+			years = 30
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				empire = title:e_greenwood
+				terrain = deep_forest
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 50
+			save_scope_as = colonist
+			after_creation = {
+				remove_trait = peasant_leader
+			}
+		}
+	}
+
+	option = { # A strong and permanent garrison will reassure the colonists
+		name = colonisation_random.1004.a
+		remove_short_term_gold = 150
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = strong_colonial_garrison_county_modifier
+				years = 20
+			}
+		}
+		stress_impact = {
+			greedy = medium_stress_gain
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	
+	option = { # Send a group of priests to fortify their spirits
+		name = colonisation_random.1004.b
+		remove_short_term_gold = 75
+		add_piety = -75
+		add_character_modifier = {
+			modifier = put_trust_in_the_clergy_modifier
+			years = 5
+		}
+		random_list = {
+			50 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1004.b.success.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = raised_spirits_county_modifier
+							years = 20
+						}
+					}
+				}
+			}
+			30 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1004.b.failure.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = crippling_malaise_county_modifier
+							years = 20
+						}
+					}
+				}
+			}
+			20 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1004.b.critical_failure.toast
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+		}
+		stress_impact = {
+			cynical = medium_stress_gain
+			greedy = minor_stress_gain
+			zealous = minor_stress_loss
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = { # Tell them to quit their moping and get back to work!
+		name = colonisation_random.1004.c
+		random_list = {
+			5 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1004.b.success.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = raised_spirits_county_modifier
+							years = 20
+						}
+					}
+				}
+			}
+			55 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1004.b.failure.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = crippling_malaise_county_modifier
+							years = 20
+						}
+					}
+				}
+			}
+			40 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1004.b.critical_failure.toast
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+		}
+		stress_impact = {
+			compassionate = major_stress_gain
+			callous = medium_stress_loss
+			sadistic = medium_stress_loss
+			greedy = minor_stress_loss
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+
+	after = {
+		scope:colonist = {
+			silent_disappearance_effect = yes
+		}
+	}
+}
+
+colonisation_random.1005 = { # [Orc Lands] The Ruins
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.1005.t
+	desc = {
+		desc = colonisation_random.1005.desc.1
+		triggered_desc = { # Men led by bears
+			trigger = { 
+				OR = {
+					scope:colony_county.kingdom = title:k_anduin_vale
+					scope:colony_county.duchy = title:d_men_i_naugrim
+				}
+			} 
+			desc = colonisation_random.1005.desc.2.vale
+		}
+		triggered_desc = { # Cavalry charge
+			trigger = { 
+				OR = {
+					scope:colony_county.kingdom = title:k_langwell
+					scope:colony_county.kingdom = title:k_brownlands
+				}
+			} 
+			desc = colonisation_random.1005.desc.2.langwell
+		}
+		triggered_desc = { # Fight with drake
+			trigger = { 
+				OR = {
+					scope:colony_county.duchy = title:d_grey_mountain_narrows
+					scope:colony_county.duchy = title:d_drakkenvast
+				}
+			} 
+			desc = colonisation_random.1005.desc.2.grey_mountains
+		}
+		desc = colonisation_random.1005.desc.3
+	}
+	theme = realm
+
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	right_portrait = {
+		character = scope:colonist
+		animation = fear
+	}
+
+	override_background = {
+		reference = fp1_tribal_corridor
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_1005 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			OR = {
+				duchy = title:d_men_i_naugrim
+				duchy = title:d_grey_mountain_narrows
+				duchy = title:d_drakkenvast
+				kingdom = title:k_langwell
+				kingdom = title:k_brownlands
+				kingdom = title:k_anduin_vale
+			}
+		}
+		NOT = { is_orc = yes }
+		NOT = { religion = { is_in_family = rf_forcesofevil } }
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_1005
+			years = 20
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				OR = {
+					duchy = title:d_men_i_naugrim
+					duchy = title:d_grey_mountain_narrows
+					duchy = title:d_drakkenvast
+					kingdom = title:k_langwell
+					kingdom = title:k_brownlands
+					kingdom = title:k_anduin_vale
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 50
+			save_scope_as = colonist
+			after_creation = {
+				remove_trait = peasant_leader
+			}
+		}
+	}
+
+	option = { # I should try to convince them that they have nothing to fear
+		name = colonisation_random.1005.a
+		skill = diplomacy
+		duel = {
+			skill = diplomacy
+			value = 12
+			20 = {
+				desc = colonisation_random.1005.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1005.a.success.toast
+					add_prestige = 50
+					add_diplomacy_lifestyle_xp = 500
+				}
+			}
+
+			20 = {
+				desc = colonisation_random.1005.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -19
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1005.a.failure.toast
+					add_prestige = -100
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = fearful_colonists_county_modifier
+							years = 20
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			compassionate = minor_stress_loss
+			gregarious = minor_stress_loss
+			cynical = minor_stress_loss
+			paranoid = minor_stress_gain
+			shy = medium_stress_gain
+		}
+		ai_chance = {
+			base = 45
+		}
+	}
+	
+	option = { # I will argue that these orcish dabings are ancient. The threat is long gone!
+		name = colonisation_random.1005.b
+		skill = learning
+		duel = {
+			skill = learning
+			value = 10
+			20 = {
+				desc = colonisation_random.1005.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1005.a.success.toast
+					add_prestige = 50
+					add_learning_lifestyle_xp = 500
+				}
+			}
+
+			20 = {
+				desc = colonisation_random.1005.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -19
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.1005.a.failure.toast
+					add_prestige = -100
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = fearful_colonists_county_modifier
+							years = 20
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			compassionate = minor_stress_loss
+			cynical = minor_stress_loss
+			paranoid = minor_stress_gain
+			shy = minor_stress_gain
+		}
+		ai_chance = {
+			base = 45
+		}
+	}
+
+	option = { # Guards? Give these malcontents something to really worry about...
+		name = colonisation_random.1005.c
+		add_dread = 15
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = fearful_colonists_county_modifier
+				years = 20
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_gain
+			callous = medium_stress_loss
+			calm = minor_stress_gain
+			sadistic = minor_stress_loss
+			wrathful = minor_stress_loss
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+
+	after = {
+		scope:colonist = {
+			silent_disappearance_effect = yes
+		}
+	}
+}
+
+colonisation_random.1006 = { # [Ettenmoors] Ettenmoors trolls rampage!
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.1006.t
+ 	desc = colonisation_random.1006.desc
+ 	theme = raid
+
+	lower_left_portrait = {
+ 		character = root
+ 	}
+
+	right_portrait = {
+		character = scope:troll
+		animation = anger
+	}
+
+ 	override_background = {
+ 		reference = burning_building
+ 	}
+
+ 	immediate = {
+ 		add_character_flag = {
+ 			flag = had_event_colonisation_random_1006
+ 			years = 15
+ 		}
+ 		random_directly_owned_province = {
+ 			limit = { 
+ 				OR = {
+ 					kingdom = title:k_rhudaur
+ 					kingdom = title:k_imladris
+ 				}
+ 			}			
+ 			save_scope_as = attacked_province
+ 		}
+		
+		create_character = { # Create a new character to hold the title
+			culture = culture:hill_troll
+			faith = faith:way_of_strength
+			gender_female_chance = 0
+			location = root.location
+			save_scope_as = troll
+		}
+ 	}
+
+ 	option = { 
+ 		name = colonisation_random.1006.a
+		scope:attacked_province = {		
+			add_province_modifier = {
+				modifier = trolls_from_the_ettenmoors_modifier
+				years = 5
+			}
+		}
+ 	}
+
+	after = {
+		scope:troll = {
+			silent_disappearance_effect = yes
+		}
+	}
+}
+
+colonisation_random.1007 = { # [Ettenmoors] Ettenmoors cleared!
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.1007.t
+ 	desc = colonisation_random.1007.desc
+ 	theme = legend
+
+	left_portrait = {
+ 		character = root
+ 		animation = personality_content
+ 	}
+
+ 	override_background = {
+ 		reference = rhudaur
+ 	}
+
+	trigger = {
+		any_directly_owned_province = {
+			OR = {
+				kingdom = title:k_rhudaur
+				kingdom = title:k_imladris
+			}
+		}
+	}
+	cooldown = { years = 10 }
+
+ 	option = { 
+ 		name = colonisation_random.1007.a
+ 	}
+}
+
+## General Events
+colonisation_random.2001 = { # Recruitment Drive
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2001.t
+	desc = colonisation_random.2001.desc
+	theme = martial
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	right_portrait = {
+		character = scope:stewardship_companion
+		animation = personality_compassionate
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2001 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2001
+			years = 20
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		random_stewardship_councillor = {
+			save_scope_as = stewardship_companion
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:stewardship_companion }
+			}
+			ordered_courtier = {
+				order_by = stewardship
+				save_scope_as = stewardship_companion
+			}
+		}
+	}
+
+	option = { # Send MaA to 'resettle' some locals
+		name = colonisation_random.2001.a
+		add_character_modifier = {
+			modifier = maa_gathering_new_colonists_modifier
+			years = 5
+		}
+		stress_impact = {
+			compassionate = minor_stress_gain
+			callous = minor_stress_loss
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	
+	option = { # Provide monetary incentives
+		name = colonisation_random.2001.b
+		remove_short_term_gold = 150
+		stress_impact = {
+			greedy = medium_stress_gain
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+
+	option = { # Offer religious blessings
+		name = colonisation_random.2001.c
+		trigger = {
+			any_learning_councillor = {
+				count > 0
+			}
+		}
+		random_learning_councillor = {
+			save_scope_as = realm_priest
+		}
+		scope:realm_priest = {
+			if = {
+				limit = {
+					can_add_hook = {
+						target = root
+						type = favor_hook
+					}
+				}
+				add_hook = {
+					type = favor_hook
+					target = root
+				}
+			}
+		}
+		add_piety = -100
+		stress_impact = {
+			cynical = medium_stress_gain
+			zealous = medium_stress_loss
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+colonisation_random.2002 = { # A New Life
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2002.t
+	desc = colonisation_random.2002.desc
+	theme = migration
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	right_portrait = {
+		character = scope:migrant
+		animation = personality_bold
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = { # This event is very common if youre a longbeard settling the iron hills
+			add = 10
+			AND = {
+				any_directly_owned_province = {
+					has_holding_type = settlement_holding
+					NOT = { terrain = halls }
+					county = {
+						culture = {
+							has_cultural_pillar = heritage_longbeard
+							NOT = { this = culture:iron_hills }
+						}
+						any_neighboring_county = {
+							culture = culture:iron_hills
+							NOT = { culture = root.culture }
+							NOT = { culture = culture:wastelands }
+							NOT = { culture = prev.county.culture }
+							culture = { same_race_culture = { TARGET = prev.county.culture } }
+						}
+					}
+				}
+			}
+		}
+		modifier = { # Gondorians settling Arnor
+			add = 10
+			AND = {
+				any_directly_owned_province = {
+					geographical_region = middleearth_west_arnor
+					has_holding_type = settlement_holding
+					county = {
+						culture = {
+							has_cultural_pillar = heritage_dunedain
+							NOR = {
+								this = culture:arnorian
+								this = culture:dunedain_ranger
+								this = culture:uialedain
+								this = culture:dunedain
+							}
+							OR = {
+								this = culture:gondorian
+								this = culture:belfalathrim
+								any_parent_culture = { this = culture:gondorian } 
+							}
+							NOT = {
+								any_parent_culture_or_above = { this = culture:arnorian }
+							}
+						}
+						any_neighboring_county = {
+							OR = {
+								culture = culture:arnorian
+								culture = culture:dunedain_ranger
+								culture =  culture:uialedain
+							}
+							NOT = { culture = root.culture }
+							NOT = { culture = culture:wastelands }
+							NOT = { culture = prev.county.culture }
+							culture = { same_race_culture = { TARGET = prev.county.culture } }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2002 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			county = {
+				any_neighboring_county = {
+					NOT = { culture = root.culture }
+					NOT = { culture = culture:wastelands }
+					NOT = { culture = prev.county.culture }
+					culture = { same_race_culture = { TARGET = root.culture } }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2002
+			years = 20
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				county = {
+					any_neighboring_county = {
+						NOT = { culture = root.culture }
+						NOT = { culture = culture:wastelands }
+						NOT = { culture = prev.county.culture }
+						culture = { same_race_culture = { TARGET = root.culture } }
+					}
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+			weight = { # Weighting
+				base = 100
+				modifier = { # Longbeard county will be very likely to become Iron Hills Longbeard if overground and bordering them
+					factor = 10
+					NOT = { terrain = halls }
+					county = {
+						culture = {
+							has_cultural_pillar = heritage_longbeard
+							NOT = { this = culture:iron_hills }
+						}
+						any_neighboring_county = {
+							culture = culture:iron_hills
+							NOT = { culture = root.culture }
+							NOT = { culture = culture:wastelands }
+							NOT = { culture = prev.county.culture }
+							culture = { same_race_culture = { TARGET = prev.county.culture } }
+						}
+					}
+				}
+				modifier = { # Gondorians settling Arnor
+					factor = 10
+					county = {
+						culture = {
+							has_cultural_pillar = heritage_dunedain
+							NOR = {
+								this = culture:arnorian
+								this = culture:dunedain_ranger
+								this = culture:uialedain
+								this = culture:dunedain
+							}
+							OR = {
+								this = culture:gondorian
+								this = culture:belfalathrim
+								any_parent_culture = { this = culture:gondorian}
+							}
+							NOT = {
+								any_parent_culture_or_above = { this = culture:arnorian }
+							}
+						}
+						any_neighboring_county = {
+							OR = {
+								culture = culture:arnorian
+								culture = culture:dunedain_ranger
+								culture =  culture:uialedain
+							}
+							NOT = { culture = root.culture }
+							NOT = { culture = culture:wastelands }
+							NOT = { culture = prev.county.culture }
+							culture = { same_race_culture = { TARGET = prev.county.culture } }
+						}
+					}
+				}
+			}
+		}
+		scope:colony_county = {
+			random_neighboring_county = {
+				limit = {
+					NOT = { culture = root.culture }
+					NOT = { culture = culture:wastelands }
+					NOT = { culture = prev.county.culture }
+					culture = { same_race_culture = { TARGET = scope:colony_county.culture } }
+				}
+				save_scope_as = origin_county
+				culture = { save_scope_as = migrant_culture }
+				faith = { save_scope_as = migrant_faith }
+
+				weight = { # Weighting
+					base = 100
+					modifier = { # Longbeard county will be very likely to become Iron Hills Longbeard if overground and bordering them
+						factor = 10
+						scope:colony_province = {
+							NOT = { terrain = halls }
+						}
+						scope:colony_county = {
+							culture = {
+								has_cultural_pillar = heritage_longbeard
+								NOT = { this = culture:iron_hills }
+							}
+						}
+						culture = culture:iron_hills
+					}
+					modifier = { # Gondorians settling Arnor
+						factor = 10
+						scope:colony_county = {
+							culture = {
+								has_cultural_pillar = heritage_dunedain
+								NOR = {
+									this = culture:arnorian
+									this = culture:dunedain_ranger
+									this = culture:uialedain
+									this = culture:dunedain
+								}
+								OR = {
+									this = culture:gondorian
+									this = culture:belfalathrim
+									any_parent_culture = { this = culture:gondorian }
+								}
+								NOT = {
+									any_parent_culture_or_above = { this = culture:arnorian }
+								}
+							}
+						}
+						OR = {
+							culture = culture:arnorian
+							culture = culture:dunedain_ranger
+							culture =  culture:uialedain
+						}
+					}
+				}
+			}
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:migrant_culture
+			faith = scope:migrant_faith
+			location = scope:colony_province
+			gender_female_chance = 50
+			save_scope_as = migrant
+			after_creation = {
+				remove_trait = peasant_leader
+			}
+		}
+	}
+
+	option = { # Allow the migrants to bolster the settlement
+		name = colonisation_random.2002.a
+		scope:colony_county = {
+			change_development_level = 1
+			set_county_culture = scope:origin_county.culture
+			if = {
+				limit = { NOT = { faith = scope:origin_county.faith } }
+				set_county_faith = scope:origin_county.faith
+			}
+		}
+		culture = {
+			change_cultural_acceptance = {
+				target = scope:migrant_culture
+				value = 5
+				desc = allowed_migrants_in_colony
+			}
+		}
+		stress_impact = {
+			zealous = medium_stress_gain
+			arrogant = minor_stress_gain
+			compassionate = minor_stress_loss
+			just = minor_stress_loss
+			content = minor_stress_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2.5
+				scope:migrant_culture = { has_same_culture_heritage = root.culture }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { scope:migrant = { same_alignment = { TARGET = ROOT } } }
+			}
+			modifier = {
+				factor = 1.5
+				has_trait = compassionate
+			}
+		}
+	}
+	
+	option = { # Drive the migrants away
+		name = colonisation_random.2002.b
+		culture = {
+			change_cultural_acceptance = {
+				target = scope:migrant_culture
+				value = -5
+				desc = forbade_migrants_in_colony
+			}
+		}
+		stress_impact = {
+			zealous = minor_stress_loss
+			compassionate = medium_stress_gain
+			callous = minor_stress_loss
+			just = minor_stress_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				OR = {
+					has_trait = callous
+					has_trait = sadistic
+				}
+			}
+			modifier = {
+				factor = 1.5
+				faith_is_evil = yes
+			}
+		}
+	}
+
+	option = { # Force the migrants to work for us
+		name = colonisation_random.2002.c
+		culture = {
+			change_cultural_acceptance = {
+				target = scope:migrant_culture
+				value = -10
+				desc = enslaved_migrants_in_colony
+			}
+		}
+		random_list = {
+			85 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2002.c.success
+					scope:colony_county = { change_development_level = 1 }
+				}
+			}
+			15 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2002.c.failure
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+		}
+		stress_impact = {
+			compassionate = major_stress_gain
+			callous = medium_stress_loss
+			just = medium_stress_gain
+			sadistic = medium_stress_loss
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				faith_is_evil = yes
+			}
+			modifier = {
+				factor = 0.3
+				scope:migrant_culture = { has_same_culture_heritage = root.culture }
+			}
+		}
+	}
+
+	after = {
+		scope:migrant = {
+			silent_disappearance_effect = yes
+		}
+	}
+}
+
+colonisation_random.2003 = { # The Blaze
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2003.t
+	desc = colonisation_random.2003.desc
+	theme = disaster
+
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	right_portrait = {
+		character = scope:colonist
+		animation = beg
+	}
+
+	override_background = {
+		reference = burning_building
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2003 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2003
+			years = 30
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		random_stewardship_councillor = {
+			save_scope_as = stewardship_companion
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:stewardship_companion }
+			}
+			ordered_courtier = {
+				order_by = stewardship
+				save_scope_as = stewardship_companion
+			}
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 50
+			save_scope_as = colonist
+			after_creation = {
+				remove_trait = peasant_leader
+				add_stewardship_skill = 3
+			}
+		}
+	}
+
+	option = { # Give them the gold they seek
+		name = colonisation_random.2003.a
+		remove_short_term_gold = 150
+		stress_impact = {
+			greedy = medium_stress_gain
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+	
+	option = { # I will organise the relief effort personally
+		name = colonisation_random.2003.b
+		skill = stewardship
+		duel = {
+			skill = stewardship
+			value = 14
+			20 = {
+				desc = colonisation_random.2003.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2003.b.success.toast
+					remove_short_term_gold = 75
+				}
+			}
+
+			20 = {
+				desc = colonisation_random.2003.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -19
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2003.b.failure.toast
+					remove_short_term_gold = 225
+				}
+			}
+		}
+		stress_impact = {
+			greedy = minor_stress_gain
+			arrogant = medium_stress_loss
+			humble = minor_stress_loss
+			shy = medium_stress_gain
+			compassionate = minor_stress_loss
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+
+	option = { # Leave them to it
+		name = colonisation_random.2003.c
+		random_list = {
+			70 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2003.c.failure.toast
+					add_prestige = -150
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+			30 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2003.c.success.toast
+					add_prestige = -100
+				}
+			}
+		}
+		stress_impact = {
+			greedy = minor_stress_loss
+			compassionate = major_stress_gain
+			callous = medium_stress_loss
+			sadistic = medium_stress_loss
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+
+	after = {
+		scope:colonist = {
+			silent_disappearance_effect = yes
+		}
+	}
+}
+
+colonisation_random.2004 = { # A Den of Sin
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2004.t
+	desc = {
+		desc = colonisation_random.2004.desc.1
+		triggered_desc = { # They're all liars and thieves
+			trigger = { 
+				faith = { trait_is_sin = deceitful }
+			} 
+			desc = colonisation_random.2004.desc.2.deceit
+		}
+		triggered_desc = { # They're all prudes
+			trigger = { 
+				NOT = { faith = { trait_is_sin = deceitful } }
+				faith = { trait_is_sin = chaste }
+			} 
+			desc = colonisation_random.2004.desc.2.chastity
+		}
+		triggered_desc = { # They're all squishy
+			trigger = { 
+				NOT = { faith = { trait_is_sin = deceitful } }
+				NOT = { faith = { trait_is_sin = chaste } }
+				faith = { trait_is_sin = compassionate }
+			} 
+			desc = colonisation_random.2004.desc.2.compassion
+		}
+		desc = colonisation_random.2004.desc.3
+	}
+	theme = intrigue
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+
+	right_portrait = {
+		character = scope:sinner
+		animation = personality_callous
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2004 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+		faith = {
+			OR = {
+				trait_is_sin = deceitful
+				trait_is_sin = chaste
+				trait_is_sin = compassionate
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2004
+			years = 30
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		if = {
+			limit = { faith = { trait_is_sin = deceitful } }
+			create_character = {
+				template = peasant_character
+				dynasty = none
+				culture = scope:colony_province.culture
+				faith = scope:colony_province.faith
+				location = scope:colony_province
+				gender_female_chance = 50
+				save_scope_as = sinner
+				after_creation = {
+					clear_traits = yes
+					add_trait = deceitful
+					add_trait = vengeful
+					add_trait = paranoid
+					add_trait = education_intrigue_1
+				}
+			}
+		}
+		else_if = {
+			limit = { faith = { trait_is_sin = chaste } }
+			create_character = {
+				template = peasant_character
+				dynasty = none
+				culture = scope:colony_province.culture
+				faith = scope:colony_province.faith
+				location = scope:colony_province
+				gender_female_chance = 50
+				save_scope_as = sinner
+				after_creation = {
+					clear_traits = yes
+					add_trait = chaste
+					add_trait = shy
+					add_trait = content
+					add_trait = education_learning_1
+				}
+			}
+		}
+		else = {
+			create_character = {
+				template = peasant_character
+				dynasty = none
+				culture = scope:colony_province.culture
+				faith = scope:colony_province.faith
+				location = scope:colony_province
+				gender_female_chance = 50
+				save_scope_as = sinner
+				after_creation = {
+					clear_traits = yes
+					add_trait = compassionate
+					add_trait = craven
+					add_trait = generous
+					add_trait = education_diplomacy_1
+				}
+			}
+		}
+	}
+
+	option = { # Crack down on the sinners
+		name = colonisation_random.2004.a
+		trigger = {
+			NOR = {
+				trigger_if = {
+					limit = { scope:sinner = { has_trait = deceitful } }
+					has_trait = deceitful
+				}
+				trigger_if = {
+					limit = { scope:sinner = { has_trait = chaste } }
+					has_trait = chaste
+				}
+				trigger_if = {
+					limit = { scope:sinner = { has_trait = compassionate } }
+					has_trait = compassionate
+				}
+			}
+		}
+		show_as_unavailable = {
+			trigger_if = {
+				limit = { scope:sinner = { has_trait = deceitful } }
+				has_trait = deceitful
+			}
+			trigger_if = {
+				limit = { scope:sinner = { has_trait = chaste } }
+				has_trait = chaste
+			}
+			trigger_if = {
+				limit = { scope:sinner = { has_trait = compassionate } }
+				has_trait = compassionate
+			}
+		}
+		add_piety = 100
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = persecuted_colonists_county_modifier
+				years = 20
+			}
+		}
+		stress_impact = {
+			zealous = major_stress_loss
+			cynical = medium_stress_gain
+			sadistic = minor_stress_loss
+			callous = minor_stress_loss
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	
+	option = { # Turn a blind eye
+		name = colonisation_random.2004.b
+		add_piety = -100
+		add_character_modifier = {
+			modifier = sided_with_sinners_modifier
+			years = 10
+		}
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = unpersecuted_colonists_county_modifier
+				years = 20
+			}
+		}
+		stress_impact = {
+			zealous = major_stress_gain
+			cynical = medium_stress_loss
+			lazy = minor_stress_loss
+			forgiving = minor_stress_loss
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+
+	option = { # I don't know... sounds fun to me!
+		name = colonisation_random.2004.c
+		trigger = {
+			trigger_if = {
+				limit = { scope:sinner = { has_trait = deceitful } }
+				has_trait = honest
+			}
+			trigger_if = {
+				limit = { scope:sinner = { has_trait = chaste } }
+				has_trait = lustful
+			}
+			trigger_if = {
+				limit = { scope:sinner = { has_trait = compassionate } }
+				OR = {
+					has_trait = callous
+					has_trait = sadistic
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_trait = honest
+				scope:sinner = { has_trait = deceitful }
+			}
+			remove_trait_force_tooltip = honest
+			add_trait_force_tooltip = deceitful
+		}
+		else_if = {
+			limit = {
+				has_trait = lustful
+				scope:sinner = { has_trait = chaste }
+			}
+			remove_trait_force_tooltip = lustful
+			add_trait_force_tooltip = chaste
+		}
+		else_if = {
+			limit = {
+				has_trait = sadistic
+				scope:sinner = { has_trait = compassionate }
+			}
+			remove_trait_force_tooltip = sadistic
+			add_trait_force_tooltip = compassionate
+		}
+		else_if = {
+			limit = {
+				has_trait = callous
+				scope:sinner = { has_trait = compassionate }
+			}
+			remove_trait_force_tooltip = callous
+			add_trait_force_tooltip = compassionate
+		}
+		add_piety_level = -1
+		add_character_modifier = {
+			modifier = sided_with_sinners_modifier
+			years = 10
+		}
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = unpersecuted_colonists_county_modifier
+				years = 20
+			}
+		}
+		stress_impact = {
+			zealous = massive_stress_gain
+			cynical = major_stress_loss
+			arbitrary = medium_stress_loss
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	after = {
+		scope:sinner = {
+			silent_disappearance_effect = yes
+		}
+	}
+}
+
+colonisation_random.2005 = { # Thick as Thieves
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2005.t
+	desc = colonisation_random.2005.desc
+	theme = intrigue
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+
+	right_portrait = {
+		character = scope:governor
+		animation = personality_greedy
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2005 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = { has_building = bandits }
+			free_building_slots > 0
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2005
+			years = 30
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = { has_building = bandits }
+				free_building_slots > 0
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 20
+			save_scope_as = governor
+			after_creation = {
+				remove_trait = peasant_leader
+				clear_traits = yes
+				add_trait = deceitful
+				add_trait = greedy
+				add_trait = ambitious
+				add_trait = education_stewardship_3
+			}
+		}
+		scope:colony_province = {
+			add_building = bandits
+		}
+	}
+
+	option = { # Expend influence to unseat them
+		name = colonisation_random.2005.a
+		custom_tooltip = colonisation_random.2005.a.tt
+		add_prestige = -150
+		scope:governor = {
+			silent_disappearance_effect = yes
+		}
+		stress_impact = {
+			ambitious = minor_stress_loss
+			content = minor_stress_gain
+			vengeful = minor_stress_loss
+			forgiving = minor_stress_gain
+			just = medium_stress_loss
+			greedy = minor_stress_loss
+		}
+		ai_chance = {
+			base = 70
+		}
+	}
+	
+	option = { # Take him out... subtly
+		name = colonisation_random.2005.b
+		skill = intrigue
+		duel = {
+			skill = intrigue
+			target = scope:governor
+			20 = {
+				desc = colonisation_random.2005.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				send_interface_toast = {
+					left_icon = root
+					right_icon = scope:governor
+					title = colonisation_random.2005.b.success.toast
+					scope:governor = {
+						death = {
+							death_reason = death_disappearance
+						}
+					}
+				}
+			}
+
+			20 = {
+				desc = colonisation_random.2005.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -19
+				}
+				send_interface_toast = {
+					left_icon = root
+					right_icon = scope:governor
+					title = colonisation_random.2005.b.failure.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = corrupt_governor_county_modifier
+							years = 10
+						}
+					}
+					add_secret = {
+						type = secret_murder_attempt
+						target = scope:governor
+					}
+				}
+			}
+		}
+		stress_impact = {
+			ambitious = minor_stress_loss
+			content = minor_stress_gain
+			vengeful = medium_stress_loss
+			forgiving = medium_stress_gain
+			just = minor_stress_loss
+			greedy = minor_stress_loss
+			compassionate = minor_stress_gain
+			callous = minor_stress_loss
+			sadistic = minor_stress_loss
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+
+	option = { # Maybe we can come to some sort of arrangement...
+		name = colonisation_random.2005.c
+		trigger = {
+			NOT = { has_trait = honest }
+		}
+		show_as_unavailable = {
+			has_trait = honest
+		}
+		set_relation_friend = { reason = friend_business_associate target = scope:governor }
+		add_character_modifier = {
+			modifier = unofficial_income_modifier
+			years = 10
+		}
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = corrupt_governor_county_modifier
+				years = 10
+			}
+		}
+		stress_impact = {
+			ambitious = minor_stress_loss
+			fickle = minor_stress_loss
+			vengeful = medium_stress_gain
+			forgiving = minor_stress_loss
+			just = major_stress_gain
+			greedy = medium_stress_loss
+			honest = minor_stress_gain
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+
+}
+
+colonisation_random.2006 = { # Colonial Feud
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2006.t
+	desc = colonisation_random.2006.desc
+	theme = diplomacy
+
+	override_background = {
+		reference = wilderness
+	}
+
+
+	left_portrait = {
+		character = scope:merchant
+		animation = anger
+	}
+
+	right_portrait = {
+		character = scope:militia
+		animation = anger
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2006 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = {
+				county = {
+					OR = {
+						has_county_modifier = military_colony_county_modifier
+						has_county_modifier = merchant_colony_county_modifier
+						has_county_modifier = harmonious_colony_county_modifier
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2006
+			years = 30
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = {
+					county = {
+						OR = {
+							has_county_modifier = military_colony_county_modifier
+							has_county_modifier = merchant_colony_county_modifier
+							has_county_modifier = harmonious_colony_county_modifier
+						}
+					}
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 20
+			save_scope_as = merchant
+			after_creation = {
+				remove_trait = peasant_leader
+				clear_traits = yes
+				add_trait = fickle
+				add_trait = greedy
+				add_trait = honest
+				add_trait = education_stewardship_2
+			}
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 20
+			save_scope_as = militia
+			after_creation = {
+				remove_trait = peasant_leader
+				clear_traits = yes
+				add_trait = brave
+				add_trait = stubborn
+				add_trait = wrathful
+				add_trait = education_martial_2
+			}
+		}
+	}
+
+	option = { # Side with the Militia
+		name = colonisation_random.2006.a
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = military_colony_county_modifier
+				years = 50
+			}
+		}
+		stress_impact = {
+			paranoid = minor_stress_loss
+			greedy = minor_stress_gain
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	
+	option = { # Side with the Merchants
+		name = colonisation_random.2006.b
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = merchant_colony_county_modifier
+				years = 50
+			}
+		}
+		stress_impact = {
+			paranoid = minor_stress_gain
+			greedy = minor_stress_loss
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+
+	option = { # Mediate a compromise
+		name = colonisation_random.2006.c
+		skill = diplomacy
+		duel = {
+			skill = diplomacy
+			value = 20
+			20 = {
+				desc = colonisation_random.2006.c.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				send_interface_toast = {
+					left_icon = root
+					right_icon = scope:governor
+					title = colonisation_random.2006.c.success.toast
+					add_prestige = 100
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = harmonious_colony_county_modifier
+							years = 50
+						}
+					}
+				}
+			}
+
+			20 = {
+				desc = colonisation_random.2006.c.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -19
+				}
+				random_list = {
+					50 = {
+						send_interface_toast = {
+							left_icon = root
+							right_icon = scope:militia
+							title = colonisation_random.2006.c.failure.toast
+							add_prestige = -150
+							scope:colony_county = {
+								add_county_modifier = {
+									modifier = military_colony_county_modifier
+									years = 50
+								}
+							}
+						}
+					}
+					50 = {
+						send_interface_toast = {
+							left_icon = root
+							right_icon = scope:merchant
+							title = colonisation_random.2006.c.failure.toast
+							add_prestige = -150
+							scope:colony_county = {
+								add_county_modifier = {
+									modifier = merchant_colony_county_modifier
+									years = 50
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			shy = medium_stress_gain
+			arrogant = minor_stress_loss
+			gregarious = minor_stress_loss
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+
+	after = {
+		scope:militia = {
+			silent_disappearance_effect = yes
+		}
+		scope:merchant = {
+			silent_disappearance_effect = yes
+		}
+	}
+
+}
+
+colonisation_random.2007 = { # Boycott
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2007.t
+	desc = {
+		triggered_desc = { # Has Steward
+			trigger = { 
+				any_stewardship_councillor = {
+					count > 0
+				}
+			} 
+			desc = colonisation_random.2007.desc.1.steward
+		}
+		triggered_desc = { # Has Advisor
+			trigger = { 
+				any_stewardship_councillor = {
+					count = 0
+				}
+			} 
+			desc = colonisation_random.2007.desc.1.advisor
+		}
+		desc = colonisation_random.2007.desc.2
+	}
+	theme = dread
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	right_portrait = {
+		character = scope:steward
+		animation = stress
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2007 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			county = {
+				NOR = {
+					has_county_modifier = well_supplied_colony_county_modifier
+					has_county_modifier = poorly_supplied_colony_county_modifier
+				}
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2007
+			years = 30
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				county = {
+					NOR = {
+						has_county_modifier = well_supplied_colony_county_modifier
+						has_county_modifier = poorly_supplied_colony_county_modifier
+					}
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		if = {
+			limit = {
+				any_stewardship_councillor = {
+					count > 0
+				}
+			}
+			random_stewardship_councillor = {
+				save_scope_as = steward
+			}
+		}
+		else ={
+			create_character = {
+				template = peasant_character
+				dynasty = none
+				culture = capital_county.culture
+				faith = capital_county.faith
+				location = capital_province
+				gender_female_chance = 20
+				save_scope_as = steward
+				after_creation = {
+					remove_trait = peasant_leader
+					clear_traits = yes
+					add_trait = shy
+					add_trait = greedy
+					add_trait = diligent
+					add_trait = education_stewardship_2
+				}
+			}
+		}
+	}
+
+	option = { # Perhaps a temporary reduction in taxation will silence them?
+		name = colonisation_random.2007.a
+		add_character_modifier = {
+			modifier = reduced_taxes_on_guilds_modifier
+			years = 5
+		}
+		scope:colony_county = {
+			add_county_modifier = {
+				modifier = well_supplied_colony_county_modifier
+				years = 5
+			}
+		}
+		stress_impact = {
+			greedy = medium_stress_gain
+			generous = minor_stress_loss
+			compassionate = minor_stress_loss
+			vengeful = minor_stress_gain
+			forgiving = minor_stress_loss
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = { # I'm sure we can come to some sort of compromise...
+		name = colonisation_random.2007.b
+		skill = stewardship
+		duel = {
+			skill = stewardship
+			value = 14
+			20 = {
+				desc = colonisation_random.2007.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2007.b.success.toast
+					add_prestige = 100
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = well_supplied_colony_county_modifier
+							years = 10
+						}
+					}
+				}
+			}
+
+			20 = {
+				desc = colonisation_random.2007.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -19
+				}
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2007.b.failure.toast
+					add_prestige = -150
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = poorly_supplied_colony_county_modifier
+							years = 10
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			shy = medium_stress_gain
+			arrogant = minor_stress_loss
+			gregarious = minor_stress_loss
+		}
+		ai_chance = {
+			base = 45
+		}
+	}
+
+	option = { # It's time to assert a little authority over these money-grabbers!
+		name = colonisation_random.2007.c
+		add_character_modifier = {
+			modifier = increased_taxes_on_guilds_modifier
+			years = 5
+		}
+		random_list = {
+			30 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2007.c.success.toast
+					add_prestige = 50
+				}
+			}
+			40 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2007.c.failure.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = poorly_supplied_colony_county_modifier
+							years = 5
+						}
+					}
+				}
+			}
+			30 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2007.c.critical_failure.toast
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+		}
+		stress_impact = {
+			greedy = medium_stress_loss
+			generous = medium_stress_gain
+			forgiving = minor_stress_gain
+			vengeful = medium_stress_loss
+			wrathful = medium_stress_loss
+			stubborn = minor_stress_loss
+			callous = minor_stress_loss
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+
+}
+
+colonisation_random.2008 = { # Plague / Beardrot
+	content_source = realms_dlc
+	type = character_event
+	title = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					scope:colony_county.culture = { 
+						is_dwarf_culture = yes
+					} 
+				}
+				desc = colonisation_random.2008.t.beardless.plague
+			}
+			desc = colonisation_random.2008.t
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					scope:colony_county.culture = { 
+						is_dwarf_culture = yes
+					} 
+				}
+				desc = colonisation_random.2008.desc.beardless.plague
+			}
+			desc = colonisation_random.2008.desc
+		}
+	}
+	theme = disaster
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = disgust
+	}
+
+	right_portrait = {
+		character = scope:colonist
+		animation = sick
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2008 }
+		NOT = { is_elf = yes }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			county.culture = { is_elf_culture = no }
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2008
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				county.culture = { is_elf_culture = no }
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		capital_county = {
+			save_scope_as = capital
+		}
+		if = {
+			limit = {
+				scope:colony_county.culture = { 
+					is_dwarf_culture = yes
+				}
+			}
+			create_character = {
+				template = peasant_character
+				dynasty = none
+				culture = scope:colony_province.culture
+				faith = scope:colony_province.faith
+				location = scope:colony_province
+				gender_female_chance = 20
+				save_scope_as = colonist
+				after_creation = {
+					remove_trait = peasant_leader
+					add_trait = beardless_plague
+				}
+			}
+		}
+		else = {
+			create_character = {
+				template = peasant_character
+				dynasty = none
+				culture = scope:colony_province.culture
+				faith = scope:colony_province.faith
+				location = scope:colony_province
+				gender_female_chance = 20
+				save_scope_as = colonist
+				after_creation = {
+					remove_trait = peasant_leader
+					add_trait = bubonic_plague
+				}
+			}
+		}
+	}
+
+	option = { # Quarantine the colony, make them ride it out
+		name = colonisation_random.2008.a
+		if = {
+			limit = { 
+				faith = { 
+					OR = {
+						trait_is_virtue = callous
+						trait_is_virtue = sadistic
+					}
+				}
+			}
+			add_piety = 100
+		}
+		else = {
+			add_piety = -150
+		}
+		random_list = {
+			80 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2008.a.failure.toast
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+			20 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2008.a.success.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = colony_disease_recovery_county_modifier
+							years = 10
+						}
+						if = {
+							limit = {
+								development_level = 1
+							}
+							change_development_level = -1
+						}
+						else_if = {
+							limit = {
+								development_level > 1
+							}
+							change_development_level = -2
+						}
+					}
+				}
+				modifier = { #Juke Note: I wanted to tie in plague mechanics
+					add = scope:colony_county.title_province.epidemic_resistance
+				}
+				modifier = {
+					factor = 1.5
+					scope:colony_county.culture = { has_cultural_parameter = better_disease_resistance }
+				}
+			}
+		}
+		stress_impact = {
+			paranoid = minor_stress_loss
+			compassionate = major_stress_gain
+			callous = minor_stress_loss
+			sadistic = minor_stress_loss
+			greedy = minor_stress_loss
+		}
+		ai_chance = {
+			base = 15
+		}
+	}
+	
+	option = { # Send medical aid
+		name = colonisation_random.2008.b
+		remove_short_term_gold = 150
+		random_list = {
+			35 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2008.a.failure.toast
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+			65 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2008.a.success.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = colony_disease_recovery_county_modifier
+							years = 5
+						}
+					}
+				}
+				modifier = { #Juke Note: I wanted to tie in plague mechanics
+					add = scope:colony_county.title_province.epidemic_resistance
+				}
+				modifier = {
+					factor = 1.5
+					scope:colony_county.culture = { has_cultural_parameter = better_disease_resistance }
+				}
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_loss
+			callous = minor_stress_gain
+			generous = minor_stress_loss
+			greedy = medium_stress_gain
+		}
+		ai_chance = {
+			base = 80
+		}
+	}
+
+	option = { # Bring them to the capital for urgent care
+		name = colonisation_random.2008.c
+		random = {
+			chance = 30
+			send_interface_toast = {
+				left_icon = root
+				title = colonisation_random.2008.c.outbreak.toast
+				custom_tooltip = {
+					text = colonisation_random.2008.c.tt.outbreak
+					if = {
+						limit = {
+							scope:colony_county.culture = { 
+								is_dwarf_culture = yes
+							}
+						}
+						every_courtier_or_guest = {
+							random = {
+								chance = 10
+								contract_disease_effect = { DISEASE = beardless_plague TREATMENT_EVENT = yes }
+							}
+						}
+					}
+					else = {
+						every_courtier_or_guest = {
+							random = {
+								chance = 10
+								contract_disease_effect = { DISEASE = bubonic_plague TREATMENT_EVENT = yes }
+							}
+						}
+					}
+				}
+				capital_county = {
+					add_county_modifier = {
+						modifier = colony_disease_recovery_county_modifier
+						years = 3
+					}
+				}
+			}
+		}
+		random_list = {
+			5 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2008.a.failure.toast
+					make_settlement_county_wilderness = {
+						COUNTY = scope:colony_county
+					}
+				}
+			}
+			95 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2008.a.success.toast
+					scope:colony_county = {
+						add_county_modifier = {
+							modifier = colony_disease_recovery_county_modifier
+							years = 3
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			paranoid = medium_stress_gain
+			craven = major_stress_gain
+			compassionate = major_stress_loss
+		}
+		ai_chance = {
+			base = 5
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				scope:colony_county.culture = { 
+					is_dwarf_culture = yes
+				}
+			}
+			scope:colonist = {
+				hidden_effect = {
+					death = { death_reason = death_beardless_plague }
+				}
+			}
+		}
+		else = {
+			scope:colonist = {
+				hidden_effect = {
+					death = { death_reason = death_bubonic_plague }
+				}
+			}
+		}
+	}
+
+}
+
+colonisation_random.2009 = { # Prospecting
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2009.t
+	desc = {
+		triggered_desc = { # Has Steward
+			trigger = { 
+				any_stewardship_councillor = {
+					count > 0
+				}
+			} 
+			desc = colonisation_random.2009.desc.1.steward
+		}
+		triggered_desc = { # Has Advisor
+			trigger = { 
+				any_stewardship_councillor = {
+					count = 0
+				}
+			} 
+			desc = colonisation_random.2009.desc.1.advisor
+		}
+		desc = colonisation_random.2009.desc.2
+	}
+	theme = dwarven
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	right_portrait = {
+		character = scope:steward
+		animation = happiness
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2009 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			county = {
+				any_county_province = {
+					OR = {
+						terrain = hills
+						terrain = red_desert
+						terrain = mountains
+						terrain = desert_mountains
+					}
+					NOR = {
+						has_province_modifier = mineral_deposit_province_modifier
+						has_province_modifier = rich_mineral_deposit_province_modifier
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2009
+			years = 30
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				county = {
+					any_county_province = {
+						OR = {
+							terrain = hills
+							terrain = red_desert
+							terrain = mountains
+							terrain = desert_mountains
+						}
+						NOR = {
+							has_province_modifier = mineral_deposit_province_modifier
+							has_province_modifier = rich_mineral_deposit_province_modifier
+						}
+					}
+				}
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		scope:colony_county = {
+			random_county_province = {
+				limit = {
+					OR = {
+						terrain = hills
+						terrain = red_desert
+						terrain = mountains
+						terrain = desert_mountains
+					}
+				}
+				save_scope_as = mineral_province
+			}
+		}
+		if = {
+			limit = {
+				any_stewardship_councillor = {
+					count > 0
+				}
+			}
+			random_stewardship_councillor = {
+				save_scope_as = steward
+			}
+		}
+		else ={
+			create_character = {
+				template = peasant_character
+				dynasty = none
+				culture = capital_county.culture
+				faith = capital_county.faith
+				location = capital_province
+				gender_female_chance = 20
+				save_scope_as = steward
+				after_creation = {
+					remove_trait = peasant_leader
+					clear_traits = yes
+					add_trait = shy
+					add_trait = greedy
+					add_trait = diligent
+					add_trait = education_stewardship_2
+				}
+			}
+		}
+	}
+
+	option = { # Charter a survey of the land!
+		name = colonisation_random.2009.a
+		remove_short_term_gold = 150
+		trait = lifestyle_miner
+		random_list = {
+			20 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2009.a.critical_success.toast
+					add_prestige = 100
+					scope:mineral_province = {
+						add_province_modifier = {
+							modifier = rich_mineral_deposit_province_modifier
+						}
+					}
+				}
+				modifier = {
+					has_trait = lifestyle_miner
+					add = 5
+				}
+				modifier = {
+					has_trait = lifestyle_miner
+					has_trait_xp = {
+						trait = lifestyle_miner
+						track = prospector
+						value >= 50
+					}
+					add = 10
+				}
+				modifier = {
+					has_trait = lifestyle_miner
+					has_trait_xp = {
+						trait = lifestyle_miner
+						track = prospector
+						value >= 100
+					}
+					add = 10
+				}
+			}
+			45 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2009.a.success.toast
+					add_prestige = 50
+					scope:mineral_province = {
+						add_province_modifier = {
+							modifier = mineral_deposit_province_modifier
+						}
+					}
+				}
+				modifier = {
+					has_trait = lifestyle_miner
+					add = 5
+				}
+				modifier = {
+					has_trait = lifestyle_miner
+					has_trait_xp = {
+						trait = lifestyle_miner
+						track = prospector
+						value >= 50
+					}
+					add = 10
+				}
+				modifier = {
+					has_trait = lifestyle_miner
+					has_trait_xp = {
+						trait = lifestyle_miner
+						track = prospector
+						value >= 100
+					}
+					add = 10
+				}
+			}
+			35 = {
+				send_interface_toast = {
+					left_icon = root
+					title = colonisation_random.2009.a.failure.toast
+					add_prestige = -50
+				}
+			}
+		}
+		stress_impact = {
+			greedy = minor_stress_loss
+			content = minor_stress_gain
+			ambitious = minor_stress_loss
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				has_trait = lifestyle_miner
+				factor = 2
+			}
+			modifier = {
+				gold > 150
+				factor = 5
+			}
+		}
+	}
+	
+	option = { # Sounds like a waste of gold to me...
+		name = colonisation_random.2009.b
+		add_prestige = -25
+		stress_impact = {
+			greedy = minor_stress_gain
+			content = minor_stress_loss
+			lazy = minor_stress_loss
+			arbitrary = minor_stress_loss
+			ambitious = minor_stress_gain
+			lifestyle_miner = minor_stress_gain
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+}
+
+colonisation_random.2010 = { # Lupine Threat
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2010.t
+	desc = colonisation_random.2010.desc
+	theme = hunting
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	right_portrait = {
+		character = scope:colonist
+		animation = fear
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2010 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = { has_building = wolf_den }
+			NOT = { terrain = halls }
+			free_building_slots > 0
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2010
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = { has_building = wolf_den }
+				free_building_slots > 0
+				NOT = { terrain = halls }
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 50
+			save_scope_as = colonist
+			after_creation = {
+				remove_trait = peasant_leader
+			}
+		}
+	}
+
+	option = { # Damn!
+		name = colonisation_random.2010.a
+		scope:colony_province = {
+			add_building = wolf_den
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	after = {
+		scope:colonist = {
+			hidden_effect = {
+				death = { death_reason = death_wolf }
+			}
+		}
+	}
+
+}
+
+colonisation_random.2011 = { # Bandit Country
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2011.t
+	desc = colonisation_random.2011.desc
+	theme = intrigue
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	right_portrait = {
+		character = scope:colonist
+		animation = paranoia
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2011 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = { has_building = bandits }
+			free_building_slots > 0
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2011
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = { has_building = bandits }
+				free_building_slots > 0
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		create_character = {
+			template = peasant_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 50
+			save_scope_as = colonist
+			after_creation = {
+				remove_trait = peasant_leader
+			}
+		}
+	}
+
+	option = { # Damn!
+		name = colonisation_random.2011.a
+		scope:colony_province = {
+			add_building = bandits
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	after = {
+		scope:colonist = {
+			silent_disappearance_effect = yes
+		}
+	}
+
+}
+
+colonisation_random.2012 = { # A Plea from the Settlers
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2012.t
+	desc = colonisation_random.2012.desc
+	theme = diplomacy
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+
+	right_portrait = {
+		character = scope:colonist
+		animation = page_flipping
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2012 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2012
+			years = 25
+		}
+		add_prestige = minor_prestige_loss
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		create_character = {
+			template = new_warrior_character
+			dynasty = none
+			culture = scope:colony_province.culture
+			faith = scope:colony_province.faith
+			location = scope:colony_province
+			gender_female_chance = 50
+			save_scope_as = colonist
+		}
+		custom_tooltip = colonisation_random.2012.tt
+		
+		hidden_effect = {
+			if = { # Check if the county is underground
+				limit = {
+					scope:colony_province = {
+						terrain = halls
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = dwarven_holding
+				}
+			}
+			else_if = {
+				limit = {
+					root = {
+						is_elf = yes
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = elven_holding
+				}
+			}
+			else_if = {
+				limit = {
+					root = {
+						is_hobbit = yes
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = city_holding
+				}
+			}
+			else_if = {
+				limit = {
+					root = {
+						government_has_flag = government_is_feudal
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = castle_holding
+				}
+			}
+			else = {
+				scope:colony_province = {
+					set_holding_type = tribal_holding
+				}
+			}
+		}
+			
+		create_title_and_vassal_change = {
+			type = returned
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:colony_county = {
+			change_title_holder = {
+				holder = scope:colonist
+				change = scope:change
+			}			
+		}
+		scope:colonist = { becomes_independent = { change = scope:change } }
+		resolve_title_and_vassal_change = scope:change
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					root = { is_elf = yes }
+				}
+				scope:colonist = { change_government = elven_government }
+			}
+			else_if = {
+				limit = {
+					root = { is_hobbit = yes }
+				}
+				scope:colonist = { change_government = hobbit_government }
+			}
+			else_if = {
+				limit = {
+					root = { is_orc = yes }
+				}
+				scope:colonist = { change_government = orcish_government }
+			}
+			else_if = {
+				limit = {
+					root = {
+						government_has_flag = government_is_tribal
+					}
+				}
+				scope:colonist = { change_government = tribal_government }
+			}
+			else_if = {
+				limit = {
+					root = {
+						government_has_flag = government_is_clan
+					}
+				}
+				scope:colonist = { change_government = clan_government }
+			}
+			else = {
+				scope:colonist = { change_government = feudal_government }
+			}
+		}
+		scope:colonist = {
+			random_held_title = { save_scope_as = colony_title }
+		}
+		
+		if = {
+			limit = { 
+				has_variable = num_settled_wilderness 
+				var:num_settled_wilderness > 0
+			}
+			decrease_variable = {
+				NAME = num_settled_wilderness
+				AMOUNT = 1
+			}
+			remove_wastelands_tracker_variable = yes
+		}
+	}
+	
+	option = { # Accept their offer 
+		name = colonisation_random.2012.a
+		custom_tooltip = colonisation_random.2012.a.tt	
+		# Set up tributary status
+		scope:colonist = {
+			start_tributary = {
+				contract_group = tributary_subjugated
+				suzerain = root
+			}
+		}
+	}
+
+	option = { # Try and negotiate a deal
+		name = colonisation_random.2012.b
+		trigger = { highest_held_title_tier > tier_county }
+		custom_tooltip = colonisation_random.2012.b.tt
+		duel = {
+ 			skill = diplomacy
+ 			target = scope:colonist
+ 			50 = {
+				# You convince them
+ 				desc = colonisation_random.2012.b.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = colonisation_random.2012.b.success
+ 					left_icon = root
+ 					right_icon = scope:colonist
+					#scope:colonist = { end_tributary = yes = yes }
+					create_title_and_vassal_change = {
+						type = swear_fealty
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					scope:colonist = {
+						change_liege = {
+							liege = root
+							change = scope:change
+						}
+					}
+					resolve_title_and_vassal_change = scope:change
+ 				}
+ 			}
+ 			50 = {
+ 				# They reject you
+ 				desc = colonisation_random.2012.b.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = colonisation_random.2012.b.failure
+ 					left_icon = root
+ 					right_icon = scope:colonist
+					#scope:colonist = { end_tributary = yes = yes }
+ 				}
+				root = {
+					progress_towards_rival_effect = {
+						REASON = rival_humiliated
+						CHARACTER = scope:colonist
+						OPINION = default_rival_opinion
+					}
+				}
+				stress_impact = {
+					ambitious = medium_stress_impact_gain
+					just = minor_stress_impact_gain
+					forgiving = minor_stress_impact_loss
+				}
+				scope:colonist = {
+					add_trait = gallowsbait
+				}
+ 			}
+ 		}
+	}
+	
+	option = { # This means war
+		name = colonisation_random.2012.c
+		duel = {
+ 			skill = intrigue
+ 			target = scope:colonist
+ 			50 = {
+				# You arrest him
+ 				desc = colonisation_random.2012.c.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = colonisation_random.2012.c.success
+ 					left_icon = root
+ 					right_icon = scope:colonist
+ 					rightfully_imprison_character_effect = {
+ 						TARGET = scope:colonist
+ 						IMPRISONER = root
+ 					}
+ 				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				scope:colony_county = {
+					change_title_holder = {
+						holder = root
+						change = scope:change
+					}			
+				}
+				resolve_title_and_vassal_change = scope:change
+				
+ 			}
+ 			50 = {
+ 				# The upstart escapes
+ 				desc = colonisation_random.2012.c.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = colonisation_random.2012.c.failure
+ 					left_icon = root
+ 					right_icon = scope:colonist
+					add_pressed_claim = scope:colony_county
+ 				}
+				scope:colonist = {
+					add_trait = gallowsbait
+				}
+				set_relation_rival = {
+					target = scope:colonist
+					reason = rival_humiliated
+				}
+ 			}
+		}
+	}
+	
+	# after = {
+		# scope:colonist = {
+			# silent_disappearance_effect = yes
+		# }
+	# }
+
+}
+
+colonisation_random.2013 = { # Marauding Orcs
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2013.t
+	desc = colonisation_random.2013.desc
+	theme = orcs
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2013 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = { has_building = wild_orcs }
+			free_building_slots > 0
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2013
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = { has_building = wild_orcs }
+				free_building_slots > 0
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # Those savages!
+		name = colonisation_random.2013.a
+		scope:colony_province = {
+			add_building = wild_orcs
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+colonisation_random.2014 = { # Ahead of Schedule
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2014.t
+	desc = colonisation_random.2014.desc
+	theme = realm
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2014 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2014
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		
+		hidden_effect = {
+			if = { # Check if the county is underground
+				limit = {
+					scope:colony_province = {
+						OR = {
+							terrain = halls
+						}
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = dwarven_holding
+				}	
+			}	
+			else_if = {
+				limit = {
+					root = {
+						is_elf = yes
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = elven_holding
+				}
+			}
+			else_if = {
+				limit = {
+					root = {
+						is_hobbit = yes
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = city_holding
+				}
+			}
+			else_if = {
+				limit = {
+					root = {
+						government_has_flag = government_is_tribal
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = tribal_holding
+				}
+			}
+			else_if = {
+				limit = {
+					root = {
+						government_has_flag = government_is_clan
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = castle_holding
+				}
+			}
+			else = {
+				scope:colony_province = {
+					set_holding_type = castle_holding
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_variable = num_settled_wilderness 
+				var:num_settled_wilderness > 0
+			}
+			decrease_variable = {
+				NAME = num_settled_wilderness
+				AMOUNT = 1
+			}
+			remove_wastelands_tracker_variable = yes
+		}
+	}
+	
+	option = { # This is great!
+		name = colonisation_random.2014.a
+		custom_tooltip = colonisation_random.2014.a.tt	
+	}
+}
+
+colonisation_random.2015 = { # Spider Nest Discovered
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2015.t
+	desc = colonisation_random.2015.desc
+	theme = dread
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2015 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = { has_building = spider_nest }
+			free_building_slots > 0
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2015
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = { has_building = spider_nest }
+				free_building_slots > 0
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # Ewwww spiders
+		name = colonisation_random.2015.a
+		scope:colony_province = {
+			add_building = spider_nest
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+colonisation_random.2016 = { # Heresy Outbreak
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2016.t
+	desc = colonisation_random.2016.desc
+	theme = faith
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:heretic_colonist
+		animation = chaplain
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2016 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2016
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+		
+		hidden_effect = {
+			if = { # Check if the county is underground
+				limit = {
+					scope:colony_province = {
+						terrain = halls
+					}
+				}
+				scope:colony_province = {
+					set_holding_type = dwarven_holding
+				}	
+			}	
+			else_if = {
+				limit = { is_elf = yes }
+				scope:colony_province = {
+					set_holding_type = elven_holding
+				}
+			}
+			else_if = {
+				limit = { is_hobbit = yes }
+				scope:colony_province = {
+					set_holding_type = city_holding
+				}
+			}
+			else_if = {
+				limit = { government_has_flag = government_is_tribal }
+				scope:colony_province = {
+					set_holding_type = tribal_holding
+				}
+			}
+			else_if = {
+				limit = { government_has_flag = government_is_clan }
+				scope:colony_province = {
+					set_holding_type = castle_holding
+				}
+			}
+			else = {
+				scope:colony_province = {
+					set_holding_type = castle_holding
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_variable = num_settled_wilderness 
+				var:num_settled_wilderness > 0
+			}
+			decrease_variable = {
+				NAME = num_settled_wilderness
+				AMOUNT = 1
+			}
+			remove_wastelands_tracker_variable = yes
+		}
+		
+		faith.religion = {
+			random_faith = { #here we're setting up a nice heresy for the event
+				limit = { NOT = { this = root.faith } }
+				save_scope_as = heretical_faith
+			}
+		}
+		
+		scope:colony_province.county = {
+			set_county_faith = scope:heretical_faith
+			generate_coa = yes
+		}
+		
+		custom_tooltip = colonisation_random.2016.tt
+		
+		create_character = {
+            template = local_artisan_template
+            culture = root.culture
+            faith = scope:heretical_faith
+			location = scope:colony_province
+			trait = heresiarch
+            gender_female_chance = 25
+            save_scope_as = heretic_colonist
+        }
+		
+		create_title_and_vassal_change = {
+			type = usurped
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		scope:colony_county = {
+			change_title_holder = {
+				holder = scope:heretic_colonist
+				change = scope:change
+			}			
+			generate_coa = yes
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	
+	option = { # They can keep their beliefs
+		name = colonisation_random.2016.a
+		add_piety = minor_piety_loss
+		add_legitimacy_effect = { LEGITIMACY = miniscule_legitimacy_gain }
+		stress_impact = {
+			zealous = major_stress_impact_gain
+			arrogant = medium_stress_impact_gain 
+			cynical = medium_stress_impact_loss 
+			humble = medium_stress_impact_loss 
+		}
+	}
+	
+	option = { # HERESY! I won't stand for it!
+		name = colonisation_random.2016.b 
+		custom_tooltip = colonisation_random.2016.b.tt
+		add_piety = medium_piety_gain
+		stress_impact = {
+			zealous = major_stress_impact_loss
+			arrogant = medium_stress_impact_loss
+			cynical = medium_stress_impact_gain
+			humble = medium_stress_impact_gain
+		}
+ 		duel = {
+ 			skill = intrigue
+ 			target = scope:heretic_colonist
+ 			50 = {
+				# You arrest the heretic
+ 				desc = colonisation_random.2016.b.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = colonisation_random.2016.b.success
+ 					left_icon = root
+ 					right_icon = scope:heretic_colonist
+ 					rightfully_imprison_character_effect = {
+ 						TARGET = scope:heretic_colonist
+ 						IMPRISONER = root
+ 					}
+ 				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				scope:colony_county = {
+					change_title_holder = {
+						holder = root
+						change = scope:change
+					}
+					set_county_faith = root.faith
+					add_county_modifier = {
+						modifier = fp3_frontier_heresy_county_modifier
+						years = 20 
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+ 			50 = {
+ 				# The heretic evades you
+ 				desc = colonisation_random.2016.b.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = colonisation_random.2016.b.failure
+ 					custom_tooltip = colonisation_random.2016.b.failure.tt
+ 					left_icon = root
+ 					right_icon = scope:heretic_colonist
+ 				}
+				scope:heretic_colonist = {
+					create_title_and_vassal_change = {
+						type = independency
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					becomes_independent = { change = scope:change }
+					resolve_title_and_vassal_change = scope:change
+					
+					if = { 	
+						limit = { is_hobbit = yes }
+						change_government = hobbit_government
+					}
+					else_if = {
+						limit = { is_elf = yes }
+						change_government = elven_government
+					}
+					else_if = {
+						limit = { is_orc = yes }
+						change_government = orcish_government
+					}
+					else_if = {
+						limit = {
+							scope:colony_province = { has_holding_type = tribal_holding }
+						}
+						change_government = tribal_government
+					}
+					else = { change_government = feudal_government }
+				}
+				#add_unpressed_claim = scope:colony_province.county
+ 			}
+ 		}
+	}	
+	
+	option = { # Maybe we can work out a compromise?
+		name = colonisation_random.2016.c
+		custom_tooltip = colonisation_random.2016.c.tt
+		add_piety = medium_piety_gain
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			just = medium_stress_impact_loss
+			callous = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+		}
+ 		duel = {
+ 			skill = diplomacy
+ 			target = scope:heretic_colonist
+ 			50 = {
+				# You convince them
+ 				desc = colonisation_random.2016.c.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = colonisation_random.2016.c.success
+ 					left_icon = root
+ 					right_icon = scope:heretic_colonist
+ 				}
+				scope:colony_county = {
+					set_county_faith = root.faith
+				}
+				scope:heretic_colonist = {
+					set_character_faith = root.faith
+					remove_trait = heresiarch
+				}
+			}
+ 			50 = {
+ 				# They aren't convinced
+ 				desc = colonisation_random.2016.c.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = colonisation_random.2016.c.failure
+ 					left_icon = root
+ 					right_icon = scope:heretic_colonist
+ 				}
+				scope:colony_county = { 
+					add_county_modifier = {
+						modifier = fp3_frontier_heresy_county_modifier
+						years = 20 
+					}
+				}
+ 			}
+ 		}
+	}
+}
+
+colonisation_random.2017 = { # Scorpion Bed Discovered
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2017.t
+	desc = colonisation_random.2017.desc
+	theme = hunting
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2017 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = { has_building = scorpion_bed }
+			free_building_slots > 0
+			geographical_region = middleearth_harad_dunesea
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2017
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = { has_building = scorpion_bed }
+				free_building_slots > 0
+				geographical_region = middleearth_harad_dunesea
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # Ahh, Scorpions!
+		name = colonisation_random.2017.a
+		scope:colony_province = {
+			add_building = scorpion_bed
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+colonisation_random.2018 = { # The Pirate Cove
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2018.t
+	desc = colonisation_random.2018.desc
+	theme = skull
+	override_background = { reference = docks_tribal }
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2018 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = { has_building = pirate_remnants }
+			free_building_slots > 0
+			is_coastal = yes 
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2018
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = { has_building = pirate_remnants }
+				free_building_slots > 0
+				is_coastal = yes
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # A Pirate's Life For Me
+		name = colonisation_random.2018.a
+		scope:colony_province = {
+			add_building = pirate_remnants
+		}
+	}
+}
+
+colonisation_random.2019 = { # The Earth Quakes
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2019.t
+	desc = colonisation_random.2019.desc
+	theme = disaster
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2019 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2019
+			years = 40
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # Nothing to be done
+		name = colonisation_random.2019.a
+		custom_tooltip = colonisation_random.2019.a.tt
+		scope:colony_county = {
+			spawn_earthquake_in_county_effect = { COUNTY = this }
+		}
+	}
+	
+	option = { # Strengthen foundations immediately 
+		name = colonisation_random.2019.b 
+		custom_tooltip = colonisation_random.2019.b.tt
+		remove_short_term_gold = medium_gold_value 
+	}
+}
+
+colonisation_random.2020 = { # The Treasure Chest
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2020.t
+	desc = colonisation_random.2020.desc
+	theme = stewardship_wealth_focus
+
+	override_background = {
+		reference = wilderness
+	}
+
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2020 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2020
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # We must investigate as soon as possible
+		name = colonisation_random.2020.a
+		add_gold = major_gold_value
+		create_metal_gem_artifact = {
+			METAL = iron
+			MODIFIER = artifact_monthly_minor_prestige_1_modifier
+		}
+		set_metal_gem_variable = { METAL = iron }
+		send_interface_toast = {
+			left_icon = ROOT
+			title = sailing.5010.b.iron
+		}
+		create_metal_gem_artifact = {
+			METAL = diamond
+			MODIFIER = artifact_monthly_minor_prestige_3_modifier
+		}
+		set_metal_gem_variable = { METAL = diamond }
+		send_interface_toast = {
+			left_icon = ROOT
+			title = sailing.5010.b.diamond
+		}
+	}
+}
+
+colonisation_random.2021 = { # Unnatural Frost
+	content_source = realms_dlc
+	type = character_event
+	title = colonisation_random.2021.t
+	desc = colonisation_random.2021.desc
+	theme = disaster
+
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	override_background = { reference = forodwaith }
+	trigger = {
+		NOT = { has_character_flag = had_event_colonisation_random_2021 }
+		any_directly_owned_province = {
+			has_holding_type = settlement_holding
+			NOT = { has_building = pirate_remnants }
+			free_building_slots > 0
+			is_coastal = yes 
+		}
+		any_sub_realm_county = {
+			any_county_province = {
+				OR = { 
+					geographical_region = middleearth_forodwaith
+					geographical_region = middleearth_west_arnor
+					geographical_region = middleearth_west_rhovanion
+					geographical_region = middleearth_west_beleriand
+				}
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_colonisation_random_2021
+			years = 25
+		}
+		random_directly_owned_province = {
+			limit = { 
+				has_holding_type = settlement_holding
+				NOT = { has_building = frozen_ground }
+				free_building_slots > 0
+				
+			}
+			save_scope_as = colony_province
+			county = { save_scope_as = colony_county }
+		}
+	}
+
+	option = { # Brrrrrr....
+		name = colonisation_random.2021.a
+		scope:colony_province = {
+			add_building = frozen_ground
+		}
+	}
+}

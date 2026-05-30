@@ -19,22 +19,22 @@
 
 # Primary holding of WASTELANDS (Wilderness)
 wilderness_01 = {
-	asset = {
-		type = pdxmesh
-		names = { cairn_underground_mesh }
-		graphical_regions = { graphical_underground }
-		illustration = @holding_illustration_underground
-	}
+	# asset = {
+	# 	type = pdxmesh
+	# 	names = { cairn_underground_mesh }
+	# 	graphical_regions = { graphical_underground }
+	# 	illustration = @holding_illustration_underground
+	# }
 	asset = {
 		type = pdxmesh
 		names = { cairn_western_mesh }
-		graphical_regions = { graphical_western graphical_mediterranean graphical_siberia graphical_thani_hazad }
+		graphical_regions = { graphical_western graphical_mediterranean graphical_siberia }
 		illustration = @holding_illustration_grass
 	}
 	asset = {
 		type = pdxmesh
 		names = { cairn_mena_mesh }
-		graphical_regions = { graphical_mena graphical_india graphical_adunaic graphical_umbarian }
+		graphical_regions = { graphical_mena graphical_india }
 		illustration = @holding_illustration_grass
 	}
 	asset = {
@@ -43,12 +43,12 @@ wilderness_01 = {
 		graphical_regions = { graphical_steppe }
 		illustration = @holding_illustration_grass
 	}
-	asset = {
-		type = pdxmesh
-		names = { cairn_tree_mesh }
-		graphical_regions = { graphical_lothlorien graphical_valinor }
-		illustration = @holding_illustration_grass
-	}
+	# asset = {
+	# 	type = pdxmesh
+	# 	names = { cairn_tree_mesh }
+	# 	graphical_regions = { graphical_lothlorien graphical_valinor }
+	# 	illustration = @holding_illustration_grass
+	# }
 
 	# This is automatically spawned, so AI should ignore this
 	can_construct = {
@@ -85,17 +85,17 @@ wilderness_01 = {
 # It automatically spawns after colonisation
 # Primary holding of SETTLEMENT
 settlement_01 = {
-	asset = {
-		type = pdxmesh
-		names = { "norse_underground_holding_01_mesh" }
-		illustration = @holding_illustration_underground
-		graphical_regions = { graphical_underground }
-	}
+	# asset = {
+	# 	type = pdxmesh
+	# 	names = { "norse_underground_holding_01_mesh" }
+	# 	illustration = @holding_illustration_underground
+	# 	graphical_regions = { graphical_underground }
+	# }
 	asset = {
 		type = pdxmesh
 		names = { "building_western_tribal_01_a_mesh" }
 		graphical_cultures = { "numenorean_building_gfx" "kharadunaic_building_gfx" }
-		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" "graphical_siberia" "graphical_thani_hazad" "graphical_adunaic" "graphical_umbarian" }
+		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" "graphical_siberia" }
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
 	}
@@ -267,17 +267,17 @@ settlement_01 = {
 settlement_02 = {
 	construction_time = very_slow_construction_time
 	
-	asset = {
-		type = pdxmesh
-		names = { "norse_underground_holding_01_mesh" }
-		illustration = @holding_illustration_underground
-		graphical_regions = { graphical_underground }
-	}
+	# asset = {
+	# 	type = pdxmesh
+	# 	names = { "norse_underground_holding_01_mesh" }
+	# 	illustration = @holding_illustration_underground
+	# 	graphical_regions = { graphical_underground }
+	# }
 	asset = {
 		type = pdxmesh
 		names = { "building_western_tribal_01_a_mesh" }
 		graphical_cultures = { "numenorean_building_gfx" "kharadunaic_building_gfx" }
-		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" "graphical_siberia" "graphical_thani_hazad" "graphical_adunaic" "graphical_umbarian" }
+		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" "graphical_siberia" }
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
 	}
@@ -480,17 +480,17 @@ settlement_02 = {
 settlement_03 = {
 	construction_time = slow_construction_time
 
-	asset = {
-		type = pdxmesh
-		names = { "norse_underground_holding_01_mesh" }
-		illustration = @holding_illustration_underground
-		graphical_regions = { graphical_underground }
-	}
+	# asset = {
+	# 	type = pdxmesh
+	# 	names = { "norse_underground_holding_01_mesh" }
+	# 	illustration = @holding_illustration_underground
+	# 	graphical_regions = { graphical_underground }
+	# }
 	asset = {
 		type = pdxmesh
 		names = { "building_western_tribal_01_a_mesh" }
 		graphical_cultures = { "numenorean_building_gfx" "kharadunaic_building_gfx" }
-		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" "graphical_siberia" "graphical_thani_hazad" "graphical_adunaic" "graphical_umbarian" }
+		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" "graphical_siberia" }
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
 	}
@@ -789,9 +789,9 @@ spider_nest_cleared = {
 		hidden_effect = {
 			county.holder = {
 				random_list = {
-					1 = { trigger_event = wastelands.1401 }
-					1 = { trigger_event = wastelands.1402 }
-					1 = { trigger_event = wastelands.1403 }
+					#1 = { trigger_event = wastelands.1401 }
+					#1 = { trigger_event = wastelands.1402 }
+					#1 = { trigger_event = wastelands.1403 }
 					3 = { root = { remove_cleaned_blockers_effect = yes } }
 				}
 			}
@@ -1028,16 +1028,16 @@ bear_den_cleared = {
 		hidden_effect = {
 			county.holder = {
 				random_list = {
-					1 = { trigger_event = wastelands.1201 }
-					1 = { trigger_event = wastelands.1202 }
-					1 = { trigger_event = wastelands.1203 }
-					1 = { trigger_event = wastelands.1204 }
-					1 = { trigger_event = wastelands.1205 }
-					1 = { trigger_event = wastelands.1206 }
-					1 = { trigger_event = wastelands.1208 }
-					1 = { trigger_event = wastelands.1207 }
-					1 = { trigger_event = wastelands.1208 }
-					1 = { trigger_event = wastelands.1209 }
+					# 1 = { trigger_event = wastelands.1201 }
+					# 1 = { trigger_event = wastelands.1202 }
+					# 1 = { trigger_event = wastelands.1203 }
+					# 1 = { trigger_event = wastelands.1204 }
+					# 1 = { trigger_event = wastelands.1205 }
+					# 1 = { trigger_event = wastelands.1206 }
+					# 1 = { trigger_event = wastelands.1208 }
+					# 1 = { trigger_event = wastelands.1207 }
+					# 1 = { trigger_event = wastelands.1208 }
+					# 1 = { trigger_event = wastelands.1209 }
 					9 = { root = { remove_cleaned_blockers_effect = yes } }
 				}
 			}
