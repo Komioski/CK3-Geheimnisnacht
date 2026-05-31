@@ -88,6 +88,26 @@ is_wastelands_culture = {
 	has_cultural_pillar = heritage_wastelands
 }
 
+## Wilderness ##
+
+portrait_wastelands_clothing_trigger = {
+	scope:culture = { portrait_wastelands_clothing_contents_trigger = yes }
+}
+
+portrait_wastelands_clothing_spouse_trigger = {
+	culture = {
+		portrait_wastelands_clothing_contents_trigger = yes
+	}
+}
+
+portrait_wastelands_clothing_contents_trigger = {
+	portrait_shared_clothing_contents_trigger = { #LotR
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = wastelands
+	}
+}
+
+
 ## HUMAN TRIGGERS ##
 
 is_human = { #all other races and species should be added here
