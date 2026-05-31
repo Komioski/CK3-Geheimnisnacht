@@ -29,7 +29,7 @@ gui_not_is_province_wastelands = {
 				}
 			}
 			#NOT = { county.title_province ?= { culture = culture:wastelands } }
-			NOT = { county.holder ?= {gui_is_character_wastelands = yes} }
+			NOT = { county.holder ?= { culture ?= culture:wastelands } }
 		}
 	}
 }
@@ -60,7 +60,7 @@ gui_is_province_wastelands = {
 			}
 		}
 		#county.title_province ?= { culture = culture:wastelands }
-		county.holder ?= {gui_is_character_wastelands = yes}
+		county.holder ?= { culture ?= culture:wastelands }
 	}
 }
 
