@@ -254,17 +254,6 @@ on_county_occupied = {
 					}
 				}
 			}
-			if = {
-				limit = { 
-					this = title:c_throne_of_erebor
-					game_start_date >= 6974 # Thorin gotta be dead!
-					NAND = {
-						has_global_variable = orcrist_plundered
-						has_global_variable = arkenstone_plundered
-					}
-				}
-				root = { trigger_event = lotr_artifact.0030 }
-			}
 		}
 		# Mongol Devastation
 		if = {

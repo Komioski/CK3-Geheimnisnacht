@@ -187,18 +187,7 @@ colonise_cost_val = {
 	if = {
 		limit = {
 			exists = scope:wastelands.county
-			OR = {
-				title:d_andunaloni ?= {
-					any_in_de_jure_hierarchy = {
-						this = scope:wastelands.county
-					}
-				}
-				title:d_tolfalas ?= {
-					any_in_de_jure_hierarchy = {
-						this = scope:wastelands.county
-					}
-				}
-			}
+
 			not_has_county_on_island_region = yes # Checks for county on island | If county present, whether fully upgraded
 		}
 		if = {

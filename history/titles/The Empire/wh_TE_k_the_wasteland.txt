@@ -31,15 +31,21 @@ c_rotterrade = {
 }
 
 c_ankeeven = {
+	# 6510.1.1 = {
+	# 	liege = k_westerland
+	# }
+	# 6510.1.1 = {
+	# 	#holder = 51018
+	# 	holder = 51000
+	# }
+	# 6976.5.10 = {
+	# 	holder = 51155
+	# }
 	6510.1.1 = {
-		liege = k_westerland
-	}
-	6510.1.1 = {
-		#holder = 51018
-		holder = 51000
-	}
-	6976.5.10 = {
-		holder = 51155
+		#liege = 0
+		holder = k_wastelands_holder
+		#change_development_level = -100
+		government = wastelands_government
 	}
 }
 
@@ -51,6 +57,10 @@ d_lower_bitter_moors = {
 }
 
 c_teltow = {
+	6510.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
+	}
 }
 
 c_saar = {
@@ -68,12 +78,16 @@ c_saar = {
 }
 
 c_landrel_barrow = {
+	# 6510.1.1 = {
+	# 	liege = k_westerland
+	# }
+	# 6510.1.1 = {
+	# 	#holder = 51011
+	# 	holder = 51000
+	# }
 	6510.1.1 = {
-		liege = k_westerland
-	}
-	6510.1.1 = {
-		#holder = 51011
-		holder = 51000
+		holder = k_wastelands_holder
+		government = wastelands_government
 	}
 	6960.1.1 = {
 		holder = 51160
@@ -119,9 +133,9 @@ c_sankt_veit = {
 }
 
 c_huuzel = {
-	6500.1.1 = {
-		change_development_level = 0
-		holder = 51000
+	6510.1.1 = {
+		holder = k_wastelands_holder
+		government = wastelands_government
 	}
 }
 

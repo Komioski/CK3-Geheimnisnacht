@@ -69,18 +69,18 @@ colonisation_random_events = {
 	# }
 }
 
-balrog_events = {
-	trigger = {
-		any_held_county = {
-			any_county_province = { has_province_modifier = durins_bane_modifier }
-		}
-	}
+# balrog_events = {
+# 	trigger = {
+# 		any_held_county = {
+# 			any_county_province = { has_province_modifier = durins_bane_modifier }
+# 		}
+# 	}
 	
-	random_events = {
-		chance_to_happen = 50
-		5 = flavourevent.0011
-	}
-}
+# 	random_events = {
+# 		chance_to_happen = 50
+# 		5 = flavourevent.0011
+# 	}
+# }
 
 ettenmoors_events = {
 	trigger = {
@@ -89,14 +89,14 @@ ettenmoors_events = {
 		# Attacks in Rhudaur (including the Angle) and Imladris
 		any_directly_owned_province = {
 			OR = {
-				kingdom = title:k_rhudaur
+				kingdom = title:k_troll_country
 				#kingdom = title:k_imladris
 			}
 		}
 		# Only if Ettenmoors is wilderness and has the Ettenmoors wonder intact
-		title:b_cennmoin.title_province = {
-			has_building = "wonder_ettenmoors_01"
-		}
+		# title:b_cennmoin.title_province = {
+		# 	has_building = "wonder_ettenmoors_01"
+		# }
 	}
 
 	random_events = {
@@ -116,25 +116,25 @@ ettenmoors_events = {
 	}
 }
 
-eregion_events = { # Ghosts in Haunted Ruins of Eregion (before the blocker is removed)
-	trigger = {
-		any_directly_owned_province = {
-			has_building = ghosts_eregion
-		}
-	}
-	random_events = {
-		chance_to_happen = 15
-		chance_of_no_event = {
-			if = {
-				limit = { has_game_rule = very_easy_difficulty }
-				value = 66
-			}
-			else_if = {
-				limit = { has_game_rule = easy_difficulty }
-				value = 33
-			}
-		}
-		1 = wastelands.2801
-		1 = wastelands.2802
-	}
-}
+# eregion_events = { # Ghosts in Haunted Ruins of Eregion (before the blocker is removed)
+# 	trigger = {
+# 		any_directly_owned_province = {
+# 			has_building = ghosts_eregion
+# 		}
+# 	}
+# 	random_events = {
+# 		chance_to_happen = 15
+# 		chance_of_no_event = {
+# 			if = {
+# 				limit = { has_game_rule = very_easy_difficulty }
+# 				value = 66
+# 			}
+# 			else_if = {
+# 				limit = { has_game_rule = easy_difficulty }
+# 				value = 33
+# 			}
+# 		}
+# 		1 = wastelands.2801
+# 		1 = wastelands.2802
+# 	}
+# }

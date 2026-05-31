@@ -737,9 +737,7 @@ lotr_on_game_start = {
 					desc = clan_unity_historical_circumstances.desc
 				}
 			}
-			
-			## Thorin's Tomb in Erebor
-			title:c_throne_of_erebor = { add_county_modifier = thorins_tomb_modifier }
+
 		}
 
 		#################################
@@ -1058,16 +1056,6 @@ lotr_on_game_start_after_lobby = {
 			}
 		}
 
-		### Aesthetically pleasing Rhudaur game rule ###
-		if = {
-			limit = {
-				has_game_rule = aesthetic_rhudaur
-				game_start_date = 7033.1.1
-			}
-			title:d_dyr_maenason = {
-				set_de_jure_liege_title = title:k_rhudaur
-			}
-		}
 
 		### RACE SETUP ###
 		every_living_character = {
