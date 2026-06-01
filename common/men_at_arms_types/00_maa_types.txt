@@ -39,17 +39,10 @@ light_footmen = {
 	}
 
 #access_through_subject = { lotr_orc_can_recruit_from_subject = no } # Keep for GH2 for none humans
-    can_recruit = { 
-		OR = { #LotR
-			is_human = yes
-			has_character_flag = saruman_good
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
+    can_recruit = {
+		always = no
 	}
-
+	
 	should_show_when_unavailable = {
 		government_allows = subject_men_at_arms
 		lotr_orc_can_recruit_from_subject = no #LotR
@@ -177,15 +170,8 @@ bowmen = {
 	}
 
 #access_through_subject = { lotr_orc_can_recruit_from_subject = no } # Keep for GH2 for none humans
-    can_recruit = { #LotR
-		OR = {
-			is_human = yes
-			has_character_flag = saruman_good
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
+    can_recruit = {
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -320,15 +306,8 @@ light_horsemen = {
 		gunpowder = 1
 	}
 
-    can_recruit = { #LotR
-		OR = {
-			is_human = yes
-			has_character_flag = saruman_good
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
+    can_recruit = {
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -473,22 +452,8 @@ pikemen_unit = {
 	}
 
 #access_through_subject = { lotr_orc_can_recruit_from_subject = no } # Keep for GH2 for none humans
-    can_recruit = { 
-		OR = { #LotR
-			is_human = yes
-			has_character_flag = saruman_good
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-			culture ?= { has_innovation = innovation_lynerian_warfare } #LotR
-			AND = { #LotR
-				is_human = yes
-				is_landless_adventurer = yes
-				has_perk = planned_cultivation_perk
-				location.culture ?= { has_innovation = innovation_lynerian_warfare }
-			}
-		}
+    can_recruit = {
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -617,18 +582,8 @@ armored_footmen = {
 	}
 
 #access_through_subject = { lotr_orc_can_recruit_from_subject = no } # Keep for GH2 for none humans
-    can_recruit = { 
-		OR = {
-			is_human = yes
-			has_character_flag = saruman_good
-		}
-		NOT = {
-			culture = { has_cultural_parameter = strength_in_numbers_heavy_maa_ban }
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
+    can_recruit = {
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -754,14 +709,7 @@ onager = {
 
 	access_through_subject = { lotr_orc_can_recruit_from_subject = no } #LotR
     can_recruit = {
-		culture = {
-			has_innovation = innovation_catapult
-			NOT = {has_cultural_pillar = heritage_womaw} #LotR
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -787,21 +735,8 @@ armored_horsemen = {
 	pursuit = 20
 	screen = 0
 
-    can_recruit = { 
-		OR = {
-			is_human = yes
-			has_character_flag = saruman_good
-		}
-		culture = {
-			has_innovation = innovation_arched_saddle
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
-		NOT = {
-			culture = { has_cultural_parameter = strength_in_numbers_heavy_maa_ban }
-		}
+    can_recruit = {
+		always = no
 	}
 	
 	terrain_bonus = {
@@ -932,14 +867,7 @@ mangonel = {
 
 	access_through_subject = { lotr_orc_can_recruit_from_subject = no } #LotR
     can_recruit = {
-		culture = {
-			has_innovation = innovation_mangonel
-			NOT = {has_cultural_pillar = heritage_womaw} #LotR
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -981,20 +909,7 @@ crossbowmen = {
 
 #access_through_subject = { lotr_orc_can_recruit_from_subject = no } # Keep for GH2 for none humans
     can_recruit = {
-		culture = {
-			has_innovation = innovation_advanced_bowmaking
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-			culture ?= { has_innovation = innovation_lynerian_warfare } #LotR
-			AND = {
-				is_human = yes
-				is_landless_adventurer = yes
-				has_perk = planned_cultivation_perk
-				location.culture ?= { has_innovation = innovation_lynerian_warfare }
-			}
-		}
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -1041,15 +956,7 @@ trebuchet = {
 
 	access_through_subject = { lotr_orc_can_recruit_from_subject = no } #LotR
     can_recruit = {
-		culture = {
-			has_innovation = innovation_trebuchet
-			NOT = {has_cultural_pillar = heritage_womaw} #LotR
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
-		
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -1081,14 +988,7 @@ bombard = {
 
 	access_through_subject = { lotr_orc_can_recruit_from_subject = no } #LotR
     can_recruit = {
-		culture = {
-			has_cultural_parameter = unlock_late_medieval_gunpowder_units
-			NOT = { has_cultural_pillar = heritage_womaw } #LotR
-		}
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-		}
+		always = no
 	}
 
 	should_show_when_unavailable = {
@@ -1115,9 +1015,7 @@ handgunners = {
 	screen = 5
 
     can_recruit = {
-		gunpowder_raise_limit_existing_gunpowder_units < gunpowder_raise_limit_existing_gunpowder_buildings	# one powder magazine must be owned to support three handgunner regiments, regardless of maa size
-		# culture = { has_cultural_parameter = unlock_late_medieval_gunpowder_units } # LOTR TEMP
-		#always = no # LOTR TEMP #Juke note: When reenabling or adding more gunpowder unit, please update accolade gunpowder_attribute appropriately
+		always = no
 	}
 
 	terrain_bonus = {
@@ -1149,12 +1047,7 @@ house_guard = {
 	type = heavy_infantry
 	access_through_subject = { lotr_orc_can_recruit_from_subject = no } #LotR
     can_recruit = {
-		dynasty ?= {
-			has_dynasty_perk = warfare_legacy_5
-		}
-		NOT = {
-			culture = { has_cultural_parameter = strength_in_numbers_heavy_maa_ban }
-		}
+		always = no
 	}
 
 	damage = 40
@@ -1264,7 +1157,9 @@ camel_rider = {
 		wetlands = { damage = -15 toughness = -10 pursuit = -20 screen = -20 }
 	}
 
-#access_through_subject = { lotr_orc_can_recruit_from_subject = no } # Keep for GH2 for none humans
+    can_recruit = {
+		always = no
+	}
 	
 	counters = {
 		light_cavalry = 1
@@ -1320,13 +1215,7 @@ war_elephant = {
 	
 	access_through_subject = { lotr_orc_can_recruit_from_subject = no } #LotR
     can_recruit = {
-		OR = {
-			AND = {
-				culture ?= { has_innovation = innovation_elephantry }
-				NOT = { is_landless_adventurer = yes }
-			}
-			domicile ?= { has_domicile_parameter = camp_reinforce_elephant_regiments_anywhere }
-		}
+		always = no
 	}
 	
 	stack = 25
