@@ -41,6 +41,10 @@ asawira = { #Iranian knights in early caliphal armies. Can be restored as a mili
 		skirmishers = 2
 		heavy_infantry = 2
 	}
+	
+    can_recruit = {
+		always = no
+	}
 
 	winter_bonus = {
 		normal_winter = { damage = -15 toughness = -5 }
@@ -49,9 +53,7 @@ asawira = { #Iranian knights in early caliphal armies. Can be restored as a mili
 	
 #access_through_subject = { lotr_orc_can_recruit_from_subject = no } # Keep for GH2 for none humans
     can_recruit = {
-		dynasty ?= {
-			has_dynasty_perk = fp3_khvarenah_legacy_4
-		}	
+		always = no
 	}
 
 	buy_cost = { gold = asawira_recruitment_cost }

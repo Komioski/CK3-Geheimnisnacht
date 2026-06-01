@@ -1,0 +1,97 @@
+﻿#DEBUG DECISIONS
+
+
+check_regions_debug= {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/ep3_decision_roman_restoration.dds"
+	}
+	desc = check_regions_debug_desc
+	selection_tooltip = check_regions_debug_decision_tooltip
+	decision_group_type = major
+
+	ai_check_interval = 120
+
+	is_shown = {
+		always = yes
+		debug = yes
+	}
+
+	is_valid = {
+		completely_controls_region = world_old_world_bretonnia_north
+		completely_controls_region = world_old_world_bretonnia_south
+		completely_controls_region = world_old_world_bretonnia
+
+		completely_controls_region = world_old_world_southern_realms_estalia
+		completely_controls_region = world_old_world_southern_realms_tilea_north
+		completely_controls_region = world_old_world_southern_realms_tilea_west
+		completely_controls_region = world_old_world_southern_realms_tilea_south
+		completely_controls_region = world_old_world_southern_realms_tilea
+		completely_controls_region = world_old_world_southern_realms
+
+		completely_controls_region = world_old_world_kislev
+		completely_controls_region = world_old_world_troll_country
+		completely_controls_region = world_old_world
+
+		completely_controls_region = world_old_world_emprie_central
+						
+	}
+
+	is_valid_showing_failures_only = {
+		always = yes
+	}
+
+	effect = {
+		#Does nothing
+	}
+	
+	ai_potential = {
+		always = no
+	}
+
+}
+
+
+check_regions_debug_empire = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/ep3_decision_roman_restoration.dds"
+	}
+	desc = check_regions_debug_desc
+	selection_tooltip = check_regions_debug_decision_tooltip
+	decision_group_type = major
+
+	ai_check_interval = 120
+
+	is_shown = {
+		always = yes
+		debug = yes
+	}
+
+	is_valid = {
+
+		completely_controls_region = world_old_world_emprie_central
+		completely_controls_region = world_old_world_emprie_east
+		completely_controls_region = world_old_world_emprie_south
+		completely_controls_region = world_old_world_emprie_northern	
+
+		
+		completely_controls_region = world_old_world_moot
+		completely_controls_region = world_old_world_reikland
+		completely_controls_region = world_old_world_talabecland
+
+		completely_controls_region = world_old_world_ostermark
+
+	}
+
+	is_valid_showing_failures_only = {
+		always = yes
+	}
+
+	effect = {
+		#Does nothing
+	}
+	
+	ai_potential = {
+		always = no
+	}
+
+}

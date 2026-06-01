@@ -452,3 +452,72 @@ wissenlander_nuln_gunners = {
 		reference = wip_wissenland
 	}
 }
+
+reikland_legion_greatswords = {
+	type = heavy_infantry
+	
+	damage = 60
+	toughness = 35
+	pursuit = 5
+	screen = 30
+
+	counters = {
+		light_cavalry = 2
+		peasant_militia = 3
+		heavy_infantry = 2
+		skirmishers = 1
+	}
+	
+	can_recruit = {
+		title:k_reikland.holder ?= root
+	}
+
+	buy_cost = { gold = heavy_infantry_recruitment_cost }
+	low_maintenance_cost = { gold = heavy_infantry_low_maint_cost }
+	high_maintenance_cost = { gold = heavy_infantry_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_moderate
+
+	stack = 100
+	ai_quality = { value = 100 }
+	icon = reikland_legion_greatswords
+
+	illustration = {
+		reference = wip_reikland
+	}
+}
+
+hochland_gunners = {
+	type = gunpowder
+
+	damage = 90
+	toughness = 2
+	pursuit = 30
+	screen = 0
+
+	can_recruit = {
+		title:k_hochland.holder ?= root
+	}
+
+	terrain_bonus = {
+	}
+
+	counters = {
+		heavy_infantry = 3
+		heavy_cavalry = 2
+		peasant_militia = 2
+		skirmishers = 2
+		light_cavalry = 1
+	}
+
+	buy_cost = { gold = handgunner_recruitment_cost }
+	low_maintenance_cost = { gold = handgunner_low_maint_cost }
+	high_maintenance_cost = { gold = handgunner_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_moderate
+
+	ai_quality = {	value = counter_synergy_ai_weight_gunpowder	}
+	icon = hochland_gunners
+
+	illustration = {
+		reference = wip_hochland
+	}
+}
