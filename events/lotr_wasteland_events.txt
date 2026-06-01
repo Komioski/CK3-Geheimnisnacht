@@ -10107,740 +10107,740 @@
 # #  Eregion Ruin Ghosts  #
 # #########################
 
-# # Triggered randomly if the blocker is present (before being removed)
-# wastelands.2801 = { # A Haunted Place by ispanets
-# 	content_source = realms_dlc
-# 	type = character_event
-# 	title = wastelands.2801.t
-# 	desc = wastelands.2801.desc
-# 	theme = faith
-# 	override_background = { reference = eregion_crebain }
+# # # Triggered randomly if the blocker is present (before being removed)
+# # wastelands.2801 = { # A Haunted Place by ispanets
+# # 	content_source = realms_dlc
+# # 	type = character_event
+# # 	title = wastelands.2801.t
+# # 	desc = wastelands.2801.desc
+# # 	theme = faith
+# # 	override_background = { reference = eregion_crebain }
 
-# 	left_portrait = {
-# 		character = root
-# 		animation = personality_bold
-# 	}
+# # 	left_portrait = {
+# # 		character = root
+# # 		animation = personality_bold
+# # 	}
 
-# 	right_portrait = {
-# 		character = scope:knight
-# 		animation = personality_bold
-# 	}
+# # 	right_portrait = {
+# # 		character = scope:knight
+# # 		animation = personality_bold
+# # 	}
 
-# 	immediate = {
-# 		random_knight = {
-# 			limit = { is_ai = yes }
-# 			save_scope_as = knight
-# 		}
+# # 	immediate = {
+# # 		random_knight = {
+# # 			limit = { is_ai = yes }
+# # 			save_scope_as = knight
+# # 		}
 
-# 		random_directly_owned_province = {
-# 			limit = {
-# 				OR = {
-# 					has_building = ghosts_eregion
-# 					has_building = ghosts_ost_in_edhil
-# 				}
-# 			}
-# 			save_scope_as = obstacle_province
-# 		}
-# 	}
+# # 		random_directly_owned_province = {
+# # 			limit = {
+# # 				OR = {
+# # 					has_building = ghosts_eregion
+# # 					has_building = ghosts_ost_in_edhil
+# # 				}
+# # 			}
+# # 			save_scope_as = obstacle_province
+# # 		}
+# # 	}
 
-# 	option = { # Elf only!
-# 		name = wastelands.2801.a
-# 		trigger = {
-# 			root = {
-# 				is_elf = yes
-# 			}
-# 		}
-# 		send_interface_toast = {
-# 			left_icon = root
-# 			title = wastelands.2801.success.toast.t
-# 			add_piety = minor_piety_loss
-# 		}
-# 	}
+# # 	option = { # Elf only!
+# # 		name = wastelands.2801.a
+# # 		trigger = {
+# # 			root = {
+# # 				is_elf = yes
+# # 			}
+# # 		}
+# # 		send_interface_toast = {
+# # 			left_icon = root
+# # 			title = wastelands.2801.success.toast.t
+# # 			add_piety = minor_piety_loss
+# # 		}
+# # 	}
 
-# 	option = { # Rest
-# 		name = wastelands.2801.b
-# 		skill = prowess
-# 		trigger = {
-# 			cannot_be_killed = no
-# 			is_elf = no
-# 		}
-# 		scope:knight = {
-# 			duel = {
-# 				skill = prowess
-# 				value = 25
-# 				30 = {
-# 					compare_modifier = {
-# 						value = scope:duel_value
-# 						multiplier = 2
-# 						min = -10
-# 					}
-# 					desc = wastelands.2801.duel_success
-# 					root = {
-# 						send_interface_toast = {
-# 							left_icon = root
-# 							title = wastelands.2801.success.toast.t
-# 							add_piety = major_piety_loss
-# 						}
-# 					}
-# 				}
-# 				30 = {
-# 					compare_modifier = {
-# 						value = scope:duel_value
-# 						multiplier = -2
-# 						min = -25
-# 					}
-# 					desc = wastelands.2801.duel_failure
-# 					root = {
-# 						send_interface_toast = {
-# 							left_icon = root
-# 							right_icon = scope:knight
-# 							title = wastelands.2801.failure.toast.t
-# 							add_piety = major_piety_loss
-# 							scope:knight = {
-# 								add_trait = possessed_1
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
+# # 	option = { # Rest
+# # 		name = wastelands.2801.b
+# # 		skill = prowess
+# # 		trigger = {
+# # 			cannot_be_killed = no
+# # 			is_elf = no
+# # 		}
+# # 		scope:knight = {
+# # 			duel = {
+# # 				skill = prowess
+# # 				value = 25
+# # 				30 = {
+# # 					compare_modifier = {
+# # 						value = scope:duel_value
+# # 						multiplier = 2
+# # 						min = -10
+# # 					}
+# # 					desc = wastelands.2801.duel_success
+# # 					root = {
+# # 						send_interface_toast = {
+# # 							left_icon = root
+# # 							title = wastelands.2801.success.toast.t
+# # 							add_piety = major_piety_loss
+# # 						}
+# # 					}
+# # 				}
+# # 				30 = {
+# # 					compare_modifier = {
+# # 						value = scope:duel_value
+# # 						multiplier = -2
+# # 						min = -25
+# # 					}
+# # 					desc = wastelands.2801.duel_failure
+# # 					root = {
+# # 						send_interface_toast = {
+# # 							left_icon = root
+# # 							right_icon = scope:knight
+# # 							title = wastelands.2801.failure.toast.t
+# # 							add_piety = major_piety_loss
+# # 							scope:knight = {
+# # 								add_trait = possessed_1
+# # 							}
+# # 						}
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 	}
 
-# 	option = { # Leave!
-# 		name = wastelands.2801.c
-# 		make_settlement_county_wilderness = {
-# 			COUNTY = scope:obstacle_province.county
-# 		}
-# 	}
-# }
+# # 	option = { # Leave!
+# # 		name = wastelands.2801.c
+# # 		make_settlement_county_wilderness = {
+# # 			COUNTY = scope:obstacle_province.county
+# # 		}
+# # 	}
+# # }
 
-# wastelands.2802 = { # Midnight Whispers
-# 	content_source = realms_dlc
-# 	type = character_event
-# 	title = wastelands.2802.t
-# 	desc = wastelands.2802.desc
-# 	theme = faith
-# 	override_background = { reference = eregion }
+# # wastelands.2802 = { # Midnight Whispers
+# # 	content_source = realms_dlc
+# # 	type = character_event
+# # 	title = wastelands.2802.t
+# # 	desc = wastelands.2802.desc
+# # 	theme = faith
+# # 	override_background = { reference = eregion }
 
-# 	right_portrait = {
-# 		character = root
-# 		animation = eavesdrop
-# 	}
-
-
-# 	left_portrait = {
-# 		character = scope:knight
-# 		animation = lunatic
-# 	}
-
-# 	immediate = {
-# 		random_knight = {
-# 			limit = { is_ai = yes }
-# 			save_scope_as = knight
-# 		}
-
-# 		random_directly_owned_province = {
-# 			limit = {
-# 				OR = {
-# 					has_building = ghosts_eregion
-# 					has_building = ghosts_ost_in_edhil
-# 				}
-# 			}
-# 			save_scope_as = obstacle_province
-# 		}
-# 	}
-
-# 	option = { # Intrigue: wake up the knight
-# 		name = wastelands.2802.a
-# 		skill = prowess
-# 		duel = {
-# 			skill = prowess
-# 			value = 10
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 2
-# 					min = -10
-# 				}
-# 				desc = wastelands.2802.a.duel_success
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2802.success.toast.t
-# 					scope:knight = {
-# 						add_opinion = {
-# 							target = root
-# 							modifier = grateful_opinion
-# 							opinion = 50
-# 						}
-# 					}
-# 					add_hook = {
-# 						target = scope:knight
-# 						type = favor_hook
-# 					}
-# 				}
-# 			}
-# 			30 = {
-# 				trigger = { scope:knight = { is_elf = no } }
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -2
-# 					min = -25
-# 				}
-# 				desc = wastelands.2802.a.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2802.success.toast.t
-# 					scope:knight = {
-# 						add_trait = lunatic_1
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	option = { # Follow the knight and destroy the source
-# 		name = wastelands.2802.b
-# 		skill = intrigue
-# 		duel = {
-# 			skill = intrigue
-# 			value = 10
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 2
-# 					min = -10
-# 				}
-# 				desc = wastelands.2802.b.duel_success
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2802.success.toast.t
-# 					scope:knight = {
-# 						add_opinion = {
-# 							target = root
-# 							modifier = grateful_opinion
-# 							opinion = 50
-# 						}
-# 					}
-# 					add_hook = {
-# 						target = scope:knight
-# 						type = favor_hook
-# 					}
-# 					#scope:obstacle_province = {
-# 					#	add_province_modifier = respected_figurehead
-# 					#	years = 5
-# 					#}
-# 					add_piety = medium_piety_gain
-# 				}
-# 			}
-# 			30 = {
-# 				trigger = { is_elf = no }
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -2
-# 					min = -25
-# 				}
-# 				desc = wastelands.2802.b.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2802.success.toast.t
-# 					add_trait = lunatic_1
-# 					scope:knight = {
-# 						add_opinion = {
-# 							target = root
-# 							modifier = grateful_opinion
-# 							opinion = 50
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	option = { # Leave!
-# 		name = wastelands.2802.c
-# 		make_settlement_county_wilderness = {
-# 			COUNTY = scope:obstacle_province.county
-# 		}
-# 	}
-# }
-
-# # Haunted Eregion Ruins - BLOCKER CLEARANCE
-# wastelands.2803 = { # Noises and Shadows
-# 	content_source = realms_dlc
-# 	type = character_event
-# 	title = wastelands.2803.t
-# 	desc = wastelands.2803.desc
-# 	theme = faith
-# 	override_background = { reference = eregion }
-
-# 	left_portrait = {
-# 		character = root
-# 		animation = personality_bold
-# 	}
-
-# 	right_portrait = {
-# 		character = scope:colonist
-# 		animation = personality_coward
-# 	}
-
-# 	immediate = {
-# 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
-# 		create_character = {
-# 			template = local_artisan_template
-# 			culture = root.culture
-# 			faith = root.faith
-# 			location = scope:obstacle_province
-# 			gender_female_chance = 50
-# 			save_scope_as = colonist
-# 		}
-# 	}
-
-# 	option = { # Diplomacy: convincing the colonists to stay
-# 		name = wastelands.2803.a
-# 		skill = diplomacy
-# 		duel = {
-# 			skill = diplomacy
-# 			value = 10
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 2
-# 					min = -10
-# 				}
-# 				desc = wastelands.2803.a.duel_success
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2803.success.toast.t
-# 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
-# 					add_prestige = medium_prestige_gain
-# 				}
-# 			}
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -2
-# 					min = -25
-# 				}
-# 				desc = wastelands.2803.a.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2803.success.toast.t
-# 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
-# 					scope:obstacle_province = { add_building = ghosts_eregion }
-# 					add_prestige = minor_prestige_loss
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	option = { # Stewardship check
-# 		name = wastelands.2803.b
-# 		skill = stewardship
-# 		duel = {
-# 			skill = stewardship
-# 			value = 10
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 2
-# 					min = -10
-# 				}
-# 				desc = wastelands.2803.b.duel_success
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2803.success.toast.t
-# 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
-# 					remove_short_term_gold = medium_gold_value
-# 				}
-# 			}
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -2
-# 					min = -25
-# 				}
-# 				desc = wastelands.2803.b.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2803.success.toast.t
-# 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
-# 					scope:obstacle_province = { add_building = ghosts_eregion }
-# 					remove_short_term_gold = minor_gold_value
-# 					add_piety = minor_piety_loss
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	option = { # Piety/Learning check
-# 		name = wastelands.2803.c
-# 		skill = learning
-# 		duel = {
-# 			skill = learning
-# 			value = 10
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 2
-# 					min = -10
-# 				}
-# 				desc = wastelands.2803.c.duel_success
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2803.success.toast.t
-# 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
-# 					add_piety = medium_piety_gain
-# 				}
-# 			}
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -2
-# 					min = -25
-# 				}
-# 				desc = wastelands.2803.c.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2803.success.toast.t
-# 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
-# 					scope:obstacle_province = { add_building = ghosts_eregion }
-
-# 					add_piety = medium_piety_loss
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	option = { # Leave!
-# 		name = wastelands.2803.d
-# 		#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
-# 		scope:obstacle_province = {
-# 			add_building = ghosts_eregion
-# 		}
-# 		make_settlement_county_wilderness = {
-# 			COUNTY = scope:obstacle_province.county
-# 		}
-# 	}
-
-# 	after = {
-# 		scope:colonist = {
-# 			silent_disappearance_effect = yes
-# 		}
-# 	}
-# }
-
-# wastelands.2804 = { # Artifacts of old
-# 	content_source = realms_dlc
-# 	type = character_event
-# 	title = wastelands.2804.t
-# 	desc = wastelands.2804.desc
-# 	theme = faith
-# 	override_background = { reference = eregion }
-
-# 	left_portrait = {
-# 		character = root
-# 		animation = personality_rational
-# 	}
+# # 	right_portrait = {
+# # 		character = root
+# # 		animation = eavesdrop
+# # 	}
 
 
-# 	right_portrait = {
-# 		character = scope:colonist
-# 		animation = personality_greedy
-# 	}
+# # 	left_portrait = {
+# # 		character = scope:knight
+# # 		animation = lunatic
+# # 	}
 
-# 	immediate = {
-# 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
-# 		create_character = {
-# 			template = local_artisan_template
-# 			culture = root.culture
-# 			faith = root.faith
-# 			location = scope:obstacle_province
-# 			gender_female_chance = 50
-# 			save_scope_as = colonist
-# 		}
-# 	}
+# # 	immediate = {
+# # 		random_knight = {
+# # 			limit = { is_ai = yes }
+# # 			save_scope_as = knight
+# # 		}
 
-# 	option = { # Study the artifacts carefully
-# 		name = wastelands.2804.a
-# 		skill = learning
-# 		duel = {
-# 			skill = learning
-# 			value = 14
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 2
-# 					min = -10
-# 				}
-# 				desc = wastelands.2804.a.duel_success
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2804.a.success.toast.t
-# 					#hidden_effect = {
-# 					#	scope:obstacle_province = {
-# 					#		if = {
-# 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
-# 					#			remove_building = ghosts_ost_in_edhil_cleared
-# 					#		}
-# 					#		else = {
-# 					#			remove_building = ghosts_eregion_cleared
-# 					#		}
-# 					#	}
-# 					#}
+# # 		random_directly_owned_province = {
+# # 			limit = {
+# # 				OR = {
+# # 					has_building = ghosts_eregion
+# # 					has_building = ghosts_ost_in_edhil
+# # 				}
+# # 			}
+# # 			save_scope_as = obstacle_province
+# # 		}
+# # 	}
 
-# 					add_learning_skill = 2
-# 				}
-# 			}
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -2
-# 					min = -25
-# 				}
-# 				desc = wastelands.2804.a.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2804.a.success.toast.t
-# 					#hidden_effect = {
-# 					#	scope:obstacle_province = {
-# 					#		if = {
-# 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
-# 					#			remove_building = ghosts_ost_in_edhil_cleared
-# 					#		}
-# 					#		else = {
-# 					#			remove_building = ghosts_eregion_cleared
-# 					#		}
-# 					#	}
-# 					#}
+# # 	option = { # Intrigue: wake up the knight
+# # 		name = wastelands.2802.a
+# # 		skill = prowess
+# # 		duel = {
+# # 			skill = prowess
+# # 			value = 10
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 2
+# # 					min = -10
+# # 				}
+# # 				desc = wastelands.2802.a.duel_success
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2802.success.toast.t
+# # 					scope:knight = {
+# # 						add_opinion = {
+# # 							target = root
+# # 							modifier = grateful_opinion
+# # 							opinion = 50
+# # 						}
+# # 					}
+# # 					add_hook = {
+# # 						target = scope:knight
+# # 						type = favor_hook
+# # 					}
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				trigger = { scope:knight = { is_elf = no } }
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -2
+# # 					min = -25
+# # 				}
+# # 				desc = wastelands.2802.a.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2802.success.toast.t
+# # 					scope:knight = {
+# # 						add_trait = lunatic_1
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 	}
 
-# 					add_stress = medium_stress_gain
-# 				}
-# 			}
-# 		}
-# 	}
+# # 	option = { # Follow the knight and destroy the source
+# # 		name = wastelands.2802.b
+# # 		skill = intrigue
+# # 		duel = {
+# # 			skill = intrigue
+# # 			value = 10
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 2
+# # 					min = -10
+# # 				}
+# # 				desc = wastelands.2802.b.duel_success
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2802.success.toast.t
+# # 					scope:knight = {
+# # 						add_opinion = {
+# # 							target = root
+# # 							modifier = grateful_opinion
+# # 							opinion = 50
+# # 						}
+# # 					}
+# # 					add_hook = {
+# # 						target = scope:knight
+# # 						type = favor_hook
+# # 					}
+# # 					#scope:obstacle_province = {
+# # 					#	add_province_modifier = respected_figurehead
+# # 					#	years = 5
+# # 					#}
+# # 					add_piety = medium_piety_gain
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				trigger = { is_elf = no }
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -2
+# # 					min = -25
+# # 				}
+# # 				desc = wastelands.2802.b.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2802.success.toast.t
+# # 					add_trait = lunatic_1
+# # 					scope:knight = {
+# # 						add_opinion = {
+# # 							target = root
+# # 							modifier = grateful_opinion
+# # 							opinion = 50
+# # 						}
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 	}
 
-# 	option = { # Leave the artifacts
-# 		name = wastelands.2804.b
-# 		skill = diplomacy
-# 		duel = {
-# 			skill = diplomacy
-# 			value = 10
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 2
-# 					min = -10
-# 				}
-# 				desc = wastelands.2804.b.duel_success
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2804.b.success.toast.t
-# 					#hidden_effect = {
-# 					#	scope:obstacle_province = {
-# 					#		if = {
-# 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
-# 					#			remove_building = ghosts_ost_in_edhil_cleared
-# 					#		}
-# 					#		else = {
-# 					#			remove_building = ghosts_eregion_cleared
-# 					#		}
-# 					#	}
-# 					#}
+# # 	option = { # Leave!
+# # 		name = wastelands.2802.c
+# # 		make_settlement_county_wilderness = {
+# # 			COUNTY = scope:obstacle_province.county
+# # 		}
+# # 	}
+# # }
 
-# 					add_stress = medium_stress_loss
-# 				}
-# 			}
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -2
-# 					min = -25
-# 				}
-# 				desc = wastelands.2804.b.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2804.b.success.toast.t
-# 					#hidden_effect = {
-# 					#	scope:obstacle_province = {
-# 					#		if = {
-# 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
-# 					#			remove_building = ghosts_ost_in_edhil_cleared
-# 					#		}
-# 					#		else = {
-# 					#			remove_building = ghosts_eregion_cleared
-# 					#		}
-# 					#	}
-# 					#}
-# 					scope:obstacle_province = {
-# 						add_province_modifier = {
-# 							modifier = settlers_tempted
-# 							years = 5
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
+# # # Haunted Eregion Ruins - BLOCKER CLEARANCE
+# # wastelands.2803 = { # Noises and Shadows
+# # 	content_source = realms_dlc
+# # 	type = character_event
+# # 	title = wastelands.2803.t
+# # 	desc = wastelands.2803.desc
+# # 	theme = faith
+# # 	override_background = { reference = eregion }
 
-# 	option = { # Bury the artifacts
-# 		name = wastelands.2804.c
-# 		skill = intrigue
-# 		duel = {
-# 			skill = intrigue
-# 			value = 14
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 2
-# 					min = -10
-# 				}
-# 				desc = wastelands.2804.c.duel_success
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2804.c.success.toast.t
-# 					#hidden_effect = {
-# 					#	scope:obstacle_province = {
-# 					#		if = {
-# 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
-# 					#			remove_building = ghosts_ost_in_edhil_cleared
-# 					#		}
-# 					#		else = {
-# 					#			remove_building = ghosts_eregion_cleared
-# 					#		}
-# 					#	}
-# 					#}
+# # 	left_portrait = {
+# # 		character = root
+# # 		animation = personality_bold
+# # 	}
 
-# 					add_intrigue_skill = 1
-# 				}
-# 			}
-# 			30 = {
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -2
-# 					min = -25
-# 				}
-# 				desc = wastelands.2804.c.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2804.c.success.toast.t
-# 					#hidden_effect = {
-# 					#	scope:obstacle_province = {
-# 					#		if = {
-# 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
-# 					#			remove_building = ghosts_ost_in_edhil_cleared
-# 					#		}
-# 					#		else = {
-# 					#			remove_building = ghosts_eregion_cleared
-# 					#		}
-# 					#	}
-# 					#}
-# 					scope:obstacle_province = {
-# 						add_province_modifier = {
-# 							modifier = settlers_tempted
-# 							years = 5
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
+# # 	right_portrait = {
+# # 		character = scope:colonist
+# # 		animation = personality_coward
+# # 	}
 
-# 	option = { # Pick  up the artifact
-# 		name = wastelands.2804.d
-# 		#hidden_effect = {
-# 		#	scope:obstacle_province = {
-# 		#		if = {
-# 		#			limit = { has_building = ghosts_ost_in_edhil_cleared }
-# 		#			remove_building = ghosts_ost_in_edhil_cleared
-# 		#		}
-# 		#		else = {
-# 		#			remove_building = ghosts_eregion_cleared
-# 		#		}
-# 		#	}
-# 		#}
-# 		random_list = {
-# 			50 = {
-# 				trigger = {
-# 					cannot_be_killed = no
-# 					is_elf = no
-# 					NOT = { lotr_has_numenorean_culture_trigger = yes }
-# 				}
-# 				desc = wastelands.2804.d.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2804.d.failure.toast.t
-# 					add_trait = possessed_1
-# 				}
-# 			}
-# 			30 = {
-# 				trigger = {
-# 					cannot_be_killed = no
-# 					is_elf = no
-# 					lotr_has_numenorean_culture_trigger = yes
-# 				}
-# 				desc = wastelands.2804.d.duel_failure
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.2804.d.failure.toast.t
-# 					add_trait = possessed_1
-# 				}
-# 			}
-# 			50 = {
-# 				desc = wastelands.2804.d.duel_success
-# 				random_list = {
-# 					2 = {
-# 						send_interface_toast = {
-# 							left_icon = root
-# 							title = wastelands.2804.d.success.toast.t
-# 							create_artifact_elven_rope_effect = { OWNER = root }
-# 						}
-# 					}
-# 					2 = {
-# 						send_interface_toast = {
-# 							left_icon = root
-# 							title = wastelands.2804.d.success.toast.t
-# 							create_artifact_elven_brooch_effect = { OWNER = root }
-# 						}
-# 					}
-# 					2 = {
-# 						send_interface_toast = {
-# 							left_icon = root
-# 							title = wastelands.2804.d.success.toast.t
-# 							create_artifact_noldorin_tools_effect = { OWNER = root }
-# 						}
-# 					}
-# 					1 = {
-# 						send_interface_toast = {
-# 							left_icon = root
-# 							title = wastelands.2804.d.success.toast.t
-# 							create_artifact_eregion_gem_effect = { OWNER = root }
-# 						}
-# 					}
-# 					1 = {
-# 						send_interface_toast = {
-# 							left_icon = root
-# 							title = wastelands.2804.d.success.toast.t
-# 							create_artifact_elven_cape_effect = { OWNER = root }
-# 						}
-# 					}
-# 					1 = {
-# 						send_interface_toast = {
-# 							left_icon = root
-# 							title = wastelands.2804.d.success.toast.t
-# 							create_artifact_miruvor_effect = { OWNER = root }
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
+# # 	immediate = {
+# # 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
+# # 		create_character = {
+# # 			template = local_artisan_template
+# # 			culture = root.culture
+# # 			faith = root.faith
+# # 			location = scope:obstacle_province
+# # 			gender_female_chance = 50
+# # 			save_scope_as = colonist
+# # 		}
+# # 	}
 
-# 	after = {
-# 		scope:colonist = {
-# 			silent_disappearance_effect = yes
-# 		}
-# 	}
-# }
+# # 	option = { # Diplomacy: convincing the colonists to stay
+# # 		name = wastelands.2803.a
+# # 		skill = diplomacy
+# # 		duel = {
+# # 			skill = diplomacy
+# # 			value = 10
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 2
+# # 					min = -10
+# # 				}
+# # 				desc = wastelands.2803.a.duel_success
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2803.success.toast.t
+# # 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
+# # 					add_prestige = medium_prestige_gain
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -2
+# # 					min = -25
+# # 				}
+# # 				desc = wastelands.2803.a.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2803.success.toast.t
+# # 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
+# # 					scope:obstacle_province = { add_building = ghosts_eregion }
+# # 					add_prestige = minor_prestige_loss
+# # 				}
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Stewardship check
+# # 		name = wastelands.2803.b
+# # 		skill = stewardship
+# # 		duel = {
+# # 			skill = stewardship
+# # 			value = 10
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 2
+# # 					min = -10
+# # 				}
+# # 				desc = wastelands.2803.b.duel_success
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2803.success.toast.t
+# # 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
+# # 					remove_short_term_gold = medium_gold_value
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -2
+# # 					min = -25
+# # 				}
+# # 				desc = wastelands.2803.b.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2803.success.toast.t
+# # 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
+# # 					scope:obstacle_province = { add_building = ghosts_eregion }
+# # 					remove_short_term_gold = minor_gold_value
+# # 					add_piety = minor_piety_loss
+# # 				}
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Piety/Learning check
+# # 		name = wastelands.2803.c
+# # 		skill = learning
+# # 		duel = {
+# # 			skill = learning
+# # 			value = 10
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 2
+# # 					min = -10
+# # 				}
+# # 				desc = wastelands.2803.c.duel_success
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2803.success.toast.t
+# # 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
+# # 					add_piety = medium_piety_gain
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -2
+# # 					min = -25
+# # 				}
+# # 				desc = wastelands.2803.c.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2803.success.toast.t
+# # 					#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
+# # 					scope:obstacle_province = { add_building = ghosts_eregion }
+
+# # 					add_piety = medium_piety_loss
+# # 				}
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Leave!
+# # 		name = wastelands.2803.d
+# # 		#hidden_effect = { scope:obstacle_province = { remove_building = ghosts_eregion_cleared } }
+# # 		scope:obstacle_province = {
+# # 			add_building = ghosts_eregion
+# # 		}
+# # 		make_settlement_county_wilderness = {
+# # 			COUNTY = scope:obstacle_province.county
+# # 		}
+# # 	}
+
+# # 	after = {
+# # 		scope:colonist = {
+# # 			silent_disappearance_effect = yes
+# # 		}
+# # 	}
+# # }
+
+# # wastelands.2804 = { # Artifacts of old
+# # 	content_source = realms_dlc
+# # 	type = character_event
+# # 	title = wastelands.2804.t
+# # 	desc = wastelands.2804.desc
+# # 	theme = faith
+# # 	override_background = { reference = eregion }
+
+# # 	left_portrait = {
+# # 		character = root
+# # 		animation = personality_rational
+# # 	}
+
+
+# # 	right_portrait = {
+# # 		character = scope:colonist
+# # 		animation = personality_greedy
+# # 	}
+
+# # 	immediate = {
+# # 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
+# # 		create_character = {
+# # 			template = local_artisan_template
+# # 			culture = root.culture
+# # 			faith = root.faith
+# # 			location = scope:obstacle_province
+# # 			gender_female_chance = 50
+# # 			save_scope_as = colonist
+# # 		}
+# # 	}
+
+# # 	option = { # Study the artifacts carefully
+# # 		name = wastelands.2804.a
+# # 		skill = learning
+# # 		duel = {
+# # 			skill = learning
+# # 			value = 14
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 2
+# # 					min = -10
+# # 				}
+# # 				desc = wastelands.2804.a.duel_success
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2804.a.success.toast.t
+# # 					#hidden_effect = {
+# # 					#	scope:obstacle_province = {
+# # 					#		if = {
+# # 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
+# # 					#			remove_building = ghosts_ost_in_edhil_cleared
+# # 					#		}
+# # 					#		else = {
+# # 					#			remove_building = ghosts_eregion_cleared
+# # 					#		}
+# # 					#	}
+# # 					#}
+
+# # 					add_learning_skill = 2
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -2
+# # 					min = -25
+# # 				}
+# # 				desc = wastelands.2804.a.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2804.a.success.toast.t
+# # 					#hidden_effect = {
+# # 					#	scope:obstacle_province = {
+# # 					#		if = {
+# # 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
+# # 					#			remove_building = ghosts_ost_in_edhil_cleared
+# # 					#		}
+# # 					#		else = {
+# # 					#			remove_building = ghosts_eregion_cleared
+# # 					#		}
+# # 					#	}
+# # 					#}
+
+# # 					add_stress = medium_stress_gain
+# # 				}
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Leave the artifacts
+# # 		name = wastelands.2804.b
+# # 		skill = diplomacy
+# # 		duel = {
+# # 			skill = diplomacy
+# # 			value = 10
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 2
+# # 					min = -10
+# # 				}
+# # 				desc = wastelands.2804.b.duel_success
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2804.b.success.toast.t
+# # 					#hidden_effect = {
+# # 					#	scope:obstacle_province = {
+# # 					#		if = {
+# # 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
+# # 					#			remove_building = ghosts_ost_in_edhil_cleared
+# # 					#		}
+# # 					#		else = {
+# # 					#			remove_building = ghosts_eregion_cleared
+# # 					#		}
+# # 					#	}
+# # 					#}
+
+# # 					add_stress = medium_stress_loss
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -2
+# # 					min = -25
+# # 				}
+# # 				desc = wastelands.2804.b.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2804.b.success.toast.t
+# # 					#hidden_effect = {
+# # 					#	scope:obstacle_province = {
+# # 					#		if = {
+# # 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
+# # 					#			remove_building = ghosts_ost_in_edhil_cleared
+# # 					#		}
+# # 					#		else = {
+# # 					#			remove_building = ghosts_eregion_cleared
+# # 					#		}
+# # 					#	}
+# # 					#}
+# # 					scope:obstacle_province = {
+# # 						add_province_modifier = {
+# # 							modifier = settlers_tempted
+# # 							years = 5
+# # 						}
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Bury the artifacts
+# # 		name = wastelands.2804.c
+# # 		skill = intrigue
+# # 		duel = {
+# # 			skill = intrigue
+# # 			value = 14
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 2
+# # 					min = -10
+# # 				}
+# # 				desc = wastelands.2804.c.duel_success
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2804.c.success.toast.t
+# # 					#hidden_effect = {
+# # 					#	scope:obstacle_province = {
+# # 					#		if = {
+# # 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
+# # 					#			remove_building = ghosts_ost_in_edhil_cleared
+# # 					#		}
+# # 					#		else = {
+# # 					#			remove_building = ghosts_eregion_cleared
+# # 					#		}
+# # 					#	}
+# # 					#}
+
+# # 					add_intrigue_skill = 1
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -2
+# # 					min = -25
+# # 				}
+# # 				desc = wastelands.2804.c.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2804.c.success.toast.t
+# # 					#hidden_effect = {
+# # 					#	scope:obstacle_province = {
+# # 					#		if = {
+# # 					#			limit = { has_building = ghosts_ost_in_edhil_cleared }
+# # 					#			remove_building = ghosts_ost_in_edhil_cleared
+# # 					#		}
+# # 					#		else = {
+# # 					#			remove_building = ghosts_eregion_cleared
+# # 					#		}
+# # 					#	}
+# # 					#}
+# # 					scope:obstacle_province = {
+# # 						add_province_modifier = {
+# # 							modifier = settlers_tempted
+# # 							years = 5
+# # 						}
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 	}
+
+# # 	option = { # Pick  up the artifact
+# # 		name = wastelands.2804.d
+# # 		#hidden_effect = {
+# # 		#	scope:obstacle_province = {
+# # 		#		if = {
+# # 		#			limit = { has_building = ghosts_ost_in_edhil_cleared }
+# # 		#			remove_building = ghosts_ost_in_edhil_cleared
+# # 		#		}
+# # 		#		else = {
+# # 		#			remove_building = ghosts_eregion_cleared
+# # 		#		}
+# # 		#	}
+# # 		#}
+# # 		random_list = {
+# # 			50 = {
+# # 				trigger = {
+# # 					cannot_be_killed = no
+# # 					is_elf = no
+# # 					NOT = { lotr_has_numenorean_culture_trigger = yes }
+# # 				}
+# # 				desc = wastelands.2804.d.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2804.d.failure.toast.t
+# # 					add_trait = possessed_1
+# # 				}
+# # 			}
+# # 			30 = {
+# # 				trigger = {
+# # 					cannot_be_killed = no
+# # 					is_elf = no
+# # 					lotr_has_numenorean_culture_trigger = yes
+# # 				}
+# # 				desc = wastelands.2804.d.duel_failure
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.2804.d.failure.toast.t
+# # 					add_trait = possessed_1
+# # 				}
+# # 			}
+# # 			50 = {
+# # 				desc = wastelands.2804.d.duel_success
+# # 				random_list = {
+# # 					2 = {
+# # 						send_interface_toast = {
+# # 							left_icon = root
+# # 							title = wastelands.2804.d.success.toast.t
+# # 							create_artifact_elven_rope_effect = { OWNER = root }
+# # 						}
+# # 					}
+# # 					2 = {
+# # 						send_interface_toast = {
+# # 							left_icon = root
+# # 							title = wastelands.2804.d.success.toast.t
+# # 							create_artifact_elven_brooch_effect = { OWNER = root }
+# # 						}
+# # 					}
+# # 					2 = {
+# # 						send_interface_toast = {
+# # 							left_icon = root
+# # 							title = wastelands.2804.d.success.toast.t
+# # 							create_artifact_noldorin_tools_effect = { OWNER = root }
+# # 						}
+# # 					}
+# # 					1 = {
+# # 						send_interface_toast = {
+# # 							left_icon = root
+# # 							title = wastelands.2804.d.success.toast.t
+# # 							create_artifact_eregion_gem_effect = { OWNER = root }
+# # 						}
+# # 					}
+# # 					1 = {
+# # 						send_interface_toast = {
+# # 							left_icon = root
+# # 							title = wastelands.2804.d.success.toast.t
+# # 							create_artifact_elven_cape_effect = { OWNER = root }
+# # 						}
+# # 					}
+# # 					1 = {
+# # 						send_interface_toast = {
+# # 							left_icon = root
+# # 							title = wastelands.2804.d.success.toast.t
+# # 							create_artifact_miruvor_effect = { OWNER = root }
+# # 						}
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 	}
+
+# # 	after = {
+# # 		scope:colonist = {
+# # 			silent_disappearance_effect = yes
+# # 		}
+# # 	}
+# # }
 
 # ######################
 # #  Flooded Tunnels   #
@@ -10850,463 +10850,463 @@
 # # Shadow of Mordor #
 # ####################
 
-# wastelands.3201 = { # Unnerving Shadows
-# 	content_source = realms_dlc
-# 	type = character_event
-# 	title = wastelands.3201.t
-# 	desc = wastelands.3201.desc
-# 	theme = mental_break
-# 	override_background = { reference = barad_dur }
+# # wastelands.3201 = { # Unnerving Shadows
+# # 	content_source = realms_dlc
+# # 	type = character_event
+# # 	title = wastelands.3201.t
+# # 	desc = wastelands.3201.desc
+# # 	theme = mental_break
+# # 	override_background = { reference = barad_dur }
 
-# 	left_portrait = {
-# 		character = root
-# 		animation = personality_compassionate
-# 	}
+# # 	left_portrait = {
+# # 		character = root
+# # 		animation = personality_compassionate
+# # 	}
 
-# 	right_portrait = {
-# 		character = scope:courtier
-# 		animation = lantern
-# 	}
+# # 	right_portrait = {
+# # 		character = scope:courtier
+# # 		animation = lantern
+# # 	}
 
-# 	immediate = {
-# 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
-# 		random_courtier = {
-# 			save_scope_as = courtier
-# 		}
-# 	}
+# # 	immediate = {
+# # 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
+# # 		random_courtier = {
+# # 			save_scope_as = courtier
+# # 		}
+# # 	}
 
-# 	option = { # We shall bring light to these darkened lands
-# 		name = wastelands.3201.a
-# 		trigger = {
-# 			root = {
-# 				is_elf = yes
-# 			}
-# 		}
-# 		remove_short_term_gold = minor_gold_value
-# 		scope:obstacle_province.county = { change_development_level = 3 }
-# 		#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
-# 	}
+# # 	option = { # We shall bring light to these darkened lands
+# # 		name = wastelands.3201.a
+# # 		trigger = {
+# # 			root = {
+# # 				is_elf = yes
+# # 			}
+# # 		}
+# # 		remove_short_term_gold = minor_gold_value
+# # 		scope:obstacle_province.county = { change_development_level = 3 }
+# # 		#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
+# # 	}
 
-# 	option = { # Study the strange happenings
-# 		name = wastelands.3201.b
-# 		skill = learning
-# 		duel = {
-# 			skill = learning
-# 			value = medium_skill_rating
-# 			70 = { # You find a way to combat the shadows
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 0.5
-# 				}
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.3201.success.toast.t
-# 					#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
-# 					add_prestige = medium_prestige_gain
-# 				}
-# 			}
-# 			30 = { # You fail
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -0.5
-# 				}
-# 				show_as_tooltip = {
-# 					add_stress = major_stress_gain
-# 				}
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.3201.failure.toast.t
-# 					#hidden_effect = { scope:obstacle_province = { remove_building = shadow_of_mordor_cleared } }
-# 					scope:obstacle_province = { add_building = shadow_of_mordor }
-# 				}
+# # 	option = { # Study the strange happenings
+# # 		name = wastelands.3201.b
+# # 		skill = learning
+# # 		duel = {
+# # 			skill = learning
+# # 			value = medium_skill_rating
+# # 			70 = { # You find a way to combat the shadows
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 0.5
+# # 				}
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.3201.success.toast.t
+# # 					#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
+# # 					add_prestige = medium_prestige_gain
+# # 				}
+# # 			}
+# # 			30 = { # You fail
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -0.5
+# # 				}
+# # 				show_as_tooltip = {
+# # 					add_stress = major_stress_gain
+# # 				}
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.3201.failure.toast.t
+# # 					#hidden_effect = { scope:obstacle_province = { remove_building = shadow_of_mordor_cleared } }
+# # 					scope:obstacle_province = { add_building = shadow_of_mordor }
+# # 				}
 
-# 			}
-# 		}
-# 	}
+# # 			}
+# # 		}
+# # 	}
 
-# 	option = { #Ignore those happenings
-# 		name = wastelands.3201.c
-# 		add_prestige = medium_prestige_loss
-# 		scope:obstacle_province.county = {
-# 			change_development_progress = -50
-# 		}
-# 	}
+# # 	option = { #Ignore those happenings
+# # 		name = wastelands.3201.c
+# # 		add_prestige = medium_prestige_loss
+# # 		scope:obstacle_province.county = {
+# # 			change_development_progress = -50
+# # 		}
+# # 	}
 
 
-# 	option = { # We should never have come here
-# 		name = wastelands.3201.d
-# 		make_settlement_county_wilderness = {
-# 			COUNTY = scope:obstacle_province.county
-# 		}
-# 		scope:obstacle_province = { add_building = shadow_of_mordor }
-# 	}
-# }
+# # 	option = { # We should never have come here
+# # 		name = wastelands.3201.d
+# # 		make_settlement_county_wilderness = {
+# # 			COUNTY = scope:obstacle_province.county
+# # 		}
+# # 		scope:obstacle_province = { add_building = shadow_of_mordor }
+# # 	}
+# # }
 
-# wastelands.3202 = { # A Light in the Darkness
-# 	content_source = realms_dlc
-# 	type = character_event
-# 	title = wastelands.3202.t
-# 	desc = wastelands.3202.desc
-# 	theme = friendly
-# 	override_background = { reference = barad_dur }
+# # wastelands.3202 = { # A Light in the Darkness
+# # 	content_source = realms_dlc
+# # 	type = character_event
+# # 	title = wastelands.3202.t
+# # 	desc = wastelands.3202.desc
+# # 	theme = friendly
+# # 	override_background = { reference = barad_dur }
 
-# 	left_portrait = {
-# 		character = root
-# 		animation = interested
-# 	}
+# # 	left_portrait = {
+# # 		character = root
+# # 		animation = interested
+# # 	}
 
-# 	immediate = {
-# 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
-# 	}
+# # 	immediate = {
+# # 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
+# # 	}
 
-# 	option = { # A good omen!
-# 		name = wastelands.3202.a
-# 		scope:obstacle_province.county = {
-# 			change_development_progress = 75
-# 		}
-# 	}
+# # 	option = { # A good omen!
+# # 		name = wastelands.3202.a
+# # 		scope:obstacle_province.county = {
+# # 			change_development_progress = 75
+# # 		}
+# # 	}
 
-# 	option = { # Have it brought here so I can study it
-# 		name = wastelands.3202.b
-# 		add_learning_lifestyle_xp = medium_lifestyle_xp
-# 		stress_impact = {
-# 			base = medium_stress_loss
-# 			impatient = minor_stress_loss
-# 			patient = major_stress_loss
-# 		}
-# 	}
+# # 	option = { # Have it brought here so I can study it
+# # 		name = wastelands.3202.b
+# # 		add_learning_lifestyle_xp = medium_lifestyle_xp
+# # 		stress_impact = {
+# # 			base = medium_stress_loss
+# # 			impatient = minor_stress_loss
+# # 			patient = major_stress_loss
+# # 		}
+# # 	}
 
-# 	option = { # Attempt to cultivate it
-# 		name = wastelands.3202.c
-# 		duel = {
-# 			skills = { stewardship learning }
-# 			value = medium_skill_rating
-# 			70 = { # You are successful
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = 0.5
-# 				}
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.3202.success.toast.t
-# 					#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
-# 					add_prestige = medium_prestige_gain
-# 					scope:obstacle_province.county = {
-# 						change_development_level = 3
-# 					}
-# 				}
-# 			}
-# 			30 = { # You fail
-# 				compare_modifier = {
-# 					value = scope:duel_value
-# 					multiplier = -0.5
-# 				}
-# 				show_as_tooltip = {
-# 					add_stress = major_stress_gain
-# 				}
-# 				send_interface_toast = {
-# 					left_icon = root
-# 					title = wastelands.3202.failure.toast.t
-# 					#hidden_effect = { scope:obstacle_province = { remove_building = shadow_of_mordor_cleared } }
-# 					scope:obstacle_province = { add_building = shadow_of_mordor }
-# 				}
+# # 	option = { # Attempt to cultivate it
+# # 		name = wastelands.3202.c
+# # 		duel = {
+# # 			skills = { stewardship learning }
+# # 			value = medium_skill_rating
+# # 			70 = { # You are successful
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = 0.5
+# # 				}
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.3202.success.toast.t
+# # 					#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
+# # 					add_prestige = medium_prestige_gain
+# # 					scope:obstacle_province.county = {
+# # 						change_development_level = 3
+# # 					}
+# # 				}
+# # 			}
+# # 			30 = { # You fail
+# # 				compare_modifier = {
+# # 					value = scope:duel_value
+# # 					multiplier = -0.5
+# # 				}
+# # 				show_as_tooltip = {
+# # 					add_stress = major_stress_gain
+# # 				}
+# # 				send_interface_toast = {
+# # 					left_icon = root
+# # 					title = wastelands.3202.failure.toast.t
+# # 					#hidden_effect = { scope:obstacle_province = { remove_building = shadow_of_mordor_cleared } }
+# # 					scope:obstacle_province = { add_building = shadow_of_mordor }
+# # 				}
 
-# 			}
-# 		}
-# 	}
+# # 			}
+# # 		}
+# # 	}
 
-# 	option = { # Feed it to our furnaces
-# 		name = wastelands.3202.d
-# 		trigger = {
-# 			OR = {
-# 				is_orc = yes
-# 				is_dwarf = yes
-# 			}
-# 		}
-# 		scope:obstacle_province.county = {
-# 			change_development_progress = 50
-# 		}
-# 		add_gold = medium_gold_value
-# 	}
+# # 	option = { # Feed it to our furnaces
+# # 		name = wastelands.3202.d
+# # 		trigger = {
+# # 			OR = {
+# # 				is_orc = yes
+# # 				is_dwarf = yes
+# # 			}
+# # 		}
+# # 		scope:obstacle_province.county = {
+# # 			change_development_progress = 50
+# # 		}
+# # 		add_gold = medium_gold_value
+# # 	}
 
-# }
+# # }
 
-# wastelands.3203 = { # The Bold Explorer
-# 	content_source = realms_dlc
-# 	type = character_event
-# 	title = wastelands.3203.t
-# 	desc = wastelands.3203.desc
-# 	theme = realm
-# 	override_background = { reference = barad_dur }
+# # wastelands.3203 = { # The Bold Explorer
+# # 	content_source = realms_dlc
+# # 	type = character_event
+# # 	title = wastelands.3203.t
+# # 	desc = wastelands.3203.desc
+# # 	theme = realm
+# # 	override_background = { reference = barad_dur }
 
-# 	left_portrait = {
-# 		character = root
-# 		animation = interested
-# 	}
-# 	right_portrait = {
-# 		character = scope:explorer
-# 		animation = ecstasy
-# 	}
+# # 	left_portrait = {
+# # 		character = root
+# # 		animation = interested
+# # 	}
+# # 	right_portrait = {
+# # 		character = scope:explorer
+# # 		animation = ecstasy
+# # 	}
 
-# 	immediate = {
-# 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
-# 		create_character = {
-# 			template = new_warrior_character
-# 			dynasty = generate
-# 			location = scope:obstacle_province
-# 			gender_female_chance = 50
-# 			save_scope_as = explorer
-# 			age = { 18 28 }
-# 			random_traits_list = {
-# 				count = 3
-# 				brave = {}
-# 				impatient = {}
-# 				greedy = {}
-# 				wrathful = {}
-# 				just = {}
-# 				vengeful = {}
-# 				ambitious = {}
-# 			}
-# 			culture = root.culture
-# 			faith = root.faith
-# 			after_creation = {
-# 				scope:explorer = {
-# 					add_prowess_skill = 10
-# 					random_list = {
-# 						1 = { add_trait = lifestyle_hunter }
-# 						1 = { add_trait = lifestyle_blademaster }
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
+# # 	immediate = {
+# # 		scope:obstacle_province = { remove_cleaned_blockers_effect = yes }
+# # 		create_character = {
+# # 			template = new_warrior_character
+# # 			dynasty = generate
+# # 			location = scope:obstacle_province
+# # 			gender_female_chance = 50
+# # 			save_scope_as = explorer
+# # 			age = { 18 28 }
+# # 			random_traits_list = {
+# # 				count = 3
+# # 				brave = {}
+# # 				impatient = {}
+# # 				greedy = {}
+# # 				wrathful = {}
+# # 				just = {}
+# # 				vengeful = {}
+# # 				ambitious = {}
+# # 			}
+# # 			culture = root.culture
+# # 			faith = root.faith
+# # 			after_creation = {
+# # 				scope:explorer = {
+# # 					add_prowess_skill = 10
+# # 					random_list = {
+# # 						1 = { add_trait = lifestyle_hunter }
+# # 						1 = { add_trait = lifestyle_blademaster }
+# # 					}
+# # 				}
+# # 			}
+# # 		}
+# # 	}
 
-# 	option = { # This is not a good idea
-# 		name = wastelands.3203.a
-# 		#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
-# 		scope:obstacle_province.county = {
-# 			change_development_progress = -50
-# 		}
-# 	}
+# # 	option = { # This is not a good idea
+# # 		name = wastelands.3203.a
+# # 		#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
+# # 		scope:obstacle_province.county = {
+# # 			change_development_progress = -50
+# # 		}
+# # 	}
 
-# 	option = { # Join me at my court instead
-# 		name = wastelands.3203.b
-# 		#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
-# 		add_courtier = scope:explorer
-# 	}
+# # 	option = { # Join me at my court instead
+# # 		name = wastelands.3203.b
+# # 		#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
+# # 		add_courtier = scope:explorer
+# # 	}
 
-# 	option = { # Very well...
-# 		name = wastelands.3203.c
-# 		random_list = {
-# 			75 = {
-# 				custom_tooltip = wastelands.3203.c.tt.success
-# 				hidden_effect = {
-# 					send_interface_toast = {
-# 						left_icon = root
-# 						right_icon = scope:explorer
-# 						title = wastelands.3203.c.tt.success
-# 					}
-# 				}
-# 				#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
-# 				if = { # Check if the county is underground
-# 					limit = {
-# 						scope:obstacle_province = {
-# 							terrain = halls
-# 						}
-# 					}
-# 					scope:obstacle_province = {
-# 						set_holding_type = dwarven_holding
-# 					}
-# 				}
-# 				else_if = {
-# 					limit = {
-# 						has_government = elven_government
-# 					}
-# 					scope:obstacle_province = {
-# 						set_holding_type = elven_holding
-# 					}
-# 				}
-# 				else_if = {
-# 					limit = {
-# 						has_government = tribal_government
-# 					}
-# 					scope:obstacle_province = {
-# 						set_holding_type = tribal_holding
-# 					}
-# 				}
-# 				else_if = {
-# 					limit = {
-# 						has_government = hobbit_government
-# 					}
-# 					scope:obstacle_province = {
-# 						set_holding_type = city_holding
-# 					}
-# 				}
-# 				else = {
-# 					scope:obstacle_province = {
-# 						set_holding_type = castle_holding
-# 					}
-# 				}
+# # 	option = { # Very well...
+# # 		name = wastelands.3203.c
+# # 		random_list = {
+# # 			75 = {
+# # 				custom_tooltip = wastelands.3203.c.tt.success
+# # 				hidden_effect = {
+# # 					send_interface_toast = {
+# # 						left_icon = root
+# # 						right_icon = scope:explorer
+# # 						title = wastelands.3203.c.tt.success
+# # 					}
+# # 				}
+# # 				#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
+# # 				if = { # Check if the county is underground
+# # 					limit = {
+# # 						scope:obstacle_province = {
+# # 							terrain = halls
+# # 						}
+# # 					}
+# # 					scope:obstacle_province = {
+# # 						set_holding_type = dwarven_holding
+# # 					}
+# # 				}
+# # 				else_if = {
+# # 					limit = {
+# # 						has_government = elven_government
+# # 					}
+# # 					scope:obstacle_province = {
+# # 						set_holding_type = elven_holding
+# # 					}
+# # 				}
+# # 				else_if = {
+# # 					limit = {
+# # 						has_government = tribal_government
+# # 					}
+# # 					scope:obstacle_province = {
+# # 						set_holding_type = tribal_holding
+# # 					}
+# # 				}
+# # 				else_if = {
+# # 					limit = {
+# # 						has_government = hobbit_government
+# # 					}
+# # 					scope:obstacle_province = {
+# # 						set_holding_type = city_holding
+# # 					}
+# # 				}
+# # 				else = {
+# # 					scope:obstacle_province = {
+# # 						set_holding_type = castle_holding
+# # 					}
+# # 				}
 
-# 				scope:obstacle_province.county = {
-# 					set_county_faith = root.faith
-# 					set_county_culture = root.culture
-# 					change_development_level = 3
-# 					generate_coa = yes
-# 				}
+# # 				scope:obstacle_province.county = {
+# # 					set_county_faith = root.faith
+# # 					set_county_culture = root.culture
+# # 					change_development_level = 3
+# # 					generate_coa = yes
+# # 				}
 
-# 				create_title_and_vassal_change = {
-# 					type = conquest
-# 					save_scope_as = title_change
-# 					add_claim_on_loss = yes
-# 				}
-# 				scope:obstacle_province.county = {
-# 					change_title_holder = {
-# 						holder = scope:explorer
-# 						change = scope:title_change
-# 						take_baronies = yes
-# 					}
-# 				}
+# # 				create_title_and_vassal_change = {
+# # 					type = conquest
+# # 					save_scope_as = title_change
+# # 					add_claim_on_loss = yes
+# # 				}
+# # 				scope:obstacle_province.county = {
+# # 					change_title_holder = {
+# # 						holder = scope:explorer
+# # 						change = scope:title_change
+# # 						take_baronies = yes
+# # 					}
+# # 				}
 
-# 				resolve_title_and_vassal_change = scope:title_change
+# # 				resolve_title_and_vassal_change = scope:title_change
 
-# 				hidden_effect = {
-# 					if = {
-# 						limit = {
-# 							has_government = elven_government
-# 						}
-# 						scope:explorer = {
-# 							change_government = elven_government
-# 						}
-# 					}
-# 					else_if = {
-# 						limit = {
-# 							has_government = hobbit_government
-# 						}
-# 						scope:explorer = {
-# 							change_government = hobbit_government
-# 						}
-# 					}
-# 					else_if = {
-# 						limit = {
-# 							has_government = orcish_government
-# 						}
-# 						scope:explorer = {
-# 							change_government = orcish_government
-# 						}
-# 					}
-# 					else_if = {
-# 						limit = {
-# 							has_government = tribal_government
-# 						}
-# 						scope:explorer = {
-# 							change_government = tribal_government
-# 						}
-# 					}
-# 					else_if = {
-# 						limit = {
-# 							has_government = clan_government
-# 						}
-# 						scope:explorer = {
-# 							change_government = clan_government
-# 						}
-# 					}
-# 					else = {
-# 						scope:explorer = {
-# 							change_government = feudal_government
-# 						}
-# 					}
-# 				}
+# # 				hidden_effect = {
+# # 					if = {
+# # 						limit = {
+# # 							has_government = elven_government
+# # 						}
+# # 						scope:explorer = {
+# # 							change_government = elven_government
+# # 						}
+# # 					}
+# # 					else_if = {
+# # 						limit = {
+# # 							has_government = hobbit_government
+# # 						}
+# # 						scope:explorer = {
+# # 							change_government = hobbit_government
+# # 						}
+# # 					}
+# # 					else_if = {
+# # 						limit = {
+# # 							has_government = orcish_government
+# # 						}
+# # 						scope:explorer = {
+# # 							change_government = orcish_government
+# # 						}
+# # 					}
+# # 					else_if = {
+# # 						limit = {
+# # 							has_government = tribal_government
+# # 						}
+# # 						scope:explorer = {
+# # 							change_government = tribal_government
+# # 						}
+# # 					}
+# # 					else_if = {
+# # 						limit = {
+# # 							has_government = clan_government
+# # 						}
+# # 						scope:explorer = {
+# # 							change_government = clan_government
+# # 						}
+# # 					}
+# # 					else = {
+# # 						scope:explorer = {
+# # 							change_government = feudal_government
+# # 						}
+# # 					}
+# # 				}
 
-# 			}
-# 			25 = {
-# 				custom_tooltip = wastelands.3203.c.tt.failure
-# 				hidden_effect = {
-# 					send_interface_toast = {
-# 						left_icon = root
-# 						right_icon = scope:explorer
-# 						title = wastelands.3203.c.tt.failure
-# 					}
-# 				}
+# # 			}
+# # 			25 = {
+# # 				custom_tooltip = wastelands.3203.c.tt.failure
+# # 				hidden_effect = {
+# # 					send_interface_toast = {
+# # 						left_icon = root
+# # 						right_icon = scope:explorer
+# # 						title = wastelands.3203.c.tt.failure
+# # 					}
+# # 				}
 
-# 				hidden_effect = {
-# 					#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
-# 					if = {
-# 						limit = {
-# 							is_elf = yes
-# 						}
-# 						scope:obstacle_province = {
-# 							set_holding_type = elven_holding
-# 						}
-# 					}
-# 					else = {
-# 						scope:obstacle_province = {
-# 							set_holding_type = castle_holding
-# 						}
-# 					}
-# 					scope:obstacle_province.county = {
-# 						set_county_faith = faith:lidless_eye
-# 						set_county_culture = scope:explorer.culture
-# 						change_development_level = 3
-# 						generate_coa = yes
-# 					}
+# # 				hidden_effect = {
+# # 					#scope:obstacle_province = { remove_building = shadow_of_mordor_cleared }
+# # 					if = {
+# # 						limit = {
+# # 							is_elf = yes
+# # 						}
+# # 						scope:obstacle_province = {
+# # 							set_holding_type = elven_holding
+# # 						}
+# # 					}
+# # 					else = {
+# # 						scope:obstacle_province = {
+# # 							set_holding_type = castle_holding
+# # 						}
+# # 					}
+# # 					scope:obstacle_province.county = {
+# # 						set_county_faith = faith:lidless_eye
+# # 						set_county_culture = scope:explorer.culture
+# # 						change_development_level = 3
+# # 						generate_coa = yes
+# # 					}
 
-# 					create_title_and_vassal_change = {
-# 						type = conquest
-# 						save_scope_as = title_change
-# 						add_claim_on_loss = yes
-# 					}
-# 					scope:obstacle_province.county = {
-# 						change_title_holder = {
-# 							holder = scope:explorer
-# 							change = scope:title_change
-# 							take_baronies = yes
-# 						}
-# 					}
-# 					scope:explorer = {
-# 						becomes_independent = { change = scope:title_change }
-# 					}
+# # 					create_title_and_vassal_change = {
+# # 						type = conquest
+# # 						save_scope_as = title_change
+# # 						add_claim_on_loss = yes
+# # 					}
+# # 					scope:obstacle_province.county = {
+# # 						change_title_holder = {
+# # 							holder = scope:explorer
+# # 							change = scope:title_change
+# # 							take_baronies = yes
+# # 						}
+# # 					}
+# # 					scope:explorer = {
+# # 						becomes_independent = { change = scope:title_change }
+# # 					}
 
-# 					resolve_title_and_vassal_change = scope:title_change
+# # 					resolve_title_and_vassal_change = scope:title_change
 
-# 					hidden_effect = {
-# 						scope:explorer = {
-# 							if = {
-# 								limit = {
-# 									is_elf = yes
-# 								}
-# 								change_government = elven_government
-# 							}
-# 							else_if = {
-# 								limit = {
-# 									is_orc = yes
-# 								}
-# 								change_government = orcish_government
-# 							}
-# 							else = {
-# 								change_government = feudal_government
-# 							}
-# 							set_character_faith = faith:lidless_eye
-# 						}
-# 					}
-# 				}
+# # 					hidden_effect = {
+# # 						scope:explorer = {
+# # 							if = {
+# # 								limit = {
+# # 									is_elf = yes
+# # 								}
+# # 								change_government = elven_government
+# # 							}
+# # 							else_if = {
+# # 								limit = {
+# # 									is_orc = yes
+# # 								}
+# # 								change_government = orcish_government
+# # 							}
+# # 							else = {
+# # 								change_government = feudal_government
+# # 							}
+# # 							set_character_faith = faith:lidless_eye
+# # 						}
+# # 					}
+# # 				}
 
-# 			}
-# 		}
-# 		if = {
-# 			limit = {
-# 				has_variable = num_settled_wilderness
-# 				var:num_settled_wilderness > 0
-# 			}
-# 			decrease_variable = {
-# 				NAME = num_settled_wilderness
-# 				AMOUNT = 1
-# 			}
-# 			remove_wastelands_tracker_variable = yes
-# 		}
-# 	}
+# # 			}
+# # 		}
+# # 		if = {
+# # 			limit = {
+# # 				has_variable = num_settled_wilderness
+# # 				var:num_settled_wilderness > 0
+# # 			}
+# # 			decrease_variable = {
+# # 				NAME = num_settled_wilderness
+# # 				AMOUNT = 1
+# # 			}
+# # 			remove_wastelands_tracker_variable = yes
+# # 		}
+# # 	}
 
-# }
+# # }
 
 # ###################
 # # Pirate Remnants #

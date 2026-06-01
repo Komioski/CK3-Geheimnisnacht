@@ -28,8 +28,7 @@ gui_not_is_province_wastelands = {
 					county.tier = tier_empire
 				}
 			}
-			#NOT = { county.title_province ?= { culture = culture:wastelands } }
-			NOT = { county.holder ?= { culture ?= culture:wastelands } }
+			NOT = { county.title_province ?= { culture = culture:wastelands } }
 		}
 	}
 }
@@ -59,8 +58,7 @@ gui_is_province_wastelands = {
 				}
 			}
 		}
-		#county.title_province ?= { culture = culture:wastelands }
-		county.holder ?= { culture ?= culture:wastelands }
+		county.title_province ?= { culture = culture:wastelands }
 	}
 }
 
