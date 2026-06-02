@@ -29,14 +29,6 @@
 			desc = "FACTION_POWER_HARD_RULE"
 		}
 
-		modifier = { #LotR
-			add = 30
-			faction_target.primary_title = {
-				has_title_law = aristocratic_elective_succession_law
-			}
-			desc = "FACTION_POWER_ARISTOCRATIC_ELECTIVE"
-		}
-
 		dynamic_power_threshold_scripted_modifier = {
 			FACTION_TYPE1 = claimant_faction
 			FACTION_TYPE2 = liberty_faction
@@ -173,10 +165,6 @@
 			add = 15
 			desc = is_disbelieved_mandala
 		}
-
-		lotr_orc_faction_modifiers = {
-			FACTION_TARGET = scope:target
-		}
 	}
 
 	ai_join_score = {
@@ -262,7 +250,6 @@
 				}
 			}
 		}
-	    
 		# TGP Dynastic Cycle in Instability phase
 		modifier = {
 			desc = "FACTION_REASON_DYNASTIC_CYCLE_INSTABILITY"
@@ -272,13 +259,6 @@
 					has_participant_group_parameter = dynastic_cycle_external_tributaries_vassals_increased_independence_desire
 				}
 			}
-		}
-
-		#######################
-		### LotR AI Weights ###
-		#######################
-		lotr_faction_modifiers = { # Lotr
-			FACTION_TARGET = scope:faction.faction_target
 		}
 	}
 
@@ -291,6 +271,7 @@
 
 	can_character_create_ui = {
 		base_faction_trigger = { FACTION_TYPE = independence_faction }
+
 		common_can_character_create_trigger = {
 			FACTION_TARGET = scope:target
 		}
@@ -606,14 +587,6 @@ liberty_faction = {
 			desc = "FACTION_POWER_HARD_RULE"
 		}
 
-		modifier = { #LotR
-			add = 30
-			faction_target.primary_title = {
-				has_title_law = aristocratic_elective_succession_law
-			}
-			desc = "FACTION_POWER_ARISTOCRATIC_ELECTIVE"
-		}
-
 		#Lower the threshold depending on the state of other factions
 		dynamic_power_threshold_scripted_modifier = {
 			FACTION_TYPE1 = claimant_faction
@@ -722,6 +695,7 @@ liberty_faction = {
 
 	can_character_create_ui = {
 		base_faction_trigger = { FACTION_TYPE = liberty_faction }
+
 		common_can_character_create_trigger = {
 			FACTION_TARGET = scope:target
 		}
@@ -740,7 +714,7 @@ liberty_faction = {
 		}
 	}
 
-	can_character_create = {	
+	can_character_create = {
 		common_can_character_create_trigger = {
 			FACTION_TARGET = scope:target
 		}
@@ -820,11 +794,7 @@ liberty_faction = {
 			culture = { has_cultural_parameter = house_hostility_more_common }
 
 			factor = 1.25
-	    }
-
-		lotr_orc_faction_modifiers = {
-			FACTION_TARGET = scope:target
-		}
+	    }		
 	}
 
 	ai_join_score = {
@@ -875,14 +845,6 @@ liberty_faction = {
 					has_character_flag = low_legitimacy_admin_factions_flag
 				}
 			}
-		}
-
-		#######################
-		### LotR AI Weights ###
-		#######################
-
-		lotr_faction_modifiers = { # Lotr
-			FACTION_TARGET = scope:faction.faction_target
 		}
 	}
 
@@ -963,14 +925,6 @@ claimant_faction = {
 			desc = "FACTION_POWER_HARD_RULE"
 		} 
 
-		modifier = { #LotR
-			add = 30
-			faction_target.primary_title = {
-				has_title_law = aristocratic_elective_succession_law
-			}
-			desc = "FACTION_POWER_ARISTOCRATIC_ELECTIVE"
-		}
-
 		#Lower the threshold depending on the state of other factions
 		dynamic_power_threshold_scripted_modifier = {
 			FACTION_TYPE1 = liberty_faction
@@ -1021,7 +975,6 @@ claimant_faction = {
 					# Ministers cannot be claimants unless we are targeting h_china
 					trigger_if = {
 						limit = {
-							always = no #LotR
 							tgp_has_minister_title = yes
 						}
 						custom_description = {
@@ -1297,10 +1250,6 @@ claimant_faction = {
 			FACTION_TARGET = scope:target
 			FACTION_CLAIMANT = scope:claimant
 		}
-
-		lotr_orc_faction_modifiers = { #LotR
-			FACTION_TARGET = scope:target
-		}
 	}
 
 	ai_join_score = { # How likely is an AI to join an existing faction?
@@ -1375,14 +1324,6 @@ claimant_faction = {
 			liege = {
 				has_character_modifier = ep3_life_threatened_modifier
 			}
-		}
-
-		#######################
-		### LotR AI Weights ###
-		#######################
-
-		lotr_faction_modifiers = { # Lotr
-			FACTION_TARGET = scope:faction.faction_target
 		}
 	}
 
@@ -1478,8 +1419,8 @@ claimant_faction = {
 			add = 10
 			exists = scope:faction.faction_target
 			exists = scope:faction.special_character
-			scope:faction.faction_target = { is_lotr_adult = no } #LotR
-			scope:faction.special_character = { is_lotr_adult = yes } #LotR
+			scope:faction.faction_target = { is_adult = no }
+			scope:faction.special_character = { is_adult = yes }
 		}
 
 		# Peasants perfer magnanimous rulers over harsh or cruel ones.
