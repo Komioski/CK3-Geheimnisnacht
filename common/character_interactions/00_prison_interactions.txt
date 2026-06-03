@@ -1,6 +1,4 @@
-﻿# LotR: removed culture references and restricted options for Nazgul
-
-imprison_interaction = {
+﻿imprison_interaction = {
 	interface_priority = 120
 	common_interaction = yes
 	icon = prison
@@ -76,18 +74,17 @@ imprison_interaction = {
 		}
 		NOT = { has_culture = culture:wastelands } #LotR
 		is_imprisoned = no
-
 	}
 
 	is_shown = {
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands } #LotR
-			is_in_valinor = no #LotR
+			#is_in_valinor = no #LotR
 		}
 		scope:recipient = {
 			NOT = { has_culture = culture:wastelands } #LotR
-			is_in_valinor = no #LotR
-			cannot_be_killed =no #LotR
+			#is_in_valinor = no #LotR
+			#cannot_be_killed =no #LotR
 		}
 		scope:actor != scope:recipient
 		scope:actor = {
@@ -146,16 +143,16 @@ imprison_interaction = {
 				}
 				NOT = { has_realm_law = nomadic_authority_1 }
 			}
-			#trigger_if = { #LotR
-			#	limit = {
-			#		has_title = title:e_minister_of_justice
-			#	}
-			#	scope:recipient = {
-			#		NOT = {
-			#			is_close_or_extended_family_of = scope:actor.top_liege
-			#		}
-			#	}
-			#}
+			trigger_if = {
+				limit = {
+					has_title = title:e_minister_of_justice
+				}
+				scope:recipient = {
+					NOT = {
+						is_close_or_extended_family_of = scope:actor.top_liege
+					}
+				}
+			}
 		}
 		imprison_neutral_is_valid_showing_failures_only_triggers_trigger = yes
 		custom_tooltip = {
@@ -266,33 +263,6 @@ imprison_interaction = {
 		# the rest of the necessary logic is covered by auto_accept also triggering on_accept below
 		scope:recipient = {
 			trigger_event = char_interaction.0233
-		}
-		scope:actor = { #LotR
-			if = {
-				limit = {
-					OR = {
-						has_imprisonment_reason = scope:recipient
-						AND = { #LotR
-							scope:actor = {NOT = { is_orc = yes }}
-							scope:recipient = {NOT = { is_orc = yes }}
-						}
-						AND = { #LotR
-							scope:actor = {is_orc = yes}
-							scope:recipient = {is_orc = yes}
-						}
-					}
-				}
-				stress_impact = {
-					compassionate = minor_stress_impact_gain
-					forgiving = minor_stress_impact_gain
-				}
-			}
-			else = {
-				stress_impact = {
-					just = medium_stress_impact_gain
-					compassionate = medium_stress_impact_gain
-				}
-			}
 		}
 	}
 
@@ -1147,18 +1117,18 @@ imprison_interaction = {
 				government_has_flag = government_is_japan_feudal
 			}
 		}
-		
-		#modifier = { # Even more imprisonment reason if you are a danger to the Kampaku #LotR
-		#	add = 400
-		#	scope:actor = {
-		#		primary_title = title:e_japan
-		#		has_imprisonment_reason = scope:recipient
-		#	}
-		#	scope:recipient = {
-		#		exists = house.house_confederation
-		#		house.house_confederation.combined_military_strength > scope:actor.current_military_strength
-		#	}
-		#}
+
+		modifier = { # Even more imprisonment reason if you are a danger to the Kampaku
+			add = 400
+			scope:actor = {
+				primary_title = title:e_japan
+				has_imprisonment_reason = scope:recipient
+			}
+			scope:recipient = {
+				exists = house.house_confederation
+				house.house_confederation.combined_military_strength > scope:actor.current_military_strength
+			}
+		}
 
 		modifier = { # Avoid Tyranny wars at inopportune times
 			add = -190
@@ -1601,24 +1571,16 @@ move_to_dungeon_interaction = {
 			}
 		}
 		scope:actor = {
-			if = { #LotR
-				limit = {
-					OR = {
-						AND = {scope:actor = {NOT = { is_orc = yes }} scope:recipient = {NOT = { is_orc = yes }}}
-						AND = {scope:actor = {is_orc = yes} scope:recipient = {is_orc = yes}}
-					}
-				}
-				stress_impact = {
-					compassionate = medium_stress_impact_gain
-					forgiving = medium_stress_impact_gain
-				}
-				hidden_effect = {
-					send_interface_message = {
-						type = event_prison_neutral
-						title = msg_move_prisoner_to_dungeon
-						right_icon = scope:recipient
-						custom_tooltip = MOVE_PRISONER_TO_DUNGEON
-					}
+			stress_impact = {
+				compassionate = medium_stress_impact_gain
+				forgiving = medium_stress_impact_gain
+			}
+			hidden_effect = {
+				send_interface_message = {
+					type = event_prison_neutral
+					title = msg_move_prisoner_to_dungeon
+					right_icon = scope:recipient
+					custom_tooltip = MOVE_PRISONER_TO_DUNGEON
 				}
 			}
 		}
@@ -4301,14 +4263,7 @@ release_from_prison_interaction = {
 							has_any_artifact = yes
 						}
 						every_character_artifact = {
-							limit = { #LotR
-								NOT = { has_variable = artifact_prevent_transfer }
-								NOT = { has_variable = silmaril }
-								NOT = { 
-									has_variable = ring_of_power
-									sauron_is_alive = yes
-								}
-							}
+							limit = { NOT = { has_variable = artifact_prevent_transfer } }
 							set_owner = {
 								target = scope:actor
 								history = {
@@ -4475,19 +4430,18 @@ release_from_prison_interaction = {
 					limit = { scope:take_vows = yes }
 					send_child_to_clergy_effect = yes
 					#Does Byzan go hay-wire with deposing vassals?
-					# if = { #LotR
-					# 	limit = {
-					# 		scope:actor = {
-					# 			is_ai = yes
-					# 			culture = { has_cultural_pillar = heritage_byzantine }
-					# 		}
-					# 	}
-					# 	debug_log = debug_ai_byzan_forced_vows_on_prison_release
-					# 	debug_log_scopes = yes
-					# }
+					if = {
+						limit = {
+							scope:actor = {
+								is_ai = yes
+								culture = { has_cultural_pillar = heritage_byzantine }
+							}
+						}
+						debug_log = debug_ai_byzan_forced_vows_on_prison_release
+						debug_log_scopes = yes
+					}
 					#Does the AI in general go haywire with deposing prisoners?
-					# else_if = {
-					if = { #LotR
+					else_if = {
 						limit = {
 							scope:actor = { is_ai = yes }
 						}
@@ -4985,7 +4939,6 @@ release_from_prison_interaction = {
 		localization = "RELEASE_DEMAND_CONVERSION"
 		is_shown = {
 			scope:recipient.faith != scope:actor.faith
-			scope:recipient = { NOT = { has_trait = nazgul } } #LotR
 		}
 		is_valid = {
 			trigger_if = {
@@ -5030,12 +4983,6 @@ release_from_prison_interaction = {
 						any_faith_holy_order = { leader = scope:recipient }
 					}
 				}
-			}
-
-			# LotR - Elven limits
-			custom_tooltip = {
-				text = elves_cannot_be_forced_to_convert
-				scope:recipient = { NOT = { is_elf = yes } }
 			}
 		}
 	}
@@ -5155,7 +5102,6 @@ release_from_prison_interaction = {
 		flag = gain_hook
 		localization = "RELEASE_GAIN_HOOK"
 		is_shown = {
-			scope:recipient = { NOT = { has_trait = nazgul } } #LotR
 			trigger_if = {
 				limit = {
 					scope:actor = { is_ai = yes }
@@ -5183,7 +5129,6 @@ release_from_prison_interaction = {
 		localization = "RELEASE_TAKE_VOWS"
 		is_shown = {
 			scope:actor = { take_vows_available_trigger = yes }
-			scope:recipient = { NOT = { has_trait = nazgul } } #LotR
 		}
 		is_valid = {
 			#Handle AI
@@ -5192,43 +5137,43 @@ release_from_prison_interaction = {
 					scope:actor = { is_ai = yes }
 				}
 				#We're AI and Byzantium
-				# trigger_if = { #LotR
-				# 	limit = {
-				# 		scope:actor = {
-				# 			culture = { has_cultural_pillar = heritage_byzantine }
-				# 		}
-				# 	}
-				# 	scope:recipient = {
-				# 		is_ai = yes #Not gonna depose player characters, for now
-				# 		OR = {
-				# 			is_close_or_extended_family_of = scope:actor
-				# 			is_vassal_or_below_of = scope:actor #Weigh this for Byz AI in the modifiers below
-				# 			has_relation_rival = scope:actor
-				# 			is_courtier_of = scope:actor
-				# 		}
-				# 		NOT = {
-				# 			is_heir_of = scope:actor
-				# 		}
-				# 	}
-				# 	#Get rid of rivals despite potentially liking them
-				# 	trigger_if = {
-				# 		limit = {
-				# 			scope:recipient = { has_relation_rival = scope:actor }
-				# 		}
-				# 		always = yes
-				# 	}
-				# 	#Only get rid of family members if we dislike them
-				# 	trigger_else = {
-				# 		scope:actor = {
-				# 			opinion = {
-				# 				target = scope:recipient
-				# 				value <= medium_negative_opinion
-				# 			}
-				# 		}
-				# 	}
-				# }
+				trigger_if = {
+					limit = {
+						scope:actor = {
+							culture = { has_cultural_pillar = heritage_byzantine }
+						}
+					}
+					scope:recipient = {
+						is_ai = yes #Not gonna depose player characters, for now
+						OR = {
+							is_close_or_extended_family_of = scope:actor
+							is_vassal_or_below_of = scope:actor #Weigh this for Byz AI in the modifiers below
+							has_relation_rival = scope:actor
+							is_courtier_of = scope:actor
+						}
+						NOT = {
+							is_heir_of = scope:actor
+						}
+					}
+					#Get rid of rivals despite potentially liking them
+					trigger_if = {
+						limit = {
+							scope:recipient = { has_relation_rival = scope:actor }
+						}
+						always = yes
+					}
+					#Only get rid of family members if we dislike them
+					trigger_else = {
+						scope:actor = {
+							opinion = {
+								target = scope:recipient
+								value <= medium_negative_opinion
+							}
+						}
+					}
+				}
 				#We're not Byzantium but plain AI
-				# trigger_else = {
+				trigger_else = {
 					scope:recipient = {
 						is_ai = yes #Not gonna depose player characters, for now
 						is_close_or_extended_family_of = scope:actor
@@ -5251,36 +5196,17 @@ release_from_prison_interaction = {
 							scope:recruit = yes
 						}
 					}
-				# }
-				#Enhanced Take the Vows for Byzantium players -- who do we want to boot to a monastery far, far away?
-				trigger_if = { #LotR
-					limit = {
-						# scope:actor = {
-						# 	culture = { has_cultural_pillar = heritage_byzantine }
-						# }
-						always = no #LotR
-					}
-					scope:recipient = {
-						is_ai = yes #Not gonna depose player characters, for now
-						custom_description = {
-							text = "release_byz_vows_invalid"
-							object = scope:recipient
-							subject = scope:actor
-							OR = {
-								is_close_or_extended_family_of = scope:actor
-								is_vassal_or_below_of = scope:actor
-								has_relation_rival = scope:actor
-								is_courtier_of = scope:actor
-							}
-						}
+				}
+			}
+			#Enhanced Take the Vows for Byzantium players -- who do we want to boot to a monastery far, far away?
+			trigger_else_if = {
+				limit = {
+					scope:actor = {
+						culture = { has_cultural_pillar = heritage_byzantine }
 					}
 				}
-				#Otherwise standard procedure Take the Vows requirements
-				trigger_else = {
-					scope:recipient = {
-						is_ai = yes #Not gonna depose player characters, for now
-					}
-					scope:actor = { is_close_or_extended_family_of = scope:recipient } #Triggering I_AM_NOT instead of CHARACTER_IS_NOT makes the tooltip look less cursed
+				scope:recipient = {
+					is_ai = yes #Not gonna depose player characters, for now
 					custom_description = {
 						text = "release_byz_vows_invalid"
 						object = scope:recipient
@@ -5386,7 +5312,7 @@ release_from_prison_interaction = {
 				has_royal_court = yes
 			}
 			scope:recipient = {
-				is_lotr_adult = yes #LotR
+				is_adult = yes
 			}
 		}
 		is_valid = {
@@ -5421,7 +5347,6 @@ release_from_prison_interaction = {
 		flag = recruit
 		localization = "RELEASE_RECRUIT"
 		is_shown = {
-			scope:recipient = { NOT = { has_trait = nazgul } } #LotR
 			trigger_if = {
 				limit = {
 					scope:actor = { is_ai = yes }
@@ -5441,7 +5366,7 @@ release_from_prison_interaction = {
 				is_ruler = no
 				NOT = { is_courtier_of = scope:actor }
 				OR = {
-					is_lotr_adult = yes #LotR
+					is_adult = yes
 					AND = {
 						is_adult = no
 						OR = {
@@ -5451,15 +5376,8 @@ release_from_prison_interaction = {
 							}
 							NOT = { exists = liege }
 						}
-					}				
-				}					
-			}
-		}
-		is_valid = { #LotR
-			# LotR - Elven limits
-			custom_tooltip = {
-				text = elves_cannot_be_forced_to_recruit
-				scope:recipient = { NOT = { is_elf = yes } }
+					}
+				}
 			}
 		}
 	}
@@ -5475,8 +5393,7 @@ release_from_prison_interaction = {
 				liege_should_systematically_maim_co_ruler_trigger = no
 			}
 			scope:recipient = {
-				is_lotr_adult = yes #LotR
-				cannot_be_killed = no #LotR
+				is_adult = yes
 			}
 		}
 		is_valid = {
@@ -5484,26 +5401,26 @@ release_from_prison_interaction = {
 				NOT = { has_trait = disfigured }
 			}
 			# Byzantines can't disfigure those not in their realm
-			# trigger_if = { #LotR
-			# 	limit = {
-			# 		scope:actor = {
-			# 			culture = { has_cultural_pillar = heritage_byzantine }
-			# 		}
-			# 	}
-			# 	scope:recipient = {
-			# 		custom_description = {
-			# 			text = "release_byz_disfigure_invalid"
-			# 			object = scope:recipient
-			# 			subject = scope:actor
-			# 			OR = {
-			# 				is_close_or_extended_family_of = scope:actor
-			# 				is_vassal_or_below_of = scope:actor
-			# 				has_relation_rival = scope:actor
-			# 				is_courtier_of = scope:actor
-			# 			}
-			# 		}
-			# 	}
-			# }
+			trigger_if = {
+				limit = {
+					scope:actor = {
+						culture = { has_cultural_pillar = heritage_byzantine }
+					}
+				}
+				scope:recipient = {
+					custom_description = {
+						text = "release_byz_disfigure_invalid"
+						object = scope:recipient
+						subject = scope:actor
+						OR = {
+							is_close_or_extended_family_of = scope:actor
+							is_vassal_or_below_of = scope:actor
+							has_relation_rival = scope:actor
+							is_courtier_of = scope:actor
+						}
+					}
+				}
+			}
 			custom_description = {
 				text = "release_prisoner_disfigure_blind_castrate_condition"
 				object = scope:recipient
@@ -5518,16 +5435,13 @@ release_from_prison_interaction = {
 		localization = "RELEASE_BLIND"
 		is_shown = {
 			scope:actor = {
-				#is_adult = yes
-				is_lotr_adult = yes #LotR
+				is_adult = yes
 				culture = { has_cultural_parameter = can_blind_prisoners }
 				# If they're our partner emperor, we should use the maiming interaction instead.
 				liege_should_systematically_maim_co_ruler_trigger = no
 			}
 			scope:recipient = {
-				#is_adult = yes
-				is_lotr_adult = yes #LotR
-				cannot_be_killed = no #LotR
+				is_adult = yes
 			}
 		}
 		is_valid = {
@@ -5551,11 +5465,9 @@ release_from_prison_interaction = {
 				is_imprisoned_by = scope:actor
 				is_eunuch_trigger = no
 				is_male = yes
-				cannot_be_killed = no #LotR
 			}
 			scope:actor = {
-				#is_adult = yes
-				is_lotr_adult = yes #LotR
+				is_adult = yes
 				culture = {
 					has_cultural_parameter = can_castrate_prisoners
 				}
@@ -5935,96 +5847,96 @@ release_from_prison_interaction = {
 			desc = "TAKE_VOWS_LUSTFUL_REASON"
 		}
 		# Demand admin
-		#modifier = { #LotR
-		#	add = -20
-		#	trigger = {
-		#		scope:demand_admin = yes
-		#		OR = {
-		#			culture = {
-		#				OR = {
-		#					# Historical cultures
-		#					this = culture:greek
-		#					any_parent_culture_or_above = {
-		#						this = culture:greek
-		#					}
-		#					this = culture:han
-		#					any_parent_culture_or_above = {
-		#						this = culture:han
-		#					}
-		#					# Bureaucratic culture
-		#					has_cultural_pillar = ethos_bureaucratic
-		#				}
-		#			}
-		#			# Another admin government
-		#			government_allows = administrative
-		#		}
-		#	}
-		#	desc = "DEMAND_ADMIN_NEGATIVE_REASON"
-		#}
-		#modifier = { #LotR
-		#	add = -50
-		#	trigger = {
-		#		scope:demand_admin = yes
-		#		NOR = {
-		#			culture = {
-		#				OR = {
-		#					# Historical cultures
-		#					this = culture:greek
-		#					any_parent_culture_or_above = {
-		#						this = culture:greek
-		#					}
-		#					this = culture:han
-		#					any_parent_culture_or_above = {
-		#						this = culture:han
-		#					}
-		#					# Bureaucratic culture
-		#					has_cultural_pillar = ethos_bureaucratic
-		#				}
-		#			}
-		#			# Another admin government
-		#			government_allows = administrative
-		#		}
-		#		culture = {
-		#			NOR = {
-		#				has_cultural_tradition = tradition_hereditary_hierarchy
-		#				has_cultural_tradition = tradition_staunch_traditionalists
-		#			}
-		#		}
-		#	}
-		#	desc = "DEMAND_ADMIN_NEGATIVE_REASON"
-		#}
-		#modifier = { #LotR
-		#	add = -100
-		#	trigger = {
-		#		scope:demand_admin = yes
-		#		NOR = {
-		#			culture = {
-		#				OR = {
-		#					# Historical cultures
-		#					this = culture:greek
-		#					any_parent_culture_or_above = {
-		#						this = culture:greek
-		#					}
-		#					this = culture:han
-		#					any_parent_culture_or_above = {
-		#						this = culture:han
-		#					}
-		#					# Bureaucratic culture
-		#					has_cultural_pillar = ethos_bureaucratic
-		#				}
-		#			}
-		#			# Another admin government
-		#			government_allows = administrative
-		#		}
-		#		culture = {
-		#			OR = {
-		#				has_cultural_tradition = tradition_hereditary_hierarchy
-		#				has_cultural_tradition = tradition_staunch_traditionalists
-		#			}
-		#		}
-		#	}
-		#	desc = "DEMAND_ADMIN_NEGATIVE_REASON"
-		#}
+		modifier = {
+			add = -20
+			trigger = {
+				scope:demand_admin = yes
+				OR = {
+					culture = {
+						OR = {
+							# Historical cultures
+							this = culture:greek
+							any_parent_culture_or_above = {
+								this = culture:greek
+							}
+							this = culture:han
+							any_parent_culture_or_above = {
+								this = culture:han
+							}
+							# Bureaucratic culture
+							has_cultural_pillar = ethos_bureaucratic
+						}
+					}
+					# Another admin government
+					government_allows = administrative
+				}
+			}
+			desc = "DEMAND_ADMIN_NEGATIVE_REASON"
+		}
+		modifier = {
+			add = -50
+			trigger = {
+				scope:demand_admin = yes
+				NOR = {
+					culture = {
+						OR = {
+							# Historical cultures
+							this = culture:greek
+							any_parent_culture_or_above = {
+								this = culture:greek
+							}
+							this = culture:han
+							any_parent_culture_or_above = {
+								this = culture:han
+							}
+							# Bureaucratic culture
+							has_cultural_pillar = ethos_bureaucratic
+						}
+					}
+					# Another admin government
+					government_allows = administrative
+				}
+				culture = {
+					NOR = {
+						has_cultural_tradition = tradition_hereditary_hierarchy
+						has_cultural_tradition = tradition_staunch_traditionalists
+					}
+				}
+			}
+			desc = "DEMAND_ADMIN_NEGATIVE_REASON"
+		}
+		modifier = {
+			add = -100
+			trigger = {
+				scope:demand_admin = yes
+				NOR = {
+					culture = {
+						OR = {
+							# Historical cultures
+							this = culture:greek
+							any_parent_culture_or_above = {
+								this = culture:greek
+							}
+							this = culture:han
+							any_parent_culture_or_above = {
+								this = culture:han
+							}
+							# Bureaucratic culture
+							has_cultural_pillar = ethos_bureaucratic
+						}
+					}
+					# Another admin government
+					government_allows = administrative
+				}
+				culture = {
+					OR = {
+						has_cultural_tradition = tradition_hereditary_hierarchy
+						has_cultural_tradition = tradition_staunch_traditionalists
+					}
+				}
+			}
+			desc = "DEMAND_ADMIN_NEGATIVE_REASON"
+		}
 		# Struggle
 		modifier = {
 			trigger = {
@@ -6301,14 +6213,14 @@ release_from_prison_interaction = {
 			}
 		}
 		#Byz AI can shove vassals off to remote monasteries - weigh that here
-		# modifier = { #LotR
-		# 	add = -10
-		# 	scope:take_vows = yes
-		# 	scope:actor = {
-		# 		culture = { has_cultural_pillar = heritage_byzantine }
-		# 	}
-		# 	scope:recipient = { is_vassal_or_below_of = scope:actor }
-		# }
+		modifier = {
+			add = -10
+			scope:take_vows = yes
+			scope:actor = {
+				culture = { has_cultural_pillar = heritage_byzantine }
+			}
+			scope:recipient = { is_vassal_or_below_of = scope:actor }
+		}
 
 		evaluate_action_increasing_house_unity = {
 			VALUE = 100
@@ -6459,28 +6371,6 @@ execute_prisoner_interaction = {
 					has_trait = lunatic # Self explanatory
 				}
 			}
-		}
-
-		modifier = { # Dwarf-father reflections are highly unlikely to be executed by Dwarves #LotR
-			add = -50
-			scope:actor = {
-				is_dwarf = yes
-			}
-			scope:recipient = {
-				is_dwarf = yes
-				is_dorfdad_reflection = yes
-			}	
-		}
-
-		modifier = { # Dwarf-fathers are extremely unlikely to be executed by Dwarves #LotR
-			add = -100
-			scope:actor = {
-				is_dwarf = yes
-			}
-			scope:recipient = {
-				is_dwarf = yes
-				has_trait = dwarf_father
-			}	
 		}
 
 		# Agenda impact
@@ -6672,7 +6562,6 @@ execute_prisoner_interaction = {
 
 	is_valid_showing_failures_only = {
 		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
-		scope:recipient = { cannot_be_killed = no } #LotR
 		scope:recipient = {
 			custom_description = {
 				text = "currently_being_tortured"
@@ -6868,7 +6757,7 @@ execute_prisoner_interaction = {
 						has_dlc_feature = court_artifacts
 					}
 					scope:recipient = {
-						is_lotr_adult = yes #LotR
+						is_adult = yes
 					}
 				}
 				scope:actor = {
@@ -6904,7 +6793,7 @@ execute_prisoner_interaction = {
 						NOT = { has_character_flag = witnessed_execution_flag }
 					}
 					scope:recipient = {
-						is_lotr_adult = yes #LotR
+						is_adult = yes
 					}
 				}
 				scope:actor = { trigger_event = bp1_yearly.9045 }
@@ -6920,7 +6809,7 @@ execute_prisoner_interaction = {
 						is_ai = no
 					}
 					scope:recipient = {
-						is_lotr_adult = yes #LotR
+						is_adult = yes
 					}
 				}
 				scope:actor = { trigger_event = bp1_yearly.9044 }
@@ -6934,9 +6823,6 @@ execute_prisoner_interaction = {
 							is_landless_adventurer = no
 							is_ruler = yes
 						}
-						#LotR - can't get Gallowsbait
-						is_elf = no
-						cannot_be_killed = no
 					}
 					if = {
 						limit = { scope:recipient.highest_held_title_tier >= tier_empire }
@@ -7260,27 +7146,10 @@ execute_prisoner_interaction = {
 			if = {
 				limit = {
 					always = scope:execution_burned
-					OR = {
-						AND = {
-							scope:actor.faith = {
-								has_doctrine = doctrine_pluralism_fundamentalist
-								NOT = {
-									has_doctrine = tenet_extinction_of_dharma
-								}
-							}
-							scope:actor = {
-								NOT = { is_dwarf = yes }
-							}
-						}
-						AND = {
-							scope:recipient.faith = {
-								NOT = {
-									has_doctrine = special_doctrine_is_freepeople_faith
-								}
-							}
-							scope:actor = {
-								is_dwarf = yes
-							}
+					scope:actor.faith = {
+						has_doctrine = doctrine_pluralism_fundamentalist
+						NOT = {
+							has_doctrine = tenet_extinction_of_dharma
 						}
 					}
 				}
@@ -7332,10 +7201,6 @@ execute_prisoner_interaction = {
 					scope:actor.faith = { has_doctrine_parameter = cannibalism_legal }
 					has_trait = cannibal
 					any_secret = { type = secret_cannibal }
-					AND = {  #LotR
-						is_orc = yes
-						scope:recipient = { NOT = { is_orc = yes }	}
-					}
 				}
 			}
 		}
@@ -7352,7 +7217,7 @@ execute_prisoner_interaction = {
 						faith = { has_doctrine_parameter = human_sacrifice_active }
 					}
 					mpo_keep_prisoners_heads_trigger = yes
-					#culture_has_asian_heritage_pillar_trigger = yes #LotR
+					culture_has_asian_heritage_pillar_trigger = yes
 				}
 			}
 		}
@@ -7463,9 +7328,8 @@ torture_interaction = {
 
 	is_shown = {
 		scope:recipient = { is_imprisoned_by = scope:actor }
-		scope:recipient = { is_lotr_adult = yes } #LotR
-		scope:actor = { is_lotr_adult = yes } #LotR
-		scope:recipient = { cannot_be_killed = no } #LotR
+		scope:recipient = { is_adult = yes }
+		scope:actor = { is_adult = yes }
 	}
 
 	is_valid_showing_failures_only = {
@@ -7474,7 +7338,6 @@ torture_interaction = {
 		#		health <= 1.5 #Because torture would definitely kill them
 		#	}
 		#}
-		scope:recipient = { cannot_be_killed = no } #LotR
 		scope:actor = {
 			trigger_if = {
 				limit = {
@@ -7566,18 +7429,7 @@ torture_interaction = {
 			#They have a secret I want to know about
 			if = {
 				limit = {
-					scope:recipient = { is_elf = yes }
-				}
-				scope:recipient = {
-					death = {
-						death_reason = death_torture
-						killer = root
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					scope:recipient = {	
+					scope:recipient = {
 						OR = {
 							any_secret = {
 								torture_secret_trigger = { PARTICIPANT = scope:recipient }
@@ -7609,7 +7461,7 @@ torture_interaction = {
 		# Dark Insights Perk:
 		if = {
 			limit = {
-				scope:actor = { has_perk = dark_insights_perk is_elf = no } #LotR
+				scope:actor = { has_perk = dark_insights_perk }
 			}
 			scope:actor = {
 				dark_insights_skill_gain_roll_effect = yes
@@ -7680,12 +7532,7 @@ torture_interaction = {
 			}
 			add = 25
 		}
-		
-		modifier = { #LotR
-			scope:recipient = { is_elf = yes }
-			add = -1000
-		}
-	}	
+	}
 }
 
 castrate_interaction = {
@@ -7700,20 +7547,16 @@ castrate_interaction = {
 			is_imprisoned_by = scope:actor
 			is_eunuch_trigger = no
 			is_male = yes
-			cannot_be_killed = no #LotR
-			NOT = { is_elf = yes } #LotR
 		}
 		scope:actor = {
-			is_lotr_adult = yes #LotR
-			culture = {
-				# has_cultural_parameter = can_castrate_prisoners
-				OR = {
-					has_cultural_pillar = heritage_northern_adunaic
-					has_cultural_pillar = heritage_southern_adunaic
-					has_cultural_parameter = can_castrate_prisoners
+			is_adult = yes
+			OR = {
+				culture = { has_cultural_parameter = can_castrate_prisoners }
+				top_liege.primary_title = {
+					has_variable = emulating_byz_punishment_var
 				}
 			}
-			
+
 			# If they're our partner emperor, we should use the maiming interaction instead.
 			liege_should_systematically_maim_co_ruler_trigger = no
 		}
@@ -7857,10 +7700,6 @@ castrate_interaction = {
 			}
 			add = 30
 		}
-		modifier = { #LotR
-			factor = 0
-			scope:recipient = { is_elf = yes }
-		}
 	}
 
 	ai_frequency_by_tier = {
@@ -7884,17 +7723,13 @@ blind_interaction = {
 		scope:recipient = {
 			is_imprisoned_by = scope:actor
 			NOT = { has_trait = blind }
-			cannot_be_killed = no #LotR
-			NOT = { is_elf = yes } #LotR
 		}
 		scope:actor = {
-			is_lotr_adult = yes #LotR
-			# culture = { has_cultural_parameter = can_blind_prisoners }
-			culture = {
-				OR = {
-					has_cultural_pillar = heritage_northern_adunaic
-					has_cultural_pillar = heritage_southern_adunaic
-					has_cultural_parameter = can_castrate_prisoners
+			is_adult = yes
+			OR = {
+				culture = { has_cultural_parameter = can_blind_prisoners }
+				top_liege.primary_title = {
+					has_variable = emulating_byz_punishment_var
 				}
 			}
 			# If they're our partner emperor, we should use the maiming interaction instead.
@@ -8190,7 +8025,6 @@ systematically_maim_character_interaction = {
 				has_trait = disfigured
 				has_trait = maimed
 				has_trait = one_legged
-				cannot_be_killed = no #LotR
 			}
 		}
 	}
@@ -8381,44 +8215,44 @@ systematically_maim_character_interaction = {
 				limit = {
 					scope:actor = { is_ai = yes }
 				}
-				# #We're AI and Byzantium #LotR
-				# trigger_if = {
-				# 	limit = {
-				# 		scope:actor = {
-				# 			culture = { has_cultural_pillar = heritage_byzantine }
-				# 		}
-				# 	}
-				# 	scope:recipient = {
-				# 		is_ai = yes #Not gonna depose player characters, for now
-				# 		OR = {
-				# 			is_close_or_extended_family_of = scope:actor
-				# 			is_vassal_or_below_of = scope:actor #Weigh this for Byz AI in the modifiers below
-				# 			has_relation_rival = scope:actor
-				# 			is_courtier_of = scope:actor
-				# 		}
-				# 		NOT = {
-				# 			is_heir_of = scope:actor
-				# 		}
-				# 	}
-				# 	#Get rid of rivals despite potentially liking them
-				# 	trigger_if = {
-				# 		limit = {
-				# 			scope:recipient = { has_relation_rival = scope:actor }
-				# 		}
-				# 		always = yes
-				# 	}
-				# 	#Only get rid of family members if we dislike them
-				# 	trigger_else = {
-				# 		scope:actor = {
-				# 			opinion = {
-				# 				target = scope:recipient
-				# 				value <= medium_negative_opinion
-				# 			}
-				# 		}
-				# 	}
-				# }
+				#We're AI and Byzantium
+				trigger_if = {
+					limit = {
+						scope:actor = {
+							culture = { has_cultural_pillar = heritage_byzantine }
+						}
+					}
+					scope:recipient = {
+						is_ai = yes #Not gonna depose player characters, for now
+						OR = {
+							is_close_or_extended_family_of = scope:actor
+							is_vassal_or_below_of = scope:actor #Weigh this for Byz AI in the modifiers below
+							has_relation_rival = scope:actor
+							is_courtier_of = scope:actor
+						}
+						NOT = {
+							is_heir_of = scope:actor
+						}
+					}
+					#Get rid of rivals despite potentially liking them
+					trigger_if = {
+						limit = {
+							scope:recipient = { has_relation_rival = scope:actor }
+						}
+						always = yes
+					}
+					#Only get rid of family members if we dislike them
+					trigger_else = {
+						scope:actor = {
+							opinion = {
+								target = scope:recipient
+								value <= medium_negative_opinion
+							}
+						}
+					}
+				}
 				#We're not Byzantium but plain AI
-				trigger_if = { #LotR, trigger_else in vanilla
+				trigger_else = {
 					scope:recipient = {
 						is_ai = yes #Not gonna depose player characters, for now
 						is_close_or_extended_family_of = scope:actor
@@ -8440,28 +8274,28 @@ systematically_maim_character_interaction = {
 					}
 				}
 			}
-			# #Enhanced Take the Vows for Byzantium players -- who do we want to boot to a monastery far, far away? #LotR
-			# trigger_else_if = {
-			# 	limit = {
-			# 		scope:actor = {
-			# 			culture = { has_cultural_pillar = heritage_byzantine }
-			# 		}
-			# 	}
-			# 	scope:recipient = {
-			# 		is_ai = yes #Not gonna depose player characters, for now
-			# 		custom_description = {
-			# 			text = "release_byz_vows_invalid"
-			# 			object = scope:recipient
-			# 			subject = scope:actor
-			# 			OR = {
-			# 				is_close_or_extended_family_of = scope:actor
-			# 				is_vassal_or_below_of = scope:actor
-			# 				has_relation_rival = scope:actor
-			# 				is_courtier_of = scope:actor
-			# 			}
-			# 		}
-			# 	}
-			# }
+			#Enhanced Take the Vows for Byzantium players -- who do we want to boot to a monastery far, far away?
+			trigger_else_if = {
+				limit = {
+					scope:actor = {
+						culture = { has_cultural_pillar = heritage_byzantine }
+					}
+				}
+				scope:recipient = {
+					is_ai = yes #Not gonna depose player characters, for now
+					custom_description = {
+						text = "release_byz_vows_invalid"
+						object = scope:recipient
+						subject = scope:actor
+						OR = {
+							is_close_or_extended_family_of = scope:actor
+							is_vassal_or_below_of = scope:actor
+							has_relation_rival = scope:actor
+							is_courtier_of = scope:actor
+						}
+					}
+				}
+			}
 			#Otherwise standard procedure Take the Vows requirements
 			trigger_else = {
 				scope:recipient = {
@@ -8831,18 +8665,18 @@ systematically_maim_character_interaction = {
 			scope:take_vows = {
 				send_child_to_clergy_effect = yes
 				#Does Byzan go hay-wire with deposing vassals?
-				# if = { #LotR
-				# 	limit = {
-				# 		scope:actor = {
-				# 			is_ai = yes
-				# 			culture = { has_cultural_pillar = heritage_byzantine }
-				# 		}
-				# 	}
-				# 	debug_log = debug_ai_byzan_forced_vows_on_prison_release
-				# 	debug_log_scopes = yes
-				# }
+				if = {
+					limit = {
+						scope:actor = {
+							is_ai = yes
+							culture = { has_cultural_pillar = heritage_byzantine }
+						}
+					}
+					debug_log = debug_ai_byzan_forced_vows_on_prison_release
+					debug_log_scopes = yes
+				}
 				#Does the AI in general go haywire with deposing prisoners?
-				if = { #LotR, else_if in vanilla
+				else_if = {
 					limit = {
 						scope:actor = { is_ai = yes }
 					}

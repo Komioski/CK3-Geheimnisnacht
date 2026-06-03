@@ -32,10 +32,10 @@
 			NOT = { government_has_flag = government_is_wastelands }
 		}
 		scope:actor = {
-			# OR = { #LotR
-			# 	government_has_flag = government_is_tribal
-			# 	government_has_flag = government_is_nomadic
-			# }
+			#OR = {
+			#	government_has_flag = government_is_tribal
+			#	government_has_flag = government_is_nomadic
+			#}
 			is_playable_character = yes
 			OR = {
 				is_independent_ruler = yes
@@ -45,10 +45,10 @@
 		scope:recipient = {
 			is_playable_character = yes
 			is_independent_ruler = yes
-			#OR = { #LotR
-			#	government_has_flag = government_is_tribal
-			#	government_has_flag = government_is_nomadic
-			#}
+			OR = {
+				government_has_flag = government_is_tribal
+				government_has_flag = government_is_nomadic
+			}
 			NOT = { this = scope:actor }
 		}
 	}
@@ -153,16 +153,16 @@
 			add = 20
 		}
 
-		# modifier = { #LotR
-		# 	desc = fp3_rekindler_of_iran_modifier_reason
-		# 	trigger = {
-		# 		AND = {
-		# 			scope:actor = { dynasty ?={ has_dynasty_modifier = fp3_rekindler_of_iran_modifier } }
-		# 			scope:recipient = { culture = { has_cultural_pillar = heritage_iranian } }
-		# 		}
-		# 	}
-		# 	add = 20
-		# }
+		modifier = {
+			desc = fp3_rekindler_of_iran_modifier_reason
+			trigger = {
+				AND = {
+					scope:actor = { dynasty ?={ has_dynasty_modifier = fp3_rekindler_of_iran_modifier } }
+					scope:recipient = { culture = { has_cultural_pillar = heritage_iranian } }
+				}
+			}
+			add = 20
+		}
 
 
 		modifier = { # Cultural Acceptance
@@ -1330,13 +1330,13 @@
 					limit = { has_character_flag = forming_confederation }
 					remove_character_flag = forming_confederation
 					# MPO ACHIEVEMENT Con-Fed-Up
-					# if = {# LOTR
-					# 	limit = { is_ai = no }
-					# 	add_achievement_global_variable_effect = {
-					# 		VARIABLE = mpo_confedup_achievement_unlocked
-					# 		VALUE = yes
-					# 	}
-					# }
+					if = {
+						limit = { is_ai = no }
+						add_achievement_global_variable_effect = {
+							VARIABLE = mpo_confedup_achievement_unlocked
+							VALUE = yes
+						}
+					}
 				}
 			}
 			if = {
@@ -1649,10 +1649,10 @@
 			}
 			is_confederation_member = yes
 		}
-		# OR = {
-		# 	government_has_flag = government_is_tribal
-		# 	government_has_flag = government_is_nomadic
-		# }
+		#OR = {
+		#	government_has_flag = government_is_tribal
+		#	government_has_flag = government_is_nomadic
+		#}
 		NOT = { government_has_flag = government_is_wastelands } #LotR
 	}
 
@@ -5178,7 +5178,6 @@ mpo_demand_obedience_interaction = {
 	pause_on_receive = yes
 
 	is_shown = {
-		lotr_mpo_demand_obedience_interaction_is_shown_trigger = yes #LotR
 		scope:actor = {
 			government_allows = obedience
 		}
@@ -5637,12 +5636,6 @@ influence_child_commander_interaction = {
 						scope:winter_soldier = {
 							scope:recipient = { NOT = { has_trait = winter_soldier } }
 						}
-						scope:cavalry_leader = { #LotR
-							scope:recipient = { NOT = { has_trait = cavalry_leader } }
-						}
-						scope:cavern_commander = { #LotR
-							scope:recipient = { NOT = { has_trait = cavern_commander } }
-						}
 					}
 				}
 			}
@@ -5984,44 +5977,6 @@ influence_child_commander_interaction = {
 		flag = winter_soldier
 		localization = trait_winter_soldier
 	}
-	send_option = { #LotR
-		is_shown = {
-			scope:actor = { has_trait = cavalry_leader }
-		}
-		is_valid = {
-			scope:recipient = {
-				NOR = {
-					has_trait = cavalry_leader
-					trait:cavalry_leader = {
-						any_opposite_trait = {
-							scope:recipient = { has_trait = prev }
-						}
-					}
-				}
-			}
-		}
-		flag = cavalry_leader
-		localization = trait_cavalry_leader
-	}
-	send_option = { #LotR
-		is_shown = {
-			scope:actor = { has_trait = cavern_commander }
-		}
-		is_valid = {
-			scope:recipient = {
-				NOR = {
-					has_trait = cavern_commander
-					trait:cavern_commander = {
-						any_opposite_trait = {
-							scope:recipient = { has_trait = prev }
-						}
-					}
-				}
-			}
-		}
-		flag = cavern_commander
-		localization = trait_cavern_commander
-	}
 
 	send_options_exclusive = yes
 
@@ -6078,12 +6033,6 @@ influence_child_commander_interaction = {
 			}
 			scope:winter_soldier = {
 				trait:winter_soldier = { save_scope_as = target_trait }
-			}
-			scope:cavalry_leader = { #LotR
-				trait:cavalry_leader = { save_scope_as = target_trait }
-			}
-			scope:cavern_commander = { #LotR
-				trait:cavern_commander = { save_scope_as = target_trait }
 			}
 			fallback = {
 				scope:actor = {
@@ -6163,12 +6112,6 @@ influence_child_commander_interaction = {
 					}
 					scope:winter_soldier = {
 						trait:winter_soldier = { save_scope_as = target_trait }
-					}
-					scope:cavalry_leader = { #LotR
-						trait:cavalry_leader = { save_scope_as = target_trait }
-					}
-					scope:cavern_commander = { #LotR
-						trait:cavern_commander = { save_scope_as = target_trait }
 					}
 				}
 				if = {
@@ -6429,22 +6372,6 @@ influence_child_commander_interaction = {
 						has_trait = rowdy
 					}
 				}
-				scope:cavalry_leader = { #LotR
-					scope:recipient = {
-						OR = {
-							has_trait = bossy
-							has_trait = rowdy
-						}
-					}
-				}
-				scope:cavern_commander = { #LotR
-					scope:recipient = {
-						OR = {
-							has_trait = charming
-							has_trait = pensive
-						}
-					}
-				}
 			}
 			desc = has_compatible_personality_tt
 		}
@@ -6563,22 +6490,6 @@ influence_child_commander_interaction = {
 				scope:winter_soldier = {
 					scope:recipient = {
 						NOT = { has_trait = rowdy }
-					}
-				}
-				scope:cavalry_leader = { #LotR
-					scope:recipient = {
-						NOR = {
-							has_trait = bossy
-							has_trait = rowdy
-						}
-					}
-				}
-				scope:cavern_commander = { #LotR
-					scope:recipient = {
-						NOR = {
-							has_trait = pensive
-							has_trait = charming
-						}
 					}
 				}
 			}
@@ -7159,13 +7070,13 @@ mpo_make_blood_brother = {
 		}
 
 		# Jamukha offers Temujin via Event
-		#modifier = { #LotR
-		#	trigger = {
-		#		scope:actor = { this = character:mpo_mongol_1 }
-		#		scope:recipient = { this = character:125501 }
-		#	}
-		#	factor = 0
-		#}
+		modifier = {
+			trigger = {
+				scope:actor = { this = character:mpo_mongol_1 }
+				scope:recipient = { this = character:125501 }
+			}
+			factor = 0
+		}
 	}
 }
 
@@ -8592,17 +8503,17 @@ mpo_offer_submission_or_ruin = {
 			add = 20
 		}
 
-		# modifier = { #LotR
-		# 	desc = fp3_rekindler_of_iran_modifier_reason
-		# 	trigger = {
-		# 		AND = { 
-		# 			scope:actor = { dynasty ?={ has_dynasty_modifier = fp3_rekindler_of_iran_modifier } }
-		# 			scope:recipient = { culture = { has_cultural_pillar = heritage_iranian } }
-		# 		}
-		# 	}
-		# 	add = 20
-		# }
-		
+		modifier = {
+			desc = fp3_rekindler_of_iran_modifier_reason
+			trigger = {
+				AND = {
+					scope:actor = { dynasty ?={ has_dynasty_modifier = fp3_rekindler_of_iran_modifier } }
+					scope:recipient = { culture = { has_cultural_pillar = heritage_iranian } }
+				}
+			}
+			add = 20
+		}
+
 		# OBEDIENCE
 		modifier = {
 			desc = obedient_interaction_reason
@@ -9518,29 +9429,9 @@ mpo_offer_submission_or_ruin = {
 			scope:influence_send_option = yes
 			desc = INFLUENCE_INTERACTION_ACCEPTANCE_SEND_OPTION
 		}
-		
-		# LOTR - Clyans are more resilient to admin
-		modifier = {
-			scope:actor = {
-				government_has_flag = government_is_administrative
-			}
-			scope:recipient = {
-				culture = {
-					OR = {
-						this = culture:clyan
-						any_parent_culture_or_above = {
-							this = culture:clyan
-						}
-					}
-				}
-				primary_title ?= title:k_cly
-			}
-			add = -500
-			desc = ADMIN_ACCEPTANCE_CLYAN_REASON
-		}
 
 		#HISTORICALLY ADMIN PEOPLES WANT TO BE ADMIN
-		modifier = { #LotR
+		modifier = {
 			add = 30
 			scope:actor = {
 				government_has_flag = government_is_administrative
@@ -9548,21 +9439,13 @@ mpo_offer_submission_or_ruin = {
 			scope:recipient = {
 				culture = {
 					OR = {
-						#this = culture:greek #LotR
-						#any_parent_culture_or_above = {
-						#	this = culture:greek
-						#}
-						# this = culture:han #LotR
-						# any_parent_culture_or_above = {
-						# 	this = culture:han
-						# }
-						this = culture:khyan #LotR
+						this = culture:greek
 						any_parent_culture_or_above = {
-							this = culture:khyan
+							this = culture:greek
 						}
-						this = culture:gondorian #LOTR
+						this = culture:han
 						any_parent_culture_or_above = {
-							this = culture:gondorian
+							this = culture:han
 						}
 					}
 				}
@@ -9571,14 +9454,14 @@ mpo_offer_submission_or_ruin = {
 			desc = "HISTORICAL_ADMIN_REASON"
 		}
 
-		# modifier = { # AI-only weights, keep the pope from vassalizing too fast #LotR
-		# 	trigger = {
-		# 		exists = faith:catholic.religious_head
-		# 		faith:catholic.religious_head = scope:actor
-		# 		scope:actor = { is_ai = yes }
-		# 	}
-		# 	add = -50
-		# }
+		modifier = { # AI-only weights, keep the pope from vassalizing too fast
+			trigger = {
+				exists = faith:catholic.religious_head
+				faith:catholic.religious_head = scope:actor
+				scope:actor = { is_ai = yes }
+			}
+			add = -50
+		}
 
 		modifier = {
 			trigger = {
@@ -9939,13 +9822,13 @@ mpo_offer_submission_or_ruin = {
 			}
 		}
 		#Should only attack China when very strong
-		#modifier = { #LotR
-		#	factor = 0.1
-		#	scope:recipient = {
-		#		primary_title = title:h_china
-		#		current_military_strength > scope:actor.half_current_military_strength
-		#	}
-		#}
+		modifier = {
+			factor = 0.1
+			scope:recipient = {
+				primary_title = title:h_china
+				current_military_strength > scope:actor.half_current_military_strength
+			}
+		}
 		modifier = {
 			factor = 0
 			scope:recipient = {
@@ -10088,7 +9971,6 @@ mpo_negotiate_obedience_interaction = {
 	}
 
 	send_option = {
-		is_shown = { scope:actor = { government_has_flag = government_is_nomadic } } #LotR
 		is_valid = {
 			scope:actor = {
 				trigger_if = {

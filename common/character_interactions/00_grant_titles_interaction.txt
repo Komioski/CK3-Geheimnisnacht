@@ -35,7 +35,6 @@ grant_titles_interaction = {
 					top_liege = this
 				}
 			}
-			is_in_valinor = no #LotR
 			NOT = { has_culture = culture:wastelands } #LotR
 		}
 		trigger_if = {
@@ -92,7 +91,7 @@ grant_titles_interaction = {
 			}
 			# Gallivanters won't accept additional responsibilities.
 			NOT = { has_trait = gallivanter }
-			NOT = { has_character_flag = gandalf } #LotR - Gandalf will not rule lands
+			#NOT = { has_character_flag = gandalf } #LotR - Gandalf will not rule lands
 			# TGP JAPAN
 			tgp_japan_grant_titles_restriction_trigger = {
 				GRANTER = scope:actor
@@ -206,48 +205,7 @@ grant_titles_interaction = {
 			}
 		}
 
-		trigger_if = { #LotR - AI won't grant titles below king-tier to Nazgûl
-			limit = {
-				scope:recipient = { is_nazgul = yes }
-				scope:actor = {
-					OR = {
-						this = character:lineofsauron
-						this = character:nazgul1
-					}
-					is_ai = yes
-				}
-			}
-			scope:actor = { primary_title = { save_temporary_scope_as = title } }
-			trigger_if = {
-				limit = { scope:actor = { highest_held_title_tier = tier_hegemony } }
-				trigger_if = {
-					limit = {
-						NOT = {
-							any_in_list = {
-								list = target_titles
-								tier = tier_empire
-							}
-						}
-					}
-					scope:recipient = { highest_held_title_tier >= tier_empire }
-				}
-			}
-			trigger_else_if = {
-				limit = { scope:actor = { highest_held_title_tier = tier_empire } }
-				trigger_if = {
-					limit = {
-						NOT = {
-							any_in_list = {
-								list = target_titles
-								tier = tier_kingdom
-							}
-						}
-					}
-					scope:recipient = { highest_held_title_tier >= tier_kingdom }
-				}
-			}
-			trigger_else = { always = no }
-		}
+
 	}
 
 	can_be_picked_title = {
@@ -323,95 +281,8 @@ grant_titles_interaction = {
 					NOT = { exists = var:ceremonial_title }
 				}
 			}
-			trigger_if = { # LotR - Sauron won't give Mordor away
-				limit = { 
-					OR = {
-						scope:target = title:e_mordor
-						scope:target = title:k_dark_lord
-					}
-					scope:actor = {
-						has_title = title:h_dark_lord
-						is_maiar_fallen = yes 
-					}
-				}
-				NOT = { scope:target = title:e_mordor }
-				custom_tooltip = {
-					text = cant_give_title_mordor
-					always = no
-				}
-			}
-			trigger_if = { # LotR - cannot give away Gondor or Arnor if you hold the RK or NiE
-				limit = { 
-					OR = {
-						scope:target = title:e_gondor
-						scope:target = title:e_arnor
-					}
-					scope:actor = { 
-						has_title = title:h_reunited_kingdom
-					}
-				}
-				scope:actor = { is_ai = no }
-				custom_tooltip = {
-					text = cant_give_title_rk
-					scope:recipient = scope:actor.player_heir # Uncomment this if we want to allow Aragorn to give Arnor to Eldarion
-				}
-			}
-			trigger_if = { # LotR - cannot give away Dwarven clan titles
-				limit = { can_give_dwarven_title = no }
-				custom_tooltip = {
-					text = cant_give_title
-					always = no
-				}
-			}
-			trigger_if = { # LOTR - Don't give away the Balan-Lai
-				limit = { scope:target = title:d_balan_lai_leader }
-				NOT = { scope:target = title:d_balan_lai_leader }
-			}
 		}
 		
-		trigger_if = { #LotR - elves can only hold elven holding buildings
-			limit = { scope:recipient = { is_elf = yes } }
-			custom_description = {
-				text = grant_titles_interaction_elves_not_allowed_non_elven_holdings
-				subject = scope:recipient
-				OR = {
-					scope:target = {
-						AND = {
-							exists = title_province
-							title_province ?= {
-								OR = {
-									has_holding_type = elven_holding
-									has_holding_type = settlement_holding
-								}
-							}
-							tier < tier_duchy
-						}
-					}
-					scope:target = { tier > tier_county }
-				}
-			}
-		}
-
-		trigger_if = { #LotR - non-elves cannot hold elven holding buildings
-			limit = { scope:recipient = { NOT = { is_elf = yes } } }
-			custom_description = {
-				text = grant_titles_interaction_non_elves_not_allowed_elven_holdings
-				subject = scope:recipient
-				OR = {
-					scope:target = {
-						AND = {
-							exists = title_province
-							title_province ?= {
-								NOT = { has_holding_type = elven_holding }
-							}
-							tier < tier_duchy
-						}
-					}
-					scope:target = { tier > tier_county }
-				}
-				
-			}
-		}
 
 		trigger_if = { #LotR - Wildernes counties cannot be granted to vassals
 			limit = { scope:target = { exists = title_province } }
@@ -422,15 +293,6 @@ grant_titles_interaction = {
 			}
 		}
 
-		trigger_if = { #LotR - Underground counties can't be given to above-ground races
-			limit = { scope:target = { title_province ?= { terrain = halls } } }
-			scope:recipient = {
-				OR = {
-					is_dwarf = yes
-					is_orc = yes
-				}
-			}
-		}
 
 		trigger_if = {
 			limit = { scope:target.title_province ?= { has_holding_type = settlement_holding } }
@@ -1292,7 +1154,6 @@ grant_titles_interaction = {
 					if = {
 						limit = {
 							domain_size = domain_limit
-							lotr_grant_settlement_away_with_ambitious_trait_trigger = yes #LotR
 						}
 						stress_impact = {
 							greedy = minor_stress_impact_gain
@@ -1302,7 +1163,6 @@ grant_titles_interaction = {
 					else_if = {
 						limit = {
 							domain_size < domain_limit
-							lotr_grant_settlement_away_with_ambitious_trait_trigger = yes #LotR
 						}
 						stress_impact = {
 							greedy = medium_stress_impact_gain
@@ -1599,23 +1459,6 @@ grant_titles_interaction = {
 		# 	}
 		# }
 		# LOTR Added
-		if = { # Angry-mar | Achievement
-			limit = {
-				any_in_list = {
-					list = target_titles
-					this = title:k_angmar
-				}
-				OR = {
-					scope:actor.culture = culture:hillmen
-					scope:actor.culture = { any_parent_culture_or_above = { this = culture:hillmen } }
-				}
-				OR = {
-					scope:recipient.culture = culture:lossoth
-					scope:recipient.culture = { any_parent_culture_or_above = { this = culture:lossoth } }
-				}
-			}
-			set_global_variable = lotr_achievement_18
-		}
 	}
 	
 }

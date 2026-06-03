@@ -79,40 +79,24 @@
 			# is_vassal_of = scope:actor
 			NOT = { has_culture = culture:wastelands }
 		}
-		
-		scope:actor = {
-			NAND = {
-				is_ai = yes
-				global_var:tedjin_civil_war_over = no
-				scope:actor = character:lineofthezij51		
-			}
-			NOT = { has_culture = culture:wastelands }
-			NOT = { has_title = title:k_wastelands } # Double failsave
-		}
 
-		trigger_if = {
-			limit = {
-				scope:actor = {
-					is_ai = yes
-				}
-				# No point revoking barons at this time
-				scope:recipient.primary_title.tier >= tier_county
-			}
-		}
+		#scope:actor = {
+		#	NAND = {
+		#		is_ai = yes
+		#		global_var:tedjin_civil_war_over = no
+		#		scope:actor = character:lineofthezij51		
+		#	}
+		#	NOT = { has_culture = culture:wastelands }
+		#	NOT = { has_title = title:k_wastelands } # Double failsave
+		#}
+
 	}
 
 	is_valid_showing_failures_only = {
 		title_revocation_standard_valid_showing_failures_only_trigger = yes
 		# Plus make sure there's a legal right to revoke.
 		scope:actor = {
-			trigger_if = { #LotR
-				limit = { government_has_flag = government_is_orcish }
-				custom_description = {
-					text = "lotr_has_law_allowing_title_revocation_orcish"
-					has_realm_law_flag = title_revocation_allowed
-				}
-			}
-			trigger_else_if = { #LotR
+			trigger_if = {
 				limit = { government_has_flag = government_is_tribal }
 				custom_description = {
 					text = "has_law_allowing_title_revocation_tribal"
@@ -184,10 +168,6 @@
 		custom_tooltip = {
 			text = protected_from_revocation.tt
 			NOT = { scope:recipient = { has_character_flag = titles_protected } }
-		}
-		custom_tooltip = { #LotR
-			text = defensively_allied_to_target_tooltip
-			NOT = { scope:actor = { is_defensive_allied_to = { RECIPIENT = scope:recipient } } }
 		}
 	}
 
@@ -562,33 +542,33 @@
 		}
 
 		# Harrying logic.
-		#scope:actor = { #LotR
-		#	if = {
-		#		limit = {
-		#			character_is_valid_for_harrying_of_the_north_trigger = yes
-		#			scope:recipient = {
-		#				character_is_valid_for_harrying_of_the_north_trigger = yes
-		#				is_important_or_vip_struggle_character = yes
-		#			}
-		#			culture != scope:recipient.culture
-		#		}
-		#		global_var:harrying_of_the_north = { save_scope_as = story }
-		#		if = {
-		#			limit = {
-		#				character_is_valid_norman_for_harrying_of_the_north_trigger = yes
-		#				scope:recipient = { character_is_valid_anglo_saxon_for_harrying_of_the_north_trigger = yes }
-		#			}
-		#			ep3_increase_pacification_effect = { AMOUNT = harrying_minor_increase_value }
-		#		}
-		#		else_if = {
-		#			limit = {
-		#				character_is_valid_anglo_saxon_for_harrying_of_the_north_trigger = yes
-		#				scope:recipient = { character_is_valid_norman_for_harrying_of_the_north_trigger = yes }
-		#			}
-		#			ep3_increase_resistance_effect = { AMOUNT = harrying_minor_increase_value }
-		#		}
-		#	}
-		#}
+		scope:actor = {
+			if = {
+				limit = {
+					character_is_valid_for_harrying_of_the_north_trigger = yes
+					scope:recipient = {
+						character_is_valid_for_harrying_of_the_north_trigger = yes
+						is_important_or_vip_struggle_character = yes
+					}
+					culture != scope:recipient.culture
+				}
+				global_var:harrying_of_the_north = { save_scope_as = story }
+				if = {
+					limit = {
+						character_is_valid_norman_for_harrying_of_the_north_trigger = yes
+						scope:recipient = { character_is_valid_anglo_saxon_for_harrying_of_the_north_trigger = yes }
+					}
+					ep3_increase_pacification_effect = { AMOUNT = harrying_minor_increase_value }
+				}
+				else_if = {
+					limit = {
+						character_is_valid_anglo_saxon_for_harrying_of_the_north_trigger = yes
+						scope:recipient = { character_is_valid_norman_for_harrying_of_the_north_trigger = yes }
+					}
+					ep3_increase_resistance_effect = { AMOUNT = harrying_minor_increase_value }
+				}
+			}
+		}
 	}
 
 	on_decline = {
@@ -747,33 +727,33 @@
 		}
 
 		# Harrying logic.
-		#scope:actor = { #LotR
-		#	if = {
-		#		limit = {
-		#			character_is_valid_for_harrying_of_the_north_trigger = yes
-		#			scope:recipient = {
-		#				character_is_valid_for_harrying_of_the_north_trigger = yes
-		#				is_important_or_vip_struggle_character = yes
-		#			}
-		#			culture != scope:recipient.culture
-		#		}
-		#		global_var:harrying_of_the_north = { save_scope_as = story }
-		#		if = {
-		#			limit = {
-		#				character_is_valid_norman_for_harrying_of_the_north_trigger = yes
-		#				scope:recipient = { character_is_valid_anglo_saxon_for_harrying_of_the_north_trigger = yes }
-		#			}
-		#			ep3_increase_resistance_effect = { AMOUNT = harrying_minor_increase_value }
-		#		}
-		#		else_if = {
-		#			limit = {
-		#				character_is_valid_anglo_saxon_for_harrying_of_the_north_trigger = yes
-		#				scope:recipient = { character_is_valid_norman_for_harrying_of_the_north_trigger = yes }
-		#			}
-		#			ep3_increase_pacification_effect = { AMOUNT = harrying_minor_increase_value }
-		#		}
-		#	}
-		#}
+		scope:actor = {
+			if = {
+				limit = {
+					character_is_valid_for_harrying_of_the_north_trigger = yes
+					scope:recipient = {
+						character_is_valid_for_harrying_of_the_north_trigger = yes
+						is_important_or_vip_struggle_character = yes
+					}
+					culture != scope:recipient.culture
+				}
+				global_var:harrying_of_the_north = { save_scope_as = story }
+				if = {
+					limit = {
+						character_is_valid_norman_for_harrying_of_the_north_trigger = yes
+						scope:recipient = { character_is_valid_anglo_saxon_for_harrying_of_the_north_trigger = yes }
+					}
+					ep3_increase_resistance_effect = { AMOUNT = harrying_minor_increase_value }
+				}
+				else_if = {
+					limit = {
+						character_is_valid_anglo_saxon_for_harrying_of_the_north_trigger = yes
+						scope:recipient = { character_is_valid_norman_for_harrying_of_the_north_trigger = yes }
+					}
+					ep3_increase_pacification_effect = { AMOUNT = harrying_minor_increase_value }
+				}
+			}
+		}
 
 		if = {
 			limit = {
@@ -1167,11 +1147,11 @@
 					is_imprisoned_by = scope:actor
 				}
 			}
-			# scope:actor = { # The HRE doesn't need endless civil wars # LotR
-			# 	NOT = {
-			# 		primary_title = title:e_hre
-			# 	}
-			# }
+			scope:actor = { # The HRE doesn't need endless civil wars
+				NOT = {
+					primary_title = title:e_hre
+				}
+			}
 			exists = scope:actor.primary_title.title_capital_county
 			OR = {
 				scope:landed_title = scope:actor.primary_title.title_capital_county
@@ -1188,148 +1168,155 @@
 			add = 1100
 		}
 		# If below domain limit, try to revoke counties in your capital duchy despite tyranny, sometimes
-		# modifier = {
-		# 	years_from_game_start >= 3
-		# 	OR = {
-		# 		scope:actor = {
-		# 			is_at_war = no
-		# 			gold > 0
-		# 		}
-		# 		scope:recipient = {
-		# 			is_imprisoned_by = scope:actor
-		# 		}
-		# 	}
-		# 	scope:actor = { # The HRE doesn't need endless civil wars
-		# 		NOT = {
-		# 			primary_title = title:e_hre
-		# 		}
-		# 	}
-		# 	scope:actor.domain_size < scope:actor.domain_limit
-		# 	scope:actor.primary_title.tier > tier_county
-		# 	trigger_if = {
-		# 		limit = {
-		# 			scope:actor = {
-		# 				title_revocation_is_tyrannical_trigger = yes
-		# 				domain_size > 3
-		# 			}
-		# 		}
-		# 		scope:actor = {
-		# 			NOR = {
-		# 				has_trait = generous
-		# 				has_trait = just
-		# 			}
-		# 		}
-		# 	}
-		# 	exists = scope:actor.primary_title.title_capital_county
-		# 	OR = {
-		# 		scope:actor.primary_title.title_capital_county.holder = scope:actor # You have your de jure capital already
-		# 		NOT = {
-		# 			scope:actor.primary_title.title_capital_county.holder.top_liege = scope:actor.top_liege # Or your De Jure capital isn't in your realm
-		# 		}
-		# 	}
-		# 	scope:landed_title.tier = tier_county # Only Counties
-		# 	OR = { # The AI gives away wrong-holding counties almost instantly, so we restrict to counties with holdings they can hold
-		# 		scope:landed_title.title_province = { has_holding_type = castle_holding } # Everyone is valid for castles
-		# 		AND = {
-		# 			scope:actor = {
-		# 				government_has_flag = government_is_tribal
-		# 			}
-		# 			scope:landed_title.title_province = { has_holding_type = tribal_holding }
-		# 		}
-		# 		AND = {
-		# 			scope:actor = {
-		# 				government_has_flag = government_is_republic
-		# 			}
-		# 			scope:landed_title.title_province = { has_holding_type = city_holding }
-		# 		}
-		# 		AND = {
-		# 			scope:actor = {
-		# 				OR = {
-		# 					government_has_flag = government_is_clan
-		# 					government_has_flag = government_is_theocracy
-		# 				}
-		# 			}
-		# 			scope:landed_title.title_province = { has_holding_type = church_holding }
-		# 		}
-		# 	}
-		# 	OR = { # And the capital duchy, if it exists at all
-		# 		AND = {
-		# 			exists = scope:actor.primary_title.title_capital_county.de_jure_liege.holder
-		# 			scope:actor.primary_title.title_capital_county.de_jure_liege.holder = scope:actor
-		# 		}
-		# 		AND = {
-		# 			exists = scope:actor.primary_title.title_capital_county.de_jure_liege.holder
-		# 			NOT = {
-		# 				scope:actor.primary_title.title_capital_county.de_jure_liege.holder.top_liege = scope:actor.top_liege
-		# 			}
-		# 		}
-		# 		scope:actor.primary_title.title_capital_county.de_jure_liege = {
-		# 			is_title_created = no
-		# 		}
-		# 	}
-			
-		# 	scope:landed_title.de_jure_liege = scope:actor.primary_title.title_capital_county.de_jure_liege # Under the same Duchy as your capital
-			
-		# 	scope:recipient = { # Not from players
-		# 		is_ai = yes
-		# 	}
-			
-		# 	OR = { # Tyranny tolerance is based on rationality
-		# 		AND = {
-		# 			scope:actor.ai_rationality < 0
-		# 			scope:actor.tyranny <= 15 # Don't go crazy with tyranny, just a bit is fine
-		# 		}
-		# 		AND = {
-		# 			scope:actor.ai_rationality >= 0
-		# 			scope:actor.ai_rationality < 50
-		# 			scope:actor.tyranny <= 5 # Don't go crazy with tyranny, just a bit is fine
-		# 		}
-		# 		AND = {
-		# 			scope:actor.ai_rationality >= 50
-		# 			scope:actor.tyranny <= 0 # Don't go crazy with tyranny, just a bit is fine
-		# 		}
-		# 		AND = {
-		# 			scope:actor.ai_rationality >= 0
-		# 			scope:recipient = {
-		# 				is_imprisoned_by = scope:actor
-		# 			}
-		# 			scope:actor = { has_revoke_title_reason = scope:recipient }
-		# 		}
-		# 		AND = {
-		# 			scope:actor.ai_rationality < 0
-		# 			scope:recipient = {
-		# 				is_imprisoned_by = scope:actor
-		# 			}
-		# 		}
-		# 	}
-		# 	# To do this, the target must be weak or willing in some way
-		# 	OR = {
-		# 		scope:actor.current_military_strength > scope:recipient.current_military_strength # Must be stronger
-		# 		scope:recipient = {
-		# 			is_imprisoned_by = scope:actor
-		# 		}
-		# 	}
-		# 	scope:recipient = {
-		# 		OR = {
-		# 			AND = {
-		# 				scope:recipient.primary_title.tier <= tier_county
-		# 				scope:actor.primary_title.tier >= tier_duchy
-		# 			}
-		# 			has_trait = craven
-		# 			has_trait = content
-		# 			has_trait = trusting
-		# 			has_dread_level_towards = {
-		# 				target = scope:actor
-		# 				level >= 1
-		# 			}
-		# 			opinion = { target = scope:actor value >= 40 }
-		# 			is_imprisoned_by = scope:actor
-		# 			scope:actor = { has_revoke_title_reason = scope:recipient }
-		# 		}
-		# 	}
-			
-		# 	add = 1100
-		# }
+		modifier = {
+			years_from_game_start >= 3
+			OR = {
+				scope:actor = {
+					is_at_war = no
+					OR = {
+						AND = {
+							has_treasury = no
+							gold > 0
+						}
+						AND = {
+							has_treasury = yes
+							treasury > 0
+						}
+					}
+				}
+				scope:recipient = {
+					is_imprisoned_by = scope:actor
+				}
+			}
+			scope:actor = { # The HRE doesn't need endless civil wars
+				NOT = {
+					primary_title = title:e_hre
+				}
+			}
+			scope:actor.domain_size < scope:actor.domain_limit
+			scope:actor.primary_title.tier > tier_county
+			trigger_if = {
+				limit = {
+					scope:actor = {
+						title_revocation_is_tyrannical_trigger = { VASSAL = scope:recipient }
+						domain_size > 3
+					}
+				}
+				scope:actor = {
+					NOR = {
+						has_trait = generous
+						has_trait = just
+					}
+				}
+			}
+			exists = scope:actor.primary_title.title_capital_county
+			OR = {
+				scope:actor.primary_title.title_capital_county.holder = scope:actor # You have your de jure capital already
+				NOT = {
+					scope:actor.primary_title.title_capital_county.holder.top_liege = scope:actor.top_liege # Or your De Jure capital isn't in your realm
+				}
+			}
+			scope:landed_title.tier = tier_county # Only Counties
+			OR = { # The AI gives away wrong-holding counties almost instantly, so we restrict to counties with holdings they can hold
+				scope:landed_title.title_province = { has_holding_type = castle_holding } # Everyone is valid for castles
+				AND = {
+					scope:actor = {
+						government_has_flag = government_is_tribal
+					}
+					scope:landed_title.title_province = { has_holding_type = tribal_holding }
+				}
+				AND = {
+					scope:actor = {
+						government_has_flag = government_is_republic
+					}
+					scope:landed_title.title_province = { has_holding_type = city_holding }
+				}
+				AND = {
+					scope:actor = {
+						OR = {
+							government_has_flag = government_is_clan
+							government_has_flag = government_is_theocracy
+						}
+					}
+					scope:landed_title.title_province = { has_holding_type = church_holding }
+				}
+			}
+			OR = { # And the capital duchy, if it exists at all
+				AND = {
+					exists = scope:actor.primary_title.title_capital_county.de_jure_liege.holder
+					scope:actor.primary_title.title_capital_county.de_jure_liege.holder = scope:actor
+				}
+				AND = {
+					exists = scope:actor.primary_title.title_capital_county.de_jure_liege.holder
+					scope:actor.primary_title.title_capital_county.de_jure_liege.holder.top_liege != scope:actor.top_liege
+				}
+				scope:actor.primary_title.title_capital_county.de_jure_liege = {
+					is_title_created = no
+				}
+			}
+
+			scope:landed_title.de_jure_liege = scope:actor.primary_title.title_capital_county.de_jure_liege # Under the same Duchy as your capital
+
+			scope:recipient = { # Not from players
+				is_ai = yes
+			}
+
+			OR = { # Tyranny tolerance is based on rationality
+				AND = {
+					scope:actor.ai_rationality < 0
+					scope:actor.tyranny <= 15 # Don't go crazy with tyranny, just a bit is fine
+				}
+				AND = {
+					scope:actor.ai_rationality >= 0
+					scope:actor.ai_rationality < 50
+					scope:actor.tyranny <= 5 # Don't go crazy with tyranny, just a bit is fine
+				}
+				AND = {
+					scope:actor.ai_rationality >= 50
+					scope:actor.tyranny <= 0 # Don't go crazy with tyranny, just a bit is fine
+				}
+				AND = {
+					scope:actor.ai_rationality >= 0
+					scope:recipient = {
+						is_imprisoned_by = scope:actor
+					}
+					scope:actor = { has_revoke_title_reason = scope:recipient }
+				}
+				AND = {
+					scope:actor.ai_rationality < 0
+					scope:recipient = {
+						is_imprisoned_by = scope:actor
+					}
+				}
+			}
+			# To do this, the target must be weak or willing in some way
+			OR = {
+				scope:actor.current_military_strength > scope:recipient.current_military_strength # Must be stronger
+				scope:recipient = {
+					is_imprisoned_by = scope:actor
+				}
+			}
+			scope:recipient = {
+				OR = {
+					AND = {
+						scope:recipient.primary_title.tier <= tier_county
+						scope:actor.primary_title.tier >= tier_duchy
+					}
+					has_trait = craven
+					has_trait = content
+					has_trait = trusting
+					has_dread_level_towards = {
+						target = scope:actor
+						level >= 1
+					}
+					opinion = { target = scope:actor value >= 40 }
+					is_imprisoned_by = scope:actor
+					scope:actor = { has_revoke_title_reason = scope:recipient }
+				}
+			}
+
+			add = 1100
+		}
 		# Revoke counties we're dejure liege of if below domain limit
 		modifier = {
 			scope:actor.domain_size < scope:actor.domain_limit

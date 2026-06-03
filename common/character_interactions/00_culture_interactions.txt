@@ -23,11 +23,9 @@ request_culture_conversion_interaction = {
 
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 	}
 
@@ -145,7 +143,6 @@ ai_cultural_hybridization_interaction = {
 			NOT = {
 				has_culture = culture:wastelands
 			}
-			is_in_valinor = no
 		}
 		scope:target = {
 			NOT = {
@@ -157,7 +154,7 @@ ai_cultural_hybridization_interaction = {
 			CULTURE = scope:target.culture
 			CHARACTER = scope:actor
 		}
-		cannot_be_killed = no
+		#cannot_be_killed = no
 		####
 	}
 	
@@ -386,17 +383,21 @@ ai_cultural_hybridization_interaction = {
 			government_has_flag = government_is_theocracy
 		}
 		
-		#modifier = { # Block for Scots and Gaelic specifically
-		#	factor = 0
-		#	OR = {
-		#		scope:actor.culture = culture:scottish
-		#		scope:actor.culture = culture:gaelic
-		#	}
-		#	OR = {
-		#		scope:target = culture:scottish
-		#		scope:target = culture:gaelic
-		#	}
-		#}
+		modifier = { # Block for Scots and Gaelic specifically
+			factor = 0
+			scope:actor.culture = {
+				OR = {
+					this = culture:scottish
+					this = culture:gaelic
+				}
+			}
+			scope:target = {
+				OR = {
+					this = culture:scottish
+					this = culture:gaelic
+				}
+			}
+		}
 		
 		# Note: As we're checking if we can hybridize with a culture *right now*, a suboptimal culture might be checked. A buffer of 10 acceptance is used by the AI to alleviate this.
 	}

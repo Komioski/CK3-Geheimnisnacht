@@ -22,14 +22,12 @@ claim_throne_interaction = {
 	
 	is_shown = {
 		exists = scope:actor.liege
-		scope:recipient = { #LotR
+		scope:recipient = {
 			this = scope:actor.liege
-			is_wastelands = no
-			is_in_valinor = no
+			NOT = { has_culture = culture:wastelands }
 		}
-		scope:actor = { #LotR
-			is_wastelands = no
-			is_in_valinor = no
+		scope:actor = { 
+			NOT = { has_culture = culture:wastelands }
 		}
 		scope:recipient = scope:actor.liege
 		scope:actor = {
@@ -62,14 +60,14 @@ claim_throne_interaction = {
 						}
 					}
 				}
-				#AND = {
-				#	exists = title:d_sunni.holder
-				#	is_vassal_of = title:d_sunni.holder
-				#	any_character_struggle = {
-				#		involvement = involved
-				#		has_struggle_phase_parameter = unlocks_claim_throne_for_caliph_vassals
-				#	}
-				#}
+				AND = {
+					exists = title:d_sunni.holder
+					is_vassal_of = title:d_sunni.holder
+					any_character_struggle = {
+						involvement = involved
+						has_struggle_phase_parameter = unlocks_claim_throne_for_caliph_vassals
+					}
+				}
 				has_character_flag = confederation_claim_throne
 				AND = {
 					government_allows = merit
@@ -353,13 +351,6 @@ claim_throne_interaction = {
 			}
 		}
 
-		modifier = { #LotR - Intricate Plotters
-			factor = 100
-			scope:actor.culture = {
-				has_cultural_tradition = tradition_intricate_plotters
-			}
-		}
-
 		# Unity modifiers
 		evaluate_action_decreasing_house_unity = {
 			VALUE = 100
@@ -386,8 +377,8 @@ fabricate_hook_interaction = {
 	desc = fabricate_hook_interaction_desc
 	
 	is_shown = {
-		scope:recipient = { #LotR	
-			is_wastelands = no
+		scope:recipient = {			
+			NOT = { has_culture = culture:wastelands }
 			is_in_valinor = no
 		}
 		scope:actor = {
@@ -412,8 +403,7 @@ fabricate_hook_interaction = {
 					house = { has_house_unity_stage = competitive }	
 				}	
 			}
-			is_in_valinor = no #LotR
-			is_wastelands = no #LotR
+			NOT = { has_culture = culture:wastelands }
 		}
 		scope:recipient != scope:actor
 	}
@@ -589,16 +579,8 @@ fabricate_hook_interaction = {
 	
 	ai_potential = {
 		is_adult = yes
-		trigger_if = { #LotR - Intricate Plotters
-			limit = {
-				culture = { has_cultural_tradition = tradition_intricate_plotters }
-			}
-			intrigue >= low_skill_rating
-		} 
-		trigger_else = {
-			intrigue >= medium_skill_rating
-			ai_greed >= low_positive_ai_value
-		}
+		ai_greed >= low_positive_ai_value
+		intrigue >= medium_skill_rating
 		NOR = {
 			has_trait = content
 			any_scheme = {
@@ -650,33 +632,14 @@ fabricate_hook_interaction = {
 		modifier = {
 			add = -50
 			
-			trigger_if = { #LotR - Intricate Plotters
-				limit = { 
-					scope:actor.culture = { has_cultural_tradition = tradition_intricate_plotters }
-				}
-				opinion = {
-					target = scope:recipient
-					value >= very_high_positive_opinion
-				}
-			} 
-			trigger_else = {
-				opinion = {
-					target = scope:recipient
-					value >= high_positive_opinion
-				}
+			opinion = {
+				target = scope:recipient
+				value >= high_positive_opinion
 			}
 		}
 		
 		modifier = {
-			add = {
-				value = -40
-				if = { #LotR
-					limit = {
-						scope:actor.culture = { has_cultural_tradition = tradition_intricate_plotters }
-					}
-					add = 20
-				}
-			}
+			add = -40
 			
 			scope:recipient = {
 				is_playable_character = yes
@@ -704,25 +667,10 @@ fabricate_hook_interaction = {
 		}
 		
 		modifier = {
-			factor = {
-				value = 0
-				if = { #LotR
-					limit = {
-						scope:actor.culture = { has_cultural_tradition = tradition_intricate_plotters }
-					}
-					add = 0.5
-				}
-			}
+			factor = 0
 			
 			scope:recipient = {
 				has_council_position = councillor_spymaster
-			}
-		}
-
-		modifier = { #LotR - Intricate Plotters
-			factor = 100
-			scope:actor.culture = {
-				has_cultural_tradition = tradition_intricate_plotters
 			}
 		}
 		start_hostile_scheme_ai_base_modifiers = yes # At the end so Cowed can block it completely
@@ -758,13 +706,11 @@ demand_payment_interaction = {
 					}
 				}
 			}
-			is_in_valinor = no #LotR
-			is_wastelands = no #LotR
+			NOT = { has_culture = culture:wastelands }
 		}
 		scope:recipient = {
 			is_ai = yes
-			is_in_valinor = no #LotR
-			is_wastelands = no #LotR
+			NOT = { has_culture = culture:wastelands }
 		}
 		scope:recipient != scope:actor
 	}
@@ -885,7 +831,7 @@ demand_payment_interaction = {
 			VALUE = -100
 		}
 
-		modifier = { #LotR
+		modifier = {
 			add = -1000
 			trigger_if = {
 				scope:actor = {			
@@ -894,7 +840,7 @@ demand_payment_interaction = {
 			}
 		}
 		
-		modifier = { #LotR
+		modifier = {
 			add = -1000
 			trigger_if = {
 				scope:recipient = {			
@@ -906,13 +852,6 @@ demand_payment_interaction = {
 		modifier = { #ai won't use the interaction if they'll get nothing out of it
 			factor = 0
 			scope:recipient.gold < 8
-		}
-
-		modifier = { #LotR - Intricate Plotters
-			factor = 100
-			scope:actor.culture = {
-				has_cultural_tradition = tradition_intricate_plotters
-			}
 		}
 		
 		modifier = {
@@ -967,12 +906,7 @@ buy_claim_interaction = {
 				}
 			}
 			NOT = { target_is_liege_or_above = scope:recipient }
-			is_in_valinor = no #LotR
-			is_wastelands = no #LotR
-			trigger_if = { #LotR
-				limit = { is_elf = yes }
-				has_game_rule = free_elven_expansion
-			}
+			NOT = { has_culture = culture:wastelands }
 		}
 		NOT = {
 			scope:actor = scope:recipient
@@ -981,6 +915,7 @@ buy_claim_interaction = {
 				scope:actor.faith = {
 					NOT = { has_doctrine = doctrine_theocracy_temporal }
 				}
+				NOT = { has_culture = culture:wastelands }
 			}
 		}
 		scope:recipient = {
@@ -989,8 +924,6 @@ buy_claim_interaction = {
 			NOT = {	
 				target_is_liege_or_above = scope:actor
 			}
-			is_wastelands = no #LotR
-			is_in_valinor = no #LotR
 		}
 	}
 
@@ -998,7 +931,11 @@ buy_claim_interaction = {
 		scope:target = {
 			tier >= tier_county
 		}
-		scope:target = { is_wastelands = no } #LotR
+		scope:target = {
+			NOT = {
+				culture = culture:wastelands
+			}
+		}
 	}
 	
 	is_valid_showing_failures_only = {
@@ -1066,26 +1003,6 @@ buy_claim_interaction = {
 			}
 			custom_description = {
 				text = buy_claim_no_landless_adventurer_title
-				always = no
-			}
-		} 
-		trigger_if = { # LotR - Can't buy claims on Mordor or Gorgoroth
-			limit = {
-				scope:target ?= {
-					OR = {
-						this = title:e_mordor
-						this = title:k_gorgoroth
-					}
-					holder ?= {
-						OR = {
-							is_sauron = yes
-							is_nazgul = yes
-						}
-					}
-				}
-			}
-			custom_description = {
-				text = buy_claim_no_mordor_gorgoroth
 				always = no
 			}
 		}
@@ -1320,16 +1237,11 @@ challenge_to_single_combat_interaction = {
 	is_shown = {
 		scope:actor = { #LotR			
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
-			NOT = { has_trait = sauron_ringless }
 		}
 
 		scope:recipient = {	#LotR		
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
-			NOT = { has_trait = sauron_ringless }
 		}
-
 		# First, check for the perk.
 		scope:actor = { can_challenge_rival_to_single_combat_trigger = yes }
 		# Then, look to see if this character is a rival.
@@ -1669,7 +1581,8 @@ challenge_to_single_combat_interaction = {
 
 	ai_will_do = {
 		base = -50
-		
+
+
 		modifier = { #LotR
 			add = -1000
 			trigger_if = {
@@ -1687,7 +1600,7 @@ challenge_to_single_combat_interaction = {
 				}
 			}
 		}
-
+		
 		# Factor for personality (excluding realism).
 		modifier = {
 			add = {

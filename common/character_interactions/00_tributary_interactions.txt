@@ -26,31 +26,29 @@ become_tributary_interaction = {
 				limit = { is_ai = yes }
 				current_military_strength < scope:recipient.one_and_a_half_times_current_military_strength
 				primary_title.tier < scope:recipient.primary_title.tier
-				lotr_tolerance_trigger = { CHARACTER = scope:recipient } #LotR
 			}
-			NOT = { has_character_flag = unknown_sauron_flag } #LotR
 		}
 	}
 
 	is_valid_showing_failures_only = {
 		#These triggers need to match the Tribute Mission Decision
-		#trigger_if = { #LotR
-		#	limit = {
-		#		scope:recipient = { primary_title.tier = tier_hegemony }
-		#	}
-		#	custom_tooltip = {
-		#		text = become_tributary_interaction_hegemony_not_neighbor_tt
-		#		scope:actor = {
-		#			OR = {
-		#				is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_china }
-		#				is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_roman_empire }
-		#				is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_eastern_roman_empire }
-		#				is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_dar_al_islam }
-		#				is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_india }
-		#			}
-		#		}
-		#	}
-		#}
+		trigger_if = {
+			limit = {
+				scope:recipient = { primary_title.tier = tier_hegemony }
+			}
+			custom_tooltip = {
+				text = become_tributary_interaction_hegemony_not_neighbor_tt
+				scope:actor = {
+					OR = {
+						is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_china }
+						is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_roman_empire }
+						is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_eastern_roman_empire }
+						is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_dar_al_islam }
+						is_tributary_or_independent_neighbor_of_hegemon_trigger = { HEGEMON = h_india }
+					}
+				}
+			}
+		}
 		#Mandalas can into Mandalas and Tributaries
 		trigger_if = {
 			limit = {
@@ -81,7 +79,7 @@ become_tributary_interaction = {
 	}
 
 	needs_confirmation = {
-		scope:recipient = { highest_held_title_tier <= tier_hegemony } # acknowledging a hegemon requires a tribute mission; open the decision UI instead of confirming acceptance # LOTR - Changed to any tier, as tribute missions aren't adapted
+		scope:recipient = { highest_held_title_tier < tier_hegemony } # acknowledging a hegemon requires a tribute mission; open the decision UI instead of confirming acceptance
 	}
 
 	greeting = positive
@@ -109,54 +107,54 @@ become_tributary_interaction = {
 	send_options_exclusive = yes
 
 	on_send = {
-		# if = { #LOTR Tribute Missions not adapted
-		# 	limit = { scope:recipient = { highest_held_title_tier >= tier_hegemony } }
-		# 	if = {
-		# 		limit = { scope:recipient.primary_title = title:h_china }
-		# 		open_view_data = {
-		# 			view = decision_detail
-		# 			data = decision:tribute_mission_decision_china
-		# 			player = scope:actor
-		# 		}
-		# 	}
-		# 	else_if = { #LotR
-		# 		limit = { scope:recipient.primary_title = title:h_roman_empire }
-		# 		open_view_data = {
-		# 			view = decision_detail
-		# 			data = decision:tribute_mission_decision_roman_empire
-		# 			player = scope:actor
-		# 		}
-		# 	}
-		# 	else_if = { #LotR
-		# 		limit = { scope:recipient.primary_title = title:h_eastern_roman_empire }
-		# 		open_view_data = {
-		# 			view = decision_detail
-		# 			data = decision:tribute_mission_decision_eastern_roman_empire
-		# 			player = scope:actor
-		# 		}
-		# 	}
-		# 	else_if = { #LotR
-		# 		limit = { scope:recipient.primary_title = title:h_dar_al_islam }
-		# 		open_view_data = {
-		# 			view = decision_detail
-		# 			data = decision:tribute_mission_decision_dar_al_islam
-		# 			player = scope:actor
-		# 		}
-		# 	}
-		# 	else_if = { #LotR
-		# 		limit = { scope:recipient.primary_title = title:h_india }
-		# 		open_view_data = {
-		# 			view = decision_detail
-		# 			data = decision:tribute_mission_decision_india
-		# 			player = scope:actor
-		# 		}
-		# 	}
-		# }
+		if = {
+			limit = { scope:recipient = { highest_held_title_tier >= tier_hegemony } }
+			if = {
+				limit = { scope:recipient.primary_title = title:h_china }
+				open_view_data = {
+					view = decision_detail
+					data = decision:tribute_mission_decision_china
+					player = scope:actor
+				}
+			}
+			else_if = {
+				limit = { scope:recipient.primary_title = title:h_roman_empire }
+				open_view_data = {
+					view = decision_detail
+					data = decision:tribute_mission_decision_roman_empire
+					player = scope:actor
+				}
+			}
+			else_if = {
+				limit = { scope:recipient.primary_title = title:h_eastern_roman_empire }
+				open_view_data = {
+					view = decision_detail
+					data = decision:tribute_mission_decision_eastern_roman_empire
+					player = scope:actor
+				}
+			}
+			else_if = {
+				limit = { scope:recipient.primary_title = title:h_dar_al_islam }
+				open_view_data = {
+					view = decision_detail
+					data = decision:tribute_mission_decision_dar_al_islam
+					player = scope:actor
+				}
+			}
+			else_if = {
+				limit = { scope:recipient.primary_title = title:h_india }
+				open_view_data = {
+					view = decision_detail
+					data = decision:tribute_mission_decision_india
+					player = scope:actor
+				}
+			}
+		}
 	}
 
 	on_accept = {
 		if = {
-			limit = { scope:recipient = { highest_held_title_tier <= tier_hegemony } } #LOTR
+			limit = { scope:recipient = { highest_held_title_tier < tier_hegemony } }
 			scope:actor = {
 				if = {
 					limit = { is_tributary = yes }
@@ -530,30 +528,30 @@ become_tributary_interaction = {
 			}
 		}
 		# Different religion Family - We prefer god kings to be vaguely within our own world view
-		#modifier = { #LotR
-		#	desc = embrace_as_tributary_interaction_other_religion_family
-		#	scope:actor = { 	
-		#		NOT = { government_has_flag = government_is_wanua }
-		#	}
-		#	scope:recipient.faith.religion = {
-		#		switch = {
-		#			trigger = is_in_family
-		#			rf_pagan = {
-		#				scope:actor.faith.religion = { NOT = { is_in_family = rf_pagan } }
-		#			}
-		#			rf_sinitic = {
-		#				scope:actor.faith.religion = { NOT = { is_in_family = rf_sinitic } }
-		#			}
-		#			rf_eastern = {
-		#				scope:actor.faith.religion = { NOT = { is_in_family = rf_eastern } }
-		#			}
-		#			rf_abrahamic = {
-		#				scope:actor.faith.religion = { NOT = { is_in_family = rf_abrahamic } }
-		#			}
-		#		}
-		#	}
-		#	add = -25
-		#}
+		modifier = { 
+			desc = embrace_as_tributary_interaction_other_religion_family
+			scope:actor = { 	
+				NOT = { government_has_flag = government_is_wanua }
+			}
+			scope:recipient.faith.religion = {
+				switch = {
+					trigger = is_in_family
+					rf_pagan = {
+						scope:actor.faith.religion = { NOT = { is_in_family = rf_pagan } }
+					}
+					rf_sinitic = {
+						scope:actor.faith.religion = { NOT = { is_in_family = rf_sinitic } }
+					}
+					rf_eastern = {
+						scope:actor.faith.religion = { NOT = { is_in_family = rf_eastern } }
+					}
+					rf_abrahamic = {
+						scope:actor.faith.religion = { NOT = { is_in_family = rf_abrahamic } }
+					}
+				}
+			}
+			add = -25
+		}
 		# They are not Mandalas nor Tribes
 		modifier = {
 			trigger = {
@@ -591,19 +589,6 @@ become_tributary_interaction = {
 					subtract = 100
 				}
 			}
-		}
-		#LotR - Would cause a lot of issues
-		modifier = {
-			scope:recipient = { government_has_flag = government_is_mandala }
-			scope:actor = {
-				OR = {
-					is_elf = yes
-					is_orc = yes
-					cannot_be_killed = yes
-					is_halfling = yes
-				}
-			}
-			add = -950 #Some races are especially unlikely to offer
 		}
 		#Far away
 		modifier = { 
@@ -685,82 +670,6 @@ become_tributary_interaction = {
 			who = scope:actor
 			opinion_target = scope:recipient
 			multiplier = 1
-		}
-		
-		#LOTR MODIFIERS
-		modifier = { # Basic race and alignment triggers
-			add = -500
-			trigger = {
-				scope:actor = {
-					NOT = { lotr_tolerance_trigger = { CHARACTER = scope:recipient } }
-				}
-			}
-		}
-
-		modifier = { # Different race
-			add = -30
-			trigger = {
-				scope:actor = { NOT = { same_race = { TARGET = scope:recipient } } }
-			}
-		}
-
-		modifier = { #Elves and Undying characters won't pay tribute to mortals
-			add = -500
-			desc = mortal_reason
-			trigger = {
-				scope:actor = { 
-					OR = {
-						is_elf = yes
-						cannot_be_killed = yes
-					}
-				}
-				scope:recipient = { 
-					is_elf = no
-					cannot_be_killed = no
-				}
-			}
-		}
-
-		modifier = { #Nazgûl will only pay tribute to other Nazgûl or Ainur
-			add = -500
-			desc = nazgul_or_ainu_reason
-			trigger = {
-				scope:actor = { 
-					is_nazgul = yes
-				}
-				scope:recipient = {
-					cannot_be_killed = no
-				}
-			}
-		}
-
-		modifier = { #Outsiders think Hobbits and Druedain are harmless and funny
-			add = -100
-			trigger = {
-				scope:actor = {
-					is_halfling = no
-					is_druedain = no
-				}
-				scope:recipient = {
-					OR = {
-						is_halfling = yes
-						is_druedain = yes
-					}
-				}
-			}
-		}
-
-		modifier = { #Followers of Sauronic faiths will submit to the Dark Lord
-			add = 30
-			trigger = {
-				scope:recipient = { 
-					OR = {
-						is_sauron = yes
-						is_nazgul = yes
-					}
-				}
-				scope:actor.faith = { has_doctrine = special_doctrine_is_adulation_of_the_dark_faith }
-			}
 		}
 	}
 
@@ -933,9 +842,6 @@ demand_tributary_interaction = {
 				government_has_flag = cannot_be_vassal_or_liege
 				government_has_flag = government_is_mandala
 			}
-			# LotR
-			lotr_tolerance_trigger = { CHARACTER = scope:actor }
-			NOT = { has_character_flag = unknown_sauron_flag }
 		}
 		# Temujin cannot make Jamukha his subject once he leaves him
 		NOT = {
@@ -1118,17 +1024,6 @@ demand_tributary_interaction = {
 	ai_accept = {
 		base = -60
 
-		#LotR
-		modifier = { # Thani-Hazad Struggle, affected characters are less likely to accept vassalization
-			add = -100
-			desc = thani_hazad_struggle_vassalization_reason
-			trigger = {
-				scope:recipient = {
-					any_character_struggle = { has_struggle_phase_parameter = unlikely_to_accept_vassalisation }
-				}
-			}
-		}
-
 		modifier = { # Hegemonic Tributaries are gentler and kinder
 			trigger = {
 				scope:actor = { highest_held_title_tier >= tier_hegemony }
@@ -1138,10 +1033,9 @@ demand_tributary_interaction = {
 		}
 
 		modifier = { # Special case for Confucian-style governments towards China
-			scope:actor = {
-				# primary_title = title:h_china
-				always = no
-			}
+			 scope:actor = {
+				primary_title = title:h_china
+			 }
 			government_has_flag = government_is_meritocratic
 			add = 25
 			desc = tributary_interaction_aibehavior_recipient_confucian_government_tt
@@ -1491,96 +1385,6 @@ demand_tributary_interaction = {
 				}
 			}
 		}
-		# LOTR MODIFIERS
-		modifier = { # Basic race and alignment triggers
-			add = -500
-			desc = LOTR_RACE_AND_ALIGNMENT_INCOMPATIBILITY
-			trigger = {
-				scope:actor = {
-					NOT = { lotr_tolerance_trigger = { CHARACTER = scope:recipient } }
-				}
-			}
-		}
-
-		modifier = { # Different race
-			add = -30
-			desc = DIFFERENT_RACE_REASON
-			trigger = {
-				scope:actor = { NOT = { same_race = { TARGET = scope:recipient } } }
-			}
-		}
-
-		modifier = { #Elves and Undying characters won't pay tribute to mortals
-			add = -500
-			desc = mortal_reason
-			trigger = {
-				scope:recipient = { 
-					OR = {
-						is_elf = yes
-						cannot_be_killed = yes
-					}
-				}
-				scope:actor = {	
-					is_elf = no
-					cannot_be_killed = no
-				}
-			}
-		}
-
-		modifier = { #Nazgûl will only pay tribute to other Nazgûl or Ainur
-			add = -500
-			desc = nazgul_or_ainu_reason
-			trigger = {
-				scope:recipient = { 
-					is_nazgul = yes
-				}
-				scope:actor = {
-					cannot_be_killed = no
-				}
-			}
-		}
-
-		modifier = { #Outsiders think Hobbits are harmless and funny
-			add = -100
-			desc = small_harmless_hobbit_reason
-			trigger = {
-				scope:recipient = {
-					is_halfling = no
-					is_druedain = no
-				}
-				scope:actor = {
-					is_halfling = yes
-				}
-			}
-		}
-
-		modifier = { #Outsiders think Druedain are harmless and funny
-			add = -100
-			desc = small_harmless_druedain_reason
-			trigger = {
-				scope:recipient = {
-					is_halfling = no
-					is_druedain = no
-				}
-				scope:actor = {
-					is_druedain = yes
-				}
-			}
-		}
-
-		modifier = { #Followers of Sauronic faiths will submit to the Dark Lord
-			add = 30
-			desc = submission_to_the_dark_lord
-			trigger = {
-				scope:actor = { 
-					OR = {
-						is_sauron = yes
-						is_nazgul = yes
-					}
-				}
-				scope:recipient.faith = { has_doctrine = special_doctrine_is_adulation_of_the_dark_faith }
-			}
-		}
 	}
 }
 
@@ -1604,7 +1408,6 @@ cease_paying_tribute_interaction = {
 			this != scope:recipient
 			suzerain = scope:recipient
 			is_tributary = yes
-			NOT = { has_realm_law = camp_purpose_rangers } #LotR
 		}
 	}
 
@@ -1710,12 +1513,10 @@ cease_paying_tribute_interaction = {
 			else = {
 				trigger_event = char_interaction.0370
 			}
-			if = { #LotR
-				limit = { NOT = { scope:actor = { has_subject_contract_group = tributary_protectorate } } }
-				add_opinion = {
-					modifier = tributary_ceased_payments_opinion
-					target = scope:actor
-				}
+
+			add_opinion = {
+				modifier = tributary_ceased_payments_opinion
+				target = scope:actor
 			}
 		}
 	}
@@ -2135,13 +1936,6 @@ cease_paying_tribute_interaction = {
 			who = scope:actor
 			opinion_target = scope:recipient
 			multiplier = -1
-		}
-		modifier = { # LOTR - Protectorates don't want to give up protection
-			scope:actor = {
-				has_subject_contract_group = tributary_protectorate
-			}
-			add = -1200
-			desc = cease_tribute_is_protectorate
 		}	
 	}
 }
@@ -2169,12 +1963,12 @@ release_tributary_interaction = {
 	}
 
 	is_valid_showing_failures_only = {
-		# scope:recipient = {
-		# 	trigger_if = {
-		# 		limit = { subject_standing >= 0	}
-		# 		subject_standing = 0
-		# 	}
-		# }
+		#scope:recipient = {
+		#	trigger_if = {
+		#		limit = { subject_standing >= 0	}
+		#		subject_standing = 0
+		#	}
+		#}
 	}
 
 	cost = {
@@ -2246,11 +2040,11 @@ release_as_tributary_interaction = {
 
 	is_shown = {
 		scope:actor = {
-			#OR = { #LotR
-			#	government_has_flag = government_is_nomadic
-			#	government_has_flag = government_is_mandala
-			#	government_has_flag = government_is_wanua
-			#}
+			OR = {
+				government_has_flag = government_is_nomadic
+				government_has_flag = government_is_mandala
+				government_has_flag = government_is_wanua
+			}
 		}
 		scope:recipient = {
 			is_vassal_of = scope:actor
@@ -2740,26 +2534,26 @@ exact_tribute_interaction = {
 				limit = { scope:actor = { government_has_flag = government_is_mandala } }
 				execute_decision = tribute_mission_decision_mandala
 			}
-			#else_if = { #LotR
-			#	limit = { scope:actor.primary_title = title:h_china }
-			#	execute_decision = tribute_mission_decision_china
-			#}
-			#else_if = { #LotR
-			#	limit = { scope:actor.primary_title = title:h_roman_empire }
-			#	execute_decision = tribute_mission_decision_roman_empire
-			#}
-			#else_if = { #LotR
-			#	limit = { scope:actor.primary_title = title:h_eastern_roman_empire }
-			#	execute_decision = tribute_mission_decision_eastern_roman_empire
-			#}
-			#else_if = { #LotR
-			#	limit = { scope:actor.primary_title = title:h_dar_al_islam }
-			#	execute_decision = tribute_mission_decision_dar_al_islam
-			#}
-			#else_if = { #LotR
-			#	limit = { scope:actor.primary_title = title:h_india }
-			#	execute_decision = tribute_mission_decision_india
-			#}
+			else_if = {
+				limit = { scope:actor.primary_title = title:h_china }
+				execute_decision = tribute_mission_decision_china
+			}
+			else_if = {
+				limit = { scope:actor.primary_title = title:h_roman_empire }
+				execute_decision = tribute_mission_decision_roman_empire
+			}
+			else_if = {
+				limit = { scope:actor.primary_title = title:h_eastern_roman_empire }
+				execute_decision = tribute_mission_decision_eastern_roman_empire
+			}
+			else_if = {
+				limit = { scope:actor.primary_title = title:h_dar_al_islam }
+				execute_decision = tribute_mission_decision_dar_al_islam
+			}
+			else_if = {
+				limit = { scope:actor.primary_title = title:h_india }
+				execute_decision = tribute_mission_decision_india
+			}
 		}
 	}
 
@@ -2845,7 +2639,7 @@ exact_tribute_interaction = {
 				if = {
 					limit = { 
 						OR = {
-							#NOT = { scope:recipient.primary_title = title:h_china } #LotR
+							NOT = { scope:recipient.primary_title = title:h_china } 
 							government_has_flag = government_is_meritocratic
 						}
 					}
@@ -3025,8 +2819,7 @@ exact_tribute_player_interaction = {
 				trigger_else = {
 					is_tributary = no
 					is_independent_ruler = yes
-					# any_neighboring_top_liege_realm_owner = { primary_title = title:h_china }
-					any_neighboring_top_liege_realm_owner = { primary_title.tier = tier_hegemony } # LOTR
+					any_neighboring_top_liege_realm_owner = { primary_title = title:h_china }
 				}
 			}
 		}
@@ -3112,46 +2905,46 @@ exact_tribute_player_interaction = {
 			custom_tooltip = exact_tribute_player_interaction_accept_tt
 			if = {
 				limit = { scope:actor = { highest_held_title_tier >= tier_hegemony } }
-				#if = { #LotR
-				#	limit = { scope:actor.primary_title = title:h_china }
-				#	open_view_data = {
-				#		view = decision_detail
-				#		data = decision:tribute_mission_decision_china
-				#		player = scope:recipient
-				#	}
-				#}
-				#else_if = { #LotR
-				#	limit = { scope:actor.primary_title = title:h_roman_empire }
-				#	open_view_data = {
-				#		view = decision_detail
-				#		data = decision:tribute_mission_decision_roman_empire
-				#		player = scope:recipient
-				#	}
-				#}
-				#else_if = { #LotR
-				#	limit = { scope:actor.primary_title = title:h_eastern_roman_empire }
-				#	open_view_data = {
-				#		view = decision_detail
-				#		data = decision:tribute_mission_decision_eastern_roman_empire
-				#		player = scope:recipient
-				#	}
-				#}
-				#else_if = { #LotR
-				#	limit = { scope:actor.primary_title = title:h_dar_al_islam }
-				#	open_view_data = {
-				#		view = decision_detail
-				#		data = decision:tribute_mission_decision_dar_al_islam
-				#		player = scope:recipient
-				#	}
-				#}
-				#else_if = { #LotR
-				#	limit = { scope:actor.primary_title = title:h_india }
-				#	open_view_data = {
-				#		view = decision_detail
-				#		data = decision:tribute_mission_decision_india
-				#		player = scope:recipient
-				#	}
-				#}
+				if = {
+					limit = { scope:actor.primary_title = title:h_china }
+					open_view_data = {
+						view = decision_detail
+						data = decision:tribute_mission_decision_china
+						player = scope:recipient
+					}
+				}
+				else_if = {
+					limit = { scope:actor.primary_title = title:h_roman_empire }
+					open_view_data = {
+						view = decision_detail
+						data = decision:tribute_mission_decision_roman_empire
+						player = scope:recipient
+					}
+				}
+				else_if = {
+					limit = { scope:actor.primary_title = title:h_eastern_roman_empire }
+					open_view_data = {
+						view = decision_detail
+						data = decision:tribute_mission_decision_eastern_roman_empire
+						player = scope:recipient
+					}
+				}
+				else_if = {
+					limit = { scope:actor.primary_title = title:h_dar_al_islam }
+					open_view_data = {
+						view = decision_detail
+						data = decision:tribute_mission_decision_dar_al_islam
+						player = scope:recipient
+					}
+				}
+				else_if = {
+					limit = { scope:actor.primary_title = title:h_india }
+					open_view_data = {
+						view = decision_detail
+						data = decision:tribute_mission_decision_india
+						player = scope:recipient
+					}
+				}
 			}
 			else_if = {
 				limit = { scope:actor = { government_has_flag = government_is_mandala } }
@@ -3257,7 +3050,6 @@ offer_courtier_interaction = {
 						is_designated_diarch = yes
 						has_character_flag = has_been_offered_as_concubine
 					}
-					scope:recipient = { lotr_can_recruit = { CHARACTER = prev } } #LotR
 				}
 				add_to_list = characters
 			}
@@ -3269,10 +3061,6 @@ offer_courtier_interaction = {
 		scope:recipient = {
 			is_ruler = yes
 			NOT = { government_has_flag = government_is_herder }
-		}
-		#LOTR Added
-		scope:actor = { 
-			lotr_tolerance_trigger = { CHARACTER = scope:recipient }
 		}
 	}
 
@@ -3297,7 +3085,6 @@ offer_courtier_interaction = {
 						is_designated_diarch = yes
 						has_character_flag = has_been_offered_as_concubine
 					}
-					scope:recipient = { lotr_can_recruit = { CHARACTER = prev } } #LotR
 				}
 			}
 		}
@@ -3316,9 +3103,7 @@ offer_courtier_interaction = {
 	}
 
 	can_be_picked = {
-		# is_adult = yes
-		is_lotr_adult = yes
-		scope:recipient = { lotr_can_recruit = { CHARACTER = scope:secondary_actor } }
+		is_adult = yes
 	}
 
 	can_send = {
@@ -3589,11 +3374,6 @@ offer_courtier_interaction = {
 				has_title = title:e_minister_of_personnel
 			}
 		}
-
-		modifier = { #LotR
-			factor = 0
-			NOT = { lotr_tolerance_trigger = { CHARACTER = scope:recipient } }
-		}
 	}
 
 	on_send = {
@@ -3791,7 +3571,6 @@ demand_courtier_interaction = {
 						}
 					}
 				}
-				scope:actor = { lotr_can_recruit = { CHARACTER = prev } } #LotR
 			}
 		}
 	}
@@ -3818,7 +3597,6 @@ demand_courtier_interaction = {
 						is_designated_diarch = yes
 						has_character_flag = has_been_offered_as_concubine
 					}
-					scope:actor = { lotr_can_recruit = { CHARACTER = prev } } #LotR
 				}
 				add_to_list = characters
 			}
@@ -3851,14 +3629,13 @@ demand_courtier_interaction = {
 				}
 			}
 		}
+
 		#LOTR Added
 		scope:actor = { 
 			is_wastelands = no
-			is_in_valinor = no
 		}
 		scope:recipient = { 
 			is_wastelands = no
-			is_in_valinor = no
 		}
 	}
 
@@ -3883,16 +3660,13 @@ demand_courtier_interaction = {
 						is_designated_diarch = yes
 						has_character_flag = has_been_offered_as_concubine
 					}
-					scope:actor = { lotr_can_recruit = { CHARACTER = prev } } #LotR
 				}
 			}
 		}
 	}
 
 	can_be_picked = {
-		# is_adult = yes
-		is_lotr_adult = yes
-		scope:actor = { lotr_can_recruit = { CHARACTER = prev } } #LotR
+		is_adult = yes
 	}
 
 	can_send = {
@@ -4289,7 +4063,8 @@ demand_concubine_interaction = {
 				is_tributary_of = scope:actor
 			}
 		}
-		scope:recipient = { is_wastelands = no } #LotR
+		#lotr Added
+		scope:recipient = { is_wastelands = no }
 	}
 
 	is_valid_showing_failures_only = {
@@ -4310,8 +4085,7 @@ demand_concubine_interaction = {
 	}
 
 	can_be_picked = {
-		# is_adult = yes #LotR
-		is_nubile = yes #LotR
+		is_adult = yes
 	}
 
 	can_send = {
@@ -5047,41 +4821,41 @@ offer_tributary_status_interaction = { #Embrace as Tributary
 				}
 			}
 		}
-		#LotR
-		#modifier = { # Different religion Family - We prefer god kings to be vaguely within our own world view
-		#	desc = embrace_as_tributary_interaction_other_religion_family
-		#	trigger = {
-		#		scope:recipient = { 	
-		#			NOT = { government_has_flag = government_is_wanua }
-		#		}
-		#		scope:actor.faith.religion = {
-		#			switch = {
-		#				trigger = is_in_family
-		#				rf_pagan = {
-		#					scope:recipient.faith.religion = { NOT = { is_in_family = rf_pagan } }
-		#				}
-		#				rf_sinitic = {
-		#					scope:recipient.faith.religion = { NOT = { is_in_family = rf_sinitic } }
-		#				}
-		#				rf_eastern = {
-		#					scope:recipient.faith.religion = { NOT = { is_in_family = rf_eastern } }
-		#				}
-		#				rf_abrahamic = {
-		#					scope:recipient.faith.religion = { NOT = { is_in_family = rf_abrahamic } }
-		#				}
-		#			}
-		#		}
-		#	}
-		#	add = {
-		#		value = -25
-		#		if = {
-		#			limit = {
-		#				government_has_flag = government_is_theocracy
-		#			}
-		#			subtract = 975 #Bishops, popes, etc, feel more strongly about this.
-		#		}
-		#	}
-		#}
+
+		modifier = { # Different religion Family - We prefer god kings to be vaguely within our own world view
+			desc = embrace_as_tributary_interaction_other_religion_family
+			trigger = {
+				scope:recipient = { 	
+					NOT = { government_has_flag = government_is_wanua }
+				}
+				scope:actor.faith.religion = {
+					switch = {
+						trigger = is_in_family
+						rf_pagan = {
+							scope:recipient.faith.religion = { NOT = { is_in_family = rf_pagan } }
+						}
+						rf_sinitic = {
+							scope:recipient.faith.religion = { NOT = { is_in_family = rf_sinitic } }
+						}
+						rf_eastern = {
+							scope:recipient.faith.religion = { NOT = { is_in_family = rf_eastern } }
+						}
+						rf_abrahamic = {
+							scope:recipient.faith.religion = { NOT = { is_in_family = rf_abrahamic } }
+						}
+					}
+				}
+			}
+			add = {
+				value = -25
+				if = {
+					limit = {
+						government_has_flag = government_is_theocracy
+					}
+					subtract = 975 #Bishops, popes, etc, feel more strongly about this.
+				}
+			}
+		}
 		# They are not Mandalas nor Tribes
 		modifier = { 
 			desc = embrace_as_tributary_interaction_wrong_government

@@ -14,12 +14,10 @@
 	is_shown = {
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 			cannot_be_killed = no
 		}
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 		scope:recipient = {
 			this != scope:actor
@@ -521,7 +519,7 @@
 		evaluate_action_decreasing_house_unity = {
 			VALUE = 100
 		}
-
+		
 		modifier = { #LotR
 			add = -1000
 			scope:actor = {	has_culture = culture:wastelands}
@@ -531,7 +529,7 @@
 			add = -1000
 			scope:recipient = { has_culture = culture:wastelands }
 		}
-		
+
 		modifier = {
 			factor = 0
 			scope:actor.ai_honor >= 75

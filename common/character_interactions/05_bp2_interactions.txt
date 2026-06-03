@@ -36,36 +36,10 @@ offer_hostage_interaction = {
 
 	is_shown = {
 		scope:actor = { #LotR
-			is_in_valinor = no
 			NOT = { has_culture = culture:wastelands }
 		}
 		scope:recipient = { #LotR
-			is_in_valinor = no
 			NOT = { has_culture = culture:wastelands }
-		}
-		NOR = { #LotR
-			# No-one in their right mind would send their kids to be raised by Orcs
-			AND = {
-				scope:recipient = { is_orc = yes }
-				scope:actor = { NOT = { is_orc = yes } }
-			}
-			# Or raise one
-			AND = {
-				scope:recipient = { NOT = { is_orc = yes } }
-				scope:actor = { is_orc = yes }
-			}
-			# Elves do not send their children to be raised by mortals
-			AND = {
-				scope:recipient = { NOT = { is_elf = yes } }
-				scope:actor = { is_elf = yes }
-			}
-			# Dwarves do not send their children to be raised by others
-			AND = {
-				scope:recipient = { NOT = { is_dwarf = yes } }
-				scope:actor = { is_dwarf = yes }
-			}
-			#Nazgûl don't make great wardens
-			scope:recipient = { is_nazgul = yes }
 		}
 		scope:recipient != scope:actor
 		# Cannot exchange hostages with a herder
@@ -417,41 +391,6 @@ offer_hostage_interaction = {
 			SENDER = scope:actor
 			RECEIVER = scope:recipient
 		}
-		
-		######### LotR RACIAL LIMITATIONS
-		
-		modifier = {
-			AND = {
-				scope:recipient = { is_orc = yes }
-				scope:actor = { NOT = { is_orc = yes } }
-			}
-			add = -5000
-			desc = HOSTAGE_TO_ORCS
-		}
-		
-		modifier = {
-			AND = {
-				scope:recipient = { NOT = { is_orc = yes } }
-				scope:actor = { is_orc = yes }
-			}
-			add = -5000
-			desc = HOSTAGE_TO_NON_ORCS
-		}
-		
-		modifier = {
-			AND = {
-				scope:recipient = { NOT = { is_elf = yes } }
-				scope:actor = { is_elf = yes }
-			}
-			add = -5000
-			desc = HOSTAGE_TO_MORTALS
-		}
-		
-		modifier = {
-			scope:recipient = { is_nazgul = yes }
-			add = -5000
-			desc = HOSTAGE_TO_NAZGUL
-		}
 
 		######### CULTURAL TRADITIONS
 
@@ -689,36 +628,10 @@ demand_hostage_interaction = {
 
 	is_shown = {
 		scope:actor = { #LotR
-			is_in_valinor = no
 			NOT = { has_culture = culture:wastelands }
 		}
 		scope:recipient = {
-			is_in_valinor = no
 			NOT = { has_culture = culture:wastelands }
-		}
-		NOR = {
-			# No-one in their right mind would send their kids to be raised by Orcs
-			AND = {
-				scope:recipient = { is_orc = yes }
-				scope:actor = { NOT = { is_orc = yes } }
-			}
-			# Or raise one
-			AND = {
-				scope:recipient = { NOT = { is_orc = yes } }
-				scope:actor = { is_orc = yes }
-			}
-			# Elves do not send their children to be raised by mortals
-			AND = {
-				scope:recipient = { is_elf = yes }
-				scope:actor = { NOT = { is_elf = yes } }
-			}
-			# Dwarves do not send their children to be raised by others
-			AND = {
-				scope:recipient = { is_dwarf = yes }
-				scope:actor = { NOT = { is_dwarf = yes } }
-			}
-			#Nazgûl don't make great wardens
-			scope:actor = { is_nazgul = yes }
 		}
 		# Cannot exchange hostages with self
 		scope:recipient != scope:actor
@@ -1176,50 +1089,6 @@ demand_hostage_interaction = {
 			SENDER = scope:actor
 			RECEIVER = scope:recipient
 		}
-		
-		######### LotR RACIAL LIMITATIONS
-		
-		modifier = {
-			AND = {
-				scope:recipient = { is_orc = yes }
-				scope:actor = { NOT = { is_orc = yes } }
-			}
-			add = -5000
-			desc = HOSTAGE_TO_NON_ORCS
-		}
-		
-		modifier = {
-			AND = {
-				scope:recipient = { NOT = { is_orc = yes } }
-				scope:actor = { is_orc = yes }
-			}
-			add = -5000
-			desc = HOSTAGE_TO_ORCS
-		}
-		
-		modifier = {
-			AND = {
-				scope:recipient = { is_elf = yes }
-				scope:actor = { NOT = { is_elf = yes } }
-			}
-			add = -5000
-			desc = HOSTAGE_TO_MORTALS
-		}
-		
-		modifier = {
-			AND = {
-				scope:recipient = { is_dwarf = yes }
-				scope:actor = { NOT = { is_dwarf = yes } }
-			}
-			add = -5000
-			desc = HOSTAGE_TO_NON_DWARVES
-		}
-		
-		modifier = {
-			scope:actor = { is_nazgul = yes }
-			add = -5000
-			desc = HOSTAGE_TO_NAZGUL
-		}
 
 		######### CULTURAL TRADITIONS
 
@@ -1471,11 +1340,9 @@ exchange_hostage_interaction = {
 		# Only significant rulers use hostages
 		scope:actor.highest_held_title_tier > tier_barony
 		scope:actor = {
-			is_in_valinor = no
 			NOT = { has_culture = culture:wastelands }
 		}
 		scope:recipient = {
-			is_in_valinor = no
 			NOT = { has_culture = culture:wastelands }
 		}
 		OR = {
@@ -1506,8 +1373,6 @@ exchange_hostage_interaction = {
 			}
 			NOT = { scope:recipient = scope:actor.top_liege }
 		}
-		#For exchanges, same race is required to avoid weird occurences
-		scope:actor = { same_race = { TARGET = scope:recipient } }
 	}
 
 	redirect = {
@@ -1782,7 +1647,7 @@ exchange_hostage_interaction = {
 			HOME_COURT = scope:hostage_sender_2
 		}
 		scope:actor = { trigger_event = char_interaction.0332 }
-		#If we're of the same clan this interaction affects unity
+		# If we're of the same clan this interaction affects unity
 		if = {
 			limit = {
 				scope:actor = { government_has_flag = government_is_clan }
@@ -1913,14 +1778,6 @@ exchange_hostage_interaction = {
 		bp2_hostage_culture_faith_modifier = {
 			SENDER = scope:actor
 			RECEIVER = scope:recipient
-		}
-
-		######### LotR RACIAL LIMITATIONS
-		
-		modifier = {
-			NOT = { scope:actor = { same_race = { TARGET = scope:recipient } } }
-			add = -5000
-			desc = HOSTAGE_EXCHANGE_BETWEEN_RACES
 		}
 
 		######### CULTURAL TRADITIONS
@@ -2413,13 +2270,13 @@ return_hostage_interaction = {
 			desc = HOSTAGE_CULTURAL_TRADITION_REASON
 		}
 		#DO NOT SEND BACK FRANKOKRATIA CLAIMANT
-		#modifier = { # LotR
-		#	scope:hostage ?= {
-		#		has_character_flag = byz_claimant_flag
-		#	}
-		#	exists = global_var:byz_claimant_champion
-		#	factor = 0
-		#}
+		modifier = {
+			scope:hostage ?= {
+				has_character_flag = byz_claimant_flag
+			}
+			exists = global_var:byz_claimant_champion
+			factor = 0
+		}
 	}
 
 	send_options_exclusive = no
@@ -2818,14 +2675,14 @@ recall_hostage_interaction = {
 			desc = HOSTAGE_HAS_MINE_REASON
 		}
 		#DO NOT SEND BACK FRANKOKRATIA CLAIMANT
-		#modifier = { # LotR
-		#	desc = crusading_claim_cb_reason
-		#	scope:hostage = {
-		#		has_character_flag = byz_claimant_flag
-		#	}
-		#	exists = global_var:byz_claimant_champion
-		#	add = -5000
-		#}
+		modifier = {
+			desc = crusading_claim_cb_reason
+			scope:hostage = {
+				has_character_flag = byz_claimant_flag
+			}
+			exists = global_var:byz_claimant_champion
+			add = -5000
+		}
 	}
 
 	auto_accept = {

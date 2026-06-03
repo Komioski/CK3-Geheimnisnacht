@@ -851,11 +851,11 @@ retract_vassal_interaction = {
 					is_imprisoned_by = scope:actor
 				}
 			}
-			# scope:actor = { # The HRE doesn't need endless civil wars #LotR
-			# 	NOT = {
-			# 		primary_title = title:e_hre
-			# 	}
-			# }
+			scope:actor = { # The HRE doesn't need endless civil wars
+				NOT = {
+					primary_title = title:e_hre
+				}
+			}
 			exists = scope:actor.primary_title.title_capital_county
 			OR = {
 				scope:actor = {
@@ -886,11 +886,11 @@ retract_vassal_interaction = {
 		modifier = {
 			years_from_game_start >= 3
 			scope:actor = { is_at_war = no }
-			# scope:actor = { # The HRE doesn't need endless civil wars #LotR
-			# 	NOT = {
-			# 		primary_title = title:e_hre
-			# 	}
-			# }
+			scope:actor = { # The HRE doesn't need endless civil wars
+				NOT = {
+					primary_title = title:e_hre
+				}
+			}
 			scope:actor.domain_size < scope:actor.domain_limit
 			scope:actor.primary_title.tier >= tier_kingdom
 			trigger_if = {
@@ -1388,38 +1388,31 @@ create_claimant_faction_against_interaction = {
 			}
 		}
 		# Ministers cannot be claimants unless we are targeting h_china
-		#trigger_if = { #LotR
-		#	limit = {
-		#		exists = scope:recipient
-		#		exists = scope:landed_title
-		#		scope:recipient = {
-		#			OR = {
-		#				has_title = title:e_minister_chancellor
-		#				has_title = title:e_minister_censor
-		#				has_title = title:e_minister_grand_marshal
-		#				has_title = title:e_minister_of_personnel
-		#				has_title = title:e_minister_of_revenue
-		#				has_title = title:e_minister_of_rites
-		#				has_title = title:e_minister_of_war
-		#				has_title = title:e_minister_of_justice
-		#				has_title = title:e_minister_of_works
-		#			}
-		#		}
-		#	}
-		#	scope:recipient = {
-		#		custom_description = {
-		#			text = target_is_a_minister_desc
-		#			subject = this
-		#			scope:landed_title = { this = title:h_china }
-		#		}
-		#	}
-		#}
+		trigger_if = {
+			limit = {
+				exists = scope:recipient
+				exists = scope:landed_title
+				scope:recipient = {
+					tgp_is_any_minister = yes
+				}
+			}
+			scope:recipient = {
+				custom_description = {
+					text = target_is_a_minister_desc
+					subject = this
+					any_held_title = {
+						tgp_is_minister_title = yes
+						de_jure_liege ?= scope:landed_title
+					}
+				}
+			}
+		}
 	}
 
 	can_send = {
-		# NOT = { #LOTR
-		# 	scope:recipient ?= { has_title = title:e_japan }
-		# }
+		NOT = {
+			scope:recipient ?= { has_title = title:e_japan }
+		}
 	}
 
 	on_send = {
@@ -2562,20 +2555,20 @@ pardon_interaction = {
 		scope:actor = {
 			OR = {
 				has_imprisonment_reason = scope:recipient
-				#AND = { #LotR
-				#	has_title = title:e_minister_of_justice
-				#	scope:recipient = {
-				#		any_liege_or_above = {
-				#			has_imprisonment_reason = scope:recipient
-				#		}
-				#	}
-				#}
+				AND = {
+					has_title = title:e_minister_of_justice
+					scope:recipient = {
+						any_liege_or_above = {
+							has_imprisonment_reason = scope:recipient
+						}
+					}
+				}
 			}
 		}
 		scope:recipient = {
 			OR = {
 				scope:actor = {
-					#has_title = title:e_minister_of_justice #LotR
+					has_title = title:e_minister_of_justice
 					top_liege = scope:recipient.top_liege
 				}
 				target_is_liege_or_above = scope:actor
@@ -2588,7 +2581,7 @@ pardon_interaction = {
 			if = {
 				limit = {
 					scope:actor = {
-						#has_title = title:e_minister_of_justice #LotR
+						has_title = title:e_minister_of_justice
 						NOT = { has_imprisonment_reason = scope:recipient }
 					}
 				}
@@ -3505,17 +3498,9 @@ give_vassal_directive_interaction = {
 		is_valid = {
 			scope:recipient = {
 				custom_tooltip = {
-					text = lotr_subrealm_has_county_of_other_faith #LotR
+					text = subrealm_has_county_of_other_faith
 					any_sub_realm_county = {
 						faith != scope:recipient.faith
-						trigger_if = { #LotR
-							limit = { title_province = { terrain = halls } }
-							scope:recipient = { is_underground_race = yes }
-						}
-						trigger_if = { #LotR
-							limit = { title_province = { has_holding_type = elven_holding } }
-							scope:recipient = { is_elf = yes }
-						}
 					}
 				}
 			}
@@ -3532,17 +3517,9 @@ give_vassal_directive_interaction = {
 		is_valid = {
 			scope:recipient = {
 				custom_tooltip = {
-					text = lotr_subrealm_has_county_of_other_culture #LotR
+					text = subrealm_has_county_of_other_culture
 					any_sub_realm_county = {
 						culture != scope:recipient.culture
-						trigger_if = { #LotR
-							limit = { title_province = { terrain = halls } }
-							scope:recipient = { is_underground_race = yes }
-						}
-						trigger_if = { #LotR
-							limit = { title_province = { has_holding_type = elven_holding } }
-							scope:recipient = { is_elf = yes }
-						}
 					}
 				}
 			}
@@ -3600,25 +3577,7 @@ give_vassal_directive_interaction = {
 		}
 	}
 
-	### LotR ###
-	send_option = {
-		flag = elven_settlement
-		is_shown = {
-			scope:actor = { is_elf = yes }
-			scope:recipient = { is_elf = yes }
-		}
-		is_valid = {
-			scope:recipient = {
-				custom_tooltip = {
-					text = subrealm_has_county_of_other_race
-					any_sub_realm_county = {
-						NOT = { is_elf = yes }
-					}
-				}
-			}
-		}
-	}
-	
+
 	send_option = {
 		flag = building_focus_economy
 		is_shown = {
@@ -3710,7 +3669,6 @@ give_vassal_directive_interaction = {
 						has_character_flag = vassal_directive_raid_innovation_intent
 						has_character_flag = vassal_directive_raid_herd_intent
 						has_character_flag = vassal_directive_settle_wastelands #LotR
-						has_character_flag = vassal_directive_elven_settlement #LotR
 					}
 				}
 			}
@@ -3736,8 +3694,7 @@ give_vassal_directive_interaction = {
 						has_character_flag = vassal_directive_raid_innovation_intent
 						has_character_flag = vassal_directive_raid_herd_intent
 						has_character_flag = vassal_directive_settle_wastelands #LotR
-						has_character_flag = vassal_directive_elven_settlement #LotR
-					}					
+					}
 				}
 				custom_tooltip = {
 					text = vassal_directive_remove_directive
@@ -3818,20 +3775,12 @@ give_vassal_directive_interaction = {
 						add_character_flag = vassal_directive_building_focus_economy
 					}
 				}
-				
+
 				scope:settle_wastelands ?= { #LotR
 					custom_tooltip = {
 						text = vassal_directive_settle_wastelands
 						remove_vassal_directives = yes
 						add_character_flag = vassal_directive_settle_wastelands
-					}
-				}
-
-				scope:elven_settlement ?= { #LotR
-					custom_tooltip = {
-						text = vassal_directive_elven_settlement
-						remove_vassal_directives = yes
-						add_character_flag = vassal_directive_elven_settlement
 					}
 				}
 
@@ -3983,6 +3932,8 @@ give_vassal_directive_interaction = {
 		}
 	}
 }
+
+
 
 request_court_position = {
 	category = interaction_category_vassal

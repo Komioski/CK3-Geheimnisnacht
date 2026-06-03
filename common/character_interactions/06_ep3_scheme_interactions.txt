@@ -45,11 +45,15 @@ start_slander_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
+		}
+		scope:actor = {
+			is_wastelands = no #LOTR
+		}
+		scope:recipient = {
+			is_wastelands = no #LOTR
 		}
 	}
 
@@ -191,18 +195,18 @@ start_slander_interaction = {
 			# Scheme bonuses from being the emperor/dominant family/powerful family
 			ep3_actor_scheme_modifier_effect = yes
 			# Trigger a catalyst if target has a lot of power
-			# show_as_tooltip = { #LotR
-			# 	if = {
-			# 		limit = {
-			# 			exists = scope:recipient.var:movement_power
-			# 			scope:recipient.var:movement_power >= medium_movement_power_value
-			# 		}
-			# 		tgp_activate_catalyst_against_hegemon_effect = {
-			# 			HEGEMON = scope:recipient.top_liege
-			# 			CATALYST = catalyst_governor_slander
-			# 		}
-			# 	}
-			# }
+			show_as_tooltip = {
+				if = {
+					limit = {
+						exists = scope:recipient.var:movement_power
+						scope:recipient.var:movement_power >= medium_movement_power_value
+					}
+					tgp_activate_catalyst_against_hegemon_effect = {
+						HEGEMON = scope:recipient.top_liege
+						CATALYST = catalyst_governor_slander
+					}
+				}
+			}
 			stress_impact = {
 				compassionate = minor_stress_impact_gain
 				honest = minor_stress_impact_gain
@@ -407,11 +411,9 @@ start_promote_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -693,11 +695,9 @@ start_generate_claim_interaction = {
 		scope:recipient = { is_landed = yes }
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -1035,11 +1035,9 @@ start_challenge_status_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -1161,12 +1159,12 @@ start_challenge_status_interaction = {
 			}
 			# Scheme bonuses from being the emperor/dominant family/powerful family
 			ep3_actor_scheme_modifier_effect = yes
-			# show_as_tooltip = {  #LotR
-			# 	tgp_activate_catalyst_against_hegemon_effect = {
-			# 		HEGEMON = scope:recipient.top_liege
-			# 		CATALYST = catalyst_governor_challenged_status
-			# 	}
-			# }
+			show_as_tooltip = {
+				tgp_activate_catalyst_against_hegemon_effect = {
+					HEGEMON = scope:recipient.top_liege
+					CATALYST = catalyst_governor_challenged_status
+				}
+			}
 			custom_tooltip = challenge_status_success_actor_tt
 		}
 		scope:recipient = {
@@ -1354,11 +1352,9 @@ start_expand_power_base_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -1522,11 +1518,9 @@ start_depose_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -1851,11 +1845,9 @@ start_foster_legitimacy_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -2032,14 +2024,6 @@ start_damage_legitimacy_interaction = {
 			government_allows = administrative
 			NOT = { government_has_flag = government_is_celestial }
 		}
-		scope:actor = {
-			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
-		}
-		scope:recipient = {
-			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
-		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2213,11 +2197,9 @@ start_dispute_border_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -2534,11 +2516,9 @@ start_subsume_province_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -2861,11 +2841,9 @@ start_found_despotate_interaction = {
 		scope:recipient = scope:actor
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -3135,11 +3113,9 @@ start_raid_estate_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -3331,17 +3307,17 @@ start_raid_estate_interaction = {
 			}
 			else = { custom_tooltip = raid_estate_rival_relation_tt }
 			# Catalysts
-			# if = {  #LotR
-			# 	limit = {
-			# 		NOT = { var:raid_estate_permission ?= scope:recipient.house }
-			# 	}
-			# 	show_as_tooltip = {
-			# 		tgp_activate_catalyst_against_hegemon_effect = {
-			# 			HEGEMON = scope:recipient.top_liege
-			# 			CATALYST = catalyst_governor_raided_estate
-			# 		}
-			# 	}
-			# }
+			if = {
+				limit = {
+					NOT = { var:raid_estate_permission ?= scope:recipient.house }
+				}
+				show_as_tooltip = {
+					tgp_activate_catalyst_against_hegemon_effect = {
+						HEGEMON = scope:recipient.top_liege
+						CATALYST = catalyst_governor_raided_estate
+					}
+				}
+			}
 			# Stress
 			stress_impact = {
 				content = medium_stress_impact_gain
@@ -3477,14 +3453,6 @@ start_teach_governor_interaction = {
 		scope:actor = {
 			exists = domicile
 			domicile = { has_domicile_parameter = estate_unlock_teach_governor_interaction }
-		}
-		scope:actor = {
-			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
-		}
-		scope:recipient = {
-			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 
@@ -3896,11 +3864,9 @@ start_ingratiate_family_interaction = {
 		}
 		scope:actor = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 		scope:recipient = {
 			is_wastelands = no #LOTR
-			is_in_valinor = no #LOTR
 		}
 	}
 

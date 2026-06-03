@@ -9,15 +9,9 @@ adopt_interaction = {
 	use_diplomatic_range = yes
 	
 	is_shown = {
-		scope:actor = { #LotR triggers
-			is_in_valinor = no
-			NOT = { culture = culture:wastelands }
-			cannot_be_killed = no
-			NOT = { has_trait = cannot_marry }
-		}
-		scope:recipient = { #LotR triggers
-			is_in_valinor = no
-			same_race = { TARGET = scope:actor }
+		scope:actor = {
+			NOT = { culture = culture:wastelands}
+			
 		}
 		OR = {
 			# Cultures that default with this tradition should still be able to adopt
@@ -30,10 +24,6 @@ adopt_interaction = {
 		scope:recipient != scope:actor
 		scope:actor = {
 			is_adult = yes
-
-			#LotR triggers
-			lotr_can_adopt = { ADOPTED = scope:recipient }
-			
 			OR = {
 				# Compassionate people like adopting
 				has_trait = compassionate
@@ -42,19 +32,9 @@ adopt_interaction = {
 				# You have no kids and your fertility is low
 				AND = {
 					any_child = {
-						is_in_valinor = no #LotR
 						count < 1
 					}
 					fertility <= low_fertility
-					NOT = { #LotR - Excluding Elves who can have children the normal way
-						is_elf = yes
-						NOR = {
-							has_trait = widowed
-							has_character_modifier = elf_child_limit_modifier
-							has_sexuality = asexual
-							has_sexuality = homosexual
-						}
-					}
 				}
 				# You are married to a same-sex partner
 				AND = {

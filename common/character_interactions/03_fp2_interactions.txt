@@ -1064,9 +1064,7 @@ challenge_to_2p_chess_interaction = {
 
 	is_shown = {
 		scope:actor = {
-			NOT = { has_culture = culture:wastelands } #LotR
-			is_in_valinor = no #LotR
-			NOT = { has_trait = sauron_ringless } #LotR
+			NOT = { has_culture = culture:wastelands }  #LotR
 			# Actor needs to either have a CulTrad or be a fan of board games
 			OR = {
 				culture = { has_cultural_parameter = may_challenge_to_board_games }
@@ -1078,69 +1076,8 @@ challenge_to_2p_chess_interaction = {
 			# ... no, I'm sorry, you can't play yourself at board games.
 			this != scope:recipient
 		}
-		scope:recipient = { #LotR
-			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
-			#Elves won't play evil characters
-			trigger_if = {
-				limit = { 
-					scope:actor = {
-						OR = {
-							cannot_be_killed = yes
-							is_elf = yes
-						}
-						faith_is_good = yes
-					} 
-				}
-				NOT = { faith_is_evil = yes }
-			}
-			trigger_if = {
-				limit = { 
-					OR = {
-						cannot_be_killed = yes
-						is_elf = yes
-					}
-					faith_is_good = yes
-				}
-				NOT = { faith_is_evil = yes }
-			}
-			
-			#Orcs only play evil characters or other Orcs
-			trigger_if = {
-				limit = { 
-					scope:actor = {
-						OR = {
-							is_orc = yes 
-							cannot_be_killed = yes
-						}
-						faith_is_evil = yes
-					}
-				}
-				OR = {
-					faith_is_evil = yes
-					is_orc = yes
-				}
-			}
-			#Only evil characters or Orcs will play Orcs
-			trigger_if = {
-				limit = { 
-					OR = {
-						is_orc = yes 
-						cannot_be_killed = yes
-					}
-					faith_is_evil = yes
-				}
-				scope:actor = {
-					OR = {
-						faith_is_evil = yes
-						is_orc = yes
-					}
-				}
-				trigger_if = {
-					limit = { is_ai = yes  }
-					is_orc = yes
-				}
-			}
+		scope:recipient = {
+			NOT = { has_culture = culture:wastelands} #LotR
 		}
 	}
 
@@ -2748,28 +2685,6 @@ incite_revolts_interaction = {
 				}
 			}
 		}
-		piety = { #LotR
-			add = {
-				value = 0
-				# Gold spent will provide 10x levies, e.g. 25 provides 250 - not automated yet
-				if = {
-					limit = { scope:actor = { is_elf = yes } }
-					if = {
-						limit = { scope:small_investment_in_revolt = yes }
-						add = 25
-					}
-					if = {
-						limit = { scope:medium_investment_in_revolt = yes }
-						add = 50
-					}
-					if = {
-						limit = { scope:high_investment_in_revolt = yes }
-						add = 150
-					}
-				}
-			}
-		}
-
 	}
 
 	is_shown = {
@@ -2777,15 +2692,6 @@ incite_revolts_interaction = {
 		scope:recipient = { is_wastelands = no } #LotR
 		scope:recipient != scope:actor
 		OR = {
-			trigger_if = { #LotR
-				limit = {
-					scope:actor = {
-						is_elf = yes
-						has_perk = subtle_desire_perk
-					}
-				}
-				scope:actor = { opposite_alignment = { TARGET = scope:recipient } }
-			}
 			scope:actor = {
 				government_has_flag = government_is_landless_adventurer
 				OR = {
@@ -2804,21 +2710,21 @@ incite_revolts_interaction = {
 					is_secondary_character_involvement_involved_trigger = { CHAR = scope:recipient }
 				}
 			}
-			# AND = { #LotR
-			# 	scope:actor = {
-			# 		has_trait = fp3_struggle_detractor
-			# 		any_character_struggle = {
-			# 			involvement = involved
-			# 			is_struggle_type = persian_struggle
-			# 		}
-			# 	}
-			# 	scope:recipient = {
-			# 		any_character_struggle = {
-			# 			is_struggle_type = persian_struggle
-			# 			involvement = involved
-			# 		}
-			# 	}
-			# }
+			AND = {
+				scope:actor = {
+					has_trait = fp3_struggle_detractor
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_type = persian_struggle
+					}
+				}
+				scope:recipient = {
+					any_character_struggle = {
+						is_struggle_type = persian_struggle
+						involvement = involved
+					}
+				}
+			}
 			scope:actor.domicile ?= {
 				has_domicile_parameter = can_use_incite_revolts
 			}
@@ -2826,28 +2732,17 @@ incite_revolts_interaction = {
 	}
 
 	is_valid_showing_failures_only = {
-		trigger_if = { #LotR
-			limit = {
-				NAND = {
-					scope:actor = {
-						is_elf = yes
-						has_perk = subtle_desire_perk
-					}
-					scope:actor = { opposite_alignment = { TARGET = scope:recipient } }
-				}
-			}
-			custom_description = {
-				text = at_least_one_county_with_neutral_negative_opinion
-				scope:recipient = {
-					any_sub_realm_county = {
-						count > 0
-						holder = scope:recipient
-						county_opinion < 0
-						NOR = {
-							has_county_modifier = small_investment_in_revolt_modifier
-							has_county_modifier = medium_investment_in_revolt_modifier
-							has_county_modifier = high_investment_in_revolt_modifier
-						}
+		custom_description = {
+			text = at_least_one_county_with_neutral_negative_opinion
+			scope:recipient = {
+				any_sub_realm_county = {
+					count > 0
+					holder = scope:recipient
+					county_opinion < 0
+					NOR = {
+						has_county_modifier = small_investment_in_revolt_modifier
+						has_county_modifier = medium_investment_in_revolt_modifier
+						has_county_modifier = high_investment_in_revolt_modifier
 					}
 				}
 			}
@@ -3140,22 +3035,18 @@ incite_revolts_interaction = {
 	ai_potential = {
 		short_term_gold >= medium_gold_value
 		OR = {
-			trigger_if = { #LotR
-				limit = { is_elf = yes }
-				has_perk = subtle_desire_perk
+			any_character_struggle = {
+				has_struggle_phase_parameter = unlocks_incite_revolts_interaction
+				involvement = involved
+				OR = {
+					is_struggle_phase = struggle_iberia_phase_opportunity
+					is_struggle_phase = struggle_iberia_phase_hostility
+				}
 			}
-			# any_character_struggle = { #LotR
-			# 	has_struggle_phase_parameter = unlocks_incite_revolts_interaction
-			# 	involvement = involved
-			# 	OR = {
-			# 		is_struggle_phase = struggle_iberia_phase_opportunity
-			# 		is_struggle_phase = struggle_iberia_phase_hostility
-			# 	}
-			# }
-			# any_character_struggle = { #LotR
-			# 	is_struggle_type = persian_struggle
-			# 	involvement = involved
-			# }
+			any_character_struggle = {
+				is_struggle_type = persian_struggle
+				involvement = involved
+			}
 			domicile ?= {
 				has_domicile_parameter = can_use_incite_revolts
 			}
@@ -3309,31 +3200,30 @@ contract_assistance_interaction = {
 		scope:actor = {
 			NOT = { government_has_flag = government_is_herder }
 			OR = {
-				# any_character_struggle = {
-				# 	involvement = involved
-				# 	has_struggle_phase_parameter = unlocks_contract_assistance_interaction
-				# }
+				any_character_struggle = {
+					involvement = involved
+					has_struggle_phase_parameter = unlocks_contract_assistance_interaction
+				}
 				culture = { has_cultural_parameter = unlocks_contract_assistance }
 				government_has_flag = government_is_landless_adventurer
 			}
-			lotr_tolerance_trigger = { CHARACTER = scope:recipient } #LotR - Basic compatibility triggers
 		}
 		# Recipient is Involved in Struggle, at war, and not at war with Actor
 		scope:recipient = {
-			# trigger_if = {
-			# 	limit = {
-			# 		scope:actor = {
-			# 			any_character_struggle = {
-			# 				involvement = involved
-			# 				has_struggle_phase_parameter = unlocks_contract_assistance_interaction
-			# 			}
-			# 		}
-			# 	}
-			# 	any_character_struggle = {
-			# 		involvement = involved
-			# 		has_struggle_phase_parameter = unlocks_contract_assistance_interaction
-			# 	}
-			# }
+			trigger_if = {
+				limit = {
+					scope:actor = {
+						any_character_struggle = {
+							involvement = involved
+							has_struggle_phase_parameter = unlocks_contract_assistance_interaction
+						}
+					}
+				}
+				any_character_struggle = {
+					involvement = involved
+					has_struggle_phase_parameter = unlocks_contract_assistance_interaction
+				}
+			}
 			is_at_war = yes
 			NOR = {
 				this = scope:actor
@@ -3732,7 +3622,7 @@ contract_assistance_interaction = {
 			scope:target = {
 				OR = {
 					using_cb = peasant_war
-					#using_cb = fp2_border_raid #LotR
+					using_cb = fp2_border_raid
 				}
 			}
 			desc = OA_AI_UNINTERESTED_WAR_REASON
@@ -3945,27 +3835,25 @@ request_contract_assistance_interaction = {
 	cooldown_against_recipient = { years = 5 }
 
 	is_shown = {
-		always = no #LotR
 		# Actor is Involved in Struggle
 		scope:actor = {
-			# any_character_struggle = {
-			# 	involvement = involved
-			# 	has_struggle_phase_parameter = unlocks_contract_assistance_interaction
-			# }
+			any_character_struggle = {
+				involvement = involved
+				has_struggle_phase_parameter = unlocks_contract_assistance_interaction
+			}
 			is_at_war = yes
 			NOR = {
 				this = scope:recipient
 				is_at_war_with = scope:recipient
 			}
-			lotr_tolerance_trigger = { CHARACTER = scope:recipient } #LotR - Basic compatibility triggers
 		}
 		# Recipient is Involved in Struggle, at war, and not at war with Actor
-		# scope:recipient = {
-		# 	any_character_struggle = {
-		# 		involvement = involved
-		# 		has_struggle_phase_parameter = unlocks_contract_assistance_interaction
-		# 	}
-		# }
+		scope:recipient = {
+			any_character_struggle = {
+				involvement = involved
+				has_struggle_phase_parameter = unlocks_contract_assistance_interaction
+			}
+		}
 	}
 
 	has_valid_target = {
@@ -4219,7 +4107,7 @@ request_contract_assistance_interaction = {
 			scope:target = {
 				OR = {
 					using_cb = peasant_war
-					#using_cb = fp2_border_raid #LotR
+					using_cb = fp2_border_raid
 				}
 			}
 			desc = OA_AI_UNINTERESTED_WAR_REASON
@@ -4521,7 +4409,7 @@ enforce_truce_interaction = {
 		scope:target = {
 			is_war_leader = scope:recipient
 			is_civil_war = no
-			#NOT = { using_cb = fp2_border_raid } #LotR
+			NOT = { using_cb = fp2_border_raid }
 			trigger_if = {
 				limit = {
 					scope:recipient = {
@@ -4899,8 +4787,8 @@ bargain_fealty_interaction = {
 	cooldown_against_recipient = { years = 5 }
 
 	is_shown = {
-		# Actor is Involved in Struggle
 		NOT = { scope:actor = { has_culture = culture:wastelands } } #LotR
+		# Actor is Involved in Struggle
 		scope:actor = {
 			any_character_struggle = {
 				involvement = involved
@@ -4943,7 +4831,7 @@ bargain_fealty_interaction = {
 				any_character_war = {
 					is_war_leader = scope:actor
 					primary_defender = scope:actor
-					# NOT = { using_cb = fp2_border_raid } # LOTR
+					NOT = { using_cb = fp2_border_raid }
 					NOT = { using_cb = county_struggle_cb }
 				}
 			}
@@ -4970,7 +4858,7 @@ bargain_fealty_interaction = {
 			primary_defender = scope:actor
 			custom_tooltip = {
 				text = bargain_fealty_border_raid_tt
-				#NOT = { using_cb = fp2_border_raid } #LotR
+				NOT = { using_cb = fp2_border_raid }
 			}
 			custom_tooltip = {
 				text = bargain_fealty_struggle_clash_tt
@@ -5141,7 +5029,7 @@ bargain_fealty_interaction = {
 				is_war_leader = prev
 				primary_defender = prev
 				NOR = {
-					#using_cb = fp2_border_raid #LotR
+					using_cb = fp2_border_raid
 					using_cb = county_struggle_cb
 				}
 				casus_belli = {
@@ -5155,7 +5043,7 @@ bargain_fealty_interaction = {
 				is_war_leader = prev
 				primary_defender = prev
 				NOR = {
-					#using_cb = fp2_border_raid #LotR
+					using_cb = fp2_border_raid
 					using_cb = county_struggle_cb
 				}
 				war_defender_total_strength_value < war_attacker_total_strength_halved_value
@@ -5205,8 +5093,7 @@ invite_foreign_ruler_to = {
 				involvement = involved
 				is_struggle_type = iberian_struggle
 			}
-			NOT = { has_culture = culture:wastelands } #LotR
-			is_in_valinor = no #LotR
+			NOT = { has_culture = culture:wastelands }
 		}
 		# Scope:recipient must be landed, and neither over or under scope:actor.
 		scope:recipient = {
@@ -5219,8 +5106,7 @@ invite_foreign_ruler_to = {
 				any_liege_or_above = { this = scope:actor }
 				any_vassal_or_below = { this = scope:actor }
 			}
-			NOT = { has_culture = culture:wastelands } #LotR
-			is_in_valinor = no #LotR
+			NOT = { has_culture = culture:wastelands }
 		}
 	}
 

@@ -21,11 +21,9 @@ offer_vassalization_interaction = {
 		hegemony = 12
 	}
 
-	is_shown = { #TRIG COMPATCH - Blindly took the compatch version here, come back and make sure it aligns with master before merge. (also all the other is_showns)
+	is_shown = {
 		scope:actor = {
 			is_landed = yes
-			# The Necromancer is hidden
-		    NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 		}
 		scope:recipient = {
 			this != scope:actor
@@ -49,10 +47,9 @@ offer_vassalization_interaction = {
 				government_has_flag = cannot_be_vassal_or_liege
 				government_has_flag = government_is_herder
 			}
-			NOT = { 
+			NOT = {
 				has_culture = culture:wastelands
 			}
-			is_in_valinor = no
 		}
 		# Temujin cannot make Jamukha his subject once he leaves him
 		NOT = {
@@ -67,44 +64,33 @@ offer_vassalization_interaction = {
 		scope:actor = {
 			trigger_if = {
 				limit = { is_confederation_member = yes }
-				OR = {
-					exists = house.house_confederation
-					confederation.confederation_type = confederation_type:defensive_alliance
+				exists = house.house_confederation
+			}
+			trigger_if = {
+				limit = {
+					has_title = title:h_china
+				}
+				situation:dynastic_cycle ?= {
+					NOT = {
+						situation_current_phase = situation_dynastic_cycle_phase_instability
+					}
+					trigger_if = {
+						limit = {
+							situation_current_phase = situation_dynastic_cycle_phase_stability_advancement
+						}
+						scope:recipient = {
+							custom_tooltip = {
+								text = recipient_is_not_celestial_desc
+								government_has_flag = government_is_celestial
+							}
+						}
+					}
 				}
 			}
-			# trigger_if = {
-			# 	limit = {
-			# 		has_title = title:h_china
-			# 	}
-			# 	situation:dynastic_cycle ?= {
-			# 		NOT = {
-			# 			situation_current_phase = situation_dynastic_cycle_phase_instability
-			# 		}
-			# 		trigger_if = {
-			# 			limit = {
-			# 				situation_current_phase = situation_dynastic_cycle_phase_stability_advancement
-			# 			}
-			# 			scope:recipient = {
-			# 				custom_tooltip = {
-			# 					text = recipient_is_not_celestial_desc
-			# 					government_has_flag = government_is_celestial
-			# 				}
-			# 			}
-			# 		}
-			# 	}
-			# }
 		}
 		scope:recipient = {
 			is_at_war = no
-			trigger_if = {
-				limit = {
-					is_confederation_member = yes
-				}
-				confederation.confederation_type = confederation_type:defensive_alliance
-			}
-			trigger_else = {
-				is_confederation_member = no
-			}
+			is_confederation_member = no
 
 			custom_description = {
 				text = was_recently_granted_independence
@@ -180,145 +166,22 @@ offer_vassalization_interaction = {
 		# Compare Opinion modifier.
 
 		#ALL these modifiers are also used in impress_intent_vassalization_acceptance_value, keep them synced
-		
-		# LOTR
-		#WASTELANDS
+
+
+
 		modifier = {
 			desc = wilderness_tt
 			trigger = {
 				OR = {
-					scope:actor = { 
+					scope:actor = {
 						has_culture = culture:wastelands
 					}
-					scope:recipient = { 
+					scope:recipient = {
 						has_culture = culture:wastelands
 					}
-				}				
+				}
 			}
 			add = -1000
-		}
-
-		#LotR
-		modifier = { #Penalty for different religions
-			desc = offer_vassalization_interaction_aibehavior_different_religion_tt
-			trigger = {
-				scope:recipient = {
-					NOT = {
-						religion = scope:actor.religion
-					}
-				}
-			}
-			add = -35
-		}
-
-		#LotR
-		modifier = { #Penalty for different races
-			desc = offer_vassalization_interaction_aibehavior_different_race_tt
-			trigger = {
-				scope:recipient = {
-					NOT = {
-						same_race = { TARGET = scope:actor }
-					}
-				}
-			}
-			add = -50
-		}
-
-		#LotR
-		modifier = { #Penalty to vassalizing the Chieftain of the Dunedain
-			desc = offer_vassalization_interaction_aibehavior_dunedain_chief_tt
-			trigger = {
-				scope:recipient = {
-					has_primary_title = title:d_northern_dunedain
-				}
-			}
-			add = -25
-		}
-
-		#LotR
-		modifier = { # Thani-Hazad Struggle, affected characters are less likely to accept vassalization
-			add = -100
-			desc = thani_hazad_struggle_vassalization_reason
-			trigger = {
-				scope:recipient = {
-					any_character_struggle = { has_struggle_phase_parameter = unlikely_to_accept_vassalisation }
-				}
-			}
-		}
-
-		#LotR - Khand Head of Faith Vassalization
-		modifier = { # Vassalization of the Vracarath by Khand
-			desc = offer_vassalization_khand_vracarath_tt
-			trigger = {
-				AND = {
-					scope:actor = { 
-						has_culture = culture:variag
-						has_faith = faith:faith_khandish_sauronic
-						has_primary_title = title:e_khand
-					}
-					scope:recipient = { 
-						#has_culture = culture:variag
-						has_title = title:d_high_vracarath
-						has_faith = faith:faith_khandish_sauronic
-					}
-				}				
-			}
-			add = 150
-		}
-		modifier = { # Vassalization of the Vracarath by Lower Khand
-			desc = offer_vassalization_lower_khand_vracarath_tt
-			trigger = {
-				AND = {
-					scope:actor = { 
-						has_culture = culture:variag
-						has_faith = faith:faith_khandish_sauronic
-						has_primary_title = title:k_lower_khand
-					}
-					scope:recipient = { 
-						#has_culture = culture:variag
-						has_title = title:d_high_vracarath
-						has_faith = faith:faith_khandish_sauronic
-					}
-				}				
-			}
-			add = 75
-		}
-		modifier = { # Vassalization of the Vracarath by Lower Khand
-			desc = offer_vassalization_upper_khand_vracarath_tt
-			trigger = {
-				AND = {
-					scope:actor = { 
-						has_culture = culture:variag
-						has_faith = faith:faith_khandish_sauronic
-						has_primary_title = title:k_upper_khand
-					}
-					scope:recipient = { 
-						#has_culture = culture:variag
-						has_title = title:d_high_vracarath
-						has_faith = faith:faith_khandish_sauronic
-					}
-				}				
-			}
-			add = 25
-		}
-		#LotR - Gân Head of Faith Vassalization
-		modifier = { # Vassalization of the First Elder of Gân
-			desc = offer_vassalization_sanctum_of_the_maimaki_tt
-			trigger = {
-				AND = {
-					scope:actor = { 
-						has_culture = culture:ganim
-						has_faith = faith:faith_gan
-						has_primary_title = title:k_gan
-					}
-					scope:recipient = { 
-						has_culture = culture:ganim
-						has_title = title:d_sanctum_of_the_maimaki
-						has_faith = faith:faith_gan
-					}
-				}				
-			}
-			add = 200
 		}
 
 		# PERKS
@@ -366,7 +229,7 @@ offer_vassalization_interaction = {
 			trigger = {
 				AND = {
 					scope:actor = { dynasty ?={ has_dynasty_modifier = fp3_rekindler_of_iran_modifier } }
-					# scope:recipient = { culture = { has_cultural_pillar = heritage_iranian } } #LotR
+					scope:recipient = { culture = { has_cultural_pillar = heritage_iranian } }
 				}
 			}
 			add = 20
@@ -1302,24 +1165,6 @@ offer_vassalization_interaction = {
 			desc = INFLUENCE_INTERACTION_ACCEPTANCE_SEND_OPTION
 		}
 
-		# LOTR - Clyans are more resilient to admin
-		modifier = {
-			scope:actor = { government_has_flag = government_is_administrative }
-			scope:recipient = {
-				culture = {
-					OR = {
-						this = culture:clyan
-						any_parent_culture_or_above = {
-							this = culture:clyan
-						}
-					}
-				}
-				primary_title ?= title:k_cly
-			}
-			add = -1000
-			desc = ADMIN_ACCEPTANCE_CLYAN_REASON
-		}
-
 		#HISTORICALLY ADMIN PEOPLES WANT TO BE ADMIN
 		modifier = {
 			add = 30
@@ -1329,21 +1174,13 @@ offer_vassalization_interaction = {
 			scope:recipient = {
 				culture = {
 					OR = {
-						#this = culture:greek #LotR
-						#any_parent_culture_or_above = {
-						#	this = culture:greek
-						#}
-						# this = culture:han #LotR
-						# any_parent_culture_or_above = {
-						# 	this = culture:han
-						# }
-						this = culture:khyan #LotR
+						this = culture:greek
 						any_parent_culture_or_above = {
-							this = culture:khyan
+							this = culture:greek
 						}
-						this = culture:gondorian #LOTR
+						this = culture:han
 						any_parent_culture_or_above = {
-							this = culture:gondorian
+							this = culture:han
 						}
 					}
 				}
@@ -1352,16 +1189,16 @@ offer_vassalization_interaction = {
 			desc = "HISTORICAL_ADMIN_REASON"
 		}
 
-		# modifier = { # AI-only weights, keep the pope from vassalizing too fast #LotR
-		# 	trigger = {
-		# 		exists = faith:catholic.religious_head
-		# 		faith:catholic.religious_head = scope:actor
-		# 		scope:actor = { is_ai = yes }
-		# 	}
-		# 	add = -50
-		# }
+		modifier = { # AI-only weights, keep the pope from vassalizing too fast
+			trigger = {
+				exists = faith:catholic.religious_head
+				faith:catholic.religious_head = scope:actor
+				scope:actor = { is_ai = yes }
+			}
+			add = -50
+		}
 
-		modifier = { #LotR
+		modifier = {
 			scope:actor = {
 				has_variable = severed_head_vassalization
 				var:severed_head_vassalization = {
@@ -1580,47 +1417,21 @@ offer_fealty_interaction = {
 
 	is_shown = {
 		scope:recipient = {#LOTR
-			is_in_valinor = no 
 			NOT = { has_culture = culture:wastelands }
-			NOT = { has_character_flag = unknown_sauron_flag }
 		}
 		scope:actor = {	#LOTR		
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
-			NOT = { has_title = title:k_feanor_host }
 		}
 		scope:recipient = {
 			this != scope:actor
 			is_landed = yes
 			top_liege = this # Target has to be independent
 		}
-		trigger_if = { #LotR - So Rangers can swear fealty to dukes
-			limit = {
-				scope:actor = {
-					has_realm_law = camp_purpose_rangers
-				}
-			}
-			scope:recipient.highest_held_title_tier >= tier_duchy
-		}
-		trigger_else = {
-			scope:actor.highest_held_title_tier < scope:recipient.highest_held_title_tier
-		}
+		scope:actor.highest_held_title_tier < scope:recipient.highest_held_title_tier
 		scope:actor = {
-			OR = {
-                AND = { 
-                    is_landed = yes # You have land
-                    top_liege = this # You have to be independent - This check exists to prevent a lot of edge-cases where you can change liege
-                }
-                AND = { #LotR - Rangers can swear fealty
-                    has_realm_law = camp_purpose_rangers
-                    is_tributary = no
-                }
-            }
-			# NOT = { government_has_flag = cannot_be_vassal_or_liege }
-            trigger_if = { #LotR - Rangers can swear fealty
-                limit = { government_has_flag = cannot_be_vassal_or_liege }
-                has_realm_law = camp_purpose_rangers
-            }
+			is_landed = yes
+			top_liege = this # You have to be independent - This check exists to prevent a lot of edge-cases where you can change liege
+			NOT = { government_has_flag = cannot_be_vassal_or_liege }
 			is_confederation_member = no
 		}
 	}
@@ -1629,10 +1440,6 @@ offer_fealty_interaction = {
 		scope:actor = {
 			is_imprisoned = no
 			is_at_war = no
-            trigger_if = { #LOTR - Rangers can't swear fealty to just anyone
-                limit = { has_realm_law = camp_purpose_rangers }
-                ranger_can_swear_fealty_to_trigger = { CHARACTER = scope:recipient }
-            }
 		}
 		scope:recipient = {
 			custom_description = {
@@ -1662,7 +1469,6 @@ offer_fealty_interaction = {
 
 	ai_accept = {
 		base = 50
-        #WASTELANDS
 		# MAIN
 		# Heretic/Infidel modifier.
 		# Tier difference modifier.
@@ -1679,9 +1485,7 @@ offer_fealty_interaction = {
 		# Personality modifier.
 		# Compare Opinion modifier.
 
-        #WASTELANDS
-
-        modifier = { #Tom is the Master !
+		modifier = { #Tom is the Master !
             desc = wilderness_tt
             trigger = {
                 OR = {
@@ -1696,8 +1500,6 @@ offer_fealty_interaction = {
             add = -1000
         }
 
-
-        #MAIN
 		modifier = { # Different faith, no pluralism.
 			desc = offer_vassalization_interaction_aibehavior_differentfaith_tt
 			trigger = {
@@ -1876,7 +1678,7 @@ offer_fealty_interaction = {
 			multiplier = 0.5
 		}
 
-		# CONTRACT OPTIONS - TRIG COMPATCH
+		# CONTRACT OPTIONS
 		modifier = {
 			add = {
 				value = -10
@@ -1922,15 +1724,15 @@ offer_fealty_interaction = {
 			desc = CONTRACT_RELIGIOUS_EXEMPTION_REASON
 		}
 		# EP3
-		# modifier = { # cowed from an emperor's impressive visit
-		# 	add = 10
-		# 	desc = cowed_from_visit_interaction_reason
-		# 	trigger = {
-		# 		scope:actor = {
-		# 			has_character_flag = cowed_increased_vassalization_acceptance
-		# 		}
-		# 	}
-		# }
+		modifier = { # cowed from an emperor's impressive visit
+			add = 10
+			desc = cowed_from_visit_interaction_reason
+			trigger = {
+				scope:actor = {
+					has_character_flag = cowed_increased_vassalization_acceptance
+				}
+			}
+		}
 		#Confederation wants same-culture rulers
 		modifier = {
 			add = 100
@@ -1957,16 +1759,6 @@ offer_fealty_interaction = {
 				}
 			}
 		}
-
-        #LotR - lieges will refrain from accepting Rangers who already broak their oath
-        modifier = {
-            add = -50
-            desc = LOTR_DISLOYAL_REASON
-            scope:actor = {
-                has_realm_law = camp_purpose_rangers
-                has_trait = disloyal
-            }
-        }
 	}
 
 	# Low starting obligations
@@ -2004,7 +1796,6 @@ offer_fealty_interaction = {
 		localization = high_obligations
 	}
 
-    # TRIG COMPATCH
 	# Medium-high starting obligations + religious protection
 	send_option = {
 		is_shown = {
@@ -2050,18 +1841,7 @@ offer_fealty_interaction = {
 	send_options_exclusive = yes
 
 	on_accept = {
-		if = { #LotR - Setting up Ranger fealty
-            limit = {
-                scope:actor = {
-                    has_realm_law = camp_purpose_rangers
-                }
-            }
-            offer_fealty_ranger_interaction_effect = {
-                TRIBUTARY = scope:actor
-                SUZERAIN = scope:recipient
-            }
-        }
-        else = { offer_fealty_interaction_effect = yes }
+		offer_fealty_interaction_effect = yes
 
 		scope:actor = {
 			trigger_event = char_interaction.0010
@@ -2127,14 +1907,6 @@ offer_fealty_interaction = {
 					}
 				}
 			}
-
-			
-            if = { #LotR
-                limit = { has_realm_law = camp_purpose_rangers }
-                hidden_effect = {
-                    trigger_event = rangers.9200
-                }
-            }
 		}
 		scope:recipient = {
 			if = {
@@ -2243,12 +2015,10 @@ set_primary_spouse_interaction = {
 		scope:actor = {
 			is_spouse_of = scope:recipient
 			#LOTR
-			is_in_valinor = no
 			NOT = { has_culture = culture:wastelands }
 		}
 		scope:recipient = { #LOTR			
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 		scope:actor.primary_spouse != scope:recipient
 	}
@@ -2421,7 +2191,6 @@ grant_independence_interaction = {
 		}
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 		scope:actor = {
 			trigger_if = {
@@ -2675,9 +2444,7 @@ grant_independence_interaction = {
 			DESC = clan_unity_grant_independence.desc
 			REVERSE_NON_HOUSE_TARGET = no
 		}
-        #LOTR Added
-        lotr_achievement_35_effect = yes
-    }
+	}
 
 	ai_will_do = {
 		base = 0 #The AI should never do this!
@@ -2741,7 +2508,7 @@ expose_secret_interaction = {
 
 	desc = expose_secret_interaction_desc
 
-	is_shown = {
+	is_shown = { # TRIG COMPATCH 
 		scope:recipient = {
 			any_secret = {
 				is_known_by = scope:actor
@@ -2749,8 +2516,6 @@ expose_secret_interaction = {
 			this != scope:actor
 			age > 10
 			#LOTR
-			is_in_valinor = no
-			cannot_be_killed = no
 			NOT = { has_culture = culture:wastelands }
 		}
 		#LOTR

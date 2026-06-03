@@ -1,6 +1,4 @@
-﻿#LotR - made having an evil hostility religion a blocker to alliance offers to stop free peoples offering to forces of evil etc
-
-call_ally_interaction = {
+﻿call_ally_interaction = {
 	category = interaction_category_diplomacy
 	desc = call_ally_interaction_desc
 	interface_priority = 60
@@ -14,42 +12,12 @@ call_ally_interaction = {
 	notification_text = CALL_ALLY_NOTIFICATION
 
 	is_shown = {
-		scope:actor = { #LotR
+		scope:actor = {
 			custom_tooltip = {
 				text = not_wastelands
 				NOT = { has_culture = culture:wastelands }
 			}
-			is_in_valinor = no
-		}
-		scope:recipient = { #LotR
-			trigger_if = { #Mispir can call Balan-Lai members into war if attacked
-				limit = { has_trait = balan_lai_member }
-				scope:actor = {
-					has_title = title:c_mispir
-						any_held_county = {
-						percent > 0.50
-						title_province = { geographical_region = middleearth_thani_hazad_struggle_region }
-					}
-					highest_held_title_tier < tier_kingdom
-					OR = {
-						any_character_struggle = { 
-							is_struggle_type = thani_hazad_struggle 
-							involvement = involved
-						}
-						any_character_struggle = { 
-							is_struggle_type = thani_hazad_struggle 
-							involvement = interloper
-						}
-					}
-				}
-			}
-			is_in_valinor = no
-			custom_tooltip = {
-				text = not_wastelands
-				NOT = { has_culture = culture:wastelands } #LotR
-			}
-		}
-		scope:actor = {
+
 			is_at_war = yes
 			trigger_if = { # Avoid calling Adventurers without armies or landed rulers who have been devastated
 				limit = {
@@ -68,7 +36,6 @@ call_ally_interaction = {
 					scope:recipient = { 
 						is_tributary_of = scope:actor
 						NOT = { is_allied_to = scope:actor }
-						NOT = { has_realm_law = camp_purpose_rangers } #LotR - lieges can call their Rangers
 					}
 				}
 				piety >= 50
@@ -97,31 +64,6 @@ call_ally_interaction = {
 					scope:actor = {
 						piety >= 50
 						has_realm_law_flag = can_call_tributaries_for_piety
-					}
-				}
-				AND = { # LotR - Vassal ranger laamps can be called to war
-					subject_contract_has_flag = has_ranger_camp_contract
-					suzerain ?= scope:actor
-				}
-				trigger_if = { #LotR - Mispar can call Balan-Lai members into war if attacked
-					limit = { has_trait = balan_lai_member }
-					scope:actor = {
-						has_title = title:c_mispir
-						any_held_county = {
-							percent > 0.50
-							title_province = { geographical_region = middleearth_thani_hazad_struggle_region }
-						}
-						highest_held_title_tier < tier_kingdom
-						OR = {
-							any_character_struggle = { 
-								is_struggle_type = thani_hazad_struggle 
-								involvement = involved
-							}
-							any_character_struggle = { 
-								is_struggle_type = thani_hazad_struggle 
-								involvement = interloper
-							}
-						}
 					}
 				}
 			}
@@ -548,27 +490,6 @@ call_ally_interaction = {
 	}
 
 	auto_accept = {
-		trigger_if = { #LotR - Mispar can call Balan-Lai members into war if attacked
-			limit = { scope:recipient = { has_trait = balan_lai_member } }
-			scope:actor = {
-				has_title = title:c_mispir
-				any_held_county = {
-					percent > 0.50
-					title_province = { geographical_region = middleearth_thani_hazad_struggle_region }
-				}
-				highest_held_title_tier < tier_kingdom
-				OR = {
-					any_character_struggle = { 
-						is_struggle_type = thani_hazad_struggle 
-						involvement = involved
-					}
-					any_character_struggle = { 
-						is_struggle_type = thani_hazad_struggle 
-						involvement = interloper
-					}
-				}
-			}
-		}
 		OR = {
 			# Always accept a call from a Spouse
 			custom_description = {
@@ -613,30 +534,7 @@ call_ally_interaction = {
 
 	ai_accept = {
 		base = 20
-		
-		modifier = { #LotR - Mispir calls for aid
-			scope:recipient = { has_trait = balan_lai_member }
-			scope:actor = {
-				has_title = title:c_mispir
-				any_held_county = {
-					percent > 0.50
-					title_province = { geographical_region = middleearth_thani_hazad_struggle_region }
-				}
-				highest_held_title_tier < tier_kingdom
-				OR = {
-					any_character_struggle = { 
-						is_struggle_type = thani_hazad_struggle 
-						involvement = involved
-					}
-					any_character_struggle = { 
-						is_struggle_type = thani_hazad_struggle 
-						involvement = interloper
-					}
-				}
-			}
-			add = 3000
-		}
-		
+
 		modifier = {  # Conquerors do not help anyone but themselves
 			add = -1000
 			desc = NO_FRIVOLOUS_ACTIVITIES_REASON
@@ -656,7 +554,8 @@ call_ally_interaction = {
 			}
 			scope:recipient = { ai_should_focus_on_building_in_their_capital = yes }
 		}
-		#LotR
+
+		#WHG disabled cus LOTR
 		#modifier = {  # Refuse call to conflicts of little benefit
 		#	add = -1000
 		#	desc = WONT_FIGHT_MEANINGLESS_REASON
@@ -672,7 +571,7 @@ call_ally_interaction = {
 		#	}
 		#	trigger_else = { always = no }
 		#}
-		
+
 		modifier = { #LotR
 			add = -1000
 			scope:actor = {			
@@ -684,15 +583,6 @@ call_ally_interaction = {
 			add = -1000
 			scope:recipient = {			
 				has_culture = culture:wastelands
-			}
-		}
-
-		modifier = {  #LotR - Struggle modifier
-			add = -100
-			custom_tooltip = {
-				text = balan_lai_hesitant_to_fight_other_balan_lai
-				scope:target.casus_belli.primary_attacker ?= { has_trait = balan_lai_member }
-				scope:target.casus_belli.primary_defender ?= { has_trait = balan_lai_member }
 			}
 		}
 
@@ -1153,30 +1043,7 @@ call_ally_interaction = {
 	# Score above 0 means the AI will call this ally. Note that DESIRED_WAR_SIDE_STRENGTH still applies and can prevent calling the ally
 	ai_will_do = {
 		base = 100
-		
-		modifier = { #LotR - Mispir calls for aid
-			scope:recipient = { has_trait = balan_lai_member }
-			scope:actor = {
-				has_title = title:c_mispir
-				any_held_county = {
-					percent > 0.50
-					title_province = { geographical_region = middleearth_thani_hazad_struggle_region }
-				}
-				highest_held_title_tier < tier_kingdom
-				OR = {
-					any_character_struggle = { 
-						is_struggle_type = thani_hazad_struggle 
-						involvement = involved
-					}
-					any_character_struggle = { 
-						is_struggle_type = thani_hazad_struggle 
-						involvement = interloper
-					}
-				}
-			}
-			add = 3000
-		}
-		
+
 		modifier = { # If the player is at war, do not bother them with offensive calls
 			scope:target.casus_belli.primary_attacker = scope:actor
 			scope:recipient = {
@@ -1271,21 +1138,6 @@ negotiate_alliance_interaction = {
 	notification_text = NEGOTIATE_ALLIANCE_NOTIFICATION
 
 	is_shown = {
-		scope:actor = { #LotR
-			is_in_valinor = no
-			trigger_if = {
-				limit = { #Allow lore-breaking alliances between players
-					OR = {
-						is_ai = yes
-						scope:recipient = { is_ai = yes} 
-					}
-				}
-				lotr_tolerance_trigger = { CHARACTER = scope:recipient } #racial/alignment compatibility trigger
-			}
-		}
-		scope:recipient = { #LotR
-			is_in_valinor = no	
-		}
 		scope:recipient = {
 			this != scope:actor
 			NOT = { is_allied_to = scope:actor }
@@ -1345,8 +1197,8 @@ negotiate_alliance_interaction = {
 			}
 		}
 		
-		# scope:actor = { highest_held_title_tier < tier_hegemony } # LOTR - Don't block hegemonies for having allies
-		# scope:recipient = { highest_held_title_tier < tier_hegemony }
+		scope:actor = { highest_held_title_tier < tier_hegemony }
+		scope:recipient = { highest_held_title_tier < tier_hegemony }
 		OR = {
 			#Ruler has the defensive negotiations perk
 			scope:actor = { has_perk = defensive_negotiations_perk }
@@ -1462,7 +1314,6 @@ negotiate_alliance_interaction = {
 		is_valid = {
 			scope:actor = {
 				has_usable_hook = scope:recipient
-				lotr_tolerance_trigger = { CHARACTER = scope:recipient }
 			}
 		}
 		flag = hook
@@ -1676,28 +1527,6 @@ negotiate_alliance_interaction = {
 					}
 				}
 			}
-			#LotR Added, vanilla doesn't add the alliance here
-			else_if = {
-				limit = {
-					scope:actor.house ?= {
-						house_head ?= scope:actor
-						any_house_relation = {
-							any_relation_house = {
-								exists = house_head
-								scope:recipient = house_head
-							}
-							has_house_relation_parameter = unlocks_house_head_negotiate_alliance
-						}
-					}
-				}
-				scope:actor = {
-					create_alliance = {
-						target = scope:recipient
-						allied_through_owner = scope:actor
-						allied_through_target = scope:recipient
-					}
-				}
-			}
 			else_if = {
 				limit = {
 					scope:actor = { has_perk = defensive_negotiations_perk }
@@ -1784,21 +1613,8 @@ negotiate_alliance_interaction = {
 		# Same House (+)
 		# Declared war opinion
 		# Actor is at war penalty
-		
-		#LotR - Elves won't ally other races in LotE or higher difficulty setting
-		modifier = {
-			desc = DIFFERENT_RACE_REASON
-			trigger_if = { 
-				scope:recipient = { is_elf = yes }
-				OR = {
-					has_game_rule = very_strong_sauron_strength
-					has_game_rule = apocalyptic_sauron_strength
-				}
-			}
-			scope:actor = { NOT = { is_elf = yes } }
-			add = -500
-		}
-		
+
+
 		modifier = { #LotR
 			add = -1000
 			scope:actor = {			
@@ -1812,6 +1628,8 @@ negotiate_alliance_interaction = {
 				has_culture = culture:wastelands
 			}
 		}
+
+
 		modifier = {
 			add = 20
 			scope:recipient = {
@@ -2186,7 +2004,7 @@ negotiate_alliance_interaction = {
 								}
 							}
 						}
-						subtract = 980 #LotR: increased value
+						subtract = 50
 					}
 					if = {
 						limit = {
@@ -2591,20 +2409,6 @@ negotiate_alliance_interaction = {
 				is_vassal_of = scope:actor
 			}
 		}
-		
-		#LotR - Elves won't ally other races in LotE difficulty setting
-		modifier = {
-			desc = DIFFERENT_RACE_REASON
-			trigger_if = { 
-				scope:actor = { is_elf = yes }
-				OR = {
-					has_game_rule = very_strong_sauron_strength
-					has_game_rule = apocalyptic_sauron_strength
-				}
-			}
-			scope:recipient = { NOT = { is_elf = yes } }
-			add = -500
-		}
 	}
 }
 
@@ -2622,21 +2426,6 @@ perk_alliance_interaction = {
 	notification_text = PERK_NEGOTIATE_ALLIANCE_NOTIFICATION
 
 	is_shown = {
-		scope:recipient = { #LotR
-			#Sauron and the Nazgûl ( MP Khamûl and Players excepted ) do not enter alliances
-			trigger_if = {
-				limit = { is_ai = yes }
-				is_sauron = no					
-				is_nazgul = no
-			}
-		}
-		scope:actor = { #LotR
-			#Sauron and the Nazgûl ( MP Khamûl excepted ) do not enter alliances
-			trigger_if = {
-				limit = { is_ai = yes }
-				is_sauron = no
-			}
-		}
 		scope:recipient = {
 			NOR = {
 				this = scope:actor
@@ -2647,13 +2436,9 @@ perk_alliance_interaction = {
 			}
 			is_ruler = yes
 			primary_title.tier > tier_barony
-			
 		}
 		scope:actor = {
-			OR = { #LotR
-				has_perk = mortal_adoration_perk #LotR
-				has_perk = defensive_negotiations_perk
-			}
+			has_perk = defensive_negotiations_perk
 			is_landless_adventurer = no
 			NOR = {
 				government_has_flag = government_is_herder
@@ -2678,7 +2463,7 @@ perk_alliance_interaction = {
 				text = not_wastelands
 				is_wastelands = no
 			}
-		}
+		}		
 		scope:actor = {
 			is_landless_adventurer = no
 		}
@@ -2690,31 +2475,12 @@ perk_alliance_interaction = {
 		custom_description = {
 			text = "already_has_an_alliance_deal"
 			subject = scope:recipient
-			object = scope:actor #LotR
 			scope:actor = {
-				trigger_if = { #LotR
-					limit = {
-						is_elf = yes
-						has_perk = home_advantage_perk
-						has_perk = defensive_negotiations_perk
-					}
-					NOT = {
-						any_ally = {
-							count = 2
-							has_opinion_modifier = {
-								modifier = perk_negotiated_alliance_opinion
-								target = scope:actor
-							}
-						}
-					}
-				}
-				trigger_else = {
-					NOT = {
-						any_ally = {
-							has_opinion_modifier = {
-								modifier = perk_negotiated_alliance_opinion
-								target = scope:actor
-							}
+				NOT = {
+					any_ally = {
+						has_opinion_modifier = {
+							modifier = perk_negotiated_alliance_opinion
+							target = scope:actor
 						}
 					}
 				}
@@ -2770,7 +2536,6 @@ perk_alliance_interaction = {
 		is_valid = {
 			scope:actor = {
 				has_usable_hook = scope:recipient
-				lotr_tolerance_trigger = { CHARACTER = scope:recipient }
 			}
 		}
 		flag = hook
@@ -2897,7 +2662,7 @@ perk_alliance_interaction = {
 			scope:recipient = {			
 				has_culture = culture:wastelands
 			}
-		}
+		}		
 
 		# Tier Differences
 		modifier = {
@@ -3223,7 +2988,7 @@ perk_alliance_interaction = {
 								}
 							}
 						}
-						subtract = 980 #LotR: increased value
+						subtract = 50
 					}
 					if = {
 						limit = {
@@ -3472,30 +3237,6 @@ perk_alliance_interaction = {
 				min = 5
 			}
 		}
-		
-		#LotR - Elves won't ally other races in LotE difficulty setting
-		modifier = {
-			desc = DIFFERENT_RACE_REASON
-			trigger_if = { 
-				scope:recipient = { is_elf = yes }
-				OR = {
-					has_game_rule = very_strong_sauron_strength
-					has_game_rule = apocalyptic_sauron_strength
-				}
-			}
-			scope:actor = { NOT = { is_elf = yes } }
-			add = -500
-		}
-
-		#LotR - AI won't ally characters it does't tolerate
-		modifier = {
-			desc = LOTR_RACE_AND_ALIGNMENT_INCOMPATIBILITY
-			scope:recipient = {
-				NOT = { lotr_tolerance_trigger = { CHARACTER = scope:actor } }
-				is_ai = yes
-			}
-			add = -5000
-		}
 	}
 
 	ai_potential = {
@@ -3546,29 +3287,6 @@ perk_alliance_interaction = {
 			add = -5000
 			scope:recipient.current_military_strength <= 100
 		}
-		
-		#LotR - Elves won't ally other races in LotE difficulty setting
-		modifier = {
-			desc = DIFFERENT_RACE_REASON
-			trigger_if = { 
-				scope:actor = { is_elf = yes }
-				OR = {
-					has_game_rule = very_strong_sauron_strength
-					has_game_rule = apocalyptic_sauron_strength
-				}
-			}
-			scope:recipient = { NOT = { is_elf = yes } }
-			add = -500
-		}
-
-		#LotR - AI won't ally characters it does't tolerate
-		modifier = {
-			scope:actor = { 
-				NOT = { lotr_tolerance_trigger = { CHARACTER = scope:recipient } }
-				is_ai = yes
-			}
-			add = -5000
-		}
 	}
 
 }
@@ -3592,8 +3310,7 @@ join_war_interaction = {
 				this = scope:actor
 				is_at_war_with = scope:actor
 			}
-			
-			is_in_valinor = no #LotR
+
 			custom_tooltip = { #LotR
 				text = not_wastelands
 				NOT = { has_culture = culture:wastelands } #LotR
@@ -3601,17 +3318,15 @@ join_war_interaction = {
 		}
 
 		scope:actor = { #LotR
-			is_in_valinor = no
 			custom_tooltip = {
 				text = not_wastelands
 				NOT = { has_culture = culture:wastelands }
 			}
 			lotr_tolerance_trigger = { CHARACTER = scope:recipient }
-		}
+		}		
 	}
 
 	is_valid_showing_failures_only = {
-		scope:actor = { lotr_tolerance_trigger = { CHARACTER = scope:recipient } } #LotR
 
 		# recipient is not in (any) war against your liege(s) or suzerain(s)
 		trigger_if = {
@@ -3671,19 +3386,6 @@ join_war_interaction = {
 								name = left_voluntarily
 								target = scope:actor
 							}
-						}
-					}
-				}
-			}
-			# LotR - Elves can join wars against the Shadow
-			trigger_else_if = {
-				limit = {
-					scope:actor = { is_elf = yes }
-					scope:recipient = {
-						faith_is_good = yes
-						any_character_war = { primary_defender = scope:recipient }
-						any_war_enemy = {
-							faith_is_evil = yes
 						}
 					}
 				}
@@ -3834,8 +3536,6 @@ join_war_interaction = {
 	can_be_picked = {
 		scope:target ?= {
 
-			scope:recipient = { lotr_tolerance_trigger = { CHARACTER = scope:actor } } #LotR
-
 			# recipient is war leader
 			is_war_leader = scope:recipient
 			
@@ -3863,16 +3563,6 @@ join_war_interaction = {
 				}
 				trigger_else = { always = yes }
 			}
-			
-			trigger_else_if = { #LotR - Defensive Alliances
-				limit = {
-					scope:actor = { is_confederation_member = yes }
-					scope:recipient = { is_confederation_member = yes }
-				}
-				scope:actor = {
-					is_defensive_allied_to = { RECIPIENT = scope:recipient }
-				}
-			}
 
 			#allow targets of a Grand Campaign to bypass the requirements
 			trigger_else_if = {
@@ -3899,10 +3589,7 @@ join_war_interaction = {
 			trigger_else_if = {
 				limit = {
 					scope:actor = {
-						OR = { #LotR
-							has_government = landless_adventurer_government
-							government_has_flag = government_is_orcish #LotR
-						}
+						has_government = landless_adventurer_government
 					}
 				}
 			}
@@ -3987,32 +3674,6 @@ join_war_interaction = {
 					is_member_of_confederation = scope:recipient.confederation
 				}
 			}
-
-			#Allow TH struggle involved rulers to join in other wars
-			trigger_else_if = {
-				limit = {
-					lotr_TH_involved_rulers_can_join_each_others_wars = {
-						ACTOR = scope:actor
-						RECIPIENT = scope:recipient
-					}
-				}
-				always = yes
-			}
-			
-			# LotR Elves can join wars against the Shadow
-			trigger_else_if = {
-				limit = {
-					lotr_elves_can_join_wars_against_shadow_limit = {
-						ACTOR = scope:actor
-						RECIPIENT = scope:recipient
-					}
-				}
-				lotr_elves_can_join_wars_against_shadow = {
-					ACTOR = scope:actor
-					RECIPIENT = scope:recipient
-				}
-			}
-			
 			# ...otherwise, recipient must be an ally...
 			trigger_else_if = {
 				limit = {
@@ -4239,8 +3900,6 @@ join_war_interaction = {
 		}
 	}
 
-	auto_accept = yes
-
 	ai_accept = {
 		base = 100 # everyone wants help
 		
@@ -4257,6 +3916,12 @@ join_war_interaction = {
 				has_culture = culture:wastelands
 			}
 		}
+	}
+
+	auto_accept = yes
+
+	ai_accept = {
+		base = 100 # everyone wants help
 	}
 }
 

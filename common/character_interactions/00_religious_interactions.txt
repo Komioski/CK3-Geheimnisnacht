@@ -11,37 +11,10 @@ ask_for_conversion_interaction = {
 	is_shown = {
 		scope:actor.faith != scope:recipient.faith
 		scope:recipient.liege = scope:actor
-		
-		scope:actor = { #LotR
-			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
-		}
-		scope:recipient = { #LotR
-			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
-		}
 	}
 
 	is_valid_showing_failures_only = {
 		valid_ask_for_conversion_conditions_trigger = yes
-		custom_tooltip = { #LotR
-			text = elves_cannot_be_forced_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { is_elf = yes }
-					scope:actor = { NOT = { is_elf = yes } }
-				}
-			}
-		}
-		custom_tooltip = { #LotR
-			text = elves_cannot_force_non_elves_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { NOT = { is_elf = yes } }
-					scope:actor = { is_elf = yes }
-				}
-			}
-		}
 	}
 
 	ai_accept = {
@@ -216,24 +189,6 @@ ask_for_conversion_courtier_interaction = {
 
 	is_valid_showing_failures_only = {
 		valid_demand_conversion_conditions_trigger = yes
-		custom_tooltip = { #LotR
-			text = elves_cannot_be_forced_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { is_elf = yes }
-					scope:actor = { NOT = { is_elf = yes } }
-				}
-			}
-		}
-		custom_tooltip = { #LotR
-			text = elves_cannot_force_non_elves_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { NOT = { is_elf = yes } }
-					scope:actor = { is_elf = yes }
-				}
-			}
-		}
 	}
 
 	ai_accept = {
@@ -434,7 +389,7 @@ ask_for_conversion_courtier_interaction = {
 
 		modifier = { # The AI doesn't really want to convert Diasporic culture courtiers
 			scope:recipient = {
-				# faith.religion = religion:judaism_religion
+				faith.religion = religion:judaism_religion
 				culture = {
 					has_cultural_tradition = tradition_diasporic
 				}
@@ -543,14 +498,6 @@ demand_conversion_interaction = {
 	notification_text = HOUSE_HEAD_DEMAND_CONVERSION
 
 	is_shown = {
-		scope:recipient = { #LotR
-			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no			
-		}
-		scope:actor = { #LotR
-			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no			
-		}
 		scope:recipient != scope:actor
 		scope:actor = {
 			is_house_head = yes
@@ -597,24 +544,6 @@ demand_conversion_interaction = {
 
 	is_valid_showing_failures_only = {
 		valid_demand_conversion_conditions_trigger = yes
-		custom_tooltip = { #LotR
-			text = elves_cannot_be_forced_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { is_elf = yes }
-					scope:actor = { NOT = { is_elf = yes } }
-				}
-			}
-		}
-		custom_tooltip = { #LotR
-			text = elves_cannot_force_non_elves_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { NOT = { is_elf = yes } }
-					scope:actor = { is_elf = yes }
-				}
-			}
-		}
 	}
 
 	cost = {
@@ -769,11 +698,6 @@ demand_conversion_interaction = {
 			}
 			desc = ASK_FOR_CONVERSION_CAN_CREATE_CADET_BRANCH
 		}
-		modifier = { #LotR
-			add = -100
-			scope:recipient.faith = { has_doctrine_parameter = lotr_harder_to_convert }
-			desc = LOTR_ASK_FOR_CONVERSION_HARDER_TO_CONVERT
-		}
 		religion_demand_conversion_default_modifier = yes
 	}
 
@@ -910,24 +834,6 @@ demand_conversion_vassal_ruler_interaction = {
 				}
 			}
 		}
-		custom_tooltip = { #LotR
-			text = elves_cannot_be_forced_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { is_elf = yes }
-					scope:actor = { NOT = { is_elf = yes } }
-				}
-			}
-		}
-		custom_tooltip = { #LotR
-			text = elves_cannot_force_non_elves_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { NOT = { is_elf = yes } }
-					scope:actor = { is_elf = yes }
-				}
-			}
-		}
 	}
 
 	auto_accept = {
@@ -992,7 +898,6 @@ demand_conversion_vassal_ruler_interaction = {
 							factor = 0 # Heresiarchs never agree to convert
 							scope:recipient = {
 								has_trait = heresiarch
-								has_character_flag = became_corsair #LotR
 							}
 						}
 						ai_value_modifier = {
@@ -1040,10 +945,7 @@ demand_conversion_vassal_ruler_interaction = {
 										}
 									}
 									this.liege = scope:actor
-									OR = {
-										government_has_flag = government_is_feudal
-										government_has_flag = government_is_elven #LotR
-									}
+									government_has_flag = government_is_feudal
 								}
 								scope:actor = {
 									trigger_event = {
@@ -1172,15 +1074,15 @@ demand_conversion_vassal_ruler_interaction = {
 			}
 		}
 
-		# modifier = { #LotR
-		# 	factor = 0
-		# 	scope:recipient.demand_conversion_likelihood_calculation < 90
-		# 	scope:actor = {
-		# 		culture = {
-		# 			has_cultural_parameter = less_likely_to_force_conversion
-		# 		}
-		# 	}
-		# }
+		modifier = {
+			factor = 0
+			scope:recipient.demand_conversion_likelihood_calculation < 90
+			scope:actor = {
+				culture = {
+					has_cultural_parameter = less_likely_to_force_conversion
+				}
+			}
+		}
 
 		modifier = { # Do not convert Righteous faith subjects, unless disturbingly zealous
 			factor = 0
@@ -1291,15 +1193,6 @@ demand_conversion_vassal_ruler_interaction = {
 							}
 						}
 					}
-					OR = { #LotR
-						is_maiar = yes
-						is_nazgul = yes
-					}
-					OR = { #LotR
-						scope:recipient.faith = faith:faith_nurniag
-						scope:recipient.faith = faith:sons_of_sauron
-						scope:recipient.faith = faith:red_eye_cult
-					}
 				}
 			}
 		}
@@ -1324,23 +1217,8 @@ demand_conversion_vassal_ruler_interaction = {
 			add = 50
 			desc = EDUCATE_CHILD_ACTOR_IS_MY_LIEGE
 		}
-		modifier = { #LotR
-			add = -100
-			scope:recipient.faith = { has_doctrine_parameter = lotr_harder_to_convert }
-			desc = LOTR_ASK_FOR_CONVERSION_HARDER_TO_CONVERT
-		}
 		religion_demand_conversion_default_modifier = yes
 
-		#LotR
-		modifier = { # Thani-Hazad Struggle, less likely to accept vassalization
-			add = -100
-			desc = STRUGGLE_HARDER_TO_FAITH_CONVERT_VASSALS_DUE_TO_STRUGGLE_PHASE_MODIFIER
-			trigger = {
-				scope:actor = {
-					any_character_struggle = { has_struggle_phase_parameter = unlikely_to_accept_vassalisation }
-				}
-			}
-		}
 		modifier = {
 			desc = might_ask_for_something_in_return_warning_line_break
 			add = 0
@@ -1377,7 +1255,8 @@ demand_conversion_player_ruler_interaction = {
 			target_is_liege_or_above = scope:actor
 			faith != scope:actor.faith
 		}
-		
+
+	
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
 			is_in_valinor = no
@@ -1392,24 +1271,6 @@ demand_conversion_player_ruler_interaction = {
 
 	is_valid_showing_failures_only = {
 		valid_demand_conversion_conditions_trigger = yes
-		custom_tooltip = { #LotR
-			text = elves_cannot_be_forced_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { is_elf = yes }
-					scope:actor = { NOT = { is_elf = yes } }
-				}
-			}
-		}
-		custom_tooltip = { #LotR
-			text = elves_cannot_force_non_elves_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { NOT = { is_elf = yes } }
-					scope:actor = { is_elf = yes }
-				}
-			}
-		}
 	}
 
 	send_option = {
@@ -1991,8 +1852,7 @@ convert_to_religion_interaction = {
 	ignores_pending_interaction_block = yes
 
 	is_shown = {
-		scope:actor.faith != scope:recipient.faith
-		
+
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
 			is_in_valinor = no
@@ -2001,6 +1861,8 @@ convert_to_religion_interaction = {
 			NOT = { has_culture = culture:wastelands }
 			is_in_valinor = no
 		}
+
+		scope:actor.faith != scope:recipient.faith
 		scope:actor = {
 			is_landless_ruler = no
 			# They're either your liege, your spouse or your tributary
@@ -2023,24 +1885,6 @@ convert_to_religion_interaction = {
 	}
 
 	is_valid_showing_failures_only = {
-		custom_tooltip = { #LotR
-			text = elves_cannot_be_forced_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { is_elf = yes }
-					scope:actor = { NOT = { is_elf = yes } }
-				}
-			}
-		}
-		custom_tooltip = { #LotR
-			text = elves_cannot_force_non_elves_to_convert
-			NOT = {
-				AND = {
-					scope:recipient = { NOT = { is_elf = yes } }
-					scope:actor = { is_elf = yes }
-				}
-			}
-		}
 	}
 
 	auto_accept = yes
@@ -2378,8 +2222,7 @@ seek_indulgences_interaction = {
 		scope:recipient != scope:actor
 		scope:actor.faith = {
 			religious_head = scope:recipient
-			#has_doctrine = tenet_communion
-			has_doctrine_parameter = seek_indulgences_active #Lotr
+			has_doctrine = tenet_communion
 		}
 	}
 
@@ -2606,8 +2449,7 @@ declaration_of_repentance_interaction = {
 			has_trait = excommunicated
 			faith = {
 				religious_head = scope:recipient
-				#has_doctrine = tenet_communion
-				has_doctrine_parameter = seek_indulgences_active #Lotr
+				has_doctrine = tenet_communion
 			}
 		}
 	}
@@ -2820,8 +2662,8 @@ excommunicate_interaction = {
 		scope:actor = scope:actor.faith.religious_head
 		scope:actor.faith = {
 			this = scope:recipient.faith
-			#has_doctrine = tenet_communion
-			has_doctrine_parameter = seek_indulgences_active #Lotr
+			has_doctrine = tenet_communion
+			has_doctrine = doctrine_spiritual_head
 		}
 
 		NOT = {
@@ -3103,8 +2945,8 @@ request_excommunication_interaction = {
 		scope:actor.faith = {
 			exists = religious_head
 			this = scope:secondary_recipient.faith
-			#has_doctrine = tenet_communion
-			has_doctrine_parameter = seek_indulgences_active #Lotr
+			has_doctrine = tenet_communion
+			has_doctrine = doctrine_spiritual_head
 		}
 	}
 
@@ -3942,7 +3784,7 @@ send_to_holy_order_interaction = {
 					has_trait = fornicator
 					has_trait = maimed
 					has_trait = drunkard
-					#has_trait = hashishiyah #LOTR
+					has_trait = hashishiyah
 					has_trait = flagellant
 					has_trait = reclusive
 					num_of_bad_genetic_traits >= 1
@@ -4556,13 +4398,13 @@ take_vows_interaction = {
 			}
 			desc = TAKE_THE_VOWS_DRUNKARD
 		}
-		#modifier = { #LOTR
-		#	add = 10
-		#	scope:recipient = {
-		#		has_trait = hashishiyah
-		#	}
-		#	desc = TAKE_THE_VOWS_HASHISHIYAH
-		#}
+		modifier = {
+			add = 10
+			scope:recipient = {
+				has_trait = hashishiyah
+			}
+			desc = TAKE_THE_VOWS_HASHISHIYAH
+		}
 		modifier = {
 			add = 50
 			scope:recipient = {
@@ -4857,7 +4699,7 @@ take_vows_interaction = {
 					has_trait = fornicator
 					has_trait = maimed
 					has_trait = drunkard
-					#has_trait = hashishiyah #LOTR
+					has_trait = hashishiyah
 					has_trait = flagellant
 					has_trait = reclusive
 					num_of_bad_genetic_traits >= 1
@@ -4985,10 +4827,10 @@ temporal_condemnation_interaction = {
 	category = interaction_category_religion
 	desc = {
 		first_valid = {
-			#triggered_desc = { #LotR
-			#	trigger = { scope:actor.faith = faith:quranist }
-			#	desc = temporal_condemnation_interaction_desc_fasiq
-			#}
+			triggered_desc = {
+				trigger = { scope:actor.faith = faith:quranist }
+				desc = temporal_condemnation_interaction_desc_fasiq
+			}
 			desc = temporal_condemnation_interaction_desc
 		}
 	}
@@ -5142,7 +4984,7 @@ host_honored_guest_interaction = {
 	is_shown = {
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
+			#is_in_valinor = no
 		}
 		scope:recipient != scope:actor
 		scope:actor = {
@@ -5151,7 +4993,7 @@ host_honored_guest_interaction = {
 			faith = {
 				has_doctrine_parameter = host_honored_guests_active
 			}
-			is_in_valinor = no #LotR
+			#is_in_valinor = no #LotR
 			NOT = { has_culture = culture:wastelands } #LotR
 		}
 	}
@@ -7279,23 +7121,7 @@ attempt_conversion_of_local_ruler_interaction = {
 			is_ai = yes
 			is_ruler = yes
 			is_landed = yes
-			#LotR
-			NOT = { is_elf = yes }
-			cannot_be_killed = no
-			trigger_if = {
-				limit = { 
-					scope:actor = {
-						faith_is_good = yes
-						OR = {
-							is_elf = yes
-							is_istari = yes 
-						}
-					}
-				}
-				faith_is_good = no
-				NOT = { is_orc = yes }
-			}
-		}	
+		}
 	}
 
 	is_highlighted = {

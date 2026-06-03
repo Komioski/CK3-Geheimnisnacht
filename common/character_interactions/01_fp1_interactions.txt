@@ -125,14 +125,12 @@ challenge_to_trial_by_combat_interaction = {
 		
 		scope:recipient ?= { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
-			is_sauron = no
+
 		}
 
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
-			is_sauron = no
+
 
 			# Check there are no lieges involved.
 			NOR = {
@@ -152,10 +150,10 @@ challenge_to_trial_by_combat_interaction = {
 						}
 					}
 				}
-				cannot_be_killed = no #LotR
 			}
 		}
 	}
+
 
 	is_highlighted = {
 		trial_by_combat_is_valid_trigger = yes
@@ -401,6 +399,7 @@ challenge_to_trial_by_combat_interaction = {
 	ai_accept = {
 		base = 0 # Try to make it 0 for most interactions
 
+
 		modifier = { #LotR
 			add = -1000
 			trigger_if = {
@@ -409,7 +408,7 @@ challenge_to_trial_by_combat_interaction = {
 				}
 			}
 		}
-		
+
 		modifier = { #LotR
 			add = -1000
 			trigger_if = {
@@ -418,7 +417,6 @@ challenge_to_trial_by_combat_interaction = {
 				}
 			}
 		}
-
 
 		# Fightan abilities of both sides.
 		modifier = {
@@ -746,7 +744,7 @@ challenge_to_trial_by_combat_interaction = {
 
 	ai_will_do = {
 		base = -50
-		
+
 		modifier = { #LotR
 			add = -1000
 			trigger_if = {
@@ -862,16 +860,23 @@ designate_shieldmaiden_interaction = {
 	}
 	ai_frequency_by_tier = {
 		barony = 0
-		county = 12 #Lotr
-		duchy = 12 #Lotr
-		kingdom = 12 #Lotr
-		empire = 12 #Lotr 
-		hegemony = 12 #Lotr
+		county = 180
+		duchy = 180
+		kingdom = 60
+		empire = 60
+		hegemony = 60
 	}
 
 	is_shown = {
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
+			religion = { is_in_family = rf_eruhini } #LotR
+			OR = {
+			    culture = { has_cultural_pillar = heritage_northron } #LotR
+				culture = { has_cultural_pillar = heritage_eotheod } # LotR
+				culture = culture:variag # LotR
+				culture = { any_parent_culture_or_above = { this = culture:variag } } # LotR
+			}
 		}
 
 		scope:recipient = { #LotR
@@ -1111,23 +1116,5 @@ designate_shieldmaiden_interaction = {
 
 	ai_will_do = {
 		base = 100
-
-		modifier = { #LotR
-			add = -1000
-			trigger_if = {
-				scope:actor = {			
-					has_culture = culture:wastelands
-				}
-			}
-		}
-		
-		modifier = { #LotR
-			add = -1000
-			trigger_if = {
-				scope:recipient = {			
-					has_culture = culture:wastelands
-				}
-			}
-		}
 	}
 }

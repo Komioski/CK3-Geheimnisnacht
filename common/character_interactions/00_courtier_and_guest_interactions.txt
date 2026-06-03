@@ -15,12 +15,9 @@
 
 	is_shown = {
 		scope:actor != scope:recipient
-		scope:recipient = { 
-			is_pool_guest_of = scope:actor 
-		}
+		scope:recipient = { is_pool_guest_of = scope:actor }
 		scope:actor = {
 			is_ruler = yes
-			lotr_can_recruit = { CHARACTER = scope:recipient }
 		}
 	}
 
@@ -38,24 +35,6 @@
 			scope:actor = {
 				gold >= scope:recipient.recruit_guest_interaction_cost
 			}
-		}
-		trigger_if = { # LotR Only Sauron or other Nazgul can invite Nazgul
-			limit = { 
-				scope:actor = { 
-					NOR = {
-						is_sauron = yes
-						has_trait = nazgul
-					}
-				}
-			}
-			scope:recipient = { NOT = { has_trait = nazgul } }
-		}
-		trigger_if = { # LotR Istari can only invite same faith Istari
-			limit = { 
-				scope:actor = { has_trait = istari }
-				scope:recipient = { has_trait = istari }
-			}
-			scope:actor.faith.religion = scope:recipient.faith.religion
 		}
 	}
 
@@ -616,12 +595,10 @@ invite_to_court_interaction = {
 				is_courtier_of = scope:actor
 				is_foreign_court_guest = yes
 				host ?= scope:actor
-
+				has_trait = order_member
 				is_ruler = yes
+				location = { is_sea_province = yes }
 			}
-		}
-		scope:actor = { #LotR
-			lotr_tolerance_trigger = { CHARACTER = scope:recipient }
 		}
 	}
 
@@ -639,13 +616,17 @@ invite_to_court_interaction = {
 			RECRUITER = scope:actor
 			RECRUITEE = scope:recipient
 		}
-		trigger_if = { # LotR Istari can only invite same religion Istari
-			limit = { 
-				scope:actor = { has_trait = istari }
-				scope:recipient = { has_trait = istari }
-			}
-			scope:actor.faith.religion = { is_in_family = rf_eruhini }
-		}
+		custom_tooltip = {
+			scope:recipient = {
+ 				NAND = {
+ 					has_variable = nomad_defector_var
+ 					var:nomad_defector_var = {
+ 						this = scope:actor
+ 					}
+ 				}
+ 			}
+ 			text = nomad_defected_invite_desc
+ 		}
 	}
 
 	#Pay som gold to persuade a wandering character to come to your court
@@ -808,11 +789,11 @@ invite_to_court_interaction = {
  			add = -20
  			desc = AI_MY_LIEGES_KNIGHT
  		}
- 		modifier = { #LotR
- 			has_culture = culture:wastelands
- 			add = -1000
- 			desc = AI_WASTELANDS
- 		}
+		modifier = { #LOTR
+			has_culture = culture:wastelands
+			add = -1000
+			desc = AI_WASTELANDS
+		}
  		modifier = {
  			is_commanding_army = yes
  			add = -30
@@ -998,22 +979,7 @@ invite_to_court_interaction = {
  			add = -50
  			desc = AI_MY_LIEGE_IS_LANDED
  		}
-		
-		# LotR : Different race
-		modifier = {
-			add = -40
-			not = { same_race = { TARGET = scope:actor } }
-			desc = DIFFERENT_RACE_REASON
-		}
-		
-		# LotR : Elven reluctance
-		modifier = {
-			add = -40
-			is_elf = yes
-			not = { same_race = { TARGET = scope:actor } }
-			desc = ELVEN_RELUCTANCE_REASON
-		}
-		
+
 		#Wandering characters (who aren't doing anything else)
 		modifier = {
  			add = {
@@ -1235,12 +1201,12 @@ invite_to_court_interaction = {
 		# Event modifiers
 
 		# El Cid
-		# modifier = {
- 		# 	has_variable = cid_1010_no_invite_var
-		# 	var:cid_1010_no_invite_var = scope:actor
- 		# 	add = -200
- 		# 	desc = cid_1010_no_invite_var_desc
- 		# }
+		modifier = {
+ 			has_variable = cid_1010_no_invite_var
+			var:cid_1010_no_invite_var = scope:actor
+ 			add = -200
+ 			desc = cid_1010_no_invite_var_desc
+ 		}
 	}
 
 	auto_accept = {

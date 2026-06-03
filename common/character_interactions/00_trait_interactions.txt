@@ -503,18 +503,15 @@ force_duel_criminals_interaction = {
 		}
 		# Can't duel yourself.
 		scope:actor != scope:recipient
-		
-		# No wastelands
-				
+
 		scope:actor = {			
 			NOT = { has_culture = culture:wastelands }
-			is_sauron = no
 		}
 
 		scope:recipient = {			
 			NOT = { has_culture = culture:wastelands }
-			is_sauron = no
 		}
+
 	}
 
 	is_valid_showing_failures_only = {
@@ -730,16 +727,14 @@ force_duel_anyone_interaction = {
 		scope:actor = { has_trait = irritable }
 		# Can't duel yourself.
 		scope:actor != scope:recipient
-		# No wastelands
-				
+
+
 		scope:actor = {			
 			NOT = { has_culture = culture:wastelands }
-			is_sauron = no
 		}
 
 		scope:recipient = {			
 			NOT = { has_culture = culture:wastelands }
-			is_sauron = no
 		}
 	}
 

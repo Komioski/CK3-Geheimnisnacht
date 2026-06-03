@@ -64,7 +64,7 @@ gift_artifact_interaction = {
 		#Artifacts locked from being giftable by a variable
 		scope:target = {
 			artifact_can_be_gift_to_trigger = { RECIPIENT = scope:recipient }
-		}			
+		}
 	}
 
 
@@ -75,7 +75,6 @@ gift_artifact_interaction = {
 		}
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 		scope:recipient != scope:actor
 		scope:actor = {
@@ -338,39 +337,6 @@ gift_artifact_interaction = {
 						}
 						else = {
 							add_piety = minor_piety_gain
-						}				 
-					}		
-				}
-				#LotR Tenet Veneration of Gold Perk - piety loss for gift giving. 
-				if = { 
-					limit = {
-						scope:actor = {
-								faith = {
-					 			has_doctrine_parameter = piety_loss_from_gifts_active
-					 		}
-					 	}
-					}
-					scope:actor = {
-						if = {
-							limit = { #the better the artifact, the more piety you gain
-								scope:target = { rarity = illustrious }
-							}
-							add_piety = massive_piety_loss 
-						}
-						else_if = {
-							limit = {
-								scope:target = { rarity = famed }
-							}
-							add_piety = major_piety_loss
-						}
-						else_if = {
-							limit = {
-								scope:target = { rarity = masterwork }
-							}
-							add_piety = medium_piety_loss 
-						}
-						else = {
-							add_piety = minor_piety_loss
 						}				 
 					}		
 				}
@@ -873,56 +839,6 @@ gift_artifact_interaction = {
 		evaluate_action_increasing_house_unity = {
 			VALUE = 100
 		}
-
-		#LotR - To avoid Sauron destroying neighbouring realms by giving away to canon characters (in lore-friendly)
-		modifier = { 
-			add = -500
-			scope:target = {
-				has_variable = ring_of_mortals
-			}
-			sauron_is_alive = yes
-			cannot_be_killed = no
-			NOT = { is_elf = yes }
-			lotr_canon_safe_from_harm_trigger = yes
-			#No harm in reusing the wording
-			desc = ARTIFACT_CURSED_REASON
-		}
-		#LotR - Only Nâzgul or sorcerers will accept Morgul blades as gifts
-		modifier = {
-			add = -1000
-			scope:target = {
-				OR = {
-					has_variable = cursed_artifact
-					AND = {
-						has_variable = morgul_blade
-						scope:recipient = {
-							NOR = {
-								is_nazgul = yes
-								has_trait = sorcerer
-							}
-						}
-					}
-				}
-			}
-			desc = ARTIFACT_CURSED_REASON
-		}
-		#LotR - to avoid cheesing the fertility cut-off
-		modifier = {
-			add = -500
-			is_male = no
-			OR = {
-				is_dwarf = yes
-				has_trait = blood_of_numenor
-			}
-			any_character_artifact = {
-				has_variable = flower_species
-			}
-			scope:target = {	
-				has_variable = flower_species
-			}
-			#Thank you dear, you already game me one of those
-			desc = ARTIFACT_ALREADY_HAS_FLOWER
-		}
 	}
 	
 	ai_potential = {
@@ -1404,8 +1320,6 @@ demand_artifact_interaction = {
 	}
 
 	is_shown = {
-		scope:actor = { is_in_valinor = no } #LotR
-		scope:recipient = { is_in_valinor = no } #LotR
 		scope:recipient != scope:actor
 
 		custom_description = {
@@ -1415,14 +1329,6 @@ demand_artifact_interaction = {
 				any_character_artifact = {
 					can_be_claimed_by = scope:actor
 					NOT = { has_variable = is_tribute_mission_artifact }
-					#those shouldn't be given
-					NOR = {
-						AND = { 
-							has_variable = ring_of_power
-							sauron_is_alive = yes
-						}
-						has_variable = silmaril
-					}
 				}
 			}
 		}
@@ -1457,18 +1363,6 @@ demand_artifact_interaction = {
 	
 	is_highlighted = {
 		always = yes
-	}
-	
-	can_be_picked_artifact = { #LotR
-		scope:target = {
-			NOR = {
-				AND = { 
-					has_variable = ring_of_power
-					sauron_is_alive = yes
-				}
-				has_variable = silmaril
-			}
-		}
 	}
 
 	is_valid_showing_failures_only = {
@@ -2164,14 +2058,6 @@ challenge_for_artifact_interaction = {
 	answer_reject_key = REQUEST_ARTIFACT_COMBAT_REJECT
 
 	is_shown = {
-		scope:actor = { #LotR
-			is_in_valinor = no
-			is_sauron = no
-		}
-		scope:recipient = { #LotR
-			is_in_valinor = no
-			is_sauron = no
-		}
 		# Can't duel yourself.
 		scope:actor != scope:recipient
 		custom_description = {
@@ -2180,15 +2066,7 @@ challenge_for_artifact_interaction = {
 				# needs to have an artifact we can claim
 				any_character_artifact = {
 					can_be_claimed_by = scope:actor
-					NOR = { #LotR
-						has_variable = silmaril
-						has_variable = elven_ring
-						has_variable = one_ring
-						and = {
-							has_variable = ring_of_mortals
-							has_game_rule = default_ai_behavior
-						}
-					}
+					NOT = { has_variable = is_tribute_mission_artifact }
 				}
 			}
 		}
@@ -2202,20 +2080,6 @@ challenge_for_artifact_interaction = {
 						has_activity_type = activity_coronation
 						activity_host = scope:recipient
 					}
-				}
-			}
-		}
-	}
-
-	can_be_picked_artifact = { #LotR
-		scope:target = {
-			NOR = {
-				has_variable = silmaril
-				has_variable = elven_ring
-				has_variable = one_ring
-				and = {
-					has_variable = ring_of_mortals
-					has_game_rule = default_ai_behavior
 				}
 			}
 		}
@@ -2954,23 +2818,6 @@ start_stealing_back_artifact = {
 	target_filter = recipient_artifacts
 	
 	is_shown = {
-		scope:actor = { is_in_valinor = no } #LotR
-		scope:recipient = { #LotR
-			is_in_valinor = no
-			is_sauron = no
-			this != character:lineofeonwe
-			any_character_artifact = {
-				NOR = {
-					has_variable = silmaril
-					has_variable = elven_ring
-					has_variable = one_ring
-					AND = {
-						has_variable = ring_of_mortals
-						has_game_rule = default_ai_behavior
-					}
-				}
-			}
-		}
 		NOR = {
 			scope:recipient = scope:actor
 			scope:recipient = { is_imprisoned_by = scope:actor }
@@ -3126,17 +2973,6 @@ start_stealing_back_artifact = {
 		}
 		scope:target = {
 			NOT = { has_variable = is_tribute_mission_artifact }
-		}
-		scope:target = { #LotR
-			NOR = {
-				has_variable = silmaril
-				has_variable = elven_ring
-				has_variable = one_ring
-				and = {
-					has_variable = ring_of_mortals
-					has_game_rule = default_ai_behavior
-				}
-			}
 		}
 	}
 
@@ -3791,12 +3627,6 @@ buy_artifact_claim = {
 	target_filter = recipient_artifacts 
 
 	is_shown = {
-		scope:actor = { #LotR
-			is_in_valinor = no
-		}
-		scope:recipient = { #LotR
-			is_in_valinor = no
-		}
 		# interaction locked behind Accomplished Forger perk from the Diplomacy lifestyle
 		scope:actor = {
 			has_perk = accomplished_forger_perk
@@ -3817,16 +3647,9 @@ buy_artifact_claim = {
 				}
 				NOR = {
 					# maybe? nah. we can't.
-					#has_variable = pope_hat #LotR
+					has_variable = pope_hat
 					# This is the only way I have found to exclude dynastic banners
-					artifact_slot_type = wall_big
-					has_variable = silmaril #LotR
-					has_variable = elven_ring
-					has_variable = one_ring
-					and = {
-						has_variable = ring_of_mortals
-						has_game_rule = default_ai_behavior
-					}
+					artifact_type = wall_big
 				}
 			}
 		}
@@ -3852,16 +3675,9 @@ buy_artifact_claim = {
 				scope:actor = { has_personal_artifact_claim = prev }
 				# no pope hats or dynastic banners
 				has_variable = pope_hat
-				artifact_slot_type = wall_big
+				artifact_type = wall_big
 				has_variable = is_tribute_mission_artifact
 				has_variable = artifact_prevent_transfer
-				has_variable = silmaril #LotR
-				has_variable = elven_ring
-				has_variable = one_ring
-				AND = {
-					has_variable = ring_of_mortals
-					has_game_rule = default_ai_behavior
-				}
 			}
 		}
 	}
@@ -4227,8 +4043,6 @@ demand_dynasty_banner_interaction = {
 	}
 
 	is_shown = {
-		scope:actor = { is_in_valinor = no } #LotR
-		scope:recipient = { is_in_valinor = no } #LotR
 		scope:recipient != scope:actor
 		NOT = { #Landless have no court in which to display such a banner, and no real authority over a landed relative
 			scope:actor = { government_has_flag = government_is_landless_adventurer }
@@ -4572,17 +4386,6 @@ destroy_artifact_interaction = {
 	}
 
 	can_be_picked_artifact = {
-		NOT = { #LotR
-			custom_tooltip = {
-				text = artifact_has_ring_of_power_var
-				scope:target = { has_variable = ring_of_power }
-				sauron_is_alive = yes
-			}
-			custom_tooltip = {
-				text = artifact_has_silmaril_var
-				scope:target = { has_variable = silmaril }
-			}
-		}
 		custom_tooltip = {
 			text = artifact_is_related_to_contract_tt
 			scope:target = {
@@ -4636,67 +4439,6 @@ destroy_artifact_interaction = {
 	}
 
 	on_accept = {
-		if = { # Mithril ingot
-			limit = { scope:target = { has_variable = mithril } }
-			scope:actor = { remove_metal_gem_variable = { METAL = mithril } }
-		}
-		if = { # Gold ingot
-			limit = { scope:target = { has_variable = gold } }
-			scope:actor = { remove_metal_gem_variable = { METAL = gold } }
-		}
-		if = { # Silver ingot
-			limit = { scope:target = { has_variable = silver } }
-			scope:actor = { remove_metal_gem_variable = { METAL = silver } }
-		}
-		if = { # Lead ingot
-			limit = { scope:target = { has_variable = lead } }
-			scope:actor = { remove_metal_gem_variable = { METAL = lead } }
-		}
-		if = { # Copper ingot
-			limit = { scope:target = { has_variable = copper } }
-			scope:actor = { remove_metal_gem_variable = { METAL = copper } }
-		}
-		if = { # Tin ingot
-			limit = { scope:target = { has_variable = tin } }
-			scope:actor = { remove_metal_gem_variable = { METAL = tin } }
-		}
-		if = { # Iron ingot
-			limit = { scope:target = { has_variable = iron } }
-			scope:actor = { remove_metal_gem_variable = { METAL = iron } }
-		}
-		if = { # Diamond Gem
-			limit = { scope:target = { has_variable = diamond } }
-			scope:actor = { remove_metal_gem_variable = { METAL = diamond } }
-		}
-		if = { # Ruby Gem
-			limit = { scope:target = { has_variable = ruby } }
-			scope:actor = { remove_metal_gem_variable = { METAL = ruby } }
-		}
-		if = { # Sapphire Gem
-			limit = { scope:target = { has_variable = sapphire } }
-			scope:actor = { remove_metal_gem_variable = { METAL = sapphire } }
-		}
-		if = { # Emerald Gem
-			limit = { scope:target = { has_variable = emerald } }
-			scope:actor = { remove_metal_gem_variable = { METAL = emerald } }
-		}
-		if = { # Amethyst Gem
-			limit = { scope:target = { has_variable = amethyst } }
-			scope:actor = { remove_metal_gem_variable = { METAL = amethyst } }
-		}
-		if = { # Onyx Gem
-			limit = { scope:actor = { has_variable = onyx } }
-			scope:actor = { remove_metal_gem_variable = { METAL = onyx } }
-		}
-		if = { # Peridot Gem
-			limit = { scope:target = { has_variable = peridot } }
-			scope:actor = { remove_metal_gem_variable = { METAL = peridot } }
-		}
-		if = { # Quartz Gem
-			limit = { scope:target = { has_variable = quartz } }
-			scope:actor = { remove_metal_gem_variable = { METAL = quartz } }
-		}
-		
 		destroy_artifact_aniconist_effect = {
 			ARTIFACT = scope:target
 			DESTROYER = scope:actor
