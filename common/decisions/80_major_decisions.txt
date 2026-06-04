@@ -2685,357 +2685,357 @@ escape_from_prison_decision = {
 
 # Found Duchy Decision
 ### Found a New Duchy ###
-found_duchy_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
-	}
-	decision_group_type = major
-	ai_check_interval_by_tier = {
-		barony = 0
-		county = 60
-		duchy = 0
-		kingdom = 0
-		empire = 0
-		hegemony = 0
-	}
-
-	cooldown = { years = 10 }
-
-	is_shown = {
-		highest_held_title_tier = tier_county
-		is_landed = yes
-		OR = {
-			AND = {
-				is_ai = no
-				has_game_rule = on_custom_duchies_player
-			}
-			has_game_rule = on_custom_duchies
-		}
-		NOR = {
-			government_allows = administrative
-			government_has_flag = government_is_nomadic
-			government_is_japanese_trigger = yes
-		}
-	}
-
-	is_valid = {
-		is_independent_ruler = yes
-		trigger_if = {
-			limit = {
-				has_legitimacy = yes
-			}
-			OR = {
-				prestige_level >= 3
-				legitimacy_level >= 4
-			}
-		}
-		trigger_else = {
-			prestige_level >= 4
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_at_war = no
-	}
-
-	cost = {
-		gold = {
-			value = 0
-			if = {
-				limit = {
-					has_treasury = no
-				}
-				add = massive_gold_value
-			}
-		}
-		treasury = {
-			value = 0
-			if = {
-				limit = {
-					has_treasury = yes
-				}
-				add = massive_gold_value
-			}
-		}
-		prestige = 250
-		piety = 200
-	}
-
-	effect = {
-		create_custom_duchy_effect = yes
-	}
-
-	ai_potential = {
-		always = yes
-	}
-
-	ai_will_do = {
-		base = 100
-	}
-}
+#found_duchy_decision = {
+#	picture = {
+#		reference = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+#	}
+#	decision_group_type = major
+#	ai_check_interval_by_tier = {
+#		barony = 0
+#		county = 60
+#		duchy = 0
+#		kingdom = 0
+#		empire = 0
+#		hegemony = 0
+#	}
+#
+#	cooldown = { years = 10 }
+#
+#	is_shown = {
+#		highest_held_title_tier = tier_county
+#		is_landed = yes
+#		OR = {
+#			AND = {
+#				is_ai = no
+#				has_game_rule = on_custom_duchies_player
+#			}
+#			has_game_rule = on_custom_duchies
+#		}
+#		NOR = {
+#			government_allows = administrative
+#			government_has_flag = government_is_nomadic
+#			government_is_japanese_trigger = yes
+#		}
+#	}
+#
+#	is_valid = {
+#		is_independent_ruler = yes
+#		trigger_if = {
+#			limit = {
+#				has_legitimacy = yes
+#			}
+#			OR = {
+#				prestige_level >= 3
+#				legitimacy_level >= 4
+#			}
+#		}
+#		trigger_else = {
+#			prestige_level >= 4
+#		}
+#	}
+#
+#	is_valid_showing_failures_only = {
+#		is_available_adult = yes
+#		is_at_war = no
+#	}
+#
+#	cost = {
+#		gold = {
+#			value = 0
+#			if = {
+#				limit = {
+#					has_treasury = no
+#				}
+#				add = massive_gold_value
+#			}
+#		}
+#		treasury = {
+#			value = 0
+#			if = {
+#				limit = {
+#					has_treasury = yes
+#				}
+#				add = massive_gold_value
+#			}
+#		}
+#		prestige = 250
+#		piety = 200
+#	}
+#
+#	effect = {
+#		create_custom_duchy_effect = yes
+#	}
+#
+#	ai_potential = {
+#		always = yes
+#	}
+#
+#	ai_will_do = {
+#		base = 100
+#	}
+#}
 
 # Expand Duchy Decision
 ### Expand Duchy ###
-expand_duchy_decision = {
-	picture = {
-		trigger = {
-			OR = {
-				government_has_flag = government_is_nomadic
-				government_has_flag = government_is_clan
-			}
-		}
-		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_sunder.dds"
-	}
-	picture = {
-		trigger = { culture = { has_building_gfx = southeast_asian_building_gfx } }
-		reference = "gfx/interface/illustrations/decisions/tgp_projects_mandala_capital.dds"
-	}
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
-	}
-	decision_group_type = realm
-	ai_check_interval_by_tier = {
-		barony = 0
-		county = 0
-		duchy = 240
-		kingdom = 240
-		empire = 240
-		hegemony = 240
-	}
-
-	cooldown = { years = 10 }
-
-	widget = {
-		controller = create_holy_order
-		barony_valid = {
-			scope:ruler = {
-				trigger_if = {
-					limit = {
-						highest_held_title_tier = tier_duchy
-					}
-					primary_title = {
-						save_temporary_scope_as = duchy_title
-					}
-				}
-				trigger_else = {
-					capital_county.duchy = {
-						save_temporary_scope_as = duchy_title
-					}
-				}
-			}
-			trigger_if = {
-				limit = { exists = this }
-				save_temporary_scope_as = checking_title
-				is_capital_barony = yes
-				NOT = {
-					scope:duchy_title = {
-						is_de_jure_liege_or_above_target = scope:checking_title
-					}
-				}
-				this.county = {
-					OR = {
-						any_neighboring_county = {
-							duchy = scope:duchy_title
-						}
-						AND = {
-							scope:duchy_title = { is_titular = yes }
-							this = scope:duchy_title.title_capital_county
-						}
-					}
-				}
-				holder = scope:ruler
-			}
-		}
-	}
-
-	is_shown = {
-		save_temporary_scope_as = root_scope_temporary
-		highest_held_title_tier >= tier_duchy
-		OR = {
-			AND = {
-				is_ai = no
-				has_game_rule = on_custom_duchies_player
-			}
-			has_game_rule = on_custom_duchies
-		}
-		is_landed_or_landless_administrative = yes
-		trigger_if = {
-			limit = {
-				highest_held_title_tier = tier_duchy
-			}
-			any_held_title = {
-				tier = tier_duchy
-				NOR = {
-					is_landless_type_title = yes
-					is_noble_family_title = yes
-				}
-				save_temporary_scope_as = duchy_title
-			}
-		}
-		trigger_else = {
-			root.capital_county.duchy = {
-				save_temporary_scope_as = duchy_title
-			}
-		}
-		scope:duchy_title = {
-			any_de_jure_county = {
-				count < expand_duchy_max_size_value
-			}
-		}
-	}
-
-	is_valid = {
-		save_temporary_scope_as = root_scope_temporary
-		is_independent_ruler = yes
-		trigger_if = {
-			limit = {
-				highest_held_title_tier = tier_duchy
-			}
-			primary_title = {
-				save_temporary_scope_as = duchy_title
-			}
-		}
-		trigger_else = {
-			root.capital_county.duchy = {
-				save_temporary_scope_as = duchy_title
-			}
-		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_legitimacy = yes
-					exists = scope:barony
-				}
-			}
-			OR = {
-				trigger_if = {
-					limit = { government_has_flag = government_is_mandala }
-					piety_level >= 3
-				}
-				trigger_else = { prestige_level >= 3 }
-				trigger_if = {
-					limit = {
-						has_legitimacy = yes
-					}
-					legitimacy_level >= 4
-				}
-				trigger_if = {
-					limit = {
-						exists = scope:barony
-					}
-					custom_tooltip = {
-						text = expand_duchy_capital_tooltip
-						scope:barony.county ?= root.primary_title.title_capital_county
-					}
-				}
-			}
-		}
-		trigger_else = {
-			prestige_level >= 3
-		}
-		custom_tooltip = {
-			text = expand_duchy_less_than_4
-			scope:duchy_title = {
-				any_de_jure_county = {
-					count < expand_duchy_max_size_value
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				exists = scope:barony
-			}
-			scope:barony.county ?= {
-				title_held_years >= 5
-			}
-		}
-		#LOTR Added
-		custom_tooltip = {
-			text = not_balin
-			NOT = { primary_title = title:d_balins_expedition }
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		is_available_adult = yes
-		is_at_war = no
-	}
-
-	cost = {
-		prestige = {
-			if = {
-				limit = {
-					trigger_if = {
-						limit = {
-							highest_held_title_tier = tier_duchy
-						}
-						primary_title = {
-							save_temporary_scope_as = duchy_title
-						}
-					}
-					trigger_else = {
-						root.capital_county.duchy = {
-							save_temporary_scope_as = duchy_title
-						}
-					}
-					scope:barony.county ?= scope:duchy_title.title_capital_county
-				}
-				value = 250
-			}
-			else = {
-				value = 1000
-			}
-		}
-	}
-
-	effect = {
-		if = {
-			limit = {
-				highest_held_title_tier = tier_duchy
-			}
-			primary_title = {
-				save_temporary_scope_as = duchy_title_scope
-			}
-		}
-		else = {
-			root.capital_county.duchy = {
-				save_temporary_scope_as = duchy_title_scope
-			}
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					scope:barony.duchy.title_capital_county ?= scope:barony.county
-					scope:barony.duchy ?= {
-						any_de_jure_county = {
-							NOT = { this = scope:barony.county }
-						}
-					}
-				}
-				scope:barony.duchy = {
-					ordered_de_jure_county = {
-						order_by = development_level
-						limit = { NOT = { this = scope:barony.county } }
-						save_scope_as = new_duchy_capital
-					}
-					set_capital_county = scope:new_duchy_capital
-				}
-			}
-		}
-		scope:barony.county ?= {
-			set_de_jure_liege_title = scope:duchy_title_scope
-		}
-	}
-
-	ai_potential = {
-		always = yes
-	}
-
-	ai_will_do = {
-		base = 100
-	}
-}
+#expand_duchy_decision = {
+#	picture = {
+#		trigger = {
+#			OR = {
+#				government_has_flag = government_is_nomadic
+#				government_has_flag = government_is_clan
+#			}
+#		}
+#		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_sunder.dds"
+#	}
+#	picture = {
+#		trigger = { culture = { has_building_gfx = southeast_asian_building_gfx } }
+#		reference = "gfx/interface/illustrations/decisions/tgp_projects_mandala_capital.dds"
+#	}
+#	picture = {
+#		reference = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+#	}
+#	decision_group_type = realm
+#	ai_check_interval_by_tier = {
+#		barony = 0
+#		county = 0
+#		duchy = 240
+#		kingdom = 240
+#		empire = 240
+#		hegemony = 240
+#	}
+#
+#	cooldown = { years = 10 }
+#
+#	widget = {
+#		controller = create_holy_order
+#		barony_valid = {
+#			scope:ruler = {
+#				trigger_if = {
+#					limit = {
+#						highest_held_title_tier = tier_duchy
+#					}
+#					primary_title = {
+#						save_temporary_scope_as = duchy_title
+#					}
+#				}
+#				trigger_else = {
+#					capital_county.duchy = {
+#						save_temporary_scope_as = duchy_title
+#					}
+#				}
+#			}
+#			trigger_if = {
+#				limit = { exists = this }
+#				save_temporary_scope_as = checking_title
+#				is_capital_barony = yes
+#				NOT = {
+#					scope:duchy_title = {
+#						is_de_jure_liege_or_above_target = scope:checking_title
+#					}
+#				}
+#				this.county = {
+#					OR = {
+#						any_neighboring_county = {
+#							duchy = scope:duchy_title
+#						}
+#						AND = {
+#							scope:duchy_title = { is_titular = yes }
+#							this = scope:duchy_title.title_capital_county
+#						}
+#					}
+#				}
+#				holder = scope:ruler
+#			}
+#		}
+#	}
+#
+#	is_shown = {
+#		save_temporary_scope_as = root_scope_temporary
+#		highest_held_title_tier >= tier_duchy
+#		OR = {
+#			AND = {
+#				is_ai = no
+#				has_game_rule = on_custom_duchies_player
+#			}
+#			has_game_rule = on_custom_duchies
+#		}
+#		is_landed_or_landless_administrative = yes
+#		trigger_if = {
+#			limit = {
+#				highest_held_title_tier = tier_duchy
+#			}
+#			any_held_title = {
+#				tier = tier_duchy
+#				NOR = {
+#					is_landless_type_title = yes
+#					is_noble_family_title = yes
+#				}
+#				save_temporary_scope_as = duchy_title
+#			}
+#		}
+#		trigger_else = {
+#			root.capital_county.duchy = {
+#				save_temporary_scope_as = duchy_title
+#			}
+#		}
+#		scope:duchy_title = {
+#			any_de_jure_county = {
+#				count < expand_duchy_max_size_value
+#			}
+#		}
+#	}
+#
+#	is_valid = {
+#		save_temporary_scope_as = root_scope_temporary
+#		is_independent_ruler = yes
+#		trigger_if = {
+#			limit = {
+#				highest_held_title_tier = tier_duchy
+#			}
+#			primary_title = {
+#				save_temporary_scope_as = duchy_title
+#			}
+#		}
+#		trigger_else = {
+#			root.capital_county.duchy = {
+#				save_temporary_scope_as = duchy_title
+#			}
+#		}
+#		trigger_if = {
+#			limit = {
+#				OR = {
+#					has_legitimacy = yes
+#					exists = scope:barony
+#				}
+#			}
+#			OR = {
+#				trigger_if = {
+#					limit = { government_has_flag = government_is_mandala }
+#					piety_level >= 3
+#				}
+#				trigger_else = { prestige_level >= 3 }
+#				trigger_if = {
+#					limit = {
+#						has_legitimacy = yes
+#					}
+#					legitimacy_level >= 4
+#				}
+#				trigger_if = {
+#					limit = {
+#						exists = scope:barony
+#					}
+#					custom_tooltip = {
+#						text = expand_duchy_capital_tooltip
+#						scope:barony.county ?= root.primary_title.title_capital_county
+#					}
+#				}
+#			}
+#		}
+#		trigger_else = {
+#			prestige_level >= 3
+#		}
+#		custom_tooltip = {
+#			text = expand_duchy_less_than_4
+#			scope:duchy_title = {
+#				any_de_jure_county = {
+#					count < expand_duchy_max_size_value
+#				}
+#			}
+#		}
+#		trigger_if = {
+#			limit = {
+#				exists = scope:barony
+#			}
+#			scope:barony.county ?= {
+#				title_held_years >= 5
+#			}
+#		}
+#		#LOTR Added
+#		custom_tooltip = {
+#			text = not_balin
+#			NOT = { primary_title = title:d_balins_expedition }
+#		}
+#	}
+#
+#	is_valid_showing_failures_only = {
+#		is_available_adult = yes
+#		is_at_war = no
+#	}
+#
+#	cost = {
+#		prestige = {
+#			if = {
+#				limit = {
+#					trigger_if = {
+#						limit = {
+#							highest_held_title_tier = tier_duchy
+#						}
+#						primary_title = {
+#							save_temporary_scope_as = duchy_title
+#						}
+#					}
+#					trigger_else = {
+#						root.capital_county.duchy = {
+#							save_temporary_scope_as = duchy_title
+#						}
+#					}
+#					scope:barony.county ?= scope:duchy_title.title_capital_county
+#				}
+#				value = 250
+#			}
+#			else = {
+#				value = 1000
+#			}
+#		}
+#	}
+#
+#	effect = {
+#		if = {
+#			limit = {
+#				highest_held_title_tier = tier_duchy
+#			}
+#			primary_title = {
+#				save_temporary_scope_as = duchy_title_scope
+#			}
+#		}
+#		else = {
+#			root.capital_county.duchy = {
+#				save_temporary_scope_as = duchy_title_scope
+#			}
+#		}
+#		hidden_effect = {
+#			if = {
+#				limit = {
+#					scope:barony.duchy.title_capital_county ?= scope:barony.county
+#					scope:barony.duchy ?= {
+#						any_de_jure_county = {
+#							NOT = { this = scope:barony.county }
+#						}
+#					}
+#				}
+#				scope:barony.duchy = {
+#					ordered_de_jure_county = {
+#						order_by = development_level
+#						limit = { NOT = { this = scope:barony.county } }
+#						save_scope_as = new_duchy_capital
+#					}
+#					set_capital_county = scope:new_duchy_capital
+#				}
+#			}
+#		}
+#		scope:barony.county ?= {
+#			set_de_jure_liege_title = scope:duchy_title_scope
+#		}
+#	}
+#
+#	ai_potential = {
+#		always = yes
+#	}
+#
+#	ai_will_do = {
+#		base = 100
+#	}
+#}
 
 # Set De Jure Capital Decision
 ### Relocate De Jure Capital ###
