@@ -1711,45 +1711,7 @@ colonisation_random.2002 = { # A New Life
 				}
 			}
 		}
-		modifier = { # Gondorians settling Arnor
-			add = 10
-			AND = {
-				any_directly_owned_province = {
-					geographical_region = middleearth_west_arnor
-					has_holding_type = settlement_holding
-					county = {
-						culture = {
-							has_cultural_pillar = heritage_dunedain
-							NOR = {
-								this = culture:arnorian
-								this = culture:dunedain_ranger
-								this = culture:uialedain
-								this = culture:dunedain
-							}
-							OR = {
-								this = culture:gondorian
-								this = culture:belfalathrim
-								any_parent_culture = { this = culture:gondorian } 
-							}
-							NOT = {
-								any_parent_culture_or_above = { this = culture:arnorian }
-							}
-						}
-						any_neighboring_county = {
-							OR = {
-								culture = culture:arnorian
-								culture = culture:dunedain_ranger
-								culture =  culture:uialedain
-							}
-							NOT = { culture = root.culture }
-							NOT = { culture = culture:wastelands }
-							NOT = { culture = prev.county.culture }
-							culture = { same_race_culture = { TARGET = prev.county.culture } }
-						}
-					}
-				}
-			}
-		}
+		
 	}
 
 	trigger = {
@@ -1805,39 +1767,7 @@ colonisation_random.2002 = { # A New Life
 						}
 					}
 				}
-				modifier = { # Gondorians settling Arnor
-					factor = 10
-					county = {
-						culture = {
-							has_cultural_pillar = heritage_dunedain
-							NOR = {
-								this = culture:arnorian
-								this = culture:dunedain_ranger
-								this = culture:uialedain
-								this = culture:dunedain
-							}
-							OR = {
-								this = culture:gondorian
-								this = culture:belfalathrim
-								any_parent_culture = { this = culture:gondorian}
-							}
-							NOT = {
-								any_parent_culture_or_above = { this = culture:arnorian }
-							}
-						}
-						any_neighboring_county = {
-							OR = {
-								culture = culture:arnorian
-								culture = culture:dunedain_ranger
-								culture =  culture:uialedain
-							}
-							NOT = { culture = root.culture }
-							NOT = { culture = culture:wastelands }
-							NOT = { culture = prev.county.culture }
-							culture = { same_race_culture = { TARGET = prev.county.culture } }
-						}
-					}
-				}
+				
 			}
 		}
 		scope:colony_county = {
@@ -1867,33 +1797,7 @@ colonisation_random.2002 = { # A New Life
 						}
 						culture = culture:iron_hills
 					}
-					modifier = { # Gondorians settling Arnor
-						factor = 10
-						scope:colony_county = {
-							culture = {
-								has_cultural_pillar = heritage_dunedain
-								NOR = {
-									this = culture:arnorian
-									this = culture:dunedain_ranger
-									this = culture:uialedain
-									this = culture:dunedain
-								}
-								OR = {
-									this = culture:gondorian
-									this = culture:belfalathrim
-									any_parent_culture = { this = culture:gondorian }
-								}
-								NOT = {
-									any_parent_culture_or_above = { this = culture:arnorian }
-								}
-							}
-						}
-						OR = {
-							culture = culture:arnorian
-							culture = culture:dunedain_ranger
-							culture =  culture:uialedain
-						}
-					}
+					
 				}
 			}
 		}

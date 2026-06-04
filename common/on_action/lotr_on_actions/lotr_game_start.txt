@@ -319,17 +319,7 @@ lotr_on_game_start = {
 
 		### Appoint Princely Houses of the Dúnedain ###
 
-		princely_houses_of_dunedain = yes
 
-		### Fix Castamiri names ###
-		house:house_castamir = {
-			if = {
-				limit = {
-					game_start_date <= 5480.1.1
-				}
-				set_house_name = dynn_calimehtar
-			}
-		}
 		# Find some way to change motto
 
 		lotr_gender_flip_the_fathers = yes
@@ -852,47 +842,9 @@ lotr_on_game_start_after_lobby = {
 					}
 				}
 			}
-			if = { # Noble Gondorians all know Sindarin
-				limit = {
-					culture = {
-						has_cultural_pillar = heritage_dunedain
-						NOT = { has_cultural_pillar = language_sindarin}
-					}
-					is_lowborn = no
-					NOT = { knows_language = language_sindarin }
-				}
-				learn_language = language_sindarin
-			}
-			if = { # Removing Maia traits from non Maia characters
-				limit = {
-					is_maiar = no
-					OR = {
-						has_trait = istari
-						has_trait = maiar
-					}
-				}
-				if = {
-					limit = { has_trait = istari }
-					remove_trait = istari
-				}
-				else_if = {
-					limit = { has_trait = maiar }
-					remove_trait = maiar
-				}
-			}
+			
 		}
 
-		### Adding Vidugavia special building during certain timeframe ###
-		if = {
-			limit = {
-				game_start_date >= 5295.1.1
-				game_start_date < 5977.1.1
-			}
-			province:3826 = {
-				add_special_building_slot = wonder_high_hall_alcisbaurg
-				add_special_building = wonder_high_hall_alcisbaurg
-			}
-		}
 
 		if = {
 			limit = {
@@ -1057,21 +1009,19 @@ lotr_on_game_start_after_lobby = {
 		}
 
 
-		### RACE SETUP ###
-		every_living_character = {
-			limit = {
-				is_from_ruler_designer = no
-				OR = {
-					#not_valar = yes
-					not_nazgul = yes
-					not_istari = yes
-					not_istari_evil = yes
-					not_maiar = yes
-					not_maiar_fallen = yes
-				}
-			}
-			trigger_event = race.0001
-		}
+		# ### RACE SETUP ###
+		# every_living_character = {
+		# 	limit = {
+		# 		is_from_ruler_designer = no
+		# 		OR = {
+		# 			#not_valar = yes
+		# 			not_nazgul = yes
+		# 			not_maiar = yes
+		# 			not_maiar_fallen = yes
+		# 		}
+		# 	}
+		# 	trigger_event = race.0001
+		# }
 
 		### UPDATE DYNAMIC COA ###
 		every_ruler = {

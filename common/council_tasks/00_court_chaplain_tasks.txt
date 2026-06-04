@@ -148,8 +148,7 @@
 	on_monthly = {
 		if = {
 			limit = {
-				exists = liege #LotR
-				liege ?= { is_ai = no }
+				liege = { is_ai = no }
 			}
 			if = {
 				limit = {
@@ -410,7 +409,7 @@ task_conversion = {
 		# Faster conversion of Persian counties with the FP3 Promote Persian Scripture decision
 		if = {
 			limit = {
-				scope:councillor.liege ?= { 
+				scope:councillor.liege = { 
 					has_character_modifier = fp3_promoted_persian_scripture_modifier 
 					is_ai = no #this is so that we don't get AI converting and homogenizing Persia too quickly
 				}
@@ -450,7 +449,7 @@ task_conversion = {
 		# Court events
 		if = {	#court.6010
 			limit = {
-				scope:councillor.liege ?= {
+				scope:councillor.liege = {
 					var:6010_harsh_conversion ?= scope:county.faith
 				}
 			}
@@ -461,7 +460,7 @@ task_conversion = {
 		}
 		if = {	#court.6010
 			limit = {
-				scope:councillor.liege ?= {
+				scope:councillor.liege = {
 					var:6010_tolerant_conversion ?= scope:county.faith
 				}
 			}
@@ -561,22 +560,6 @@ task_conversion = {
 				# desc = minimum_conversion
 			# }
 		# }
-		
-		### LotR: Struggles ###
-		if = { #LotR
-			limit = {
-				scope:councillor_liege = {
-					any_character_struggle = {
-						involvement = involved
-						has_struggle_phase_parameter = harder_to_convert_culture_as_kharadunai
-					}
-				}
-			}
-			multiply = {
-				value = lotr_conversion_culture_resistant_to_culture_change_due_to_struggle_phase_value
-				desc = STRUGGLE_HARDER_TO_CULTURE_CONVERT_DUE_TO_STRUGGLE_PHASE_MODIFIER
-			}
-		}
 	}
 
 	potential_county = {
@@ -617,15 +600,7 @@ task_conversion = {
 					culture = { is_elf_culture = yes }
 				}
 			}
-			trigger_if = { #LotR - AI Nurniags should not seek to convert the Nurnoth
-				limit = {
-					scope:councillor_liege = {
-						is_ai = yes
-						faith = faith:faith_nurniag
-					}
-				}
-				NOT = { faith = faith:faith_nurn_slave }
-			}
+
 			custom_description = {
 				text = "is_protected_via_contract_self_or_liege"
 				subject = holder
@@ -1198,17 +1173,6 @@ task_fabricate_claim = {
 			value = scope:councillor.court_chaplain_fabricate_claim_monthly_increase_base
 			desc = SCALED_COUNCILLOR_LEARNING_VALUE
 		}
-		# Elven Expansion CB limitation in game rules
-		if = {
-			limit = {
-				scope:councillor_liege = { is_elf = yes }
-				has_game_rule = limited_elven_expansion
-			}
-			multiply = {
-				value = 0.5
-				desc = GAME_RULE_SLOWER_REASON
-			}
-		}
 		# Relation Bonuses/Penalties
 		if = { # Friend
 			limit = {
@@ -1373,26 +1337,11 @@ task_fabricate_claim = {
 			}
 		}
 		# Misc Bonuses
-		# if = { # FP3 #LOTR
-		# 	limit = {
-		# 		scope:councillor_liege = {
-		# 			any_character_struggle = {
-		# 				is_struggle_type = persian_struggle
-		# 				is_struggle_phase = struggle_persia_phase_unrest
-		# 			}
-		# 		}
-		# 	}
-		# 	add = { # +25% of total
-		# 		value = scope:councillor.court_chaplain_fabricate_claim_base_total
-		# 		divide = 4
-		# 		desc = FABRICATE_CLAIM_ANY_STRUGGLE_BONUS
-		# 	}
-		# }
-		if = { # LOTR - Balan-Lai Struggle Region
+		if = { # FP3
 			limit = {
 				scope:councillor_liege = {
 					any_character_struggle = {
-						is_struggle_type = thani_hazad_struggle
+						#is_struggle_type = thani_hazad_struggle
 						#is_struggle_phase = struggle_persia_phase_unrest
 					}
 				}

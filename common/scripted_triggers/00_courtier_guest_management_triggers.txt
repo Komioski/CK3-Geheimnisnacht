@@ -93,7 +93,6 @@ courtier_allowed_to_leave_trigger = {
 	save_temporary_scope_as = leaving_courtier
 	NOR = {
 		# Not blocked by script
-		has_trait = sailed_west #LotR
 		has_character_flag = blocked_from_leaving
 		is_councillor_of = scope:liege
 		is_consort_of = scope:liege
@@ -284,7 +283,6 @@ guest_allowed_to_leave_trigger = {
 	NOR = {
 		# Not blocked by script
 		has_character_flag = blocked_from_leaving
-		has_trait = sailed_west #LotR
 		#Agent in a local scheme
 		scope:host = {
 			any_courtier = {
@@ -314,13 +312,6 @@ guest_allowed_to_leave_trigger = {
 		any_consort_not_in_traveling_family_trigger = yes
 		#Is waiting for inspiration funding
 		exists = inspiration
-		
-		# LotR triggers
-		is_in_valinor = yes
-		and = {
-			is_nazgul = yes
-			scope:host = { is_sauron = yes }
-		}
 	}
 }
 
@@ -654,9 +645,7 @@ useful_courtier_or_guest_claim_trigger = {
 	courtier_or_guest_claim_trigger = { RULER = $RULER$ }
 	tier < $RULER$.highest_held_title_tier
 	$RULER$ = { is_landed = yes }
-	$RULER$ = { #LotR
-		NOT = { has_culture = culture:wastelands }
-	} 	
+	$RULER$ = { NOT = { has_culture = culture:wastelands }} #LotR 	
 	OR = { #For distance check
 		exists = title_province
 		exists = holder.capital_province
@@ -925,7 +914,6 @@ pool_character_is_pruneable_trigger = {
 			any_claim = { always = yes }
 			#any_child = { is_adult = no }
 			any_child = { is_lotr_adult = no }
-			num_of_good_genetic_traits >= 1
 			any_relation = {
 				type = lover
 				is_ruler = yes
@@ -935,31 +923,31 @@ pool_character_is_pruneable_trigger = {
 				is_ruler = yes
 			}
 			any_close_or_extended_family_member = { is_ruler = yes }
-			AND = { #Belongs to a dynasty with more than 1 member
-				exists = dynasty
-				dynasty = { any_dynasty_member = { NOT = { this = scope:pool_prune_check } } }
-			}
+			#Belongs to a dynasty with more than 1 member
 			any_relation = {
 				type = rival
 				is_ai = no
 			}
-			any_claim = { always = yes }
-			is_married = yes
-			AND = {
-				NOT = { is_orc = yes }
-				diplomacy >= high_skill_rating
-				martial >= high_skill_rating
-				stewardship >= high_skill_rating
-				intrigue >= high_skill_rating
-				learning >= high_skill_rating
-				prowess >= high_skill_rating
-				any_relation = {
-					type = rival
-					is_ruler = yes
-				}
-				culture = {
-					has_cultural_tradition = tradition_diasporic
-				}
+		}
+	}
+	trigger_if = {
+		limit = {
+			is_lowborn = no
+		}
+		NOR = {
+			diplomacy >= high_skill_rating
+			martial >= high_skill_rating
+			stewardship >= high_skill_rating
+			intrigue >= high_skill_rating
+			learning >= high_skill_rating
+			prowess >= high_skill_rating
+			dynasty ?= { any_dynasty_member = { this != scope:pool_prune_check } }
+			any_relation = {
+				type = rival
+				is_ruler = yes
+			}
+			culture = {
+				has_cultural_tradition = tradition_diasporic
 			}
 		}
 	}

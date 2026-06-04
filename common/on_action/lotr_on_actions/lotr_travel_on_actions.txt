@@ -372,17 +372,7 @@ lotr_on_travel_plan_arrival = {
 			limit = {
 				has_realm_law = camp_purpose_rangers
 				exists = root.suzerain
-				trigger_if = { #Dunedain rangers can roam the whole Eriador
-					root.suzerain = {
-						primary_title = title:d_northern_dunedain
-					}
-					NOT = {
-						domicile.domicile_location = {
-							geographical_region = custom_eriador
-						}
-					}
-				}
-				trigger_else = { #Others must remain within their liege's territory, or at least not too far from their capital
+				trigger_if = { #Others must remain within their liege's territory, or at least not too far from their capital
 					OR = {
 						NOT = { domicile.domicile_location.county.holder.top_suzerain ?= root.top_suzerain }
 						top_suzerain.capital_province = {

@@ -143,16 +143,7 @@ fp1_varangian_adventurer_conquest = {
 
 		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
 
-		# LotR - Non-Evil faith characters leave poor Radagast alone! 
-		add = {
-			if = {
-				limit = {
-					scope:attacker = { faith_is_evil = no }
-					scope:defender.culture = culture:istari
-				}
-				add = -1000
-			}
-		}
+
 
 		# LotR - Protectorates are much less aggressive
 		add = {
@@ -1370,16 +1361,7 @@ fp1_varangian_adventurer_conquest = {
 			}
 		}
 
-		# LotR - Non-Evil faith characters leave poor Radagast alone! 
-		add = {
-			if = {
-				limit = {
-					scope:attacker = { faith_is_evil = no }
-					scope:defender.culture = culture:istari
-				}
-				add = -1000
-			}
-		}
+
 
 		# LotR - Protectorates are much less aggressive
 		add = {

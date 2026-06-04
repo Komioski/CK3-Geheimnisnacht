@@ -433,16 +433,7 @@ vassalization_cb = {
 			}
 		}
 
-		# LotR - Non-Evil faith characters leave poor Radagast alone! 
-		add = {
-			if = {
-				limit = {
-					scope:attacker = { faith_is_evil = no }
-					scope:defender.culture = culture:istari
-				}
-				add = -1000
-			}
-		}
+
 
 		# LotR - Protectorates are much less aggressive
 		add = {
@@ -505,7 +496,6 @@ vassalization_cb = {
 				OR = {
 					is_dwarf = yes
 					is_orc = yes
-					is_istari = yes
 					is_nazgul = yes
 					is_sauron = yes
 				}
@@ -514,7 +504,6 @@ vassalization_cb = {
 				OR = {
 					is_dwarf = yes
 					is_orc = yes
-					is_istari = yes
 					is_nazgul = yes
 					is_sauron = yes
 				}
