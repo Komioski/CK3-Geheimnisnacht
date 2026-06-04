@@ -1120,6 +1120,123 @@ remove_kingdom_and_duchy_variables_from_empires = {
 	}
 }
 
+
+### WH Addition
+fill_wasteland_blockers_effect = {
+	if = { # Trolls are mandatory in Troll country
+		limit = { geographical_region = world_old_world_troll_country }
+		add_building = troll_cave
+	}
+	if = {
+		limit = { num_buildings = 1 }
+		add_random_blocker_effect = yes
+		add_random_blocker_effect = yes
+	}
+	else_if = {
+		limit = { num_buildings = 2 }
+		add_random_blocker_effect = yes
+	}
+}
+add_random_blocker_effect = {
+	save_scope_as = obstacle_province
+
+	random_list = {
+		10 = { 
+			trigger = { NOT = { has_building_or_higher = scorpion_bed } }
+			add_building = scorpion_bed
+		}
+		10 = { 
+			trigger = { NOT = { has_building_or_higher = wolf_den } }
+			add_building = wolf_den
+		}
+		10 = { 
+			trigger = { NOT = { has_building_or_higher = bear_den } }
+			add_building = bear_den
+		}
+		10 = { 
+			trigger = { NOT = { has_building_or_higher = bandits } }
+			add_building = bandits
+		}
+		10 = { 
+			trigger = { NOT = { has_building_or_higher = wild_orcs } }
+			modifier = {
+				geographical_region = world_old_world_solland
+				add = 30
+			}
+			add_building = wild_orcs
+		}
+		20 = { 
+			trigger = { 
+				NOT = { has_building_or_higher = spider_nest } 
+				OR = {
+					terrain = forest
+					terrain = deep_forest
+				}
+			}
+			add_building = spider_nest
+		}
+		30 = { 
+			trigger = {
+				NOT = { has_building_or_higher = dense_growth }
+				OR = {
+					terrain = taiga
+					terrain = forest
+					terrain = deep_forest
+				}
+			}
+			add_building = dense_growth
+		}
+		30 = { 
+			trigger = { 
+				NOT = { has_building_or_higher = frozen_ground }
+				OR = {
+					terrain = taiga
+					terrain = steppe
+					terrain = mountains
+				}
+			}
+			add_building = frozen_ground
+		}
+		30 = { 
+			trigger = { 
+				NOT = { has_building_or_higher = flooded_lands }
+				OR = {
+					is_coastal = yes
+					terrain = wetlands
+				}
+			}
+			add_building = flooded_lands
+		}
+		10 = { 
+			trigger = {
+				NOT = { has_building_or_higher = pirate_remnants } 
+				is_coastal = yes
+			}
+			modifier = {
+				geographical_region = world_old_world_southern_realms 
+				add = 30
+			}
+			add_building = pirate_remnants
+		}
+		1 = { 
+			trigger = { NOT = { has_building_or_higher = troll_cave } }
+			add_building = troll_cave
+		}
+		1 = { 
+			trigger = { NOT = { has_building_or_higher = ghosts } }
+			modifier = {
+				geographical_region = world_old_world_sylvania
+				add = 50
+			}
+			add_building = ghosts
+		}
+		1 = { 
+			trigger = { NOT = { has_building_or_higher = dragon_attack } }
+			add_building = dragon_attack
+		}
+		10 = { trigger = { num_buildings >= 2 } } # None
+	}
+}
 ######################################
 ### Automated Colonisation Effects ###
 ######################################
