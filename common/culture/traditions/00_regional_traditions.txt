@@ -22,18 +22,18 @@ tradition_byzantine_succession = {
 		has_ep3_dlc_trigger = no
 	}
 	can_pick = {
-		has_cultural_pillar = heritage_byzantine
-		scope:character = {
-			has_title = title:e_byzantium
-		}
-		custom_tooltip = {
-			text = cannot_have_tradition_court_eunuchs
-			NOT = { culture_tradition:tradition_court_eunuchs = { is_in_list = traits } }
-		}
-		custom_tooltip = {
-			text = cannot_have_tradition_merciful_blindings
-			NOT = { culture_tradition:tradition_merciful_blindings = { is_in_list = traits } }
-		}
+		always = no # has_cultural_pillar = heritage_byzantine
+		# scope:character = {
+		# 	has_title = title:e_byzantium
+		# }
+		# custom_tooltip = {
+		# 	text = cannot_have_tradition_court_eunuchs
+		# 	NOT = { culture_tradition:tradition_court_eunuchs = { is_in_list = traits } }
+		# }
+		# custom_tooltip = {
+		# 	text = cannot_have_tradition_merciful_blindings
+		# 	NOT = { culture_tradition:tradition_merciful_blindings = { is_in_list = traits } }
+		# }
 	}
 
 	parameters = {
@@ -216,18 +216,18 @@ tradition_african_tolerance = {
 	}
 
 	is_shown = {
-		OR = { # For cultures with any heritage from western or central Africa
-			has_cultural_pillar = heritage_berber
-			has_cultural_pillar = heritage_west_african
-			has_cultural_pillar = heritage_central_african
-			has_cultural_pillar = heritage_sahelian
-			has_cultural_pillar = heritage_senegambian
-			has_cultural_pillar = heritage_akan
-			has_cultural_pillar = heritage_yoruba
-		}
-		NOT = {
-			culture_tradition:tradition_steppe_tolerance = { is_in_list = traits }
-		}
+		always = no # OR = { # For cultures with any heritage from western or central Africa
+		# 	has_cultural_pillar = heritage_berber
+		# 	has_cultural_pillar = heritage_west_african
+		# 	has_cultural_pillar = heritage_central_african
+		# 	has_cultural_pillar = heritage_sahelian
+		# 	has_cultural_pillar = heritage_senegambian
+		# 	has_cultural_pillar = heritage_akan
+		# 	has_cultural_pillar = heritage_yoruba
+		# }
+		# NOT = {
+		# 	culture_tradition:tradition_steppe_tolerance = { is_in_list = traits }
+		# }
 	}
 	can_pick = {
 	}
@@ -323,16 +323,16 @@ tradition_the_witenagemot = {
 
 	is_shown = {
 		OR = {
-			has_cultural_pillar = heritage_west_germanic
-			has_cultural_pillar = heritage_brythonic
-			has_cultural_pillar = heritage_goidelic
+			has_cultural_pillar = heritage_norscan
+			has_cultural_pillar = heritage_albion
+			has_cultural_pillar = heritage_halflings
 		}
 	}
 	can_pick = {
 		OR = {
-			has_cultural_pillar = heritage_west_germanic
-			has_cultural_pillar = heritage_brythonic
-			has_cultural_pillar = heritage_goidelic
+			has_cultural_pillar = heritage_norscan
+			has_cultural_pillar = heritage_albion
+			has_cultural_pillar = heritage_halflings
 		}
 	}
 
@@ -421,10 +421,10 @@ tradition_things = {
 	}
 
 	is_shown = {
-		has_cultural_pillar = heritage_north_germanic
+		has_cultural_pillar = heritage_norscan
 	}
 	can_pick = {
-		has_cultural_pillar = heritage_north_germanic
+		has_cultural_pillar = heritage_norscan
 	}
 
 	parameters = {
@@ -569,8 +569,7 @@ tradition_horse_lords = {
 
 	is_shown = {
 		OR = {
-			has_cultural_pillar = heritage_mongolic
-			has_cultural_pillar = heritage_turkic
+			has_cultural_pillar = heritage_kurgan
 		}
 		NOT = {
 			has_dlc_feature = khans_of_the_steppe
@@ -776,31 +775,31 @@ tradition_visigothic_codes = {
 	}
 
 	is_shown = {
-		OR = {
-			this = culture:visigothic
-			this = culture:basque
-			any_parent_culture_or_above = {
-				OR = {
-					this = culture:visigothic
-					this = culture:basque
-				}
-			}
-		}
+		always = no # OR = {
+		# 	this = culture:visigothic
+		# 	this = culture:basque
+		# 	any_parent_culture_or_above = {
+		# 		OR = {
+		# 			this = culture:visigothic
+		# 			this = culture:basque
+		# 		}
+		# 	}
+		# }
 	}
 	can_pick = {
-		OR = {
-			this = culture:visigothic
-			this = culture:basque
-			any_parent_culture_or_above = {
-				OR = {
-					this = culture:visigothic
-					this = culture:basque
-				}
-			}
-		}
-		scope:character = {
-			has_religion = religion:christianity_religion #The Visigothic code is strongly associated with Christian canon law.
-		}
+		# OR = {
+		# 	this = culture:visigothic
+		# 	this = culture:basque
+		# 	any_parent_culture_or_above = {
+		# 		OR = {
+		# 			this = culture:visigothic
+		# 			this = culture:basque
+		# 		}
+		# 	}
+		# }
+		# scope:character = {
+		# 	has_religion = religion:christianity_religion #The Visigothic code is strongly associated with Christian canon law.
+		# }
 	}
 
 	parameters = {
@@ -886,26 +885,26 @@ tradition_himalayan_settlers = {
 	}
 
 	is_shown = { #Replaces Mountain Homes
-		OR = {
-			has_cultural_pillar = heritage_tibetan
-			has_cultural_pillar = heritage_qiangic
-			any_culture_county = {
-				title_province = {
-					geographical_region = world_himalaya
-				}
-			}
-		}
+		always = no # OR = {
+		# 	has_cultural_pillar = heritage_tibetan
+		# 	has_cultural_pillar = heritage_qiangic
+		# 	any_culture_county = {
+		# 		title_province = {
+		# 			geographical_region = world_himalaya
+		# 		}
+		# 	}
+		# }
 	}
 	can_pick = {
-		OR = {
-			has_cultural_pillar = heritage_tibetan
-			has_cultural_pillar = heritage_qiangic
-			any_culture_county = {
-				title_province = {
-					geographical_region = world_himalaya
-				}
-			}
-		}
+		# OR = {
+		# 	has_cultural_pillar = heritage_tibetan
+		# 	has_cultural_pillar = heritage_qiangic
+		# 	any_culture_county = {
+		# 		title_province = {
+		# 			geographical_region = world_himalaya
+		# 		}
+		# 	}
+		# }
 	}
 
 	parameters = {
@@ -1008,10 +1007,10 @@ tradition_desert_nomads = {
 
 	is_shown = {
 		OR = {
-			this = culture:bedouin
-			any_parent_culture_or_above = {
-				this = culture:bedouin
-			}
+			# this = culture:bedouin
+			# any_parent_culture_or_above = {
+			# 	this = culture:bedouin
+			# }
 			any_parent_culture = {
 				has_cultural_tradition = tradition_desert_nomads
 			}
@@ -1127,32 +1126,32 @@ tradition_mountaineer_ruralism = {
 	}
 
 	is_shown = {
-		has_cultural_pillar = heritage_west_slavic
-		NOR = {
-			has_cultural_tradition = tradition_himalayan_settlers
-			has_cultural_tradition = tradition_mountain_homes
-			any_culture_county = {
-				title_province = {
-					geographical_region = world_himalaya
-				}
-			}
-		}
+		always = no # has_cultural_pillar = heritage_west_slavic
+		# NOR = {
+		# 	has_cultural_tradition = tradition_himalayan_settlers
+		# 	has_cultural_tradition = tradition_mountain_homes
+		# 	any_culture_county = {
+		# 		title_province = {
+		# 			geographical_region = world_himalaya
+		# 		}
+		# 	}
+		# }
 	}
 
 	can_pick = {
-		has_cultural_pillar = heritage_west_slavic
-		NOT = {
-			has_cultural_tradition = tradition_mountain_homes
-		}
-		custom_description = {
-			text = culture_in_mountains_desc
-			any_culture_county = {
-				county_has_province_with_terrain = {
-					terrain = mountains
-					terrain = desert_mountains
-				}
-			}
-		}
+		# has_cultural_pillar = heritage_west_slavic
+		# NOT = {
+		# 	has_cultural_tradition = tradition_mountain_homes
+		# }
+		# custom_description = {
+		# 	text = culture_in_mountains_desc
+		# 	any_culture_county = {
+		# 		county_has_province_with_terrain = {
+		# 			terrain = mountains
+		# 			terrain = desert_mountains
+		# 		}
+		# 	}
+		# }
 	}
 
 	parameters = {
@@ -1271,8 +1270,7 @@ tradition_steppe_tolerance = {
 			culture_tradition:tradition_religion_blending = { is_in_list = traits }
 		}
 		OR = {
-			has_cultural_pillar = heritage_mongolic
-			has_cultural_pillar = heritage_turkic
+			has_cultural_pillar = heritage_kurgan
 		}
 	}
 	can_pick = {
@@ -1367,21 +1365,21 @@ tradition_nubian_warrior_queens = {
 	}
 
 	is_shown = {
-		NOT = { has_game_rule = inversed_gender_equality }
-		any_parent_culture_or_above = {
-			OR = {
-				this = culture:nubian
-				this = culture:daju
-			}
-		}
+		always = no # NOT = { has_game_rule = inversed_gender_equality }
+		# any_parent_culture_or_above = {
+		# 	OR = {
+		# 		this = culture:nubian
+		# 		this = culture:daju
+		# 	}
+		# }
 	}
 	can_pick = {
-		any_parent_culture_or_above = {
-			OR = {
-				this = culture:nubian
-				this = culture:daju
-			}
-		}
+		# any_parent_culture_or_above = {
+		# 	OR = {
+		# 		this = culture:nubian
+		# 		this = culture:daju
+		# 	}
+		# }
 	}
 
 	parameters = {
@@ -1469,21 +1467,21 @@ tradition_nubian_warrior_kings = {
 	}
 
 	is_shown = {
-		has_game_rule = inversed_gender_equality
-		any_parent_culture_or_above = {
-			OR = {
-				this = culture:nubian
-				this = culture:daju
-			}
-		}
+		always = no # has_game_rule = inversed_gender_equality
+		# any_parent_culture_or_above = {
+		# 	OR = {
+		# 		this = culture:nubian
+		# 		this = culture:daju
+		# 	}
+		# }
 	}
 	can_pick = {
-		any_parent_culture_or_above = {
-			OR = {
-				this = culture:nubian
-				this = culture:daju
-			}
-		}
+		# any_parent_culture_or_above = {
+		# 	OR = {
+		# 		this = culture:nubian
+		# 		this = culture:daju
+		# 	}
+		# }
 	}
 
 	parameters = {

@@ -16,20 +16,20 @@ tradition_futuwaa = {
 	}
 	
 	is_shown = {
-		has_cultural_pillar = heritage_iranian
-		NOR = { #Replaces Martial Admiration
-			has_cultural_tradition = tradition_chanson_de_geste
-			has_cultural_tradition = tradition_druzhina
-			has_cultural_tradition = tradition_martial_admiration
-		}
+		always = no # has_cultural_pillar = heritage_iranian
+		# NOR = { #Replaces Martial Admiration
+		# 	has_cultural_tradition = tradition_chanson_de_geste
+		# 	has_cultural_tradition = tradition_druzhina
+		# 	has_cultural_tradition = tradition_martial_admiration
+		# }
 	}
 	can_pick = {
-		has_cultural_pillar = heritage_iranian
-		NOR = { #Replaces Martial Admiration
-			has_cultural_tradition = tradition_chanson_de_geste
-			has_cultural_tradition = tradition_druzhina
-			has_cultural_tradition = tradition_martial_admiration
-		}
+		# has_cultural_pillar = heritage_iranian
+		# NOR = { #Replaces Martial Admiration
+		# 	has_cultural_tradition = tradition_chanson_de_geste
+		# 	has_cultural_tradition = tradition_druzhina
+		# 	has_cultural_tradition = tradition_martial_admiration
+		# }
 	}
 	
 	parameters = {
@@ -113,7 +113,7 @@ tradition_mubarizuns = {
 	
 	#Can pick this if you have arabic heritage.
 	is_shown = { #Replaces Warriors of the Dry
-		has_cultural_pillar = heritage_arabic
+		always = no #has_cultural_pillar = heritage_arabic
 	}
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
@@ -224,7 +224,7 @@ tradition_desert_ribat = {
 	}
 	
 	is_shown = {
-		has_cultural_pillar = heritage_berber
+		always = no #has_cultural_pillar = heritage_berber
 	}
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
@@ -336,10 +336,10 @@ tradition_land_of_the_bow = {
 	}
 	
 	is_shown = {
-		has_cultural_pillar = heritage_east_african
+		always = no #has_cultural_pillar = heritage_east_african
 	}
 	can_pick = {
-		has_cultural_pillar = heritage_east_african
+		always = no #has_cultural_pillar = heritage_east_african
 	}
 	
 	parameters = {
@@ -439,7 +439,7 @@ tradition_druzhina = {
 	#East Slavic
 	#This replaces Martial Admiration
 	is_shown = {
-		has_cultural_pillar = heritage_east_slavic
+		always = no #has_cultural_pillar = heritage_east_slavic
 		NOR = { #Replaces Martial Admiration
 			has_cultural_tradition = tradition_futuwaa
 			has_cultural_tradition = tradition_chanson_de_geste
@@ -447,7 +447,7 @@ tradition_druzhina = {
 		}
 	}
 	can_pick = {
-		has_cultural_pillar = heritage_east_slavic
+		always = no #has_cultural_pillar = heritage_east_slavic
 		NOR = { #Replaces Martial Admiration
 			has_cultural_tradition = tradition_futuwaa
 			has_cultural_tradition = tradition_chanson_de_geste
@@ -536,9 +536,7 @@ tradition_hussar = { #Konni Raids
 	#This replaces Hit and Run
 	is_shown = {
 		OR = {
-			has_cultural_pillar = heritage_south_slavic
-			has_cultural_pillar = heritage_magyar
-			has_cultural_pillar = heritage_west_slavic
+			has_cultural_pillar = heritage_kislevite
 		}
 	}
 	can_pick = {
@@ -628,8 +626,8 @@ tradition_horn_mountain_skirmishing = {
 	#In the Horn of Africa this replaces the Mountaineers tradition
 	is_shown = {
 		OR ={
-			has_cultural_pillar = heritage_somalian
-			has_cultural_pillar = heritage_east_african
+			always = no #has_cultural_pillar = heritage_somalian
+			#has_cultural_pillar = heritage_east_african
 		}
 		NOR = {
 			has_cultural_tradition = tradition_mountaineers
@@ -749,8 +747,8 @@ tradition_bush_hunting = {
 	#Replaces Jungle Warriors
 	is_shown = {
 		OR = {
-			has_cultural_pillar = heritage_akan
-			has_cultural_pillar = heritage_yoruba
+			always = no #has_cultural_pillar = heritage_akan
+			#has_cultural_pillar = heritage_yoruba
 		}
 		NOT = { has_cultural_tradition = tradition_jungle_warriors }
 	}
@@ -850,7 +848,7 @@ tradition_mobile_guards = {
 
 	#Replaces Stand and Fight
 	is_shown = {
-		has_cultural_pillar = heritage_israelite
+		always = no #has_cultural_pillar = heritage_israelite
 		NOT = { has_cultural_tradition = tradition_stand_and_fight }
 	}
 	can_pick = {
@@ -953,7 +951,7 @@ tradition_khadga_puja = {
 	}
 
 	is_shown = {
-		has_cultural_pillar = heritage_indo_aryan
+		always = no #has_cultural_pillar = heritage_indo_aryan
 	}
 	can_pick = {
 		custom_description = {
@@ -1042,7 +1040,7 @@ tradition_garuda_warriors = {
 	}
 
 	is_shown = {
-		has_cultural_pillar = heritage_dravidian
+		always = no #has_cultural_pillar = heritage_dravidian
 	}
 	can_pick = {
 	}
@@ -1124,10 +1122,10 @@ tradition_burman_royal_army = {
 	}
 
 	is_shown = {
-		has_cultural_pillar = heritage_burman
+		always = no #has_cultural_pillar = heritage_burman
 	}
 	can_pick = {
-		has_cultural_pillar = heritage_burman
+		always = no #has_cultural_pillar = heritage_burman
 	}
 	
 	parameters = {
@@ -1211,8 +1209,8 @@ tradition_mountain_herding = {
 	#Replaces Mountain Homes
 	is_shown = {
 		OR ={
-			has_cultural_pillar = heritage_arabic
-			has_cultural_pillar = heritage_berber
+			always = no #has_cultural_pillar = heritage_arabic
+			#has_cultural_pillar = heritage_berber
 		}
 	}
 	can_pick = {
@@ -1333,20 +1331,20 @@ tradition_forest_wardens = {
 	#Replaces Forest Folk
 	is_shown = {
 		OR = {
-			has_cultural_pillar = heritage_balto_finnic
-			has_cultural_pillar = heritage_volga_finnic
-			has_cultural_pillar = heritage_ugro_permian
-			has_cultural_pillar = heritage_baltic
+			has_cultural_pillar = heritage_norscan
+			has_cultural_pillar = heritage_kislevite
+			#has_cultural_pillar = heritage_ugro_permian
+			#has_cultural_pillar = heritage_baltic
 		}
 		NOT = { has_cultural_tradition = tradition_forest_folk }
 	}
 	can_pick = {
-		OR = {
-			has_cultural_pillar = heritage_balto_finnic
-			has_cultural_pillar = heritage_volga_finnic
-			has_cultural_pillar = heritage_ugro_permian
-			has_cultural_pillar = heritage_baltic
-		}
+		# OR = {
+		# 	has_cultural_pillar = heritage_balto_finnic
+		# 	has_cultural_pillar = heritage_volga_finnic
+		# 	has_cultural_pillar = heritage_ugro_permian
+		# 	has_cultural_pillar = heritage_baltic
+		# }
 		custom_description = {
 			text = culture_in_forest_desc
 			any_culture_county = {
@@ -1465,19 +1463,19 @@ tradition_upland_skirmishing = {
 
 	#Replaces Highland Warriors
 	is_shown = {
-		has_cultural_pillar = heritage_west_african
+		always = no #has_cultural_pillar = heritage_west_african
 		NOT = { has_cultural_tradition = tradition_highland_warriors }
 	}
 	can_pick = {
-		has_cultural_pillar = heritage_west_african
-		custom_description = {
-			text = culture_in_hills_desc
-			any_culture_county = {
-				county_has_province_with_terrain = {
-					terrain = hills
-				}
-			}
-		}
+		# has_cultural_pillar = heritage_west_african
+		# custom_description = {
+		# 	text = culture_in_hills_desc
+		# 	any_culture_county = {
+		# 		county_has_province_with_terrain = {
+		# 			terrain = hills
+		# 		}
+		# 	}
+		# }
 	}
 	
 	parameters = {
@@ -1578,27 +1576,27 @@ tradition_strong_kinship = { #There can be only one!
 
 	is_shown = {
 		OR = {
-			this = culture:gaelic
-			this = culture:scottish
-			any_parent_culture_or_above = {
-				OR = {
-					this = culture:gaelic
-					this = culture:scottish
-				}
-			}
+			always = no #this = culture:gaelic
+			# this = culture:scottish
+			# any_parent_culture_or_above = {
+			# 	OR = {
+			# 		this = culture:gaelic
+			# 		this = culture:scottish
+			# 	}
+			# }
 		}
 	}
 	can_pick = {
-		OR = {
-			this = culture:gaelic
-			this = culture:scottish
-			any_parent_culture_or_above = {
-				OR = {
-					this = culture:gaelic
-					this = culture:scottish
-				}
-			}
-		}
+		# OR = {
+		# 	this = culture:gaelic
+		# 	this = culture:scottish
+		# 	any_parent_culture_or_above = {
+		# 		OR = {
+		# 			this = culture:gaelic
+		# 			this = culture:scottish
+		# 		}
+		# 	}
+		# }
 	}
 	
 	parameters = {
@@ -1682,21 +1680,16 @@ tradition_amharic_highlanders = { #Ethiopian Unique Tradition, replaces hill dwe
 
 	is_shown = {
 		NOT = { has_cultural_tradition = tradition_hill_dwellers }
-		OR = {
-			this = culture:ethiopian
-			any_parent_culture_or_above = {
-				this = culture:ethiopian
-			}
-		}
+		always = no #
 	}
 	can_pick = {
 		NOT = { has_cultural_tradition = tradition_hill_dwellers }
-		OR = {
-			this = culture:ethiopian
-			any_parent_culture_or_above = {
-				this = culture:ethiopian
-			}
-		}
+		# OR = {
+		# 	this = culture:ethiopian
+		# 	any_parent_culture_or_above = {
+		# 		this = culture:ethiopian
+		# 	}
+		# }
 		custom_description = {
 			text = culture_in_hills_desc
 			any_culture_county = {
@@ -1808,17 +1801,17 @@ tradition_polders = { #Dutch Unique Tradition, bonuses to buildings along coastl
 
 	is_shown = {
 		OR = {
-			this = culture:dutch
+			this = culture:westerlander
 			any_parent_culture_or_above = {
-				this = culture:dutch
+				this = culture:westerlander
 			}
 		}
 	}
 	can_pick = {
 		OR = {
-			this = culture:dutch
+			this = culture:westerlander
 			any_parent_culture_or_above = {
-				this = culture:dutch
+				this = culture:westerlander
 			}
 		}
 		custom_description = {
@@ -1931,16 +1924,16 @@ tradition_caucasian_wolves = {
 	
 	#For Georgians this replaces the Mountaineers tradition
 	is_shown = {
-		OR = {
-			this = culture:georgian
-			any_parent_culture_or_above = {
-				this = culture:georgian
-			}
-		}
-		NOR = {
-			has_cultural_tradition = tradition_mountaineers
-			has_cultural_tradition = tradition_horn_mountain_skirmishing
-		}
+		always = no # OR = {
+		# 	this = culture:georgian
+		# 	any_parent_culture_or_above = {
+		# 		this = culture:georgian
+		# 	}
+		# }
+		# NOR = {
+		# 	has_cultural_tradition = tradition_mountaineers
+		# 	has_cultural_tradition = tradition_horn_mountain_skirmishing
+		# }
 	}
 	can_pick = {
 		custom_description = {
@@ -2060,15 +2053,15 @@ tradition_hird = {
 		}
 		OR = {
 			AND = {
-				has_cultural_pillar = heritage_north_germanic
+				has_cultural_pillar = heritage_norscan
 				has_fp1_dlc_trigger = no
 			}
-			any_parent_culture_or_above = {
-				OR = {
-					this = culture:old_saxon
-					this = culture:norse #For instance Norman culture
-				}
-			}
+			# any_parent_culture_or_above = {
+			# 	OR = {
+			# 		this = culture:old_saxon
+			# 		this = culture:norse #For instance Norman culture
+			# 	}
+			# }
 		}
 	}
 	can_pick = {
@@ -2185,7 +2178,7 @@ tradition_chanson_de_geste = {
 	}
 	
 	is_shown = {
-		has_cultural_pillar = heritage_frankish
+		has_cultural_pillar = heritage_bretonnian
 		NOR = { #Replaces Martial Admiration
 			has_cultural_tradition = tradition_futuwaa
 			has_cultural_tradition = tradition_druzhina
@@ -2193,7 +2186,7 @@ tradition_chanson_de_geste = {
 		}
 	}
 	can_pick = {
-		has_cultural_pillar = heritage_frankish
+		has_cultural_pillar = heritage_bretonnian
 		NOR = { #Replaces Martial Admiration
 			has_cultural_tradition = tradition_futuwaa
 			has_cultural_tradition = tradition_druzhina

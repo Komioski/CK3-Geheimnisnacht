@@ -580,7 +580,7 @@ tradition_cultural_primacy = {
 		has_tgp_dlc_trigger = yes
 		scope:character = {
 			OR = {
-				culture = { has_cultural_pillar = heritage_chinese }
+				culture = { has_cultural_pillar = heritage_cathayan }
 				has_title = title:h_china #Always available to new emperors
 			}
 		}
@@ -1583,11 +1583,11 @@ tradition_tgp_art_of_war = {
 
 	is_shown = {
 		OR = {
-			this = culture:han
-			any_parent_culture_or_above = {
-				this = culture:han
-			}
-			has_cultural_pillar = heritage_chinese
+			# this = culture:han
+			# any_parent_culture_or_above = {
+			# 	this = culture:han
+			# }
+			has_cultural_pillar = heritage_cathayan
 		}
 		# DLC check.
 		has_tgp_dlc_trigger = yes
@@ -1696,7 +1696,7 @@ tradition_tgp_court_machinations = {
 
 	is_shown = {
 		has_tgp_dlc_trigger = yes
-		has_cultural_pillar = heritage_chinese
+		has_cultural_pillar = heritage_cathayan
 		scope:character = {
 			has_title = title:h_china
 		}
@@ -1838,7 +1838,7 @@ tradition_scholar_officials = {
 		has_tgp_dlc_trigger = yes
 		scope:character = {
 			OR = {
-				culture = { has_cultural_pillar = heritage_chinese }
+				culture = { has_cultural_pillar = heritage_cathayan }
 				has_trait = confucian_education
 				government_has_flag = government_has_merit
 				has_title = title:h_china #Always available to new emperors
@@ -1929,11 +1929,11 @@ tradition_sinophilic = {
 	}
 
 	is_shown = {
-		has_tgp_dlc_trigger = yes
-		NOT = { has_cultural_pillar = heritage_chinese } #Can't be Sinophilic when you're Chinese
-		culture:han.culture_head ?= {
-			in_diplomatic_range = scope:character
-		}
+		always = no # has_tgp_dlc_trigger = yes
+		# NOT = { has_cultural_pillar = heritage_cathayan } #Can't be Sinophilic when you're Chinese
+		# culture:han.culture_head ?= {
+		# 	in_diplomatic_range = scope:character
+		# }
 	}
 
 	parameters = {
@@ -2088,7 +2088,7 @@ tradition_cultivation = {
 		has_tgp_dlc_trigger = yes
 		scope:character = {
 			OR = {
-				culture = { has_cultural_pillar = heritage_chinese }
+				culture = { has_cultural_pillar = heritage_cathayan }
 				has_trait = confucian_education
 				government_has_flag = government_has_merit
 				has_title = title:h_china #Always available to new emperors
@@ -2218,9 +2218,9 @@ tradition_intensive_farming = {
 	is_shown = {
 		has_tgp_dlc_trigger = yes
 		OR = {
-			has_cultural_pillar = heritage_chinese
+			has_cultural_pillar = heritage_cathayan
 			any_parent_culture_or_above = {
-				has_cultural_pillar = heritage_chinese
+				has_cultural_pillar = heritage_cathayan
 			}
 		}
 		NOR = {
