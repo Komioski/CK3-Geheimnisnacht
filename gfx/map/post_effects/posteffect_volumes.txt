@@ -46,8 +46,6 @@ posteffect_values = {
 	fog_max = 0
 }
 
-#LotR: Post effects. Desert and Boreal are from Imperator: Rome.
-#Plz Komi ask for permission for us to use these
 posteffect_values = {
 	name = desert
 	inherit = standard
@@ -137,7 +135,7 @@ posteffect_values = {
 	saturation_scale = 1.4
 	colorbalance = { 0.50 1.03 1.18 }
 	fog_color = hsv { 0.00 0.5 0.5 }
-	fog_begin = 5
+	fog_begin = 150
 	fog_end = 200
 	fog_max = 50
 }
@@ -250,9 +248,19 @@ posteffect_volume = {
 	posteffect_values_day = vampiric
 	posteffect_values_night = vampiric
 	position =	{ x-width		z			y-height }
-	position =	{ 3503.0		000.0		2571.0 }
+	position =	{ 3251.0		000.0		4276.0 }
 	size =		{ 155.0			235.0		140.0 }
 	fade_distance = 045.0
+}
+
+posteffect_volume = {
+	name = "sylvania"
+	posteffect_values_day = vampiric
+	posteffect_values_night = vampiric
+	position =	{ x-width		z			y-height }
+	position =	{ 4333.0		100.0		4373.0 }
+	size =		{ 455.0			535.0		300.0 }
+	fade_distance = 200.0
 }
 
 posteffect_volume = {
