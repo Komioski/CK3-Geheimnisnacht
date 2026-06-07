@@ -3132,15 +3132,6 @@
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
 	
-	background = { #LotR volcanic_plains
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		texture = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
 
 	background = { #LotR underground, dwarven settled
 		trigger = {
@@ -3189,54 +3180,6 @@
 	}
 	# End Travel
 	#Unique holy sites
-	background = {
-		trigger = {
-			activity_location.county = title:c_minas_tirith
-		}
-		texture = "gfx/interface/illustrations/event_scenes/minas_tirith.dds"
-		environment = "environment_event_farms"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
-	background = {
-		trigger = {
-			activity_location.county = title:c_dol_amroth
-		}
-		texture = "gfx/interface/illustrations/event_scenes/dol_amroth.dds"
-		environment = "environment_event_docks"
-		ambience = "event:/SFX/Events/Backgrounds/docks_day"
-	}
-	background = {
-		trigger = {
-			activity_location.county = title:c_annuminas
-		}
-		texture = "gfx/interface/illustrations/event_scenes/annuminas.dds"
-		environment = "environment_event_docks"
-		ambience = "event:/SFX/Events/Backgrounds/docks_day"
-	}
-	background = {
-		trigger = {
-			activity_location.county = title:c_kingstead
-		}
-		texture = "gfx/interface/illustrations/event_scenes/edoras.dds"
-		environment = "environment_event_farms"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
-	background = {
-		trigger = {
-			activity_location.county = title:c_caras_galadhon
-		}
-		texture = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = {
-		trigger = {
-			activity_location.county = title:c_barad_dur
-		}
-		texture = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
 	background = {
 		trigger = {
 			activity_location.culture = { has_graphical_mena_culture_group_trigger = yes }

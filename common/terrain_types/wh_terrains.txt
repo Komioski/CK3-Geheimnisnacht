@@ -55,3 +55,34 @@ subterranean = {
 	
 	audio_parameter = 6.0
 }
+
+# Subterranean Tunnels
+# A subterranean complex of tunnels comprised of vast and labyrinthine networks of chambers - some natural, some dug. An entire world hidden beneath the surface.
+halls = {
+	color = { 28 15 15 }
+
+	province_modifier = {
+		supply_limit_mult = -0.5
+		travel_danger = halls_danger_value #LotR
+	}
+
+	county_capital_modifier = {
+		development_growth_factor = -0.25
+	}
+
+	defender_combat_effects = {
+		name = combat_mountain
+		image = combat_mountain
+		advantage = 12
+	}
+	# defender_combat_effects = {
+	# 	name = combat_cavern
+	# 	image = combat_cavern
+	# 	advantage = 12
+	# }
+
+	movement_speed = 0.25
+	combat_width = 0.25
+
+	audio_parameter = 6.0
+}

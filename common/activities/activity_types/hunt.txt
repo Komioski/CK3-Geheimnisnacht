@@ -2045,9 +2045,6 @@
 			trigger = {
 				OR = {
 					terrain = desert
-					terrain = red_desert #LotR
-					terrain = volcanic_plains #LotR
-					terrain = dune_sea #LotR
 					terrain = desert_mountains
 					terrain = oasis
 				}
@@ -2188,7 +2185,6 @@
 							root = {
 								OR = {
 									terrain = desert
-									terrain = red_desert #LotR
 									terrain = oasis
 								}
 							}
@@ -2819,15 +2815,7 @@
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
 	
-	background = { #LotR volcanic_plains
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		texture = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
+
 
 	background = { #LotR underground, dwarven settled
 		trigger = {
@@ -2884,15 +2872,6 @@
 		texture = "gfx/interface/illustrations/event_scenes/bp1_desert.dds"
 		environment = "environment_event_bp1_desert"
 		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_desert"
-	}
-	
-	background = { #LotR volcanic_plains
-	 	trigger = {
-	 		activity_location ?= { graphical_wilderness_volcanic_trigger = yes }
-	 	}
-	 	texture = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-	 	environment = "environment_event_feast"
-	 	ambience = "event:/SFX/Events/Backgrounds/burning_building"
 	}
 
 	background = { #forest snowy

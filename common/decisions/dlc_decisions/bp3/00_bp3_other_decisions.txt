@@ -97,7 +97,6 @@ choose_designated_terrain_decision = {
 								terrain = hills
 								terrain = desert_mountains
 								terrain = terraced_hills
-								terrain = red_desert #LOTR
 							}
 						}
 					}
@@ -143,8 +142,6 @@ choose_designated_terrain_decision = {
 								terrain = drylands
 								terrain = desert
 								terrain = oasis
-								terrain = dune_sea #LOTR
-								terrain = volcanic_plains #LOTR
 							}
 						}
 					}
@@ -220,7 +217,6 @@ choose_master_terrain_decision = {
 			has_character_modifier = master_terrain_mountains_modifier
 			has_character_modifier = master_terrain_hills_modifier
 			has_character_modifier = master_terrain_desert_mountains_modifier
-			has_character_modifier = master_terrain_red_desert_modifier #LOTR
 			# Lowlands
 			has_character_modifier = master_terrain_plains_modifier
 			has_character_modifier = master_terrain_steppe_modifier
@@ -233,7 +229,6 @@ choose_master_terrain_decision = {
 			has_character_modifier = master_terrain_desert_modifier
 			has_character_modifier = master_terrain_oasis_modifier
 			has_character_modifier = master_terrain_dune_sea_modifier #LOTR
-			has_character_modifier = master_terrain_volcanic_plains_modifier #LOTR
 		}
 		OR = {
 			landless_inspector_terrain_master_trigger = { TERRAIN = woodlands }
@@ -414,24 +409,7 @@ choose_master_terrain_decision = {
 				}
 			}
 		}
-		item = { #LOTR - Desert Hills (red_desert)
-			value = master_terrain_red_desert_terrain
-			current_description = master_terrain_red_desert_decision
-			localization = master_terrain_red_desert_decision
-			icon = "gfx/interface/icons/terrain_types/red_desert.dds"
-			is_shown = { 
-				landless_inspector_terrain_master_trigger = { TERRAIN = highlands } 
-			}
-			ai_chance = { 
-				value = 0
-				if = {
-					limit = {
-						location = { terrain = red_desert }
-					}
-					add = 100
-				}
-			}
-		}
+
 
 		### Lowlands
 		item = { # Plains
@@ -617,24 +595,7 @@ choose_master_terrain_decision = {
 				}
 			}
 		}
-		item = { #LOTR - Volcanic Plains
-			value = master_terrain_volcanic_plains_terrain
-			current_description = master_terrain_volcanic_plains_decision
-			localization = master_terrain_volcanic_plains_decision
-			icon = "gfx/interface/icons/terrain_types/volcanic_plains.dds"
-			is_shown = { 
-				landless_inspector_terrain_master_trigger = { TERRAIN = drylands } 
-			}
-			ai_chance = { 
-				value = 0
-				if = {
-					limit = {
-						location = { terrain = volcanic_plains }
-					}
-					add = 100
-				}
-			}
-		}
+
 	}
 
 	effect = {
@@ -678,9 +639,6 @@ choose_master_terrain_decision = {
 				}
 				scope:master_terrain_desert_mountains_terrain = {
 					landless_inspector_master_terrain_effect = { TERRAIN = desert_mountains }
-				}
-				scope:master_terrain_red_desert_terrain = { #LOTR
-					landless_inspector_master_terrain_effect = { TERRAIN = red_desert }
 				}
 			}
 		}
@@ -727,9 +685,6 @@ choose_master_terrain_decision = {
 				}
 				scope:master_terrain_dune_sea_terrain = { #LOTR
 					landless_inspector_master_terrain_effect = { TERRAIN = dune_sea }
-				}
-				scope:master_terrain_volcanic_plains_terrain = { #LOTR
-					landless_inspector_master_terrain_effect = { TERRAIN = volcanic_plains }
 				}
 			}
 		}

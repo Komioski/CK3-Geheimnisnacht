@@ -79,3 +79,191 @@ sacked_by_pirates_modifier = {
 	supply_limit_mult = -0.1
 	development_growth_factor = -0.25
 }
+
+### Random Colonial Events ###
+
+cursed_spirits_modifier = {
+	icon = magic_negative
+	stress_gain_mult = 1
+	health = -0.25
+}
+
+levies_guarding_colony_modifier = {
+	icon = martial_negative
+	levy_size = -0.1
+}
+
+maa_gathering_new_colonists_modifier = {
+	icon = martial_negative
+	men_at_arms_maintenance = 0.05
+}
+
+tax_income_spent_on_colony_modifier = {
+	icon = county_modifier_development_negative
+	domain_tax_mult = -0.15
+}
+
+well_supplied_colony_county_modifier = {
+	icon = county_modifier_development_positive
+	development_growth_factor = 0.25
+}
+
+poorly_supplied_colony_county_modifier = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -0.2
+}
+
+strong_colonial_garrison_county_modifier = {
+	icon = martial_positive
+	garrison_size = 0.25
+	build_speed = -0.05
+	county_opinion_add = 30
+}
+
+put_trust_in_the_clergy_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.3
+	clergy_opinion = 30
+}
+
+crippling_malaise_county_modifier = {
+	icon = magic_negative
+	county_opinion_add = -30
+	build_speed = 0.3
+	development_growth_factor = -0.2
+}
+
+raised_spirits_county_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 10
+	build_speed = 0.05
+}
+
+fearful_colonists_county_modifier = {
+	icon = county_modifier_opinion_negative
+	county_opinion_add = -20
+	build_speed = 0.15
+	development_growth_factor = -0.1
+}
+
+sided_with_sinners_modifier = {
+	icon = piety_negative
+	monthly_piety_gain_mult = -0.1
+	religious_vassal_opinion = -20
+	clergy_opinion = -20
+}
+
+persecuted_colonists_county_modifier = {
+	icon = piety_negative
+	county_opinion_add = -30
+	build_speed = 0.2
+	tax_mult = -0.2
+}
+
+unpersecuted_colonists_county_modifier = {
+	icon = piety_positive
+	county_opinion_add = 30
+	build_speed = -0.1
+	tax_mult = 0.1
+}
+
+corrupt_governor_county_modifier = {
+	icon = economy_negative
+	tax_mult = -0.3
+	county_opinion_add = -20
+	monthly_county_control_decline_add = -0.1
+}
+
+unofficial_income_modifier = {
+	icon = economy_positive
+	monthly_income = 0.2
+	monthly_prestige = -0.1
+}
+
+military_colony_county_modifier = {
+	icon = martial_positive
+	levy_size = 0.25
+	garrison_size = 0.25
+	levy_reinforcement_rate = 0.25
+	tax_mult = -0.25
+	build_speed = 0.2
+	development_growth_factor = -0.1
+}
+
+merchant_colony_county_modifier = {
+	icon = stewardship_positive
+	tax_mult = 0.25
+	build_speed = -0.2
+	development_growth_factor = 0.1
+	levy_size = -0.25
+	garrison_size = -0.25
+	levy_reinforcement_rate = -0.25
+}
+
+harmonious_colony_county_modifier = {
+	icon = economy_positive
+	tax_mult = 0.1
+	build_speed = -0.1
+	development_growth_factor = 0.1
+	levy_size = 0.1
+	garrison_size = 0.1
+	levy_reinforcement_rate = 0.1
+}
+
+colony_disease_recovery_county_modifier = {
+	icon = treatment_negative
+	tax_mult = -0.5
+	levy_size = -0.5
+	garrison_size = -0.5
+	development_growth_factor = -0.1
+}
+
+reduced_taxes_on_guilds_modifier = {
+	icon = economy_negative
+	tax_mult = -0.1
+}
+
+increased_taxes_on_guilds_modifier = {
+	icon = economy_positive
+	tax_mult = 0.1
+	monthly_tyranny = 1
+	general_opinion = -10
+}
+
+rich_mineral_deposit_province_modifier = {
+	icon = rock_positive
+	monthly_income = 1
+}
+
+mineral_deposit_province_modifier = {
+	icon = rock_positive
+	monthly_income = 0.5
+}
+
+pet_bear_modifier = {
+	icon = dread_positive
+	prowess = 2
+	dread_baseline_add = 5
+}
+
+levies_aiding_colony_modifier = {
+	icon = martial_negative
+	levy_size = -0.1
+}
+
+enlisted_bandits_province_modifier = {
+	icon = martial_positive
+	levy_size = 0.1
+	garrison_size = 0.2
+	monthly_income = -0.2
+}
+
+permitted_bear_fighting = {
+    icon = county_modifier_opinion_positive
+    county_opinion_add = 30
+}
+
+banned_bear_fighting = {
+    icon = county_modifier_opinion_negative
+    county_opinion_add = -30
+}
