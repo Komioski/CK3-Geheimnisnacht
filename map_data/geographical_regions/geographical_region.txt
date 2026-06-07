@@ -22,10 +22,8 @@
 # >> world_old_world_bretonnia_north
 # >> world_old_world_bretonnia_south
 # > world_old_world_southern_realms
-# >> world_old_world_southern_realms_estalia
 # >> world_old_world_southern_realms_tilea
 # >>> world_old_world_southern_realms_tilea_north
-# >>> world_old_world_southern_realms_tilea_west
 # >>> world_old_world_southern_realms_tilea_south
 # > world_old_world_empire
 # >> world_old_world_empire_north
@@ -82,6 +80,7 @@ world_old_world = {
 ############################Bretonnia regions
 
 world_old_world_bretonnia_north = {
+	#graphical = yes
 	duchies = {
 		#Bastonne
 		d_bastonne d_garamont d_grismer d_toussaint
@@ -104,6 +103,7 @@ world_old_world_bretonnia_north = {
 	}
 }
 world_old_world_bretonnia_south = {
+	#graphical = yes
 	duchies = {
 		#Aquitaine
 		d_aquitaine d_eprenois
@@ -130,24 +130,37 @@ world_old_world_bretonnia = {
 ############################Southern realms regions Tilea and Estalia
 
 
-world_old_world_southern_realms_estalia = {
+world_old_world_southern_realms_estalia_north = {
+	#graphical = yes
 	duchies = {
-		#Astarios
-		d_the_magritate d_el_toboso d_garnata d_tartantia
-		#Calafina
-		d_santa_clair d_nacary_isles
-		#Cantonia
-		d_fierroso d_osborna d_santoyo
 		#Castillona
-		d_las_marcas d_irrana d_navana d_piraneo
-		#Obregon
-		d_finterra d_diamenterra d_portua
+		d_las_marcas d_navana d_piraneo
 		#Tigarre
 		d_bilbali d_barduila d_cantabrona d_gaula d_larra d_trastamara
 	}
 }
 
+
+world_old_world_southern_realms_estalia_south = {
+	#graphical = yes
+	duchies = {
+		#Astarios
+		d_the_magritate d_el_toboso d_garnata d_tartantia
+		#Cantonia
+		d_fierroso d_osborna d_santoyo d_irrana
+		#Calafina
+		d_santa_clair d_nacary_isles		
+		#Obregon
+		d_finterra d_diamenterra d_portua
+		#Adriata
+		d_siren_isles
+		#Tobaro
+		d_tobaro
+	}
+}
+
 world_old_world_southern_realms_tilea_north = {
+	#graphical = yes
 	duchies = {
 		#Miragliano
 		d_miragliano d_firento
@@ -160,16 +173,10 @@ world_old_world_southern_realms_tilea_north = {
 	}
 }
 
-world_old_world_southern_realms_tilea_west = {
-	duchies = {
-		#Adriata
-		d_siren_isles
-		#Tobaro
-		d_tobaro
-	}
-}
+
 
 world_old_world_southern_realms_tilea_south = {
+	#graphical = yes
 	duchies = {
 		#Luccini
 		d_luccini d_aldente d_organza d_pavezzano
@@ -185,14 +192,15 @@ world_old_world_southern_realms_tilea_south = {
 world_old_world_southern_realms_tilea = {
 	regions = {
 		world_old_world_southern_realms_tilea_north
-		world_old_world_southern_realms_tilea_west
+		
 		world_old_world_southern_realms_tilea_south
 	}
 }
 world_old_world_southern_realms = {
 	regions = {
-		world_old_world_southern_realms_estalia
 		world_old_world_southern_realms_tilea
+		world_old_world_southern_realms_estalia_north
+		world_old_world_southern_realms_estalia_south
 	}
 }
 
@@ -888,14 +896,6 @@ custom_beth_nahrain = {}
 ###########################################################################
 
 graphical_western = {
-	graphical = yes
-	color = { 255 0 0 }
-	regions = {
-		world_old_world_bretonnia_north
-		#world_old_world_empire
-		#world_old_world_norsca
-		#world_old_world_kislev
-	}
 }
 
 graphical_mena = {}
@@ -903,13 +903,6 @@ graphical_mena = {}
 graphical_india = {}
 
 graphical_mediterranean = {
-	graphical = yes
-	color = { 255 0 0 }
-	regions = {
-		world_old_world_bretonnia_south
-		world_old_world_southern_realms
-		#world_old_world_borderlands
-	}
 }
 
 graphical_steppe = {}
