@@ -1,0 +1,171 @@
+﻿imperial_anarchy = {
+	illustration = "gfx/interface/illustrations/event_story/mpo_steppe_region.dds"
+	situation_group_type = major
+
+	# Initial nomad assignment is done in two on_actions sections within game_start.txt, on_game_start and on_game_start_after_lobby
+	# Basic nomad govs are assigned in on_game_start so that realms that are nomadic correctly appear as such in the lobby
+	# Nomad titular titles, traits, domiciles are assigned in on_game_start_after_lobby, because read order made the game throw errors when these items were read pre-lobby-initialization
+
+	window = dynastic_cycle
+	gui_window_name = "window_tgp_dynastic_cycle"
+	gui_tooltip_group_focused = yes
+	map_mode = dynastic_cycle
+	illustration = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_corruption.dds"
+	situation_group_type = major
+
+	is_unique = yes # It can only exist once in the world
+
+	##################################################
+	# Regions
+	##################################################
+	sub_regions = {
+		core = {
+			#geographical_regions = { world_old_world_emprie_central }
+            icon = "gfx/interface/icons/situation_types/dynastic_cycle.dds"
+		}
+	}
+
+	##################################################
+	# On Actions
+	##################################################
+
+	# on_monthly = {
+	# 	trigger_event = {
+	# 		on_action = mpo_the_great_steppe_monthly_pulse
+	# 	}
+	# }
+	
+	# on_yearly = {
+	# 	trigger_event = {
+	# 		on_action = mpo_the_great_steppe_yearly_pulse
+	# 	}
+	# 	trigger_event = {
+	# 		on_action = mpo_generic_nomadic_region_yearly_pulse
+	# 	}
+	# }
+
+	##################################################
+	# Groups
+	##################################################
+	participant_groups = {
+		# imperial_candidates = {
+		# 	is_character_valid = {
+		# 		OR = {
+        #             primary_title = title:e_reikland
+        #             primary_title = title:e_talabecland
+        #             primary_title = title:e_middenland
+        #             primary_title = title:e_averland
+        #             primary_title = title:e_hochland
+        #             primary_title = title:e_mootland
+        #             primary_title = title:e_nordland
+        #             primary_title = title:e_ostermark
+        #             primary_title = title:e_ostland
+        #             primary_title = title:e_stirland
+        #             primary_title = title:e_wissenland
+        #             primary_title = title:e_sylvania
+        #             primary_title = title:e_westerland
+        #         }
+		# 	}
+
+		# 	# on_join = {
+		# 	# 	if = {
+		# 	# 		limit = {
+		# 	# 			is_ai = no
+		# 	# 			NOT = { has_character_flag = mpo_the_great_steppe_events_0001_var }
+		# 	# 		}
+		# 	# 		trigger_event = mpo_the_great_steppe.0001
+		# 	# 	}
+		# 	# }
+
+		# 	map_color = { 255 127 80 }
+		# }
+		
+		# imperial_rulers = {
+		# 	require_capital_in_sub_region = yes
+		# 	require_realm_in_sub_region = yes
+		# 	auto_add_landless_rulers = no
+
+		# 	is_character_valid = {
+		# 		highest_held_title_tier >= tier_duchy
+		# 	}
+
+		# 	# on_join = {
+		# 	# 	if = {
+		# 	# 		limit = {
+		# 	# 			is_ai = no
+		# 	# 			NOT = { has_character_flag = mpo_the_great_steppe_events_0001_var }
+		# 	# 		}
+		# 	# 		trigger_event = mpo_the_great_steppe.0001
+		# 	# 	}
+		# 	# }
+
+		# 	map_color = { 255 127 80 }
+		# }
+		imperial_candidates = { #all other independent rulers in the Dynastic Cycle region
+			icon = "gfx/interface/icons/dynastic_cycle/dynastic_cycle_group_independent.dds"
+			is_character_valid = {
+				OR = {
+                    primary_title = title:e_reikland
+                    primary_title = title:e_talabecland
+                    primary_title = title:e_middenland
+                    primary_title = title:e_averland
+                    primary_title = title:e_hochland
+                    primary_title = title:e_mootland
+                    primary_title = title:e_nordland
+                    primary_title = title:e_ostermark
+                    primary_title = title:e_ostland
+                    primary_title = title:e_stirland
+                    primary_title = title:e_wissenland
+                    primary_title = title:e_sylvania
+                    primary_title = title:e_westerland
+                }
+			}
+			on_join = {
+				# if = {
+				# 	limit = { is_ai = no }
+				# 	trigger_event = tgp_dynastic_cycle.0051
+				# }
+			}
+		}
+	}
+
+	##################################################
+	# Phases
+	##################################################
+	start_phase = situation_dynastic_cycle_phase_chaos #TODO
+
+	on_start = {
+		root.situation_sub_region:core = { add_dejure_title_to_sub_region = title:e_the_empire }
+		#root.situation_sub_region:core = { add_character_realm_to_sub_region = title:h_china.holder }
+        every_situation_participant = {
+			# Update total movement power for characters
+			update_character_movement_power_individual_effect = yes
+			# Setup elder/disciple relations
+		}
+	}
+
+	phases = {
+		situation_dynastic_cycle_phase_chaos = {
+			icon = "gfx/interface/icons/dynastic_cycle/dynastic_cycle_phase_chaos.dds"
+			illustration = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_corruption.dds"
+
+
+			on_start = {
+
+			}
+            parameters = {
+				era_type_chaotic = yes
+			}
+			max_duration_next_phase = random_non_takeover
+
+			future_phases = {
+				situation_dynastic_cycle_phase_chaos = {}
+			}
+
+			modifier_sets = {
+
+            }
+		}
+
+	}
+}
