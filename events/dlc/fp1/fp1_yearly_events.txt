@@ -5465,7 +5465,7 @@ scripted_trigger fp1_0111_superstitious_courtier_trigger = {
 	is_available_ai_adult = yes
 	OR = {
 		fp1_is_norse = yes
-		religion = religion:gwathuirim_religion
+		#religion = religion:gwathuirim_religion
 #		religion = religion:germanic_religion
 	}
 	# Rule out a few key traits.
@@ -5500,7 +5500,7 @@ scripted_trigger fp1_0111_suspicious_courtier_trigger = {
 	this != scope:accursed
 	OR = {
 		fp1_is_norse = yes
-		religion = religion:gwathuirim_religion
+		#religion = religion:gwathuirim_religion
 #		religion = religion:germanic_religion
 	}
 	# Would-be sorcerers need to either know what they're doing, or else have absolutely no clue.
@@ -5556,7 +5556,7 @@ scripted_trigger fp1_0111_discountable_courtier_trigger = {
 	this != scope:accursed
 	OR = {
 		fp1_is_norse = yes
-		religion = religion:gwathuirim_religion
+		#religion = religion:gwathuirim_religion
 #		religion = religion:germanic_religion
 	}
 	# Discountables must not meet minimum requirements to be suspicious.
@@ -15206,7 +15206,7 @@ fp1_yearly.1061 = {
 		# DLC check.
 		has_fp1_dlc_trigger = yes
 		# Germanic faith.
-		religion = religion:gwathuirim_religion
+		#religion = religion:gwathuirim_religion
 #		religion = religion:germanic_religion
 		# Shouldn't ever happen, but just in case, exempt sky burials so that the character is never buried twice.
 		NOR = {

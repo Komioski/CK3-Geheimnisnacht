@@ -1,0 +1,345 @@
+﻿#Triggers for races of WH
+#these should work for character, culture and province scopes
+
+## GENERIC TRIGGERS ##
+
+same_race = { #compares two scopes, example same_race = { TARGET = scope:target_ruler }
+	custom_description = {
+		text = same_race
+		OR = {
+			AND = {
+				is_human = yes
+				$TARGET$ = { is_human = yes }
+			}
+			# AND = {
+			# 	is_orc = yes  # juke note: is_orc includes is_goblin
+			# 	$TARGET$ = { is_orc = yes }
+			# }
+			# AND = {
+			# 	is_dwarf = yes
+			# 	$TARGET$ = { is_dwarf = yes }
+			# }
+			# AND = {
+			# 	is_elf = yes
+			# 	$TARGET$ = { is_elf = yes }
+			# }
+			AND = {
+				is_halfling = yes
+				$TARGET$ = { is_halfling = yes }
+			}
+		}
+	}
+}
+
+same_race_culture = { #compares two scopes, example same_race_culture = { TARGET = scope:target_culture }
+	OR = {
+		AND = {
+			is_human_culture = yes
+			$TARGET$ = { is_human_culture = yes }
+		}
+		# AND = {
+		# 	is_orc_culture = yes
+		# 	$TARGET$ = { is_orc_culture = yes }
+		# }
+		# AND = {
+		# 	is_dwarf_culture = yes
+		# 	$TARGET$ = { is_dwarf_culture = yes }
+		# }
+		# AND = {
+		# 	is_elf_culture = yes
+		# 	$TARGET$ = { is_elf_culture = yes }
+		# }
+		AND = {
+			is_halfling_culture = yes
+			$TARGET$ = { is_halfling_culture = yes }
+		}
+	}
+}
+
+lotr_tolerance_trigger = {
+	is_wastelands = no #Tom doesn't care much about you
+	$CHARACTER$ = { 
+		is_wastelands = no #Tom doesn't care much about you
+	} 
+	# trigger_if = {
+	# 	limit = { #Elves, Maiar and Wraiths won't deal with the Enemy
+	# 		OR = {
+	# 			is_elf = yes
+	# 			cannot_be_killed = yes
+	# 			$CHARACTER$ = { is_elf = yes }
+	# 			$CHARACTER$ = { cannot_be_killed = yes }
+	# 		}
+	# 	}
+	# 	NOT = { opposite_alignment = { TARGET = $CHARACTER$ }}
+	# }
+	# trigger_if = {
+	# 	limit = { #Orcs won't deal with anyone outside their (usually evil) alignment
+	# 		OR = {
+	# 			is_orc = yes
+	# 			$CHARACTER$ = { is_orc = yes }
+	# 		}
+	# 	}
+	# 	same_alignment = { TARGET = $CHARACTER$ }
+	# }
+}
+
+lotr_county_tolerance_trigger = {
+	is_wastelands = no #Tom doesn't care much about you
+	$COUNTY$ = {
+		is_wastelands = no
+	}
+	# trigger_if = {
+	# 	limit = { #Elves, Maiar and Wraiths won't deal with the Enemy
+	# 		OR = {
+	# 			is_elf = yes
+	# 			cannot_be_killed = yes
+	# 			$COUNTY$ = { is_elf = yes }
+	# 		}
+	# 	}
+	# 	NOT = { opposite_alignment = { TARGET = $COUNTY$ }}
+	# }
+	# trigger_if = {
+	# 	limit = { #Orcs won't deal with anyone outside their (usually evil) alignment
+	# 		OR = {
+	# 			is_orc = yes
+	# 			$COUNTY$ = { is_orc = yes }
+	# 		}
+	# 	}
+	# 	same_alignment = { TARGET = $COUNTY$ }
+	# }
+}
+
+lotr_can_recruit_from_county = {
+	lotr_county_tolerance_trigger = { COUNTY = $COUNTY$} #Basic race and alignment triggers 
+	# #Elves won't join just any court
+	# trigger_if = {
+	# 	limit = { is_elf = no }
+	# 	$COUNTY$ = { NOT = { is_elf = yes } }
+	# }
+	
+	# #AI Orcs only take on other Orcs
+	# trigger_if = {
+	# 	limit = { 
+	# 		is_orc = yes
+	# 		is_ai = yes
+	# 	}
+	# 	$COUNTY$ = { is_orc = yes }
+	# }
+}
+
+lotr_canon_safe_from_harm_trigger = {
+	always = no # has_game_rule = default_ai_behavior
+	# OR = {
+
+	# }
+}
+
+## HUMAN TRIGGERS ##
+
+is_human = { #all other races and species should be added here
+	custom_description = {
+		text = is_human
+		#culture ?= { has_cultural_parameter = is_human_heritage }
+		culture ?= { is_human_culture = yes }
+	}
+}
+
+is_human_culture = { #all other races and species should be added here
+	#this = { has_cultural_parameter = is_human_heritage }
+	NOR = {
+		is_dwarf_culture = yes
+		is_elf_culture = yes
+		is_halfling_culture = yes
+		is_orc_culture = yes
+	}
+}
+
+## WASTELANDS
+
+is_wastelands = {
+	culture = culture:wastelands
+}
+
+is_wastelands_culture = { 
+	has_cultural_pillar = heritage_wastelands
+}
+
+portrait_wastelands_clothing_trigger = {
+	scope:culture = { portrait_wastelands_clothing_contents_trigger = yes }
+}
+
+portrait_wastelands_clothing_spouse_trigger = {
+	culture = {
+		portrait_wastelands_clothing_contents_trigger = yes
+	}
+}
+
+portrait_wastelands_clothing_contents_trigger = {
+	portrait_shared_clothing_contents_trigger = { #LotR
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = wastelands
+	}
+}
+
+cannot_be_killed = {
+	OR = {
+		is_wastelands = yes
+	}
+}
+
+restricted_culture = { #these cultures should not be present in-game outside of certain story characters
+	OR = {
+		is_wastelands = yes
+	}
+}
+
+restricted_culture_culture = { #these cultures should not be present in-game outside of certain story characters
+	OR = {
+		is_wastelands_culture = yes
+	}
+}
+
+can_culture_convert = { #only checks if the culture can convert at all, for comparing two cultures use the next one
+	restricted_culture = no
+}
+
+can_culture_convert_culture = { #only checks if the culture can convert at all, for comparing two cultures use the next one
+	restricted_culture_culture = no
+}
+
+culture_conversion_to_allowed = { #example culture_conversion_to_allowed = { TARGET = scope:recipient }
+	can_culture_convert = yes
+	$TARGET$ = { can_culture_convert = yes }
+	same_race = { TARGET = $TARGET$ }
+}
+
+culture_conversion_to_allowed_culture = { #example culture_conversion_to_allowed_culture = { TARGET = scope:recipientculture }
+	can_culture_convert_culture = yes
+	$TARGET$ = { can_culture_convert_culture = yes }
+	same_race_culture = { TARGET = $TARGET$ }
+}
+
+## ORC TRIGGERS ## #TODO
+
+is_orc = {
+	custom_description = {
+		text = is_orc
+		always = no #culture ?= { has_cultural_parameter = is_orc_heritage }
+	}
+}
+
+is_goblin = {
+	always = no #culture ?= { has_cultural_pillar = heritage_goblin }
+}
+
+is_orc_culture = {
+	always = no #this = { has_cultural_parameter = is_orc_heritage }
+}
+
+is_goblin_culture = {
+	always = no #has_cultural_pillar = heritage_goblin
+}
+#Orcolades
+has_orc_accolades = { # juke note: used for accolade names - orcs will use some unique ones, but also not use others (such as horse-related names)
+	OR = {
+		is_orc = yes
+	}
+}
+
+is_troll = {
+	always = no #culture ?= { has_cultural_pillar = heritage_troll }
+}
+
+is_troll_culture = {
+	always = no #has_cultural_pillar = heritage_troll
+}
+
+## ELF TRIGGERS ## #TODO
+
+is_elf = {
+	custom_description = {
+		text = is_elf
+		always = no # OR = {
+		# 	culture ?= { has_cultural_parameter = is_elven_heritage }
+		# 	trigger_if = { #Check to ensure it's a character
+		# 		limit = { exists = location }
+		# 		has_trait = doom_sundered
+		# 	}
+		# }
+	}
+}
+
+is_elf_culture = {
+	always = no #this = { has_cultural_parameter = is_elven_heritage }
+}
+
+## DWARF TRIGGERS ## #TODO
+
+is_dwarf = { #is_dwarf_heritage
+	custom_description = {
+		text = is_dwarf
+		always = no #culture ?= { has_cultural_parameter = is_dwarf_heritage }
+	}
+}
+
+is_dwarf_culture = {
+	always = no #this = { has_cultural_parameter = is_dwarf_heritage }
+}
+
+is_underground_race = {
+	OR = {
+		is_dwarf = yes
+		is_orc = yes
+		is_goblin = yes
+	}
+}
+
+is_underground_race_culture = {
+	OR = {
+		is_dwarf_culture = yes
+		is_orc_culture = yes
+		is_goblin_culture = yes
+	}
+}
+
+
+### HALFLING TRIGGERS ##
+
+portrait_hobbit_clothing_trigger = {
+	scope:culture = { portrait_hobbit_clothing_contents_trigger = yes }
+}
+portrait_hobbit_clothing_spouse_trigger = {
+	culture = {
+		portrait_hobbit_clothing_contents_trigger = yes
+	}
+}
+portrait_hobbit_clothing_contents_trigger = {
+	portrait_shared_clothing_contents_trigger = { #LotR
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = halfling
+	}
+}
+
+is_halfling = {
+	culture = {
+		has_cultural_pillar = heritage_halflings
+	}
+}
+is_halfling_culture = {
+	has_cultural_pillar = heritage_halflings
+}
+
+# ## UNDEAD TRIGGERS
+# is_undead_culture = {
+# 	has_cultural_pillar = heritage_undead
+# }
+
+## UNDYING TRIGGERS ##
+
+is_nazgul = { #TODO WH remove references
+	always = no
+}
+
+is_nazgul_culture = { #TODO WH remove references
+	always = no
+}

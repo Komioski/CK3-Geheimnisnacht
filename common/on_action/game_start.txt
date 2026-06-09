@@ -1998,408 +1998,408 @@ on_game_start = {
 
 		# UNITY CONFIG
 		## 867.
-		if = {
-			limit = { game_start_date = 867.1.1 }
-			# Twiddle some starting unities.
-			## The Abassids are in the middle of a self-killing frenzy, so we lower theirs substantially.
-			house:house_abbasid ?= {
-				add_unity_value = {
-					value = -100
-					# This is from historical circumstances, so we just do use the house head.
-					character = house_head
-					desc = clan_unity_historical_circumstances.desc
-				}
-			}
-			## The Samanids are juuuuust about to get started on killing each other over who gets to lead Transoxiana.
-			house:house_samanid ?= {
-				add_unity_value = {
-					value = -40
-					# This is from historical circumstances, so we just do use the house head.
-					character = house_head
-					desc = clan_unity_historical_circumstances.desc
-				}
-			}
-			## The Afrighids (both of them) are having fairly few arguments because only one of them can speak and it's very easy to manage relations with a baby.
-			dynasty:1042112.dynast.house ?= {
-				add_unity_value = {
-					value = 50
-					# This is from historical circumstances, so we just do use the house head.
-					character = house_head
-					desc = clan_unity_historical_circumstances.desc
-				}
-			}
-			## The Tahirids are scattered but actually get along quite well and support each other politically (mostly).
-			dynasty:811.dynast.house ?= {
-				add_unity_value = {
-					value = 100
-					# This is from historical circumstances, so we just do use the house head.
-					character = house_head
-					desc = clan_unity_historical_circumstances.desc
-				}
-			}
-			## The Umayyads are having something of a renaissance.
-			dynasty:597.dynast.house ?= {
-				add_unity_value = {
-					value = 100
-					# This is from historical circumstances, so we just do use the house head.
-					character = house_head
-					desc = clan_unity_historical_circumstances.desc
-				}
-			}
-		}
-		# LEGITIMACY CONFIG
-		## 867.
-		if = {
-			limit = { game_start_date = 867.1.1 }
-			## Basileus Basileios was actually elected, so he's technically legitimate, but starts at level 2. With this he should be level 3.
-			character:1700 = {
-				add_legitimacy = major_legitimacy_gain
-			}
-		}
+		# if = {
+		# 	limit = { game_start_date = 867.1.1 }
+		# 	# Twiddle some starting unities.
+		# 	## The Abassids are in the middle of a self-killing frenzy, so we lower theirs substantially.
+		# 	house:house_abbasid ?= {
+		# 		add_unity_value = {
+		# 			value = -100
+		# 			# This is from historical circumstances, so we just do use the house head.
+		# 			character = house_head
+		# 			desc = clan_unity_historical_circumstances.desc
+		# 		}
+		# 	}
+		# 	## The Samanids are juuuuust about to get started on killing each other over who gets to lead Transoxiana.
+		# 	house:house_samanid ?= {
+		# 		add_unity_value = {
+		# 			value = -40
+		# 			# This is from historical circumstances, so we just do use the house head.
+		# 			character = house_head
+		# 			desc = clan_unity_historical_circumstances.desc
+		# 		}
+		# 	}
+		# 	## The Afrighids (both of them) are having fairly few arguments because only one of them can speak and it's very easy to manage relations with a baby.
+		# 	dynasty:1042112.dynast.house ?= {
+		# 		add_unity_value = {
+		# 			value = 50
+		# 			# This is from historical circumstances, so we just do use the house head.
+		# 			character = house_head
+		# 			desc = clan_unity_historical_circumstances.desc
+		# 		}
+		# 	}
+		# 	## The Tahirids are scattered but actually get along quite well and support each other politically (mostly).
+		# 	dynasty:811.dynast.house ?= {
+		# 		add_unity_value = {
+		# 			value = 100
+		# 			# This is from historical circumstances, so we just do use the house head.
+		# 			character = house_head
+		# 			desc = clan_unity_historical_circumstances.desc
+		# 		}
+		# 	}
+		# 	## The Umayyads are having something of a renaissance.
+		# 	dynasty:597.dynast.house ?= {
+		# 		add_unity_value = {
+		# 			value = 100
+		# 			# This is from historical circumstances, so we just do use the house head.
+		# 			character = house_head
+		# 			desc = clan_unity_historical_circumstances.desc
+		# 		}
+		# 	}
+		# }
+		# ## LEGITIMACY CONFIG
+		# ## 867.
+		# if = {
+		# 	limit = { game_start_date = 867.1.1 }
+		# 	## Basileus Basileios was actually elected, so he's technically legitimate, but starts at level 2. With this he should be level 3.
+		# 	character:1700 = {
+		# 		add_legitimacy = major_legitimacy_gain
+		# 	}
+		# }
 
-		# Cultural setup
-		if = {
-			limit = {
-				game_start_date = 1178.10.1
-			}
-			culture:norman = {
-				set_name_list = name_list_late_norman
-			}
-		}
+		# # Cultural setup
+		# if = {
+		# 	limit = {
+		# 		game_start_date = 1178.10.1
+		# 	}
+		# 	culture:norman = {
+		# 		set_name_list = name_list_late_norman
+		# 	}
+		# }
 
-		### EP3 BYZANTIUM IMPORTANT COUNTIES ###
-		if = {
-			limit = { has_ep3_dlc_trigger = yes }
-			title:c_antiocheia = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_jerusalem = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_alexandria = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_abbadan = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_edessa = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_bari = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_siracusa = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_roma = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_ravenna = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_tunis = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_tangiers = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_murcia = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_lombardia = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_trier = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_cumberland = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_northumberland = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_chandax = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_tourraine = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = ep3_emperor_yearly.2000
-				}
-			}
-			title:c_byzantion = {
-				set_important_location = {
-					title = title:e_byzantium
-					enter_realm_event = roman_restoration.1200
-				}
-				set_important_location = {
-					title = title:h_roman_empire
-					enter_realm_event = roman_restoration.1200
-				}
-				set_important_location = {
-					title = title:h_eastern_roman_empire
-					enter_realm_event = roman_restoration.1200
-				}
-			}
-		}
+		# ### EP3 BYZANTIUM IMPORTANT COUNTIES ###
+		# if = {
+		# 	limit = { has_ep3_dlc_trigger = yes }
+		# 	title:c_antiocheia = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_jerusalem = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_alexandria = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_abbadan = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_edessa = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_bari = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_siracusa = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_roma = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_ravenna = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_tunis = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_tangiers = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_murcia = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_lombardia = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_trier = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_cumberland = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_northumberland = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_chandax = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_tourraine = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = ep3_emperor_yearly.2000
+		# 		}
+		# 	}
+		# 	title:c_byzantion = {
+		# 		set_important_location = {
+		# 			title = title:e_byzantium
+		# 			enter_realm_event = roman_restoration.1200
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_roman_empire
+		# 			enter_realm_event = roman_restoration.1200
+		# 		}
+		# 		set_important_location = {
+		# 			title = title:h_eastern_roman_empire
+		# 			enter_realm_event = roman_restoration.1200
+		# 		}
+		# 	}
+		# }
 
-		# MPO Tribes of the North cultrad mechanic
-		if = {
-			limit = {
-				has_dlc_feature = khans_of_the_steppe
-			}
-			every_county_in_region = {
-				region = mpo_region_permafrost
-				if = {
-					limit = {
-						holder.culture ?= culture
-						culture = {
-							has_cultural_parameter = permafrost_modifier_mechanic
-						}
-					}
-					add_county_modifier = mpo_siberian_permafrost_modifier
-				}
-				else = {
-					add_county_modifier = mpo_siberian_permafrost_modifier_bad
-				}
+		# # MPO Tribes of the North cultrad mechanic
+		# if = {
+		# 	limit = {
+		# 		has_dlc_feature = khans_of_the_steppe
+		# 	}
+		# 	every_county_in_region = {
+		# 		region = mpo_region_permafrost
+		# 		if = {
+		# 			limit = {
+		# 				holder.culture ?= culture
+		# 				culture = {
+		# 					has_cultural_parameter = permafrost_modifier_mechanic
+		# 				}
+		# 			}
+		# 			add_county_modifier = mpo_siberian_permafrost_modifier
+		# 		}
+		# 		else = {
+		# 			add_county_modifier = mpo_siberian_permafrost_modifier_bad
+		# 		}
 
-			}
-		}
+		# 	}
+		# }
 
-		# Byzantine name game rule
-		title:e_byzantium = {
-			if = {
-				limit = {
-					has_game_rule = eastern_rome_name_of_byzantium
-				}
-				set_title_name = e_eastern_roman_empire
-			}
-			else_if = {
-				limit = {
-					has_game_rule = roman_empire_name_of_byzantium
-				}
-				set_title_name = h_roman_empire
-			}
-			else_if = {
-				limit = {
-					has_game_rule = romania_name_of_byzantium
-				}
-				set_title_name = e_romania_empire
-			}
-			else_if = {
-				limit = {
-					has_game_rule = empire_of_the_greeks_name_of_byzantium
-				}
-				set_title_name = e_empire_of_the_greeks
-			}
-			else_if = {
-				limit = {
-					has_game_rule = rhomaion_name_of_byzantium
-				}
-				set_title_name = e_rhomaion
-			}
-			else_if = {
-				limit = {
-					has_game_rule = unholy_roman_empire_name_of_byzantium
-				}
-				set_title_name = e_unholy_roman_empire
-			}
-		}
+		# # Byzantine name game rule
+		# title:e_byzantium = {
+		# 	if = {
+		# 		limit = {
+		# 			has_game_rule = eastern_rome_name_of_byzantium
+		# 		}
+		# 		set_title_name = e_eastern_roman_empire
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_game_rule = roman_empire_name_of_byzantium
+		# 		}
+		# 		set_title_name = h_roman_empire
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_game_rule = romania_name_of_byzantium
+		# 		}
+		# 		set_title_name = e_romania_empire
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_game_rule = empire_of_the_greeks_name_of_byzantium
+		# 		}
+		# 		set_title_name = e_empire_of_the_greeks
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_game_rule = rhomaion_name_of_byzantium
+		# 		}
+		# 		set_title_name = e_rhomaion
+		# 	}
+		# 	else_if = {
+		# 		limit = {
+		# 			has_game_rule = unholy_roman_empire_name_of_byzantium
+		# 		}
+		# 		set_title_name = e_unholy_roman_empire
+		# 	}
+		# }
 
 		# Remove Coronation Doctrine if you don't have the DLC
 		if = {

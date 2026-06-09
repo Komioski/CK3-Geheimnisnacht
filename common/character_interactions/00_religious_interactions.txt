@@ -387,15 +387,15 @@ ask_for_conversion_courtier_interaction = {
 			add = -1
 		}
 
-		modifier = { # The AI doesn't really want to convert Diasporic culture courtiers
-			scope:recipient = {
-				faith.religion = religion:judaism_religion
-				culture = {
-					has_cultural_tradition = tradition_diasporic
-				}
-			}
-			factor = 0
-		}
+		# modifier = { # The AI doesn't really want to convert Diasporic culture courtiers
+		# 	scope:recipient = {
+		# 		faith.religion = religion:judaism_religion
+		# 		culture = {
+		# 			has_cultural_tradition = tradition_diasporic
+		# 		}
+		# 	}
+		# 	factor = 0
+		# }
 
 		modifier = { # Do not convert Righteous faith subjects, unless disturbingly zealous
 			factor = 0

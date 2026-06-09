@@ -56,14 +56,13 @@ is_roman_emperor_primary_title_excluding_byzantium_trigger = {
 
 valid_for_byz_emperor_content_trigger = {
 	has_ep3_dlc_trigger = yes
-	culture = {
-		OR = {
-			# has_cultural_pillar = heritage_byzantine
-			# has_cultural_pillar = heritage_caucasian
-			has_cultural_pillar = heritage_south_khailuza
-			lotr_numenorean_trigger = yes
-		}
-	}
+	always = no # culture = {
+	# 	OR = {
+	# 		# has_cultural_pillar = heritage_byzantine
+	# 		# has_cultural_pillar = heritage_caucasian
+	# 		has_cultural_pillar = heritage_south_khailuza
+	# 	}
+	# }
 	# OR = {
 		# primary_title = title:e_byzantium
 		# primary_title = title:e_roman_empire
@@ -80,31 +79,30 @@ valid_for_byz_emperor_content_trigger = {
 }
 
 valid_for_byz_governor_content_trigger = {
-	has_ep3_dlc_trigger = yes
-	is_governor = yes
-	top_liege.culture = {
-		OR = {
-	# 		has_cultural_pillar = heritage_byzantine
-	# 		has_cultural_pillar = heritage_caucasian
-			has_cultural_pillar = heritage_south_khailuza
-			lotr_numenorean_trigger = yes
-		}
-	}
-	top_liege = {
+	always = no # has_ep3_dlc_trigger = yes
+	# is_governor = yes
+	# top_liege.culture = {
 	# 	OR = {
-	# 		primary_title = title:e_byzantium
-	# 		primary_title = title:e_roman_empire
-	# 		AND = {
-	# 			culture = {
-	# 				OR = {
-	# 					this = culture:greek
-	# 					any_parent_culture_or_above = { this = culture:greek }
-	# 				}
-	# 			}
-				highest_held_title_tier >= tier_empire
-	# 		}
+	# # 		has_cultural_pillar = heritage_byzantine
+	# # 		has_cultural_pillar = heritage_caucasian
+	# 		has_cultural_pillar = heritage_south_khailuza
 	# 	}
-	}
+	# }
+	# top_liege = {
+	# # 	OR = {
+	# # 		primary_title = title:e_byzantium
+	# # 		primary_title = title:e_roman_empire
+	# # 		AND = {
+	# # 			culture = {
+	# # 				OR = {
+	# # 					this = culture:greek
+	# # 					any_parent_culture_or_above = { this = culture:greek }
+	# # 				}
+	# # 			}
+	# 			highest_held_title_tier >= tier_empire
+	# # 		}
+	# # 	}
+	# }
 }
 
 valid_for_byz_succession_trigger = {

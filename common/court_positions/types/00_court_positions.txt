@@ -759,15 +759,15 @@ travel_leader_court_position = {
 				desc = court_position_jungle_stalker_trait
 			}
 		}
-		if = { #LotR
-			limit = {
-				has_trait = cavern_commander
-			}
-			add = {
-				value = 10
-				desc = court_position_cavern_commander_trait
-			}
-		}
+		# if = { #LotR
+		# 	limit = {
+		# 		has_trait = cavern_commander
+		# 	}
+		# 	add = {
+		# 		value = 10
+		# 		desc = court_position_cavern_commander_trait
+		# 	}
+		# }
 		if = {
 			limit = {
 				has_trait = winter_soldier
@@ -9951,62 +9951,23 @@ keeper_of_swans_court_position = {
 	}
 
 	is_shown = {
-		is_landed_or_landless_administrative = yes
-		NOR = {
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_celestial
-		}
-		trigger_if = {
-			limit = {
-				is_ai = yes
-				highest_held_title_tier <= tier_county
-			}
-			always = no #LotR
-		}
-		OR = {
-			is_elf = yes
-			AND = {
-				culture = culture:belfalathrim
-				has_title = title:k_belfalas
-			}
-			AND = {
-				culture = {
-					any_parent_culture_or_above = {
-						this = culture:belfalathrim
-					}
-				}
-				has_title = title:k_belfalas
-			}
-		}
+		always = no # is_landed_or_landless_administrative = yes
+		# NOR = {
+		# 	government_has_flag = government_is_nomadic
+		# 	government_has_flag = government_is_celestial
+		# }
+		# trigger_if = {
+		# 	limit = {
+		# 		is_ai = yes
+		# 		highest_held_title_tier <= tier_county
+		# 	}
+		# 	always = no #LotR
+		# }
+		
 	}
 
 	valid_position = {
-		capital_province = {
-			OR = {
-				geographical_region = middleearth_west
-				geographical_region = middleearth_rhun_seaofrhun
-			}
-		}
-		is_landed_or_landless_administrative = yes
-		highest_held_title_tier >= tier_county
-		OR = {
-			is_elf = yes
-			AND = {
-				culture = culture:belfalathrim
-				has_title = title:k_belfalas
-			}
-			AND = {
-				culture = {
-					any_parent_culture_or_above = {
-						this = culture:belfalathrim
-					}
-				}
-				has_title = title:k_belfalas
-			}
-		}
-		# culture = { #LOTR
-		# 	has_cultural_pillar = heritage_west_germanic
-		# }
+
 	}
 
 	is_shown_character = {
