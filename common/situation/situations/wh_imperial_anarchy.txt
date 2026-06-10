@@ -1,10 +1,4 @@
 ﻿imperial_anarchy = {
-	illustration = "gfx/interface/illustrations/event_story/mpo_steppe_region.dds"
-	situation_group_type = major
-
-	# Initial nomad assignment is done in two on_actions sections within game_start.txt, on_game_start and on_game_start_after_lobby
-	# Basic nomad govs are assigned in on_game_start so that realms that are nomadic correctly appear as such in the lobby
-	# Nomad titular titles, traits, domiciles are assigned in on_game_start_after_lobby, because read order made the game throw errors when these items were read pre-lobby-initialization
 
 	window = dynastic_cycle
 	gui_window_name = "window_tgp_dynastic_cycle"
@@ -14,6 +8,7 @@
 	situation_group_type = major
 
 	is_unique = yes # It can only exist once in the world
+	keep_full_history = yes 
 
 	##################################################
 	# Regions
@@ -48,37 +43,37 @@
 	# Groups
 	##################################################
 	participant_groups = {
-		# imperial_candidates = {
-		# 	is_character_valid = {
-		# 		OR = {
-        #             primary_title = title:e_reikland
-        #             primary_title = title:e_talabecland
-        #             primary_title = title:e_middenland
-        #             primary_title = title:e_averland
-        #             primary_title = title:e_hochland
-        #             primary_title = title:e_mootland
-        #             primary_title = title:e_nordland
-        #             primary_title = title:e_ostermark
-        #             primary_title = title:e_ostland
-        #             primary_title = title:e_stirland
-        #             primary_title = title:e_wissenland
-        #             primary_title = title:e_sylvania
-        #             primary_title = title:e_westerland
-        #         }
-		# 	}
+		imperial_candidates = {
+			map_color = { 255 127 80 }
+			is_character_valid = {
+				OR = {
+                    primary_title = title:e_reikland
+                    primary_title = title:e_talabecland
+                    primary_title = title:e_middenland
+                    primary_title = title:e_averland
+                    primary_title = title:e_hochland
+                    primary_title = title:e_mootland
+                    primary_title = title:e_nordland
+                    primary_title = title:e_ostermark
+                    primary_title = title:e_ostland
+                    primary_title = title:e_stirland
+                    primary_title = title:e_wissenland
+                    primary_title = title:e_sylvania
+                    primary_title = title:e_westerland
+                }
+			}
 
-		# 	# on_join = {
-		# 	# 	if = {
-		# 	# 		limit = {
-		# 	# 			is_ai = no
-		# 	# 			NOT = { has_character_flag = mpo_the_great_steppe_events_0001_var }
-		# 	# 		}
-		# 	# 		trigger_event = mpo_the_great_steppe.0001
-		# 	# 	}
-		# 	# }
+			# on_join = {
+			# 	if = {
+			# 		limit = {
+			# 			is_ai = no
+			# 			NOT = { has_character_flag = mpo_the_great_steppe_events_0001_var }
+			# 		}
+			# 		trigger_event = mpo_the_great_steppe.0001
+			# 	}
+			# }
 
-		# 	map_color = { 255 127 80 }
-		# }
+		}
 		
 		# imperial_rulers = {
 		# 	require_capital_in_sub_region = yes
@@ -101,32 +96,7 @@
 
 		# 	map_color = { 255 127 80 }
 		# }
-		imperial_candidates = { #all other independent rulers in the Dynastic Cycle region
-			icon = "gfx/interface/icons/dynastic_cycle/dynastic_cycle_group_independent.dds"
-			is_character_valid = {
-				OR = {
-                    primary_title = title:e_reikland
-                    primary_title = title:e_talabecland
-                    primary_title = title:e_middenland
-                    primary_title = title:e_averland
-                    primary_title = title:e_hochland
-                    primary_title = title:e_mootland
-                    primary_title = title:e_nordland
-                    primary_title = title:e_ostermark
-                    primary_title = title:e_ostland
-                    primary_title = title:e_stirland
-                    primary_title = title:e_wissenland
-                    primary_title = title:e_sylvania
-                    primary_title = title:e_westerland
-                }
-			}
-			on_join = {
-				# if = {
-				# 	limit = { is_ai = no }
-				# 	trigger_event = tgp_dynastic_cycle.0051
-				# }
-			}
-		}
+
 	}
 
 	##################################################
@@ -145,13 +115,47 @@
 	}
 
 	phases = {
+		
+		situation_dynastic_cycle_phase_instability = { # Tang
+			icon = "gfx/interface/icons/dynastic_cycle/dynastic_cycle_phase_instability.dds"
+			illustration = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_consolidation.dds"
+
+			on_start = {
+
+			}
+
+			parameters = {
+				era_type_unstable = yes
+			}
+
+			on_end = {
+
+			}
+			future_phases = {
+				situation_dynastic_cycle_phase_chaos = {
+				}
+			}
+			modifier_sets = {
+				dynastic_cycle_government_effects = {
+
+				}
+
+				dynastic_cycle_character_effects = {
+
+				}
+			}
+		}
+
 		situation_dynastic_cycle_phase_chaos = {
 			icon = "gfx/interface/icons/dynastic_cycle/dynastic_cycle_phase_chaos.dds"
 			illustration = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_corruption.dds"
 
 
 			on_start = {
-
+				tgp_dynastic_cycle_record_history_phase_change_effect = {
+					PHASE = situation_dynastic_cycle_phase_chaos
+					PHASE_NUMBER = 6
+				}
 			}
             parameters = {
 				era_type_chaotic = yes

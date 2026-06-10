@@ -1,12 +1,79 @@
 ﻿###################
 # DYNASTIC CYCLE  #
 ###################
-1.1.1 = {
+5652.1.1 = {
+	effect = {
+		start_situation = { type = imperial_anarchy }		
+	}
+}
+5652.1.1 = {
+	effect = {
+		situation:imperial_anarchy = {
+			record_situation_special_event = {
+				key = anarchy_history_key_no_emperors
+				phase = situation_dynastic_cycle_phase_chaos
+			}
+		}
+	}
+}
+5859.1.1 = {
+	effect = {
+		situation:imperial_anarchy = {
+			record_situation_special_event = {
+				key = anarchy_history_key_two_emperors
+				phase = situation_dynastic_cycle_phase_chaos
+			}
+		}
+	}
+}
+5948.1.1 = {
+	effect = {
+		situation:imperial_anarchy = {
+			record_situation_special_event = {
+				key = anarchy_history_key_crusade_araby
+				phase = situation_dynastic_cycle_phase_chaos
+			}
+		}
+	}
+}
+6047.1.1 = {
+	effect = {
+		situation:imperial_anarchy = {
+			record_situation_special_event = {
+				key = anarchy_history_key_three_emperors
+				phase = situation_dynastic_cycle_phase_chaos
+			}
+		}
+	}
+}
+6181.7.13 = {
+	effect = {
+		situation:imperial_anarchy = {
+			record_situation_special_event = {
+				key = anarchy_history_key_restless_dead
+				phase = situation_dynastic_cycle_phase_chaos
+			}
+		}
+	}
+}
+6479.1.1 = {
+	effect = {
+		situation:imperial_anarchy = {
+			record_situation_special_event = {
+				key = anarchy_history_key_four_emperors
+				phase = situation_dynastic_cycle_phase_chaos
+			}
+		}
+	}
+}
+6510.7.1 = {
 	effect = {
 		if = {
 			limit = { has_tgp_dlc_trigger = yes }
-			start_situation = {
-				type = imperial_anarchy
+			situation:imperial_anarchy = {
+				situation_top_sub_region = {
+					change_phase = { phase = situation_dynastic_cycle_phase_chaos }
+				}
 			}
 		}		
 	}
