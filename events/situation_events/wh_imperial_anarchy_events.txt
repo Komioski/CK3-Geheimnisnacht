@@ -1,0 +1,104 @@
+﻿namespace = imperial_anarchy
+# imperial_anarchy.1000 # ANARCHY IS OVER, HURRAY
+
+
+imperial_anarchy.1000 = { # ANARCHY IS OVER, HURRAY
+	type = character_event
+	window = fullscreen_event
+	title = {
+        first_valid = {
+            triggered_desc = { trigger = { is_orc = yes }
+				desc = imperial_anarchy.1000.t.orc
+			}
+            triggered_desc = { trigger = { wh_is_vampire_trigger = yes }
+				desc = imperial_anarchy.1000.t.vampire
+			}
+            triggered_desc = { trigger = { faith = faith:ulrican }
+				desc = imperial_anarchy.1000.t.ulric
+			}
+            desc = imperial_anarchy.1000.t
+        }
+    }
+    desc = {
+        first_valid = {
+            triggered_desc = { trigger = { is_orc = yes }
+				desc = imperial_anarchy.1000.desc.orc
+			}
+            triggered_desc = { trigger = { wh_is_vampire_trigger = yes }
+				desc = imperial_anarchy.1000.desc.vampire
+			}
+            desc = {
+				desc = imperial_anarchy.1000.desc.intro
+                triggered_desc = { trigger = { faith = faith:ulrican }
+                    desc = imperial_anarchy.1000.desc.ulric
+                }
+                triggered_desc = { trigger = { faith = faith:sigmarite }
+                    desc = imperial_anarchy.1000.desc.sigmar
+                }
+                triggered_desc = { trigger = { faith = faith:sigmar_sisters }
+                    desc = imperial_anarchy.1000.desc.sister
+                }
+                triggered_desc = { trigger = { faith = faith:taalite }
+                    desc = imperial_anarchy.1000.desc.taal
+                }
+                triggered_desc = { trigger = { always = no } # TODO WH
+                    desc = imperial_anarchy.1000.desc.gwacslayer
+                }
+                desc = imperial_anarchy.1000.desc.state
+			}
+        }
+    }
+	theme = dynastic_cycle
+	override_background = { reference = tgp_fullscreen_dynastic_cycle_instability }
+
+	# widgets = {
+	# 	widget = {
+ 	# 		gui = "event_window_widget_situation_info_dynastic_cycle"
+ 	# 		container = "dynamic_content_widget"
+ 	# 		controller = situation_info
+ 	# 		setup_scope = { situation:dynastic_cycle = { save_scope_as = situation } }
+	# 	}
+	# }
+
+	# trigger = {
+	# 	current_date_is_start_date_trigger = no
+	# 	situation:dynastic_cycle = { situation_current_phase = situation_dynastic_cycle_phase_instability_conquest }
+	# }
+
+	immediate = {
+		add_character_flag = tgp_dynastic_cycle_intro_event_flag
+		play_music_cue = mx_cue_tgp_dynastic_cycle_end
+		save_scope_as = mandate_claimant
+		show_as_tooltip = {
+			claim_the_empire_effect = yes
+		}
+		custom_tooltip = dynastic_cycle_entered_conquest_tt
+	}
+
+	option = {
+
+        name = { trigger = { is_orc = yes }
+            text = imperial_anarchy.1000.a.orc
+        }
+        name = { trigger = { wh_is_vampire_trigger = yes }
+            text = imperial_anarchy.1000.a.vampire
+        }
+        name = imperial_anarchy.1000.a
+    
+		clicksound = "event:/DLC/EP4/MX/CueTracks/mx_mtgp_dynastic_cycle_end"
+	}
+
+	after = {
+		# every_player = {
+		# 	limit = { tgp_does_this_player_care_about_the_dynastic_cycle = yes } # Needs to be checked before the situation ends due to race condition issues
+		# 	add_to_list = player_to_notify # Making a list so stuff is tiggered after the situation ends, to make extra sure I don't break anything.
+		# }
+		# every_in_list = { # Then we *actually* notify players, making sure the situation has already ended
+		# 	list = player_to_notify
+		# 	limit = {
+		# 		NOT = { this = root }
+		# 	}
+		# 	trigger_event = tgp_dynastic_cycle.0062
+		# }
+	}
+}

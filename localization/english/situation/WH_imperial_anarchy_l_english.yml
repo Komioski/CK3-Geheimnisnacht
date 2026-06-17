@@ -29,9 +29,19 @@
  verminlord: "Verminlord"
  everchosen: "Everchosen of Chaos"
 
- summon_elector_counts_decision: "SUMMON THE ELECTOR COUNTS"
- summon_elector_counts_decision_tooltip: ""
- summon_elector_counts_decision_desc: ""
+ # Claim Mandate
+ imperial_anarchy_summon_elector_counts_decision: "SUMMON THE ELECTOR COUNTS"
+ imperial_anarchy_summon_elector_counts_decision_desc: "Only a unanimous vote of the Elector-Counts can end this hateful Anarchy and reunite [GetTitleByKey('e_the_empire').GetNameNoTier]. If they cannot see reason, blinded by their own need for power, then the choice must be made on their behalf."
+ imperial_anarchy_summon_elector_counts_decision_confirm: "This action has my consent."
+ imperial_anarchy_summon_elector_counts_decision_tooltip: "It is time for [GetTitleByKey('e_the_empire').GetDefinitiveName|U] to UNITE!"
+
+ claim_the_empire_decision_county_percentage_tt: "You must control at least [SCOPE.ScriptValue('claim_the_empire_county_percentage_value')|V%0] of [GetTitleByKey('e_the_empire').GetDefinitiveNamePossessive] [de_jure|E] [counties|E] #weak (Current: [SCOPE.ScriptValue('claim_the_empire_control_percent_value')|0]%)#!"
+
+ claim_the_empire_decision_diplomatic_route_tt: "All $imperial_anarchy_participant_group_imperial_candidates$ in [GetTitleByKey('e_the_empire').GetDefinitiveName] must have a positive opinion of you and not be at war."
+
+ claim_the_empire_independent_realms_desc: "Every [independent_ruler|E] in the [dynastic_cycle|E] who has Human or Halfling [heritage|E] will become your [vassal|E]."
+
+
  renounce_imperial_claim_decision: "Renounce your Imperial Claim"
  renounce_imperial_claim_decision_tooltip: ""
  renounce_imperial_claim_decision_desc: ""
@@ -41,3 +51,29 @@
  support_imperial_claimant_decision: "Support Imperial Claimant"
  support_imperial_claimant_decision_tooltip: ""
  support_imperial_claimant_decision_desc: ""
+
+
+ #Events Loc
+ ## ANARCHY IS OVER, HURRAY
+ imperial_anarchy.head: "The Anarchy:"
+ imperial_anarchy.1000.t: "$imperial_anarchy.head$ Imperial Triumph"
+ imperial_anarchy.1000.t.ulric: "$imperial_anarchy.head$ Wolf Emperor Triumphant"
+ imperial_anarchy.1000.t.vampire: "$imperial_anarchy.head$ Immortal Empire"
+ imperial_anarchy.1000.t.orc: "$imperial_anarchy.head$ Wait... What?"
+ imperial_anarchy.1000.desc.intro: "At long last, this woeful Anarchy must end. The Empire is once again united, the beating heart of The Old World!\n\n"
+ imperial_anarchy.1000.desc.sigmar: "Sigmar is the God of the Empire, and so only his Cult has the right to choose the next Emperor."
+ imperial_anarchy.1000.desc.ulric: "As Ulric chose the First Emperor, it is fitting that his cult should choose the next one."
+ imperial_anarchy.1000.desc.taal: "As Taal and Rhya are King and Queen of the Gods, their cults possess the wisdom to choose the next Emperor."
+ imperial_anarchy.1000.desc.sister: "Long have the Sisters of Sigmar been met with suspicion, but now their faith is proven wisest and truest."
+ imperial_anarchy.1000.desc.gwacslayer: "The vote was unanimous, for who could deny the Slayer of the Everchosen as the truest son of The Empire?"
+ imperial_anarchy.1000.desc.state: "\n\nAs masters of The Empire, the [ROOT.Char.Custom('LadiesLords')] of [ROOT.Char.GetPrimaryTitle.GetNameNoTooltip] shall rise to deserved prominence!"
+ imperial_anarchy.1000.a: "Long Live The Empire!"
+
+ imperial_anarchy.1000.desc.vampire: "Though my heart beats not, my claim to the Imperial Title is truer than any Human princeling.\n\nThe Mortal subjects of The Empire may quail at the thought of an undead overlord, but like the Sylvanians, they will come to appreciate the benefits of Immortal Rule.\n\nAs now begins my reign of a thousand- no, a million years!"
+ imperial_anarchy.1000.a.vampire: "From the grave, rises The Empire!"
+ imperial_anarchy.1000.desc.orc: "ALROIT, DIS ANORCHY BIZNESS WAS FUN AN' ALL, BUT NOW ITS TIME FOR A PROPA EMPERORC TO TAKE CHARGE.\n\nI'LL ROOL DIS PLACE BETTA THAN ANY HUMIE, OR MAYBE JUST SMASH IT ALL FOR FUN, DUNNO.\n\nWE'LL DO A COUNTY-THING, CUS YOU 'MPEERIALS LIKE DAT.\n\nWHO VOTES FOR ME?\n\n...DATS ONE.\n\nANY AGAINST?\n\n..."
+ imperial_anarchy.1000.a.orc: "...DIDNT FINK SO."
+
+
+
+ 

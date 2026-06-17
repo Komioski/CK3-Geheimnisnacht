@@ -1,0 +1,82 @@
+﻿### SUMMON THE ELECTOR COUNTS ###
+imperial_anarchy_summon_elector_counts_decision = {
+	decision_group_type = dynastic_cycle
+	title = imperial_anarchy_summon_elector_counts_decision
+	desc = imperial_anarchy_summon_elector_counts_decision_desc
+	selection_tooltip = imperial_anarchy_summon_elector_counts_decision_tooltip
+	picture = {
+		reference = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_stability.dds"
+	}
+	extra_picture = "gfx/interface/illustrations/event_story/tgp_dynastic_cycle_stability.dds"
+	sort_order = 80
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		exists = top_participant_group:imperial_anarchy #I am part of the Imperial Anarchy
+		situation:imperial_anarchy = { situation_current_phase = situation_dynastic_cycle_phase_chaos } #The era is division
+	}
+
+	is_valid = {
+		situation:imperial_anarchy = { situation_current_phase = situation_dynastic_cycle_phase_chaos }
+		is_independent_ruler = yes
+        OR = {
+            custom_tooltip = {
+                text = claim_the_empire_decision_county_percentage_tt
+                title:e_the_empire = {
+                    any_de_jure_county = {
+                        percent >= claim_the_empire_county_percentage_value
+                        holder.top_liege = {
+                            OR = {
+                                this = root
+                                is_tributary_of_suzerain_or_above = root
+                            }
+                        }
+                    }
+                }
+            }
+            custom_tooltip = {
+                text = claim_the_empire_decision_diplomatic_route_tt
+				any_ruler = {
+					this != root
+					primary_title.tier >= tier_empire
+					any_character_situation = {
+						situation_type = imperial_anarchy
+					}
+					opinion = { 
+						target = root
+						value >= 100
+					}
+				}
+
+				#always = no
+            }
+        }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_at_peace_adult = yes
+	}
+
+	effect = {
+		add_character_flag = {
+			flag = claimed_the_mandate_of_heaven
+			days = 3
+		}
+		situation:imperial_anarchy = { save_scope_as = situation }
+		wh_claim_the_empire_effect = yes
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 36
+		empire = 3
+		hegemony = 12
+	}
+	ai_potential = { 
+		situation:imperial_anarchy ?= { situation_current_phase = situation_dynastic_cycle_phase_chaos }
+	}
+	ai_will_do = { base = 10000 }
+}

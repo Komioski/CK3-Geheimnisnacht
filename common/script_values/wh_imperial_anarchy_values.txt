@@ -1,0 +1,36 @@
+﻿# Situation
+
+claim_the_empire_county_percentage_value = {
+	value = 0.51
+}
+
+claim_the_empire_control_total_value = {
+	value = 0
+	title:e_the_empire = {
+		every_de_jure_county = { add = 1 }
+	}
+}
+
+claim_the_empire_control_held_value = {
+	value = 0
+	save_temporary_scope_as = holder_temp
+	title:e_the_empire = {
+		every_de_jure_county = {
+			limit = {
+				holder.top_liege = {
+					OR = {
+						this = scope:holder_temp
+						is_tributary_of_suzerain_or_above = scope:holder_temp
+					}
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+claim_the_empire_control_percent_value = {
+	value = claim_the_empire_control_held_value
+	divide = claim_the_empire_control_total_value
+	multiply = 100
+}

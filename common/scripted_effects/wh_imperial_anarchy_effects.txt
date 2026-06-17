@@ -1,0 +1,268 @@
+﻿wh_claim_the_empire_effect = {
+	save_scope_as = new_son_of_heaven
+	set_variable = {
+		name = new_son_of_heaven
+		value = scope:new_son_of_heaven
+		days = 2
+	}
+	# every_vassal = {
+	# 	limit = {
+	# 		any_held_title = {
+	# 			OR = {
+	# 				exists = var:ceremonial_title
+	# 				exists = var:administrative_ui_special_title
+	# 			}
+	# 		}
+	# 	}
+	# 	random_held_title = {
+	# 		limit = { exists = var:ceremonial_title }
+	# 		save_scope_as = ceremonial_title
+	# 	}
+	# 	save_temporary_scope_as = ceremonial_liege
+	# 	# TGP end the ceremonial liege
+	# 	# MESSAGE
+	# 	hidden_effect = {
+	# 		every_player = {
+	# 			limit = { top_liege = scope:ceremonial_liege.top_liege }
+	# 			send_interface_message = {
+	# 				type = event_generic_bad
+	# 				title = tgp_destroy_ceremonial_liege_throne_title
+	# 				left_icon = scope:ceremonial_liege
+	# 				right_icon = scope:new_son_of_heaven
+	# 				show_as_tooltip = {
+	# 					scope:new_son_of_heaven = { destroy_title = scope:ceremonial_title }
+	# 					scope:ceremonial_liege = { add_trait = former_emperor }
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	# Actually destroy
+	# 	scope:ceremonial_liege = { add_trait = former_emperor }
+	# 	scope:new_son_of_heaven = { destroy_title = scope:ceremonial_title }
+	# }
+	set_variable = {
+		name = claimed_mandate_var
+		value = yes
+		days = 30
+	}
+	# Grant the Hegemon title
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = mandate_change
+		add_claim_on_loss = no
+	}
+	title:e_the_empire = {
+		change_title_holder = {
+			holder = scope:new_son_of_heaven
+			change = scope:mandate_change
+		}
+	}
+	resolve_title_and_vassal_change = scope:mandate_change
+	# destroy empire titles for merit hgemony, instead force them granting titles away
+	if = {
+		limit = {
+			is_ai = yes
+		}
+		every_held_title = {
+			title_tier = empire
+			prev = { destroy_title = prev }
+		}
+	}
+	# Adjust tributaries
+	if = {
+		limit = {
+			number_of_tributaries > 0
+		}
+		# Vassalize tributaries within China (except if it's a player)
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = mandate_vassalize_tributaries_change
+		}
+		every_tributary = {
+			limit = {
+				is_ai = yes
+				primary_title = {
+					target_is_de_jure_liege_or_above = title:e_the_empire
+				}
+			}
+			hidden_effect = { end_tributary = yes }
+			change_liege = {
+				liege = scope:new_son_of_heaven
+				change = scope:mandate_vassalize_tributaries_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:mandate_vassalize_tributaries_change
+		# Turn your other tributaries into hegemonic
+
+	}
+	scope:new_son_of_heaven = {
+		# Get some gold back from any owned domicile
+		nomad_domicile_refund_effect = yes
+		# Get the de jure capital if possible
+		if = {
+			limit = {
+				title:e_the_empire.title_capital_county.holder ?= {
+					OR = {
+						any_liege_or_above = { this = scope:new_son_of_heaven }
+						this = scope:new_son_of_heaven
+					}
+				}
+			}
+			if = {
+				limit = {
+					title:e_the_empire.title_capital_county.holder = {
+						this != scope:new_son_of_heaven
+					}
+				}
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = mandate_capital_change
+					add_claim_on_loss = no
+				}
+				title:e_the_empire.title_capital_county = {
+					change_title_holder = {
+						holder = scope:new_son_of_heaven
+						change = scope:mandate_capital_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:mandate_capital_change
+			}
+			set_realm_capital = title:e_the_empire.title_capital_county
+		}
+		# Provide the new emperor with suitable rewards
+		hidden_effect = {
+			add_treasury = {
+				value = gold
+				min = 1000
+			}
+			change_influence = {
+				value = monumental_influence_gain
+				multiply = 4
+			}
+			add_legitimacy = mandate_legitimacy_max
+		}
+		dynasty = {
+			add_dynasty_prestige = excessive_dynasty_prestige_value
+		}
+		add_character_modifier = claim_mandate_decision_modifier
+		# Increase control of every owned county within China
+		hidden_effect = {
+			every_realm_county = {
+				custom = custom_every_realm_county
+				limit = {
+					target_is_de_jure_liege_or_above = title:e_the_empire
+				}
+				change_county_control = 25
+			}
+		}
+		show_as_tooltip = { # We show this as a tooltip because it looks better than the above effect
+			title:e_the_empire = { change_county_control = 25 }
+		}
+		
+	}
+	# # Convert eligible vassals to celestial
+	# custom_tooltip = {
+	# 	text = claim_mandate_turn_vassal_celestial_desc
+	# 	every_vassal_or_below = {
+	# 		limit = {
+	# 			highest_held_title_tier >= tier_county
+	# 			NOR = {
+	# 				# Don't change republics or theocracies
+	# 				government_has_flag = government_is_republic
+	# 				government_has_flag = government_is_theocracy
+	# 				# And just in case, don't change any unfit governments
+	# 				government_has_flag = cannot_be_vassal_or_liege
+	# 			}
+	# 			capital_province ?= {
+	# 				OR = {
+	# 					has_holding_type = castle_holding
+	# 					has_holding_type = city_holding
+	# 					has_holding_type = temple_citadel_holding
+	# 				}
+	# 			}
+	# 			is_ai = yes
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				# No need to change if they are celestial already
+	# 				NOT = { government_has_flag = government_is_celestial }
+	# 			}
+	# 			change_to_administrative_effect = yes
+	# 		}
+	# 		# Give characters some merit and exams based on their position
+	# 		change_merit = {
+	# 			value = assign_merit_based_on_tier_value
+	# 			add = {
+	# 				value = age
+	# 				multiply = 2
+	# 			}
+	# 			add = {
+	# 				value = sum_of_all_skills_value
+	# 				multiply = 2
+	# 			}
+	# 		}
+	# 		assign_completed_exams_based_on_merit_effect = yes
+	# 	}
+	# }
+	custom_tooltip = claim_the_empire_independent_realms_desc
+	hidden_effect = {
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = mandate_vassalize_celestial_families_change
+		}
+		# Vassalize any stray celestial noble families or independent realms within the Cycle's region - we also give them merit to fill out the candidate pools
+		every_independent_ruler = {
+			limit = {
+				this != scope:new_son_of_heaven
+				capital_province.county ?= {
+					target_is_de_jure_liege_or_above = title:e_the_empire
+				}
+				NOT = {	government_has_flag = cannot_be_vassal_or_liege }
+				OR = {
+					#government_has_flag = government_is_celestial
+					culture = {
+						has_same_culture_heritage = scope:new_son_of_heaven.culture
+					}
+					dynasty = scope:new_son_of_heaven.dynasty
+				}
+				is_ai = yes
+			}
+			change_liege = {
+				liege = scope:new_son_of_heaven
+				change = scope:mandate_vassalize_celestial_families_change
+			}
+
+			# if = {
+			# 	limit = {
+			# 		highest_held_title_tier >= tier_county
+			# 		NOR = {
+			# 			# Don't change republics or theocracies
+			# 			government_has_flag = government_is_republic
+			# 			government_has_flag = government_is_theocracy
+			# 			# No need to change if they are celestial already
+			# 			government_has_flag = government_is_celestial
+			# 		}
+			# 		capital_province ?= {
+			# 			OR = {
+			# 				has_holding_type = castle_holding
+			# 				has_holding_type = city_holding
+			# 				has_holding_type = temple_citadel_holding
+			# 			}
+			# 		}
+			# 	}
+			# 	change_to_administrative_effect = yes
+			# }
+		}
+		resolve_title_and_vassal_change = scope:mandate_vassalize_celestial_families_change
+		# Ensure that we get a family title and a domicile if we don't
+		#change_to_administrative_effect = yes
+		# set up the council holder as dejure liege of the ministry title, as this effect is not called with the same scope as council onactions
+		scope:new_son_of_heaven = {
+			save_scope_as = councillor_liege
+		}
+
+	}
+	situation:imperial_anarchy = {
+		#end_situation = yes
+	}
+}
