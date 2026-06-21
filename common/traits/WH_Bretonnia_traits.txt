@@ -29,12 +29,10 @@ knight_lady_errant = {
 	
 	minimum_age = 16
 	
-	incapacitating = yes
-	
 	group = knight_lady
 	level = 1
 	
-	ruler_designer_cost = 10
+	ruler_designer = no
 	
 	potential = {
 		faith = { 
@@ -55,6 +53,11 @@ knight_lady_errant = {
 	}
 	
 	prowess = 2
+	character_travel_speed_mult = 0.1
+
+	#The following buffs represent the blessing of the lady gained from the Virtue of Chivalry, as such they will be present in each of Bretonnian knight traits
+	enemy_hostile_scheme_success_chance_add = -10
+	flag = lower_chance_of_dying_in_combat
 }
 
 knight_lady_realm = {
@@ -85,10 +88,10 @@ knight_lady_realm = {
 		}
 	}
 	
-	negate_health_penalty_add = 0.25
-	county_opinion_add = 5
-	prowess = 4
-	ai_zeal = 15
+	prowess = 5
+	monthly_prestige = 0.2
+	enemy_hostile_scheme_success_chance_add = -10
+	flag = lower_chance_of_dying_in_combat
 }
 
 knight_lady_questing = {
@@ -99,10 +102,7 @@ knight_lady_questing = {
 	group = knight_lady
 	level = 3
 	
-	flag = can_not_marry
-	can_have_children = no
-	
-	ruler_designer_cost = 50
+	ruler_designer = no
 	
 	potential = {
 		faith = { 
@@ -122,16 +122,14 @@ knight_lady_questing = {
 		}
 	}
 	
-	track = {
-		100 = {
-			
-		}
-	}
+	prowess = 5
+	monthly_piety = 0.2
+	character_travel_speed_mult = 0.1
+	enemy_hostile_scheme_success_chance_add = -10
+	flag = lower_chance_of_dying_in_combat
 	
-	negate_health_penalty_add = 0.5
-	county_opinion_add = 15
-	prowess = 6
-	ai_zeal = 30
+	#Questing Vow — forsakes marriage
+	flag = can_not_marry
 }
 
 
@@ -143,7 +141,7 @@ knight_lady_grail = {
 	group = knight_lady
 	level = 4
 	
-	ruler_designer_cost = 100
+	ruler_designer_cost = 60
 	
 	potential = {
 		faith = { 
@@ -163,11 +161,15 @@ knight_lady_grail = {
 		}
 	}
 	
-	negate_health_penalty_add = 1.0
+	prowess = 20
+	monthly_prestige = 1
+	monthly_piety = 3
 	county_opinion_add = 35
-	life_expectancy = 70
-	prowess = 10
-	ai_zeal = 50
+	life_expectancy = 100
+	health = 0.5
+	negate_health_penalty_add = 0.5
+	enemy_hostile_scheme_success_chance_add = -15
+	flag = lower_chance_of_dying_in_combat
 }
 
 ### Knightly Virtues ###
