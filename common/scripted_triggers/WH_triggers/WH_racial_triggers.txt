@@ -107,8 +107,8 @@ is_halfling_culture = {
 wh_allowed_race_paring_for_marriage = {
     OR = {
         AND = {
-            $CHARACTER_1$ = { is_human_trigger = yes}
-            $CHARACTER_2$ = { is_human_trigger = yes}
+            $CHARACTER_1$ = { is_human = yes}
+            $CHARACTER_2$ = { is_human = yes}
         }
         AND = {
             $CHARACTER_1$ = { is_halfling = yes}
@@ -197,12 +197,12 @@ both_humans_trigger = {
             exists = scope:secondary_actor
         }
         scope:secondary_actor = {
-            is_human_trigger = yes
+            is_human = yes
         }
     }
     trigger_else = {
         scope:actor = {
-            is_human_trigger = yes
+            is_human = yes
         }
     }
     trigger_if = {
@@ -210,12 +210,12 @@ both_humans_trigger = {
             exists = scope:secondary_recipient
         }
         scope:secondary_recipient = {
-            is_human_trigger = yes
+            is_human = yes
         }
     }
     trigger_else = {
         scope:recipient = {
-            is_human_trigger = yes
+            is_human = yes
         }
     }
 }
@@ -554,12 +554,12 @@ both_halflings_trigger = {
 # 			exists = scope:secondary_recipient
 # 		}
 # 		scope:secondary_recipient = {
-# 			is_human_trigger = yes
+# 			is_human = yes
 # 		}
 # 	}
 # 	trigger_else = {
 # 		scope:recipient = {
-# 			is_human_trigger = yes
+# 			is_human = yes
 # 		}
 # 	}
 # }
@@ -638,12 +638,12 @@ both_halflings_trigger = {
 # 			exists = scope:secondary_recipient
 # 		}
 # 		scope:secondary_recipient = {
-# 			is_human_trigger = yes
+# 			is_human = yes
 # 		}
 # 	}
 # 	trigger_else = {
 # 		scope:recipient = {
-# 			is_human_trigger = yes
+# 			is_human = yes
 # 		}
 # 	}
 # }
@@ -667,7 +667,7 @@ both_halflings_trigger = {
 # 		}
 # 		scope:secondary_recipient = {
 # 			OR = {
-# 				is_human_trigger = yes
+# 				is_human = yes
 # 				is_elf_trigger = yes
 # 			}
 # 		}
@@ -675,7 +675,7 @@ both_halflings_trigger = {
 # 	trigger_else = {
 # 		scope:recipient = {
 # 			OR = {
-# 				is_human_trigger = yes
+# 				is_human = yes
 # 				is_elf_trigger = yes
 # 			}
 # 		}

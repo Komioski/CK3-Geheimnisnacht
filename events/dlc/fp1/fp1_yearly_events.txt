@@ -960,7 +960,7 @@ fp1_yearly.0021 = {
 			culture = { has_cultural_pillar = heritage_eotheod }
 			culture = { has_cultural_pillar = heritage_northron }
 		}
-#		culture = { has_cultural_pillar = heritage_north_germanic }
+#		culture = { has_cultural_pillar = heritage_norscan }
 		#Holmgangs must still be in fashion.
 		#NOT = {
 		#	culture = { has_cultural_era_or_later = culture_era_late_medieval }
@@ -1600,7 +1600,7 @@ fp1_yearly.0031 = {
 		OR = {
 			culture = { has_cultural_pillar = heritage_norscan }
 		}
-#		culture = { has_cultural_pillar = heritage_north_germanic }
+#		culture = { has_cultural_pillar = heritage_norscan }
 		#And that culture must not be too advanced.
 		#culture = {
 		#	NOT = { has_cultural_era_or_later = culture_era_late_medieval }
@@ -2279,7 +2279,7 @@ fp1_yearly.0051 = {
 		any_sub_realm_county = {
 			#Checking the county, not the character, since it's a local superstition rather than something ye're insisiting on.
 			title_province = { geographical_region = middleearth_west_arnor_cardolan }
-			#culture = { has_cultural_pillar = heritage_north_germanic }
+			#culture = { has_cultural_pillar = heritage_norscan }
 			development_level <= terrible_development_level
 		}
 	}
@@ -3546,7 +3546,7 @@ fp1_yearly.0071 = {
 				title_province = { geographical_region = middleearth_forodwaith_angmar }
 			}
 			#fp1_is_norse_or_easterling = yes
-			#culture = { has_cultural_pillar = heritage_north_germanic }
+			#culture = { has_cultural_pillar = heritage_norscan }
 			#development_level <= terrible_development_level
 			# And ensure it doesn't already have a troll problem.
 			NOT = { has_county_modifier = fp1_yearly_0071_troll_attacks_modifier }
@@ -3975,7 +3975,7 @@ fp1_yearly.0081 = {
 #		capital_county = {
 #			# Checking the capital, not the character, since it's a local superstition rather than something ye're insisiting on.
 #			culture = { has_cultural_pillar = heritage_daen_lintis }
-##			culture = { has_cultural_pillar = heritage_north_germanic }
+##			culture = { has_cultural_pillar = heritage_norscan }
 #			development_level <= terrible_development_level
 #		}
 	}
@@ -4038,7 +4038,6 @@ fp1_yearly.0081 = {
 
 		stress_impact = {
 			berserker = massive_stress_impact_loss
-			urukhai_berserker = massive_stress_impact_loss
 			wrathful = major_stress_impact_loss
 			calm = major_stress_impact_gain
 		}
@@ -4134,7 +4133,7 @@ fp1_yearly.0082 = {
 #		capital_county = {
 #			# Checking the capital, not the character, since it's a local superstition rather than something ye're insisiting on.
 #			culture = { has_cultural_pillar = heritage_daen_lintis }
-##			culture = { has_cultural_pillar = heritage_north_germanic }
+##			culture = { has_cultural_pillar = heritage_norscan }
 #			development_level <= terrible_development_level
 #		}
 	}
@@ -4201,7 +4200,6 @@ fp1_yearly.0082 = {
 
 		stress_impact = {
 			berserker = massive_stress_impact_loss
-			urukhai_berserker = massive_stress_impact_loss
 			wrathful = major_stress_impact_loss
 			calm = major_stress_impact_gain
 		}
@@ -4301,7 +4299,7 @@ fp1_yearly.0083 = {
 #		capital_county = {
 #			# Checking the capital, not the character, since it's a local superstition rather than something ye're insisiting on.
 #			culture = { has_cultural_pillar = heritage_daen_lintis }
-##			culture = { has_cultural_pillar = heritage_north_germanic }
+##			culture = { has_cultural_pillar = heritage_norscan }
 #			development_level <= terrible_development_level
 #		}
 	}
@@ -4378,7 +4376,6 @@ fp1_yearly.0083 = {
 
 		stress_impact = {
 			berserker = massive_stress_impact_loss
-			urukhai_berserker = massive_stress_impact_loss
 			wrathful = major_stress_impact_loss
 			calm = major_stress_impact_gain
 		}
@@ -4485,7 +4482,7 @@ fp1_yearly.0084 = {
 #		capital_county = {
 #			# Checking the capital, not the character, since it's a local superstition rather than something ye're insisiting on.
 #			culture = { has_cultural_pillar = heritage_daen_lintis }
-##			culture = { has_cultural_pillar = heritage_north_germanic }
+##			culture = { has_cultural_pillar = heritage_norscan }
 #			development_level <= terrible_development_level
 #		}
 	}
@@ -4550,7 +4547,6 @@ fp1_yearly.0084 = {
 
 		stress_impact = {
 			berserker = massive_stress_impact_loss
-			urukhai_berserker = massive_stress_impact_loss
 			wrathful = major_stress_impact_loss
 			calm = major_stress_impact_gain
 		}
@@ -4659,7 +4655,7 @@ fp1_yearly.0085 = {
 #		capital_county = {
 #			# Checking the capital, not the character, since it's a local superstition rather than something ye're insisiting on.
 #			culture = { has_cultural_pillar = heritage_daen_lintis }
-##			culture = { has_cultural_pillar = heritage_north_germanic }
+##			culture = { has_cultural_pillar = heritage_norscan }
 #			development_level <= terrible_development_level
 #		}
 	}
@@ -4726,7 +4722,6 @@ fp1_yearly.0085 = {
 
 		stress_impact = {
 			berserker = massive_stress_impact_loss
-			urukhai_berserker = massive_stress_impact_loss
 			wrathful = major_stress_impact_loss
 			calm = major_stress_impact_gain
 		}
@@ -5063,7 +5058,7 @@ fp1_yearly.0101 = {
 		# Valid for North Germanics only.
 		
 		fp1_is_norse_or_easterling = yes
-#		culture = { has_cultural_pillar = heritage_north_germanic }
+#		culture = { has_cultural_pillar = heritage_norscan }
 		# Has a valid courtier/guest who can quiz you.
 		any_courtier_or_guest = { fp1_valid_riddler_at_court_trigger = yes }
 		# Doesn't have an established extreme hatred of riddles.
@@ -7131,7 +7126,6 @@ fp1_yearly.0511 = {
 
 		stress_impact = {
 			berserker = massive_stress_loss
-			urukhai_berserker = massive_stress_loss
 			impatient = minor_stress_impact_loss
 			wrathful = minor_stress_impact_loss
 			patient = medium_stress_impact_gain
@@ -7606,7 +7600,6 @@ fp1_yearly.0521 = {
 
 		stress_impact = {
 			berserker = massive_stress_loss
-			urukhai_berserker = massive_stress_loss
 			impatient = minor_stress_impact_loss
 			wrathful = minor_stress_impact_loss
 			patient = medium_stress_impact_gain
@@ -13338,7 +13331,7 @@ fp1_yearly.0692 = {
 #		NOT = { has_character_flag = had_event_fp1_yearly_1001 }
 #		#Scandinavian culture group, and within Scandinavia (plus a few other places).
 #		culture = { has_cultural_pillar = heritage_daen_lintis }
-##		culture = { has_cultural_pillar = heritage_north_germanic }
+##		culture = { has_cultural_pillar = heritage_norscan }
 #		capital_province = { geographical_region = dlc_fp1_region_mysterious_stranger_locations }
 #	}
 #
@@ -16823,7 +16816,7 @@ fp1_yearly.1071 = {
 # 		NOT = { has_character_flag = had_event_fp1_yearly_1081 }
 # 		#Must be North Germanic.
 # 		fp1_is_norse = yes
-# #		culture = { has_cultural_pillar = heritage_north_germanic }
+# #		culture = { has_cultural_pillar = heritage_norscan }
 # 		#Has to keep their capital in general Scandinavian core sphere of influence.
 # 		capital_province = {
 # 			geographical_region = middleearth_harad

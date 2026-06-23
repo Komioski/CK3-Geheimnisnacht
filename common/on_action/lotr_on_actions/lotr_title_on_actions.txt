@@ -26,61 +26,6 @@
 # Does *not* provide scope:transfer_type
 lotr_on_title_destroyed = {
 	effect = {
-		if = {
-			limit = { scope:landed_title = title:e_golden_realm_rhun }
-			title:e_golden_realm_rhun = { add_to_temporary_list = titles_to_destroy }
-			save_scope_as = attacker
-			lotr_achievement_30_effect = yes
-		}
-		#Tracking Imperial Khand Time Held
-		if = {
-			limit = {
-				scope:landed_title ?= {
-					this = title:e_khand
-					has_variable = year_khand_founded
-				}
-			}
-			title:e_khand = {
-				remove_variable = year_khand_founded
-				remove_variable = ruling_dynasty
-				remove_variable = successive_rulers
-				remove_variable = ovathas_heir
-			}
-		}
-		#Tamska system upkeep
-		if = {
-			limit = {
-				scope:landed_title ?= {
-					is_head_of_faith = yes
-				}
-				root.faith = {
-					has_doctrine = doctrine_temporal_head
-					has_doctrine_parameter = lotr_tamska_hof
-				}
-				has_trait = tamska
-			}
-			ROOT = { make_former_tamska_effect = yes }
-		}
-		#Setting appropriate modifier on Isengard county
-		if = {
-			limit = {
-				scope:landed_title ?= {
-					OR = {
-						this = title:e_isengard_unleashed
-						this = title:k_isengard
-					}
-				}
-			}
-			title:c_isengard = {
-				remove_county_modifier ?= industrialised_isengard_3_county_modifier
-			}
-			title:c_isengard = {
-				remove_county_modifier ?= industrialised_isengard_2_county_modifier
-			}
-			title:c_isengard = {
-				remove_county_modifier ?= industrialised_isengard_1_county_modifier
-			}
-		}
 
 		# Wasteland stuff
 		correct_wastelands_tracker = yes
@@ -88,16 +33,6 @@ lotr_on_title_destroyed = {
 		trigger_event = {
 			id = wastelands.0007
 			days = 1
-		}
-
-		if = {
-			limit = { # The Nhazadh must rule e_harshandatt
-				has_title = title:d_nhazadh
-				NOT = {
-					has_title = title:e_harshandatt
-				}
-			}
-			destroy_title = title:d_nhazadh
 		}
 	}
 }
@@ -254,273 +189,6 @@ lotr_on_title_gain = {
 			change_government = elven_government
 		}
 
-		# Achievements
-		if = {
-			limit = {
-				is_ai = no
-				realms_achievements_enabled = yes
-			}
-			if = { # Foremost Servant of Khôrahil | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_40 }
-					has_primary_title = title:e_thon_an_kharlokh
-					scope:title ?= title:e_bellakar
-				}
-				set_global_variable = lotr_achievement_40
-			}
-			if = { # Corsairs of Grey Havens | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_70 }
-					scope:title = title:d_mithlond
-					OR = {
-						culture = culture:black_numenorean
-						culture = { any_parent_culture_or_above = { this = culture:black_numenorean } }
-						culture = culture:umbarean
-						culture = { any_parent_culture_or_above = { this = culture:umbarean } }
-						culture = culture:corsair
-						culture = { any_parent_culture_or_above = { this = culture:corsair } }
-					}
-				}
-				set_global_variable = lotr_achievement_70
-			}
-			if = { # As Gondor, conquer the Westfold | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_10 }
-					scope:title = title:d_westfold
-					root = {
-						any_held_title = {
-							OR = {
-								this = title:e_gondor
-								this = title:e_gondor_steward
-								this = title:h_reunited_kingdom
-								this = title:e_castamir
-							}
-						}
-					}
-				}
-				set_global_variable = lotr_achievement_10
-			}
-			if = { # As the Devs intended | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_29 }
-					scope:title = title:e_rhovanion
-					dynasty = dynasty:dynasty_jauffring
-				}
-				set_global_variable = lotr_achievement_29
-			}
-			if = { # The Two Towers | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_42 }
-					root = character:lineofsaruman
-					OR = {
-						scope:title = title:c_barad_dur
-						scope:title = title:c_isengard
-					}
-					trigger_if = {
-						limit = { scope:title = title:c_barad_dur }
-						any_held_county = { this = title:c_isengard }
-					}
-					trigger_else_if = {
-						limit = { scope:title = title:c_isengard }
-						any_held_county = { this = title:c_barad_dur }
-					}
-					trigger_else = { always = no }
-				}
-				set_global_variable = lotr_achievement_42
-			}
-			if = { # As it was written | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_28 }
-					root = character:lineofezarkia18
-					scope:title = title:e_dune_sea
-				}
-				set_global_variable = lotr_achievement_28
-			}
-			if = { # I am Ghân buri Ghân | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_23 }
-					OR = {
-						culture = culture:druedain
-						culture = { any_parent_culture_or_above = { this = culture:druedain } }
-					}
-					OR = {
-						scope:title = title:e_gondor
-						scope:title = title:e_gondor_steward
-						scope:title = title:e_castamir
-						scope:title = title:h_reunited_kingdom
-					}
-					completely_controls_region = middleearth_west_gondor
-				}
-				set_global_variable = lotr_achievement_23
-			}
-			if = { # A King on Carven Throne | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_20 }
-					dynasty = dynasty:dynasty_durin
-					scope:title = title:k_khazad_dum
-				}
-				set_global_variable = lotr_achievement_20
-			}
-			if = { # The Southlands | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_17 }
-					is_elf = yes
-					scope:title = title:e_mordor
-				}
-				set_global_variable = lotr_achievement_17
-			}
-			if = { # Return of the Elvenking | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_47 }
-					is_elf = yes
-					scope:title = title:e_greenwood
-					OR = {
-						root = character:lineoforopher6 # Legolas
-						root = character:lineoforopher3 # Thranduil
-					}
-				}
-				set_global_variable = lotr_achievement_47
-			}
-			if = { # Rise of the Serpent-King | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_15 }
-					root = character:lineofafalku15
-					scope:title = title:e_haradwaith
-				}
-				set_global_variable = lotr_achievement_15
-			}
-			if = { # Nordin-glad | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_25 }
-					title:c_nordinbad = { has_variable = started_as_nordinbad }
-					scope:title = title:e_iron_mountains
-				}
-				set_global_variable = lotr_achievement_25
-			}
-			if = { # The King in the North | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_24 }
-					scope:title = title:e_arnor
-					NOT = { dynasty = dynasty:dynasty_elendil }
-				}
-				set_global_variable = lotr_achievement_24
-			}
-			if = { # These boots were made for walking | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_27 }
-					scope:title = title:e_blue_mountains
-					dynasty = dynasty:dynasty_argan
-				}
-				set_global_variable = lotr_achievement_27
-			}
-			if = { # Forth Eorlingas! | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_75 }
-					has_primary_title = title:k_rohan
-					trigger_if = {
-						limit = { scope:title = title:c_barad_dur }
-						any_held_title = { this = title:c_isengard }
-					}
-					trigger_else = {
-						scope:title = title:c_isengard
-						any_held_title = { this = title:c_barad_dur }
-					}
-				}
-				set_global_variable = lotr_achievement_75
-			}
-			if = { # Brother's Keeper | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_79 }
-					scope:title = title:k_mardruak
-					root = character:lineofbelphegor3
-					NOT = { any_killed_character = { is_sibling_of = root } }
-				}
-				set_global_variable = lotr_achievement_79
-			}
-			if = { # Wulf's Revenge | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_60 }
-					scope:title = title:k_rohan
-					OR = {
-						culture = culture:dunlending
-						culture = { any_parent_culture_or_above = { this = culture:dunlending } }
-					}
-				}
-				set_global_variable = lotr_achievement_60
-			}
-			if = { # Old Capitals of Arnor | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_61 }
-					OR = {
-						scope:title = title:c_cameth_brin
-						scope:title = title:c_fornost
-						scope:title = title:c_tharbad
-					}
-					trigger_if = {
-						limit = { scope:title = title:c_cameth_brin }
-						has_title = title:c_fornost
-						has_title = title:c_tharbad
-					}
-					trigger_else_if = {
-						limit = { scope:title = title:c_fornost }
-						has_title = title:c_tharbad
-						has_title = title:c_cameth_brin
-					}
-					trigger_else = {
-						has_title = title:c_fornost
-						has_title = title:c_cameth_brin
-					}
-				}
-				set_global_variable = lotr_achievement_61
-			}
-			if = { # The Finest Fish and Chips | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_64 }
-					scope:title = title:k_nogrod
-					OR = {
-						root = character:lineofuri122
-						is_child_of = character:lineofuri122
-					}
-					OR = {
-						any_relation = { type = friend is_halfling = yes }
-						any_relation = { type = best_friend is_halfling = yes }
-					}
-				}
-				set_global_variable = lotr_achievement_64
-			}
-			if = { # The Old, the True | Achievement
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_71 }
-					any_held_title = {
-						tier = tier_hegemony
-						this = title:h_harad
-					}
-					dynasty = dynasty:dynasty_khadnom
-					trigger_if = {
-						limit = { is_tributary = yes }
-						NOT = { suzerain = character:lineofsauron }
-					} trigger_else = { is_tributary = no }
-				}
-				set_global_variable = lotr_achievement_71
-			}
-			if = {
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_41 }
-					primary_title = title:k_abrakhan
-					completely_controls = title:e_dune_sea
-					completely_controls = title:e_haradwaith
-				}
-				set_global_variable = lotr_achievement_41
-			}
-			if = {
-				limit = {
-					NOT = { exists = global_var:lotr_achievement_77 }
-					scope:title = title:k_amon_lanc
-					has_character_flag = gor_good
-				}
-				set_global_variable = lotr_achievement_77
-			}
-		}
 		if = {
 			limit = {
 				top_liege ?= { is_ai = no }
@@ -534,73 +202,7 @@ lotr_on_title_gain = {
 				set_variable = conquerored_mispir
 			}
 		}
-		#Maglor stuff
-		if = {
-			limit = {
-				OR = {
-					scope:title ?= title:d_amon_lanc
-					scope:title ?= title:k_amon_lanc
-				}
-				root = character:lineoffeanor2
-				NOT = {
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:decision_annihilate_dol_guldur
-					}
-				}
-			}
-			add_to_global_variable_list = {
-				name = unavailable_unique_decisions
-				target = flag:decision_annihilate_dol_guldur
-			}
-			trigger_event = maglor_event_chain.0061
-		}
-		#Balin Expedition stuff
-		if = {
-			limit = {
-				scope:title = title:d_balins_expedition
-				trigger_if = {
-					limit = { title:k_khazad_dum = { any_county_struggle = { this = struggle:balrog_struggle } } }
-					NOT = { any_held_county = { title_province = { geographical_region = middleearth_mountains_misty_balrog_struggle_region } } }
-				}
-			}
-			destroy_title = title:d_balins_expedition
-		}
 
-		#If Angmar should be formed, fire a news event
-		if = {
-			limit = {
-				scope:title = title:k_angmar
-				root = { faith_is_evil = yes }
-				current_year >= 6000
-				NOT = { exists = global_var:angmar_rose_again }
-			}
-			set_global_variable = {
-				name = angmar_rose_again
-				value = yes
-			}
-			root = { add_elven_hope_global_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_global_evil_increased } }
-			if = {
-				limit = { # Major News
-					NOT = { has_game_rule = no_news }
-				}
-				every_player = { # Global News Announcement
-					trigger_event = news_event.0064
-				}
-			}
-		}
-
-		# Zantaka Lyneria Formation Event
-		if = {
-			limit = {
-				scope:title = title:k_lyneria
-				dynasty = dynasty:dynasty_zantaka
-			}
-			trigger_event = {
-				id = zantaka_event_chain.0001
-				days = 1
-			}
-		}
 
 		### Wilderness fallback: turn illegal wilderness to Tribal if non-Tom characters somehow get ahold of it
 		if = {
@@ -673,7 +275,6 @@ lotr_on_title_gain = {
 					else_if = {
 						limit = {
 							OR = {
-								is_maiar = yes
 								is_dwarf = yes
 							}
 						}
@@ -838,20 +439,6 @@ lotr_on_title_gain = {
 					trigger_event = wastelands.0007
 				}
 			}
-		}
-
-		if = {
-			limit = { scope:title ?= title:d_eryn_vorn }
-			trigger_event = druedain.0100
-		}
-		if = {
-			limit = {
-				AND = {
-					scope:title ?= title:e_isengard_unleashed
-					NOT = { root = character:lineofsaruman }
-				}
-			}
-			destroy_title = title:e_isengard_unleashed
 		}
 
 		#LotR - Convert Elven barons to the correct government
@@ -1060,131 +647,6 @@ lotr_on_title_gain = {
 					remove_duchy_building_any_level = { BUILDING = tax_assessor }
 					remove_duchy_building_any_level = { BUILDING = leisure_palace }
 					remove_duchy_building_any_level = { BUILDING = royal_forest }
-				}
-			}
-		}
-		#Event to give Stewards Ithilien
-		if = {
-			limit = {
-				game_start_date >= 6083 # After line of Kings fails in Gondor
-				OR = {
-					has_title = title:e_gondor
-					has_title = title:h_reunited_kingdom
-					has_title = title:h_numenor_in_exile
-				}
-				dynasty = dynasty:dynasty_elendil
-				dynasty:dynasty_ostomir = {
-					any_dynasty_member = {
-						is_alive = yes
-					}
-					NOT = {
-						has_dynasty_modifier = princely_house_of_ithilien
-					}
-				}
-				exists = title:k_gondor_steward.holder
-				title:k_gondor_steward.holder = { dynasty = dynasty:dynasty_ostomir }
-				completely_controls = title:d_minas_ithil
-				completely_controls = title:d_emyn_arnen
-				completely_controls = title:d_harithilien
-				completely_controls = title:d_forithilien
-				NOT = {
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:princedom_of_ithilien_event
-					}
-				}
-			}
-			add_to_global_variable_list = {
-				name = unavailable_unique_decisions
-				target = flag:princedom_of_ithilien_event
-			}
-			trigger_event = {
-				id = gondor.0305
-				days = 3
-			}
-		}
-
-		if = { # Message to Gondor | Bellakar ruler died
-			limit = {
-				title:e_bellakar.holder ?= { faith_is_good = yes }
-				title:e_gondor.holder ?= { faith_is_good = yes }
-				title:e_bellakar.holder.dynasty = dynasty:dynasty_tumakveh
-				OR = {
-					# title:e_gondor.holder.dynasty = dynasty:dynasty_elros
-					title:e_gondor.holder.dynasty = dynasty:dynasty_elendil
-					title:e_gondor.holder.dynasty = dynasty:dynasty_anarion
-				}
-
-				scope:title ?= title:e_bellakar
-
-				scope:title ?= {
-					tier = tier_empire
-					# # scope:previous_holder = { is_alive = no }
-				}
-
-				NOT = { title:e_bellakar.holder ?= { is_allied_to = title:e_gondor.holder } }
-
-				OR = { # Either Gondor or Bellakar had to take a decision to form the alliance
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:gondor_x_bellakar
-					}
-					is_target_in_global_variable_list = {
-						name = unavailable_unique_decisions
-						target = flag:bellakar_x_gondor
-					}
-				}
-				is_target_in_global_variable_list = {
-					name = unavailable_unique_decisions
-					target = flag:recurring_bellakar_gondor_alliance
-				}
-
-			}
-			title:e_gondor.holder = {
-				trigger_event = {
-					id = gondor.2953
-					days = { 15 30 }
-				}
-			}
-		}
-
-		if = { # Message to Bellakar | Gondor ruler died
-			limit = {
-				title:e_bellakar.holder ?= { faith_is_good = yes }
-				title:e_gondor.holder ?= { faith_is_good = yes }
-				title:e_bellakar.holder.dynasty = dynasty:dynasty_tumakveh
-				OR = {
-					# title:e_gondor.holder.dynasty = dynasty:dynasty_elros
-					title:e_gondor.holder.dynasty = dynasty:dynasty_elendil
-					title:e_gondor.holder.dynasty = dynasty:dynasty_anarion
-				}
-				NOT = { title:e_gondor.holder ?= { is_allied_to = title:e_gondor.holder } }
-
-				scope:title ?= title:e_gondor
-				scope:title ?= {
-					tier = tier_empire
-					# # scope:previous_holder = { is_alive = no } # Throwing an error
-				}
-
-				OR = { # Either Gondor or Bellakar had to take a decision to form the alliance
-					is_target_in_global_variable_list = { # Did Gondor initiate the alliance
-						name = unavailable_unique_decisions
-						target = flag:gondor_x_bellakar
-					}
-					is_target_in_global_variable_list = { # Did Bellakar initiate the alliance
-						name = unavailable_unique_decisions
-						target = flag:bellakar_x_gondor
-					}
-				}
-				is_target_in_global_variable_list = {
-					name = unavailable_unique_decisions
-					target = flag:recurring_bellakar_gondor_alliance
-				}
-			}
-			title:e_bellakar.holder = {
-				trigger_event = {
-					id = bellakar.0253
-					days = { 15 30 }
 				}
 			}
 		}
@@ -1632,69 +1094,7 @@ lotr_on_title_gain = {
 			resolve_title_and_vassal_change = scope:title_change
 			scope:title ?= { generate_coa = yes }
 		}
-		#Tamska Inheritance
-		if = {
-			limit = {
-				scope:title ?= {
-					this = title:d_tamska_main
-				}
-			}
-			trigger_event = {
-				id = tamska.0100
-				days = 1
-			}
-		}
-		#Ovatha Name Change
-		if = {
-			limit = {
-				scope:title ?= {
-					this = title:e_khand
-					NOT = { has_variable = ovathas_heir }
-				}
-    			OR = {
-					culture = culture:variag
-					culture = { any_parent_culture_or_above = { this = culture:variag } }
-    			}
-				has_primary_title = title:e_khand
-			}
-			trigger_event = {
-				id = khand.0001
-				days = 7
-			}
-			title:e_khand = {
-				set_variable = {
-					name = ovathas_heir
-					value = 1
-				}
-			}
-		}
-		#LotR - Tracking Imperial Khand Time Held
-		if = {
-			limit = {
-				scope:title ?= {
-					this = title:e_khand
-					NOT = { has_variable = year_khand_founded }
-				}
-			}
-			title:e_khand = {
-				set_variable = {
-					name = year_khand_founded
-					value = current_year
-				}
-				change_variable = {
-					name = year_khand_founded
-					add = 100
-				}
-				set_variable = {
-					name = ruling_dynasty
-					value = root.dynasty
-				}
-				set_variable = {
-					name = successive_rulers
-					value = 1
-				}
-			}
-		}
+
 		if = {
 			limit = {
 				scope:title.tier = tier_empire
@@ -1962,17 +1362,17 @@ lotr_on_title_gain = {
 		}
 	}
 	events = {
-		gondor.9998 #Isengard switching
-		orcs.0010
-		dwarven.6001
-		nordinbad.0200
-		nordinbad.0300
-		nordinbad.0301
-		nordinbad.0400
-		enedwaith.0302
-		wraith.001 # Corruption of Minas Ithil
-		lotr_artifact.0040 # Arnor regalia
-		rangers.9500 # Vassal Rangers become landed
+		# gondor.9998 #Isengard switching
+		# orcs.0010
+		# dwarven.6001
+		# nordinbad.0200
+		# nordinbad.0300
+		# nordinbad.0301
+		# nordinbad.0400
+		# enedwaith.0302
+		# wraith.001 # Corruption of Minas Ithil
+		# lotr_artifact.0040 # Arnor regalia
+		# rangers.9500 # Vassal Rangers become landed
 	}
 }
 
@@ -2735,93 +2135,36 @@ lotr_on_title_lost = {
 		correct_wastelands_tracker = yes
 		scope:new_holder = { correct_wastelands_tracker = yes }
 
-		if = {
-			limit = {
-				any_held_title = { count = 0 }
-				has_trait = balan_lai_member
-			}
-			remove_trait = balan_lai_member
-			dynasty ?= { # Give it to a valid dynasty member if possible
-				random_dynasty_member = {
-					limit = {
-						is_independent_ruler = yes
-						highest_held_title_tier > tier_county
-					}
-					add_trait = balan_lai_member
-				}
-			}
-		}
 
-		if = {
-			limit = {
-				scope:title.tier = tier_empire
-				any_held_title = {
-					count = 1
-					tier = tier_empire
-					NOT = { this = scope:title }
-				}
-				OR = {
-					AND = {
-						NOT = {
-							is_target_in_global_variable_list = {
-								name = unavailable_unique_decisions
-								target = flag:decision_unify_durins_folk
-							}
-						}
-						has_title = title:e_durins_folk
-					}
-					has_title = title:e_uris_folk
-					has_title = title:e_dwalins_folk
-					has_title = title:e_thrars_folk
-					has_title = title:e_thulins_folk
-					has_title = title:e_bavors_folk
-					has_title = title:e_sindris_folk
-				}
-			}
-			trigger_event = dwarven.9802
-		}
+		# if = {
+		# 	limit = {
+		# 		scope:title.tier = tier_empire
+		# 		any_held_title = {
+		# 			count = 1
+		# 			tier = tier_empire
+		# 			NOT = { this = scope:title }
+		# 		}
+		# 		OR = {
+		# 			AND = {
+		# 				NOT = {
+		# 					is_target_in_global_variable_list = {
+		# 						name = unavailable_unique_decisions
+		# 						target = flag:decision_unify_durins_folk
+		# 					}
+		# 				}
+		# 				has_title = title:e_durins_folk
+		# 			}
+		# 			has_title = title:e_uris_folk
+		# 			has_title = title:e_dwalins_folk
+		# 			has_title = title:e_thrars_folk
+		# 			has_title = title:e_thulins_folk
+		# 			has_title = title:e_bavors_folk
+		# 			has_title = title:e_sindris_folk
+		# 		}
+		# 	}
+		# 	trigger_event = dwarven.9802
+		# }
 
-		if = {
-			limit = { #Aragorn loses his betrothal to Arwen if he loses the RK or either of its kingdoms
-				has_character_flag = is_aragorn
-				betrothed ?= character:lineofelrond4 #Arwen
-				trigger_if = { #If you destroy either title but you still hold the RK, it's fine
-					limit = {
-						OR = {
-							scope:title = title:e_gondor
-							scope:title = title:e_arnor
-						}
-					}
-					NOT = { has_title = title:h_reunited_kingdom }
-				}
-				trigger_else = {
-					scope:title = title:h_reunited_kingdom
-				}
-			}
-			show_as_tooltip = {
-				break_betrothal = character:lineofelrond4
-			}
-		}
-
-		if = {
-			limit = { # The Nhazadh must rule e_harshandatt
-				has_title = title:d_nhazadh
-				NOT = {
-					has_title = title:e_harshandatt
-				}
-			}
-			destroy_title = title:d_nhazadh
-		}
-
-		if = { # Tamskas loose title if they've passed it on somehow
-			limit = {
-				scope:title ?= {
-					is_head_of_faith = yes
-				}
-				has_trait = tamska
-			}
-			make_former_tamska_effect = yes
-		}
 	}
 }
 
