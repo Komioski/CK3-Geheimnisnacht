@@ -1,0 +1,717 @@
+﻿## GENERIC TRIGGERS ##
+
+same_race = { #compares two scopes, example same_race = { TARGET = scope:target_ruler }
+    custom_description = {
+        text = same_race
+        OR = {
+            AND = {
+                is_human = yes
+                $TARGET$ = { is_human = yes }
+            }
+            AND = {
+                is_halfling = yes
+                $TARGET$ = { is_halfling = yes }
+            }
+        }
+    }
+}
+
+same_race_culture = { #compares two scopes, example same_race_culture = { TARGET = scope:target_culture }
+    OR = {
+        AND = {
+            is_human_culture = yes
+            $TARGET$ = { is_human_culture = yes }
+        }
+        AND = {
+            is_halfling_culture = yes
+            $TARGET$ = { is_halfling_culture = yes }
+        }
+    }
+}
+
+culture_conversion_to_allowed = { #example culture_conversion_to_allowed = { TARGET = scope:recipient }
+	same_race = { TARGET = $TARGET$ }
+}
+
+culture_conversion_to_allowed_culture = { #example culture_conversion_to_allowed_culture = { TARGET = scope:recipientculture }
+	same_race_culture = { TARGET = $TARGET$ }
+}
+
+# Racial Types #
+is_human = {
+    custom_description = {
+        text = is_human
+        culture = { 
+            has_cultural_parameter = is_human_heritage
+		}
+    }
+}
+
+is_human_culture = {
+	this = {
+        has_cultural_parameter = is_human_heritage
+	}
+}
+
+is_halfling = {
+    custom_description = {
+        text = is_halfling
+    	culture = {
+        	has_cultural_parameter = is_halfling_heritage
+    	}
+    }
+}
+
+is_halfling_culture = {
+    has_cultural_parameter = is_halfling_heritage
+}
+
+# is_elf_trigger = {
+# 	culture = {
+# 		OR = {
+# 			has_cultural_pillar = heritage_asrai
+# 			has_cultural_pillar = heritage_asur
+# 			has_cultural_pillar = heritage_druchii
+# 		}
+# 	}
+# }
+# is_dwarf_trigger = {
+# 	culture = {
+# 		OR = {
+# 			has_cultural_pillar = heritage_dawi
+# 			has_cultural_pillar = heritage_diasporic_dawi
+# 			has_cultural_pillar = heritage_dawi_zharr
+# 		}
+# 	}
+# }
+# is_greenskin_trigger = {
+# 	culture = {
+# 		OR = {
+# 			has_cultural_pillar = heritage_orcs
+# 			has_cultural_pillar = heritage_goblins
+# 		}
+# 	}
+# }
+# is_beastman_trigger = {
+# 	culture = {
+# 		OR = {
+# 			has_cultural_pillar = heritage_beastman
+# 			has_cultural_pillar = heritage_khorngor
+# 			has_cultural_pillar = heritage_pestigor
+# 			has_cultural_pillar = heritage_slaangor
+# 			has_cultural_pillar = heritage_tzaangor
+# 		}
+# 	}
+# }
+
+wh_allowed_race_paring_for_marriage = {
+    OR = {
+        AND = {
+            $CHARACTER_1$ = { is_human_trigger = yes}
+            $CHARACTER_2$ = { is_human_trigger = yes}
+        }
+        AND = {
+            $CHARACTER_1$ = { is_halfling = yes}
+            $CHARACTER_2$ = { is_halfling = yes}
+        }
+        # AND = {
+        # 	$CHARACTER_1$ = { is_elf_trigger = yes}
+        # 	$CHARACTER_2$ = { is_elf_trigger = yes}
+        # }
+        # AND = {
+        # 	$CHARACTER_1$ = { is_dwarf_trigger = yes}
+        # 	$CHARACTER_2$ = { is_dwarf_trigger = yes}
+        # }
+        # AND = {
+        # 	$CHARACTER_1$ = { is_greenskin_trigger = yes}
+        # 	$CHARACTER_2$ = { is_greenskin_trigger = yes}
+        # }
+        # AND = {
+        # 	$CHARACTER_1$ = { is_beastman_trigger = yes}
+        # 	$CHARACTER_2$ = { is_beastman_trigger = yes}
+        # }
+    }
+
+}
+
+# Marriage Racial Comparisons #
+# both_elves_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			is_elf_trigger = yes
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			is_elf_trigger = yes
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			is_elf_trigger = yes
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			is_elf_trigger = yes
+# 		}
+# 	}
+# }
+# both_dwarfs_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			is_dwarf_trigger = yes
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			is_dwarf_trigger = yes
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			is_dwarf_trigger = yes
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			is_dwarf_trigger = yes
+# 		}
+# 	}
+# }
+both_humans_trigger = {
+    trigger_if = {
+        limit = {
+            exists = scope:secondary_actor
+        }
+        scope:secondary_actor = {
+            is_human_trigger = yes
+        }
+    }
+    trigger_else = {
+        scope:actor = {
+            is_human_trigger = yes
+        }
+    }
+    trigger_if = {
+        limit = {
+            exists = scope:secondary_recipient
+        }
+        scope:secondary_recipient = {
+            is_human_trigger = yes
+        }
+    }
+    trigger_else = {
+        scope:recipient = {
+            is_human_trigger = yes
+        }
+    }
+}
+both_halflings_trigger = {
+    trigger_if = {
+        limit = {
+            exists = scope:secondary_actor
+        }
+        scope:secondary_actor = {
+            is_halfling = yes
+        }
+    }
+    trigger_else = {
+        scope:actor = {
+            is_halfling = yes
+        }
+    }
+    trigger_if = {
+        limit = {
+            exists = scope:secondary_recipient
+        }
+        scope:secondary_recipient = {
+            is_halfling = yes
+        }
+    }
+    trigger_else = {
+        scope:recipient = {
+            is_halfling = yes
+        }
+    }
+}
+# neither_fimir_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			NOT = {
+# 				culture = { has_cultural_pillar = heritage_fimir }
+# 			}
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			NOT = {
+# 				culture = { has_cultural_pillar = heritage_fimir }
+# 			}
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			NOT = {
+# 				culture = { has_cultural_pillar = heritage_fimir }
+# 			}
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			NOT = {
+# 				culture = { has_cultural_pillar = heritage_fimir }
+# 			}
+# 		}
+# 	}
+# }
+# neither_beastmen_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			is_beastman_trigger = no
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			is_beastman_trigger = no
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			is_beastman_trigger = no
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			is_beastman_trigger = no
+# 		}
+# 	}
+# }
+# neither_lizardmen_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_old_ones } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_old_ones } }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_old_ones } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_old_ones } }
+# 		}
+# 	}
+# }
+# neither_greenskin_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			is_greenskin_trigger = no
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			is_greenskin_trigger = no
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			is_greenskin_trigger = no
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			is_greenskin_trigger = no
+# 		}
+# 	}
+# }
+# neither_skaven_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_skaven } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_skaven } }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_skaven } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_skaven } }
+# 		}
+# 	}
+# }
+# neither_trolls_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_trolls } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_trolls } }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_trolls } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_trolls } }
+# 		}
+# 	}
+# }
+# neither_dragon_ogres_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_dragon_ogres } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_dragon_ogres } }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_dragon_ogres } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_dragon_ogres } }
+# 		}
+# 	}
+# }
+# neither_zoats_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_zoats } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_zoats } }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_zoats } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_zoats } }
+# 		}
+# 	}
+# }
+# neither_ogres_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_ogre } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_ogre } }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_ogre } }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			NOT = { culture = { has_cultural_pillar = heritage_ogre } }
+# 		}
+# 	}
+# }
+# both_trolls_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			culture = { has_cultural_pillar = heritage_trolls }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			culture = { has_cultural_pillar = heritage_trolls }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			culture = { has_cultural_pillar = heritage_trolls }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			culture = { has_cultural_pillar = heritage_trolls }
+# 		}
+# 	}
+# }
+# dragon_ogres_on_human_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			culture = { has_cultural_pillar = heritage_dragon_ogres }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			culture = { has_cultural_pillar = heritage_dragon_ogres }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			is_human_trigger = yes
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			is_human_trigger = yes
+# 		}
+# 	}
+# }
+# both_zoats_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			culture = { has_cultural_pillar = heritage_zoats }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			culture = { has_cultural_pillar = heritage_zoats }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			culture = { has_cultural_pillar = heritage_zoats }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			culture = { has_cultural_pillar = heritage_zoats }
+# 		}
+# 	}
+# }
+# both_ogres_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			culture = { has_cultural_pillar = heritage_ogre }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			culture = { has_cultural_pillar = heritage_ogre }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			culture = { has_cultural_pillar = heritage_ogre }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			culture = { has_cultural_pillar = heritage_ogre }
+# 		}
+# 	}
+# }
+# fimir_on_human_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			culture = { has_cultural_pillar = heritage_fimir }
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			culture = { has_cultural_pillar = heritage_fimir }
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			is_human_trigger = yes
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			is_human_trigger = yes
+# 		}
+# 	}
+# }
+# beastman_concubines_trigger = {
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_actor
+# 		}
+# 		scope:secondary_actor = {
+# 			is_beastman_trigger = yes
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:actor = {
+# 			is_beastman_trigger = yes
+# 		}
+# 	}
+# 	trigger_if = {
+# 		limit = {
+# 			exists = scope:secondary_recipient
+# 		}
+# 		scope:secondary_recipient = {
+# 			OR = {
+# 				is_human_trigger = yes
+# 				is_elf_trigger = yes
+# 			}
+# 		}
+# 	}
+# 	trigger_else = {
+# 		scope:recipient = {
+# 			OR = {
+# 				is_human_trigger = yes
+# 				is_elf_trigger = yes
+# 			}
+# 		}
+# 	}
+# }
+WH_are_compatible_races_marriage_trigger = {
+    OR = {
+        # both_elves_trigger = yes
+        # both_dwarfs_trigger = yes
+        both_humans_trigger = yes
+        both_halflings_trigger = yes
+        # neither_fimir_trigger = yes
+        # neither_beastmen_trigger = yes
+        # neither_lizardmen_trigger = yes
+        # neither_greenskin_trigger = yes
+        # neither_skaven_trigger = yes
+        # neither_trolls_trigger = yes
+        # neither_dragon_ogres_trigger = yes
+        # neither_zoats_trigger = yes
+        # neither_ogres_trigger = yes
+    }
+}
+WH_are_compatible_races_concubinage_trigger = {
+    OR = {
+        # both_elves_trigger = yes
+        # both_dwarfs_trigger = yes
+        both_humans_trigger = yes
+        both_halflings_trigger = yes
+        # fimir_on_human_trigger = yes
+        # beastman_concubines_trigger = yes
+        # neither_lizardmen_trigger = yes
+        # neither_greenskin_trigger = yes
+        # neither_skaven_trigger = yes
+        # both_trolls_trigger = yes
+        # dragon_ogres_on_human_trigger = yes
+        # both_zoats_trigger = yes
+        # both_ogres_trigger = yes
+    }
+}

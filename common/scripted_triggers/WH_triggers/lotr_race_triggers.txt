@@ -2,57 +2,25 @@
 #these should work for character, culture and province scopes
 
 ## GENERIC TRIGGERS ##
-
-same_race = { #compares two scopes, example same_race = { TARGET = scope:target_ruler }
+is_elf = {
 	custom_description = {
-		text = same_race
-		OR = {
-			AND = {
-				is_human = yes
-				$TARGET$ = { is_human = yes }
-			}
-			# AND = {
-			# 	is_orc = yes  # juke note: is_orc includes is_goblin
-			# 	$TARGET$ = { is_orc = yes }
-			# }
-			# AND = {
-			# 	is_dwarf = yes
-			# 	$TARGET$ = { is_dwarf = yes }
-			# }
-			# AND = {
-			# 	is_elf = yes
-			# 	$TARGET$ = { is_elf = yes }
-			# }
-			AND = {
-				is_halfling = yes
-				$TARGET$ = { is_halfling = yes }
-			}
-		}
+		text = is_elf
+		always = no # OR = {
+		# 	culture ?= { has_cultural_parameter = is_elven_heritage }
+		# 	trigger_if = { #Check to ensure it's a character
+		# 		limit = { exists = location }
+		# 		has_trait = doom_sundered
+		# 	}
+		# }
 	}
 }
-
-same_race_culture = { #compares two scopes, example same_race_culture = { TARGET = scope:target_culture }
-	OR = {
-		AND = {
-			is_human_culture = yes
-			$TARGET$ = { is_human_culture = yes }
-		}
-		# AND = {
-		# 	is_orc_culture = yes
-		# 	$TARGET$ = { is_orc_culture = yes }
-		# }
-		# AND = {
-		# 	is_dwarf_culture = yes
-		# 	$TARGET$ = { is_dwarf_culture = yes }
-		# }
-		# AND = {
-		# 	is_elf_culture = yes
-		# 	$TARGET$ = { is_elf_culture = yes }
-		# }
-		AND = {
-			is_halfling_culture = yes
-			$TARGET$ = { is_halfling_culture = yes }
-		}
+is_elf_culture = {
+	always = no #this = { has_cultural_parameter = is_elven_heritage }
+}
+is_dwarf = { #is_dwarf_heritage
+	custom_description = {
+		text = is_dwarf
+		always = no #culture ?= { has_cultural_parameter = is_dwarf_heritage }
 	}
 }
 
@@ -320,13 +288,285 @@ portrait_hobbit_clothing_contents_trigger = {
 	}
 }
 
-is_halfling = {
-	culture = {
-		has_cultural_pillar = heritage_halflings
+## Lotr Marriage triggers
+
+lotr_children_with_allowed = { #example lotr_children_with_allowed = { TARGET = scope:lover }
+	lotr_marriage_allowed = yes
+	$TARGET$ = { lotr_marriage_allowed = yes }
+	OR = {
+		same_race = { TARGET = $TARGET$ }
 	}
 }
-is_halfling_culture = {
-	has_cultural_pillar = heritage_halflings
+
+lotr_marriage_allowed = { #this and the next one are inserted into vanilla marriage_triggers, best use those when you deal with marriage in events, etc.
+	NOT = { has_trait_with_flag = can_not_marry }
+	OR = { # Necessary to avoid marrying adult but non-nubile characters
+		is_adult = no
+		is_nubile = yes
+	}
+}
+
+lotr_marriage_to_allowed = { #example lotr_marriage_to_allowed = { TARGET = scope:lover }
+	save_temporary_scope_as = lotr_marriage_to_allowed_check
+	$TARGET$ = {
+		OR = {
+			is_adult = no
+			is_nubile = yes
+		}
+	}
+	lotr_children_with_allowed = { TARGET = $TARGET$ }
+}
+
+lotr_extramarital_to_allowed = { #example lotr_extramarital_to_allowed = { TARGET = scope:lover }
+	lotr_children_with_allowed = { TARGET = $TARGET$ }
+}
+
+## Betrothal triggers
+
+is_nubile = {
+	age >= nubile_age
+	cannot_be_killed = no
+}
+
+lotr_betrothal_allowed = {
+	NOR = {
+		is_elf = yes
+		has_trait_with_flag = can_not_marry
+	}
+}
+
+lotr_betrothal_to_allowed = { #example lotr_betrothal_to_allowed = { TARGET = scope:lover }
+	lotr_betrothal_allowed = yes
+	NAND = {
+		is_nubile = yes
+		$TARGET$ = { is_nubile = yes }
+	}
+	same_race = { TARGET = $TARGET$ }
+	$TARGET$ = { lotr_betrothal_allowed = yes }
+}
+
+can_be_betrothed_common_trigger = {
+	is_alive = yes
+
+	trigger_if = {
+		limit = {
+			exists = primary_title
+		}
+		NOR = {
+			# Block Mercenaries from marrying or showing up in marriage interactions
+			primary_title = {
+				is_mercenary_company = yes
+			}
+		}
+		NOR = {
+			is_leading_faction_type = peasant_faction
+			is_leading_faction_type = populist_faction
+		}
+	}
+
+	# Clergy cannot marry if their faith disallows it
+	trigger_if = {
+		limit = {
+			is_clergy = yes
+		}
+		faith = {
+			has_doctrine_parameter = clergy_can_marry
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = liege.involved_activity.var:tournament_marriage_prize
+			this = liege.involved_activity.var:tournament_marriage_prize
+		}
+		exists = scope:contest_winner
+	}
+
+	lotr_betrothal_allowed = yes #LotR
+}
+
+can_be_betrothed_trigger = {
+	can_be_betrothed_common_trigger = yes
+	allowed_more_spouses = yes
+	NOT = {
+		has_culture = culture:wastelands
+	}
+}
+
+could_betrothe_character_trigger = {
+	save_temporary_scope_as = can_betrothe_check
+	can_be_betrothed_common_trigger = yes
+	$CHARACTER$ = { can_be_betrothed_common_trigger = yes }
+	#Opposite genders if you don't have accepted same-sex marriage game rule enabled and your faith supports it
+	trigger_if = {
+		limit = { #If you're someone's courtier, your liege can marry you anyway
+			NOT = { is_courtier_of = $CHARACTER$ }
+			allowed_to_marry_same_sex_trigger = no
+		}
+		sex_opposite_of = $CHARACTER$
+	}
+	trigger_if = {
+		limit = { #If you're someone's courtier, your liege can marry you anyway
+			$CHARACTER$ = { NOT = { is_courtier_of = scope:can_betrothe_check } }
+			$CHARACTER$ = { allowed_to_marry_same_sex_trigger = no }
+		}
+		sex_opposite_of = $CHARACTER$
+	}
+	trigger_if = {
+		limit = {
+			is_courtier_of = $CHARACTER$
+			$CHARACTER$ = { allowed_to_marry_same_sex_trigger = no }
+		}
+		sex_opposite_of = $CHARACTER$
+	}
+	trigger_if = {
+		limit = {
+			$CHARACTER$ = { is_courtier_of = scope:can_betrothe_check }
+			allowed_to_marry_same_sex_trigger = no
+		}
+		sex_opposite_of = $CHARACTER$
+	}
+	#Faith hostility & consanguinity
+	trigger_if = {
+		limit = { NOT = { is_courtier_of = $CHARACTER$ } } #If you're someone's courtier, your liege can marry you anyway
+		faith = {
+			faith_allows_marriage_consanguinity_trigger = {
+				CHARACTER_1 = scope:can_betrothe_check
+				CHARACTER_2 = $CHARACTER$
+			}
+		}
+	}
+	trigger_if = {
+		limit = { $CHARACTER$ = { NOT = { is_courtier_of = scope:can_betrothe_check } } } #If you're someone's courtier, your liege can marry you anyway
+		$CHARACTER$.faith = {
+			faith_allows_marriage_consanguinity_trigger = {
+				CHARACTER_1 = scope:can_betrothe_check
+				CHARACTER_2 = $CHARACTER$
+			}
+		}
+	}
+	lotr_betrothal_to_allowed = { TARGET = $CHARACTER$ }
+}
+
+can_betrothe_character_trigger = {
+	save_temporary_scope_as = can_betrothe_char_check
+	lotr_betrothal_to_allowed = { TARGET = $CHARACTER$ }
+	AND = {
+		can_be_betrothed_trigger = yes
+		$CHARACTER$ = { can_be_betrothed_trigger = yes }
+	}
+	could_betrothe_character_trigger = { CHARACTER = $CHARACTER$ } #Gender, recent divorce, allowed to marry, no illegal incest etc.
+}
+
+betrothal_interaction_can_be_picked_trigger = {
+	can_be_betrothed_trigger = yes
+	is_imprisoned = no
+}
+
+betrothal_interaction_valid_target_trigger = {
+	# Clergy cannot marry if their faith doesn't allow it
+	trigger_if = {
+		limit = {
+			scope:secondary_actor = {
+				is_clergy = yes
+				NOT = {
+					faith = {
+						has_doctrine_parameter = clergy_can_marry
+					}
+				}
+			}
+		}
+		custom_description = {
+			text = character_is_clergy_and_cannot_marry
+			subject = scope:secondary_actor
+			object = scope:secondary_recipient
+			scope:secondary_actor = {
+				is_clergy = no
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			scope:secondary_recipient = {
+				is_clergy = yes
+				NOT = {
+					faith = {
+						has_doctrine_parameter = clergy_can_marry
+					}
+				}
+			}
+		}
+		custom_description = {
+			text = character_is_clergy_and_cannot_marry
+			subject = scope:secondary_recipient
+			object = scope:secondary_actor
+			scope:secondary_recipient = {
+				is_clergy = no
+			}
+		}
+	}
+	#Betrothal
+	trigger_else = {
+		scope:secondary_actor = {
+			custom_description = {
+				text = "can_betroth_check_secondary_actor"
+				subject = scope:secondary_actor
+				object = scope:secondary_recipient
+				can_betrothe_character_trigger = { CHARACTER = scope:secondary_recipient } #Checks marriage status, betrothed, gender, consanguinity, faith hostility etc.
+			}
+		}
+	}
+}
+
+is_any_family_relation_trigger = {
+	save_temporary_scope_as = root_character
+	OR = {
+		any_parent = { this = $CHARACTER$ }
+		any_sibling = { this = $CHARACTER$ }
+		any_child = { this = $CHARACTER$ }
+		any_parent = {
+			even_if_dead = yes
+			any_sibling = {
+				this = $CHARACTER$
+			}
+		}
+		any_parent = {
+			even_if_dead = yes
+			any_sibling = {
+				even_if_dead = yes
+				any_child = {
+					this = $CHARACTER$
+				}
+			}
+		}
+		any_sibling = {
+			even_if_dead = yes
+			any_child = {
+				this = $CHARACTER$
+			}
+		}
+		AND = {
+			NOT = {
+				any_sibling = {
+					this = $CHARACTER$
+				}
+			}
+			any_parent = {
+				even_if_dead = yes
+				any_child = {
+					this = $CHARACTER$
+				}
+			}
+		}
+	}
+}
+
+lotr_can_adopt = {
+	is_nubile = yes
+	same_race = { TARGET = $ADOPTED$ }
+	cannot_be_killed = no
+	NOR = { 
+		culture = culture:wastelands
+    }
 }
 
 # ## UNDEAD TRIGGERS

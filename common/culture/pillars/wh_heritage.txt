@@ -14,6 +14,7 @@ heritage_albion = {
 	
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 
 }
@@ -30,6 +31,7 @@ heritage_amazon = {
 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_arabyan = {
@@ -44,6 +46,7 @@ heritage_arabyan = {
 	
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_bretonnian = {
@@ -58,6 +61,7 @@ heritage_bretonnian = {
 	
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_cathayan = { #Oriental
@@ -73,6 +77,7 @@ heritage_cathayan = { #Oriental
 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 
@@ -89,6 +94,7 @@ heritage_estalian = {
 	
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 
@@ -105,6 +111,7 @@ heritage_hung = {
 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_imperial = {
@@ -120,6 +127,7 @@ heritage_imperial = {
 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_indan = { #Oriental
@@ -134,6 +142,7 @@ heritage_indan = { #Oriental
 	audio_parameter = mena 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 
@@ -150,6 +159,7 @@ heritage_kislevite = {
 	
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_kurgan = {
@@ -164,6 +174,7 @@ heritage_kurgan = {
 	audio_parameter = european 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 
@@ -180,6 +191,7 @@ heritage_khyprian = {
 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_myrmidon = { #ancient heritage for ancient Myrmidian Empire
@@ -195,6 +207,7 @@ heritage_myrmidon = { #ancient heritage for ancient Myrmidian Empire
 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_lahmian = { #Vampiric cultures that aren't strygan
@@ -210,6 +223,7 @@ heritage_lahmian = { #Vampiric cultures that aren't strygan
 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_nehekharin = {
@@ -224,6 +238,7 @@ heritage_nehekharin = {
 	audio_parameter = mena 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_nippon = {
@@ -238,6 +253,7 @@ heritage_nippon = {
 	audio_parameter = european 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_norscan = {
@@ -253,6 +269,7 @@ heritage_norscan = {
 	
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_sartosan = {
@@ -268,6 +285,7 @@ heritage_sartosan = {
 	
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_southlander = { #TODO: Split up eventually
@@ -282,6 +300,7 @@ heritage_southlander = { #TODO: Split up eventually
 	audio_parameter = mena 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_strygan = {
@@ -297,6 +316,7 @@ heritage_strygan = {
 
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 heritage_tilean = {
@@ -312,6 +332,7 @@ heritage_tilean = {
 	
 	parameters = {
 		human = yes
+		is_human_heritage = yes
 	}
 }
 ############### 
@@ -321,12 +342,8 @@ heritage_halflings = {
 	type = heritage
 	
 	parameters = {
-		life_expectancy = 40
-		years_of_fertility = 20
-		fertility = 0.1
-		health = 1
-		negate_health_penalty_add = 3
 		halfling = yes
+		is_halfling_heritage = yes
 	}
 
 	is_shown = {
@@ -340,18 +357,19 @@ heritage_halflings = {
 	character_modifier = {
 		ai_war_chance = -1
 		ai_war_cooldown = 2
+		life_expectancy = 40
+		years_of_fertility = 20
+		fertility = 0.1
+		health = 1
+		negate_health_penalty_add = 3
 	}
 }
 heritage_pygmies = {
 	type = heritage
 	
 	parameters = {
-		life_expectancy = 40
-		years_of_fertility = 20
-		fertility = 0.1
-		health = 1
-		negate_health_penalty_add = 3
 		halfling = yes
+		is_halfling_heritage = yes
 	}
 	is_shown = {
 		heritage_is_shown_trigger = {
@@ -360,17 +378,21 @@ heritage_pygmies = {
 	}
 
 	audio_parameter = european 
-}
-heritage_miyans = {
-	type = heritage
 	
-	parameters = {
+	character_modifier = {
 		life_expectancy = 40
 		years_of_fertility = 20
 		fertility = 0.1
 		health = 1
 		negate_health_penalty_add = 3
+	}
+}
+heritage_miyans = {
+	type = heritage
+	
+	parameters = {
 		halfling = yes
+		is_halfling_heritage = yes
 	}
 	is_shown = {
 		heritage_is_shown_trigger = {
@@ -379,6 +401,14 @@ heritage_miyans = {
 	}
 
 	audio_parameter = european 
+	
+	character_modifier = {
+		life_expectancy = 40
+		years_of_fertility = 20
+		fertility = 0.1
+		health = 1
+		negate_health_penalty_add = 3
+	}
 }
 ###########
 ###Elves###
