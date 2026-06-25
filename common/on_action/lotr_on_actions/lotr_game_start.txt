@@ -77,155 +77,155 @@ lotr_on_game_start = {
 		control_trade_in_the_bay_of_ormal_game_start_effect = yes
 
 		### The Long Winter ###
-		# if = {
-		# 	limit = {
-		# 		game_start_date = 6787.1.1
-		# 	}
-		# 	title:k_wastelands.holder = {
-		# 		if = {
-		# 			limit = {
-		# 				has_game_rule = default_ai_behavior
-		# 			}
-		# 			trigger_event = {
-		# 				id = long_winter.0001
-		# 				days = 1675
-		# 			}
-		# 		}
-		# 		else = {
-		# 			random_list = {
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 1310
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 1675
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 2040
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 2405
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 2770
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 3135
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 3500
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 3865
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 4230
-		# 					}
-		# 				}
-		# 				1 = {
-		# 					trigger_event = {
-		# 						id = long_winter.0001
-		# 						days = 4595
-		# 					}
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-		# }
+		if = {
+			limit = {
+				game_start_date = 6787.1.1
+			}
+			title:k_wastelands.holder = {
+				if = {
+					limit = {
+						has_game_rule = default_ai_behavior
+					}
+					trigger_event = {
+						id = long_winter.0001
+						days = 1675
+					}
+				}
+				else = {
+					random_list = {
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 1310
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 1675
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 2040
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 2405
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 2770
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 3135
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 3500
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 3865
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 4230
+							}
+						}
+						1 = {
+							trigger_event = {
+								id = long_winter.0001
+								days = 4595
+							}
+						}
+					}
+				}
+			}
+		}
 
 		### RELIGIOUS STUFF ###
 
-		# religion:magrin_religion = { every_faith = { set_variable = historical_magrin_faith } }
+		religion:magrin_religion = { every_faith = { set_variable = historical_magrin_faith } }
 
-		# #Vidavan reforms in Arienism
-		# faith:faith_arienism = {
-		# 	if = {
-		# 		limit = {
-		# 			game_start_date >= 6440.1.1
-		# 		}
-		# 		remove_doctrine = tenet_spread_the_light
-		# 		add_doctrine = tenet_vidavan
-		# 		remove_doctrine = doctrine_clerical_succession_spiritual_appointment #Power of the clergy increased
-		# 		add_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
-		# 	}
-		# }
-		# if = {
-		# 	limit = {
-		# 		game_start_date >= 5100.1.1
-		# 	}
-		# 	religion:ormalbay_religion = {
-		# 		set_variable = {
-		# 			name = variable_ghw_unlocked
-		# 			value = yes
-		# 		}
-		# 	}
-		# }
+		#Vidavan reforms in Arienism
+		faith:faith_arienism = {
+			if = {
+				limit = {
+					game_start_date >= 6440.1.1
+				}
+				remove_doctrine = tenet_spread_the_light
+				add_doctrine = tenet_vidavan
+				remove_doctrine = doctrine_clerical_succession_spiritual_appointment #Power of the clergy increased
+				add_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+			}
+		}
+		if = {
+			limit = {
+				game_start_date >= 5100.1.1
+			}
+			religion:ormalbay_religion = {
+				set_variable = {
+					name = variable_ghw_unlocked
+					value = yes
+				}
+			}
+		}
 
-		# # Assigning bonuses and states to certain historical characters
-		# lotr_apply_posthistory_effect = yes
+		# Assigning bonuses and states to certain historical characters
+		lotr_apply_posthistory_effect = yes
 
-		# # Make Dark Lord HOF uncreatable while Sauron is in hiding
-		# if = {
-		# 	limit = {
-		# 		game_start_date > 4033
-		# 		game_start_date < 6974
-		# 	}
-		# 	remove_dark_lord_hof_effect = yes
-		# }
+		# Make Dark Lord HOF uncreatable while Sauron is in hiding
+		if = {
+			limit = {
+				game_start_date > 4033
+				game_start_date < 6974
+			}
+			remove_dark_lord_hof_effect = yes
+		}
 
-		# # Nurn Slaves
-		# every_county = {
-		# 	limit = {
-		# 		culture = culture:nurnoth
-		# 		faith = faith:faith_nurn_slave
-		# 	}
-		# 	make_county_crypto_religionists_effect = { FAITH = faith:faith_nurn_good }
-		# }
+		# Nurn Slaves
+		every_county = {
+			limit = {
+				culture = culture:nurnoth
+				faith = faith:faith_nurn_slave
+			}
+			make_county_crypto_religionists_effect = { FAITH = faith:faith_nurn_good }
+		}
 
-		# #Dunlending white-hand faith inaccessible
-		# faith:faith_dunlending_white_hand = {
-		# 	set_variable = { name = block_conversion_till_decision_taken }
-		# }
+		#Dunlending white-hand faith inaccessible
+		faith:faith_dunlending_white_hand = {
+			set_variable = { name = block_conversion_till_decision_taken }
+		}
 
-		# # Tweaking faith fervor so we dont have strange game-start heresies and accounting for shift in gender preference
-		# faith:faith_arysis = {
-		# 	change_fervor = {
-		# 		value = 80
-		# 		desc = fervor_gain_ascetic_example
-		# 	}
-		# 	if = {
-		# 		limit = {
-		# 			game_start_date >= 6033.1.1
-		# 		}
-		# 		remove_doctrine = doctrine_gender_equal
-		# 		add_doctrine = doctrine_gender_male_orientated
-		# 	}
-		# }
+		# Tweaking faith fervor so we dont have strange game-start heresies and accounting for shift in gender preference
+		faith:faith_arysis = {
+			change_fervor = {
+				value = 80
+				desc = fervor_gain_ascetic_example
+			}
+			if = {
+				limit = {
+					game_start_date >= 6033.1.1
+				}
+				remove_doctrine = doctrine_gender_equal
+				add_doctrine = doctrine_gender_male_orientated
+			}
+		}
 
 		### GAME RULE: EXTRA ADMINS
 		apply_historic_administrative_game_rule_effect = yes
@@ -255,90 +255,96 @@ lotr_on_game_start = {
 
 		### Define Natural Disaster Regions
 		lotr_define_natural_disaster_regions = yes
-		
-		
-		title:k_wastelands.holder = { create_story = story_artifact_crafting }
-
 
 		### Set up the Mundburgian Eored
-		# if = {
-		# 	limit = { game_start_date >= 5465.1.1 } #Eldacar returns with his Northmen guard
-		# 	if = {
-		# 		limit = { exists = title:e_gondor.holder }
-		# 		title:e_gondor = { set_variable = founded_mundburgian_eored }
-		# 	}
-		# 	else = { title:e_gondor_steward = { set_variable = founded_mundburgian_eored } }
-		# }
+		if = {
+			limit = { game_start_date >= 5465.1.1 } #Eldacar returns with his Northmen guard
+			if = {
+				limit = { exists = title:e_gondor.holder }
+				title:e_gondor = { set_variable = founded_mundburgian_eored }
+			}
+			else = { title:e_gondor_steward = { set_variable = founded_mundburgian_eored } }
+		}
 
-		# ### Set Up Maresh Prosperity ###
-		# setup_maresh_prosperity_effect = yes
+		### Set Up Maresh Prosperity ###
+		setup_maresh_prosperity_effect = yes
 
+		### Set Up Dates of Acadeh modifier
+		title:c_acadeh = {
+			add_county_modifier = {
+				modifier = lodenuly_date_farms_modifier
+			}
+		}
+		title:c_arnaz = {
+			add_county_modifier = {
+				modifier = lodenuly_date_farms_modifier
+			}
+		}
 
+		### Set Up City of Cats in Bellakar
+		title:c_esmer = { add_county_modifier = city_of_cats_modifier }
 
-		# ### Set Up City of Cats in Bellakar
-		# title:c_esmer = { add_county_modifier = city_of_cats_modifier }
+		### Set up the Namâlo Network
+		# Namâlo Spice Merchant Network is established in Sîrayn
+		lotr_historical_namalo_effect = yes
 
-		# ### Set up the Namâlo Network
-		# # Namâlo Spice Merchant Network is established in Sîrayn
-		# lotr_historical_namalo_effect = yes
+		### Stop Zantaka from increasing crown authority on day 1
+		character:lineofzantaka1 ?= {
+			if = {
+				limit = {
+					is_alive = yes
+					is_ruler = yes
+				}
+				set_variable = {
+					name = crown_authority_cooldown
+					years = 1
+				}
+			}
+		}
 
-		# ### Stop Zantaka from increasing crown authority on day 1
-		# character:lineofzantaka1 ?= {
-		# 	if = {
-		# 		limit = {
-		# 			is_alive = yes
-		# 			is_ruler = yes
-		# 		}
-		# 		set_variable = {
-		# 			name = crown_authority_cooldown
-		# 			years = 1
-		# 		}
-		# 	}
-		# }
+		### Set up Tirith Aear Building ###
+		title:c_dol_amroth.title_province = { set_great_building = wonder_tirith_aear_decayed }
 
-		# ### Set up Tirith Aear Building ###
-		# title:c_dol_amroth.title_province = { set_great_building = wonder_tirith_aear_decayed }
+		###############################
+		### Dynasty related effects ###
+		###############################
 
-		# ###############################
-		# ### Dynasty related effects ###
-		# ###############################
+		### Set Up Dorwinion Faction Alignments ###
 
-		# ### Set Up Dorwinion Faction Alignments ###
+		dorwinion_dynasty_alignment = yes
 
-		# dorwinion_dynasty_alignment = yes
+		### Set Up Dune Sea Witch Covens ###
 
-		# ### Set Up Dune Sea Witch Covens ###
+		dune_sea_witch_covens = yes
 
-		# dune_sea_witch_covens = yes
-
-		# ### Appoint Princely Houses of the Dúnedain ###
-
-
-		# # Find some way to change motto
-
-		# lotr_gender_flip_the_fathers = yes
-
-		# ### Fire Intro Events ###
-		# fire_intro_events = yes
-
-		# ### Sorcery Setup ###
-		# generate_sorcery_list_on_start = yes
-
+		### Appoint Princely Houses of the Dúnedain ###
 
 
-		#title:d_tamska_main.holder = { create_story = story_cycle_tamskangi }
+		# Find some way to change motto
 
-		# if = { # The Establishment of the Ithilien Rangers
-		# 	limit = { game_start_date >= 6934.1.1 } # The year is after T.A. 2901, when Henneth Annun was built
-		# 	add_to_global_variable_list = {
-		# 		name = unavailable_unique_decisions
-		# 		target = flag:establish_the_ithilien_rangers
-		# 	}
-		# }
+		lotr_gender_flip_the_fathers = yes
+
+		### Fire Intro Events ###
+		fire_intro_events = yes
+
+		### Sorcery Setup ###
+		generate_sorcery_list_on_start = yes
+
+		title:k_wastelands.holder = { create_story = story_artifact_crafting }
+
+		title:d_tamska_main.holder = { create_story = story_cycle_tamskangi }
+
+		if = { # The Establishment of the Ithilien Rangers
+			limit = { game_start_date >= 6934.1.1 } # The year is after T.A. 2901, when Henneth Annun was built
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:establish_the_ithilien_rangers
+			}
+		}
 
 		character:k_wastelands_holder = {
-			#trigger_event = elven_racial.0100
-			#trigger_event = dwarven_racial.0100 # Lifestyle experience for famous dwarven smiths
+			trigger_event = elven_racial.0100
+			trigger_event = dwarven_racial.0100 # Lifestyle experience for famous dwarven smiths
 		}
 
 		every_living_character = {
@@ -434,7 +440,28 @@ lotr_on_game_start = {
 			name = zantaka_revolution
 			value = no
 		}
-					
+		if = {
+			limit = { # The Second Stomrhost exists but its not WotR
+				AND = {
+					game_start_date < 7030.1.1
+					game_start_date > 6490.1.1
+				}
+			}
+			set_global_variable = {
+				name = bellakar_south_focus
+				value = yes
+			}			
+		}
+		else = {
+			set_global_variable = {
+				name = bellakar_south_focus
+				value = no
+			}
+		}
+		set_global_variable = {
+			name = bellakar_north_focus
+			value = no
+		}				
 		set_global_variable = {
 			name = ray_rebellion_started
 			value = no
@@ -451,7 +478,36 @@ lotr_on_game_start = {
 			name = koronande_war_state
 			value = 0
 		}
-
+		# Return of Sauron
+		if = {
+			limit = {
+				game_start_date > 6974.9.1
+			}
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:return_of_sauron
+			}
+		}
+		# Sauron Destroyed
+		if = {
+			limit = {
+				game_start_date < 7054.1.1
+			}
+			set_global_variable = {
+				name = sauron_destroyed
+				value = no #He's still kicking!
+			}
+		}
+		else = {
+			set_global_variable = {
+				name = sauron_destroyed
+				value = yes #He gone
+			}
+			set_global_variable = {
+				name = fourth_age_date
+				value = 7055
+			}
+		}
 
 		set_global_variable = {
 			name = bor_saint
@@ -462,7 +518,106 @@ lotr_on_game_start = {
 			value = 0	#to allow conquerors to spawn
 		}
 
+		if = { # For decision loc for Lyneria trade decisons
+			limit = {
+				any_county_in_region = { # Tom controls something in the pass
+					region = custom_lyneria_pass
+					holder.top_liege = title:k_wastelands.holder
+				}
+			}
+			set_global_variable = lyneria_pass_begins_wasteland
+		}
+		if = { # For decision loc for Lyneria trade decisons
+			limit = {
+				any_county_in_region = { # Tom controls something on the coastline
+					region = custom_lyneria_coastline
+					holder.top_liege = title:k_wastelands.holder
+				}
+			}
+			set_global_variable = lyneria_coastline_begins_wasteland
+		}
+		if = { # Seregul has messed up
+			limit = { game_start_date = 7033.1.1 }
+			set_global_variable = {
+				name = pel_destabilized
+				value = yes
+			}
+		}
+		if = {
+			limit = { game_start_date < 7033.1.1 }
+			set_global_variable = {
+				name = pel_destabilized
+				value = no
+			}
+		}
 
+		# Achievement Setup
+		character:lineukorg5 ?= {
+			add_character_flag = gor_good
+		}
+
+		if = {
+			limit = { game_start_date >= 7033 }
+			### Remove prescripted will not marry traits on timeout ###
+			character:linesteward40 = {
+				trigger_event = {
+					id = shattered_earth.3
+					years = 21
+				}
+			}
+			character:lineisildur42 = {
+				trigger_event = {
+					id = shattered_earth.3
+					years = 21
+				}
+			}
+			character:dolamroth31 = {
+				trigger_event = {
+					id = shattered_earth.3
+					years = 21
+				}
+			}
+			character:lineofeofor17 = {
+				trigger_event = {
+					id = shattered_earth.3
+					years = 21
+				}
+			}
+			character:lineofeofor18 = {
+				trigger_event = {
+					id = shattered_earth.3
+					years = 21
+				}
+			}
+		}
+
+		title:c_minas_tirith.holder = {
+        	trigger_event = { ### LotR Shattered Earth Game Rule Initial Event ###
+				id = shattered_earth.1
+				days = 1
+			}
+			trigger_event = { # Initial culture acceptance
+				id = culture_acceptance.1
+			}
+        }
+
+		title:c_minas_ithil.holder = {
+        	trigger_event = { # LotR - Set up Morgul Corruption
+				id = wraith.0001
+				days = 1
+			}
+        }
+
+		## Ensure Future Tamskas are not prematurely showing as Tamska in earlier start dates
+		if = {
+			limit = {
+				game_start_date = 6787.1.1
+			}
+			character:linetamska159 = {
+				remove_trait = tamska
+				add_trait = tamska_heir
+			}
+		}
 
 		### Cap Dynasty Perks at 5 ###
 
@@ -477,8 +632,103 @@ lotr_on_game_start = {
 			}
 		}
 
+		### Set Historical Dynasty Level of Splendor ###
+		dynasty:dynasty_elros = {
+			add_dynasty_prestige_level = 10
+		}
+		dynasty:dynasty_anarion = {
+			add_dynasty_prestige_level = 10
+		}
+		dynasty:dynasty_elendil = {
+			add_dynasty_prestige_level = 10
+		}
+		dynasty:dynasty_melian = {
+			add_dynasty_prestige_level = 10
+		}
+		dynasty:dynasty_osse = {
+			add_dynasty_prestige_level = 10
+		}
+		dynasty:dynasty_uinen = {
+			add_dynasty_prestige_level = 10
+		}
+		dynasty:dynasty_war_saints = {
+			add_dynasty_prestige_level = 10
+		}
+		dynasty:dynasty_serpentlord = {
+			add_dynasty_prestige_level = 3
+		}
 
+		#County Modifiers LW
+		if = { # 6820 TA
+			#Gram Modifiers
+			limit = { game_start_date = 6787.1.1 }
+			title:c_baruk_zigil = {
+				add_county_modifier = orc_anarchy_county_modifier
+			}
+			title:c_ongbishuk = {
+				add_county_modifier = orc_anarchy_county_modifier
+			}
+			title:c_gormakh = {
+				add_county_modifier = orc_anarchy_county_modifier
+			}
+			title:c_zargul = {
+				add_county_modifier = orc_anarchy_county_modifier
+			}
+			#title:c_garzugul = {	#Wilderness at gamestart
+			#	add_county_modifier = orc_anarchy_county_modifier
+			#}
+		}
 
+		# Unity Set Up
+		if = { # 3000 TA
+			limit = { game_start_date = 7033.1.1 }
+			## Haruzan has had a stable rule for some time but potential new ambition in family
+			dynasty:dynasty_ayerikka.dynast.house ?= {
+				add_unity_value = {
+					value = 30
+					# This is from historical circumstances, so we just do use the house head.
+					character = house_head
+					desc = clan_unity_historical_circumstances.desc
+				}
+			}
+			## Chelkar stands strongly united with enemies on all sides
+			dynasty:dynasty_khadnom.dynast.house ?= {
+				add_unity_value = {
+					value = 90
+					# This is from historical circumstances, so we just do use the house head.
+					character = house_head
+					desc = clan_unity_historical_circumstances.desc
+				}
+			}
+			## Pezarsan is in a state of internal strife and prey to opportunistic neighbours
+			dynasty:dynasty_arzagarnom.dynast.house ?= {
+				add_unity_value = {
+					value = -55
+					# This is from historical circumstances, so we just do use the house head.
+					character = house_head
+					desc = clan_unity_historical_circumstances.desc
+				}
+			}
+			## Ray is strong and stable with little internal strife of the ruling family
+			dynasty:dynasty_solarray.dynast.house ?= {
+				add_unity_value = {
+					value = 75
+					# This is from historical circumstances, so we just do use the house head.
+					character = house_head
+					desc = clan_unity_historical_circumstances.desc
+				}
+			}
+			## Ard the Silent is unshakable
+			dynasty:dynasty_silent.dynast.house ?= {
+				add_unity_value = {
+					value = 100
+					# This is from historical circumstances, so we just do use the house head.
+					character = house_head
+					desc = clan_unity_historical_circumstances.desc
+				}
+			}
+
+		}
 
 		#################################
 		### Historical Confederations ###
@@ -501,8 +751,58 @@ lotr_on_game_start = {
 			}
 		}
 
-		#dwarven_empire_titular_history_effect = yes
+		clear_dwarven_kingdom_claims = { KINGDOM = title:k_durins_folk }
+		clear_dwarven_kingdom_claims = { KINGDOM = title:k_uris_folk }
+		clear_dwarven_kingdom_claims = { KINGDOM = title:k_dwalins_folk }
+		clear_dwarven_kingdom_claims = { KINGDOM = title:k_thrars_folk }
+		clear_dwarven_kingdom_claims = { KINGDOM = title:k_sindris_folk }
+		clear_dwarven_kingdom_claims = { KINGDOM = title:k_thulins_folk }
+		clear_dwarven_kingdom_claims = { KINGDOM = title:k_bavors_folk }
+		dwarven_empire_titular_history_effect = yes
 
+		## Giving Thror the Arkenstone
+		if = {
+			limit = {
+				game_start_date = 6787.1.1
+			}
+			character:lineofdurin81 = {
+				create_artifact_arkenstone_effect = { OWNER = this }
+			}
+		}
+
+		### Conquerors ###
+		character:lineoflavrajyatante21 ?= { # Radyani
+		 	if = { # Add conqueror trait if alive and gamerule allows
+		 		limit = {
+		 			is_alive = yes
+		 			NOT = { has_game_rule = no_conquerors_frequency }
+		 		}
+		 		create_story = story_conqueror
+		 	}
+			else_if = { # Add conqueror trait if already dead
+				limit = {
+					is_alive = no
+					game_start_date >= 7033
+				}
+				add_trait = conqueror
+			}
+		}
+		character:linemasamavin1 ?= { # Vimana
+		 	if = { # Add conqueror trait if alive and gamerule allows
+		 		limit = {
+		 			is_alive = yes
+		 			NOT = { has_game_rule = no_conquerors_frequency }
+		 		}
+		 		create_story = story_conqueror
+		 	}
+			else_if = { # Add conqueror trait if already dead
+				limit = {
+					is_alive = no
+					game_start_date >= 6787
+				}
+				add_trait = conqueror
+			}
+		}
 	}
 }
 

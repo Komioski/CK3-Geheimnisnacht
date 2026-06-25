@@ -56,13 +56,14 @@ is_roman_emperor_primary_title_excluding_byzantium_trigger = {
 
 valid_for_byz_emperor_content_trigger = {
 	has_ep3_dlc_trigger = yes
-	always = no # culture = {
-	# 	OR = {
-	# 		# has_cultural_pillar = heritage_byzantine
-	# 		# has_cultural_pillar = heritage_caucasian
-	# 		has_cultural_pillar = heritage_south_khailuza
-	# 	}
-	# }
+	culture = {
+		OR = {
+			# has_cultural_pillar = heritage_byzantine
+			# has_cultural_pillar = heritage_caucasian
+			has_cultural_pillar = heritage_south_khailuza
+			lotr_numenorean_trigger = yes
+		}
+	}
 	# OR = {
 		# primary_title = title:e_byzantium
 		# primary_title = title:e_roman_empire
@@ -79,30 +80,31 @@ valid_for_byz_emperor_content_trigger = {
 }
 
 valid_for_byz_governor_content_trigger = {
-	always = no # has_ep3_dlc_trigger = yes
-	# is_governor = yes
-	# top_liege.culture = {
+	has_ep3_dlc_trigger = yes
+	is_governor = yes
+	top_liege.culture = {
+		OR = {
+	# 		has_cultural_pillar = heritage_byzantine
+	# 		has_cultural_pillar = heritage_caucasian
+			has_cultural_pillar = heritage_south_khailuza
+			lotr_numenorean_trigger = yes
+		}
+	}
+	top_liege = {
 	# 	OR = {
-	# # 		has_cultural_pillar = heritage_byzantine
-	# # 		has_cultural_pillar = heritage_caucasian
-	# 		has_cultural_pillar = heritage_south_khailuza
+	# 		primary_title = title:e_byzantium
+	# 		primary_title = title:e_roman_empire
+	# 		AND = {
+	# 			culture = {
+	# 				OR = {
+	# 					this = culture:greek
+	# 					any_parent_culture_or_above = { this = culture:greek }
+	# 				}
+	# 			}
+				highest_held_title_tier >= tier_empire
+	# 		}
 	# 	}
-	# }
-	# top_liege = {
-	# # 	OR = {
-	# # 		primary_title = title:e_byzantium
-	# # 		primary_title = title:e_roman_empire
-	# # 		AND = {
-	# # 			culture = {
-	# # 				OR = {
-	# # 					this = culture:greek
-	# # 					any_parent_culture_or_above = { this = culture:greek }
-	# # 				}
-	# # 			}
-	# 			highest_held_title_tier >= tier_empire
-	# # 		}
-	# # 	}
-	# }
+	}
 }
 
 valid_for_byz_succession_trigger = {
@@ -146,7 +148,7 @@ ep3_varangian_trigger = {
 				has_cultural_tradition = tradition_fp1_coastal_warriors
 				# has_cultural_tradition = tradition_hird #LotR
 				has_cultural_tradition = tradition_fp1_performative_honour
-				# has_cultural_pillar = heritage_norscan #LotR
+				# has_cultural_pillar = heritage_north_germanic #LotR
 				# has_cultural_pillar = heritage_west_germanic #LotR
 			}
 		}
@@ -1110,7 +1112,7 @@ ep3_is_clan_inclined_trigger = {
 	# 	faith.religion = religion:islam_religion
 	# 	culture ?= {
 	# 		OR = {
-	#  			has_cultural_pillar = heritage_arabyan
+	#  			has_cultural_pillar = heritage_arabic
  	# 			has_cultural_pillar = heritage_iranian
 	# 			has_cultural_pillar = heritage_turkic
 	# 		}

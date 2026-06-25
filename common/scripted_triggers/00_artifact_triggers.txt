@@ -25,109 +25,6 @@ artifact_value_trigger = {
 		artifact_high_rarity_trigger = yes
 	}
 }
-artifact_is_worthy_to_improve_trigger = {
-	NOR = {
-		has_variable = ai_to_ai_destroy_in_sieges
-		has_variable = unwanted_artifact
-		has_variable = cursed_artifact
-		has_variable = 1025_treasure_map
-	}
-}
-artifact_can_be_gift_base_trigger = {
-	NOR = {
-		has_variable = ai_to_ai_destroy_in_sieges
-		has_variable = unwanted_artifact
-		has_variable = cursed_artifact
-		has_variable = 1025_treasure_map
-		has_variable = ungiftable
-		has_variable = is_tribute_mission_artifact
-		has_variable = artifact_prevent_transfer # not enforced in all script but make life easier for modders.
-
-		AND = { #So the AI doesn't hand out certain artifacts
-			has_variable = ai_ungiftable
-			artifact_owner = { is_ai = yes }
-		}
-	}
-}
-# e.g. a formal tribute gift 
-artifact_can_be_gift_advance_trigger = {
-	artifact_can_be_gift_base_trigger = yes
-	NOR = {
-		has_variable = banner_dynasty
-		has_variable = banner_house
-		has_variable = bunga_mas_created_by
-		var:artifact_succession_title ?= { is_title_created = yes }
-		#LotR
-		var:heirloom_of_title ?= { is_title_created = yes }
-	}
-}
-
-artifact_can_be_gift_to_trigger = {
-	artifact_can_be_gift_base_trigger = yes
-	trigger_if = {
-		limit = {
-			NOT = { $RECIPIENT$ = { has_artifact_claim = prev } }
-		}
-		trigger_if = {
-			limit = {
-				has_variable = banner_dynasty
-			}
-			$RECIPIENT$.dynasty ?= var:banner_dynasty
-			artifact_owner = {
-				# it make no sense giving your own banner to other member if you are dynast
-				NAND = {
-					var:banner_dynasty.dynast ?= this
-					has_royal_court = yes
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = banner_house
-			}
-			$RECIPIENT$.house ?= var:banner_house
-			artifact_owner = {
-				# it make no sense giving your own banner to other member if you are dynast
-				NAND = {
-					var:banner_house.house_head ?= this
-					has_royal_court = yes
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				has_variable = relic_religion
-			}
-			# make no sense gifting relic to heathen, but sending heathen stuff to others are acceptable
-			OR = {
-				artifact_owner.religion != var:relic_religion
-				$RECIPIENT$.religion = var:relic_religion
-			}
-		}
-		trigger_if = {
-			limit = {
-				var:artifact_succession_title ?= { is_title_created = yes }
-			}
-			# either its title destroyed, or recipient is rightfully owner, or you are not the title's holder
-			OR = {
-				var:artifact_succession_title.holder = $RECIPIENT$
-				var:artifact_succession_title.holder != artifact_owner
-			}
-		}
-		trigger_if = { #LotR
-			limit = {
-				var:heirloom_of_title ?= { is_title_created = yes }
-			}
-			# either its title destroyed, or recipient is rightfully owner, or you are not the title's holder
-			OR = {
-				var:heirloom_of_title.holder = $RECIPIENT$
-				var:heirloom_of_title.holder.player_heir = $RECIPIENT$
-				var:heirloom_of_title.holder != artifact_owner
-				var:heirloom_of_title.holder.player_heir != artifact_owner
-			}
-		}
-	}
-}
 
 artifact_region_trigger = {
 	trigger_if = {
@@ -415,11 +312,22 @@ artifact_use_avari_unit_visuals_trigger = {
 }
 
 artifact_use_silvan_unit_visuals_trigger = {
-	always = no
+	culture ?= {
+		OR = {
+			this = culture:lasgalendrim
+			any_parent_culture_or_above = { this = culture:lasgalendrim }
+		}
+	}
 }
 
 artifact_use_noldor_unit_visuals_trigger = {
-	always = no
+	culture ?= {
+		OR = {
+			this = culture:galadhrim
+			any_parent_culture_or_above = { this = culture:galadhrim }
+			has_cultural_pillar = heritage_calaquendi
+		}
+	}
 }
 
 artifact_use_adunaic_unit_visuals_trigger = {
@@ -462,21 +370,22 @@ artifact_use_orcish_unit_visuals_trigger = {
 	exists = culture
 	culture = {
 		OR = {
+			has_unit_gfx = isengard_uruk_unit_gfx
 			has_unit_gfx = orc_unit_gfx
 		}
 	}
 }
 
-# artifact_use_urukhai_unit_visuals_trigger = { 
-# 	exists = culture
-#     culture = { 
-#         OR = { 
-# 			has_unit_gfx = isengard_uruk_unit_gfx
-#             this = culture:isengard_urukhai
-#             any_parent_culture_or_above = { this = culture:isengard_urukhai } 
-# 		} 
-# 	} 
-# }
+artifact_use_urukhai_unit_visuals_trigger = { 
+	exists = culture
+    culture = { 
+        OR = { 
+			has_unit_gfx = isengard_uruk_unit_gfx
+            this = culture:isengard_urukhai
+            any_parent_culture_or_above = { this = culture:isengard_urukhai } 
+		} 
+	} 
+}
 
 artifact_use_ghrazim_unit_visuals_trigger = { 
 	exists = culture
@@ -514,15 +423,7 @@ artifact_use_indian_building_visuals_trigger = {
 		OR = {
 			has_building_gfx = indian_building_gfx
 			# has_building_gfx = southeast_asian_building_gfx #LotR
-			#has_building_gfx = nafarati_building_gfx # LOTR
 		}
-	}
-}
-
-artifact_use_mena_building_visuals_trigger = {
-	OR = { # LOTR
-		culture ?= { has_building_gfx = mena_building_gfx }
-		#culture ?= { has_building_gfx = ray_building_gfx } # LOTR
 	}
 }
 

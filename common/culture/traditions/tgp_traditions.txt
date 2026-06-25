@@ -395,13 +395,13 @@ tradition_tgp_ephemeral_grace = {
 	}
 
 	is_shown = {
-		always = no # has_tgp_dlc_trigger = yes
-		# culture_head = {
-		# 	OR = {
-		# 		faith = { has_doctrine = special_doctrine_immaterial_harmony }
-		# 		has_religion = religion:shintoism_religion
-		# 	}
-		# }
+		has_tgp_dlc_trigger = yes
+		culture_head = {
+			OR = {
+				faith = { has_doctrine = special_doctrine_immaterial_harmony }
+				has_religion = religion:shintoism_religion
+			}
+		}
 	}
 	
 	can_pick = {
@@ -1321,7 +1321,7 @@ tradition_tgp_mountain_island = {
 			has_cultural_tradition = tradition_himalayan_settlers
 			has_cultural_tradition = tradition_mountaineer_ruralism
 			has_cultural_tradition = tradition_mountain_homes
-			has_cultural_pillar = heritage_arabyan
+			has_cultural_pillar = heritage_arabic
 			has_cultural_pillar = heritage_berber
 			has_cultural_pillar = heritage_tibetan
 			has_cultural_pillar = heritage_qiangic

@@ -3240,34 +3240,34 @@ crusading_claim_cb = {
 
 
 		#General event that tells all players what happened
-		# every_player = {
-		# 	limit = {
-		# 		OR = {
-		# 			capital_province = {
-		# 				OR = {
-		# 					geographical_region = world_europe
-		# 					geographical_region = world_asia_minor
-		# 					geographical_region = world_middle_east
-		# 					geographical_region = world_africa_north
-		# 					county = {
-		# 						OR = {
-		# 							empire = title:e_caspian-pontic_steppe
-		# 							empire = title:e_byzantium
-		# 						}
-		# 					}
-		# 				}
-		# 			}
-		# 			liege = scope:defender
-		# 			faith.religion = religion:christianity_religion
-		# 		}
-		# 	}
-		# 	add_character_flag = frankokratia_crusaders_lose_outcome
-		# 	add_character_flag = frankokratia_crusaders_white_peace_outcome
-		# 	trigger_event = {
-		# 		id = ep3_frankokratia_events.0060
-		# 		days = 1
-		# 	}
-		# }
+		every_player = {
+			limit = {
+				OR = {
+					capital_province = {
+						OR = {
+							geographical_region = world_europe
+							geographical_region = world_asia_minor
+							geographical_region = world_middle_east
+							geographical_region = world_africa_north
+							county = {
+								OR = {
+									empire = title:e_caspian-pontic_steppe
+									empire = title:e_byzantium
+								}
+							}
+						}
+					}
+					liege = scope:defender
+					faith.religion = religion:christianity_religion
+				}
+			}
+			add_character_flag = frankokratia_crusaders_lose_outcome
+			add_character_flag = frankokratia_crusaders_white_peace_outcome
+			trigger_event = {
+				id = ep3_frankokratia_events.0060
+				days = 1
+			}
+		}
 		#Force end on story owner to be safe (necessary for AI owner)
 		if = {
 			limit = {
@@ -3409,33 +3409,33 @@ crusading_claim_cb = {
 
 
 		#General event that tells all players what happened
-		# every_player = {
-		# 	limit = {
-		# 		OR = {
-		# 			capital_province = {
-		# 				OR = {
-		# 					geographical_region = world_europe
-		# 					geographical_region = world_asia_minor
-		# 					geographical_region = world_middle_east
-		# 					geographical_region = world_africa_north
-		# 					county = {
-		# 						OR = {
-		# 							empire = title:e_caspian-pontic_steppe
-		# 							empire = title:e_byzantium
-		# 						}
-		# 					}
-		# 				}
-		# 			}
-		# 			liege = scope:defender
-		# 			faith.religion = religion:christianity_religion
-		# 		}
-		# 	}
-		# 	add_character_flag = frankokratia_crusaders_lose_outcome
-		# 	trigger_event = {
-		# 		id = ep3_frankokratia_events.0060
-		# 		days = 1
-		# 	}
-		# }
+		every_player = {
+			limit = {
+				OR = {
+					capital_province = {
+						OR = {
+							geographical_region = world_europe
+							geographical_region = world_asia_minor
+							geographical_region = world_middle_east
+							geographical_region = world_africa_north
+							county = {
+								OR = {
+									empire = title:e_caspian-pontic_steppe
+									empire = title:e_byzantium
+								}
+							}
+						}
+					}
+					liege = scope:defender
+					faith.religion = religion:christianity_religion
+				}
+			}
+			add_character_flag = frankokratia_crusaders_lose_outcome
+			trigger_event = {
+				id = ep3_frankokratia_events.0060
+				days = 1
+			}
+		}
 		#Force end on story owner to be safe (necessary for AI owner)
 		if = {
 			limit = {

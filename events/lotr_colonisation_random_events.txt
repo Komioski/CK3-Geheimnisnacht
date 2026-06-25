@@ -3810,7 +3810,7 @@ colonisation_random.2012 = { # A Plea from the Settlers
 			else_if = {
 				limit = {
 					root = {
-						is_halfling = yes
+						is_hobbit = yes
 					}
 				}
 				scope:colony_province = {
@@ -3857,7 +3857,7 @@ colonisation_random.2012 = { # A Plea from the Settlers
 			}
 			else_if = {
 				limit = {
-					root = { is_halfling = yes }
+					root = { is_hobbit = yes }
 				}
 				scope:colonist = { change_government = hobbit_government }
 			}
@@ -4166,7 +4166,7 @@ colonisation_random.2014 = { # Ahead of Schedule
 			else_if = {
 				limit = {
 					root = {
-						is_halfling = yes
+						is_hobbit = yes
 					}
 				}
 				scope:colony_province = {
@@ -4328,7 +4328,7 @@ colonisation_random.2016 = { # Heresy Outbreak
 				}
 			}
 			else_if = {
-				limit = { is_halfling = yes }
+				limit = { is_hobbit = yes }
 				scope:colony_province = {
 					set_holding_type = city_holding
 				}
@@ -4486,7 +4486,7 @@ colonisation_random.2016 = { # Heresy Outbreak
 					resolve_title_and_vassal_change = scope:change
 					
 					if = { 	
-						limit = { is_halfling = yes }
+						limit = { is_hobbit = yes }
 						change_government = hobbit_government
 					}
 					else_if = {
