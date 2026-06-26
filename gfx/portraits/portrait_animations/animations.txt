@@ -4701,15 +4701,15 @@ war_over_win = {
 			animation = { head = "AI_callous_entry" torso = "AI_callousFat_entry" }
 			weight = {
 				base = 0
-				modifier = {
-					add = 110
-					OR = {
-						is_theocratic_lessee = yes
-						government_has_flag = government_is_theocracy
-					}
-					religion = religion:christianity_religion
-					NOT = { faith = faith:orthodox }
-				}
+				# modifier = {
+				# 	add = 110
+				# 	OR = {
+				# 		is_theocratic_lessee = yes
+				# 		government_has_flag = government_is_theocracy
+				# 	}
+				# 	religion = religion:christianity_religion
+				# 	NOT = { faith = faith:orthodox }
+				# }
 			}
 		}
 	}
