@@ -11,22 +11,6 @@ lotr_has_artifact_equipped = {
 
 ### Real World Clothing Group Proxies ###
 
-## slavic Proxy
-
-portrait_slavic_proxy_clothing_trigger = {
-	scope:culture = { portrait_slavic_proxy_clothing_contents_trigger = yes }
-}
-
-portrait_slavic_proxy_clothing_spouse_trigger = {
-	culture = {
-		portrait_slavic_proxy_clothing_contents_trigger = yes
-	}
-}
-
-portrait_slavic_proxy_clothing_contents_trigger = {
-	always = no
-}
-
 ## Western Proxy
 
 portrait_western_proxy_clothing_trigger = {
@@ -40,7 +24,16 @@ portrait_western_proxy_clothing_spouse_trigger = {
 }
 
 portrait_western_proxy_clothing_contents_trigger = {
-	always = no
+	OR = {
+		has_clothing_gfx = dorwinion_clothing_gfx
+		has_clothing_gfx = arnorian_clothing_gfx
+		has_clothing_gfx = dunedain_clothing_gfx		
+		has_clothing_gfx = uialedain_clothing_gfx
+		has_clothing_gfx = belfalathrim_clothing_gfx		
+		has_clothing_gfx = gondorian_clothing_gfx
+		has_clothing_gfx = dale_clothing_gfx
+		has_clothing_gfx = hobbit_clothing_gfx
+	}
 }
 
 ## Byzantine Proxy
@@ -56,11 +49,19 @@ portrait_byzantine_proxy_clothing_spouse_trigger = {
 }
 
 portrait_byzantine_proxy_clothing_contents_trigger = {
-	always = no
+	OR = {
+		has_clothing_gfx = numenorean_clothing_gfx
+		has_clothing_gfx = bellakari_clothing_gfx
+		has_clothing_gfx = anbalukkhori_clothing_gfx
+		has_clothing_gfx = umbar_clothing_gfx
+		has_clothing_gfx = thani_hazad_clothing_gfx
+	}
 }
 
 portrait_french_proxy_clothing_contents_trigger = {
-	always = no
+	OR = {
+		has_clothing_gfx = dorwinion_clothing_gfx
+	}
 }
 
 
@@ -77,7 +78,13 @@ portrait_mena_proxy_clothing_spouse_trigger = {
 }
 
 portrait_mena_proxy_clothing_contents_trigger = {
-	always = no
+	OR = {
+		has_clothing_gfx = harondorim_clothing_gfx
+		has_clothing_gfx = north_haradrim_clothing_gfx
+		has_clothing_gfx = east_haradrim_clothing_gfx
+		has_clothing_gfx = south_haradrim_clothing_gfx
+		has_clothing_gfx = nafarati_clothing_gfx
+	}
 }
 
 ## Indian Proxy
@@ -93,7 +100,11 @@ portrait_indian_proxy_clothing_spouse_trigger = {
 }
 
 portrait_indian_proxy_clothing_contents_trigger = {
-	always = no
+	OR = {
+		has_clothing_gfx = rayan_clothing_gfx
+		has_clothing_gfx = pel_clothing_gfx
+		has_clothing_gfx = sirayni_clothing_gfx		
+	}
 }
 
 ## Northern Proxy
@@ -109,7 +120,20 @@ portrait_northern_proxy_clothing_spouse_trigger = {
 }
 
 portrait_northern_proxy_clothing_contents_trigger = {
-	always = no
+	OR = {
+		has_clothing_gfx = rohirrim_clothing_gfx
+		has_clothing_gfx = vale_woodmen_clothing_gfx
+		has_clothing_gfx = gwathiurim_clothing_gfx
+		has_clothing_gfx = circumpolar_clothing_gfx
+		has_clothing_gfx = angmarrim_clothing_gfx
+		has_clothing_gfx = dwarf_clothing_gfx
+		has_clothing_gfx = firebeard_clothing_gfx
+		has_clothing_gfx = broadbeam_clothing_gfx
+		has_clothing_gfx = ironfist_clothing_gfx
+		has_clothing_gfx = stiffbeard_clothing_gfx
+		has_clothing_gfx = blacklock_clothing_gfx
+		has_clothing_gfx = stonefoot_clothing_gfx
+	}
 }
 
 ## Steppe Proxy
@@ -125,7 +149,12 @@ portrait_steppe_proxy_clothing_spouse_trigger = {
 }
 
 portrait_steppe_proxy_clothing_contents_trigger = {
-	always = no
+	OR = {
+		has_clothing_gfx = rhunnic_clothing_gfx
+		has_clothing_gfx = variag_clothing_gfx
+		has_clothing_gfx = khailuza_clothing_gfx
+		has_clothing_gfx = womaw_clothing_gfx		
+	}
 }
 
 ## African Proxy
@@ -141,7 +170,13 @@ portrait_african_proxy_clothing_spouse_trigger = {
 }
 
 portrait_african_proxy_clothing_contents_trigger = {
-	always = no
+	OR = {
+		has_clothing_gfx = mag_clothing_gfx
+		has_clothing_gfx = kirani_clothing_gfx
+		has_clothing_gfx = muranian_clothing_gfx
+		has_clothing_gfx = mumakani_clothing_gfx
+		has_clothing_gfx = shayn_clothing_gfx		
+	}
 }
 
 ## No Proxy
@@ -158,7 +193,12 @@ portrait_no_proxy_clothing_spouse_trigger = {
 
 portrait_no_proxy_clothing_contents_trigger = {
 	OR = {
+		has_clothing_gfx = mordor_uruk_clothing_gfx
+		has_clothing_gfx = isengard_uruk_clothing_gfx
+		has_clothing_gfx = uruk_clothing_gfx
 		has_clothing_gfx = wastelands_clothing_gfx
+		has_clothing_gfx = honnin_clothing_gfx
+		has_clothing_gfx = goblin_clothing_gfx	
 	}
 }
 
@@ -265,8 +305,43 @@ portrait_elven_clothing_contents_trigger = {
 	}
 }
 
+## Lasgalendrim ##
 
+portrait_lasgalendrim_clothing_trigger = {
+	scope:culture = { portrait_lasgalendrim_clothing_contents_trigger = yes }
+}
 
+portrait_lasgalendrim_clothing_spouse_trigger = {
+	culture = {
+		portrait_lasgalendrim_clothing_contents_trigger = yes
+	}
+}
+
+portrait_lasgalendrim_clothing_contents_trigger = {
+	portrait_shared_clothing_contents_trigger = { #LotR
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = lasgalendrim
+	}
+}
+
+## Galadhrim ##
+
+portrait_galadhrim_clothing_trigger = {
+	scope:culture = { portrait_galadhrim_clothing_contents_trigger = yes }
+}
+
+portrait_galadhrim_clothing_spouse_trigger = {
+	culture = {
+		portrait_galadhrim_clothing_contents_trigger = yes
+	}
+}
+
+portrait_galadhrim_clothing_contents_trigger = {
+	portrait_shared_clothing_contents_trigger = { #LotR
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = galadhrim
+	}
+}
 
 ## Noldor ##
 
@@ -281,7 +356,10 @@ portrait_noldor_clothing_spouse_trigger = {
 }
 
 portrait_noldor_clothing_contents_trigger = {
-	always = no
+	portrait_shared_clothing_contents_trigger = { #LotR
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = noldor
+	}
 }
 
 ## Sindar ##
@@ -1381,8 +1459,9 @@ lotr_wear_no_hat_trigger = {
 ###                           ###
 #################################
 
-# lotr_should_be_naked_trigger = {
-# }
+lotr_should_be_naked_trigger = {
+	is_maiar = no #LotR
+}
 
 lotr_portrait_wear_no_headgear_trigger = {
 	scope:age <= lotr_coronation_minimum_age_value
@@ -1391,6 +1470,7 @@ lotr_portrait_wear_no_headgear_trigger = {
 lotr_portrait_wear_armor_trigger = {
 	exists = this
 	#is_istari = no
+	#is_maiar = no
 	is_incapable = no
 	is_imprisoned = no
 	trigger_if = {
@@ -1518,18 +1598,12 @@ lotr_portrait_wear_armor_trigger = {
 
 lotr_portrait_wear_armor_currently_in_army_trigger = {
 	is_pregnant = no	
+	is_maiar = no
 }
 
 lotr_portrait_wear_helmet_trigger = {
 	is_pregnant = no
-}
-
-lotr_portrait_slavic_clothing_trigger = {
-	scope:culture = { portrait_slavic_proxy_clothing_contents_trigger = yes }
-}
-
-lotr_portrait_slavic_clothing_spouse_trigger = {
-	culture = { portrait_slavic_proxy_clothing_contents_trigger = yes }
+	is_maiar = no
 }
 
 lotr_portrait_byzantine_clothing_trigger = {

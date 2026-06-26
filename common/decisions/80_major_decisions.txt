@@ -797,7 +797,7 @@ declare_bloodline_holy_decision = {
 	}
 
 	is_shown = {
-
+		is_maiar = no #LotR
 		NOT = { is_elf = yes } #LotR
 		is_lowborn = no
 		is_landless_adventurer = no
@@ -918,6 +918,7 @@ strengthen_bloodline_decision = {
 	}
 
 	is_shown = {
+		#is_maiar = no #LotR
 		cannot_be_killed = no #LotR
 		is_lowborn = no
 		NOT = {
@@ -1039,6 +1040,7 @@ dynasty_of_many_crowns_decision = {
 			}
 		}
 		highest_held_title_tier >= tier_kingdom
+		is_maiar = no #LotR
 	}
 
 	is_valid = {

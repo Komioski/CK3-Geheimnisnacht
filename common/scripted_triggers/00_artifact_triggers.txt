@@ -415,11 +415,22 @@ artifact_use_avari_unit_visuals_trigger = {
 }
 
 artifact_use_silvan_unit_visuals_trigger = {
-	always = no
+	culture ?= {
+		OR = {
+			this = culture:lasgalendrim
+			any_parent_culture_or_above = { this = culture:lasgalendrim }
+		}
+	}
 }
 
 artifact_use_noldor_unit_visuals_trigger = {
-	always = no
+	culture ?= {
+		OR = {
+			this = culture:galadhrim
+			any_parent_culture_or_above = { this = culture:galadhrim }
+			has_cultural_pillar = heritage_calaquendi
+		}
+	}
 }
 
 artifact_use_adunaic_unit_visuals_trigger = {
@@ -462,21 +473,22 @@ artifact_use_orcish_unit_visuals_trigger = {
 	exists = culture
 	culture = {
 		OR = {
+			has_unit_gfx = isengard_uruk_unit_gfx
 			has_unit_gfx = orc_unit_gfx
 		}
 	}
 }
 
-# artifact_use_urukhai_unit_visuals_trigger = { 
-# 	exists = culture
-#     culture = { 
-#         OR = { 
-# 			has_unit_gfx = isengard_uruk_unit_gfx
-#             this = culture:isengard_urukhai
-#             any_parent_culture_or_above = { this = culture:isengard_urukhai } 
-# 		} 
-# 	} 
-# }
+artifact_use_urukhai_unit_visuals_trigger = { 
+	exists = culture
+    culture = { 
+        OR = { 
+			has_unit_gfx = isengard_uruk_unit_gfx
+            this = culture:isengard_urukhai
+            any_parent_culture_or_above = { this = culture:isengard_urukhai } 
+		} 
+	} 
+}
 
 artifact_use_ghrazim_unit_visuals_trigger = { 
 	exists = culture

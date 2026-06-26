@@ -2397,10 +2397,10 @@ fp3_yearly.8032 = {
 		name = fp3_yearly.8032.a
 
 		trigger = {
-			always = no # OR = {
-			# 	has_religion = religion:islam_religion
-			# 	has_religion = religion:christianity_religion
-			# }
+			OR = {
+				has_religion = religion:islam_religion
+				has_religion = religion:christianity_religion
+			}
 		}
 
 		add_piety = medium_piety_gain 
@@ -2428,16 +2428,16 @@ fp3_yearly.8032 = {
 				target = scope:death_enthusiast
 				value >= 30
 			}
-			# NOR = {
-			# 	AND = {
-			# 		has_religion = religion:islam_religion
-			# 		has_trait = zealous 
-			# 	}
-			# 	AND = {
-			# 		has_religion = religion:christianity_religion
-			# 		has_trait = zealous
-			# 	}
-			# }
+			NOR = {
+				AND = {
+					has_religion = religion:islam_religion
+					has_trait = zealous 
+				}
+				AND = {
+					has_religion = religion:christianity_religion
+					has_trait = zealous
+				}
+			}
 		}
 
 		scope:death_enthusiast = { 
