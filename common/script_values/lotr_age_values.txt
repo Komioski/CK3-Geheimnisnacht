@@ -1,0 +1,309 @@
+﻿#TODO WH
+
+majority_age = {
+	if = {
+		limit = {
+			OR = {
+				is_human = yes
+				is_orc = yes
+				cannot_be_killed = yes
+			}
+		}
+		value = 16
+	}
+	else_if = {
+		limit = { is_dwarf = yes }
+		value = 40
+	}
+	else_if = {
+		limit = { is_hobbit = yes }
+		value = 33
+	}
+	else_if = {
+		limit = { is_elf = yes }
+		value = 50
+	}
+	
+}
+
+
+nubile_age = {
+	if = {
+		limit = { 
+			is_human = yes
+		}
+		value = 16
+	}
+	else_if = {
+		limit = { 
+			OR = {
+				is_orc = yes 
+				cannot_be_killed = yes
+			}
+		}
+		value = 16
+	}
+	else_if = { # 70
+		limit = { is_dwarf = yes }
+		value = 70
+	}
+	else_if = { # 33
+		limit = { is_hobbit = yes }
+		value = 33
+	}
+	else_if = { # 50
+		limit = { is_elf = yes }
+		value = 50
+	}
+}
+
+years_to_nubility = {
+	value = nubile_age
+	subtract = age
+	min = 0
+}
+
+additional_years_of_fertility = {
+	value = 0
+	if = {
+		limit = { is_human = yes }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				is_orc = yes
+				cannot_be_killed = yes
+			}
+		}
+		add = 80
+	}
+	else_if = {
+		limit = { is_dwarf = yes }
+		add = 130
+	}
+	else_if = {
+		limit = { is_hobbit = yes }
+		add = 20
+	}
+	else_if = {
+		limit = { is_elf = yes }
+		add = 13000
+	}
+	
+	if = {
+		limit = { has_trait = fecund }
+		add = 5
+	}
+	# if = {
+	# 	limit = { has_character_modifier = reached_meneltarma }
+	# 	add = 20
+	# }
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = blood_legacy_5
+			}
+		}
+		add = 5
+	}
+}
+
+fertility_age_equivalent = {
+	value = age
+	subtract = additional_years_of_fertility
+	min = 16
+}
+
+bride_oldest_age = {
+	value = 43
+	if = {
+		limit = { is_elf = no }
+		add = additional_years_of_fertility
+	}
+	else = { add = 6000 }
+}
+
+bride_old_age = {
+	value = 29
+	if = {
+		limit = { is_elf = no }
+		add = additional_years_of_fertility
+	}
+	else = { add = 6000 }
+}
+
+bride_middle_age = {
+	value = 20
+	add = additional_years_of_fertility
+}
+
+bride_old_age_negative = {
+	value = bride_old_age
+	multiply = -1
+}
+
+bride_middle_age_negative = {
+	value = bride_middle_age
+	multiply = -1
+}
+
+numenorean_additional_longevity = {
+	value = numenorean_blood_tier
+	multiply = 20
+}
+
+additional_life_expectancy = {
+	value = 0
+	if = {
+		limit = { is_human = yes }
+		# if = { # Can only be gained by humans
+		# 	limit = { has_trait = skinchanger }
+		# 	add = 30
+		# }
+
+	}
+	else_if = {
+		limit = {
+			OR = {
+				is_orc = yes
+				cannot_be_killed = yes
+			}
+		}
+		add = 120
+	}
+	else_if = {
+		limit = { is_dwarf = yes }
+		add = 170
+	}
+	else_if = {
+		limit = { is_hobbit = yes }
+		add = 30
+	}
+	else_if = {
+		limit = { is_druedain = yes }
+		subtract = 20
+	}
+	else_if = {
+		limit = {
+			OR = {
+				cannot_be_killed = yes
+				is_elf = yes
+			}
+		}
+		add = 13000
+	}
+	
+	if = {
+		limit = { has_trait = fecund }
+		add = 5
+	}
+	if = {
+		limit = { has_character_modifier = dark_vitality_modifier }
+		add = 20
+	}
+	if = {
+		limit = { has_character_modifier = radagast_advice_4_modifier }
+		add = 3
+	}
+}
+
+total_life_expectancy = {
+	value = additional_life_expectancy
+	add = 80
+}
+
+lotr_relative_lifespan_ratio = {
+	value = total_life_expectancy
+	divide = 80
+}
+
+health_age_equivalent = { #To be used only for health triggers, related to aging
+	value = age
+	subtract = additional_life_expectancy
+	min = 0
+}
+
+### VALUES TO BE USED FOR CHARACTER GENERATION ###
+
+young_age = { # Equivalent to human 25 years old
+	if = {
+		limit = { is_elf = yes }
+		value = 300
+	}
+	else_if = {
+		limit = { cannot_be_killed = yes }
+		value = 25
+	}
+	else = {
+		value = total_life_expectancy
+		divide = 3.2
+	}
+}
+
+middle_age = { # Equivalent to human 40 years old
+	if = {
+		limit = { is_elf = yes }
+		value = 3000
+	}
+	else_if = {
+		limit = { cannot_be_killed = yes }
+		value = 40
+	}
+	else = {
+		value = total_life_expectancy
+		divide = 2
+	}
+}	
+
+old_age = { # Equivalent to human 60 years old
+	if = {
+		limit = { is_elf = yes }
+		value = 7000
+	}
+	else_if = {
+		limit = { cannot_be_killed = yes }
+		value = 60
+	}
+	else = {
+		value = 60
+		add = additional_life_expectancy
+	}
+}
+
+appropriate_parent_age = {
+	value = age
+	add = nubile_age
+	if = {
+		limit = { is_elf = yes }
+		add = 9
+	}
+	else = { add = 1 }
+}
+
+lotr_coronation_minimum_age_value = {
+	if = {
+		limit = {
+			OR = {
+				is_human = yes
+				is_orc = yes
+				cannot_be_killed = yes
+			}
+		}
+		value = 12
+	}
+	else_if = {
+		limit = { is_dwarf = yes }
+		value = 30
+	}
+	else_if = {
+		limit = { is_hobbit = yes }
+		value = 25
+	}
+	else_if = {
+		limit = { is_elf = yes }
+		value = 37
+	}
+}
+
+# See also : majority_age, nubile_age, bride_middle_age and bride_old_age

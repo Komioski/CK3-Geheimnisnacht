@@ -1,0 +1,55 @@
+﻿lotr_is_shown_basic_activity_trigger = {
+	is_nazgul = no 
+	is_wastelands = no
+}
+
+lotr_is_shown_inspection_activity_trigger = {
+	is_lotr_adult = yes
+}
+
+lotr_is_shown_pilgrimage_activity_trigger = {
+	lotr_is_shown_basic_activity_trigger = yes
+	faith = { #LotR
+		NOT = { has_doctrine_parameter = forbidden_from_pilgrimage }
+		any_holy_site = { exists = this }	
+	}
+}
+
+lotr_is_shown_adult_education_activity_trigger = {
+	is_lotr_adult = yes #LotR
+	NOT = { #LotR
+		is_orc = yes # Orcs don't go to college!
+		cannot_be_killed = yes
+	}
+}
+
+lotr_can_sail = {
+	NOR = {
+		is_orc = yes # Orcs hate water
+		is_halfling = yes # Most hobbits aren't fond of boating
+		faith = { has_doctrine_parameter = no_sailing } # Obv
+	}
+}
+
+# lotr_can_explore_histories = {
+# 	OR = {
+# 		AND = {
+# 			OR = { #Freep Eldar, Istari and Numenorean-descendants have access to Histories/Propaganda
+# 				lotr_has_numenorean_culture_trigger = yes
+# 				is_eldar = yes
+# 				is_istari = yes
+# 			}
+# 			religion = { is_in_family = rf_eruhini }
+# 		}
+# 		AND = {
+# 			lotr_has_numenorean_culture_trigger = yes
+# 			faith = {
+# 				OR = { #Faiths with Adunaic tenets have access to Histories/Propaganda
+# 					has_doctrine = tenet_adunaic_birthright
+# 					has_doctrine = tenet_adunaic_mandate
+# 					has_doctrine = tenet_memory_of_akallabeth
+# 				}
+# 			}
+# 		}
+# 	}
+# }
