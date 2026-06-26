@@ -29,10 +29,12 @@ knight_lady_errant = {
 	
 	minimum_age = 16
 	
+	incapacitating = yes
+	
 	group = knight_lady
 	level = 1
 	
-	ruler_designer = no
+	ruler_designer_cost = 10
 	
 	potential = {
 		faith = { 
@@ -53,13 +55,6 @@ knight_lady_errant = {
 	}
 	
 	prowess = 2
-	character_travel_speed_mult = 0.1
-
-	#The following buffs represent the blessing of the lady gained from the Virtue of Chivalry, as such they will be present in each of Bretonnian knight traits
-	enemy_hostile_scheme_success_chance_add = -10
-	flag = lower_chance_of_dying_in_combat
-	ai_boldness = 50
-	ai_zeal = 10
 }
 
 knight_lady_realm = {
@@ -90,13 +85,10 @@ knight_lady_realm = {
 		}
 	}
 	
-	prowess = 5
-	monthly_prestige = 0.2
-	enemy_hostile_scheme_success_chance_add = -10
-	flag = lower_chance_of_dying_in_combat
-
-	ai_honor = 25
-	ai_zeal = 25
+	negate_health_penalty_add = 0.25
+	county_opinion_add = 5
+	prowess = 4
+	ai_zeal = 15
 }
 
 knight_lady_questing = {
@@ -107,7 +99,10 @@ knight_lady_questing = {
 	group = knight_lady
 	level = 3
 	
-	ruler_designer = no
+	flag = can_not_marry
+	can_have_children = no
+	
+	ruler_designer_cost = 50
 	
 	potential = {
 		faith = { 
@@ -127,17 +122,16 @@ knight_lady_questing = {
 		}
 	}
 	
-	prowess = 5
-	monthly_piety = 0.2
-	character_travel_speed_mult = 0.1
-	enemy_hostile_scheme_success_chance_add = -10
-	flag = lower_chance_of_dying_in_combat
+	track = {
+		100 = {
+			
+		}
+	}
 	
-	#Questing Vow — forsakes marriage
-	flag = can_not_marry
-
-	ai_honor = 35
-	ai_zeal = 50
+	negate_health_penalty_add = 0.5
+	county_opinion_add = 15
+	prowess = 6
+	ai_zeal = 30
 }
 
 
@@ -169,63 +163,12 @@ knight_lady_grail = {
 		}
 	}
 	
-	prowess = 20
-	monthly_prestige = 1
-	monthly_piety = 3
-	life_expectancy = 100
-	health = 1
-	negate_health_penalty_add = 0.5
-	county_opinion_add = 20
-	enemy_hostile_scheme_success_chance_add = -15
-	flag = lower_chance_of_dying_in_combat
-
-	ai_zeal = 100
-	ai_honor = 100
+	negate_health_penalty_add = 1.0
+	county_opinion_add = 35
+	life_expectancy = 70
+	prowess = 10
+	ai_zeal = 50
 }
-
-### Unproven noble trait: Applied to Bretonnian nobles who deny the chance to become Knights Errant
-
-wh_bretonnia_unproven_noble = {
-	category = fame
-	
-	opposites = {
-		knight_lady_errant
-		knight_lady_realm
-		knight_lady_questing
-		knight_lady_grail
-	}
-	
-	ruler_designer_cost = -40
-	
-	potential = {
-		faith = { 
-			has_doctrine = tenet_knightly_virtues 
-		}
-	}
-	
-	monthly_piety = -1
-	monthly_prestige = -1
-	legitimacy_gain_mult = -0.5
-	county_opinion_add = -40
-	same_faith_opinion = -35
-	same_opinion = 40
-	
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					NOT = { exists = this }
-				}
-				desc = trait_wh_bretonnia_unproven_noble_desc
-			}
-			desc = trait_wh_bretonnia_unproven_noble_character_desc
-		}
-	}
-
-	ai_honor = -20
-	ai_zeal = -40
-}
-
 
 ### Knightly Virtues ###
 
