@@ -1,0 +1,272 @@
+﻿#These special genes will not be part of a character's DNA.
+#The game can have hardcoded references to them and might use each of them differently
+special_genes = {
+	morph_genes = {
+
+		gene_beauty_details = {
+
+			beauty_details = {
+				index = 0
+				male = {
+					decal = {											
+						body_part = head
+						textures = {
+							diffuse = "gfx/models/portraits/decals/visual_traits/decal_male_head_beauty_details_diffuse.dds"
+							# normal = "gfx/models/portraits/decals/visual_traits/decal_scars_battle_normal.dds"
+							# properties = "gfx/models/portraits/decals/visual_traits/decal_scars_battle_properties.dds"
+						}
+						blend_modes = {				 #overlay/replace/hard_light/multiply
+							diffuse = overlay
+							normal = overlay
+							# properties = overlay
+						}
+						# age = {
+						# 	mode = multiply
+						# 	curve = {
+						# 		{ 0.0 0.0 }
+						# 		{ 0.38 0.0 }
+						# 		{ 0.7 0.8 }
+						# 	}
+						# }
+						priority = 10
+					}
+				}
+				female = {
+					decal = {											
+						body_part = head
+						textures = {
+							diffuse = "gfx/models/portraits/decals/visual_traits/decal_female_head_beauty_details_diffuse.dds"
+							# normal = "gfx/models/portraits/decals/visual_traits/decal_scars_battle_normal.dds"
+							# properties = "gfx/models/portraits/decals/visual_traits/decal_scars_battle_properties.dds"
+						}
+						blend_modes = {				 #overlay/replace/hard_light/multiply
+							diffuse = multiply
+							normal = overlay
+							# properties = overlay
+						}
+						# age = {
+						# 	mode = multiply
+						# 	curve = {
+						# 		{ 0.0 0.0 }
+						# 		{ 0.38 0.0 }
+						# 		{ 0.7 0.8 }
+						# 	}
+						# }
+						priority = 10
+					}
+				}
+				boy = male
+				girl = male
+			}
+
+		}
+
+		# gene_face_dacals = {
+
+		# 	face_dacal_01 = {
+		# 		index = 0
+		# 		male = { 
+		# 			decal = {                             
+		# 				body_part = head
+		# 				textures = {
+		# 					diffuse = "gfx/models/portraits/decals/visual_traits/face_01_diffuse.dds"
+		# 					normal = "gfx/models/portraits/decals/visual_traits/face_01_normal.dds"
+		# 				}
+		# 				blend_modes = {              #overlay/replace/hard_light/multiply
+		# 					diffuse = overlay 
+		# 					normal = overlay
+		# 					# properties = 
+		# 				}
+		# 				age = {
+		# 					mode = multiply
+		# 					curve = {
+		# 						{ 0.0 0.0 }
+		# 						{ 0.25 1.0 }
+		# 						{ 1.0 1.0 }
+		# 					}
+		# 				}
+		# 				priority = 0
+		# 			}
+		# 		}
+		# 		female = {
+	
+		# 			decal = {                             
+		# 				body_part = head
+		# 				textures = {
+		# 					diffuse = "gfx/models/portraits/decals/visual_traits/face_01_diffuse.dds"
+		# 					normal = "gfx/models/portraits/decals/visual_traits/face_01_normal.dds"
+		# 				}
+		# 				blend_modes = {              #overlay/replace/hard_light/multiply
+		# 					diffuse = overlay 
+		# 					normal = overlay
+		# 					# properties = 
+		# 				}
+		# 				age = {
+		# 					mode = multiply
+		# 					curve = {
+		# 						{ 0 0.0 }
+		# 						{ 0.18 0.0 }
+		# 						{ 0.30 0.8 }
+		# 						{ 1 1 }
+		# 					}
+		# 				}
+		# 				priority = 0
+		# 			}            
+		# 		}       
+		# 	}
+		# 	face_dacal_02 = {
+		# 		index = 1
+		# 		male = { 
+		# 			decal = {                             
+		# 				body_part = head
+		# 				textures = {
+		# 					diffuse = "gfx/models/portraits/decals/visual_traits/face_02_diffuse.dds"
+		# 					normal = "gfx/models/portraits/decals/visual_traits/face_02_normal.dds"
+		# 				}
+		# 				blend_modes = {              #overlay/replace/hard_light/multiply
+		# 					diffuse = overlay 
+		# 					normal = overlay
+		# 					# properties = 
+		# 				}
+		# 				age = {
+		# 					mode = multiply
+		# 					curve = {
+		# 						{ 0.0 0.0 }
+		# 						{ 0.25 1.0 }
+		# 						{ 1.0 1.0 }
+		# 					}
+		# 				}
+		# 				priority = 0
+		# 			}
+		# 		}
+		# 		female = {
+	
+		# 			decal = {                             
+		# 				body_part = head
+		# 				textures = {
+		# 					diffuse = "gfx/models/portraits/decals/visual_traits/face_02_diffuse.dds"
+		# 					normal = "gfx/models/portraits/decals/visual_traits/face_02_normal.dds"
+		# 				}
+		# 				blend_modes = {              #overlay/replace/hard_light/multiply
+		# 					diffuse = overlay 
+		# 					normal = overlay
+		# 					# properties = 
+		# 				}
+		# 				age = {
+		# 					mode = multiply
+		# 					curve = {
+		# 						{ 0 0.0 }
+		# 						{ 0.18 0.0 }
+		# 						{ 0.30 0.8 }
+		# 						{ 1 1 }
+		# 					}
+		# 				}
+		# 				priority = 0
+		# 			}            
+		# 		}       
+		# 	}
+		# 	face_dacal_03 = {
+		# 		index = 2
+		# 		male = { 
+		# 			decal = {                             
+		# 				body_part = head
+		# 				textures = {
+		# 					diffuse = "gfx/models/portraits/decals/visual_traits/face_03_diffuse.dds"
+		# 					normal = "gfx/models/portraits/decals/visual_traits/face_03_normal.dds"
+		# 				}
+		# 				blend_modes = {              #overlay/replace/hard_light/multiply
+		# 					diffuse = overlay 
+		# 					normal = overlay
+		# 					# properties = 
+		# 				}
+		# 				age = {
+		# 					mode = multiply
+		# 					curve = {
+		# 						{ 0.0 0.0 }
+		# 						{ 0.25 1.0 }
+		# 						{ 1.0 1.0 }
+		# 					}
+		# 				}
+		# 				priority = 0
+		# 			}
+		# 		}
+		# 		female = {
+	
+		# 			decal = {                             
+		# 				body_part = head
+		# 				textures = {
+		# 					diffuse = "gfx/models/portraits/decals/visual_traits/face_03_diffuse.dds"
+		# 					normal = "gfx/models/portraits/decals/visual_traits/face_03_normal.dds"
+		# 				}
+		# 				blend_modes = {              #overlay/replace/hard_light/multiply
+		# 					diffuse = overlay 
+		# 					normal = overlay
+		# 					# properties = 
+		# 				}
+		# 				age = {
+		# 					mode = multiply
+		# 					curve = {
+		# 						{ 0 0.0 }
+		# 						{ 0.18 0.0 }
+		# 						{ 0.30 0.8 }
+		# 						{ 1 1 }
+		# 					}
+		# 				}
+		# 				priority = 0
+		# 			}            
+		# 		}       
+		# 	}
+		# 	face_dacal_04 = {
+		# 		index = 3
+		# 		male = { 
+		# 			decal = {                             
+		# 				body_part = head
+		# 				textures = {
+		# 					diffuse = "gfx/models/portraits/decals/visual_traits/face_04_diffuse.dds"
+		# 					normal = "gfx/models/portraits/decals/visual_traits/face_04_normal.dds"
+		# 				}
+		# 				blend_modes = {              #overlay/replace/hard_light/multiply
+		# 					diffuse = overlay 
+		# 					normal = overlay
+		# 					# properties = 
+		# 				}
+		# 				age = {
+		# 					mode = multiply
+		# 					curve = {
+		# 						{ 0.0 0.0 }
+		# 						{ 0.25 1.0 }
+		# 						{ 1.0 1.0 }
+		# 					}
+		# 				}
+		# 				priority = 0
+		# 			}
+		# 		}
+		# 		female = {
+	
+		# 			decal = {                             
+		# 				body_part = head
+		# 				textures = {
+		# 					diffuse = "gfx/models/portraits/decals/visual_traits/face_04_diffuse.dds"
+		# 					normal = "gfx/models/portraits/decals/visual_traits/face_04_normal.dds"
+		# 				}
+		# 				blend_modes = {              #overlay/replace/hard_light/multiply
+		# 					diffuse = overlay 
+		# 					normal = overlay
+		# 					# properties = 
+		# 				}
+		# 				age = {
+		# 					mode = multiply
+		# 					curve = {
+		# 						{ 0 0.0 }
+		# 						{ 0.18 0.0 }
+		# 						{ 0.30 0.8 }
+		# 						{ 1 1 }
+		# 					}
+		# 				}
+		# 				priority = 0
+		# 			}            
+		# 		}       
+		# 	}            
+		# }
+	}
+}

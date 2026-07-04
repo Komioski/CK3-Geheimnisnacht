@@ -1,0 +1,188 @@
+﻿
+hair_situational = {
+	usage = game
+	priority = 10
+	selection_behavior = max
+
+	no_hair = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = no_hairstyles
+				value = 0
+			}
+		}   
+		outfit_tags = { bald }
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+                exists = this
+				has_character_modifier = hajj_halq_modifier
+			}
+		}
+	}
+
+	no_baldness = {
+		dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_balding_hair_effect
+				template = no_baldness
+				value = 1
+			}		
+		} 
+		weight = {
+			base = 50
+			modifier = {
+				add = 200
+				#EPE Added
+				#AGOT Modified
+				#scope:age < 25 
+				OR = {
+					scope:age < 25 
+					has_game_rule = agot_no_balding
+				}
+			}
+			modifier = {
+				factor = 0
+				portrait_steppe_clothing_trigger = yes
+			}
+			modifier = {
+				add = 200
+				OR = {
+					has_trait = eunuch_1
+					has_trait = beardless_eunuch
+				}
+			}
+			modifier = {
+				add = 10000
+				has_trait = immortal
+			}
+		}
+	}
+
+	shaved_baldness = {
+		dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_balding_hair_effect
+				template = shaved_baldness
+				value = 1
+			}		
+		} 
+		weight = {
+			base = 0
+			modifier = {
+				add = 200
+				scope:age < 25 
+			}
+			modifier = {
+				add = 50
+				portrait_steppe_clothing_trigger = yes
+			}
+			modifier = {
+				add = 110
+				OR = {
+					portrait_religious_high_trigger = yes
+					portrait_religious_devoted_trigger = yes
+				}
+				portrait_religious_buddhist_trigger = yes
+				OR = {
+					culture_has_east_asian_heritage_pillar_trigger = yes
+					culture_has_southeast_asian_heritage_pillar_trigger = yes
+					culture_has_south_asian_heritage_pillar_trigger = yes
+				}
+			}
+		}
+	}
+
+	male_pattern_baldness_stage_1 = { 
+		dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_balding_hair_effect
+				template = baldness_stage_1
+				value = 1
+			}
+		} 
+		weight = {
+			base = 100
+			modifier = { 
+				factor = {
+					value = 0
+				}
+				trigger = {
+					morph_gene_value:gene_baldness > {
+						value = age
+						multiply = 0.01
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				is_female = yes
+			}	
+		}		  	
+	}
+
+	male_pattern_baldness_stage_2 = { 
+		dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_balding_hair_effect
+				template = baldness_stage_2
+				value = 1
+			}
+		} 
+		weight = {
+			base = 150
+			modifier = { 
+				factor = {
+					value = 0
+				}
+				trigger = {
+					morph_gene_value:gene_baldness > {
+						value = age
+						multiply = 0.005
+					}
+				}
+			}	
+			modifier = {
+				factor = 0
+				is_female = yes
+			}
+		}		  	
+	}
+
+	random_haircut = {
+		dna_modifiers = {
+			accessory = {
+                mode = add
+                gene = beards
+                template = all_beards
+                range = { 0 1 } # For the randomness to work correctly
+            }
+			accessory = {
+                mode = add
+                gene = hairstyles
+                template = all_hairstyles
+                range = { 0 1 } # For the randomness to work correctly
+            }
+		} 
+		weight = {
+			base = 0
+			modifier = { 
+				add = {
+					value = 1000
+				}
+				trigger = {
+					has_character_flag = random_haircut
+				}
+			}
+		}		  	
+	}
+	
+}
+

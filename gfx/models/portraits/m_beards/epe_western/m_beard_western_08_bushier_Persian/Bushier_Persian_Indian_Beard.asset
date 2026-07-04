@@ -1,0 +1,29 @@
+pdxmesh = {
+	name = "Bushier_Persian_Indian_Beard_mesh"
+	file = "Bushier_Persian_Indian_Beard.mesh"
+
+	meshsettings = {
+		index = 0
+		name = "jorodoxShape"
+		texture_diffuse = "Bushier_Persian_Indian_Beard_diffuse.dds"
+		texture_normal = "Bushier_Persian_Indian_Beard_normal.dds"
+		texture_specular = "Bushier_Persian_Indian_Beard_properties.dds"
+		texture = { file = "black_ssao_color.dds" index = 3 }		
+		shader = "portrait_hair"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+		
+}
+
+entity = {
+	name = "Bushier_Persian_Indian_Beard_entity"
+	pdxmesh = "Bushier_Persian_Indian_Beard_mesh"
+	
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+		}
+	}		
+}

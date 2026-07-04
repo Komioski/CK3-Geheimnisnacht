@@ -1,0 +1,34 @@
+pdxmesh = {
+	name = "epe_male_beard_indian_01_mesh"
+	file = "epe_m_beard_indian_01.mesh"
+
+	blend_shape = { id = "epe_male_beard_indian_01_bs_fat"		type = "epe_m_beard_indian_01_bs_fat.mesh" }
+	blend_shape = { id = "epe_male_beard_indian_01_bs_old"		type = "epe_m_beard_indian_01_bs_old.mesh" }
+
+	meshsettings = {
+		name = "_male_beard_indian_01_male_beard_indian_01_male_beard_indian_01"
+		index = 0
+		texture_diffuse = "m_beard_indian_01_diffuse.dds"
+		texture_normal = "m_beard_indian_01_normal.dds"
+		texture_specular = "m_beard_indian_01_properties.dds"
+		texture = { file = "black_ssao_color.dds" index = 3 }		
+		shader = "portrait_hair"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "epe_male_beard_indian_01_entity"
+	pdxmesh = "epe_male_beard_indian_01_mesh"
+	
+	
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+		}
+	}		
+	attribute = { name = "bs_fat_1"					blend_shape = "epe_male_beard_indian_01_bs_fat" }
+	attribute = { name = "bs_old"					blend_shape = "epe_male_beard_indian_01_bs_old" }
+}

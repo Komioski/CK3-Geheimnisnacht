@@ -1,0 +1,18 @@
+﻿namespace = errorfixer
+errorfixer.1 = {
+	hidden = yes
+	orphan = yes 
+	immediate = {
+		set_global_variable = {
+			name = Trinity_is_loaded
+			value = yes
+		}
+	}
+}
+errorfixer.2 = {
+	hidden = yes
+	orphan = yes 
+	trigger = {
+		has_global_variable = Trinity_is_loaded
+	}
+}

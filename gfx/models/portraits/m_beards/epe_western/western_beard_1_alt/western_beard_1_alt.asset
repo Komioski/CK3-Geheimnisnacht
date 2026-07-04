@@ -1,0 +1,34 @@
+pdxmesh = {
+	name = "western_beard_1_alt_mesh"
+	file = "western_beard_1_alt.mesh"
+
+	blend_shape = { id = "western_beard_1_alt_bs_fat"		type = "western_beard_1_alt_bs_fat.mesh" }
+	#blend_shape = { id = "western_beard_1_alt_bs_old"		type = "western_beard_1_alt_bs_old.mesh" }
+
+
+	meshsettings = {
+		name = "jorodoxShape"
+		index = 0
+		texture_diffuse = "m_beard_western_01_diffuse.dds"
+		texture_normal = "m_beard_western_01_normal.dds"
+		texture_specular = "m_beard_western_01_properties.dds"
+		texture = { file = "black_ssao_color.dds" index = 3 }		
+		shader = "portrait_hair"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "western_beard_1_alt_entity"
+	pdxmesh = "western_beard_1_alt_mesh"
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+		}
+	}	
+	attribute = { name = "bs_fat_1"					blend_shape = "western_beard_1_alt_bs_fat" }
+	#attribute = { name = "bs_old"					blend_shape = "western_beard_1_alt_bs_old" }
+}

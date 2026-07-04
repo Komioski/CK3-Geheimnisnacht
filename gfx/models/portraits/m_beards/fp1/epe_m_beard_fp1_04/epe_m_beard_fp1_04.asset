@@ -1,0 +1,68 @@
+pdxmesh = {
+	name = "epe_male_beard_fp1_04_mesh"
+	file = "epe_m_beard_fp1_04.mesh"
+
+	blend_shape = { id = "epe_male_beard_fp1_04_bs_fat"		type = "epe_m_beard_fp1_04_bs_fat.mesh" }
+	#blend_shape = { id = "epe_male_beard_fp1_04_bs_old"	type = "epe_m_beard_fp1_04_bs_old.mesh" }
+
+	meshsettings = {
+		name = "male_beard_fp1_04Shape"
+		index = 0
+		texture_diffuse = "m_beard_fp1_04_diffuse.dds"
+		texture_normal = "m_beard_fp1_04_normal.dds"
+		texture_specular = "m_beard_fp1_04_properties.dds"
+		texture = { file = "black_ssao_color.dds" index = 3 }		
+		shader = "portrait_hair"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "epe_male_beard_fp1_04_entity"
+	pdxmesh = "epe_male_beard_fp1_04_mesh"
+
+	attribute = { name = "bs_fat_1"					blend_shape = "epe_male_beard_fp1_04_bs_fat" }
+	#attribute = { name = "bs_old"					blend_shape = "epe_male_beard_fp1_04_bs_old" }
+	
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+		}
+	}
+}
+
+pdxmesh = {
+	name = "epe_male_beard_fp1_04_hood_mesh"
+	file = "epe_m_beard_fp1_04_hood.mesh"
+
+	blend_shape = { id = "epe_male_beard_fp1_04_hood_bs_fat"		type = "epe_m_beard_fp1_04_hood_bs_fat.mesh" }
+
+	meshsettings = {
+		name = "male_beard_fp1_04_hoodShape"
+		index = 0
+		texture_diffuse = "m_beard_fp1_04_diffuse.dds"
+		texture_normal = "m_beard_fp1_04_normal.dds"
+		texture_specular = "m_beard_fp1_04_properties.dds"
+		texture = { file = "black_ssao_color.dds" index = 3 }		
+		shader = "portrait_hair"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "epe_male_beard_fp1_04_hood_entity"
+	pdxmesh = "epe_male_beard_fp1_04_hood_mesh"
+
+	attribute = { name = "bs_fat_1"					blend_shape = "epe_male_beard_fp1_04_hood_bs_fat" }
+
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+		}
+	}
+
+}

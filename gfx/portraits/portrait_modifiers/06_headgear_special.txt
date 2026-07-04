@@ -1,5 +1,4 @@
-﻿
-headgear_special = {
+﻿headgear_special = {
 
 	usage = game
 	selection_behavior = weighted_random
@@ -16,13 +15,43 @@ headgear_special = {
 				value = 0
 			}
 		}
-		outfit_tags = { no_clothes nightgown }
+		outfit_tags = { no_clothes nightgown no_headgear beggar_rags }
 		weight = {
 			base = 0
 			modifier = {
 				add = 10000
 				portrait_wear_no_headgear_trigger = yes
 				portrait_ep2_wedding_clothes_trigger = no
+				NOT = { has_character_flag = wear_makuta }
+			}
+			modifier = {
+				add = 1000
+				exists = primary_title
+				primary_title.tier <= tier_duchy
+				has_character_flag = random_haircut
+			}
+			modifier = {
+				add = 1000
+				should_be_naked_trigger = yes
+			}
+		}
+	}
+
+	hooded_clothes = { # Hoods that are activated by tags on clothes or cloaks
+		usage = game
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes_hoods
+				template = hoods
+				accessory = m_headgear_sec_epe_fp4_hoods
+			}
+		}
+
+		outfit_tags = { }
+		weight = {
+			base = 10
+			modifier = {
 			}
 		}
 	}

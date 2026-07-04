@@ -1,0 +1,40 @@
+pdxmesh = {
+	name = "male_beard_western_07_chinstrap"
+	file = "Chinstrap_Mustache_Beard.mesh"
+
+	meshsettings = {
+		index = 0
+		name = "male_beard_western_07_chinstrapShape"
+		texture_diffuse = "m_beard_western_07_diffuse.dds"
+		texture_normal = "m_beard_western_07_normal.dds"
+		texture_specular = "m_beard_western_07_properties.dds"
+		texture = { file = "black_ssao_color.dds" index = 3 }		
+		shader = "portrait_hair"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+	
+	meshsettings = {
+		index = 0
+		name = "male_beard_western_05_chinstrap2Shape"
+		texture_diffuse = "m_beard_western_05_diffuse.dds"
+		texture_normal = "m_beard_western_05_normal.dds"
+		texture_specular = "m_beard_western_05_properties.dds"
+		texture = { file = "black_ssao_color.dds" index = 3 }		
+		shader = "portrait_hair"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+		
+}
+
+entity = {
+	name = "male_beard_western_07_chinstrap_entity"
+	pdxmesh = "male_beard_western_07_chinstrap"
+	
+	game_data = {
+		portrait_entity_user_data = {
+			color_mask_remap_interval = {
+				interval = {0.0 1.0}
+			}
+		}
+	}		
+}
