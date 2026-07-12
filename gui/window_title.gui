@@ -835,7 +835,7 @@ window = {
 								visible = "[And( And( And( Character.IsLocalPlayer, TitleViewWindow.CanMakePrimary), GetScriptedGui('can_become_primary_dwarven_titular').IsShown(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End)), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_make_primary_title').GetValue, '(CFixedPoint)0' ) ))]"
 								onclick = "[TitleViewWindow.MakePrimary]"
 								 #LotR
-								onclick = "[GetScriptedGui('lotr_changed_title_to_khand').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								#onclick = "[GetScriptedGui('lotr_changed_title_to_khand').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								tooltip = "TITLE_MAKE_PRIMARY_TOOLTIP"
 
 								button_make_primary = {
@@ -986,7 +986,7 @@ window = {
 					}
 
 					button_primary = {
-						visible = "[Not(GetScriptedGui( 'lotr_defensive_alliance_create_title' ).IsShown( GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope('player_scope', GetPlayer.MakeScope).End))]" #LotR
+						#visible = "[Not(GetScriptedGui( 'lotr_defensive_alliance_create_title' ).IsShown( GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).AddScope('player_scope', GetPlayer.MakeScope).End))]" #LotR
 						enabled = "[IsValidCommand( TitleViewWindow.GetCreateTitle )]"
 						onclick = "[CreateCommandPopup( TitleViewWindow.GetCreateTitle )]"
 						tooltip = "[TitleViewWindow.GetCreateTitleButtonTooltip]"
@@ -1023,7 +1023,7 @@ window = {
 						}
 					}
 
-					lotr_create_title_defensive_alliance = {} #LotR
+					#lotr_create_title_defensive_alliance = {} #LotR
 				}
 
 				vbox = {
