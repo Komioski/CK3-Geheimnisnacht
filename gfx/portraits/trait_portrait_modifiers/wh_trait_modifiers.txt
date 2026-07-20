@@ -3,9 +3,8 @@ vampire = {
 		traits = { 
             vampire_carstein
             vampire_blood_dragon
-            vampire_strigoi
             vampire_necrarch
-         }
+        }
 
 		dna_modifiers = {
 			human = {
@@ -16,7 +15,129 @@ vampire = {
 					x = -10.0
 					y = -10.0
 				}
+				color = {
+					gene = eye_color
+					mode = modify
+
+					x = -1.0
+					y = 0.0
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ears_fantasy
+					template = ears_fantasy
+					value = 0.45
+				}
 			}
 		}
 	}
+
+
+	strigoi = {
+		traits = { 
+            vampire_strigoi
+        }
+
+		dna_modifiers = {
+			human = {
+				color = {
+					gene = skin_color
+					mode = modify
+
+					x = -10.0
+					y = -10.0
+				}
+				color = {
+					gene = eye_color
+					mode = modify
+
+					x = 0.0
+					y = -0.1
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ears_fantasy
+					template = ears_fantasy
+					value = 0.60
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ear_size
+					template = ear_size_pos
+					value = 0.60
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ear_outward
+					template = ear_size_pos
+					value = 0.47
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ear_angle
+					template = ear_size_neg
+					value = 0.99
+				}
+				morph = {
+					mode = modify_multiply
+					gene = gene_height
+					template = giant_height
+					value = 0
+				}
+			}
+		}
+	}	
+
+
+	necrarch = {
+		traits = { 
+            vampire_necrarch
+        }
+
+		dna_modifiers = {
+			human = {
+				color = {
+					gene = skin_color
+					mode = modify
+
+					x = -10.0
+					y = -10.0
+				}
+				color = {
+					gene = eye_color
+					mode = modify
+
+					x = -1.0
+					y = 0.0
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ears_fantasy
+					template = ears_fantasy
+					value = 0.60
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ear_size
+					template = ear_size_pos
+					value = 0.60
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ear_outward
+					template = ear_size_pos
+					value = 0.47
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_ear_angle
+					template = ear_size_neg
+					value = 0.99
+				}
+			}
+		}
+	}	
+
 }
+
+
