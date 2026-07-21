@@ -834,7 +834,7 @@ window = {
 								# visible = "[And( And( Character.IsLocalPlayer, TitleViewWindow.CanMakePrimary ), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_make_primary_title').GetValue, '(CFixedPoint)0' ) ))]"
 								visible = "[And( And( And( Character.IsLocalPlayer, TitleViewWindow.CanMakePrimary), GetScriptedGui('can_become_primary_dwarven_titular').IsShown(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End)), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_make_primary_title').GetValue, '(CFixedPoint)0' ) ))]"
 								onclick = "[TitleViewWindow.MakePrimary]"
-								 #LotR
+								#LotR
 								#onclick = "[GetScriptedGui('lotr_changed_title_to_khand').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								tooltip = "TITLE_MAKE_PRIMARY_TOOLTIP"
 

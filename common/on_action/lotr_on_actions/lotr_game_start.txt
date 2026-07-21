@@ -3,43 +3,43 @@
 lotr_on_game_start = {
 	on_actions = { ccu_startup }
 
-	events = {
-		lotr_historical_artifacts.0001		# LotR Historical Artifacts Generator, replaced by lotr_historical_artifacts_setup
-		dwarven.5000						# LotR Dwarven Fathers Reincarnation System #juke note: also known as the LotRRieDFRS(tm)
-	}
+	#events = {
+	#	lotr_historical_artifacts.0001		# LotR Historical Artifacts Generator, replaced by lotr_historical_artifacts_setup
+	#	dwarven.5000						# LotR Dwarven Fathers Reincarnation System #juke note: also known as the LotRRieDFRS(tm)
+	#}
 
 	effect = {
 		##############################
 		### Culture Creation Dates ###
 		##############################
-		lotr_set_culture_form_dates = yes
+		#lotr_set_culture_form_dates = yes
 
 		#######################
 		### DLC LOCK CHECKS ###
 		#######################
 
 		# Remove all admin government (KotS handled by PDX)
-		if = {
-			limit = {
-				NOT = { has_dlc_feature = roads_to_power }
-			}
-			every_ruler = {
-				limit = {
-					has_government = administrative_government
-				}
-				if = {
-					limit = {
-						ep3_is_clan_inclined_trigger = yes
-					}
-					change_government = clan_government
-					add_realm_law_skip_effects = single_heir_succession_law
-				}
-				else = {
-					change_government = feudal_government
-					add_realm_law_skip_effects = single_heir_succession_law
-				}
-			}
-		}
+		#if = {
+		#	limit = {
+		#		NOT = { has_dlc_feature = roads_to_power }
+		#	}
+		#	every_ruler = {
+		#		limit = {
+		#			has_government = administrative_government
+		#		}
+		#		if = {
+		#			limit = {
+		#				ep3_is_clan_inclined_trigger = yes
+		#			}
+		#			change_government = clan_government
+		#			add_realm_law_skip_effects = single_heir_succession_law
+		#		}
+		#		else = {
+		#			change_government = feudal_government
+		#			add_realm_law_skip_effects = single_heir_succession_law
+		#		}
+		#	}
+		#}
 
 		# Make all Oligarchies feudal if no AuH
 		# if = {
@@ -69,17 +69,17 @@ lotr_on_game_start = {
 			# }
 		# }
 
-		lotr_add_dlc_innovations_effect = yes # Assigns DLc locked innovations so they don't error for non-DLC users
+		#lotr_add_dlc_innovations_effect = yes # Assigns DLc locked innovations so they don't error for non-DLC users
 
-		start_situations_effect = yes
+		#start_situations_effect = yes
 
 		### Bay of Ormal Trade Dominance Bonii ###
-		control_trade_in_the_bay_of_ormal_game_start_effect = yes
+		#control_trade_in_the_bay_of_ormal_game_start_effect = yes
 
 
 
-		### GAME RULE: EXTRA ADMINS
-		apply_historic_administrative_game_rule_effect = yes
+		#### GAME RULE: EXTRA ADMINS
+		#apply_historic_administrative_game_rule_effect = yes
 
 		# Variables so the window can be made invisble
 		#LotR
@@ -93,72 +93,72 @@ lotr_on_game_start = {
 		canon_area_empires = yes
 
 	
-		### Define Ore and Jewel Deposits
-		define_existing_mining_resources = yes
-
-		### Define Natural Disaster Regions
-		lotr_define_natural_disaster_regions = yes
+		#### Define Ore and Jewel Deposits
+		#define_existing_mining_resources = yes
+ 
+		#### Define Natural Disaster Regions
+		#lotr_define_natural_disaster_regions = yes
 
 
 		### Set Up Maresh Prosperity ###
-		setup_maresh_prosperity_effect = yes
+		#setup_maresh_prosperity_effect = yes
 
-		### Set Up Dates of Acadeh modifier
-		title:c_acadeh = {
-			add_county_modifier = {
-				modifier = lodenuly_date_farms_modifier
-			}
-		}
-		title:c_arnaz = {
-			add_county_modifier = {
-				modifier = lodenuly_date_farms_modifier
-			}
-		}
+		#### Set Up Dates of Acadeh modifier
+		#title:c_acadeh = {
+		#	add_county_modifier = {
+		#		modifier = lodenuly_date_farms_modifier
+		#	}
+		#}
+		#title:c_arnaz = {
+		#	add_county_modifier = {
+		#		modifier = lodenuly_date_farms_modifier
+		#	}
+		#}
 
 		### Set Up City of Cats in Bellakar
-		title:c_esmer = { add_county_modifier = city_of_cats_modifier }
+		#title:c_esmer = { add_county_modifier = city_of_cats_modifier }
 
 
 		### Set up Tirith Aear Building ###
-		title:c_dol_amroth.title_province = { set_great_building = wonder_tirith_aear_decayed }
+		#title:c_dol_amroth.title_province = { set_great_building = wonder_tirith_aear_decayed }
 
 
 		# Find some way to change motto
 
-		title:k_wastelands.holder = { create_story = story_artifact_crafting }
+		#title:k_wastelands.holder = { create_story = story_artifact_crafting }
 
-		title:d_tamska_main.holder = { create_story = story_cycle_tamskangi }
+		#title:d_tamska_main.holder = { create_story = story_cycle_tamskangi }
 
-		character:k_wastelands_holder = {
-			trigger_event = elven_racial.0100
-			trigger_event = dwarven_racial.0100 # Lifestyle experience for famous dwarven smiths
-		}
+		#character:k_wastelands_holder = {
+		#	#trigger_event = elven_racial.0100
+		#	#trigger_event = dwarven_racial.0100 # Lifestyle experience for famous dwarven smiths
+		#}
 
-		every_living_character = {
-			trigger_event = {
-				id = elven_racial.0010 #Elven racial maintenance event
-				days = 1
-			}
-			trigger_event = {
-				id = race.0002
-				days = 1
-			}
-			if = { #Set up weapon of choice
-				limit = {
-					age > 5
-					OR = {
-						is_human = yes
-						is_elf = yes
-						is_dwarf = yes
-						is_orc = yes
-						is_nazgul = yes
-						is_halfling = yes
-						is_druedain = yes
-					}
-				}
-				trigger_event = lotr_general.0005 # agot_events_generic.0012, Weapon of choice setup, TODO @Jagua
-			}
-		}
+		#every_living_character = {
+		#	trigger_event = {
+		#		id = elven_racial.0010 #Elven racial maintenance event
+		#		days = 1
+		#	}
+		#	trigger_event = {
+		#		id = race.0002
+		#		days = 1
+		#	}
+		#	if = { #Set up weapon of choice
+		#		limit = {
+		#			age > 5
+		#			OR = {
+		#				is_human = yes
+		#				is_elf = yes
+		#				is_dwarf = yes
+		#				is_orc = yes
+		#				is_nazgul = yes
+		#				is_halfling = yes
+		#				is_druedain = yes
+		#			}
+		#		}
+		#		trigger_event = lotr_general.0005 # agot_events_generic.0012, Weapon of choice setup, TODO @Jagua
+		#	}
+		#}
 
 		#########################
 		# Gamestart Culture Edits
@@ -167,7 +167,7 @@ lotr_on_game_start = {
 		lotr_gamestart_culture_effect = yes
 
 		### *JANK* to fix THE BUG, replace if it ever fixes itself ###
-		lotr_THE_BUG_jank_effect = yes
+		#lotr_THE_BUG_jank_effect = yes
 
 		#########################
 		# WILDERNESS total clear of courtiers, guests and downgrading the leader
@@ -190,24 +190,24 @@ lotr_on_game_start = {
 		# COURT LANGUAGES:
 		# Makes sure everyone knows their court language
 		#########################
-		if = {
-			limit  = { has_dlc_feature = royal_court }
-			every_character_with_royal_court = {
-				limit = {
-					NOT = { knows_court_language_of = this }
-					age > 7
-				}
-				learn_court_language_of = this
-				every_child = {
-					limit = {
-						NOT = { knows_court_language_of = prev }
-						age > 7
-						house ?= prev.house
-					}
-					learn_court_language_of = prev
-				}
-			}
-		}
+		#if = {
+		#	limit  = { has_dlc_feature = royal_court }
+		#	every_character_with_royal_court = {
+		#		limit = {
+		#			NOT = { knows_court_language_of = this }
+		#			age > 7
+		#		}
+		#		learn_court_language_of = this
+		#		every_child = {
+		#			limit = {
+		#				NOT = { knows_court_language_of = prev }
+		#				age > 7
+		#				house ?= prev.house
+		#			}
+		#			learn_court_language_of = prev
+		#		}
+		#	}
+		#}
 
 		set_global_variable = {
 			name = active_conquerors
@@ -246,27 +246,27 @@ lotr_on_game_start_after_lobby = {
 		add_buildings_to_historical_provinces = yes
 		remove_dlc_buildings_effect = yes
 
-		every_living_character = {
-			if = {
-				limit = { is_dwarf = yes }
-				if = { # Dwarves learn Khuzdul
-					limit = { NOT = { knows_language = language_khuzdul } }
-					learn_language = language_khuzdul
-				}
-				# Dwarven Succession
-				if = {
-					limit = {
-						is_ruler = yes
-						is_landed = yes
-					}
-					if = {
-						limit = { NOT = { has_realm_law = dwarven_succession_law } }
-						add_realm_law = dwarven_succession_law
-					}
-				}
-			}
-			
-		}
+		#every_living_character = {
+		#	if = {
+		#		limit = { is_dwarf = yes }
+		#		if = { # Dwarves learn Khuzdul
+		#			limit = { NOT = { knows_language = language_khuzdul } }
+		#			learn_language = language_khuzdul
+		#		}
+		#		# Dwarven Succession
+		#		if = {
+		#			limit = {
+		#				is_ruler = yes
+		#				is_landed = yes
+		#			}
+		#			if = {
+		#				limit = { NOT = { has_realm_law = dwarven_succession_law } }
+		#				add_realm_law = dwarven_succession_law
+		#			}
+		#		}
+		#	}
+		#	
+		#}
 
 
 
