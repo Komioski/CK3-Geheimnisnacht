@@ -203,7 +203,7 @@ ai_colonisation_effect = {
 		if = {
 			limit = {
 				NOT = { any_owned_story = { story_type = story_conqueror } }
-				NOT = { has_character_flag = dwarf_in_moria }
+				#NOT = { has_character_flag = dwarf_in_moria }
 				this = character:k_wastelands_holder
 			}
 			hidden_effect = { remove_short_term_gold = colonise_cost_val }
@@ -211,15 +211,15 @@ ai_colonisation_effect = {
 		else_if = {
 			limit = {
 				NOT = { any_owned_story = { story_type = story_conqueror } }
-				NOT = { has_character_flag = dwarf_in_moria }
+				#NOT = { has_character_flag = dwarf_in_moria }
 			}
-			remove_short_term_gold = colonise_cost_val
+			#remove_short_term_gold = colonise_cost_val
 		}
 
-		increase_variable = {
-			NAME = num_settled_wilderness
-			AMOUNT = 1
-		}
+		#increase_variable = {
+		#	NAME = num_settled_wilderness
+		#	AMOUNT = 1
+		#}
 		trigger_event = wastelands.0007
 	}
 
