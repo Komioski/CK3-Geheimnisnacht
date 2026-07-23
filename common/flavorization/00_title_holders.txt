@@ -1,0 +1,2211 @@
+﻿# Accepted categories are: governments, cultures, culture_groups, faiths, religions
+# A Flavorization will apply if ALL specified categories have ANY of their entries
+# represented in the character/title
+# So for example:
+# governments = { feudal_government }
+# culture_groups = { mongolic_group central_germanic_group }
+# religions = { christianity_religion }
+# cultures = { norse }
+# faiths = { catholicism }
+# For this to apply a character MUST BE feudal, AND must also be EITHER altaic OR germanic
+# priority is used to determine priority, if they are the same then the LAST will be selected,
+# and honorifics will be prefered over landed titles. Default priority is 1
+# If a flavorization does not have a tier it can apply to all tiers of characters, too many non-tiered
+# flavorizations is bad for performance though, YOU HAVE BEEN WARNED!
+# 'top_liege = no' means that its the holder of the title causing the honorific that is tested for
+# the various categories, so for a prince it is the king that is tested, for a queen mother it is her son
+# if this is not specified ( or 'top_liege = yes' the default ) then it is the top liege of that character
+# that is tested, this means that most title flavor comes from the top liege of the title not the holder
+
+
+#############################################
+
+# Special Titles
+#ecumenical_patriarch = {
+#	type = character
+#	gender = male
+#	special = holder
+#	tier = kingdom
+#	priority = 301
+#	titles = { k_orthodox }
+#
+#	flavourization_rules = { 
+#		top_liege = no
+#	}
+#}
+
+#ecumenical_matriarch = {
+#	type = character
+#	gender = female
+#	special = holder
+#	tier = kingdom
+#	priority = 301
+#	titles = { k_orthodox }
+#	flavourization_rules = { 
+#		top_liege = no
+#	}
+#}
+
+#caliph = {
+#	type = character
+#	gender = male
+#	special = holder
+#	priority = 301
+#	titles = { d_sunni d_shiite }
+#	flavourization_rules = { 
+#		top_liege = no
+#	}
+#}
+
+# Religious Titles
+head_of_faith_male = {
+	type = character
+	gender = male
+	special = head_of_faith
+	priority = 300
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+#head_of_faith_pope = {
+#	type = character
+#	gender = male
+#	special = head_of_faith
+#	priority = 1
+#	flavourization_rules = { 
+#		top_liege = no
+#	}
+#	governments = { theocracy_government }
+#	faith = catholic
+#}
+
+head_of_faith_female = {
+	type = character
+	gender = female
+	special = head_of_faith
+	priority = 300
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+realm_priest_male = {
+	type = character
+	gender = male
+	special = councillor
+	priority = 299
+	council_position = councillor_court_chaplain
+}
+
+realm_priest_female = {
+	type = character
+	gender = female
+	special = councillor
+	priority = 299
+	council_position = councillor_court_chaplain
+}
+##############################################
+#Theocracy titles, religious (group) localization.
+
+# Bon
+# Buddhism
+# Christianity
+# Dualism
+# Germanic
+# Hellenism
+# Hinduism
+# Islam
+# Jainism
+# Judaism
+# Magyarism
+# Paganism
+# Baltic
+# Slavic
+# Finno-Ugric
+# Taoism
+# Tengrism
+# West African
+# West African Bori
+# West African Roog
+# Zoroastrianism
+# Zunism
+
+# Bon
+
+ #############################################
+ # Default titles by Government. This list should always be below any custom localization that is tied to specific cultures/religion.
+ #Default Feudal tiers
+ #Default Republic tiers
+ #Default Theocracy tiers
+ #Default Clan tiers
+ #Default Tribal tiers
+ #Default Imperial tiers
+ #Default Nomadic Clan tiers
+ #Default Mercenary tiers
+ #Default Holy Order tiers
+ #Default Viceroyalty tiers
+
+
+ #Default Feudal tiers
+baron_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 5
+	governments = { feudal_government }
+}
+baron_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 5
+	governments = { feudal_government }
+}
+barony_feudal = {
+	type = title
+	tier = barony
+	priority = 5
+	governments = { feudal_government }
+}
+count_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	governments = { feudal_government }
+}
+count_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	governments = { feudal_government }
+}
+county_feudal = {
+	type = title
+	tier = county
+	priority = 16
+	governments = { feudal_government }
+}
+duke_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	governments = { feudal_government }
+}
+duke_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	governments = { feudal_government }
+}
+duchy_feudal = {
+	type = title
+	tier = duchy
+	governments = { feudal_government }
+	priority = 27
+}
+king_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	governments = { feudal_government }
+}
+king_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	governments = { feudal_government }
+}
+kingdom_feudal = {
+	type = title
+	tier = kingdom
+	priority = 46
+	governments = { feudal_government }
+}
+emperor_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	governments = { feudal_government }
+}
+emperor_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	governments = { feudal_government }
+}
+empire_feudal = {
+	type = title
+	tier = empire
+	priority = 101
+	governments = { feudal_government }
+}
+
+ #Default Republic tiers
+baron_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 7
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+baron_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 7
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+barony_republic = {
+	type = title
+	tier = barony
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 7
+	governments = { republic_government }
+}
+count_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 17
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+count_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 17
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+county_republic = {
+	type = title
+	tier = county
+	priority = 17
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+duke_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 27
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+duke_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 27
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+duchy_republic = {
+	type = title
+	tier = duchy
+	priority = 28
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+king_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 47
+	governments = { republic_government }
+}
+king_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 47
+	governments = { republic_government }
+}
+kingdom_republic = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 47
+	governments = { republic_government }
+}
+emperor_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 102
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+emperor_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 102
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { republic_government }
+}
+empire_republic = {
+	type = title
+	tier = empire
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 102
+	governments = { republic_government }
+}
+
+ #Default Theocracy tiers
+baron_theocracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+baron_theocracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+barony_theocracy = {
+	type = title
+	tier = barony
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 6
+	holding = church_holding
+}
+count_theocracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+count_theocracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+county_theocracy = {
+	type = title
+	tier = county
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 16
+	governments = { theocracy_government }
+}
+duke_theocracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+duke_theocracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+duchy_theocracy = {
+	type = title
+	tier = duchy
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 26
+	governments = { theocracy_government }
+}
+king_theocracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+king_theocracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+kingdom_theocracy = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 46
+	governments = { theocracy_government }
+}
+emperor_theocracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+emperor_theocracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+empire_theocracy = {
+	type = title
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { theocracy_government }
+}
+
+ #Default Clan tiers
+baron_clan_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	governments = { clan_government }
+}
+baron_clan_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	governments = { clan_government }
+}
+barony_clan = {
+	type = title
+	tier = barony
+	priority = 6
+	governments = { clan_government }
+}
+count_clan_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	governments = { clan_government }
+}
+count_clan_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	governments = { clan_government }
+}
+county_clan = {
+	type = title
+	tier = county
+	priority = 16
+	governments = { clan_government }
+}
+duke_clan_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	governments = { clan_government }
+}
+duke_clan_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	governments = { clan_government }
+}
+duchy_clan = {
+	type = title
+	tier = duchy
+	priority = 26
+	governments = { clan_government }
+}
+king_clan_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	governments = { clan_government }
+}
+king_clan_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	governments = { clan_government }
+}
+kingdom_clan = {
+	type = title
+	tier = kingdom
+	priority = 46
+	governments = { clan_government }
+}
+emperor_clan_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	governments = { clan_government }
+}
+emperor_clan_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	governments = { clan_government }
+}
+empire_clan = {
+	type = title
+	tier = empire
+	priority = 101
+	governments = { clan_government }
+}
+
+ #Default Tribal tiers
+baron_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+baron_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+barony_tribal = {
+	type = title
+	tier = barony
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 6
+	governments = { tribal_government }
+}
+count_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+count_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+county_tribal = {
+	type = title
+	tier = county
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 16
+	governments = { tribal_government }
+}
+duke_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+duke_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+duchy_tribal = {
+	type = title
+	tier = duchy
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 26
+	governments = { tribal_government }
+}
+king_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+king_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+kingdom_tribal = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 46
+	governments = { tribal_government }
+}
+emperor_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+emperor_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { tribal_government }
+}
+empire_tribal = {
+	type = title
+	tier = empire
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 101
+	governments = { tribal_government }
+}
+
+ #Default Mercenary tiers
+baron_mercenary_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+baron_mercenary_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+barony_mercenary = {
+	type = title
+	tier = barony
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 6
+	governments = { mercenary_government }
+}
+count_mercenary_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+count_mercenary_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+county_mercenary = {
+	type = title
+	tier = county
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 16
+	governments = { mercenary_government }
+}
+duke_mercenary_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+duke_mercenary_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+duchy_mercenary = {
+	type = title
+	tier = duchy
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 26
+	governments = { mercenary_government }
+}
+king_mercenary_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+king_mercenary_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+kingdom_mercenary = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 46
+	governments = { mercenary_government }
+}
+emperor_mercenary_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+emperor_mercenary_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { mercenary_government }
+}
+empire_mercenary = {
+	type = title
+	tier = empire
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 101
+	governments = { mercenary_government }
+}
+
+ #Default Holy Order tiers
+baron_holy_order_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+baron_holy_order_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+barony_holy_order = {
+	type = title
+	tier = barony
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 6
+	governments = { holy_order_government }
+}
+count_holy_order_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+count_holy_order_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+county_holy_order = {
+	type = title
+	tier = county
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 16
+	governments = { holy_order_government }
+}
+duke_holy_order_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+duke_holy_order_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+duchy_holy_order = {
+	type = title
+	tier = duchy
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 26
+	governments = { holy_order_government }
+}
+king_holy_order_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+king_holy_order_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+kingdom_holy_order = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 46
+	governments = { holy_order_government }
+}
+emperor_holy_order_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+emperor_holy_order_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { 
+		top_liege = no
+	}
+	governments = { holy_order_government }
+}
+empire_holy_order = {
+	type = title
+	tier = empire
+	flavourization_rules = { 
+		top_liege = no
+	}
+	priority = 101
+	governments = { holy_order_government }
+}
+
+# Faction Leaders
+faction_leader_male = {
+	type = character
+	gender = male
+	priority = 1
+	special = holder
+	flavourization_rules = { 
+		faction = yes
+	}
+}
+
+faction_leader_female = {
+	type = character
+	gender = female
+	priority = 1
+	special = holder
+	flavourization_rules = { 
+		faction = yes
+	}
+}
+
+ #############################################
+#Fallback titles (should ideally never appear):
+
+baron = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 4
+}
+baron_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 4
+}
+barony = {
+	type = title
+	tier = barony
+	priority = 4
+}
+
+count = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 15
+}
+count_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 15
+}
+county = {
+	type = title
+	tier = county
+	priority = 15
+}
+
+duke = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 25
+}
+duke_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 25
+}
+duchy = {
+	type = title
+	tier = duchy
+	priority = 25
+}
+
+king = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 45
+}
+king_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 45
+}
+kingdom = {
+	type = title
+	tier = kingdom
+	priority = 45
+}
+
+emperor = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 100
+}
+emperor_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 100
+}
+empire = {
+	type = title
+	tier = empire
+	priority = 100
+}
+
+hegemon = {
+	type = character
+	gender = male
+	special = holder
+	tier = hegemony
+	priority = 45
+}
+hegemon_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = hegemony
+	priority = 45
+}
+hegemony = {
+	type = title
+	tier = hegemony
+	priority = 45
+}
+
+### ADMINISTRATIVE
+
+# baron_administrative_male_byzantine_group = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = barony
+# 	priority = 28
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+	
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+# baron_administrative_female_byzantine_group = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = barony
+# 	priority = 28
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+	
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+# count_administrative_male_byzantine_group = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = county
+# 	priority = 28
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+	
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+# count_administrative_female_byzantine_group = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = county
+# 	priority = 28
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+	
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+# county_administrative_byzantine_group = {
+# 	type = title
+# 	tier = county
+# 	priority = 16
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+# }
+count_administrative_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 27
+	governments = { administrative_government meritocratic_government steppe_admin_government }
+	
+	flavourization_rules = {
+		top_liege = yes
+		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+		spouse_takes_title = no
+	}
+}
+count_administrative_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 27
+	governments = { administrative_government meritocratic_government steppe_admin_government }
+	
+	flavourization_rules = {
+		top_liege = yes
+		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+		spouse_takes_title = no
+	}
+}
+
+county_administrative = {
+	type = title
+	tier = county
+	priority = 50
+	governments = { administrative_government meritocratic_government steppe_admin_government }
+	flavourization_rules = {
+		top_liege = yes
+		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc.
+	}
+}
+
+duke_administrative_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 28
+	governments = { administrative_government meritocratic_government steppe_admin_government }
+
+	flavourization_rules = {
+		top_liege = yes
+		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+		spouse_takes_title = no
+	}
+}
+duke_administrative_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 28
+	governments = { administrative_government meritocratic_government steppe_admin_government }
+
+	flavourization_rules = {
+		top_liege = yes
+		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+		spouse_takes_title = no
+	}
+}
+
+spouse_administrative_female = {
+	type = character
+	gender = female
+	special = holder
+	priority = 26
+	governments = { administrative_government meritocratic_government steppe_admin_government }
+
+	flavourization_rules = {
+		top_liege = no
+	}
+}
+
+# duke_administrative_male_indo_persian_group = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = duchy
+# 	priority = 35
+# 	governments = { administrative_government }
+# 	religions = { islam_religion }
+
+# 	flavourization_rules = {
+# 		top_liege = yes
+# 		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+# 	}
+# }
+# duke_administrative_female_indo_persian_group = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = duchy
+# 	priority = 35
+# 	governments = { administrative_government }
+# 	religions = { islam_religion }
+# 	flag = e_hindustan
+
+# 	flavourization_rules = {
+# 		top_liege = yes
+# 		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+# 	}
+# }
+
+# duke_administrative_male_byzantine_group = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = duchy
+# 	priority = 29
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+
+# 	flavourization_rules = {
+# 		top_liege = yes
+# 		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+# 		spouse_takes_title = no
+# 	}
+# }
+# duke_administrative_female_byzantine_group = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = duchy
+# 	priority = 29
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+
+# 	flavourization_rules = {
+# 		top_liege = yes
+# 		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+# 		spouse_takes_title = no
+# 	}
+# }
+# duke_administrative_male_byzantine_group = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = duchy
+# 	priority = 29
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+# duke_administrative_female_byzantine_group = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = duchy
+# 	priority = 29
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+king_administrative_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 74
+	governments = { administrative_government celestial_government  meritocratic_government japan_administrative_government }
+
+	flavourization_rules = {
+		top_liege = yes
+		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc.
+		only_vassals = yes
+	}
+}
+king_administrative_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 73
+	governments = { administrative_government celestial_government meritocratic_government japan_administrative_government }
+
+	flavourization_rules = {
+		top_liege = yes
+		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+		spouse_takes_title = no
+		only_vassals = yes
+	}
+}
+# king_administrative_male_byzantine_group = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 75
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine } #LotR
+
+# 	flavourization_rules = {
+# 		top_liege = yes
+# 		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+# 		spouse_takes_title = no
+# 	}
+# }
+# king_administrative_female_byzantine_group = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 75
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine } #LotR
+
+# 	flavourization_rules = {
+# 		top_liege = yes
+# 		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+# 		spouse_takes_title = no
+# 	}
+# }
+# king_administrative_male_roman = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 76
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_roman } #LotR
+
+# 	flavourization_rules = {
+# 		top_liege = yes
+# 		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+# 		spouse_takes_title = no
+# 	}
+# }
+# king_administrative_female_roman = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 76
+# 	governments = { administrative_government }
+# 	#name_lists = { name_list_roman } #LotR
+
+# 	flavourization_rules = {
+# 		top_liege = yes
+# 		ignore_top_liege_government = yes #In an administrative realm all governors vassals will use the titles of the top liege - this ensures it is only the governors that do, and not also feudal vassals, republican vassals, etc. 
+# 		spouse_takes_title = no
+# 	}
+# }
+# king_administrative_male_byzantine_group = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 75
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+# king_administrative_female_byzantine_group = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 75
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+# king_administrative_male_roman = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 76
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_roman }
+
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+# king_administrative_female_roman = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 76
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_roman }
+
+# 	flavourization_rules = {
+# 		top_liege = no
+# 		spouse_takes_title = no
+# 	}
+# }
+king_administrative_independent_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 106
+	governments = { administrative_government }
+
+	flavourization_rules = {
+		only_independent = yes
+	}
+}
+king_administrative_independent_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 106
+	governments = { administrative_government }
+
+	flavourization_rules = {
+		only_independent = yes
+	}
+}
+# king_administrative_independent_male_byzantine_group = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 107
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+
+# 	flavourization_rules = {
+# 		only_independent = yes
+# 	}
+# }
+# king_administrative_independent_female_byzantine_group = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 107
+# 	governments = { administrative_government }
+# 	heritages = { heritage_byzantine }
+	
+# 	flavourization_rules = {
+# 		only_independent = yes
+# 	}
+# }
+# king_administrative_independent_male_roman = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 108
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_roman }
+
+# 	flavourization_rules = {
+# 		only_independent = yes
+# 	}
+# }
+# king_administrative_independent_female_roman = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = kingdom
+# 	priority = 108
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_roman }
+	
+# 	flavourization_rules = {
+# 		only_independent = yes
+# 	}
+# }
+
+# emperor_administrative_male_greek = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = empire
+# 	priority = 107
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_greek }
+# 	titles = { e_byzantium }
+# }
+# emperor_administrative_female_greek = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = empire
+# 	priority = 107
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_greek }
+# 	titles = { e_byzantium }
+# }
+# emperor_administrative_male_roman = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = empire
+# 	priority = 108
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_roman }
+# 	titles = { e_roman_empire }
+# }
+# emperor_administrative_female_roman = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = empire
+# 	priority = 108
+# 	governments = { administrative_government }
+# 	name_lists = { name_list_roman }
+# 	titles = { e_roman_empire }
+# }
+
+# hegemon_male_indic = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = hegemony
+# 	priority = 282
+# 	religions = { buddhism_religion hinduism_religion jainism_religion }
+# 	titles = { h_india }
+# }
+# hegemon_female_indic = {
+# 	type = character
+# 	gender = female
+# 	special = holder
+# 	tier = hegemony
+# 	priority = 282
+# 	religions = { buddhism_religion hinduism_religion jainism_religion }
+# 	titles = { h_india }
+# }
+# hegemon_male_gok_mongolic = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = hegemony
+# 	priority = 108
+# 	governments = { nomad_government steppe_admin_government feudal_government clan_government tribal_government meritocratic_government }
+# 	heritages = { heritage_mongolic }
+# }
+# hegemon_female_gok_mongolic = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = hegemony
+# 	priority = 108
+# 	governments = { nomad_government steppe_admin_government feudal_government clan_government tribal_government meritocratic_government }
+# 	heritages = { heritage_mongolic }
+# }
+# hegemon_male_gok_turkic = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = hegemony
+# 	priority = 108
+# 	governments = { nomad_government steppe_admin_government feudal_government clan_government tribal_government meritocratic_government }
+# 	heritages = { heritage_turkic }
+# }
+# hegemon_female_gok_turkic = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = hegemony
+# 	priority = 108
+# 	governments = { nomad_government steppe_admin_government feudal_government clan_government tribal_government meritocratic_government }
+# 	heritages = { heritage_turkic }
+# }
+
+# hegemony_feudal_turkic = {
+# 	type = title
+# 	tier = hegemony
+# 	priority = 102
+# 	governments = { nomad_government steppe_admin_government feudal_government clan_government tribal_government meritocratic_government }
+# 	heritages = { heritage_turkic }
+# }
+
+# hegemony_feudal_mongolic = {
+# 	type = title
+# 	tier = hegemony
+# 	priority = 102
+# 	governments = { nomad_government steppe_admin_government feudal_government clan_government tribal_government meritocratic_government }
+# 	heritages = { heritage_mongolic }
+# }
+
+### LANDLESS ADVENTURERS
+duke_landless_adventurer_male_camp = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	priority = 25
+	governments = { landless_adventurer_government }
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_female_camp = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	priority = 25
+	governments = { landless_adventurer_government }
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+spouse_landless_adventurer_male = {
+	type = character
+	gender = male
+	special = domicile
+    domicile_type = camp
+	priority = 25
+	governments = { landless_adventurer_government }
+}
+
+spouse_landless_adventurer_holder_female = {
+	type = character
+	gender = female
+	special = domicile
+    domicile_type = camp
+	priority = 25
+	governments = { landless_adventurer_government }
+}
+
+spouse_estate_holder_male = {
+	type = character
+	gender = male
+	special = domicile
+    domicile_type = estate
+	priority = 26
+	governments = { administrative_government }
+
+	flavourization_rules = {
+		top_liege = no
+	}
+}
+
+spouse_estate_holder_female = {
+	type = character
+	gender = female
+	special = domicile
+    domicile_type = estate
+	priority = 26
+	governments = { administrative_government }
+
+	flavourization_rules = {
+		top_liege = no
+	}
+}
+
+lady_in_shadows = {
+	type = character
+	gender = female
+	priority = 1000
+	flag = lady_in_shadows
+	domicile_type = camp
+
+	flavourization_rules = {
+		top_liege = no
+		only_holder = yes
+	}
+}
+
+co_ruler_female = {
+	type = character
+	gender = female
+	special = holder
+	priority = 107
+	flag = use_co_ruler_title
+
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no 
+		only_holder = yes 
+	}
+}
+
+co_ruler_male = {
+	type = character
+	gender = male
+	special = holder
+	priority = 107
+	flag = use_co_ruler_title
+
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no 
+		only_holder = yes 
+	}
+}
+
+duke_landless_adventurer_camp_mercenaries = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = male
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_mercenaries
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_wanderers = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = male
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_wanderers
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_scholars = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = male
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_scholars
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_explorers = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = male
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_explorers
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_brigands = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = male
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_brigands
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_legitimists = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = male
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_legitimists
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duchess_landless_adventurer_camp_mercenaries = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = female
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_mercenaries
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duchess_landless_adventurer_camp_wanderers = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = female
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_wanderers
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duchess_landless_adventurer_camp_scholars = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = female
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_scholars
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duchess_landless_adventurer_camp_explorers = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = female
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_explorers
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duchess_landless_adventurer_camp_brigands = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = female
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_brigands
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duchess_landless_adventurer_camp_legitimists = {
+	type = character
+	special = holder
+	tier = duchy
+	domicile_type = camp
+	gender = female
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_legitimists
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+# custom_imperator_caesar_augustus = {
+# 	type = character
+# 	gender = male
+# 	special = holder
+# 	tier = empire
+# 	priority = 500
+# 	governments = { administrative_government }
+# 	religions = { hellenism_religion }
+# 	titles = { e_roman_empire }
+# 	flag = uses_custom_caesar_flavourization
+
+# 	flavourization_rules = {
+# 		spouse_takes_title = no
+# 	}
+# }
+
+# Herders
+count_herder_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 25
+	governments = { herder_government }
+
+	flavourization_rules = {
+		spouse_takes_title = no
+		ignore_top_liege_government = yes
+	}
+}
+
+count_herder_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 25
+	governments = { herder_government }
+
+	flavourization_rules = {
+		spouse_takes_title = no
+		ignore_top_liege_government = yes
+	}
+}
+county_herder = {
+	type = title
+	tier = county
+	priority = 25
+	governments = { herder_government }
+	flavourization_rules = {
+		ignore_top_liege_government = yes
+	}
+}

@@ -3,170 +3,369 @@
 # These titles cut hundreds of errors from logs. 
 e_hre = { 
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 e_byzantium = { 
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 e_roman_empire = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 k_papal_state = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 k_orthodox = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 k_fashion = { # Kingdom of Fashion from Establish a New Fashion at Court decision
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_iconoclast = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_patriarchate_in_the_east = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_coptic_papacy = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_apostolic_church = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_conversos = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_manichean = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_karaism = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_haymanot = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_malabarism = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_samaritan = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_kabarism = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_zurvanism = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_gayomarthianism = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_khurmazta = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_mazdakism = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_khurramism = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_urartuism = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_yungdrung_bon = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_sunni = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_masmudi = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_shiite = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_nizari = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_zayidi = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_imami = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 d_ghulat = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 h_dar_al_islam = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 e_minister_chancellor = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 k_austria = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 e_north_sea = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 d_dauphine = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 e_britannia = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 k_wales = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 k_ireland = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
 }
 
 d_cordoba = {
 	landless = yes
-	capital = c_tor_martel
+	capital = c_altdorf
+}
+
+
+
+k_fashion = { # Kingdom of Fashion from Establish a New Fashion at Court decision
+	color = { 140 45 165 }
+	landless = yes
+	destroy_on_succession = yes
+	can_be_named_after_dynasty = no
+	capital = c_altdorf # De-Jure capital has to be somewhere, will move as characters gain the title.
+
+	no_automatic_claims = yes
+	de_jure_drift_disabled = yes
+
+	can_create = {
+		is_wastelands = no
+	}
+}
+
+
+### VANILLA MNISTERS ###
+h_china = { #TO clean up references later
+	color = { 230 180 10 }
+	capital = c_altdorf
+
+	can_create = {
+		is_wastelands = no
+	}
+
+	e_minister_chancellor = {
+		color = { 228 237 113 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
+
+	e_minister_censor = {
+		color = { 185 192 35 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
+
+	e_minister_grand_marshal = {
+		color = { 212 150 69 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
+
+	e_minister_of_personnel = {
+		color = { 228 237 59 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
+
+	e_minister_of_revenue = {
+		color = { 206 247 0 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
+
+	e_minister_of_rites = {
+		color = { 248 247 0 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
+
+	e_minister_of_war = {
+		color = { 255 168 10 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
+
+	e_minister_of_justice = {
+		color = { 255 237 13 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
+
+	e_minister_of_works = {
+		color = { 239 255 13 }
+		landless = yes
+		allow_domicile = no
+		destroy_if_invalid_heir = yes
+		no_automatic_claims = yes
+		de_jure_drift_disabled = yes
+		can_use_nomadic_naming = no
+		can_be_named_after_dynasty = no
+		definite_form = yes
+		ruler_uses_title_name = no
+
+		capital = c_altdorf
+
+		can_create = {
+			is_wastelands = no
+		}
+	}
 }
