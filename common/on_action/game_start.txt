@@ -1707,36 +1707,36 @@ on_game_start = {
 					has_dlc_feature = khans_of_the_steppe
 				}
 			}
-			culture:hunnic = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:saka = { add_culture_tradition = tradition_horse_lords }
-			culture:alan = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:mongol = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:buryat = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:oirat = { add_culture_tradition = tradition_horse_lords }
-			culture:naiman = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:kerait = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:khitan = { add_culture_tradition = tradition_horse_lords }
-			culture:tuyuhun = { add_culture_tradition = tradition_horse_lords }
-			culture:jurchen = { add_culture_tradition = tradition_horse_lords }
-			culture:cuman = { add_culture_tradition = tradition_horse_lords }
-			culture:khazar = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:bolghar = { add_culture_tradition = tradition_horse_lords }
-			culture:bashkir = { add_culture_tradition = tradition_horse_lords }
-			culture:avar = { add_culture_tradition = tradition_horse_lords }
-			culture:karluk = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:kimek = { add_culture_tradition = tradition_horse_lords }
-			culture:kipchak = { add_culture_tradition = tradition_horse_lords }
-			culture:laktan = { add_culture_tradition = tradition_horse_lords }
-			culture:kirghiz = { add_culture_tradition = tradition_horse_lords }
-			culture:yughur = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
-			culture:uriankhai = { add_culture_tradition = tradition_horse_lords }
-			culture:chuvash = { add_culture_tradition = tradition_horse_lords }
-			culture:ongud = { add_culture_tradition = tradition_horse_lords }
-			culture:turkmen = { add_culture_tradition = tradition_horse_lords }
-			culture:mogyer = { add_culture_tradition = tradition_horse_lords }
-			culture:pecheneg = { add_culture_tradition = tradition_horse_lords }
-			culture:ongud = { add_culture_tradition = tradition_steppe_tolerance }
-			culture:uyghur = { add_culture_tradition = tradition_steppe_tolerance }
+			#culture:hunnic = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:saka = { add_culture_tradition = tradition_horse_lords }
+			#culture:alan = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:mongol = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:buryat = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:oirat = { add_culture_tradition = tradition_horse_lords }
+			#culture:naiman = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:kerait = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:khitan = { add_culture_tradition = tradition_horse_lords }
+			#culture:tuyuhun = { add_culture_tradition = tradition_horse_lords }
+			#culture:jurchen = { add_culture_tradition = tradition_horse_lords }
+			#culture:cuman = { add_culture_tradition = tradition_horse_lords }
+			#culture:khazar = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:bolghar = { add_culture_tradition = tradition_horse_lords }
+			#culture:bashkir = { add_culture_tradition = tradition_horse_lords }
+			#culture:avar = { add_culture_tradition = tradition_horse_lords }
+			#culture:karluk = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:kimek = { add_culture_tradition = tradition_horse_lords }
+			#culture:kipchak = { add_culture_tradition = tradition_horse_lords }
+			#culture:laktan = { add_culture_tradition = tradition_horse_lords }
+			#culture:kirghiz = { add_culture_tradition = tradition_horse_lords }
+			#culture:yughur = { add_culture_tradition = tradition_horse_lords add_culture_tradition = tradition_steppe_tolerance }
+			#culture:uriankhai = { add_culture_tradition = tradition_horse_lords }
+			#culture:chuvash = { add_culture_tradition = tradition_horse_lords }
+			#culture:ongud = { add_culture_tradition = tradition_horse_lords }
+			#culture:turkmen = { add_culture_tradition = tradition_horse_lords }
+			#culture:mogyer = { add_culture_tradition = tradition_horse_lords }
+			#culture:pecheneg = { add_culture_tradition = tradition_horse_lords }
+			#culture:ongud = { add_culture_tradition = tradition_steppe_tolerance }
+			#culture:uyghur = { add_culture_tradition = tradition_steppe_tolerance }
 			#culture:turkish = { add_culture_tradition = tradition_horse_lords }
 		}
 
@@ -2576,30 +2576,30 @@ on_game_start = {
 
 		### GEHEIMNISNACHT
 		# Wasteland Automagic
-		if = {
-			limit = { game_start_date = 6510.7.1 }
-			every_county_in_region = {
-				region = world_wilderness_6510
+		#if = {
+		#	limit = { game_start_date = 6510.7.1 }
+		#	every_county_in_region = {
+		#		region = world_wilderness_6510
 
-				create_title_and_vassal_change = {
-					type = returned
-					save_scope_as = change
-				}
-				change_title_holder = {
-					holder = character:k_wastelands_holder
-					change = scope:change
-					take_baronies = yes
-				}
-				resolve_title_and_vassal_change = scope:change
+		#		create_title_and_vassal_change = {
+		#			type = returned
+		#			save_scope_as = change
+		#		}
+		#		change_title_holder = {
+		#			holder = character:k_wastelands_holder
+		#			change = scope:change
+		#			take_baronies = yes
+		#		}
+		#		resolve_title_and_vassal_change = scope:change
 
-				set_county_faith = faith:faith_wastelands_pagan
-				set_county_culture = culture:wastelands
-				generate_coa = yes
-				change_development_level = -20
-				title_province = { set_holding_type = wastelands_holding }
-				title_province = { fill_wasteland_blockers_effect = yes }
-			}
-		}
+		#		set_county_faith = faith:faith_wastelands_pagan
+		#		set_county_culture = culture:wastelands
+		#		generate_coa = yes
+		#		change_development_level = -20
+		#		title_province = { set_holding_type = wastelands_holding }
+		#		title_province = { fill_wasteland_blockers_effect = yes }
+		#	}
+		#}
 
 	}
 }

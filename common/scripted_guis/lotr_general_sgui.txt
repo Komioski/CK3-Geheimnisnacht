@@ -1214,87 +1214,87 @@ lotr_permanent_defensive_alliance = {
 	}
 }
 
-lotr_defensive_alliance_create_title = {
-	saved_scopes = {
-		player_scope
-	}
-	is_shown = {
-		scope:player_scope = {
-			has_defensive_alliance = yes
-		}
-	}
-	effect = {
-		save_scope_as = title_scope
-		switch = {
-			trigger = scope:title_scope.tier
-			tier_duchy = {
-				save_scope_value_as = { name = title_cost value = scope:player_scope.create_duchy_title_value }
-				scope:player_scope = {
-					add_prestige = 300
-					add_legitimacy = 25
-				}
-			}
-			tier_kingdom = {
-				save_scope_value_as = { name = title_cost value = scope:player_scope.create_kingdom_title_value }
-				scope:player_scope = {
-					add_prestige = 400
-					add_legitimacy = 50
-				}
-			}
-			tier_empire = {
-				save_scope_value_as = { name = title_cost value = scope:player_scope.create_empire_title_value }
-				scope:player_scope = {
-					add_prestige = 500
-					add_legitimacy = 75
-				}
-			}
-			tier_hegemony = {
-				save_scope_value_as = { name = title_cost value = scope:player_scope.create_hegemony_title_value }
-				scope:player_scope = {
-					add_prestige = 600
-					add_legitimacy = 100
-				}
-			}
-		}
-
-		scope:player_scope = {
-			get_title = scope:title_scope
-			remove_short_term_gold = scope:title_cost
-		}
-	}
-}
-
-lotr_elf_has_both_negotiate_alliances_perks = {
-	is_valid = {
-		trigger_if = {
-			limit = { is_elf = yes }
-			has_perk = home_advantage_perk
-			has_perk = defensive_negotiations_perk
-		}
-		trigger_else = {
-			always = no
-		}
-	}
-}
+#lotr_defensive_alliance_create_title = {
+#	saved_scopes = {
+#		player_scope
+#	}
+#	is_shown = {
+#		scope:player_scope = {
+#			has_defensive_alliance = yes
+#		}
+#	}
+#	effect = {
+#		save_scope_as = title_scope
+#		switch = {
+#			trigger = scope:title_scope.tier
+#			tier_duchy = {
+#				save_scope_value_as = { name = title_cost value = scope:player_scope.create_duchy_title_value }
+#				scope:player_scope = {
+#					add_prestige = 300
+#					add_legitimacy = 25
+#				}
+#			}
+#			tier_kingdom = {
+#				save_scope_value_as = { name = title_cost value = scope:player_scope.create_kingdom_title_value }
+#				scope:player_scope = {
+#					add_prestige = 400
+#					add_legitimacy = 50
+#				}
+#			}
+#			tier_empire = {
+#				save_scope_value_as = { name = title_cost value = scope:player_scope.create_empire_title_value }
+#				scope:player_scope = {
+#					add_prestige = 500
+#					add_legitimacy = 75
+#				}
+#			}
+#			tier_hegemony = {
+#				save_scope_value_as = { name = title_cost value = scope:player_scope.create_hegemony_title_value }
+#				scope:player_scope = {
+#					add_prestige = 600
+#					add_legitimacy = 100
+#				}
+#			}
+#		}
+#
+#		scope:player_scope = {
+#			get_title = scope:title_scope
+#			remove_short_term_gold = scope:title_cost
+#		}
+#	}
+#}
+#
+#lotr_elf_has_both_negotiate_alliances_perks = {
+#	is_valid = {
+#		trigger_if = {
+#			limit = { is_elf = yes }
+#			has_perk = home_advantage_perk
+#			has_perk = defensive_negotiations_perk
+#		}
+#		trigger_else = {
+#			always = no
+#		}
+#	}
+#}
 
 #Sailed West
-sgui_is_sailed_west_historical = {
-	is_valid = {
-		OR = {
-			is_sailed_west_historical_1 = yes
-			is_sailed_west_historical_2 = yes
-		}
-	}
-}
+#sgui_is_sailed_west_historical = {
+#	is_valid = {
+#		OR = {
+#			is_sailed_west_historical_1 = yes
+#			is_sailed_west_historical_2 = yes
+#		}
+#	}
+#}
 
-sgui_is_sailed_west_historical_1 = {
-	is_valid = {
-		is_sailed_west_historical_1 = yes
-	}
-}
+#sgui_is_sailed_west_historical_1 = {
+#	is_valid = {
+#		is_sailed_west_historical_1 = yes
+#	}
+#}
 
-sgui_is_sailed_west_historical_2 = {
-	is_valid = {
-		is_sailed_west_historical_2 = yes
-	}
-}
+#sgui_is_sailed_west_historical_2 = {
+#	is_valid = {
+#		is_sailed_west_historical_2 = yes
+#	}
+#}

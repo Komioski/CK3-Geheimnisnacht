@@ -17,6 +17,15 @@
 #	These groups are mutually exclusive on the same tier & should cover every part of the map
 ###########################################################################
 
+#world_wastelands = {
+#	duchies = {
+#		d_wastelands
+#	}
+#}
+#
+
+
+
 # world_old_world
 # > world_old_world_bretonnia
 # >> world_old_world_bretonnia_north
@@ -80,7 +89,7 @@ world_old_world = {
 ############################Bretonnia regions
 
 world_old_world_bretonnia_north = {
-	#graphical = yes
+	
 	duchies = {
 		#Bastonne
 		d_bastonne d_garamont d_grismer d_toussaint
@@ -103,7 +112,7 @@ world_old_world_bretonnia_north = {
 	}
 }
 world_old_world_bretonnia_south = {
-	#graphical = yes
+	
 	duchies = {
 		#Aquitaine
 		d_aquitaine d_eprenois
@@ -131,7 +140,7 @@ world_old_world_bretonnia = {
 
 
 world_old_world_southern_realms_estalia_north = {
-	#graphical = yes
+	
 	duchies = {
 		#Castillona
 		d_las_marcas d_navana d_piraneo
@@ -142,7 +151,7 @@ world_old_world_southern_realms_estalia_north = {
 
 
 world_old_world_southern_realms_estalia_south = {
-	#graphical = yes
+	
 	duchies = {
 		#Astarios
 		d_the_magritate d_el_toboso d_garnata d_tartantia
@@ -160,7 +169,7 @@ world_old_world_southern_realms_estalia_south = {
 }
 
 world_old_world_southern_realms_tilea_north = {
-	#graphical = yes
+	
 	duchies = {
 		#Miragliano
 		d_miragliano d_firento
@@ -176,7 +185,7 @@ world_old_world_southern_realms_tilea_north = {
 
 
 world_old_world_southern_realms_tilea_south = {
-	#graphical = yes
+	
 	duchies = {
 		#Luccini
 		d_luccini d_aldente d_organza d_pavezzano
@@ -201,6 +210,17 @@ world_old_world_southern_realms = {
 		world_old_world_southern_realms_tilea
 		world_old_world_southern_realms_estalia_north
 		world_old_world_southern_realms_estalia_south
+	}
+}
+
+
+
+custom_form_sartosa_region = {
+	duchies = {
+		d_sartosa
+		d_metla
+		d_nacary_isles
+		d_siren_isles
 	}
 }
 
@@ -425,6 +445,146 @@ world_old_world_emprie_east = {
 		world_old_world_sylvania
 	}
 }
+
+
+###########################################################################
+# Graphical Regions
+###########################################################################
+
+
+#graphical_wastelands = {
+#	graphical = yes
+#	color = { 200 200 200 }
+#	regions = { middleearth_wastelands }
+#}
+#
+
+
+
+###########################################################################
+# Material Regions
+###########################################################################
+
+ # Widespread Regional - Elm (Found all over Europe except southern Spain, Italy, and Greece)
+material_wood_elm = {
+	regions = {
+		world_old_world_bretonnia
+	}
+}
+
+ # Widespread Regional - Walnut (found all over Europe excluding Scotland and Scandinavia, but including Northern Anatolia/Persia)
+material_wood_walnut = {
+	regions = {
+		world_old_world_bretonnia
+		world_old_world_southern_realms
+	}
+}
+
+ # Widespread Regional - Maple (found all over Europe excluding Scotland and northern Scandinavia, as well as northern Morocco/Tunisia/Persia and all of Anatolia)
+material_wood_maple = {
+	regions = {
+		world_old_world_bretonnia
+		world_old_world_southern_realms
+	}
+}
+
+# Widespread Regional - Pines and Firs (found all over continental Europe excluding northern France/Germany and the Balkans, but exists in Scotland and spreads East through Anatolia, Scandinavia, Russia, China, and Tibet)
+material_woods_pine_and_fir = {
+	regions = {
+		world_old_world_bretonnia
+		world_old_world_southern_realms
+	}
+}
+
+
+###########################################################################
+# Graphical Regions
+###########################################################################
+
+graphical_western = {
+}
+
+graphical_mena = {}
+
+graphical_india = {}
+
+graphical_mediterranean = {
+}
+
+graphical_steppe = {}
+graphical_siberia = {}
+
+graphical_east_asia = {}
+
+##############################
+# Misc
+###############################
+
+world_innovation_elephants = {}
+
+world_innovation_camels = {}
+
+world_horse_buildings_in_hills_and_mountains = {}
+
+### Hunts
+
+# Deer Spread
+hunt_animal_deer_region = {
+	regions = {
+		world_old_world
+	}
+}
+
+# Antelope Spread
+hunt_animal_antelope_region = {}
+
+# Gazelle Spread
+hunt_animal_gazelle_region = {}
+
+# Boar Spread
+hunt_animal_boar_region = {
+	regions = {
+		world_old_world_bretonnia
+		world_old_world_southern_realms
+	}
+}
+
+# Bear Spread
+hunt_animal_bear_region = {
+	regions = {
+		world_old_world
+	}
+}
+
+# Big Cat Spread
+hunt_animal_big_cat_region = {}
+
+# Bison Spread
+hunt_animal_bison_region = {
+	regions = {
+		world_old_world_bretonnia
+	}
+}
+
+# Aurochs Spread
+hunt_animal_aurochs_region = {
+	regions = {
+		world_old_world_bretonnia
+		world_old_world_southern_realms
+	}
+}
+
+hunt_animal_reindeer_region = {}
+
+hunt_animal_elk_region = {}
+
+# Chiefly the Celtic Rim.
+board_game_fidchell_region = {}
+
+mpo_region_permafrost = {}
+
+
+
 
 
 
@@ -656,40 +816,6 @@ sea_inland_steppe_seas = {}
 sea_caspian_sea = {}
 sea_aral_sea = {}
 
-###########################################################################
-# Material Regions
-###########################################################################
-
- # Widespread Regional - Elm (Found all over Europe except southern Spain, Italy, and Greece)
-material_wood_elm = {
-	regions = {
-		world_old_world_bretonnia
-	}
-}
-
- # Widespread Regional - Walnut (found all over Europe excluding Scotland and Scandinavia, but including Northern Anatolia/Persia)
-material_wood_walnut = {
-	regions = {
-		world_old_world_bretonnia
-		world_old_world_southern_realms
-	}
-}
-
- # Widespread Regional - Maple (found all over Europe excluding Scotland and northern Scandinavia, as well as northern Morocco/Tunisia/Persia and all of Anatolia)
-material_wood_maple = {
-	regions = {
-		world_old_world_bretonnia
-		world_old_world_southern_realms
-	}
-}
-
-# Widespread Regional - Pines and Firs (found all over continental Europe excluding northern France/Germany and the Balkans, but exists in Scotland and spreads East through Anatolia, Scandinavia, Russia, China, and Tibet)
-material_woods_pine_and_fir = {
-	regions = {
-		world_old_world_bretonnia
-		world_old_world_southern_realms
-	}
-}
 
 # Widespread Regional - Subsaharan Africa
 material_woods_subsaharan = {}
@@ -805,14 +931,7 @@ material_hsb_seashell = {
 # Custom Regions
 ###########################################################################
 
-custom_form_sartosa_region = {
-	duchies = {
-		d_sartosa
-		d_metla
-		d_nacary_isles
-		d_siren_isles
-	}
-}
+
 
 world_persian_empire = {}
 custom_eastern_baltic = {}
@@ -891,34 +1010,7 @@ custom_gotland = {}
 custom_polabia = {}
 custom_beth_nahrain = {}
 
-###########################################################################
-# Graphical Regions
-###########################################################################
 
-graphical_western = {
-}
-
-graphical_mena = {}
-
-graphical_india = {}
-
-graphical_mediterranean = {
-}
-
-graphical_steppe = {}
-graphical_siberia = {}
-
-graphical_east_asia = {}
-
-##############################
-# Misc
-###############################
-
-world_innovation_elephants = {}
-
-world_innovation_camels = {}
-
-world_horse_buildings_in_hills_and_mountains = {}
 
 #Are these persia regions really used? They overlap with regular world regions. should they be named custom?
 #Persian Kingdoms and Empire.
@@ -1173,59 +1265,3 @@ dlc_tgp_grand_canal_4_region = {}
 
 
 
-### Hunts
-
-# Deer Spread
-hunt_animal_deer_region = {
-	regions = {
-		world_old_world
-	}
-}
-
-# Antelope Spread
-hunt_animal_antelope_region = {}
-
-# Gazelle Spread
-hunt_animal_gazelle_region = {}
-
-# Boar Spread
-hunt_animal_boar_region = {
-	regions = {
-		world_old_world_bretonnia
-		world_old_world_southern_realms
-	}
-}
-
-# Bear Spread
-hunt_animal_bear_region = {
-	regions = {
-		world_old_world
-	}
-}
-
-# Big Cat Spread
-hunt_animal_big_cat_region = {}
-
-# Bison Spread
-hunt_animal_bison_region = {
-	regions = {
-		world_old_world_bretonnia
-	}
-}
-
-# Aurochs Spread
-hunt_animal_aurochs_region = {
-	regions = {
-		world_old_world_bretonnia
-		world_old_world_southern_realms
-	}
-}
-
-hunt_animal_reindeer_region = {}
-
-hunt_animal_elk_region = {}
-
-# Chiefly the Celtic Rim.
-board_game_fidchell_region = {}
-
-mpo_region_permafrost = {}
