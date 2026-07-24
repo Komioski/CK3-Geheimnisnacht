@@ -44,68 +44,56 @@ tradition_winter_warriors = {
 					desc = not_bellicose_stoic_or_communal_desc
 				}
 			}
-			if = {
-				limit = {
-					NOT = {
-						any_culture_county = {
-							percent >= 0.3
-							any_county_province = {
-								OR = {
-									geographical_region = world_europe_north
-									geographical_region = world_europe_east
-									geographical_region = world_siberia
-									geographical_region = world_asia_north_east
-									geographical_region = world_asia_sakhalin_hokkaido
-									geographical_region = world_steppe
-									geographical_region = world_tibet
-								}
-							}
-						}
-					}
-				}
-				add = {
-					value = tradition_unfulfilled_criteria_penalty
-					desc = winter_percentage_desc
-				}
-			}
-
-			if = {
-				limit = {
-					culture_tradition_reduction_trigger = { TRADITION = tradition_winter_warriors }
-				}
-				multiply = {
-					value = 0.5
-					desc = inspired_by_culture_desc
-				}
-			}
+			#if = {
+			#	limit = {
+			#		NOT = {
+			#			any_culture_county = {
+			#				percent >= 0.3
+			#				any_county_province = {
+			#					OR = {
+			#						geographical_region = world_europe_north
+			#						geographical_region = world_europe_west
+			#						geographical_region = world_europe_east
+			#						geographical_region = world_steppe
+			#						geographical_region = world_tibet
+			#					}
+			#				}
+			#			}
+			#		}
+			#	}
+			#	add = {
+			#		value = tradition_unfulfilled_criteria_penalty
+			#		desc = winter_percentage_desc
+			#	}
+			#}
 
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
 	ai_will_do = {
 		value = 400
-		if = {
-			limit = {
-				NOT = {
-					scope:character = {
-						any_sub_realm_county = {
-							percent >= 0.3
-							culture = scope:character.culture
-							any_county_province = {
-								OR = {
-									geographical_region = world_europe_north
-									geographical_region = world_europe_west
-									geographical_region = world_europe_east
-									geographical_region = world_steppe
-									geographical_region = world_tibet
-								}
-							}
-						}
-					}
-				}
-			}
-			multiply = 0
-		}
+		#if = {
+		#	limit = {
+		#		NOT = {
+		#			scope:character = {
+		#				any_sub_realm_county = {
+		#					percent >= 0.3
+		#					culture = scope:character.culture
+		#					any_county_province = {
+		#						OR = {
+		#							geographical_region = world_europe_north
+		#							geographical_region = world_europe_west
+		#							geographical_region = world_europe_east
+		#							geographical_region = world_steppe
+		#							geographical_region = world_tibet
+		#						}
+		#					}
+		#				}
+		#			}
+		#		}
+		#	}
+		#	multiply = 0
+		#}
 	}
 }
 
@@ -123,9 +111,13 @@ tradition_forest_fighters = {
 		custom_description = {
 			text = culture_in_forest_desc
 			any_culture_county = {
-				county_has_province_with_terrain = {
-					terrain = forest
-					terrain = taiga
+				any_county_province = {
+					OR = {
+						terrain = forest
+						terrain = taiga
+						terrain = deep_forest
+						terrain = mallorn_forest
+					}
 				}
 			}
 		}
@@ -138,13 +130,19 @@ tradition_forest_fighters = {
 	}
 	character_modifier = {
 		forest_travel_danger = forest_low_danger_reduction
+		deep_forest_travel_danger = deep_forest_low_danger_reduction
+		mallorn_forest_travel_danger = mallorn_forest_low_danger_reduction
 		taiga_travel_danger = taiga_low_danger_reduction
 	}
 	province_modifier = {
 		forest_levy_size = 0.1
 		taiga_levy_size = 0.1
+		deep_forest_levy_size = 0.1
+		mallorn_forest_levy_size = 0.1
 		forest_supply_limit_mult = 0.25
 		taiga_supply_limit_mult = 0.25
+		deep_forest_supply_limit_mult = 0.25
+		mallorn_forest_supply_limit_mult = 0.25
 	}
 	cost = {
 		prestige = {
@@ -171,9 +169,13 @@ tradition_forest_fighters = {
 					NOT = {
 						any_culture_county = {
 							percent >= 0.3
-							county_has_province_with_terrain = {
-								terrain = forest
-								terrain = taiga
+							any_county_province = {
+								OR = {
+									terrain = forest
+									terrain = taiga
+									terrain = deep_forest
+									terrain = mallorn_forest
+								}
 							}
 						}
 					}
@@ -206,9 +208,13 @@ tradition_forest_fighters = {
 						any_sub_realm_county = {
 							percent >= 0.2
 							culture = scope:character.culture
-							county_has_province_with_terrain = {
-								terrain = forest
-								terrain = taiga
+							any_county_province = {
+								OR = {
+									terrain = forest
+									terrain = taiga
+									terrain = deep_forest
+									terrain = mallorn_forest
+								}
 							}
 						}
 					}
@@ -241,16 +247,17 @@ tradition_mountaineers = {
 	}
 	
 	is_shown = { #Replaced by Horn Mountain Skirmishing & Caucasian Wolves
-		NOR = {
-			#has_cultural_pillar = heritage_somalian
-			#fp1_yearly_eventshas_cultural_pillar = heritage_east_african
-			# this = culture:georgian
-			# any_parent_culture_or_above = {
-			# 	this = culture:georgian
-			# }
-			has_cultural_tradition = tradition_caucasian_wolves
-			has_cultural_tradition = tradition_horn_mountain_skirmishing
-		}
+		# NOR = { 
+		# 	has_cultural_pillar = heritage_somalian 
+		# 	has_cultural_pillar = heritage_east_african
+		# 	this = culture:georgian
+		# 	any_parent_culture_or_above = {
+		# 		this = culture:georgian
+		# 	}
+		# 	has_cultural_tradition = tradition_caucasian_wolves
+		# 	has_cultural_tradition = tradition_horn_mountain_skirmishing
+		# }
+		always = yes
 	}
 
 	can_pick = {
@@ -258,9 +265,12 @@ tradition_mountaineers = {
 		custom_description = {
 			text = culture_in_mountains_desc
 			any_culture_county = {
-				county_has_province_with_terrain = {
-					terrain = mountains
-					terrain = desert_mountains
+				any_county_province = {
+					OR = {
+						terrain = mountains
+						terrain = desert_mountains
+						terrain = halls
+					}
 				}
 			}
 		}
@@ -307,9 +317,12 @@ tradition_mountaineers = {
 					NOT = {
 						any_culture_county = {
 							percent >= 0.3
-							county_has_province_with_terrain = {
-								terrain = mountains
-								terrain = desert_mountains
+							any_county_province = {
+								OR = {
+									terrain = mountains
+									terrain = desert_mountains
+									terrain = halls
+								}
 							}
 						}
 					}
@@ -392,9 +405,9 @@ tradition_warriors_of_the_dry = {
 		4 = desert.dds
 	}
 
-	is_shown = { #Replaced by Mubarizuns
-		#NOT = { has_cultural_pillar = heritage_arabic }
-	}
+	#is_shown = { #Replaced by Mubarizuns
+	#	NOT = { has_cultural_pillar = heritage_arabic }
+	#}
 	
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
@@ -407,7 +420,7 @@ tradition_warriors_of_the_dry = {
 				}
 			}
 		}
-		NOT = { has_cultural_tradition = tradition_mubarizuns } #To prevent stacking after hybridization
+		# NOT = { has_cultural_tradition = tradition_mubarizuns } #To prevent stacking after hybridization 
 	}
 	parameters = {
 		desert_warrior_trait_more_common = yes
@@ -417,14 +430,23 @@ tradition_warriors_of_the_dry = {
 	}
 	character_modifier = {
 		desert_travel_danger = desert_low_danger_reduction
+		red_desert_travel_danger = red_desert_low_danger_reduction
 		drylands_travel_danger = drylands_low_danger_reduction
+		#drylands_travel_danger = savanna_low_danger_reduction
 		desert_mountains_travel_danger = desert_mountains_low_danger_reduction
+		dune_sea_travel_danger = dune_sea_low_danger_reduction
+		saltflats_travel_danger = saltflats_low_danger_reduction
+		volcanic_plains_travel_danger = volcanic_plains_low_danger_reduction
 	}
 	province_modifier = {
 		drylands_levy_size = 0.1
 		desert_levy_size = 0.1
+		red_desert_levy_size = 0.1
+		savanna_levy_size = 0.1
 		drylands_supply_limit_mult = 0.25
 		desert_supply_limit_mult = 0.25
+		red_desert_supply_limit_mult = 0.25
+		savanna_supply_limit_mult = 0.25
 	}
 	cost = {
 		prestige = {
@@ -537,10 +559,11 @@ tradition_highland_warriors = {
 	}
 
 	is_shown = { #Replaced by Upland Skirmishing
-		NOR = {
-			#has_cultural_pillar = heritage_west_african
-			has_cultural_tradition = tradition_upland_skirmishing
-		}
+		# NOR = {
+		# 	has_cultural_pillar = heritage_west_african
+		# 	has_cultural_tradition = tradition_upland_skirmishing
+		# }
+		always = yes
 	}
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
@@ -676,11 +699,12 @@ tradition_jungle_warriors = {
 	}
 
 	is_shown = { #Replaced by Bush Hunting
-		NOR = {
-			#has_cultural_pillar = heritage_akan
-			#has_cultural_pillar = heritage_yoruba
-			has_cultural_tradition = tradition_bush_hunting
-		}
+		# NOR = {
+		# 	has_cultural_pillar = heritage_akan
+		# 	has_cultural_pillar = heritage_yoruba
+		# 	has_cultural_tradition = tradition_bush_hunting
+		# }
+		always = yes
 	}
 	
 	can_pick = {
@@ -693,6 +717,7 @@ tradition_jungle_warriors = {
 				}
 			}
 		}
+		NOT = { has_cultural_tradition = tradition_annammonnil }
 	}
 	parameters = {
 		jungle_stalker_trait_more_common = yes
@@ -928,10 +953,6 @@ tradition_warriors_by_merit = {
 		4 = soldiers2.dds
 	}
 	
-	can_pick = {
-		
-	}
-	
 	parameters = {
 		high_prowess_ignores_knight_restrictions = yes
 		blademaster_traits_more_common = yes
@@ -1137,9 +1158,6 @@ tradition_talent_acquisition = {
 		4 = greeting.dds
 	}
 	
-	can_pick = {
-		
-	}
 	
 	parameters = {
 		can_recruit_prisoners_easily = yes
@@ -1633,16 +1651,16 @@ tradition_quarrelsome = {
 			}
 			multiply = 0.25
 		}
-		if = {
-			limit = {
-				NOR = {
-					culture_pillar:heritage_turkic = { is_in_list = traits }
-					culture_pillar:heritage_mongolic = { is_in_list = traits }
-					is_divergent_culture = yes
-				}
-			}
-			multiply = 0
-		}
+		#if = {
+		#	limit = {
+		#		NOR = {
+		#			any_in_list = { list = traits this = flag:heritage_turkic }
+		#			any_in_list = { list = traits this = flag:heritage_mongolic }
+		#			is_divergent_culture = yes
+		#		}
+		#	}
+		#	multiply = 0
+		#}
 	}
 }
 
@@ -1657,10 +1675,6 @@ tradition_swords_for_hire = {
 
 	is_shown = {
 		NOT = { has_cultural_tradition = tradition_ep3_audacious_cadets }
-	}
-	
-	can_pick = {
-		
 	}
 	
 	parameters = {
@@ -1743,12 +1757,12 @@ tradition_swords_for_hire = {
 	
 	ai_will_do = {
 		value = 50
-		# if = {
-		# 	limit = {
-		# 		has_cultural_pillar = heritage_central_germanic
-		# 	}
-		# 	multiply = 2
-		# }
+		#if = {
+		#	limit = {
+		#		has_cultural_pillar = heritage_central_germanic
+		#	}
+		#	multiply = 1.25
+		#}
 	}
 }
 
@@ -1760,7 +1774,7 @@ tradition_reverence_for_veterans = {
 		1 = mediterranean
 		4 = knight.dds
 	}
-	
+
 	parameters = {
 		wounds_and_scars_give_bonuses = yes
 		guardians_can_transfer_commander_traits = yes
@@ -2002,12 +2016,12 @@ tradition_battlefield_looters = {
 							}
 						}
 					}
-					trigger_else = {
-						NOR = {
-							culture_pillar:heritage_turkic = { is_in_list = traits }
-							culture_pillar:heritage_mongolic = { is_in_list = traits }
-						}
-					}
+					#trigger_else = {
+					#	NOR = {
+					#		any_in_list = { list = traits this = flag:heritage_turkic }
+					#		any_in_list = { list = traits this = flag:heritage_mongolic }
+					#	}
+					#}
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
@@ -2031,18 +2045,18 @@ tradition_battlefield_looters = {
 	
 	ai_will_do = {
 		value = 75
-		if = {
-			limit = {
-				NOR = {
-					culture_pillar:heritage_turkic = { is_in_list = traits }
-					culture_pillar:heritage_mongolic = { is_in_list = traits }
-					scope:character = {
-						government_has_flag = government_is_tribal
-					}
-				}
-			}
-			multiply = 0
-		}
+		#if = {
+		#	limit = {
+		#		NOR = {
+		#			any_in_list = { list = traits this = flag:heritage_turkic }
+		#			any_in_list = { list = traits this = flag:heritage_mongolic }
+		#			scope:character = {
+		#				government_has_flag = government_is_tribal
+		#			}
+		#		}
+		#	}
+		#	multiply = 0
+		#}
 	}
 }
 
@@ -2055,23 +2069,23 @@ tradition_hit_and_run = {
 		4 = soldiers4.dds
 	}
 	
-	is_shown = {
-		# NOR = { #Replaced by Konni Raids (tradition_hussar)
-		# 	has_cultural_pillar = heritage_south_slavic
-		# 	has_cultural_pillar = heritage_magyar
-		# 	has_cultural_pillar = heritage_west_slavic
-		# }
-	}
+	#is_shown = {
+	#	NOR = { #Replaced by Konni Raids (tradition_hussar)
+	#		has_cultural_pillar = heritage_south_slavic
+	#		has_cultural_pillar = heritage_magyar
+	#		has_cultural_pillar = heritage_west_slavic
+	#	}
+	#}
 	can_pick = {
-		trigger_if = {
-			limit = {
-				OR = {
-					NOT = { exists = scope:replacing }
-					NOT = { scope:replacing = culture_tradition:tradition_hussar }
-				}	
-			}
-			NOT = { has_cultural_tradition = tradition_hussar } #To prevent stacking after hybridization
-		}
+		# trigger_if = {
+		# 	limit = {
+		# 		OR = {
+		# 			NOT = { exists = scope:replacing }
+		# 			NOT = { scope:replacing = culture_tradition:tradition_hussar }
+		# 		}
+		# 	}
+		#	NOT = { has_cultural_tradition = tradition_hussar } #To prevent stacking after hybridization 
+		# }
 	}
 
 	# Iberian: Concurso Tactics
@@ -2171,10 +2185,11 @@ tradition_stand_and_fight = {
 	category = combat
 
 	is_shown = {
-		NOR = { #Replaced by Mobile Guards
-			#has_cultural_pillar = heritage_israelite
-			has_cultural_tradition = tradition_mobile_guards
-		}
+		# NOR = { #Replaced by Mobile Guards 
+		# 	has_cultural_pillar = heritage_israelite
+		# 	has_cultural_tradition = tradition_mobile_guards
+		# }
+		always = yes
 	}
 
 	layers = {
@@ -2557,6 +2572,7 @@ tradition_horse_breeder = {
 
 	parameters = {
 		next_level_stables = yes
+		can_use_horse_race_activity = yes
 		horse_breeder_internal_yurt_unlock = yes
 	}
 	
@@ -2632,6 +2648,15 @@ tradition_horse_breeder = {
 	ai_will_do = {
 		value = 200
 		if = {
+			limit = { # Reduce chance slightly if the culture has access to other "cavalry" types
+				OR = {
+					has_innovation = innovation_war_camels
+					has_innovation = innovation_elephantry
+				}
+			}
+			multiply = 0.8
+		}
+		if = {
 			limit = { # Reduce chance  if the culture has access to other "cavalry" types
 				OR = {
 					has_innovation = innovation_war_camels
@@ -2659,19 +2684,23 @@ tradition_longbow_competitions = {
 		4 = bow.dds
 	}
 	
-	is_shown = {
-		OR = {
-			has_cultural_pillar = heritage_albion
-			#has_cultural_pillar = heritage_brythonic
-			#has_cultural_pillar = heritage_goidelic
-		}
-	}
-	can_pick = {
-		OR = {
-			has_cultural_pillar = heritage_albion
-			#has_cultural_pillar = heritage_brythonic
-			#has_cultural_pillar = heritage_goidelic
-		}
+	#is_shown = {
+	#	OR = {
+	#		has_cultural_pillar = heritage_west_germanic
+	#		has_cultural_pillar = heritage_brythonic
+	#		has_cultural_pillar = heritage_goidelic
+	#	}
+	#}
+	#can_pick = {
+	#	OR = {
+	#		has_cultural_pillar = heritage_west_germanic
+	#		has_cultural_pillar = heritage_brythonic
+	#		has_cultural_pillar = heritage_goidelic
+	#	}
+	#}
+
+	is_shown = { 
+		always = no
 	}
 	
 	parameters = {
