@@ -266,18 +266,18 @@ tradition_sacred_mountains = {
 	}
 
 	is_shown = {
-		NOR = {
-			has_cultural_pillar = heritage_somalian
-			has_cultural_pillar = heritage_east_african
-			has_cultural_pillar = heritage_tibetan
-			has_cultural_pillar = heritage_qiangic
-			any_culture_county = {
-				title_province = {
-					geographical_region = world_himalaya
-				}
-			}
-			has_cultural_tradition = tradition_himalayan_settlers
-		}
+		# NOR = { 
+		# 	has_cultural_pillar = heritage_somalian
+		# 	has_cultural_pillar = heritage_east_african
+		# 	has_cultural_pillar = heritage_tibetan
+		# 	has_cultural_pillar = heritage_qiangic
+		# 	any_culture_county = {
+		# 		title_province = {
+		# 			geographical_region = world_himalaya
+		# 		}
+		# 	}
+		# 	has_cultural_tradition = tradition_himalayan_settlers
+		# }
 		scope:character = { government_has_flag = government_is_tribal }
 	}
 	can_pick = {
@@ -1621,9 +1621,9 @@ tradition_runestones = {
 	}
 
 	# Runestones are available in a slightly reduced form in the base title, so we let you access this tradition regardless of whether you have FP1 or not.
-	is_shown = {
-		has_cultural_pillar = heritage_north_germanic
-	}
+	#is_shown = {
+	#	has_cultural_pillar = heritage_north_germanic
+	#}
 	can_pick = {
 		custom_tooltip = {
 			text = cannot_have_tradition_fp1_northern_stories

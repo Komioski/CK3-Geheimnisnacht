@@ -123,16 +123,18 @@ tradition_chivalry = {
 	}
 	
 	is_shown = {
-		OR = {
-			has_cultural_pillar = heritage_brythonic
-			has_cultural_pillar = heritage_central_germanic
-			has_cultural_pillar = heritage_frankish
-			has_cultural_pillar = heritage_goidelic
-			has_cultural_pillar = heritage_iberian
-			has_cultural_pillar = heritage_latin
-			has_cultural_pillar = heritage_west_germanic
-		}
+		NOT = { has_cultural_tradition = tradition_belfalathrim_chivalry }
 	}
+	#	OR = {
+	#		has_cultural_pillar = heritage_brythonic
+	#		has_cultural_pillar = heritage_central_germanic
+	#		has_cultural_pillar = heritage_frankish
+	#		has_cultural_pillar = heritage_goidelic
+	#		has_cultural_pillar = heritage_iberian
+	#		has_cultural_pillar = heritage_latin
+	#		has_cultural_pillar = heritage_west_germanic
+	#	}
+
 	
 	parameters = {
 		can_use_sparring_duel = yes
@@ -256,6 +258,7 @@ tradition_hard_working = {
 	parameters = {
 		development_gain_on_building_complete = yes
 		next_level_w_mills = yes
+		next_level_elf_guild = yes
 	}
 	character_modifier = {
 		build_speed = -0.15
@@ -367,7 +370,7 @@ tradition_loyal_soldiers = {
 		1 = mena
 		4 = hostages.dds
 	}
-	
+
 	parameters = {
 		doesnt_care_about_culture_faith_in_factions = yes
 		wants_to_learn_liege_language = yes
@@ -685,7 +688,9 @@ tradition_diasporic = {
 
 	# Disaporic peoples are marginalized people who have lost their traditional homeland and been forced to live elsewhere. Any hybrid or divergent culture will, by definition, have a new homeland. As a result, new cultures can never pick this tradition, and only historical cultures may start with it.
 	is_shown = { always = no }
-	can_pick = { always = no }
+	can_pick = { 
+		#always = no
+	}
 	
 	parameters = {
 		wanderers_learn_languages = yes
@@ -712,8 +717,13 @@ tradition_hunters = {
 		1 = mediterranean
 		4 = hunter.dds
 	}
+
+	is_shown = {
+		NOT = { has_cultural_tradition = tradition_wanderers_of_the_wild }
+	}
 	
 	can_pick = {
+		NOT = { has_cultural_tradition = tradition_wanderers_of_the_wild }
 		culture_not_pacifistic_trigger = yes
 		custom_tooltip = {
 			text = cannot_have_tradition_vegetarianism
@@ -829,17 +839,17 @@ tradition_vegetarianism = {
 		4 = food.dds
 	}
 	
-	is_shown = {
-		OR = {
-			has_cultural_pillar = heritage_indo_aryan
-			has_cultural_pillar = heritage_dravidian
-		}
-	}
+	#is_shown = {
+	#	OR = {
+	#		has_cultural_pillar = heritage_indo_aryan
+	#		has_cultural_pillar = heritage_dravidian
+	#	}
+	#}
 	can_pick = {
-		OR = {
-			has_cultural_pillar = heritage_indo_aryan
-			has_cultural_pillar = heritage_dravidian
-		}
+		#OR = {
+		#	has_cultural_pillar = heritage_indo_aryan
+		#	has_cultural_pillar = heritage_dravidian
+		#}
 		custom_tooltip = {
 			text = cannot_have_tradition_sacred_hunts
 			NOT = { culture_tradition:tradition_sacred_hunts = { is_in_list = traits } }
@@ -926,11 +936,12 @@ tradition_vegetarianism = {
 		value = 800
 		if = {
 			limit = {
-				NOT = {
-					scope:character.faith = {
-						has_doctrine = tenet_dharmic_pacifism
-					}
-				}
+				# NOT = {
+					# scope:character.faith = {
+						# has_doctrine = tenet_dharmic_pacifism
+					# }
+				# }
+				always = yes
 			}
 			multiply = 0
 		}
@@ -986,6 +997,8 @@ tradition_seafaring = {
 		trade_ports_give_levies = yes
 		can_travel_along_rivers = yes
 		trade_ports_enabled_for_tribals = yes
+		can_use_maritime_raid = yes
+		#unlock_maa_ballistrai = yes
 	}
 	character_modifier = {
 		embarkation_cost_mult = -0.85
@@ -1342,7 +1355,6 @@ tradition_poetry = {
 		NOT = { has_cultural_tradition = tradition_fp3_enlightened_magnates }
 		NAND = {
 			has_fp3_dlc_trigger = yes
-			has_cultural_pillar = heritage_iranian
 		}
 	}
 
@@ -1351,7 +1363,6 @@ tradition_poetry = {
 			text = cannot_have_tradition_fp1_northern_stories
 			NOT = { culture_tradition:tradition_fp1_northern_stories = { is_in_list = traits } }
 		}
-		NOT = { culture_tradition:tradition_tgp_ephemeral_grace = { is_in_list = traits } }
 	}
 	
 	parameters = {
@@ -1698,14 +1709,17 @@ tradition_warrior_culture = {
 	}
 	
 	is_shown = {
-		NOT = { has_cultural_tradition = tradition_hird }
+		#NOT = { has_cultural_tradition = tradition_hird }
+		always = yes
 	}
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
 		custom_tooltip = {
 			text = government_is_tribal_tt
 			scope:character = {
-				government_has_flag = government_is_tribal
+				OR = {
+					government_has_flag = government_is_tribal
+				}
 			}
 		}
 		custom_tooltip = {
@@ -1842,27 +1856,27 @@ tradition_martial_admiration = {
 		4 = knight.dds
 	}
 	
-	is_shown = {
-		NOR = { #Replaced by Futuwaa and Druzhina
-			has_cultural_pillar = heritage_iranian
-			has_cultural_pillar = heritage_frankish
-			has_cultural_pillar = heritage_east_slavic
-			has_cultural_tradition = tradition_futuwaa
-			has_cultural_tradition = tradition_druzhina
-			has_cultural_tradition = tradition_chanson_de_geste
-		}
-	}
+	#is_shown = {
+	#	NOR = { #Replaced by Futuwaa and Druzhina
+	#		has_cultural_pillar = heritage_iranian
+	#		has_cultural_pillar = heritage_frankish
+	#		has_cultural_pillar = heritage_east_slavic
+	#		has_cultural_tradition = tradition_futuwaa
+	#		has_cultural_tradition = tradition_druzhina
+	#		has_cultural_tradition = tradition_chanson_de_geste
+	#	}
+	#}
 
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
-		NOR = { #Replaced by Futuwaa and Druzhina
-			has_cultural_pillar = heritage_iranian
-			has_cultural_pillar = heritage_frankish
-			has_cultural_pillar = heritage_east_slavic
-			has_cultural_tradition = tradition_futuwaa
-			has_cultural_tradition = tradition_druzhina
-			has_cultural_tradition = tradition_chanson_de_geste
-		}
+		#NOR = { #Replaced by Futuwaa and Druzhina
+		#	has_cultural_pillar = heritage_iranian
+		#	has_cultural_pillar = heritage_frankish
+		#	has_cultural_pillar = heritage_east_slavic
+		#	has_cultural_tradition = tradition_futuwaa
+		#	has_cultural_tradition = tradition_druzhina
+		#	has_cultural_tradition = tradition_chanson_de_geste
+		#}
 	}
 
 	parameters = {
@@ -2193,7 +2207,7 @@ tradition_eye_for_an_eye = {
 		1 = mena
 		4 = king.dds
 	}
-	
+
 	parameters = {
 		vengeful_trait_more_common = yes
 		vengeful_positive_forgiving_negative = yes
@@ -2288,7 +2302,7 @@ tradition_zealous_people = {
 		1 = mediterranean
 		4 = speech.dds
 	}
-	
+
 	parameters = {
 		zealous_trait_more_common = yes
 		humble_trait_more_common = yes
@@ -2589,7 +2603,7 @@ tradition_charitable = {
 		1 = mena
 		4 = ceremony.dds
 	}
-	
+
 	parameters = {
 		generous_trait_more_common = yes
 		compassionate_trait_more_common = yes
@@ -2686,7 +2700,7 @@ tradition_modest = {
 		1 = indian
 		4 = artisan.dds
 	}
-	
+
 	parameters = {
 		temperate_trait_more_common = yes
 		introverted_trait_bonuses = yes
@@ -2781,7 +2795,9 @@ tradition_practiced_pirates = {
 		1 = mediterranean
 		4 = battle.dds
 	}
-	
+	is_shown = {
+		NOT = { has_cultural_tradition = tradition_corsairs_of_umbar }
+	}
 	can_pick = {
 		custom_description = {
 			text = percentage_of_culture_on_coast_desc
@@ -2790,6 +2806,7 @@ tradition_practiced_pirates = {
 				has_coastal_province = yes
 			}
 		}
+		NOT = { has_cultural_tradition = tradition_corsairs_of_umbar }
 		custom_tooltip = {
 			text = cultrad_not_nomadic_government_type
 			scope:character = {
@@ -2860,12 +2877,12 @@ tradition_practiced_pirates = {
 	
 	ai_will_do = {
 		value = 100
-		if = {
-			limit = { # Should be fairly rare for cultures outside of a Berber heritage
-				has_cultural_pillar = heritage_berber
-			}
-			multiply = 5
-		}
+		#if = {
+		#	limit = { # Should be fairly rare for cultures outside of a Berber heritage
+		#		has_cultural_pillar = heritage_berber
+		#	}
+		#	multiply = 5
+		#}
 	}
 }
 
@@ -2975,7 +2992,7 @@ tradition_artisans = {
 	county_modifier = {
 		build_gold_cost = -0.05
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {

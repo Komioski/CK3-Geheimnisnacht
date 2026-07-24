@@ -1501,18 +1501,18 @@ tradition_malleable_invaders = {
 					desc = not_bellicose_egalitarian_or_bureaucratic_desc
 				}
 			}
-			if = {
-				limit = {
-					NOR = {
-						culture_pillar:heritage_turkic = { is_in_list = traits }
-						culture_pillar:heritage_mongolic = { is_in_list = traits }
-					}
-				}
-				add = {
-					value = tradition_unfulfilled_criteria_penalty
-					desc = turkic_or_mongolic_desc
-				}
-			}
+			#if = {
+			#	limit = {
+			#		NOR = {
+			#			any_in_list = { list = traits this = flag:heritage_turkic }
+			#			any_in_list = { list = traits this = flag:heritage_mongolic }
+			#		}
+			#	}
+			#	add = {
+			#		value = tradition_unfulfilled_criteria_penalty
+			#		desc = turkic_or_mongolic_desc
+			#	}
+			#}
 
 			if = {
 				limit = {

@@ -17,17 +17,7 @@ tradition_mpo_iron_cavalry = {
 
 	is_shown = {
 		has_mpo_dlc_trigger = yes
-		OR = {
-			has_cultural_pillar = heritage_mongolic
-			has_cultural_pillar = heritage_turkic
-			has_cultural_pillar = heritage_magyar
-			scope:character = {
-				mpo_can_recruit_nomad_maa_trigger = yes
-			}
-		}
 	}
-
-	
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
 		custom_tooltip = {
@@ -122,16 +112,7 @@ tradition_mpo_wolves_of_the_deep_steppe = {
 
 	is_shown = {
 		has_mpo_dlc_trigger = yes
-		OR = {
-			has_cultural_pillar = heritage_mongolic
-			has_cultural_pillar = heritage_turkic
-			has_cultural_pillar = heritage_magyar
-			scope:character = {
-				mpo_can_recruit_nomad_maa_trigger = yes
-			}
-		}
 	}
-
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
 		scope:character = {
@@ -163,15 +144,15 @@ tradition_mpo_wolves_of_the_deep_steppe = {
 				desc = BASE
 				format = "BASE_VALUE_FORMAT"
 			}
-			if = {
-				limit = {
-					has_cultural_pillar = heritage_mongolic
-				}
-				multiply = {
-					value = 0.5
-					desc = heritage_mongolic_name
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_cultural_pillar = heritage_mongolic
+			# 	}
+			# 	multiply = {
+			# 		value = 0.5
+			# 		desc = heritage_mongolic_name
+			# 	}
+			# }
 			
 			if = {
 				limit = {
@@ -220,9 +201,9 @@ tradition_devoted_horsemanship = {
 
 	is_shown = {
 		OR = {
-			has_cultural_pillar = heritage_mongolic
-			has_cultural_pillar = heritage_turkic
-			has_cultural_pillar = heritage_magyar
+			# has_cultural_pillar = heritage_mongolic 
+			# has_cultural_pillar = heritage_turkic 
+			# has_cultural_pillar = heritage_magyar 
 			scope:character = {
 				mpo_can_recruit_nomad_maa_trigger = yes
 			}
@@ -231,9 +212,9 @@ tradition_devoted_horsemanship = {
 
 	can_pick = {
 		OR = {
-			has_cultural_pillar = heritage_mongolic
-			has_cultural_pillar = heritage_turkic
-			has_cultural_pillar = heritage_magyar
+			# has_cultural_pillar = heritage_mongolic 
+			# has_cultural_pillar = heritage_turkic 
+			# has_cultural_pillar = heritage_magyar 
 			scope:character = {
 				mpo_can_recruit_nomad_maa_trigger = yes
 			}
@@ -249,7 +230,7 @@ tradition_devoted_horsemanship = {
 		unlock_horse_pastures_building = yes
 		unlock_voluntary_laampdom = yes
 		stewardship_traits_give_out_cav_bonus = yes
-		unlock_maa_tarkhan = yes
+		# unlock_maa_tarkhan = yes 
 	}
 
 	character_modifier = {
@@ -331,7 +312,7 @@ tradition_mpo_northern_tribes = {
 	}
 	
 	parameters = {
-		unlock_maa_maturkan_warriors = yes
+		# unlock_maa_maturkan_warriors = yes 
 		permafrost_modifier_mechanic = yes
 		permafrost_modifier_removal_condition = yes
 		permafrost_unlock_tribal_building = yes

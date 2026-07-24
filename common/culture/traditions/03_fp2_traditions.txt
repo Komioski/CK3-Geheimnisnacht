@@ -60,18 +60,21 @@ tradition_fp2_state_ransoming = {
 				}
 			}
 			# Heritage or language
-			if = {
-				limit = {
-					NOR = {
-						has_cultural_pillar = heritage_iberian
-						culture_head ?= { knows_language = language_iberian }
-					}
-				}
-				add = {
-					value = tradition_unfulfilled_criteria_penalty
-					desc = lack_iberian_heritage_or_language_penalty_desc
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		NOR = {
+			# 			has_cultural_pillar = heritage_iberian
+			# 			AND = {
+			# 				exists = culture_head
+			# 				culture_head = { knows_language = language_iberian }
+			# 			}
+			# 		}
+			# 	}
+			# 	add = {
+			# 		value = tradition_unfulfilled_criteria_penalty
+			# 		desc = lack_iberian_heritage_or_language_penalty_desc
+			# 	}
+			# }
 
 			if = {
 				limit = {
@@ -224,15 +227,17 @@ tradition_fp2_malleable_subjects = {
 	is_shown = {
 		# DLC check.
 		has_fp2_dlc_trigger = yes
-		has_cultural_pillar = heritage_iberian
+		#has_cultural_pillar = heritage_iberian
+		always = no
 	}
 
 	can_pick = {
 		# Must be of a suitable heritage.
-		custom_tooltip = {
-			text = iberian_heritage_trigger
-			has_cultural_pillar = heritage_iberian
-		}
+		# custom_tooltip = {
+		# 	text = iberian_heritage_trigger
+		# 	has_cultural_pillar = heritage_iberian
+		# }
+		always = no
 	}
 	
 	parameters = {

@@ -16,24 +16,25 @@ tradition_futuwaa = {
 	}
 	
 	is_shown = {
-		always = no # has_cultural_pillar = heritage_iranian
-		# NOR = { #Replaces Martial Admiration
-		# 	has_cultural_tradition = tradition_chanson_de_geste
-		# 	has_cultural_tradition = tradition_druzhina
-		# 	has_cultural_tradition = tradition_martial_admiration
-		# }
+		always = no # LOTR
+		# has_cultural_pillar = heritage_iranian
+		NOR = { #Replaces Martial Admiration
+			has_cultural_tradition = tradition_chanson_de_geste
+			has_cultural_tradition = tradition_druzhina
+			has_cultural_tradition = tradition_martial_admiration
+		}
 	}
 	can_pick = {
 		# has_cultural_pillar = heritage_iranian
-		# NOR = { #Replaces Martial Admiration
-		# 	has_cultural_tradition = tradition_chanson_de_geste
-		# 	has_cultural_tradition = tradition_druzhina
-		# 	has_cultural_tradition = tradition_martial_admiration
-		# }
+		NOR = { #Replaces Martial Admiration
+			has_cultural_tradition = tradition_chanson_de_geste
+			has_cultural_tradition = tradition_druzhina
+			has_cultural_tradition = tradition_martial_admiration
+		}
 	}
 	
 	parameters = {
-		unlock_maa_ayyar = yes
+		# unlock_maa_ayyar = yes
 		can_use_sparring_duel = yes
 		martial_education_more_valued = yes
 		prowess_traits_more_valued = yes
@@ -113,7 +114,8 @@ tradition_mubarizuns = {
 	
 	#Can pick this if you have arabic heritage.
 	is_shown = { #Replaces Warriors of the Dry
-		always = no #has_cultural_pillar = heritage_arabic
+		# has_cultural_pillar = heritage_arabic
+		always = no # LOTR
 	}
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
@@ -129,7 +131,7 @@ tradition_mubarizuns = {
 	}
 	
 	parameters = {
-		unlock_maa_mubarizun = yes
+		# unlock_maa_mubarizun = yes
 		desert_warrior_trait_more_common = yes
 		dry_trait_bonuses = yes
 		can_recruit_dry_specialist = yes
@@ -224,7 +226,8 @@ tradition_desert_ribat = {
 	}
 	
 	is_shown = {
-		always = no #has_cultural_pillar = heritage_berber
+		always = no # LOTR
+		# has_cultural_pillar = heritage_berber
 	}
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
@@ -240,7 +243,7 @@ tradition_desert_ribat = {
 	}
 	
 	parameters = {
-		unlock_maa_mulaththamun = yes #Mulaththamun
+		# unlock_maa_mulaththamun = yes #Mulaththamun
 		desert_warrior_trait_more_common = yes
 		dry_trait_bonuses = yes
 		can_recruit_dry_specialist = yes
@@ -336,14 +339,15 @@ tradition_land_of_the_bow = {
 	}
 	
 	is_shown = {
-		always = no #has_cultural_pillar = heritage_east_african
+		always = no # LOTR
+		# has_cultural_pillar = heritage_east_african
 	}
 	can_pick = {
-		always = no #has_cultural_pillar = heritage_east_african
+		# has_cultural_pillar = heritage_east_african
 	}
 	
 	parameters = {
-		unlock_maa_archers_of_the_nile = yes
+		# unlock_maa_archers_of_the_nile = yes
 		hunting_archery_building_bonuses = yes
 	}
 	county_modifier = {
@@ -439,7 +443,8 @@ tradition_druzhina = {
 	#East Slavic
 	#This replaces Martial Admiration
 	is_shown = {
-		always = no #has_cultural_pillar = heritage_east_slavic
+		always = no # LOTR
+		# has_cultural_pillar = heritage_east_slavic
 		NOR = { #Replaces Martial Admiration
 			has_cultural_tradition = tradition_futuwaa
 			has_cultural_tradition = tradition_chanson_de_geste
@@ -447,7 +452,7 @@ tradition_druzhina = {
 		}
 	}
 	can_pick = {
-		always = no #has_cultural_pillar = heritage_east_slavic
+		# has_cultural_pillar = heritage_east_slavic
 		NOR = { #Replaces Martial Admiration
 			has_cultural_tradition = tradition_futuwaa
 			has_cultural_tradition = tradition_chanson_de_geste
@@ -456,7 +461,7 @@ tradition_druzhina = {
 	}
 	
 	parameters = {
-		unlock_maa_druzhina = yes
+		# unlock_maa_druzhina = yes
 		martial_education_more_valued = yes
 		prowess_traits_more_valued = yes
 		blademaster_trait_bonuses = yes
@@ -535,9 +540,12 @@ tradition_hussar = { #Konni Raids
 
 	#This replaces Hit and Run
 	is_shown = {
-		OR = {
-			has_cultural_pillar = heritage_kislevite
-		}
+		always = no # LOTR
+		# OR = {
+		# 	has_cultural_pillar = heritage_south_slavic
+		# 	has_cultural_pillar = heritage_magyar
+		# 	has_cultural_pillar = heritage_west_slavic
+		# }
 	}
 	can_pick = {
 		trigger_if = {
@@ -552,7 +560,7 @@ tradition_hussar = { #Konni Raids
 	}
 	
 	parameters = {
-		unlock_maa_hussar = yes
+		# unlock_maa_hussar = yes
 	}
 	character_modifier = {
 		skirmishers_screen_mult = 0.2
@@ -625,10 +633,11 @@ tradition_horn_mountain_skirmishing = {
 
 	#In the Horn of Africa this replaces the Mountaineers tradition
 	is_shown = {
-		OR ={
-			always = no #has_cultural_pillar = heritage_somalian
-			#has_cultural_pillar = heritage_east_african
-		}
+		always = no # LOTR
+		# OR ={
+		# 	has_cultural_pillar = heritage_somalian
+		# 	has_cultural_pillar = heritage_east_african
+		# }
 		NOR = {
 			has_cultural_tradition = tradition_mountaineers
 			has_cultural_tradition = tradition_caucasian_wolves
@@ -647,7 +656,7 @@ tradition_horn_mountain_skirmishing = {
 	}
 	
 	parameters = {
-		unlock_maa_horn_warrior = yes
+		# unlock_maa_horn_warrior = yes
 		rough_terrain_expert_trait_more_common = yes
 		mountain_trait_bonuses = yes
 		can_recruit_mountain_specialist = yes
@@ -746,17 +755,18 @@ tradition_bush_hunting = {
 	
 	#Replaces Jungle Warriors
 	is_shown = {
-		OR = {
-			always = no #has_cultural_pillar = heritage_akan
-			#has_cultural_pillar = heritage_yoruba
-		}
+		always = no # LOTR
+		# OR = {
+		# 	has_cultural_pillar = heritage_akan
+		# 	has_cultural_pillar = heritage_yoruba
+		# }
 		NOT = { has_cultural_tradition = tradition_jungle_warriors }
 	}
 	can_pick = {
 	}
 	
 	parameters = {
-		unlock_maa_bush_hunter = yes
+		# unlock_maa_bush_hunter = yes
 		jungle_trait_bonuses = yes
 		dry_trait_bonuses = yes
 		can_recruit_jungle_specialist = yes
@@ -848,14 +858,15 @@ tradition_mobile_guards = {
 
 	#Replaces Stand and Fight
 	is_shown = {
-		always = no #has_cultural_pillar = heritage_israelite
+		always = no # LOTR
+		# has_cultural_pillar = heritage_israelite
 		NOT = { has_cultural_tradition = tradition_stand_and_fight }
 	}
 	can_pick = {
 	}
 	
 	parameters = {
-		unlock_maa_shomer = yes
+		# unlock_maa_shomer = yes
 	}
 	character_modifier = {
 		maa_toughness_mult = 0.1
@@ -951,7 +962,8 @@ tradition_khadga_puja = {
 	}
 
 	is_shown = {
-		always = no #has_cultural_pillar = heritage_indo_aryan
+		always = no # LOTR
+		# has_cultural_pillar = heritage_indo_aryan
 	}
 	can_pick = {
 		custom_description = {
@@ -964,7 +976,7 @@ tradition_khadga_puja = {
 	
 	parameters = {
 		martial_education_more_valued = yes
-		unlock_maa_khandayat = yes
+		# unlock_maa_khandayat = yes
 		blademaster_trait_bonuses = yes
 		craven_and_content_traits_looked_down_upon = yes
 	}
@@ -1040,14 +1052,16 @@ tradition_garuda_warriors = {
 	}
 
 	is_shown = {
-		always = no #has_cultural_pillar = heritage_dravidian
+		always = no # LotR
+		#has_cultural_pillar = heritage_dravidian
 	}
 	can_pick = {
+        always = no # LotR
 	}
 	
 	parameters = {
-		unlock_maa_garudas = yes
-		unlock_garuda_warrior_title = yes
+		#unlock_maa_garudas = yes
+		#unlock_garuda_warrior_title = yes
 		martial_education_more_valued = yes
 		prowess_traits_more_valued = yes
 		craven_and_content_traits_looked_down_upon = yes
@@ -1122,14 +1136,15 @@ tradition_burman_royal_army = {
 	}
 
 	is_shown = {
-		always = no #has_cultural_pillar = heritage_burman
+		always = no # LOTR
+		# has_cultural_pillar = heritage_burman
 	}
 	can_pick = {
-		always = no #has_cultural_pillar = heritage_burman
+		# has_cultural_pillar = heritage_burman
 	}
 	
 	parameters = {
-		unlock_maa_palace_guards = yes
+		# unlock_maa_palace_guards = yes
 		jungle_stalker_trait_more_common = yes
 		jungle_trait_bonuses = yes
 		can_recruit_jungle_specialist = yes
@@ -1197,6 +1212,7 @@ tradition_burman_royal_army = {
 	}
 }
 
+
 tradition_mountain_herding = {
 	category = regional
 
@@ -1208,16 +1224,17 @@ tradition_mountain_herding = {
 
 	#Replaces Mountain Homes
 	is_shown = {
-		OR ={
-			always = no #has_cultural_pillar = heritage_arabic
-			#has_cultural_pillar = heritage_berber
-		}
+		always = no # LOTR
+		# OR ={
+		# 	has_cultural_pillar = heritage_arabic
+		# 	has_cultural_pillar = heritage_berber
+		# }
 	}
 	can_pick = {
-		OR ={
-			has_cultural_pillar = heritage_arabic
-			has_cultural_pillar = heritage_berber
-		}
+		# OR ={
+		# 	has_cultural_pillar = heritage_arabic
+		# 	has_cultural_pillar = heritage_berber
+		# }
 		culture_not_pacifistic_trigger = yes
 		custom_description = {
 			text = culture_in_mountains_desc
@@ -1231,7 +1248,7 @@ tradition_mountain_herding = {
 	}
 	
 	parameters = {
-		unlock_maa_abudrar = yes
+		# unlock_maa_abudrar = yes
 		rough_terrain_expert_trait_more_common = yes
 		desert_warrior_trait_more_common = yes
 		mountain_trait_bonuses = yes
@@ -1330,12 +1347,13 @@ tradition_forest_wardens = {
 
 	#Replaces Forest Folk
 	is_shown = {
-		OR = {
-			has_cultural_pillar = heritage_norscan
-			has_cultural_pillar = heritage_kislevite
-			#has_cultural_pillar = heritage_ugro_permian
-			#has_cultural_pillar = heritage_baltic
-		}
+		always = no # LOTR
+		# OR = {
+		# 	has_cultural_pillar = heritage_balto_finnic
+		# 	has_cultural_pillar = heritage_volga_finnic
+		# 	has_cultural_pillar = heritage_ugro_permian
+		# 	has_cultural_pillar = heritage_baltic
+		# }
 		NOT = { has_cultural_tradition = tradition_forest_folk }
 	}
 	can_pick = {
@@ -1357,7 +1375,7 @@ tradition_forest_wardens = {
 	}
 	
 	parameters = {
-		unlock_maa_metsanvartija = yes
+		# unlock_maa_metsanvartija = yes
 		logging_camps_building_bonuses = yes
 		can_recruit_forest_specialist = yes
 		forest_fighter_trait_more_common = yes
@@ -1463,23 +1481,24 @@ tradition_upland_skirmishing = {
 
 	#Replaces Highland Warriors
 	is_shown = {
-		always = no #has_cultural_pillar = heritage_west_african
+		always = no # LOTR
+		# has_cultural_pillar = heritage_west_african
 		NOT = { has_cultural_tradition = tradition_highland_warriors }
 	}
 	can_pick = {
 		# has_cultural_pillar = heritage_west_african
-		# custom_description = {
-		# 	text = culture_in_hills_desc
-		# 	any_culture_county = {
-		# 		county_has_province_with_terrain = {
-		# 			terrain = hills
-		# 		}
-		# 	}
-		# }
+		custom_description = {
+			text = culture_in_hills_desc
+			any_culture_county = {
+				county_has_province_with_terrain = {
+					terrain = hills
+				}
+			}
+		}
 	}
 	
 	parameters = {
-		unlock_maa_guinea_warrior = yes
+		# unlock_maa_guinea_warrior = yes
 		hill_farms_building_bonuses = yes
 
 		rough_terrain_expert_trait_more_common = yes
@@ -1679,8 +1698,14 @@ tradition_amharic_highlanders = { #Ethiopian Unique Tradition, replaces hill dwe
 	}
 
 	is_shown = {
+		always = no # LOTR
 		NOT = { has_cultural_tradition = tradition_hill_dwellers }
-		always = no #
+		# OR = {
+		# 	this = culture:ethiopian
+		# 	any_parent_culture_or_above = {
+		# 		this = culture:ethiopian
+		# 	}
+		# }
 	}
 	can_pick = {
 		NOT = { has_cultural_tradition = tradition_hill_dwellers }
@@ -1701,7 +1726,7 @@ tradition_amharic_highlanders = { #Ethiopian Unique Tradition, replaces hill dwe
 	}
 	
 	parameters = {
-		unlock_sarawit_innovation = yes
+		# unlock_sarawit_innovation = yes
 		can_castrate_prisoners = yes
 		hill_farms_building_bonuses = yes
 	}
@@ -1924,16 +1949,17 @@ tradition_caucasian_wolves = {
 	
 	#For Georgians this replaces the Mountaineers tradition
 	is_shown = {
-		always = no # OR = {
+		always = no # LOTR
+		# OR = {
 		# 	this = culture:georgian
 		# 	any_parent_culture_or_above = {
 		# 		this = culture:georgian
 		# 	}
 		# }
-		# NOR = {
-		# 	has_cultural_tradition = tradition_mountaineers
-		# 	has_cultural_tradition = tradition_horn_mountain_skirmishing
-		# }
+		NOR = {
+			has_cultural_tradition = tradition_mountaineers
+			has_cultural_tradition = tradition_horn_mountain_skirmishing
+		}
 	}
 	can_pick = {
 		custom_description = {
@@ -1948,7 +1974,7 @@ tradition_caucasian_wolves = {
 	}
 	
 	parameters = {
-		unlock_maa_monaspa = yes
+		# unlock_maa_monaspa = yes
 		rough_terrain_expert_trait_more_common = yes
 		mountain_trait_bonuses = yes
 		can_recruit_mountain_specialist = yes
@@ -2047,22 +2073,23 @@ tradition_hird = {
 	}
 	
 	is_shown = { #Replaces Warrior Culture
+		always = no # LOTR
 		NOR = {
 			has_cultural_tradition = tradition_warrior_culture
 			has_cultural_tradition = tradition_fp1_coastal_warriors
 		}
-		OR = {
-			AND = {
-				has_cultural_pillar = heritage_norscan
-				has_fp1_dlc_trigger = no
-			}
-			# any_parent_culture_or_above = {
-			# 	OR = {
-			# 		this = culture:old_saxon
-			# 		this = culture:norse #For instance Norman culture
-			# 	}
-			# }
-		}
+		# OR = {
+		# 	AND = {
+		# 		has_cultural_pillar = heritage_north_germanic
+		# 		has_fp1_dlc_trigger = no
+		# 	}
+		# 	any_parent_culture_or_above = {
+		# 		OR = {
+		# 			this = culture:old_saxon
+		# 			this = culture:norse #For instance Norman culture
+		# 		}
+		# 	}
+		# }
 	}
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
@@ -2165,7 +2192,6 @@ tradition_hird = {
 		}
 	}
 }
-
 
 tradition_chanson_de_geste = {
 #Replaces Martial Admiration
