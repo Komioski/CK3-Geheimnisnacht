@@ -99,74 +99,10 @@ county_conquest_cb = {
 			multiply = 0
 		}
 		
-		# As Mordor, do not attack neighbouring evil-aligned nations
-		add = {
-			every_in_list = {
-				list = target_titles
-				if = {
-					limit = { 
-						scope:attacker = { 
-							OR = {
-								this = character:lineofsauron
-								top_liege = character:lineofsauron
-								AND = {
-									OR = {
-										this = character:nazgul1
-										top_liege = character:nazgul1
-									}
-									title:e_mordor.holder ?= character:nazgul1
-								}
-							}
-						}
-						scope:defender = { 
-							faith_is_evil = yes
-						}
-					}
-					add = -1000
-				}
-			}
-		}
-
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
 
 		# AI in struggles act insularly for wars that don't have a familial or legal basis.
 		multiply = struggle_wars_prioritise_struggle_targets_value
 
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	valid_to_start = {
@@ -651,75 +587,11 @@ duchy_conquest_cb = {
 			multiply = 0
 		}
 		
-		# As Mordor, do not attack neighbouring evil-aligned nations
-		add = {
-			every_in_list = {
-				list = target_titles
-				if = {
-					limit = { 
-						scope:attacker = { 
-							OR = {
-								this = character:lineofsauron
-								top_liege = character:lineofsauron
-								AND = {
-									OR = {
-										this = character:nazgul1
-										top_liege = character:nazgul1
-									}
-									title:e_mordor.holder ?= character:nazgul1
-								}
-							}
-						}
-						scope:defender = { 
-							faith_is_evil = yes
-						}
-					}
-					add = -1000
-				}
-			}
-		}
 
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
 
 		# AI in struggles act insularly for wars that don't have a familial or legal basis.
 		multiply = struggle_wars_prioritise_struggle_targets_value
 
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	valid_to_start = {

@@ -42,12 +42,12 @@ beards = {
 					has_character_flag = has_scripted_appearance
 				}
 			}
-			modifier = {
-				add = 666
-				exists = this
-				exists = character:easteregg_daan_broekhof
-				this = character:easteregg_daan_broekhof
-			}
+			#modifier = { WHG removed
+			#	add = 666
+			#	exists = this
+			#	exists = character:easteregg_daan_broekhof
+			#	this = character:easteregg_daan_broekhof
+			#}
 			modifier = {
 				add = 1000
 				exists = this
@@ -200,10 +200,10 @@ beards = {
 				NOT = {
 				 	portrait_fp3_iranian_clothing_trigger = yes
 				}				
-                NAND = { # The Prophet Muhammad does not have a portrait
-                    exists = this
-                    this = character:33922 # Prophet Muhammad
-                }
+                #NAND = { # The Prophet Muhammad does not have a portrait
+                #    exists = this
+                #    this = character:33922 # Prophet Muhammad
+                #}
             }
             modifier = {
                 add = -100
@@ -211,7 +211,7 @@ beards = {
                 OR = {
                     is_from_ruler_designer = yes
                     has_character_flag = has_scripted_appearance
-                    this = character:33922 # Prophet Muhammad
+                    #this = character:33922 # Prophet Muhammad
                 }
             }
         }
@@ -262,10 +262,10 @@ beards = {
 				NOT = {
 				 	portrait_fp3_iranian_clothing_trigger = yes
 				}				
-                NAND = { # The Prophet Muhammad does not have a portrait
-                    exists = this
-                    this = character:33922 # Prophet Muhammad
-                }
+                #NAND = { # The Prophet Muhammad does not have a portrait
+                #    exists = this
+                #    this = character:33922 # Prophet Muhammad
+                #}
             }
             modifier = {
                 add = -100
@@ -273,7 +273,7 @@ beards = {
                 OR = {
                     is_from_ruler_designer = yes
                     has_character_flag = has_scripted_appearance
-                    this = character:33922 # Prophet Muhammad
+                    #this = character:33922 # Prophet Muhammad
                 }
             }
         }

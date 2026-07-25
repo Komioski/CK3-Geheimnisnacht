@@ -30,16 +30,16 @@
 # 	}
 # }
 
-gui_dwarven_holdings = {
-	scope = province
-	is_shown = {
-		county.title_province = { terrain = halls }
-	}
-	is_valid = {
-		county.title_province = { terrain = halls }
-	}
-}
-
+#gui_dwarven_holdings = {
+#	scope = province
+#	is_shown = {
+#		county.title_province = { terrain = halls }
+#	}
+#	is_valid = {
+#		county.title_province = { terrain = halls }
+#	}
+#}
+#
 set_title_as_selected = {
 	is_shown = {
 		trigger_if = {
@@ -1177,43 +1177,43 @@ clear_sub_region_focus = {
 	}
 }
 
-lotr_debug_elven_hope_gain = {
-	effect = {
-		if = {
-			limit = { is_elf = yes }
-			add_elven_hope_debug = yes
-		}
-	}
-}
+#lotr_debug_elven_hope_gain = {
+#	effect = {
+#		if = {
+#			limit = { is_elf = yes }
+#			add_elven_hope_debug = yes
+#		}
+#	}
+#}
+#
+#lotr_debug_elven_hope_loss = {
+#	effect = {
+#		if = {
+#			limit = { is_elf = yes }
+#			subtract_elven_hope_debug = yes
+#		}
+#	}
+#}
 
-lotr_debug_elven_hope_loss = {
-	effect = {
-		if = {
-			limit = { is_elf = yes }
-			subtract_elven_hope_debug = yes
-		}
-	}
-}
-
-lotr_defensive_alliance_loc_in_confederation_window_sgui = {
-	is_valid = {
-		exists = this
-		this = confederation_type:defensive_alliance
-	}
-}
-
-lotr_defensive_alliance_general_loc_check = {
-	is_valid = {
-		has_defensive_alliance = yes
-	}
-}
-
-lotr_permanent_defensive_alliance = {
-	is_valid = {
-		has_variable = lotr_permanent_defensive_alliance
-	}
-}
-
+#lotr_defensive_alliance_loc_in_confederation_window_sgui = {
+#	is_valid = {
+#		exists = this
+#		this = confederation_type:defensive_alliance
+#	}
+#}
+#
+#lotr_defensive_alliance_general_loc_check = {
+#	is_valid = {
+#		has_defensive_alliance = yes
+#	}
+#}
+#
+#lotr_permanent_defensive_alliance = {
+#	is_valid = {
+#		has_variable = lotr_permanent_defensive_alliance
+#	}
+#}
+#
 #lotr_defensive_alliance_create_title = {
 #	saved_scopes = {
 #		player_scope

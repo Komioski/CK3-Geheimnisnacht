@@ -15,106 +15,106 @@ idle = {
 	male = {
 		default = { head = "idle_entry" torso = "idle_entry" }
 
-		character_murchad = {
-			animation = { head = "emotion_thinking_entry" torso = "emotion_thinking_entry" }
-			portrait_modifier = {
-				animations = AI_rational_decal				
-			}
-			weight = {
-				base = 0
-				modifier = {
-					add = 5000
-					this = character:83355
-				}
-			}
-		}
-		
-		character_robert = {
-			animation = { head = "council_marshal" torso = "council_marshal" }
-			weight = {
-				base = 0
-				modifier = {
-					add = 5000
-					this = character:1128
-				}
-			}
-			portrait_modifier_pack = one_handed_sword
-		}
-		
-		character_yahya = {
-			animation = { head = "chessCocky1_entry" torso = "chessCocky1_entry" }
-			portrait_modifier = {
-				animations_props = fp2_chess_piece_prop_left_hand
-				animations = fat_additive
-				animations = dwarf_additive
-				animations = female_prop_fix_additive
-				animations = child_additive
-			}
-			weight = {
-				base = 0
-				modifier = {
-					add = 5000
-					this = character:3924
-				}
-			}
-		}
+		#character_murchad = {
+		#	animation = { head = "emotion_thinking_entry" torso = "emotion_thinking_entry" }
+		#	portrait_modifier = {
+		#		animations = AI_rational_decal				
+		#	}
+		#	weight = {
+		#		base = 0
+		#		modifier = {
+		#			add = 5000
+		#			this = character:83355
+		#		}
+		#	}
+		#}
+		#
+		#character_robert = {
+		#	animation = { head = "council_marshal" torso = "council_marshal" }
+		#	weight = {
+		#		base = 0
+		#		modifier = {
+		#			add = 5000
+		#			this = character:1128
+		#		}
+		#	}
+		#	portrait_modifier_pack = one_handed_sword
+		#}
+		#
+		#character_yahya = {
+		#	animation = { head = "chessCocky1_entry" torso = "chessCocky1_entry" }
+		#	portrait_modifier = {
+		#		animations_props = fp2_chess_piece_prop_left_hand
+		#		animations = fat_additive
+		#		animations = dwarf_additive
+		#		animations = female_prop_fix_additive
+		#		animations = child_additive
+		#	}
+		#	weight = {
+		#		base = 0
+		#		modifier = {
+		#			add = 5000
+		#			this = character:3924
+		#		}
+		#	}
+		#}
 
-		AI_idle_infant = {
-			animation = { head = "idle_entry" torso = "idleInfant_entry" }
-			weight = {
-				base = 0
-				modifier = {
-					add = 100
-					scope:age <= 5
-				}
-			}
-		}
+		#AI_idle_infant = {
+		#	animation = { head = "idle_entry" torso = "idleInfant_entry" }
+		#	weight = {
+		#		base = 0
+		#		modifier = {
+		#			add = 100
+		#			scope:age <= 5
+		#		}
+		#	}
+		#}
 
-		AI_idle_ergotism = {
-			animation = { head = "dancing_plague_loop" torso = "dancing_plague_loop" }
-			weight = {
-				base = 0
-				modifier = {
-					add = 100
-					has_trait = ergotism
-				}
-			}
-		}
+		#AI_idle_ergotism = {
+		#	animation = { head = "dancing_plague_loop" torso = "dancing_plague_loop" }
+		#	weight = {
+		#		base = 0
+		#		modifier = {
+		#			add = 100
+		#			has_trait = ergotism
+		#		}
+		#	}
+		#}
 
-		AI_idle_child = {
-			animation = { head = "idle_entry" torso = "idleInfant_entry" }
-			weight = {
-				base = 0
-				modifier = {
-					add = 100
-					scope:age <= 13
-				}
-			}
-		}
+		#AI_idle_child = {
+		#	animation = { head = "idle_entry" torso = "idleInfant_entry" }
+		#	weight = {
+		#		base = 0
+		#		modifier = {
+		#			add = 100
+		#			scope:age <= 13
+		#		}
+		#	}
+		#}
 
-		AI_idle_basic = {
-			animation = { head = "idle_entry" torso = "idle_entry" }
-			weight = {
-				base = 0
-				modifier = {
-					add = 99
-					#scope:age >= 10
-					scope:current_weight <= 75
-				}
-			}
-		}
+		#AI_idle_basic = {
+		#	animation = { head = "idle_entry" torso = "idle_entry" }
+		#	weight = {
+		#		base = 0
+		#		modifier = {
+		#			add = 99
+		#			#scope:age >= 10
+		#			scope:current_weight <= 75
+		#		}
+		#	}
+		#}
 
-		AI_idle_fat = {
-			animation = { head = "idle_entry" torso = "idleFat_entry" }
-			weight = {
-				base = 0
-				modifier = {
-					add = 100
-					#scope:age >= 10
-					scope:current_weight >= 75
-				}
-			}
-		}
+		#AI_idle_fat = {
+		#	animation = { head = "idle_entry" torso = "idleFat_entry" }
+		#	weight = {
+		#		base = 0
+		#		modifier = {
+		#			add = 100
+		#			#scope:age >= 10
+		#			scope:current_weight >= 75
+		#		}
+		#	}
+		#}
 
 ##########################################################################################################################################################################################
 ##########################################################################################################################################################################################
@@ -1109,10 +1109,10 @@ idle = {
 					NOT = { portrait_has_trait_trigger = { TRAIT = dwarf } }
 					NOT = { portrait_has_trait_trigger = { TRAIT = pregnant } }
 				}
-				modifier = {
-					add = -100
-					this = character:7757
-				}
+				#modifier = {
+				#	add = -100
+				#	this = character:7757
+				#}
 			}
 			portrait_modifier = {
 				animations = AI_rational_decal
