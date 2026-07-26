@@ -885,6 +885,15 @@ scripted_effect bp2_learn_lithurgical_language_effect = {
 		}
 		learn_language = language_greek
 	}
+
+	############## WHG liturgical lingo ###############
+	### NEEDS REWORK AFTER BY GOD ALONE
+	#if = { #WHG
+	#	limit = {
+	#		scope:activity.activity_location.county.faith.religion = religion:the_lady_religion
+	#	}
+	#	learn_language = language_breton
+	#}
 }
 
 bp2_adult_education.1011 = {
@@ -918,6 +927,11 @@ bp2_adult_education.1011 = {
 			scope:activity.activity_location.county.faith = faith:orthodox
 			scope:activity.activity_location.county.faith = faith:coptic
 			scope:activity.activity_location.county.faith = faith:nestorian
+
+			### NEEDS EXPANDING AFTER BY GOD ALONE 
+			#scope:activity.activity_location.county.faith.religion = religion:the_lady_religion #WHG 
+
+
 		}
 		trigger_if = {
 			limit = {
@@ -949,6 +963,16 @@ bp2_adult_education.1011 = {
 			}
 			NOT = {	knows_language = language_greek }
 		}
+
+
+		#### NEEDS REWORK AFTER BY GOD ALONE
+		#trigger_if = {
+		#	limit = {
+		#		scope:activity.activity_location.county.faith.religion = religion:the_lady_religion # WHG
+		#	}
+		#	NOT = {	knows_language = language_breton }
+		#}
+
 		trigger_else = {
 			always = no
 		}
@@ -1558,15 +1582,15 @@ bp2_adult_education.1020 = {
 				}
 				desc = bp2_adult_education.1020.desc.satyre_poetry
 			}
-			triggered_desc = {
-				trigger = {
-					scope:location = {
-						geographical_region = world_europe_west
-					}
-					current_date >= 1100.1.1
-				}
-				desc = bp2_adult_education.1020.desc.carmina_burana
-			}
+			#triggered_desc = { #WHG
+			#	trigger = {
+			#		scope:location = {
+			#			geographical_region = world_europe_west
+			#		}
+			#		current_date >= 1100.1.1
+			#	}
+			#	desc = bp2_adult_education.1020.desc.carmina_burana
+			#}
 			triggered_desc = {
 				trigger = {
 					scope:student = {

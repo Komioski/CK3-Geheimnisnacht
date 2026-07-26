@@ -7,36 +7,85 @@ historical_characters_accessories = {
 	selection_behavior = max
 	priority = 2
 
-repanse_portrait = { 
-	dna_modifiers = {
-		accessory = {
-			mode = add
-			gene = hairstyles
-			template = rtt_hairstyles
-			accessory = female_hair_rtt_02
-			type = female
-		}
-		accessory = {
-			mode = add
-			gene = headgear
-			template = no_headgear
-			value = 0
-		}
-		accessory = {
-			mode = add
-			gene = additive_headgear
-			template = no_additive
-			value = 0
-		}
-	}   
-	weight = {
-		base = 0
-		modifier = {
-			add = 999
-			exists = this
-			exists = character:lyonesse_104
-			this = character:lyonesse_104
+	repanse_portrait = { 
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = hairstyles
+				template = rtt_hairstyles
+				accessory = female_hair_rtt_02
+				type = female
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = no_headgear
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = additive_headgear
+				template = no_additive
+				value = 0
+			}
+		}   
+		weight = {
+			base = 0
+			modifier = {
+				add = 999
+				exists = this
+				exists = character:lyonesse_104
+				this = character:lyonesse_104
+			}
 		}
 	}
+
+	taal_portrait = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = orthodox_beards
+				value = 76
+			}
+			accessory = {
+				mode = add
+				gene = clothes
+				template = northern_commoner_clothes
+				value = 0
+			}
+			accessory = {
+				mode = add
+				gene = headgear
+				template = western_stealth
+				value = 50
+			}
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = fp1_cloak
+				value = 240
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 999
+				exists = this
+				exists = character:k_wastelands_holder
+				this = character:k_wastelands_holder
+			}
+		}
+	}
+
+
+
+
+
+
 }
-}
+
+
+
+
+

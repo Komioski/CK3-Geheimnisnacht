@@ -1896,25 +1896,24 @@
 			}
 			desc = activity_hunt_province_desc_legendary_hunting_lodge
 		}
-		triggered_desc = { #LotR
-			trigger = { has_building_or_higher = elven_hunting_grounds_03 }
-			desc = activity_hunt_province_desc_elven_hunting_grounds_major
-		}
-		triggered_desc = { #LotR
-			trigger = { has_building_or_higher = hunting_outposts_06 }
-			desc = activity_hunt_province_desc_hunting_outposts_major
-		}
-		triggered_desc = { #LotR
-			trigger = { has_building_or_higher = dwarven_outpost_06 }
-			desc = activity_hunt_province_desc_dwarven_outpost_major
-		}
+		#triggered_desc = { #LotR
+		#	trigger = { has_building_or_higher = elven_hunting_grounds_03 }
+		#	desc = activity_hunt_province_desc_elven_hunting_grounds_major
+		#}
+		#triggered_desc = { #LotR
+		#	trigger = { has_building_or_higher = hunting_outposts_06 }
+		#	desc = activity_hunt_province_desc_hunting_outposts_major
+		#}
+		#triggered_desc = { #LotR
+		#	trigger = { has_building_or_higher = dwarven_outpost_06 }
+		#	desc = activity_hunt_province_desc_dwarven_outpost_major
+		#}
 		triggered_desc = {
 			trigger = {
 				OR = {
 					terrain = taiga
 					terrain = forest
 					terrain = deep_forest #LotR
-					terrain = mallorn_forest #LotR
 					terrain = mountains
 					terrain = jungle
 				}
@@ -2171,7 +2170,6 @@
 								OR = {
 									terrain = forest
 									terrain = taiga
-									terrain = mallorn_forest #LotR
 									terrain = deep_forest #LotR
 								}
 							}
@@ -2271,42 +2269,6 @@
 			}
 			desc = activity_hunt_province_desc_logging_camps_minor
 		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = logging_camps_01
-				NOT = { has_building_or_higher = logging_camps_03 }
-			}
-			desc = activity_hunt_province_desc_logging_camps_minor
-		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = elven_forestry_01
-				NOT = { has_building_or_higher = elven_forestry_02 }
-			}
-			desc = activity_hunt_province_desc_elven_forestry_minor
-		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = logging_outposts_01
-				NOT = { has_building_or_higher = logging_outposts_03 }
-			}
-			desc = activity_hunt_province_desc_logging_outposts_minor
-		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = dwarven_forestry_01
-				NOT = { has_building_or_higher = elven_forestry_03 }
-			}
-			desc = activity_hunt_province_desc_dwarven_forestry_minor
-		}
-		triggered_desc = {
-			trigger = {
-				exists = var:recent_hunt_held
-				var:recent_hunt_held <= 1
-				NOT = { scope:special_option ?= flag:hunt_type_nerge }
-			}
-			desc = activity_hunt_province_desc_recent_hunt_minor
-		}
 	}
 
 	max_province_icons = 5
@@ -2402,7 +2364,7 @@
 			scope:host.location != scope:activity.activity_location
 			scope:host.location = {
 				is_riverside_province = yes
-				geographical_region = middleearth_west #LotR
+				#geographical_region = middleearth_west #LotR
 				OR = {
 					terrain = farmlands
 					terrain = plains
@@ -2516,18 +2478,6 @@
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			NOT = { scope:host.location = scope:activity.activity_location }
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		texture = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	background = { #Desert, unsettled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -2585,26 +2535,6 @@
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR forest_mallorn unsettled
-		trigger = {
-			NOT = { scope:host.location = scope:activity.activity_location }
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		texture = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = {
-			NOT = { scope:host.location = scope:activity.activity_location }
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		texture = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
 
 	background = { #mountains, settled
 		trigger = {
@@ -2615,19 +2545,6 @@
 			}
 		}
 		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_mountains.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
-	background = { #mountains, dwarven settled #LotR
-		trigger = {
-			NOT = { scope:host.location = scope:activity.activity_location }
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				NOT = { is_dwarf = yes }
-			}
-		}
-		texture = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
 		environment = "environment_travel_mountain_settlement"
 		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
 	}
