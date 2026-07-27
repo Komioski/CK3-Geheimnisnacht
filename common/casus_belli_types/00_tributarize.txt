@@ -16,17 +16,6 @@
 	
 	allowed_for_character_display_regardless = {
 		tgp_japan_offensive_wars_ban_trigger = yes
-		# Elven Expansion CB limitation in game rules
-		trigger_if = {
-			limit = {
-				is_elf = yes
-				has_game_rule = limited_elven_expansion
-			}
-			custom_tooltip = {
-				text = "only_conquest_elves_can_tributize"
-				can_use_conquest_cbs_trigger = yes
-			}
-		}
 	}
 
 	# Root is the title
@@ -137,47 +126,6 @@
 			trigger_else = { always = yes }
 
 
-			#LotR
-			trigger_if = { #Elves won't bring opposed alignment Orcs under tribute
-				limit = {
-					is_elf = yes
-					scope:defender = { is_orc = yes }
-				}
-				custom_tooltip = {
-					text = "tributize_elves_wont_on_orcs"
-					NOT = { opposite_alignment = { TARGET = scope:defender } }
-				}
-			}
-			trigger_if = { #Elves won't pay tribute to opposed alignment characters
-				limit = {
-					scope:defender = { is_elf = yes }
-				}
-				custom_tooltip = {
-					text = "tributize_opposite_alignment_wont_on_elves"
-					NOT = { opposite_alignment = { TARGET = scope:defender } }
-				}
-			}
-			trigger_if = { #Undying can only be brought under tribute by other Undying or Elves
-				limit = {
-					#Juke Note: This is a bit confusing, but we are checking the triggers this way to ensure the tooltips trigger correctly
-					is_elf = no
-					cannot_be_killed = no
-				}
-				custom_tooltip = {
-					text = "tributize_immortal_only_under_elves_or_immortal"
-					scope:defender = { cannot_be_killed = no }
-				}
-			}
-			trigger_else = { #Undying won't pay tribute to opposed alignment characters
-				limit = {
-					# We trigger_else here so this additional req will only display if we are immortal or elf
-					opposite_alignment = { TARGET = scope:defender }
-				}
-				custom_tooltip = {
-					text = "tributize_opposite_alignment_wont_on_immortal"
-					scope:defender = { cannot_be_killed = no }
-				}
-			}
 		}
 	}
 
@@ -330,19 +278,6 @@
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		# Hope 
-		scope:attacker = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		scope:defender = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
 
 		scope:attacker = {
 			if = {
@@ -495,21 +430,6 @@
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		# Hope gain for the defender
-		scope:defender = {
-			if = { # Gains hope by winning a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = {
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
 
 		scope:defender = { 
 			mandala_peacemaker_perk_serenity_effect = yes
@@ -618,9 +538,7 @@
 		}
 
 		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
-		
-		#LotR
-		multiply = elf_target_ai_score_value
+
 	}
 
 	ai_score = {
@@ -683,6 +601,7 @@ tributary_independence_war = {
 			NOT = { obedience_target ?= suzerain } # if the attacker is subject to Obedience and their target is their suzerain, they cannot fight for their freedom
 		}
 		scope:attacker = { lotr_can_declare_war = yes } # LOTR
+		
 	}
 	allowed_against_character = {
 		scope:attacker = {
@@ -731,19 +650,6 @@ tributary_independence_war = {
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		# Hope 
-		scope:attacker = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		scope:defender = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
 
 		#EP2 Accolade glory gain from winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_high_effect = yes }
@@ -867,21 +773,7 @@ tributary_independence_war = {
 			WAR = root.war
 		}
 
-		# Hope gain for the defender
-		scope:defender = {
-			if = { # Gains hope by winning a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = {
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
+
 
 		scope:attacker = { show_pow_release_message_effect = yes }
 		scope:defender = {

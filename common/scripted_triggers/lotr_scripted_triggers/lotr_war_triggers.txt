@@ -1,0 +1,22 @@
+﻿lotr_can_declare_war = {	
+	NOR = {
+		has_culture = culture:wastelands
+		AND = {
+			exists = primary_title.empire
+			primary_title.empire = title:e_valinor
+		}
+	}
+}
+
+lotr_hostile_holy_wars_allowed_trigger = {
+	OR = {
+		has_game_rule = hostile_holy_wars_unrestricted
+		scope:defender.faith = {
+			faith_hostility_level = {
+				target = scope:attacker.faith
+				value = faith_evil_level
+			}
+		}
+		scope:attacker.faith = { has_doctrine = doctrine_pluralism_fundamentalist }
+	}
+}

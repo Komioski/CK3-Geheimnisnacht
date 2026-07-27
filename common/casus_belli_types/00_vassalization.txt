@@ -34,19 +34,6 @@ vassalization_cb = {
 		scope:attacker = { lotr_can_declare_war = yes } # LOTR
 	}
 
-	allowed_for_character_display_regardless = {
-		# Elven Expansion CB limitation in game rules
-		trigger_if = {
-			limit = {
-				is_elf = yes
-				has_game_rule = limited_elven_expansion
-			}
-			custom_tooltip = {
-				text = "only_ambitious_elves_can_vassalize"
-				has_trait = ambitious
-			}
-		}
-	}
 
 	# Root is the title
 	# scope:attacker is the attacker
@@ -209,21 +196,6 @@ vassalization_cb = {
 			resolve_title_and_vassal_change = scope:change
 		}
 		
-		# Hope gain for the attacker
-		scope:attacker = {
-			if = { # Gains hope by winning a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		
-		# Hope loss for the defender
-		scope:defender = {
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
 		
 		# Prestige level progress for the attacker
 		scope:attacker = {
@@ -331,21 +303,6 @@ vassalization_cb = {
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		# Hope gain for the defender
-		scope:defender = {
-			if = { # Gains hope by winning a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = {
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
 
 		scope:defender = { 
 			mandala_peacemaker_perk_serenity_effect = yes
@@ -414,58 +371,6 @@ vassalization_cb = {
 
 	ai_score_mult = {
 		value = 1
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
-		# As a feudal gov never attack tribal for vassalization
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						NOT = { government_has_flag = government_is_tribal }
-					}
-					scope:defender = {
-						government_has_flag = government_is_tribal
-					}
-				}
-				add = -1000
-			}
-		}
 		#Mandala really shouldn't be interested in this
 		add = {
 			if = {
@@ -484,31 +389,6 @@ vassalization_cb = {
 		multiply = byzantium_conquests_ai_score_value
 
 		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
-	}
-
-	valid_to_start = { #LotR
-		# dwarf_and_goblin_underground_duchy_cb_trigger = yes #Jamie-san - Jaco to consider
-		trigger_if = {
-			limit = {
-				scope:defender ?= { any_realm_county ?= { title_province ?= { terrain = halls } } }
-			}
-			scope:attacker ?= {
-				OR = {
-					is_dwarf = yes
-					is_orc = yes
-					is_nazgul = yes
-					is_sauron = yes
-				}
-			}
-			scope:defender ?= {
-				OR = {
-					is_dwarf = yes
-					is_orc = yes
-					is_nazgul = yes
-					is_sauron = yes
-				}
-			}
-		}
 	}
 }
 

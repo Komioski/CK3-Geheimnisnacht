@@ -16,6 +16,7 @@ de_jure_cb = {
 			government_has_flag = government_is_nomadic
 		}
 		scope:attacker = { lotr_can_declare_war = yes } # LOTR
+		
 	}
 
 	allowed_for_character_display_regardless = {
@@ -52,19 +53,6 @@ de_jure_cb = {
 					}
 				}
 			}
-		}
-		trigger_if = {
-			limit = {
-				OR = {
-					dwarf_and_goblin_underground_county_cb_trigger = no
-					dwarf_and_goblin_underground_duchy_cb_trigger = no
-				}
-			}
-			always = no
-		}
-		trigger_if = { # LotR - cannot start de jure wars against elves unless you're an elf yourself
-			limit = { scope:attacker = { is_elf = no } }
-			scope:target.title_capital_county ?= { NOT = { has_county_modifier = elven_homeland_county_modifier } }
 		}
 	}
 
@@ -136,21 +124,6 @@ de_jure_cb = {
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
 		
-		# Hope loss for the defender
-		scope:defender = {
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
-		
-		# Hope gain for the attacker
-		scope:attacker = {
-			if = { # Gains hope by winning a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
 
 		#EP2 accolade glory gain for winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
@@ -279,21 +252,6 @@ de_jure_cb = {
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
 		
-		# Hope gain for the defender
-		scope:defender = {
-			if = { # Gains hope by winning a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = {
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
 
 		scope:defender = {
 			mandala_peacemaker_perk_serenity_effect = yes
@@ -364,61 +322,6 @@ de_jure_cb = {
 	ai_score_mult = {
 		value = 1
 		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
-
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-		
-		# LotR - AI Elves won't pursue this CB often when the targets are of righteous or astray faiths
-		add = {
-			if = {
-				limit = {
-					scope:attacker = { is_elf = yes }
-					scope:defender.faith = {		
-						faith_hostility_level = {
-							target = scope:attacker.faith
-							value = faith_astray_level
-						}
-					}
-				}
-				add = -100
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
 
@@ -438,8 +341,7 @@ individual_county_de_jure_cb = {
 			NOT = { government_has_flag = government_is_nomadic }
 		}
 		
-		scope:attacker = { lotr_can_declare_war = yes } # LOTR
-		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
+		scope:attacker = { lotr_can_declare_war = yes } # LOTR		
 	}
 
 	allowed_for_character_display_regardless = {
@@ -474,11 +376,6 @@ individual_county_de_jure_cb = {
 					}
 				}
 			}
-		}
-		dwarf_and_goblin_underground_county_cb_trigger = yes
-		trigger_if = { # LotR - cannot start de jure wars against elves unless you're an elf yourself
-			limit = { scope:attacker = { is_elf = no } }
-			scope:target.title_capital_county ?= { NOT = { has_county_modifier = elven_homeland_county_modifier } }
 		}
 	}
 
@@ -567,21 +464,6 @@ individual_county_de_jure_cb = {
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
 		
-		# Hope loss for the defender
-		scope:defender = {
-			if = { # Loses hope by losing a county war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = medium_elven_hope_loss HOPE_EFFECT = effect_elven_hope_county_war_lost }
-			}
-		}
-		
-		# Hope gain for the attacker
-		scope:attacker = {
-			if = { # Gains hope by winning a county war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_county_war_won }
-			}
-		}
 
 		#EP2 accolade glory gain for winnning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_low_effect = yes }
@@ -712,21 +594,6 @@ individual_county_de_jure_cb = {
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
 		
-		# Hope gain for the defender
-		scope:defender = {
-			if = { # Gains hope by winning a county war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_county_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = {
-			if = { # Loses hope by losing a county war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = medium_elven_hope_loss HOPE_EFFECT = effect_elven_hope_county_war_lost }
-			}
-		}
 	
 		scope:defender = {
 			mandala_peacemaker_perk_serenity_effect = yes
@@ -804,44 +671,6 @@ individual_county_de_jure_cb = {
 		value = 1
 		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
 
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
 
@@ -863,6 +692,7 @@ individual_duchy_de_jure_cb = {
 		}
 		
 		scope:attacker = { lotr_can_declare_war = yes } # LOTR
+		
 	}
 
 	allowed_for_character_display_regardless = {
@@ -917,11 +747,6 @@ individual_duchy_de_jure_cb = {
 					}
 				}
 			}
-		}
-		dwarf_and_goblin_underground_duchy_cb_trigger = yes
-		trigger_if = { # LotR - cannot start de jure wars against elves unless you're an elf yourself
-			limit = { scope:attacker = { is_elf = no } }
-			scope:target.title_capital_county ?= { NOT = { has_county_modifier = elven_homeland_county_modifier } }
 		}
 	}
 
@@ -1019,21 +844,6 @@ individual_duchy_de_jure_cb = {
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
 		
-		# LotR: Hope loss for the defender
-		scope:defender = {
-			if = { # Loses hope by losing a duchy war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_duchy_war_lost }
-			}
-		}
-		
-		# Lotr: Hope gain for the attacker
-		scope:attacker = {
-			if = { # Gains hope by winning a duchy war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_duchy_war_won }
-			}
-		}
 
 		#EP2 accolade glory gain for winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
@@ -1165,21 +975,6 @@ individual_duchy_de_jure_cb = {
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
 		
-		# LotR: Hope gain for the defender
-		scope:defender = {
-			if = { # Gains hope by winning a duchy war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_duchy_war_won }
-			}
-		}
-		
-		# LotR: Hope loss for the attacker
-		scope:attacker = {
-			if = { # Loses hope by losing a duchy war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_duchy_war_lost }
-			}
-		}
 	
 		scope:defender = {
 			mandala_peacemaker_perk_serenity_effect = yes
@@ -1257,45 +1052,6 @@ individual_duchy_de_jure_cb = {
 		value = 1
 		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
 	
-
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
 

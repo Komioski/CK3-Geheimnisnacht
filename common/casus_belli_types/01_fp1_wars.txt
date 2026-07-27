@@ -64,6 +64,7 @@ fp1_varangian_adventurer_conquest = {
 			government_has_flag = government_is_landless_adventurer
 		}
 		scope:attacker = { lotr_can_declare_war = yes } # LOTR
+		
 	}
 
 	allowed_for_character_display_regardless = {
@@ -145,28 +146,9 @@ fp1_varangian_adventurer_conquest = {
 
 
 
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
-	valid_to_start = {
-		dwarf_and_goblin_underground_duchy_cb_trigger = yes
-	}
+
 
 	should_invalidate = {
 		OR = {
@@ -433,10 +415,6 @@ fp1_varangian_adventurer_conquest = {
 									type = vigmen
 									stacks = 8
 								}
-								men_at_arms = {
-									type = dunlending_huscarl #LotR
-									stacks = 2
-								}
 								levies = 100
 								inheritable = yes
 								location = scope:attacker.capital_province
@@ -461,10 +439,6 @@ fp1_varangian_adventurer_conquest = {
 								men_at_arms = {
 									type = vigmen
 									stacks = 8
-								}
-								men_at_arms = {
-									type = dunlending_huscarl #LotR
-									stacks = 4
 								}
 								levies = 100
 								inheritable = yes
@@ -1045,14 +1019,8 @@ fp1_varangian_adventurer_conquest = {
 			}
 			# Sort the governance of the colony.
 			## Adjusting the government type as appropriate.
-			if = { # LotR - If you're an orc, you get orcish government 
-				limit = {
-					is_orc = yes 
-				}
-				change_government = orcish_government
-			}
 			# Conquering tribes makes you tribal.
-			else_if = { # LotR - changed to else_if
+			if = { 
 				limit = {
 					capital_province = { has_holding_type = tribal_holding }
 					NOT = { government_has_flag = government_is_tribal }
@@ -1339,48 +1307,6 @@ fp1_varangian_adventurer_conquest = {
 		mandala_war_defeat_effects = yes
 	}
 
-	ai_score_mult = { #LotR
-		value = 1
-
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
-	}
 
 	transfer_behavior = transfer
 

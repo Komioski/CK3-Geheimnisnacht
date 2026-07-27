@@ -91,22 +91,7 @@ minor_religious_war = {
 			}
 		}
 		tgp_japan_offensive_wars_ban_trigger = yes
-		# Elven Expansion CB limitation in game rules
-		trigger_if = {
-			limit = {
-				is_elf = yes
-				has_game_rule = limited_elven_expansion
-			}
-			custom_tooltip = {
-				text = "only_zealous_elves_can_holy_war"
-				OR = {
-					has_trait = zealous
-					has_game_rule = strong_gondor_strength
-					has_game_rule = very_strong_gondor_strength
-					has_game_rule = apocalyptic_gondor_strength
-				}
-			}
-		}
+
 	}
 
 	allowed_against_character = {
@@ -161,7 +146,7 @@ minor_religious_war = {
 			are_holy_wars_disabled_in_struggle_phase_trigger = yes
 		}
 		are_holy_wars_disabled_by_struggle_conciliation_trigger = no # Disabled against other involved faiths in FP2 Conciliation ending
-		dwarf_and_goblin_underground_county_cb_trigger = yes
+		
 
 		# LOTR Hostile Holy Wars gamerule
 		lotr_hostile_holy_wars_allowed_trigger = yes
@@ -285,44 +270,6 @@ minor_religious_war = {
 			multiply = 0
 		}
 
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	cost = {
@@ -379,20 +326,6 @@ minor_religious_war = {
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		scope:attacker = { # LotR
-			if = { # Gains hope by winning a county war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_county_war_won }
-			}
-		}
-		
-		# Hope loss for the defender
-		scope:defender = { # LotR
-			if = { # Loses hope by losing a county war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = medium_elven_hope_loss HOPE_EFFECT = effect_elven_hope_county_war_lost }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -544,21 +477,6 @@ minor_religious_war = {
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		# Hope gain for the defender
-		scope:defender = { # LotR
-			if = { # Gains hope by winning a county war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_county_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = { # LotR
-			if = { # Loses hope by losing a county war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = medium_elven_hope_loss HOPE_EFFECT = effect_elven_hope_county_war_lost }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -758,22 +676,7 @@ religious_war = {
 			}
 		}
 		tgp_japan_offensive_wars_ban_trigger = yes
-		# Elven Expansion CB limitation in game rules
-		trigger_if = {
-			limit = {
-				is_elf = yes
-				has_game_rule = limited_elven_expansion
-			}
-			custom_tooltip = {
-				text = "only_zealous_elves_can_holy_war"
-				OR = {
-					has_trait = zealous
-					has_game_rule = strong_gondor_strength
-					has_game_rule = very_strong_gondor_strength
-					has_game_rule = apocalyptic_gondor_strength
-				}
-			}
-		}
+
 	}
 
 	allowed_against_character = {
@@ -851,15 +754,6 @@ religious_war = {
 			are_holy_wars_disabled_in_struggle_phase_trigger = yes
 		}
 		are_holy_wars_disabled_by_struggle_conciliation_trigger = no # Disabled against other involved faiths in FP2 Conciliation ending
-		trigger_if = { #LotR
-			limit = {
-				OR = {
-					dwarf_and_goblin_underground_county_cb_trigger = no
-					dwarf_and_goblin_underground_duchy_cb_trigger = no
-				}
-			}
-			always = no
-		}
 		# LOTR Hostile Holy Wars gamerule
 		lotr_hostile_holy_wars_allowed_trigger = yes
 	}
@@ -1026,20 +920,6 @@ religious_war = {
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		scope:attacker = { # LotR
-			if = { # Gains hope by winning a duchy war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_duchy_war_won }
-			}
-		}
-		
-		# Hope loss for the defender
-		scope:defender = { # LotR
-			if = { # Loses hope by losing a duchy war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_duchy_war_lost }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -1148,21 +1028,6 @@ religious_war = {
 		mandala_war_victory_effects = yes
 
 
-		# LotR: Radyani converts all Arien counties if she wins
-		if = {
-		    limit = { 
-			    scope:attacker = { 
-		           has_character_flag = radyani_holy_war
-                }
-				scope:defender.faith = faith:faith_arienism
-			}
-			scope:attacker = { 
-				trigger_event = {
-					id = sirayn.1602 
-					days = 1
-				}
-			}
-		}
 	}
 
 	on_white_peace_desc = {
@@ -1212,21 +1077,6 @@ religious_war = {
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		# Hope gain for the defender
-		scope:defender = { # LotR
-			if = { # Gains hope by winning a duchy war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_duchy_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = { # LotR
-			if = { # Loses hope by losing a duchy war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_duchy_war_lost }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -1387,44 +1237,6 @@ religious_war = {
 			multiply = 0
 		}
 
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
 
@@ -1525,22 +1337,6 @@ major_religious_war = {
 			}
 		}
 		tgp_japan_offensive_wars_ban_trigger = yes
-		# Elven Expansion CB limitation in game rules
-		trigger_if = {
-			limit = {
-				is_elf = yes
-				has_game_rule = limited_elven_expansion
-			}
-			custom_tooltip = {
-				text = "only_zealous_elves_can_holy_war"
-				OR = {
-					has_trait = zealous
-					has_game_rule = strong_gondor_strength
-					has_game_rule = very_strong_gondor_strength
-					has_game_rule = apocalyptic_gondor_strength
-				}
-			}
-		}
 	}
 
 	allowed_against_character = {
@@ -1619,15 +1415,6 @@ major_religious_war = {
 			}
 		}
 		
-		trigger_if = { #LotR
-			limit = {
-				OR = {
-					dwarf_and_goblin_underground_county_cb_trigger = no
-					dwarf_and_goblin_underground_duchy_cb_trigger = no
-				}
-			}
-			always = no
-		}
 		# LOTR Hostile Holy Wars gamerule
 		lotr_hostile_holy_wars_allowed_trigger = yes
 	}
@@ -1793,20 +1580,6 @@ major_religious_war = {
 		}
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		scope:attacker = { # LotR
-			if = { # Gains hope by winning a kingdom war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
-			}
-		}
-		
-		# Hope loss for the defender
-		scope:defender = { # LotR
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -1962,21 +1735,6 @@ major_religious_war = {
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		# Hope gain for the defender
-		scope:defender = { # LotR
-			if = { # Gains hope by winning a kingdom war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = { # LotR
-			if = { # Loses hope by losing a kingdom war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -2137,44 +1895,6 @@ major_religious_war = {
 			multiply = 0
 		}
 
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
 
@@ -2502,44 +2222,6 @@ excommunication_war = {
 			multiply = 0
 		}
 		
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
 
@@ -2661,19 +2343,6 @@ flowery_war_cb = {
 		#EP2 Accolade glory gain from winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_low_effect = yes }
 		
-		# Hope 
-		scope:attacker = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		scope:defender = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
 
 		scope:attacker = {
 			if = {	#If the attacker enjoys human sacrifice, then this was sacred.
@@ -3160,20 +2829,7 @@ flowery_war_cb = {
 
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
-		
-		# Hope 
-		scope:attacker = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
-		scope:defender = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
-			}
-		}
+
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -3689,44 +3345,6 @@ flowery_war_cb = {
 			multiply = 0
 		}
 
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
 
@@ -3774,24 +3392,6 @@ undirected_great_holy_war = {
 		scope:defender = { lotr_can_declare_war = yes } # LOTR
 	}
 
-	allowed_for_character_display_regardless = {
-		# Elven Expansion CB limitation in game rules
-		trigger_if = {
-			limit = {
-				is_elf = yes
-				has_game_rule = limited_elven_expansion
-			}
-			custom_tooltip = {
-				text = "only_zealous_elves_can_holy_war"
-				OR = {
-					has_trait = zealous
-					has_game_rule = strong_gondor_strength
-					has_game_rule = very_strong_gondor_strength
-					has_game_rule = apocalyptic_gondor_strength
-				}
-			}
-		}
-	}
 	
 	allowed_against_character = {
 
@@ -3979,21 +3579,7 @@ undirected_great_holy_war = {
 
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
-		
-		scope:attacker = { # LotR
-			if = { # Gains hope by winning a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
-			}
-		}
-		
-		# Hope loss for the defender
-		scope:defender = { # LotR
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
-			}
-		}
+	
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -4509,21 +4095,6 @@ undirected_great_holy_war = {
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		
-		# Hope gain for the defender
-		scope:defender = { # LotR
-			if = { # Gains hope by winning a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
-			}
-		}
-		
-		# Hope loss for the attacker
-		scope:attacker = { # LotR
-			if = { # Loses hope by losing a major war
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
@@ -4710,22 +4281,6 @@ directed_great_holy_war = {
 			NOT = {	scope:attacker.faith = { exists = var:variable_ghw_cooldown }}
 		}
 		tgp_japan_offensive_wars_ban_trigger = yes
-		# Elven Expansion CB limitation in game rules
-		trigger_if = {
-			limit = {
-				is_elf = yes
-				has_game_rule = limited_elven_expansion
-			}
-			custom_tooltip = {
-				text = "only_zealous_elves_can_holy_war"
-				OR = {
-					has_trait = zealous
-					has_game_rule = strong_gondor_strength
-					has_game_rule = very_strong_gondor_strength
-					has_game_rule = apocalyptic_gondor_strength
-				}
-			}
-		}
 	}
 
 	allowed_against_character = {
@@ -4911,20 +4466,6 @@ directed_great_holy_war = {
 
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
-		
-		# Hope 
-		scope:attacker = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
-			}
-		}
-		scope:defender = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -5164,20 +4705,6 @@ directed_great_holy_war = {
 
 	on_defeat = {
 		scope:attacker = { show_pow_release_message_effect = yes }
-		
-		# Hope 
-		scope:attacker = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_lost }
-			}
-		}
-		scope:defender = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
-			}
-		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes

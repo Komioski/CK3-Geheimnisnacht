@@ -29,22 +29,10 @@ tribal_subjugation_cb = {
 		}
 			
 		scope:attacker  = { lotr_can_declare_war = yes } # LOTR
+		
 	}
 
-	allowed_for_character_display_regardless = {
-		# Elven Expansion CB limitation in game rules
-		trigger_if = {
-			limit = {
-				is_elf = yes
-				has_game_rule = limited_elven_expansion
-			}
-			custom_tooltip = {
-				text = "unavailable_for_elves_on_limited_expansion"
-				always = no
-			}
-		}
-	}
-	
+
 	# Root is the title
 	# scope:attacker is the attacker
 	# scope:defender is the defender
@@ -333,19 +321,6 @@ tribal_subjugation_cb = {
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
 		
-		# Hope 
-		scope:attacker = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_gain HOPE_EFFECT = effect_elven_hope_major_war_won }
-			}
-		}
-		scope:defender = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
 
 		#EP2 accolade glory gain for winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_high_effect = yes }
@@ -534,19 +509,6 @@ tribal_subjugation_cb = {
 		# Legitimacy
 		add_legitimacy_attacker_defeat_effect = yes
 		
-		# Hope 
-		scope:attacker = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_major_war_lost }
-			}
-		}
-		scope:defender = { # LotR 
-			if = { 
-				limit = { is_elf = yes }
-				add_elven_hope_effect = { VALUE = major_elven_hope_loss HOPE_EFFECT = effect_elven_hope_kingdom_war_won }
-			}
-		}
 
 		scope:defender = { 
 			mandala_peacemaker_perk_serenity_effect = yes
@@ -594,48 +556,6 @@ tribal_subjugation_cb = {
 		mandala_war_defeat_effects = yes
 	}
 
-	ai_score_mult = { #LotR
-		value = 1
-
-		# LotR - Sauron and Nazgul should not target eachother
-		add = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							scope:attacker = { is_sauron = yes }
-							scope:defender = { has_trait = nazgul }
-						}
-						AND = {
-							scope:defender = { is_sauron = yes }
-							scope:attacker = { has_trait = nazgul }
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-
-
-		# LotR - Protectorates are much less aggressive
-		add = {
-			if = {
-				limit = {
-					scope:attacker = {
-						any_tributary = { 
-							this = scope:defender
-							has_subject_contract_group = tributary_protectorate
-						}
-					}
-				}
-				add = -1000
-			}
-		}
-
-		#LotR
-		multiply = elf_target_ai_score_value
-	}
 	
 	on_primary_attacker_death = inherit
 	on_primary_defender_death = inherit
@@ -670,7 +590,5 @@ tribal_subjugation_cb = {
 			multiply = 0
 		}
 
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }

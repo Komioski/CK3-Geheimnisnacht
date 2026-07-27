@@ -75,8 +75,6 @@
 			multiply = 0
 		}
 
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	valid_to_start = {
@@ -94,7 +92,7 @@
 			# 	geographical_region = black_sea_coast_region
 			# }
 		}
-		dwarf_and_goblin_underground_county_cb_trigger = yes #LotR
+		
 	}
 
 	should_invalidate = {
@@ -451,15 +449,12 @@ duchy_expansion_cb = {
 			multiply = 0
 		}
 
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	valid_to_start = {
 		scope:target = {
 			is_landless_type_title = no
 		}
-		dwarf_and_goblin_underground_duchy_cb_trigger = yes #LotR
 	}
 
 	should_invalidate = {
@@ -906,8 +901,6 @@ naval_expansion_cb = {
 			multiply = 0
 		}
 
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	# Target county has to be coastal and not border you.
@@ -1291,8 +1284,6 @@ naval_duchy_expansion_cb = {
 			multiply = 0
 		}
 
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 
 	# Target duchy must have counties that are coastal and doesn't border you.
@@ -2061,7 +2052,5 @@ influence_war_cb = {
 	ai_score_mult = {
 		value = 1
 		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
-		#LotR
-		multiply = elf_target_ai_score_value
 	}
 }
