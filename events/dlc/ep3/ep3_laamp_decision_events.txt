@@ -5825,6 +5825,7 @@ scripted_effect 1025_set_contract_location_effect = {
 			# 1025_save_random_county_province_effect = { REGION = world_steppe_east }
 		# }
 		#Forodwaith
+	}
 }
 
 #Set contract type
@@ -11722,7 +11723,9 @@ ep3_laamp_decision_event.1035 = {
 						value = flag:fifth
 					}
 				}
-
+			}
+		}
+	}
 	#Buy 'em a drink
 	option = {
 		name = ep3_laamp_decision_event.1035.a
@@ -15819,6 +15822,7 @@ ep3_laamp_decision_event.1045 = {
 					triggered_desc = {
 						trigger = {
 							faith != scope:visiting_location.faith
+						}
 						desc = ep3_laamp_decision_event.1045.a_convert
 					}
 					#Contemplate faith
