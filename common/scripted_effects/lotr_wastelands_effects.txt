@@ -55,7 +55,7 @@ make_settlement_county_wilderness = {
 			set_county_faith = faith:faith_wastelands_pagan
 			set_county_culture = culture:wastelands
 
-			lotr_reset_or_generate_coa = yes
+			#lotr_reset_or_generate_coa = yes
 		}
 		every_county_province = {
 			limit = {
@@ -149,15 +149,15 @@ empty_foreign_visitors_to_wastelands_effect = {
 	}
 }
 
-lotr_reset_or_generate_coa = {
-	if = {
-		limit = { has_user_set_coa = yes }
-		reset_coa = yes
-	}
-	else = {
-		generate_coa = yes
-	}
-}
+#lotr_reset_or_generate_coa = {
+#	if = {
+#		limit = { has_user_set_coa = yes }
+#		reset_coa = yes
+#	}
+#	else = {
+#		generate_coa = yes
+#	}
+#}
 
 # Colonise a wastelands county
 ai_colonisation_effect = {
@@ -188,7 +188,7 @@ ai_colonisation_effect = {
 	resolve_title_and_vassal_change = scope:change
 
 	scope:wastelands_holder_title = {
-		lotr_reset_or_generate_coa = yes
+		#lotr_reset_or_generate_coa = yes
 		#set_color_from_title = scope:wastelands_holder_title.de_jure_liege
 		scope:wastelands_holder_title = { # Swap holding type to settlement holding as soon as county is colonised
 			every_county_province = {
@@ -206,9 +206,7 @@ ai_colonisation_effect = {
 				}
 				remove_holding = yes
 			}
-			every_county_province = {
-				barony = { lotr_reset_or_generate_coa = yes }
-			}
+
 		}
 	}
 
@@ -514,71 +512,11 @@ remove_cleaned_blockers_effect = { # Immediately remove any cleared blockers in 
 			frozen_ground_cleared = { remove_building = frozen_ground_cleared }
 			pirate_remnants_cleared = { remove_building = pirate_remnants_cleared }
 			shadow_of_mordor_cleared = { remove_building = shadow_of_mordor_cleared }
-			smaug_desolation_cleared = { remove_building = smaug_desolation_cleared }
-			smaug_cleared = { remove_building = smaug_cleared }
 			collapsed_ceiling_cleared = { remove_building = collapsed_ceiling_cleared }
 			flooded_tunnels_cleared = { remove_building = flooded_tunnels_cleared }
 			flooded_tunnels_nogrod_cleared = { remove_building = flooded_tunnels_nogrod_cleared }
 			stale_air_cleared = { remove_building = stale_air_cleared }
 			strange_creatures_cleared = { remove_building = strange_creatures_cleared }
-		}
-
-		if = { # Colony Blocker Cleared in Moria Catalyst
-			limit = {
-				county.holder = {
-					any_character_struggle = {
-						involvement = involved
-						phase_has_catalyst = catalyst_cleared_blocker_in_moria
-					}
-					NOT = { has_character_flag = immune_from_balrog_building_anger }
-				}
-				geographical_region = middleearth_mountains_misty_balrog_struggle_region
-			}
-			county.holder = { save_scope_as = colony_holder }
-			scope:colony_holder = {
-				every_character_struggle = {
-					involvement = involved
-					activate_struggle_catalyst = {
-						catalyst = catalyst_cleared_blocker_in_moria
-						character = scope:colony_holder
-					}
-				}
-			}
-		}
-	}
-}
-
-upgrade_colony_holding_struggle_catalyst_effect = { # Balrog Struggle
-	#save the county holder as the character in case the construction wasn't started through GUI or by the AI
-	if = {
-		limit = {
-			NOT = { exists = scope:character }
-		}
-		root.county.holder = {
-			save_scope_as = character
-		}
-	}
-	if = { # Juke note: Here instead of lotr_on_building_completed because we cannot scope to a specific building type
-		# This catalyst should fire when upgrading settlements to holding lvl 2 or 3
-		# There is a separate catalyst for starting a new colony, and none for finishing a colony
-		limit = {
-			scope:character = {
-				any_character_struggle = {
-					involvement = involved
-					phase_has_catalyst = catalyst_upgraded_colony_in_moria
-				}
-				NOT = { has_character_flag = immune_from_balrog_building_anger }
-			}
-			geographical_region = middleearth_mountains_misty_balrog_struggle_region
-		}
-		scope:character = {
-			every_character_struggle = {
-				involvement = involved
-				activate_struggle_catalyst = {
-					catalyst = catalyst_upgraded_colony_in_moria
-					character = scope:character
-				}
-			}
 		}
 	}
 }
@@ -595,11 +533,11 @@ lotr_upgrade_settlement_to_full_holding_effect = {
 		#	limit = { title_province = { terrain = halls } }
 		#	title_province = { set_holding_type = dwarven_holding }
 		#}
-		else_if = {
-			limit = { holder = { is_hobbit = yes } }
-			title_province = { set_holding_type = city_holding }
-		}
-		else_if = {
+		#else_if = {
+		#	limit = { holder = { is_hobbit = yes } }
+		#	title_province = { set_holding_type = city_holding }
+		#}
+		if = {
 			limit = { holder = { has_government = tribal_government } }
 			title_province = { set_holding_type = tribal_holding }
 		}
@@ -666,7 +604,7 @@ pirate_adventurer_start_war_effect = {
 	}
 	resolve_title_and_vassal_change = scope:change
 	scope:new_title = {
-		lotr_reset_or_generate_coa = yes
+		#lotr_reset_or_generate_coa = yes
 		set_variable = {
 			name = temporary_title
 			value = yes
@@ -772,79 +710,6 @@ set_every_county_wilderness = {
 		set_global_variable = used_wastelands_gui
 	}
 
-	if = {
-		limit = {
-			OR = {
-				$SELECTED_TITLE$ = title:e_rhovanion
-				$SELECTED_TITLE$ = title:e_rhun
-			}
-		}
-		title:e_golden_realm_rhun = { holder ?= { destroy_title = prev } }
-	}
-	if = {
-		limit = { $SELECTED_TITLE$ = title:e_bozisha_miraz }
-		title:e_thon_an_kharlokh = { holder ?= { destroy_title = prev } }
-	}
-	if = {
-		limit = { $SELECTED_TITLE$ = title:e_calenardhon }
-		title:d_isengard = {
-			every_de_jure_county = {
-				if = {
-					limit = { exists = global_var:wastelands_colonisable }
-               		add_county_modifier = block_settlement_ability
-				}
-				if = {
-					limit = {
-						NOT = {
-							any_in_list = {
-								list = prev_title_holder
-								this = holder
-							}
-							holder = character:k_wastelands_holder
-						}
-					}
-					holder = { add_to_list = prev_title_holder }
-				}
-
-				every_county_province = {
-					limit = {
-						is_county_capital = yes
-						OR = {
-							has_holding_type = city_holding
-							has_holding_type = church_holding
-							has_holding_type = settlement_holding
-							has_holding_type = tribal_holding
-							has_holding_type = castle_holding
-							#has_holding_type = elven_holding
-						}
-					}
-					set_holding_type = wastelands_holding
-				}
-				every_county_province = {
-					limit = {
-						is_county_capital = no
-						OR = {
-							has_holding_type = city_holding
-							has_holding_type = church_holding
-							has_holding_type = settlement_holding
-							has_holding_type = tribal_holding
-							has_holding_type = castle_holding
-							#has_holding_type = elven_holding
-						}
-					}
-					remove_holding = yes
-				}
-
-				change_title_holder = {
-					holder = character:k_wastelands_holder
-					change = scope:change
-					take_baronies = yes
-				}
-				change_development_level = -100
-			}
-		}
-
-	}
 
 	$SELECTED_TITLE$ = {
 		every_de_jure_county = {
@@ -900,46 +765,13 @@ set_every_county_wilderness = {
 
 	resolve_title_and_vassal_change = scope:change
 
-	# Kills off all the previous rulers, stops courtier bloat
-	every_in_list = {
-		list = prev_title_holder
-		if = {
-			limit = {
-				NOR = {
-					#this = character:lineofsauron
-					#this = character:nazgul1
-					#this = character:nazgul2
-					#this = character:nazgul7
-					#this = character:nazgul4
-					#this = character:nazgul5
-					#this = character:nazgul6
-					#this = character:nazgul3
-					#this = character:nazgul8
-					#this = character:nazgul9
-					#this = character:lineofsaruman
-					#this = character:lineofgandalf
-					#this = character:lineofradagast
-				}
-			}
-			death = { death_reason = death_disappearance }
-
-			every_close_family_member = {
-				limit = { is_ruler = no }
-				death = { death_reason = death_disappearance }
-			}
-		}
-		else = {
-			set_character_faith_with_conversion = faith:faith_ainur
-			set_location = province:3900
-		}
-	}
 
 	character:k_wastelands_holder = {
 		every_held_county = {
 			set_county_faith = faith:faith_wastelands_pagan
 			set_county_culture = culture:wastelands
 			change_development_level = -100
-			lotr_reset_or_generate_coa = yes
+			#lotr_reset_or_generate_coa = yes
 
 			if = {
 				limit = {
@@ -948,16 +780,6 @@ set_every_county_wilderness = {
 							tier = tier_county
 							NOT = { holder = character:k_wastelands_holder }
 						}
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					trigger_if = {
-						limit = {
-							NOT = { $SELECTED_TITLE$ = title:k_eregion }
-						}
-						NOT = { kingdom = title:k_eregion }
 					}
 				}
 			}
@@ -1028,36 +850,6 @@ add_kingdom_titles_to_list = {
 	}
 }
 
-canon_area_empires = {
-	every_in_global_list = {
-		variable = all_empires_in_game
-		limit = {
-			NOT = {
-				title_capital_county.title_province = { # Juke note: Tried to improve code so we dont have to update this list repeatedly
-					OR = {
-						geographical_region = middleearth_mountains_blue
-						geographical_region = middleearth_mountains_misty
-						geographical_region = middleearth_mountains_iron
-						geographical_region = middleearth_mountains_white
-
-						geographical_region = middleearth_west
-						geographical_region = middleearth_forodwaith
-						geographical_region = middleearth_harad_near
-						geographical_region = middleearth_mordor
-						geographical_region = middleearth_west_rhovanion_dorwinion
-						geographical_region = middleearth_rhun_seaofrhun
-						geographical_region = middleearth_rhun_khand
-						geographical_region = middleearth_rhun_nurunkizdin
-					}
-				}
-			}
-		}
-		add_to_global_variable_list = {
-			name = non_canon_areas
-			target = this
-		}
-	}
-}
 
 kill_random_courtiers = {
 	every_living_character = {
@@ -1150,6 +942,7 @@ fill_wasteland_blockers_effect = {
 		add_random_blocker_effect = yes
 	}
 }
+
 add_random_blocker_effect = {
 	save_scope_as = obstacle_province
 
@@ -1173,7 +966,7 @@ add_random_blocker_effect = {
 		10 = { 
 			trigger = { NOT = { has_building_or_higher = wild_orcs } }
 			modifier = {
-				geographical_region = world_old_world_solland
+				geographical_region = world_old_world
 				add = 30
 			}
 			add_building = wild_orcs

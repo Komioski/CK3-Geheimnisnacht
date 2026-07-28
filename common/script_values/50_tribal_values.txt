@@ -1,0 +1,97 @@
+﻿feudalize_tribal_holding_interaction_cost = {
+	value = 500
+	if = {
+		limit = {
+			trigger_if = {
+				limit = { exists = scope:actor }
+				scope:actor = {
+					is_ai = yes
+					capital_province = { has_holding_type = tribal_holding }
+				}
+			} trigger_else = {
+				is_ai = yes
+				capital_province = { has_holding_type = tribal_holding }
+			}
+		}
+		add = -250
+	}
+	if = {
+		limit = {
+			scope:target ?= {
+				OR = {
+					has_county_modifier = mpo_siberian_permafrost_modifier
+					has_county_modifier = mpo_siberian_permafrost_modifier_bad
+				} 
+			}
+		}
+		add = 2000
+	}
+	if = {
+		limit = {
+			trigger_if = {
+				limit = { exists = scope:actor }
+				scope:actor = { highest_held_title_tier = tier_county }
+			} trigger_else = {
+				highest_held_title_tier = tier_county
+			}
+		}
+		subtract = 450
+	}
+	else_if = {
+		limit = {
+			trigger_if = {
+				limit = { exists = scope:actor }
+				scope:actor = { highest_held_title_tier = tier_duchy }
+			} trigger_else = {
+				highest_held_title_tier = tier_duchy
+			}
+		}
+		subtract = 400
+	}
+	else_if = {
+		limit = {
+				trigger_if = {
+					limit = { exists = scope:actor }
+					scope:actor = { highest_held_title_tier = tier_kingdom }
+				} trigger_else = {
+					highest_held_title_tier = tier_kingdom
+				}
+		}
+		subtract = 350
+	}
+	else = {
+		if = {
+			limit = {
+				trigger_if = {
+					limit = { exists = scope:actor }
+					scope:actor = { highest_held_title_tier = tier_empire }
+				} trigger_else = {
+					highest_held_title_tier = tier_empire
+				}
+			}
+			subtract = 300
+		}
+	}
+}
+
+feudalize_holding_interaction_cost = {
+	value = 500
+	if = {
+		limit = {
+			is_ai = yes
+			capital_province = { has_holding_type = tribal_holding }
+		}
+		add = -250
+	}
+	if = {
+		limit = {
+			scope:target.county ?= {
+				OR = {
+					has_county_modifier = mpo_siberian_permafrost_modifier
+					has_county_modifier = mpo_siberian_permafrost_modifier_bad
+				} 
+			}
+		}
+		add = 2000
+	}
+}

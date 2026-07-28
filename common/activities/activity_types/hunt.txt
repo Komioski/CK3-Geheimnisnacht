@@ -43,11 +43,6 @@
 				has_realm_law = uncrowned
 			}
 			trigger_if = { #LotR
-				limit = {
-					is_elf = yes
-					has_high_hope_or_higher = yes
-					NOT = { has_character_flag = elf_remains_crownless }
-				}
 				NOT = { has_realm_law = crowned_king }
 			}
 		}
@@ -429,12 +424,6 @@
 				}
 				multiply = 0.85
 			}
-			if = { # LotR - Elves pay half in gold, half in piety
-				limit = {
-					is_elf = yes
-				}
-				multiply = 0.5
-			}
 		}
 		treasury = { # Make sure this matches the gold cost above
 			if = {
@@ -811,12 +800,6 @@
 					has_title = title:e_minister_of_revenue
 				}
 				multiply = 0.85
-			}
-			if = { # LotR - Elves pay half in gold, half in piety
-				limit = {
-					is_elf = yes
-				}
-				multiply = 0.5
 			}
 		}
 		treasury = { # Make sure this matches the gold cost above
@@ -1602,23 +1585,10 @@
 				desc = "Greatest Hunter Oath"
 			}
 		}
-		if = { #LotR
-			limit = {
-				is_ai = yes
-				has_character_modifier = lotr_ovatha_VIII_uniting_khand
-			}
-			add = 10000
-		}
 	}
 
 	host_description = {
 		desc = activity_hunt_host_desc
-		triggered_desc = { # LotR
-			trigger = {
-				is_elf = yes 
-			}
-			desc = activity_elves_gain_hope
-		}
 		triggered_desc = {
 			trigger = {
 				has_dlc_feature = legends
@@ -1965,18 +1935,6 @@
 			}
 			desc = activity_hunt_province_desc_logging_camps_major
 		}
-		triggered_desc = { #LotR
-			trigger = {	has_building_or_higher = elven_forestry_03 }
-			desc = activity_hunt_province_desc_elven_forestry_major
-		}
-		triggered_desc = { #LotR
-			trigger = { has_building_or_higher = logging_outposts_06 }
-			desc = activity_hunt_province_desc_logging_outposts_major
-		}
-		triggered_desc = { #LotR
-			trigger = { has_building_or_higher = dwarven_forestry_06 }
-			desc = activity_hunt_province_desc_dwarven_forestry_major
-		}
 		
 		triggered_desc = {
 			trigger = {
@@ -2017,20 +1975,6 @@
 				county.county_fertility >= good_county_fertility_level
 			}
 			desc = activity_hunt_province_desc_fertility_good
-		}
-		triggered_desc = { #LotR
-			trigger = { 
-				has_building_or_higher = elven_hunting_grounds_02 
-				NOT = { has_building_or_higher = hunting_grounds_03 }
-			}
-			desc = activity_hunt_province_desc_elven_hunting_grounds_medium
-		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = hunting_outposts_03
-				NOT = { has_building_or_higher = hunting_outposts_06 }
-			}
-			desc = activity_hunt_province_desc_hunting_outposts_medium
 		}
 		triggered_desc = { #LotR
 			trigger = {
@@ -2827,14 +2771,6 @@
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR - Mallorn forest
-		trigger = { 
-			activity_location ?= { graphical_wilderness_forest_mallorn_trigger = yes }
-		}
-		texture = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
 
 	background = { # Mountains
 		trigger = {

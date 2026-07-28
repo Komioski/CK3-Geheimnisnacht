@@ -281,24 +281,7 @@ choose_master_terrain_decision = {
 				}
 			}
 		}
-		item = { #LOTR - Mallorn Forest
-			value = master_terrain_mallorn_forest_terrain
-			current_description = master_terrain_mallorn_forest_decision
-			localization = master_terrain_mallorn_forest_decision
-			icon = "gfx/interface/icons/terrain_types/mallorn_forest.dds"
-			is_shown = { 
-				landless_inspector_terrain_master_trigger = { TERRAIN = woodlands } 
-			}
-			ai_chance = { 
-				value = 0
-				if = {
-					limit = {
-						location = { terrain = mallorn_forest }
-					}
-					add = 100
-				}
-			}
-		}
+
 		item = { # Jungle
 			value = master_terrain_jungle_terrain
 			current_description = master_terrain_jungle_decision

@@ -387,56 +387,6 @@
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR forest_mallorn unsettled
-		trigger = { 
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest_regular.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = { 
-			OR = {
-				NOT = {
-					scope:host.location = scope:activity.activity_location
-				}
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest_regular.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
 
 	background = { #mountains, dwarven settled
 		trigger = {
@@ -1204,26 +1154,7 @@ activity_gruesome_festival = {
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR forest_mallorn unsettled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
+
 
 	background = { #mountains, dwarven settled
 		trigger = {
@@ -1596,26 +1527,7 @@ activity_playdate = {
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR forest_mallorn unsettled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
+
 
 	background = { #mountains, dwarven settled
 		trigger = {
@@ -2017,26 +1929,7 @@ activity_witch_ritual = {
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR forest_mallorn unsettled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
+
 
 	background = { #mountains, settled
 		trigger = {
@@ -2408,26 +2301,7 @@ activity_pilgrimage = {
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR forest_mallorn unsettled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
+
 
 	background = { #mountains, dwarven settled
 		trigger = {
@@ -3058,26 +2932,7 @@ activity_hunt = {
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR forest_mallorn unsettled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
+
 
 	background = { #mountains, dwarven settled
 		trigger = {
@@ -3338,14 +3193,6 @@ activity_hunt = {
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR - Mallorn forest
-		trigger = { 
-			activity_location ?= { graphical_wilderness_forest_mallorn_trigger = yes }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
 
 	background = {
 		trigger = {
@@ -3548,27 +3395,6 @@ activity_tour = {
 			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
 		}
 		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-
-	background = { #LotR forest_mallorn unsettled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
@@ -4431,54 +4257,7 @@ activity_wedding = {
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-	background = { #LotR forest_mallorn unsettled
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			NOT = { exists = province_owner }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_mallorn.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	background = { #LotR forest_mallorn settled
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = { graphical_wilderness_forest_mallorn_trigger = yes } 
-			exists = province_owner
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_day.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
+
 
 	background = { #mountains, dwarven settled
 		trigger = {
