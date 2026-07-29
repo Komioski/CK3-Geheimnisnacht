@@ -1,4 +1,5 @@
-﻿
+﻿# LotR: removed references to real world. Added Middle-earth religions.
+
 ###TRIGGER LIST
 
 # has_strong_religious_conviction_trigger
@@ -57,54 +58,51 @@ has_strong_religious_conviction_trigger = {
 }
 
 is_christian_trigger = {
-	#faith = { religion_tag = christianity_religion }
-	OR = {
-	}
+	always = no #LotR
+	#OR = {
+	#	faith = { religion_tag = christianity_religion }
+	#}
 }
 
 # Not-non-XYZ triggers allow us to check for specific historical faiths whilst still defaulting to something positive for variant faiths.
 ## E.g., looking to see if something would only be of interest to Catholics, but if we're dealing with a player-made heresy, still return true. This way mechanics will default to on rather than off (still likely to result in weird GHWs, but at least less random ones).
 not_non_catholic_standard_christian_faith_trigger = {
-	# NOR = {
-		# this = faith:orthodox
-		# this = faith:iconoclast
-		# this = faith:coptic
-		# this = faith:armenian_apostolic
-	# }
-	OR = {
-	}
+	always = no #LotR
+	#NOR = {
+	#	this = faith:orthodox
+	#	this = faith:iconoclast
+	#	this = faith:coptic
+	#	this = faith:armenian_apostolic
+	#}
 }
 
 not_non_orthodox_standard_christian_faith_trigger = {
-	# NOR = {
-		# this = faith:catholic
-		# this = faith:coptic
-		# this = faith:armenian_apostolic
-	# }
-	OR = {
-	}
+	always = no #LotR
+	#NOR = {
+	#	this = faith:catholic
+	#	this = faith:coptic
+	#	this = faith:armenian_apostolic
+	#}
 }
 
 not_non_coptic_standard_christian_faith_trigger = {
-	# NOR = {
-		# this = faith:catholic
-		# this = faith:orthodox
-		# this = faith:iconoclast
-		# this = faith:armenian_apostolic
-	# }
-	OR = {
-	}
+	always = no #LotR
+	#NOR = {
+	#	this = faith:catholic
+	#	this = faith:orthodox
+	#	this = faith:iconoclast
+	#	this = faith:armenian_apostolic
+	#}
 }
 
 not_non_armenian_standard_christian_faith_trigger = {
-	# NOR = {
-		# this = faith:catholic
-		# this = faith:orthodox
-		# this = faith:iconoclast
-		# this = faith:coptic
-	# }
-	OR = {
-	}
+	always = no #LotR
+	#NOR = {
+	#	this = faith:catholic
+	#	this = faith:orthodox
+	#	this = faith:iconoclast
+	#	this = faith:coptic
+	#}
 }
 
 is_weak_claimant_due_to_gender_trigger = {
@@ -231,7 +229,7 @@ is_wrong_gender_in_faith_trigger = {
 faith_is_aniconic_trigger = {
 	faith = {
 		OR = {
-			# religion = religion:islam_religion
+			#religion = religion:islam_religion #LotR
 			has_doctrine = tenet_aniconism
 		}
 	}
@@ -787,39 +785,48 @@ is_preferred_heresy = {
 	}
 
 	OR = {
-		# #If we're Chistian, pick a heretical faiths which is in the same regional group as our origin faith (i.e., Lollards for Catholics, Iconoclasts for Orthodox, etc.)
-		# AND = {
-		# 	religion_tag = christianity_religion
-		# 	OR = {
-		# 		faiths_are_in_western_christianity_group = { FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$ }
-		# 		faiths_are_in_orthodox_christianity_group = { FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$ }
-		# 		faiths_are_in_eastern_christianity_group = { FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$ }
-		# 	}
-		# }
+		#If we're Chistian, pick a heretical faiths which is in the same regional group as our origin faith (i.e., Lollards for Catholics, Iconoclasts for Orthodox, etc.)
+		#AND = { #LotR
+		#	religion_tag = christianity_religion
+		#	OR = {
+		#		faiths_are_in_western_christianity_group = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$ }
+		#		faiths_are_in_orthodox_christianity_group = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$ }
+		#		faiths_are_in_eastern_christianity_group = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$ }
+		#	}
+		#}
 
-		# #If we're Muslim, we want to stay within our 'branch' of Islam:
-		# AND = {
-		# 	religion_tag = islam_religion
-		# 	OR = {
-		# 		faiths_are_in_sunni_islam_group = { FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
-		# 		faiths_are_in_shia_islam_group = { FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
-		# 		faiths_are_in_muhakkima_islam_group = { FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
-		# 	}
-		# }
-		# #If we're Zoroastrian, we don't want Sogdian faith in Armenia and vice versa
-		# AND = {
-		# 	religion_tag = zoroastrianism_religion
-		# 	OR = {
-		# 		faiths_are_eastern_zoroastrian = { FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
-		# 		faiths_are_western_zoroastrian = { FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
-		# 	}
-		# }
+		#If we're Muslim, we want to stay within our 'branch' of Islam:
+		#AND = { #LotR
+		#	religion_tag = islam_religion
+		#	OR = {
+		#		faiths_are_in_sunni_islam_group = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
+		#		faiths_are_in_shia_islam_group = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
+		#		faiths_are_in_muhakkima_islam_group = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
+		#	}
+		#}
+		AND = {
+			religion = religion:dunedain_religion #LotR
+			OR = {
+				faiths_are_in_dunedain_group_and_appropriate = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$ }
+			}
+		}
+		AND = {
+			this = faith:faith_corsair
+			scope:heretic_capital ?= {
+				title_province = { geographical_region = custom_close_corsair_coast }
+			}
+		}
 
 		#Otherwise, we don't have any special preferences.
-		NOT = {
-			# religion_tag = islam_religion
-			# religion_tag = christianity_religion
-			# religion_tag = zoroastrianism_religion
+		AND = {
+			NOT = {
+				#religion_tag = islam_religion #LOTR
+				#religion_tag = christianity_religion #LOTR
+				#religion_tag = zoroastrianism_religion #LOTR
+				religion = religion:dunedain_religion
+				#religion_tag = northmen_religion
+				this = faith:faith_corsair
+			}
 		}
 	}
 }
@@ -839,50 +846,54 @@ is_valid_heresy = {
 	#Depending on the origin faith's religion/religion group, there may have additional requirements for a heresy to be considered valid.
 	OR = {
 		#For Christian Faiths, the origin and heretical faiths must not both be Ecumenical (excepting the faiths which aren't technically ecumenical).
-		# AND = {
-		# 	religion_tag = christianity_religion
-		# 	NAND = {
-		# 		$ORIGIN_FAITH$ = {
-		# 			has_doctrine = special_doctrine_ecumenical_christian
-		# 			OR = {
-		# 				this = faith:insular_celtic
-		# 				this = faith:bosnian_church
-		# 				this = faith:mozarabic_church
-		# 			}
-		# 		}
-		# 		$HERETICAL_FAITH$ = {
-		# 			has_doctrine = special_doctrine_ecumenical_christian
-		# 			OR = {
-		# 				this = faith:insular_celtic
-		# 				this = faith:bosnian_church
-		# 				this = faith:mozarabic_church
-		# 			}
-		# 		}
-		# 	}
-		# }
-		# AND = { #FP3: for Zoroastrianism, Bedhin faiths are never heresies of each other
-		# 	religion_tag = zoroastrianism_religion
-		# 	NAND = {
-		# 		$ORIGIN_FAITH$ = {
-		# 			has_doctrine = doctrine_major_branch_behdin
-		# 		}
-		# 		$HERETICAL_FAITH$ = {
-		# 			has_doctrine = doctrine_major_branch_behdin
-		# 		}
-		# 	}
-		# }
-		#No special requirements for Muslims, Jews, or Yazidis
-		# religion_tag = islam_religion
-		# religion_tag = judaism_religion
+		#AND = { #LotR
+		#	religion_tag = christianity_religion
+		#	NAND = {
+		#		$ORIGIN_FAITH$ = {
+		#			has_doctrine = special_doctrine_ecumenical_christian
+		#			OR = {
+		#				this = faith:insular_celtic
+		#				this = faith:bosnian_church
+		#			}
+		#		}
+		#		$HERETICAL_FAITH$ = {
+		#			has_doctrine = special_doctrine_ecumenical_christian
+		#			OR = {
+		#				this = faith:insular_celtic
+		#				this = faith:bosnian_church
+		#			}
+		#		}
+		#	}
+		#}
+		#No special requirements for Muslims, Jews, Yazidis, or Zoroastrians.
+		#religion_tag = islam_religion
+		#religion_tag = judaism_religion
+		#religion_tag = zoroastrianism_religion
+		#AND = { #FP3: for Zoroastrianism, Bedhin faiths are never heresies of each other
+		#	religion_tag = zoroastrianism_religion
+		#	NAND = {
+		#		$ORIGIN_FAITH$ = {
+		#			has_doctrine = doctrine_major_branch_behdin
+		#		}
+		#		$HERETICAL_FAITH$ = {
+		#			has_doctrine = doctrine_major_branch_behdin
+		#		}
+		#	}
+		#}
+		##No special requirements for Muslims, Jews, or Yazidis
+		#religion_tag = islam_religion
+		#religion_tag = judaism_religion
 		#Eastern Faiths can shift and spread amongst each other.
-		# OR = {
-		# 	religion_tag = buddhism_religion
-		# 	religion_tag = hinduism_religion
-		# 	religion_tag = jainism_religion
-		# 	religion_tag = dualism_religion
-		# }
+		#AND = {
+		#	OR = {
+		#		religion_tag = buddhism_religion
+		#		religion_tag = hinduism_religion
+		#		religion_tag = jainism_religion
+		#		religion_tag = dualism_religion
+		#	}
+		#}
 		#No special requirements for Pagan religions.
-		has_doctrine = pagan_hostility_doctrine
+		#has_doctrine = pagan_hostility_doctrine
 	}
 }
 
@@ -917,175 +928,92 @@ no_heretical_hof_faith_trigger = { #Head of Faith shouldn't convert.
 	}
 }
 
+#LotR Heresy Groups
+faiths_are_in_dunedain_group_and_appropriate = {
+	OR = {
+		$FAITH_1$ = faith:faith_numenorean
+		$FAITH_1$ = faith:faith_edain
+		$FAITH_1$ = faith:faith_edain_manwe
+		$FAITH_1$ = faith:faith_edain_varda
+		$FAITH_1$ = faith:faith_edain_ulmo
+	}
+	OR = {
+		$FAITH_2$ = faith:faith_edain
+		$FAITH_2$ = faith:faith_edain_manwe
+		$FAITH_2$ = faith:faith_edain_varda
+		AND = {	# Ulmo cult should be coastal
+			$FAITH_2$ = faith:faith_edain_ulmo
+			scope:heretic_capital = {
+				OR = {
+					is_coastal_county = yes
+					title_province = { geographical_region = middleearth_west_gondor_centralfiefdoms }
+					title_province = { geographical_region = middleearth_west_gondor_easternfiefdoms }
+					title_province = { geographical_region = middleearth_west_gondor_andrast }
+					title_province = { geographical_region = middleearth_west_arnor_cardolan }
+				}
+			}
+		}
+		AND = {	# Daen may resurge in Andrast
+			$FAITH_2$ = faith:faith_daen_gaoth
+			scope:heretic_capital = {
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_daen_coentis
+						any_parent_culture_or_above = {
+							has_cultural_pillar = heritage_daen_coentis
+						}
+						has_cultural_pillar = heritage_danan_lin
+						any_parent_culture_or_above = {
+							has_cultural_pillar = heritage_danan_lin
+						}
+					}
+				}
+				title_province = { geographical_region = middleearth_west_gondor_andrast }
+			}
+		}
+		AND = {	# Daen may resurge in White Mountains
+			$FAITH_2$ = faith:faith_daen_coentis
+			scope:heretic_capital = {
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_daen_coentis
+						any_parent_culture_or_above = {
+							has_cultural_pillar = heritage_daen_coentis
+						}
+						has_cultural_pillar = heritage_danan_lin
+						any_parent_culture_or_above = {
+							has_cultural_pillar = heritage_danan_lin
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 #Christian Heresy Groups
 faiths_are_in_western_christianity_group = {
-	OR = {
-		# $FAITH_1$ = faith:catholic
-		# $FAITH_1$ = faith:cathar
-		# $FAITH_1$ = faith:waldensian
-		# $FAITH_1$ = faith:lollard
-		# AND = {
-		# 	$FAITH_1$ = faith:insular_celtic
-		# 	scope:heretic_capital.title_province = { geographical_region = world_europe_west_britannia }
-		# }
-		# AND = {
-		# 	$FAITH_1$ = faith:mozarabic_church
-		# 	scope:heretic_capital.title_province = { geographical_region = world_europe_west_iberia }
-		# }
-	}
-	OR = {
-		# $FAITH_2$ = faith:catholic
-		# $FAITH_2$ = faith:cathar
-		# $FAITH_2$ = faith:waldensian
-		# $FAITH_2$ = faith:lollard
-		# $FAITH_2$ = faith:priscillianism
-		# AND = {
-		# 	$FAITH_2$ = faith:insular_celtic
-		# 	scope:heretic_capital.title_province = { geographical_region = world_europe_west_britannia }
-		# }
-		# AND = {
-		# 	$FAITH_2$ = faith:mozarabic_church
-		# 	scope:heretic_capital.title_province = { geographical_region = world_europe_west_iberia }
-		# }
-	}
+	always = no #LotR
 }
 
 faiths_are_in_orthodox_christianity_group = {
-	OR = {
-		# $FAITH_1$ = faith:orthodox
-		# $FAITH_1$ = faith:iconoclast
-		# $FAITH_1$ = faith:bogomilist
-		# $FAITH_1$ = faith:paulician
-		# AND = {
-		# 	$FAITH_1$ = faith:bosnian_church
-		# 	scope:heretic_capital.title_province = { geographical_region = world_europe_south_east }
-		# }
-	}
-	OR = {
-		# $FAITH_2$ = faith:orthodox
-		# $FAITH_2$ = faith:iconoclast
-		# $FAITH_2$ = faith:bogomilist
-		# $FAITH_2$ = faith:paulician
-		# $FAITH_2$ = faith:bosnian_church
-		# $FAITH_2$ = faith:cainitism
-		# AND = {
-		# 	$FAITH_1$ = faith:bosnian_church
-		# 	scope:heretic_capital.title_province = { geographical_region = world_europe_south_east }
-		# }
-	}
+	always = no #LotR
 }
 
 faiths_are_in_eastern_christianity_group = {
-	OR = {
-		# $FAITH_1$ = faith:coptic
-		# $FAITH_1$ = faith:armenian_apostolic
-		# $FAITH_1$ = faith:nestorian
-		# $FAITH_1$ = faith:messalian
-		# $FAITH_1$ = faith:paulician
-	}
-	OR = {
-		# $FAITH_2$ = faith:coptic
-		# $FAITH_2$ = faith:armenian_apostolic
-		# $FAITH_2$ = faith:nestorian
-		# $FAITH_2$ = faith:messalian
-		# $FAITH_2$ = faith:paulician
-		# $FAITH_2$ = faith:mandeaism
-	}
-}
-
-faiths_are_shia_zandaqa_sub_group = {
-	OR = {
-		# this = faith:quranist
-		# this = faith:qarmatian
-		# this = faith:ghulat
-		# this = faith:alawite
-		# this = faith:alevi
-		# this = faith:druze
-	}
+	always = no #LotR
 }
 
 faiths_are_in_sunni_islam_group = {
-	$FAITH_1$ = {
-		has_doctrine = muhammad_succession_sunni_doctrine
-	}
-	$FAITH_2$ = {
-		OR = {
-			has_doctrine = muhammad_succession_sunni_doctrine
-			has_doctrine = muhammad_succession_muhakkima_doctrine
-			# this = faith:sabianism
-			# this = faith:manichean
-			# this = faith:quranist
-		}
-	}
+	always = no #LotR
 }
 
 faiths_are_in_shia_islam_group = {
-	$FAITH_1$ = {
-		OR = {
-			has_doctrine = muhammad_succession_shia_doctrine
-			faiths_are_shia_zandaqa_sub_group = yes
-		}
-	}
-	$FAITH_2$ = {
-		OR = {
-			has_doctrine = muhammad_succession_shia_doctrine
-			has_doctrine = muhammad_succession_muhakkima_doctrine
-			faiths_are_shia_zandaqa_sub_group = yes
-			# this = faith:valentinianism
-			# this = faith:sabianism
-		}
-	}
+	always = no #LotR
 }
 
 faiths_are_in_muhakkima_islam_group = {
-	$FAITH_1$ = {
-		has_doctrine = muhammad_succession_muhakkima_doctrine
-	}
-	$FAITH_2$ = {
-		OR = {
-			has_doctrine = muhammad_succession_muhakkima_doctrine
-			# this = faith:manichean
-			# this = faith:valentinianism
-		}
-	}
-}
-
-faiths_are_eastern_zoroastrian = { #FP3 update - so that Armenian faith (Arewordik) don't appear as a heresy in Sogdia
-	OR = {
-		# $FAITH_1$ = faith:mazdayasna
-		# $FAITH_1$ = faith:khurmazta
-		# $FAITH_1$ = faith:gayomarthianism
-		# $FAITH_2$ = faith:zurvanism
-		# $FAITH_2$ = faith:mazdakism
-		# $FAITH_2$ = faith:khurramism
-	}
-	OR = {
-		# $FAITH_1$ = faith:mazdayasna
-		# $FAITH_1$ = faith:khurmazta
-		# $FAITH_1$ = faith:gayomarthianism
-		# $FAITH_2$ = faith:zurvanism
-		# $FAITH_2$ = faith:mazdakism
-		# $FAITH_2$ = faith:khurramism
-	}
-}
-
-faiths_are_western_zoroastrian = { #FP3 update - so that Sogdian faith (Khurmazta) don't appear as a heresy in Armenia
-	OR = {
-		# $FAITH_1$ = faith:mazdayasna
-		# $FAITH_1$ = faith:gayomarthianism
-		# $FAITH_2$ = faith:zurvanism
-		# $FAITH_2$ = faith:mazdakism
-		# $FAITH_2$ = faith:khurramism
-		# $FAITH_2$ = faith:urartuism
-	}
-	OR = {
-		# $FAITH_1$ = faith:mazdayasna
-		# $FAITH_1$ = faith:gayomarthianism
-		# $FAITH_2$ = faith:zurvanism
-		# $FAITH_2$ = faith:mazdakism
-		# $FAITH_2$ = faith:khurramism
-		# $FAITH_2$ = faith:urartuism
-	}
+	always = no #LotR
 }
 
 refusing_conversion_is_crime_trigger = {
@@ -1099,11 +1027,18 @@ refusing_conversion_is_crime_trigger = {
 			}
 			always = no
 		}
-		OR = {
-			# religion_tag = christianity_religion
-			# religion_tag = islam_religion
-			# religion_tag = judaism_religion
-			# religion_tag = zoroastrianism_religion
+		#OR = { #LotR
+		#	religion_tag = christianity_religion
+		#	religion_tag = islam_religion
+		#	religion_tag = judaism_religion
+		#	religion_tag = zoroastrianism_religion
+		#}
+		OR = { #LotR
+			has_doctrine = doctrine_pluralism_fundamentalist
+			faith_hostility_level = {
+				target = $CHARACTER$.faith
+				value >= faith_evil_level
+			}
 		}
 		NOT = {
 			faith_hostility_level = {
@@ -1119,6 +1054,7 @@ is_hostile_enough_for_holy_war_trigger = {
 		target = $FAITH$
 		value >= religious_cb_enabled_hostility_level
 	}
+	NOT = { $FAITH$ = faith:faith_wastelands_pagan } #LotR
 }
 
 barony_is_valid_for_holy_order_lease_trigger = {
@@ -1126,6 +1062,7 @@ barony_is_valid_for_holy_order_lease_trigger = {
 		OR = {
 			has_holding_type = castle_holding
 			has_holding_type = city_holding
+			has_holding_type = elven_holding #LotR
 		}
 	}
 	trigger_if = {
@@ -1170,21 +1107,23 @@ barony_is_valid_for_holy_order_lease_cancellation_trigger = {
 }
 
 religion_has_angels_trigger = {
-	OR = {
-		# religion = religion:christianity_religion
-		# religion = religion:islam_religion
-		# religion = religion:zoroastrianism_religion
-		# religion = religion:dualism_religion
-		# religion = religion:judaism_religion
-		# religion = religion:yazidi_religion
-	}
+	#OR = {
+	#	religion = religion:christianity_religion
+	#	religion = religion:islam_religion
+	#	religion = religion:zoroastrianism_religion
+	#	religion = religion:dualism_religion
+	#	religion = religion:judaism_religion
+	#	religion = religion:yazidi_religion
+	#}
+	always = no #LotR
 }
 
 religion_has_circumcision_trigger = {
-	OR = {
-		# religion = religion:islam_religion
-		# religion = religion:judaism_religion
-	}
+	#OR = {
+	#	religion = religion:islam_religion
+	#	religion = religion:judaism_religion
+	#}
+	always = no #LotR
 }
 
 is_heretic_trigger = {
@@ -1199,9 +1138,9 @@ is_heretic_trigger = {
 
 is_heathen_trigger = {
 	NOT = { $WHO$.faith.religion = $TARGET$.faith.religion }
-	$TARGET$.faith = {
-		has_doctrine = pagan_hostility_doctrine
-	}
+	#$TARGET$.faith = { #LOTR
+	#	has_doctrine = pagan_hostility_doctrine
+	#}
 	$WHO$.faith = {
 		faith_hostility_level = {
 			target = $TARGET$.faith
@@ -1212,9 +1151,9 @@ is_heathen_trigger = {
 
 is_infidel_trigger = {
 	NOT = { $WHO$.faith.religion = $TARGET$.faith.religion }
-	$TARGET$.faith = {
-		NOT = { has_doctrine = pagan_hostility_doctrine }
-	}
+	# $TARGET$.faith = { #LOTR
+		# NOT = { has_doctrine = pagan_hostility_doctrine }
+	# }
 	$WHO$.faith = {
 		faith_hostility_level = {
 			target = $TARGET$.faith
@@ -1247,6 +1186,12 @@ valid_demand_conversion_conditions_trigger = {
 		NAND = {
 			has_trait = nomadic_philosophy
 			has_trait = zealous
+		}
+	}
+	scope:recipient = { #LotR
+		NOR = { 
+			has_trait = maiar
+			has_trait = istari
 		}
 	}
 
@@ -1360,13 +1305,15 @@ valid_ask_for_conversion_conditions_trigger = { # Deliberate variant of the abov
 }
 
 highgod_is_passive_trigger = {
-	OR = {
-		# religion_tag = buddhism_religion
-		# religion_tag = jainism_religion
-		# religion_tag = taoism_religion
-		# religion_tag = west_african_roog_religion
-		# religion_tag = zunism_religion
-	}
+	religion = { is_in_family = rf_eruhini } #LotR
+#	religion_tag = free_peoples_religion
+#	OR = {
+#		religion_tag = buddhism_religion
+#		religion_tag = jainism_religion
+#		religion_tag = taoism_religion
+#		religion_tag = west_african_roog_religion
+#		religion_tag = zunism_religion
+#	}
 }
 
 highgod_is_active_trigger = {
@@ -1489,22 +1436,30 @@ can_create_temporal_head_of_faith_title_trigger = {
 			root.liege.primary_title.tier > tier_duchy
 		}
 	}
+	trigger_if = { # LotR
+	 	limit = { has_doctrine = special_doctrine_not_allowed_to_nhazadh } # LotR
+	 	NOT = { has_doctrine = special_doctrine_not_allowed_to_nhazadh } # LotR
+	} # LotR
+	trigger_if = { # LotR
+	 	limit = { has_doctrine = tenet_tamska_main } # LotR
+	 	NOT = { has_doctrine = tenet_tamska_main } # LotR
+	} # LotR
 }
 
 can_create_spiritual_head_of_faith_title_trigger = {
-    num_realm_holy_sites_faithful_holders = {
-        COUNT = holy_sites_to_create_spiritual_head_of_faith
-        CHARACTER = ROOT
-    }
-    root = { piety_level >= medium_piety_level }
-    trigger_if = {
-        limit = { has_doctrine = special_doctrine_not_allowed_to_hof }
-        NOT = { has_doctrine = special_doctrine_not_allowed_to_hof }
-    }
-    NAND = {
-        exists = religious_head
-        has_doctrine_parameter = maintains_head_of_faith_on_creation
-    }
+	num_realm_holy_sites_faithful_holders = {
+		COUNT = holy_sites_to_create_spiritual_head_of_faith
+		CHARACTER = ROOT
+	}
+	root = { piety_level >= medium_piety_level }
+	# trigger_if = { #LotR
+	# 	limit = { has_doctrine = special_doctrine_not_allowed_to_hof }
+	# 	NOT = { has_doctrine = special_doctrine_not_allowed_to_hof }
+	# }
+	#NAND = { #LotR
+    #    exists = religious_head
+    #    has_doctrine_parameter = maintains_head_of_faith_on_creation
+    #}
 }
 
 # this = Person trying to create the title
@@ -1513,10 +1468,10 @@ can_afford_create_head_of_faith_title_cost_trigger = {
 		limit = {
 			faith = {
 				has_doctrine_parameter = temporal_head_of_faith
-				OR = {
-					has_doctrine = muhammad_succession_sunni_doctrine
-					has_doctrine = muhammad_succession_shia_doctrine
-				}
+				#OR = { #LotR
+				#	has_doctrine = muhammad_succession_sunni_doctrine
+				#	has_doctrine = muhammad_succession_shia_doctrine
+				#}
 			}
 		}
 		trigger_if = {
@@ -1568,9 +1523,8 @@ can_create_head_of_faith_title_trigger = {
 }
 
 can_perform_the_hajj_trigger = {
-	OR = {
-	}
-	# faith.religion = religion:islam_religion
+	always = no #LotR
+	# faith.religion = religion:islam_religion #LotR
 	# faith = { has_doctrine_parameter = can_go_on_pilgrimage }
 }
 
@@ -1637,79 +1591,73 @@ can_take_religious_vows_disregard_marriage_trigger = {
 	NOT = { has_character_flag = holy_order_member_requested_return_home }
 }
 
-does_religion_exist_in_world_region_trigger = { # The most efficient way I could think of to essentially do diplomatic range triggers on religions
-	trigger_if = {
-		limit = { location = { geographical_region = world_europe } } # Even though europe has many sub regions, it's overall size is small so no need to sub-divide!
-		any_county_in_region = {
-			region = world_europe
-			faith.religion = $RELIGION$
-		}
-	}
-	trigger_else_if = {
-		limit = { location = { geographical_region = world_asia_minor } } # Maybe this should be grouped with both the one above and the one below...
-		any_county_in_region = {
-			region = world_asia_minor
-			faith.religion = $RELIGION$
-		}
-	}
-	trigger_else_if = {
-		limit = { location = { geographical_region = world_middle_east } }
-		any_county_in_region = {
-			region = world_middle_east
-			faith.religion = $RELIGION$
-		}
-	}
-	trigger_else_if = {
-		limit = {
-			location = { geographical_region = world_india } }
-		any_county_in_region = {
-			region = world_india
-			faith.religion = $RELIGION$
-		}
-	}
-	trigger_else_if = {
-		limit = { location = { geographical_region = world_africa } }
-		any_county_in_region = {
-			region = world_africa
-			faith.religion = $RELIGION$
-		}
-	}
-	trigger_else_if = {
-		limit = { location = { geographical_region = world_steppe } }
-		any_county_in_region = {
-			region = world_steppe
-			faith.religion = $RELIGION$
-		}
-	}
-	trigger_else_if = {
-		limit = { location = { geographical_region = world_asia } }
-		any_county_in_region = {
-			region = world_asia
-			faith.religion = $RELIGION$
-		}
-	}
-
-	trigger_else_if = { # We group two smaller world regions into one
-		limit = {
-			location = {
-				OR = {
-					geographical_region = world_tibet
-					geographical_region = world_burma
-				}
-			}
-		}
-		OR = {
-			any_county_in_region = {
-				region = world_tibet
-				faith.religion = $RELIGION$
-			}
-			any_county_in_region = {
-				region = world_burma
-				faith.religion = $RELIGION$
-			}
-		}
-	}
-	trigger_else = { always = no } # This should always go at the end of this scripted trigger
+does_religion_exist_in_world_region_trigger = { # The most efficient way I could think of to esentially do diplomatic range triggers on religions
+	#trigger_if = {
+	#	limit = { location = { geographical_region = world_europe } } # Even though europe has many sub regions, it's overall size is small so no need to sub-divide!
+	#	any_county_in_region = {
+	#		region = world_europe
+	#		faith.religion = $RELIGION$
+	#	}
+	#}
+	#trigger_else_if = {
+	#	limit = { location = { geographical_region = world_asia_minor } } # Maybe this should be grouped with both the one above and the one below...
+	#	any_county_in_region = {
+	#		region = world_asia_minor
+	#		faith.religion = $RELIGION$
+	#	}
+	#}
+	#trigger_else_if = {
+	#	limit = { location = { geographical_region = world_middle_east } }
+	#	any_county_in_region = {
+	#		region = world_middle_east
+	#		faith.religion = $RELIGION$
+	#	}
+	#}
+	#trigger_else_if = {
+	#	limit = {
+	#		location = { geographical_region = world_india } }
+	#	any_county_in_region = {
+	#		region = world_india
+	#		faith.religion = $RELIGION$
+	#	}
+	#}
+	#trigger_else_if = {
+	#	limit = { location = { geographical_region = world_africa } }
+	#	any_county_in_region = {
+	#		region = world_africa
+	#		faith.religion = $RELIGION$
+	#	}
+	#}
+	#trigger_else_if = {
+	#	limit = { location = { geographical_region = world_steppe } }
+	#	any_county_in_region = {
+	#		region = world_steppe
+	#		faith.religion = $RELIGION$
+	#	}
+	#}
+	#trigger_else_if = { # We group two smaller world regions into one
+	#	limit = {
+	#		location = {
+	#			OR = {
+	#				geographical_region = world_tibet
+	#				geographical_region = world_burma
+	#			}
+	#		}
+	#	}
+	#	OR = {
+	#		any_county_in_region = {
+	#			region = world_tibet
+	#			faith.religion = $RELIGION$
+	#		}
+	#		any_county_in_region = {
+	#			region = world_burma
+	#			faith.religion = $RELIGION$
+	#		}
+	#	}
+	#}
+	#trigger_else = { always = no } # This should always go at the end of this scripted trigger
+	trigger_if = { limit = { exists = $RELIGION$ } } #LotR - so $RELIGION$ does NOT throw errors. We need the argument
+	always = no
 }
 
 ### HOLY ORDERS ###
@@ -1798,8 +1746,8 @@ would_be_sinful_adulterer_trigger = {
 has_tolerant_faith_or_culture_trigger = {
 	OR = {
 		faith = { has_doctrine = doctrine_pluralism_pluralistic }
-		culture = { has_cultural_parameter = less_likely_to_force_conversion }
-		culture = { has_cultural_tradition = tradition_religion_blending }
+		# culture = { has_cultural_parameter = less_likely_to_force_conversion } #LotR
+		# culture = { has_cultural_tradition = tradition_religion_blending } #LotR
 		has_trait = nomadic_philosophy
 	}
 }
@@ -1822,15 +1770,14 @@ faith_is_open_minded_trigger = {
 }
 
 is_mainstream_jewish_faith = {
-	OR = {
-	}
-	# religion = religion:judaism_religion
-	# NOT = {
-	# 	this = faith:samaritan
-	# 	this = faith:haymanot
-	# 	this = faith:malabarism
-	# 	this = faith:kabarism
-	# }
+	always = no #LotR
+	#religion = religion:judaism_religion
+	#NOT = {
+	#	this = faith:samaritan
+	#	this = faith:haymanot
+	#	this = faith:malabarism
+	#	this = faith:kabarism
+	#}
 }
 
 is_unprotected_hostile_faith = { # Checks if the faith is at least hostile but not protected by a contract, used in a county scope
@@ -1862,10 +1809,11 @@ is_unprotected_hostile_faith = { # Checks if the faith is at least hostile but n
 ### SYNCRETIC TRIGGERS ###
 
 islam_or_syncretic_with_islam_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
 		faith = {
 			OR = {
-				# religion = religion:islam_religion
+				religion = religion:islam_religion
 				has_doctrine = tenet_islamic_syncretism
 			}
 		}
@@ -1873,10 +1821,11 @@ islam_or_syncretic_with_islam_trigger = {
 }
 
 judaism_or_syncretic_with_judaism_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
 		faith = {
 			OR = {
-				# religion = religion:judaism_religion
+				religion = religion:judaism_religion
 				has_doctrine = tenet_jewish_syncretism
 			}
 		}
@@ -1884,106 +1833,130 @@ judaism_or_syncretic_with_judaism_trigger = {
 }
 
 christianity_or_syncretic_with_christianity_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
-		faith = {
-			OR = {
-				# religion = religion:christianity_religion
-				has_doctrine = tenet_christian_syncretism
-			}
-		}
+		#faith = {
+		#	OR = {
+		#		religion = religion:christianity_religion
+		#		has_doctrine = tenet_christian_syncretism
+		#	}
+		#}
 	}
 }
 
 unreformed_or_syncretic_with_unreformed_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
-		faith = {
-			OR = {
-				has_doctrine_parameter = unreformed
-				has_doctrine = tenet_unreformed_syncretism
-			}
-		}
+		#faith = {
+		#	OR = {
+		#		has_doctrine_parameter = unreformed
+		#		has_doctrine = tenet_unreformed_syncretism
+		#	}
+		#}
 	}
 }
 
 zoroastrian_or_syncretic_with_eastern_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
-		faith = {
-			OR = {
-				# religion = religion:zoroastrianism_religion
-				has_doctrine = tenet_eastern_syncretism
-			}
-		}
+		#faith = {
+		#	OR = {
+		#		religion = religion:zoroastrianism_religion
+		#		has_doctrine = tenet_eastern_syncretism
+		#	}
+		#}
 	}
 }
 
 eastern_or_syncretic_with_eastern_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
-		faith = {
-			OR = {
-				# religion = { is_in_family = rf_eastern }
-				has_doctrine = tenet_eastern_syncretism
-			}
-		}
+		#faith = {
+		#	OR = {
+		#		religion = { is_in_family = rf_eastern }
+		#		has_doctrine = tenet_eastern_syncretism
+		#	}
+		#}
 	}
 }
 
 sinitic_or_syncretic_with_sinitic_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
-		faith = {
-			OR = {
-				# religion = {
-				# 	is_in_family = rf_sinitic
-				# }
-				has_doctrine = tenet_sinitic_syncretism
-			}
-		}
+		#faith = {
+		#	OR = {
+		#		religion = {
+		#			is_in_family = rf_sinitic
+		#		}
+		#		has_doctrine = tenet_sinitic_syncretism
+		#	}
+		#}
 	}	
 }
 
 hindu_or_syncretic_with_eastern_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
-		faith = {
-			OR = {
-				# religion = religion:hinduism_religion
-				has_doctrine = tenet_eastern_syncretism
-			}
-		}
+		#faith = {
+		#	OR = {
+		#		religion = religion:hinduism_religion
+		#		has_doctrine = tenet_eastern_syncretism
+		#	}
+		#}
 	}	
 }
 
 jain_or_syncretic_with_eastern_trigger = {
+	always = no #LotR
 	$CHARACTER$ = {
-		faith = {
-			OR = {
-				# religion = religion:jainism_religion
-				has_doctrine = tenet_eastern_syncretism
-			}
-		}
+		#faith = {
+		#	OR = {
+		#		religion = religion:jainism_religion
+		#		has_doctrine = tenet_eastern_syncretism
+		#	}
+		#}
 	}	
 }
 
-#Used on faiths
+##Used on faiths
 is_dharmic_faith_trigger = {
-	OR = {
-		# religion = religion:hinduism_religion
-		# religion = religion:buddhism_religion
-		# religion = religion:jainism_religion
-	}
+	# OR = {
+	# 	religion = religion:hinduism_religion
+	# 	religion = religion:buddhism_religion
+	# 	religion = religion:jainism_religion
+	# }
+	always = no
 }
 
 #Used on provinces
 has_holy_building = {
-	has_building_with_flag = holy_building #Replaces manually maintained list of all holy buildings
+	always = no #LotR
+	#has_building_with_flag = holy_building #Replaces manually maintained list of all holy buildings
 }
 
 invalid_for_heresy_events = {
 	OR = {
-		# this = faith:conversos
-		# this = faith:insular_celtic
-		# this = faith:bosnian_church
-		# this = faith:mozarabic_church
-		# this = faith:adamites
-		# this = faith:kabarism
+	#	this = faith:conversos
+	#	this = faith:insular_celtic
+	#	this = faith:bosnian_church
+	#	this = faith:mozarabic_church
+	#	this = faith:adamites
+	#	this = faith:kabarism
+		this = faith:faith_numenorean
+		this = faith:faith_dwarven_balrog_cult
+		this = faith:faith_hakimian
+		this = faith:dark_worship
+		this = faith:melkorite
+		this = faith:commands_of_szrel
+		this = faith:faith_dunlending_white_hand
+		this = faith:faith_ainur
+		this = faith:faith_angmar_evil
+		this = faith:white_hand_cult
+		this = faith:faith_wastelands_pagan
+		AND = {
+			this = faith:lidless_eye
+			sauron_is_alive = no
+		}
 	}
 }
 
@@ -2011,93 +1984,94 @@ is_faith_dominant_gender = {
 }
 
 religion_is_broadly_asian_trigger = {
-	OR = {
-		religion_is_east_asian_trigger = yes
-		broadly_dharmic_trigger = yes
-		broadly_chinese_religion_trigger = yes
-	}
+	#OR = { #LotR
+	#	religion_is_east_asian_trigger = yes
+	#	broadly_dharmic_trigger = yes
+	#	broadly_chinese_religion_trigger = yes
+	#}
 }
 
 religion_is_east_asian_trigger = {
-	OR = {
-		# faith.religion = religion:buddhism_religion
-		# faith.religion = religion:confucianism_religion
-		# faith.religion = religion:taoism_religion
-		# faith.religion = religion:shintoism_religion
-	}
+	#OR = { #LotR
+	#	faith.religion = religion:buddhism_religion
+	#	faith.religion = religion:confucianism_religion
+	#	faith.religion = religion:taoism_religion
+	#	faith.religion = religion:shintoism_religion
+	#}
 }
 
 broadly_dharmic_trigger = {
-	OR = {
-		# faith.religion = religion:buddhism_religion
-		# faith.religion = religion:hinduism_religion
-		# faith.religion = religion:jainism_religion
-		# faith.religion = religion:bon_religion
-		# faith.religion = religion:dab_qhuas_religion
-		# faith.religion = religion:aluk_religion
-		# faith.religion = religion:dayawism_religion
-		# faith.religion = religion:hantuism_religion
-		# faith.religion = religion:kaharingan_religion
-		# faith.religion = religion:satsana_phi_religion
-		# faith.religion = religion:tolotang_religion
-		# faith.religion = religion:utaki_religion
-		# faith.religion = religion:bimoism_religion
-		# faith.religion = religion:moism_religion
-		# faith.religion = religion:muism_religion
-		# faith.religion = religion:qiangic_religion
-	}
+	#OR = { #LotR
+	#	faith.religion = religion:buddhism_religion
+	#	faith.religion = religion:hinduism_religion
+	#	faith.religion = religion:jainism_religion
+	#	faith.religion = religion:bon_religion
+	#	faith.religion = religion:dab_qhuas_religion
+	#	faith.religion = religion:aluk_religion
+	#	faith.religion = religion:dayawism_religion
+	#	faith.religion = religion:hantuism_religion
+	#	faith.religion = religion:kaharingan_religion
+	#	faith.religion = religion:satsana_phi_religion
+	#	faith.religion = religion:tolotang_religion
+	#	faith.religion = religion:utaki_religion
+	#	faith.religion = religion:bimoism_religion
+	#	faith.religion = religion:moism_religion
+	#	faith.religion = religion:muism_religion
+	#	faith.religion = religion:qiangic_religion
+	#}
 }
 
 south_east_asian_pagan_trigger = {
-	OR = {
-		# faith.religion = religion:aluk_religion
-		# faith.religion = religion:dayawism_religion
-		# faith.religion = religion:hantuism_religion
-		# faith.religion = religion:kaharingan_religion
-		# faith.religion = religion:tolotang_religion
-		# faith.religion = religion:biliku_religion
-	}
+	#OR = { #LotR
+	#	faith.religion = religion:aluk_religion
+	#	faith.religion = religion:dayawism_religion
+	#	faith.religion = religion:hantuism_religion
+	#	faith.religion = religion:kaharingan_religion
+	#	faith.religion = religion:tolotang_religion
+	#	faith.religion = religion:biliku_religion
+	#}
 }
 
 broadly_jungle_dwelling_trigger = {
 	culture = {
-		OR = {
-			# has_cultural_pillar = heritage_austronesian
-			# has_cultural_pillar = heritage_burman
-			# has_cultural_pillar = heritage_tai
-			# has_cultural_pillar = heritage_hmongic
-			# has_cultural_pillar = heritage_dravidian
-			# has_cultural_pillar = heritage_mon_khmer
-			# has_cultural_pillar = heritage_viet
-			# has_cultural_pillar = heritage_indo_aryan
-		}
+		#OR = { #LotR
+		#	has_cultural_pillar = heritage_austronesian
+		#	has_cultural_pillar = heritage_burman
+		#	has_cultural_pillar = heritage_tai
+		#	has_cultural_pillar = heritage_hmongic
+		#	has_cultural_pillar = heritage_dravidian
+		#	has_cultural_pillar = heritage_malayic
+		#	has_cultural_pillar = heritage_mon_khmer
+		#	has_cultural_pillar = heritage_viet
+		#	has_cultural_pillar = heritage_indo_aryan
+		#}
 	}
 }
 
 broadly_chinese_religion_trigger = {
-	OR = {
-		# faith.religion = religion:taoism_religion
-		# faith.religion = religion:confucianism_religion
-	}
+	#OR = { #LotR
+	#	faith.religion = religion:taoism_religion
+	#	faith.religion = religion:confucianism_religion
+	#}
 }
 
 broadly_mainland_east_asian_heritage_trigger = {
 	culture = {
-		OR = {
-			# has_cultural_pillar = heritage_chinese
-			# has_cultural_pillar = heritage_korean
-			# has_cultural_pillar = heritage_buyeo
-			# has_cultural_pillar = heritage_qiangic
-			# has_cultural_pillar = heritage_viet
-		}
+		#OR = { #LotR
+		#	has_cultural_pillar = heritage_chinese
+		#	has_cultural_pillar = heritage_korean
+		#	has_cultural_pillar = heritage_buyeo
+		#	has_cultural_pillar = heritage_qiangic
+		#	has_cultural_pillar = heritage_viet
+		#}
 	}
 }
 
 broadly_japanese_island_heritage_trigger = {
 	culture = {
-		OR = {
-			# has_cultural_pillar = heritage_japonic
-			# has_cultural_pillar = heritage_ainuic
-		}
+		#OR = { #LotR
+		#	has_cultural_pillar = heritage_japonic
+		#	has_cultural_pillar = heritage_ainuic
+		#}
 	}
 }
