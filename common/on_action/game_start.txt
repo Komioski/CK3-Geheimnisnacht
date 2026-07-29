@@ -2579,31 +2579,30 @@ on_game_start = {
 
 		### GEHEIMNISNACHT
 		# Wasteland Automagic
-		#if = {
-		#	limit = { game_start_date = 6510.7.1 }
-		#	every_county_in_region = {
-		#		region = world_wilderness_6510
+		if = {
+			limit = { game_start_date = 6510.7.1 }
+			every_county_in_region = {
+				region = world_wastelands_6510
 
-		#		create_title_and_vassal_change = {
-		#			type = returned
-		#			save_scope_as = change
-		#		}
-		#		change_title_holder = {
-		#			holder = character:k_wastelands_holder
-		#			change = scope:change
-		#			take_baronies = yes
-		#		}
-		#		resolve_title_and_vassal_change = scope:change
+				create_title_and_vassal_change = {
+					type = returned
+					save_scope_as = change
+				}
+				change_title_holder = {
+					holder = character:k_wastelands_holder
+					change = scope:change
+					take_baronies = yes
+				}
+				resolve_title_and_vassal_change = scope:change
 
-		#		set_county_faith = faith:faith_wastelands_pagan
-		#		set_county_culture = culture:wastelands
-		#		generate_coa = yes
-		#		change_development_level = -20
-		#		title_province = { set_holding_type = wastelands_holding }
-		#		title_province = { fill_wasteland_blockers_effect = yes }
-		#	}
-		#}
-
+				set_county_faith = faith:faith_wastelands_pagan
+				set_county_culture = culture:wastelands
+				generate_coa = yes
+				change_development_level = -20
+				title_province = { set_holding_type = wastelands_holding }
+				title_province = { fill_wasteland_blockers_effect = yes }
+			}
+		}
 	}
 }
 
