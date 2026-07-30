@@ -1,53 +1,53 @@
 ﻿#<!-- # Historical Artifacts Creation
 
 
-create_artifact_sword_of_lyonesse_effect = {
-		# Get the character the artifact is being made for.
-		$OWNER$ = { save_scope_as = owner }
-		# Not really used, but if we don't set the scopes we get errors in the feature selection
-		set_artifact_rarity_illustrious = yes
-			# Create the artifact
-		scope:owner = {
-			create_artifact = {	
-				name = artifact_sword_of_lyonesse_name
-				description = artifact_sword_of_lyonesse_desc
-				type = sword
-				modifier = wh_sword_of_lyonesse_modifier
-				visuals = sword_lyonesse
-				wealth = scope:wealth
-				quality = scope:quality
-				history = {
-					type = created_before_history
-				}
+#create_artifact_sword_of_lyonesse_effect = {
+#		# Get the character the artifact is being made for.
+#		$OWNER$ = { save_scope_as = owner }
+#		# Not really used, but if we don't set the scopes we get errors in the feature selection
+#		set_artifact_rarity_illustrious = yes
+#			# Create the artifact
+#		scope:owner = {
+#			create_artifact = {	
+#				name = artifact_sword_of_lyonesse_name
+#				description = artifact_sword_of_lyonesse_desc
+#				type = sword
+#				#modifier = wh_sword_of_lyonesse_modifier
+#				visuals = sword_lyonesse
+#				wealth = scope:wealth
+#				quality = scope:quality
+#				history = {
+#					type = created_before_history
+#				}
+#
+#				decaying = no
+#			}
+#		}
+#}
 
-				decaying = no
-			}
-		}
-}
-
-create_artifact_banner_fleur_de_lys_effect = {
-		# Get the character the artifact is being made for.
-		$OWNER$ = { save_scope_as = owner }
-		# Not really used, but if we don't set the scopes we get errors in the feature selection
-		set_artifact_rarity_famed = yes
-			# Create the artifact
-		scope:owner = {
-			create_artifact = {	
-				name = artifact_banner_fleur_de_lys_name
-				description = artifact_banner_fleur_de_lys_desc
-				type = miscellaneous
-				modifier = wh_banner_fleur_de_lys_modifier
-				visuals = fleur_de_lys
-				wealth = scope:wealth
-				quality = scope:quality
-				history = {
-					type = created_before_history
-				}
-
-				decaying = no
-			}
-		}
-}
+#create_artifact_banner_fleur_de_lys_effect = {
+#		# Get the character the artifact is being made for.
+#		$OWNER$ = { save_scope_as = owner }
+#		# Not really used, but if we don't set the scopes we get errors in the feature selection
+#		set_artifact_rarity_famed = yes
+#			# Create the artifact
+#		scope:owner = {
+#			create_artifact = {	
+#				name = artifact_banner_fleur_de_lys_name
+#				description = artifact_banner_fleur_de_lys_desc
+#				type = miscellaneous
+#				modifier = wh_banner_fleur_de_lys_modifier
+#				visuals = fleur_de_lys
+#				wealth = scope:wealth
+#				quality = scope:quality
+#				history = {
+#					type = created_before_history
+#				}
+#
+#				decaying = no
+#			}
+#		}
+#}
 
 
 # create_artifact_sword_blood_drinker_effect = {
