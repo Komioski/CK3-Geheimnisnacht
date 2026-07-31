@@ -100,8 +100,6 @@ court_outcome.0003 = { #by Mathilda Bjarnehed & Petter Vilberg
 
 		scope:scheme = {
 			show_as_tooltip = {
-				setup_matchmaker_notification_target = yes #LotR
-				notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
 				end_scheme = yes
 			}
 		}
@@ -156,7 +154,7 @@ scripted_trigger target_has_other_romance_suitor_trigger = {
 # OWNER CHOICE
 court_outcome.1000 = { #by Mathilda Bjarnehed
 	type = character_event
-	window = scheme_target_event
+	window = scheme_conclusion_event_no_header
 	title = court_outcome.1000.t
 	desc = {
 		first_valid = {
@@ -264,8 +262,6 @@ court_outcome.1000 = { #by Mathilda Bjarnehed
 		add_prestige = minor_prestige_loss
 
 		scope:scheme = {
-			setup_matchmaker_notification_target = yes #LotR
-			notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
 			end_scheme = yes
 		}
 
@@ -293,8 +289,6 @@ court_outcome.1000 = { #by Mathilda Bjarnehed
 		name = court_outcome.1000.c
 
 		scope:scheme = {
-			setup_matchmaker_notification_target = yes #LotR
-			notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
 			end_scheme = yes
 		}
 
@@ -757,7 +751,7 @@ court_outcome.1005 = { #by Mathilda Bjarnehed
 #TARGET SUCCES: is informed about outcome
 court_outcome.1003 = { #by Mathilda Bjarnehed
 	type = character_event
-	window = scheme_target_event
+	window = scheme_conclusion_event_no_header
 	title = court_outcome.1003.t
 	desc = court_outcome.1004.desc
 	
@@ -797,7 +791,7 @@ court_outcome.1003 = { #by Mathilda Bjarnehed
 
 court_outcome.1100 = { #by Mathilda Bjarnehed
 	type = character_event
-	window = scheme_target_event
+	window = scheme_conclusion_event_no_header
 	title = court_outcome.1100.t
 	desc = {
 		desc = court_outcome.1100.start.desc
@@ -916,6 +910,7 @@ court_outcome.1100 = { #by Mathilda Bjarnehed
 	option = {
 		trigger = { court_allow_owner_opt_out_trigger = yes }
 		name = court_outcome.1100.b
+
 		if = {
 			limit = {
 				exists = scope:target_host
@@ -937,8 +932,6 @@ court_outcome.1100 = { #by Mathilda Bjarnehed
 		}
 
 		scope:scheme = {
-			setup_matchmaker_notification_target = yes #LotR
-			notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
 			end_scheme = yes
 		}
 		ai_chance = {
@@ -961,9 +954,7 @@ court_outcome.1100 = { #by Mathilda Bjarnehed
 		}
 		name = court_outcome.1100.c
 
-		scope:scheme = {	
-			setup_matchmaker_notification_target = yes #LotR
-			notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
+		scope:scheme = {
 			end_scheme = yes
 		}
 
@@ -1258,7 +1249,7 @@ court_outcome.1103 = { #by Mathilda Bjarnehed
 #TARGET SUCCES: is informed about outcome
 court_outcome.1105 = { #by Mathilda Bjarnehed
 	type = character_event
-	window = scheme_target_event
+	window = scheme_conclusion_event_no_header
 	title = court_outcome.1105.t
 	desc = {
 		desc = court_outcome.1105.start.desc

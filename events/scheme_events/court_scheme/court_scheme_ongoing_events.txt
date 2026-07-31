@@ -40,11 +40,7 @@ court_ongoing.0001 = { #by Linnéa Thimrén
 	option = {
 		name = court_ongoing.0001.a
 		
-		scope:scheme = { 
-			setup_matchmaker_notification_target = yes #LotR
-			notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
-			end_scheme = yes
-		}
+		scope:scheme = { end_scheme = yes }
 	}
 }
 
@@ -357,9 +353,8 @@ court_ongoing.0502 = { #by Mathilda Bjarnehed
 	}
 
 	trigger = {
-		exists = scope:scheme
-		scope:scheme = {
-			scheme_type = courting 
+		any_targeting_scheme = {
+			scope:scheme ?= this
 		}
 	}
 
@@ -440,11 +435,7 @@ court_ongoing.0502 = { #by Mathilda Bjarnehed
 		}
 
 		show_as_tooltip = {
-			scope:scheme = { 
-				setup_matchmaker_notification_target = yes #LotR
-				notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
-				end_scheme = yes
-			}
+			scope:scheme = { end_scheme = yes }
 		}
 
 		ai_chance = {
@@ -553,11 +544,7 @@ court_ongoing.0512 = {
 		}
 
 		show_as_tooltip = {
-			scope:scheme = { 
-				setup_matchmaker_notification_target = yes #LotR
-				notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
-				end_scheme = yes
-			}
+			scope:scheme = { end_scheme = yes }
 		}
 
 		ai_chance = {
@@ -809,7 +796,6 @@ court_ongoing.0503 = { #by Mathilda Bjarnehed
 ####################################
 ###SAVE TARGET FROM FART SHAME <3###
 ####################################
-#TODO_CD_EP3: try to rewrite it, add custom loc or change the tone
 #court_ongoing.1000 = { #by Mathilda Bjarnehed
 #	type = character_event
 #	title = court_ongoing.1000.t
@@ -1363,7 +1349,7 @@ court_ongoing.1020 = {
 								has_character_modifier = dog_story_modifier
 								AND = {
 									has_character_modifier = eagle_story_modifier 
-									#location = { geographical_region = world_steppe }
+									location = { geographical_region = world_steppe }
 								}
 							}
 						}
@@ -1431,7 +1417,7 @@ scripted_effect court_ongoing_1021_save_gift_option_effect = {
 						any_owned_story = {
 							story_type = story_cycle_pet_eagle
 						}	
-						#location = { geographical_region = world_steppe }
+						location = { geographical_region = world_steppe }
 					}
 					exists = scope:court_ongoing_1021_cat_dog_option
 				}
@@ -1536,7 +1522,7 @@ court_ongoing.1021 = { #by Mathilda Bjarnehed
 				1 = {
 					show_chance = no
 					trigger = {
-						#location = { geographical_region = world_steppe }
+						location = { geographical_region = world_steppe }
 					}
 					desc = court_ongoing.1021.eagle_pet.success
 					show_as_tooltip = { court_ongoing_1030_eagle_modifier_effect = yes }
@@ -1603,13 +1589,7 @@ court_ongoing.1021 = { #by Mathilda Bjarnehed
 	option = {
 		name = court_ongoing.1021.x
 		
-		show_as_tooltip = { 
-			scope:scheme = { 
-				setup_matchmaker_notification_target = yes #LotR
-				notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
-				end_scheme = yes
-			} 
-		}
+		show_as_tooltip = { scope:scheme = { end_scheme = yes } }
 		scope:owner = { trigger_event = court_ongoing.0001 }
 	}
 }
@@ -1982,11 +1962,7 @@ court_ongoing.1023 = { #by Mathilda Bjarnehed
 		name = court_ongoing.1023.b
 
 		show_as_tooltip = {
-			scope:scheme = { 
-				setup_matchmaker_notification_target = yes #LotR
-				notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
-				end_scheme = yes
-			} 
+			scope:scheme = { end_scheme = yes }
 		}
 		save_temporary_scope_as = scheme_ended
 	}
@@ -2019,11 +1995,7 @@ court_ongoing.1024 = { #by Mathilda Bjarnehed
 
 		if = {
 			limit = { exists = scope:scheme_ended }
-			scope:scheme = { 
-				setup_matchmaker_notification_target = yes #LotR
-				notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
-				end_scheme = yes
-			} 
+			scope:scheme = { end_scheme = yes }
 		}
 
 		reverse_add_opinion = {
@@ -2662,22 +2634,22 @@ court_ongoing.1050 = { #by Mathilda Bjarnehed
 	title = court_ongoing.1050.t
 	desc = {
 		desc = court_ongoing.1050.start.desc
-		#first_valid = {
-		#	triggered_desc = {
-		#		trigger = {
-		#			scope:target_host.faith = {
-		#				OR = {
-		#					religion = religion:christianity_religion
-		#					religion = religion:buddhism_religion
-		#					religion = religion:hinduism_religion
-		#					religion = religion:jainism_religion
-		#				}
-		#			}
-		#		}
-		#		desc = court_ongoing.1050.monastery.desc
-		#	}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:target_host.faith = {
+						OR = {
+							religion = religion:christianity_religion
+							religion = religion:buddhism_religion
+							religion = religion:hinduism_religion
+							religion = religion:jainism_religion
+						}
+					}
+				}
+				desc = court_ongoing.1050.monastery.desc
+			}
 			desc = court_ongoing.1050.temple.desc
-		#}
+		}
 	}
 	theme = romance_scheme
 	override_background = {
@@ -3709,7 +3681,6 @@ court_ongoing.1110 = {
 	#Poision
 	option = {
 		name = court_ongoing.1110.b
-		trigger = { NOT = { is_elf = yes } }
 
 		duel = {
 			skill = intrigue
@@ -3743,10 +3714,7 @@ court_ongoing.1110 = {
 			}
 			5 = {
 				desc = court_ongoing.1110.b.murder
-				trigger = { 
-					root = { is_ai = no } # Only available for players
-					scope:competitor = { cannot_be_killed = no }
-				} 
+				trigger = { root = { is_ai = no } } # Only available for players
 				show_as_tooltip = { court_ongoing_1110_poison_murder_effect = yes }
 				trigger_event = court_ongoing.1116
 			}
@@ -4062,13 +4030,7 @@ court_ongoing.1111 = { #by Mathilda Bjarnehed
 			opinion = 20
 		}
 		
-		show_as_tooltip = {
-			scope:scheme = { 
-				setup_matchmaker_notification_target = yes #LotR
-				notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
-				end_scheme = yes
-			}  
-		}
+		show_as_tooltip = { scope:scheme = { end_scheme = yes } }
 		scope:owner = { trigger_event = court_ongoing.0001 }
 	}
 	
@@ -4077,13 +4039,7 @@ court_ongoing.1111 = { #by Mathilda Bjarnehed
 		trigger = { is_ai = no }
 		name = court_ongoing.1111.d
 		
-		show_as_tooltip = { 
-			scope:scheme = { 
-				setup_matchmaker_notification_target = yes #LotR
-				notify_matchmaker_of_courting_outcome = { SUCCESS = NO } #LotR
-				end_scheme = yes
-			}  
-		}
+		show_as_tooltip = { scope:scheme = { end_scheme = yes } }
 		scope:owner = { trigger_event = court_ongoing.0001 }
 	}
 }
@@ -5559,1076 +5515,3 @@ court_ongoing.1225 = {
 		}
 	}
 }
-
-###########################
-## ELVEN COURTING EVENTS ##
-###########################
-
-### FESTIVAL EVENT CHAIN, by Brice Underhill ###
-
-#An opportunity to do something
-court_ongoing.2001 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2001.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					and = {
-						current_month >= 3
-						current_month <= 5
-					}
-				}
-				desc = court_ongoing.2001.spring_opening
-			}
-			triggered_desc = {
-				trigger = {
-					and = {
-						current_month >= 6
-						current_month <= 8
-					}
-				}
-				desc = court_ongoing.2001.summer_opening
-			}
-			triggered_desc = {
-				trigger = {
-					and = {
-						current_month >= 9
-						current_month <= 11
-					}
-				}
-				desc = court_ongoing.2001.autumn_opening
-			}
-			desc = court_ongoing.2001.winter_opening
-		}
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:target = {
-						NOT = { court_owner = scope:owner }
-					}
-				}
-				desc = court_ongoing.2001.distant_opening
-			}
-			triggered_desc = {
-				trigger = {
-					scope:target = {
-						court_owner = scope:owner
-					}
-				}
-				desc = court_ongoing.2001.close_opening
-			}
-		}
-		desc = court_ongoing.2001.desc
-	}
-	
-	left_portrait = scope:target
-	theme = romance_scheme
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
-	
-	trigger = {
-		NOT = { has_variable = scheme_event_active_flag }
-		exists = scope:target.court_owner
-		scope:target = {
-			exists = location.barony # In case the character in question is at sea
-			is_landed = no
-			is_available_adult = yes
-		}
-		is_elf = yes
-	}
-
-	immediate = {
-		set_variable = scheme_event_active_flag
-		scope:target.location.barony = {
-			save_scope_as = court_of_residence
-		}
-		scope:target = {
-			court_owner = {
-				save_scope_as = court_owner
-			}
-		}
-		save_scope_value_as = {
-			name = dance_approach
-			value = flag:empty
-		}
-	}
-
-	option = { #Dance with them
-		name = court_ongoing.2001.a
-		custom_tooltip = court_ongoing.2001.a.tt
-		save_scope_value_as = {
-			name = dance_approach
-			value = flag:dance
-		}
-		stress_impact = {
-			lazy = medium_stress_impact_gain
-			shy = medium_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_energy = 1
-				ai_boldness = 0.5
-				ai_rationality = 0.25
-			}
-		}
-	}
-
-	option = { #Take a walk
-		name = court_ongoing.2001.b
-		custom_tooltip = court_ongoing.2001.b.tt
-		save_scope_value_as = {
-			name = dance_approach
-			value = flag:walk
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_energy = 0.5
-				ai_boldness = 0.5
-			}
-		}
-	}
-	
-	option = { #Listen to a story
-		name = court_ongoing.2001.c
-		custom_tooltip = court_ongoing.2001.c.tt
-		save_scope_value_as = {
-			name = dance_approach
-			value = flag:story
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_greed = 0.5
-			}
-		}
-	}
-
-	after = {
-		remove_variable = scheme_event_active_flag
-		scope:target = {
-			hidden_effect = {
-				#Evaluate what makes for a "right" choice
-				if = {
-					limit = {
-						OR = {
-							AND = {
-								OR = {
-									has_personality_introverted_trigger = yes
-									ai_rationality > medium_positive_rationality
-								}
-								scope:dance_approach = flag:walk
-							}
-							AND = {
-								OR = {
-									has_personality_extroverted_trigger = yes
-									ai_energy > medium_positive_energy
-									has_trait = lifestyle_reveler
-								}
-								scope:dance_approach = flag:dance
-							}
-							AND = {
-								OR = {
-									ai_boldness >= medium_positive_boldness
-									ai_greed >= medium_positive_greed
-									ai_honor >= medium_positive_honor
-									ai_compassion >= medium_positive_compassion
-								}
-								scope:dance_approach = flag:story
-							}
-						}
-					}
-					save_scope_value_as = {
-						name = made_great_choice
-						value = yes
-					}
-				}
-
-
-				if = {
-					limit = {
-						scope:dance_approach = flag:dance
-					}
-					random_list = {
-						100 = { #Success
-							trigger_event = {
-								id = court_ongoing.2003
-								days = { 2 5 }
-							}
-							scope:owner = {
-								trigger_event = {
-									id = court_ongoing.2005
-									days = { 5 8 }
-								}
-							}
-						}
-						100 = { #Failure
-							trigger = {
-								NOT = { exists = scope:made_great_choice }
-							}
-							modifier = {
-			
-			add = 100
-								has_trait = lazy
-							}
-							modifier = {
-								add = 100
-								has_trait = shy
-							}
-							trigger_event = {
-								id = court_ongoing.2004
-								days = { 2 5 }
-							}
-							scope:owner = {
-								trigger_event = {
-									id = court_ongoing.2006
-									days = { 5 8 }
-								}
-							}
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						scope:dance_approach = flag:walk
-					}
-					random_list = {
-						100 = { #Success
-							modifier = {
-								add = 100
-								has_trait = shy
-							}
-							trigger_event = {
-								id = court_ongoing.2003
-								days = { 2 5 }
-							}
-							scope:owner = {
-								trigger_event = {
-									id = court_ongoing.2005
-									days = { 5 8 }
-								}
-							}
-						}
-						100 = { #Failure
-							trigger = {
-								NOT = { exists = scope:made_great_choice }
-							}
-							modifier = {
-								add = 100
-								has_trait = lazy
-							}
-							trigger_event = {
-								id = court_ongoing.2004
-								days = { 2 5 }
-							}
-							scope:owner = {
-								trigger_event = {
-									id = court_ongoing.2006
-									days = { 5 8 }
-								}
-							}
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						scope:dance_approach = flag:story
-					}
-					random_list = {
-						100 = { #Success
-							compare_modifier = {
-								value = ai_sociability
-								multiplier = 2
-							}
-							compare_modifier = {
-								value = ai_boldness
-								multiplier = 4
-								min = 1
-							}
-							modifier = { #Would reasonably mean that they're interested in the subject
-								add = 40
-								OR = {
-									has_trait = education_diplomacy
-									has_lifestyle = diplomacy_lifestyle
-								}
-							}
-							modifier = {
-								add = 100
-								has_trait = patient
-							}
-							trigger_event = {
-								id = court_ongoing.2003
-								days = { 2 5 }
-							}
-							scope:owner = {
-								trigger_event = {
-									id = court_ongoing.2005
-									days = { 5 8 }
-								}
-							}
-						}
-						200 = { #Failure
-							trigger = {
-								NOT = { exists = scope:made_great_choice }
-							}
-							modifier = {
-								add = 100
-								has_trait = impatient
-							}
-							trigger_event = {
-								id = court_ongoing.2004
-								days = { 2 5 }
-							}
-							scope:owner = {
-								trigger_event = {
-									id = court_ongoing.2006
-									days = { 5 8 }
-								}
-							}
-						}
-					}
-				}
-				else_if = { #To stop error spamming about the scope being empty
-					limit = {
-						scope:dance_approach = flag:empty
-					}
-				}
-			}
-		}
-	}
-}
-
-
-#Target: Success
-court_ongoing.2003 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2001.t
-	desc = {
-		desc = court_ongoing.2003.opening
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:dance
-				}
-				desc = court_ongoing.2003.dance
-			}
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:walk
-				}
-				desc = court_ongoing.2003.walk
-			}
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:story
-				}
-				desc = court_ongoing.2003.story
-			}
-			desc = court_ongoing.2003.fallback
-		}
-	}
-	
-	left_portrait = scope:owner
-	theme = romance_scheme
-
-	trigger = {
-		exists = scope:scheme
-	}
-
-	option = {
-		name = court_ongoing.2003.a
-		hidden_effect = {
-			scope:scheme = {
-				add_scheme_modifier = {
-					type = courting_charm_modifier
-				}
-			}
-		}
-		add_stress = minor_stress_loss
-	}
-}
-
-#Target: Failure
-court_ongoing.2004 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2001.t
-	desc = {
-		desc = court_ongoing.2003.opening
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:dance
-				}
-				desc = court_ongoing.2004.dance
-			}
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:walk
-				}
-				desc = court_ongoing.2004.walk
-			}
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:story
-				}
-				desc = court_ongoing.2004.story
-			}
-			desc = court_ongoing.2004.fallback
-		}
-	}
-	
-	left_portrait = scope:owner
-	theme = unfriendly
-
-	trigger = {
-		exists = scope:scheme
-	}
-
-	option = {
-		name = court_ongoing.2004.a
-		hidden_effect = { 
-			scope:scheme = {
-				add_scheme_modifier = {
-					type = courting_boredom_modifier
-				}
-			}
-		}
-	}
-}
-
-#Owner: Success
-court_ongoing.2005 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2001.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:dance
-				}
-				desc = court_ongoing.2005.dance
-			}
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:walk
-				}
-				desc = court_ongoing.2005.walk
-			}
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:story
-				}
-				desc = court_ongoing.2005.story
-			}
-			desc = court_ongoing.2005.fallback
-		}
-	}
-	
-	left_portrait = {
-		character = scope:target
-		animation = happiness
-	}
-	theme = romance_scheme
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
-
-	trigger = {
-		exists = scope:scheme
-	}
-
-	option = {
-		name = court_ongoing.2005.a
-		show_as_tooltip = {
-			scope:scheme = {
-				add_scheme_modifier = {
-					type = courting_charm_modifier
-				}
-			}
-		}
-	}
-}
-
-
-#Owner: Failure
-court_ongoing.2006 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2001.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:dance
-				}
-				desc = court_ongoing.2006.dance
-			}
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:walk
-				}
-				desc = court_ongoing.2006.walk
-			}
-			triggered_desc = {
-				trigger = {
-					scope:dance_approach = flag:story
-				}
-				desc = court_ongoing.2006.story
-			}
-			desc = court_ongoing.2006.fallback
-		}
-	}
-	
-	left_portrait = scope:target
-	theme = romance_scheme
-
-	trigger = {
-		exists = scope:scheme
-	}
-
-	option = {
-		name = court_ongoing.2006.a
-		show_as_tooltip = {
-			scope:scheme = {
-				add_scheme_modifier = {
-					type = courting_boredom_modifier
-				}
-			}
-		}
-	}
-}
-
-###END FESTIVAL CHAIN
-
-
-### ELVEN MEDITATION CHAIN, by Brice Underhill ###
-
-court_ongoing.2011 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2011.t
-	desc = court_ongoing.2011.desc
-	
-	theme = romance_scheme
-	override_background = {
-		reference = wilderness
-	}
-	
-	left_portrait = scope:target
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
-	
-	trigger = {
-		NOT = { has_variable = scheme_event_active_flag }
-		is_available_adult = yes
-		is_elf = yes
-		NOT = { has_character_flag = had_event_court_ongoing_2011}
-		scope:scheme = {
-			scheme_target_character = {
-				#OR = {
-				#	court_ongoing_2011_meditation_trigger = yes
-				#	court_ongoing_2011_conversation_trigger = yes
-				#	court_ongoing_2011_company_trigger = yes
-				#}
-				is_available_adult = yes
-			}
-		}
-	}
-
-	weight_multiplier = {
-		base = 1
-		compare_modifier = {
-			value = learning
-			multiplier = 1
-		}
-	}
-
-	immediate = {
-		add_character_flag = {
-			flag = had_event_court_ongoing_2011
-			years = 10
-		}
-		set_variable = scheme_event_active_flag
-		if = {
-			limit = {
-				exists = scope:target.court_owner.capital_province.barony
-			}
-			scope:target = {
-				court_owner = {
-					capital_province = {
-						barony = {
-							save_scope_as = location
-						}
-					}
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				exists = scope:target.location
-			}
-			scope:target.location = {
-				save_scope_as = location
-			}
-		}
-	}
-
-	option = { #Give them space
-		name = court_ongoing.2011.a
-		custom_tooltip = court_ongoing.2011.a.tt
-		save_scope_value_as = {
-			name = meditation_approach
-			value = flag:meditation
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_zeal = 1
-			}
-		}
-	}
-
-	option = { #Start a conversation
-		name = court_ongoing.2011.b
-		custom_tooltip = court_ongoing.2011.b.tt
-		save_scope_value_as = {
-			name = meditation_approach
-			value = flag:conversation
-		}
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_boldness = 1
-				ai_greed = 0.5
-			}
-		}
-	}
-	
-	option = { #Meditate together
-		name = court_ongoing.2011.c
-		custom_tooltip = court_ongoing.2011.c.tt
-		save_scope_value_as = {
-			name = meditation_approach
-			value = flag:company
-		}
-		ai_chance = {
-			base = 100
-			compare_modifier = {
-				value = learning
-				multiplier = 3
-			}
-			compare_modifier = {
-				value = diplomacy
-				multiplier = 3
-			}
-		}
-	}
-
-	after = {
-		remove_variable = scheme_event_active_flag
-		scope:target = {
-			trigger_event = court_ongoing.2012
-		}
-	}
-}
-
-court_ongoing.2012 = {
-	hidden = yes
-	immediate = {
-		#Evaluate, and set what would have been a good choice
-		random_list = {
-			50 = {
-				trigger = { scope:meditation_approach = flag:meditation }
-
-				compare_modifier = {
-					value = ai_zeal
-					multiplier = 6
-				}
-				compare_modifier = {
-					value = ai_sociability
-					multiplier = -2
-					min = 1
-				}
-				compare_modifier = {
-					value = piety_level
-					multiplier = 25
-				}
-				modifier = { #Would reasonably mean that they're interested
-					add = 40
-					OR = {
-						has_trait = education_learning
-						has_lifestyle = learning_lifestyle
-					}
-				}
-				modifier = {
-					add = {
-						value = learning
-						subtract = mediocre_skill_rating
-						multiply = 5
-						min = 0 # Low learning characters may still be interested due to piety.
-					}
-				}
-				trigger_event = court_ongoing.2013
-			}
-			50 = {
-				trigger = { scope:meditation_approach = flag:conversation }
-				compare_modifier = {
-					value = ai_boldness
-					multiplier = 4
-					min = 1
-				}
-				compare_modifier = {
-					value = ai_greed
-					multiplier = 2
-					min = 1
-				}
-				compare_modifier = {
-					value = ai_sociability
-					multiplier = 3
-					min = 1
-				}
-				modifier = { #Would reasonably mean that they're interested
-					add = 40
-					OR = {
-						has_trait = education_diplomacy
-						has_lifestyle = diplomacy_lifestyle
-					}
-				}
-				modifier = { #They're a calm and/or "dry" person
-					add = -30
-					OR = {
-						has_trait = lazy
-						has_trait = content
-						has_trait = calm
-						has_trait = craven
-						has_trait = callous
-						has_trait = shy
-						has_trait = reclusive
-					}
-				}
-				modifier = { #They appreciate the distraction
-					add = 30
-					OR = {
-						has_trait = gregarious
-						has_trait = fickle
-						has_trait = compassionate
-					}
-				}
-				modifier = {
-					add = {
-						value = diplomacy
-						subtract = mediocre_skill_rating
-						multiply = 5
-						min = 0 # Low diplomacy characters may still be interested, but high skill characters value it more.
-					}
-				}
-				modifier = {
-					add = {
-						value = martial
-						subtract = mediocre_skill_rating
-						multiply = 5
-						min = 0 # Low martial characters may still be interested, but high skill characters value it more.
-					}
-				}
-				trigger_event = court_ongoing.2013
-			}
-			50 = {
-				trigger = { scope:meditation_approach = flag:company }
-
-				compare_modifier = {
-					value = ai_zeal
-					multiplier = -2 # Zealous characters would prefer meditating
-				}
-				modifier = {
-					add = {
-						value = diplomacy
-						subtract = mediocre_skill_rating
-						multiply = 5
-						min = 0 # Low diplomacy characters may still be interested, but high skill characters value it more.
-					}
-				}
-				modifier = {
-					add = {
-						value = learning
-						subtract = mediocre_skill_rating
-						multiply = 5
-					}
-				}
-				modifier = { #Would reasonably mean that they're interested in the subject
-					add = 20
-					OR = {
-						has_trait = education_diplomacy
-						has_lifestyle = diplomacy_lifestyle
-					}
-				}
-				modifier = { #Would reasonably mean that they're interested in the subject
-					add = 30
-					OR = {
-						has_trait = education_learning
-						has_lifestyle = learning_lifestyle
-					}
-				}
-				# Traits
-				modifier = {
-					has_trait = impatient
-					add = -20
-				}
-				modifier = {
-					or = {
-						has_trait = calm
-						has_trait = patient
-						has_trait = gregarious
-					}
-					add = 20
-				}
-				
-
-				trigger_event = court_ongoing.2013
-			}
-			50 = { #Failure
-				trigger_event = court_ongoing.2014
-			}
-		}
-	}
-}
-
-
-#Target: Success
-court_ongoing.2013 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2011.t
-	desc = {
-		desc = court_ongoing.2013.opening
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:meditation
-				}
-				desc = court_ongoing.2013.meditation
-			}
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:conversation
-				}
-				desc = court_ongoing.2013.conversation
-			}
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:company
-				}
-				desc = court_ongoing.2013.company
-			}
-			desc = court_ongoing.2013.fallback
-		}
-	}
-	
-	left_portrait = scope:owner
-	theme = romance_scheme
-	override_background = {
-		reference = wilderness
-	}
-
-	trigger = {
-		exists = scope:scheme
-	}
-
-	option = {
-		name = court_ongoing.2013.a
-		hidden_effect = {
-			scope:scheme = {
-				add_scheme_modifier = {
-					type = courting_understood_modifier
-				}
-			}
-		}
-		add_stress = minor_stress_loss
-		scope:owner = {
-			trigger_event = {
-				id = court_ongoing.2015
-				days = { 2 5 }
-			}
-		}
-	}
-}
-
-#Target: Failure
-court_ongoing.2014 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2011.t
-	desc = {
-		desc = court_ongoing.2013.opening
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:meditation
-				}
-				desc = court_ongoing.2014.meditation
-			}
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:conversation
-				}
-				desc = court_ongoing.2014.conversation
-			}
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:company
-				}
-				desc = court_ongoing.2014.company
-			}
-			desc = court_ongoing.2014.fallback
-		}
-	}
-	
-	left_portrait = scope:owner
-	theme = unfriendly
-	override_background = {
-		reference = wilderness
-	}
-
-	trigger = {
-		exists = scope:scheme
-	}
-
-	option = {
-		name = court_ongoing.2014.a
-		hidden_effect = { 
-			scope:scheme = {
-				add_scheme_modifier = {
-					type = courting_irritation_modifier
-				}
-			}
-		}
-		scope:owner = {
-			trigger_event = {
-				id = court_ongoing.2016
-				days = { 2 5 }
-			}
-		}
-	}
-}
-
-#Owner: Success
-court_ongoing.2015 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2011.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:meditation
-				}
-				desc = court_ongoing.2015.meditation
-			}
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:conversation
-				}
-				desc = court_ongoing.2015.conversation
-			}
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:company
-				}
-				desc = court_ongoing.2015.company
-			}
-			desc = court_ongoing.2015.fallback
-		}
-	}
-	
-	left_portrait = {
-		character = scope:target
-		animation = happiness
-	}
-	theme = romance_scheme
-	override_background = {
-		reference = wilderness
-	}
-	widget = {
-		gui = "event_window_widget_scheme"
-		container = "custom_widgets_container"
-	}
-
-	trigger = {
-		exists = scope:scheme
-	}
-
-	option = {
-		name = court_ongoing.2015.a
-		show_as_tooltip = {
-			scope:scheme = {
-				add_scheme_modifier = {
-					type = courting_understood_modifier
-				}
-			}
-		}
-	}
-}
-
-
-#Owner: Failure
-court_ongoing.2016 = {
-	content_source = realms_dlc
-	type = character_event
-	title = court_ongoing.2011.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:meditation
-				}
-				desc = court_ongoing.2016.meditation
-			}
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:conversation
-				}
-				desc = court_ongoing.2016.conversation
-			}
-			triggered_desc = {
-				trigger = {
-					scope:meditation_approach = flag:company
-				}
-				desc = court_ongoing.2016.company
-			}
-			desc = court_ongoing.2016.fallback
-		}
-	}
-	
-	left_portrait = scope:target
-	theme = romance_scheme
-	override_background = {
-		reference = wilderness
-	}
-
-	trigger = {
-		exists = scope:scheme
-	}
-
-	option = {
-		name = court_ongoing.2016.a
-		show_as_tooltip = {
-			scope:scheme = {
-				add_scheme_modifier = {
-					type = courting_irritation_modifier
-				}
-			}
-		}
-	}
-}
-
-### END MEDITATION CHAIN
