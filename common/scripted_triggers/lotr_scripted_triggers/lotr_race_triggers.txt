@@ -242,53 +242,53 @@ is_troll_culture = {
 	always = no #has_cultural_pillar = heritage_troll
 }
 
-## ELF TRIGGERS ## #TODO
+## ELF TRIGGERS ##
 
-#is_elf = {
-#	custom_description = {
-#		text = is_elf
-#		always = no # OR = {
-#		# 	culture ?= { has_cultural_parameter = is_elven_heritage }
-#		# 	trigger_if = { #Check to ensure it's a character
-#		# 		limit = { exists = location }
-#		# 		has_trait = doom_sundered
-#		# 	}
-#		# }
-#	}
-#}
-#
-#is_elf_culture = {
-#	always = no #this = { has_cultural_parameter = is_elven_heritage }
-#}
+is_elf = {
+	custom_description = {
+		text = is_elf
+		#OR = {
+			culture ?= { has_cultural_parameter = is_elven_heritage }
+			#trigger_if = { #Check to ensure it's a character
+			#	limit = { exists = location }
+			#	has_trait = doom_sundered
+			#}
+		#}
+	}
+}
 
-## DWARF TRIGGERS ## #TODO
+is_elf_culture = {
+	this = { has_cultural_parameter = is_elven_heritage }
+}
 
-#is_dwarf = { #is_dwarf_heritage
-#	custom_description = {
-#		text = is_dwarf
-#		always = no #culture ?= { has_cultural_parameter = is_dwarf_heritage }
-#	}
-#}
-#
-#is_dwarf_culture = {
-#	always = no #this = { has_cultural_parameter = is_dwarf_heritage }
-#}
-#
-#is_underground_race = {
-#	OR = {
-#		is_dwarf = yes
+## DWARF TRIGGERS ##
+
+is_dwarf = { #is_dwarf_heritage
+	custom_description = {
+		text = is_dwarf
+		culture ?= { has_cultural_parameter = is_dwarf_heritage }
+	}
+}
+
+is_dwarf_culture = {
+	this = { has_cultural_parameter = is_dwarf_heritage }
+}
+
+is_underground_race = {
+	OR = {
+		is_dwarf = yes
 #		is_orc = yes
 #		is_goblin = yes
-#	}
-#}
-#
-#is_underground_race_culture = {
-#	OR = {
-#		is_dwarf_culture = yes
+	}
+}
+
+is_underground_race_culture = {
+	OR = {
+		is_dwarf_culture = yes
 #		is_orc_culture = yes
 #		is_goblin_culture = yes
-#	}
-#}
+	}
+}
 
 
 ### HALFLING TRIGGERS ##
