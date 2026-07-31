@@ -1859,30 +1859,31 @@ save_general_accolade_successor_culture_effect = {
 save_varangian_successor_culture_effect = {
 	if = {
 		limit = {
-			current_date < 1400
-			scope:owner = {
-				has_title = title:e_byzantium
-			}
+			# current_date < 1400 #LotR
+			# scope:owner = {
+			# 	has_title = title:e_byzantium
+			# }
+			always = no #LotR
 		}
-		random_culture_global = {
+		random_culture_global = { #LotR
 			limit = {
 				OR = {
 					has_cultural_parameter = unlock_maa_huscarls
 					has_cultural_parameter = unlock_maa_varangian_veterans
 				}
 				culture_number_of_counties > 0
-				any_culture_duchy = {
-					NOT = {
-						this = title:d_iceland
-					}
-				}
-				NOT = {
-					this = culture:estonian
-				}
-				NAND = {
-					this = culture:anglo_saxon
-					current_date < 1067
-				}
+				# any_culture_duchy = {
+				# 	NOT = {
+				# 		this = title:d_iceland
+				# 	}
+				# }
+				# NOT = {
+				# 	this = culture:estonian
+				# }
+				# NAND = {
+				# 	this = culture:anglo_saxon
+				# 	current_date < 1067
+				# }
 			}
 			save_scope_as = varangian_culture
 		}
@@ -1893,30 +1894,30 @@ save_varangian_successor_culture_effect = {
 save_turkic_successor_culture_effect = {
 	if = {
 		limit = {
-			scope:owner = {
-				faith.religion = religion:islam_religion
-				capital_county.title_province ?= {
-   					OR = {
-						geographical_region = world_middle_east
-						geographical_region = world_africa_north_east
-						geographical_region = world_asia_minor
-						geographical_region = world_europe_south_east
-						geographical_region = world_steppe
-					}
-				}
-				culture = {
-					NOT = {
-						culture_has_archer_cavalry_maa = yes
-					}
-				}
-				NOT = { has_trait = nomadic_philosophy }
-				highest_held_title_tier >= tier_kingdom
-			}
+			# scope:owner = { #LotR
+			# 	faith.religion = religion:islam_religion
+			# 	capital_county.title_province ?= {
+   			# 		OR = {
+			# 			geographical_region = world_middle_east
+			# 			geographical_region = world_africa_north_east
+			# 			geographical_region = world_asia_minor
+			# 			geographical_region = world_europe_south_east
+			# 			geographical_region = world_steppe
+			# 		}
+			# 	}
+			# 	culture = {
+			# 		NOT = {
+			# 			has_cultural_parameter = unlock_maa_horse_archers
+			# 		}
+			# 	}
+			# 	highest_held_title_tier >= tier_kingdom
+			# }
+			always = no #LotR
 		}
 		random_culture_global = {
 			limit = {
 				culture_has_archer_cavalry_maa = yes
-				has_cultural_pillar = heritage_turkic
+				#has_cultural_pillar = heritage_turkic #LotR
 				culture_number_of_counties > 0
 				any_culture_county = {
 					holder = {
@@ -2031,8 +2032,8 @@ save_type_specific_successor_culture_effect = {
 						has_cultural_pillar = ethos_communal
 						has_cultural_tradition = tradition_stalwart_defenders
                         has_cultural_tradition = tradition_stand_and_fight
-                        has_cultural_tradition = tradition_druzhina
-                        has_cultural_tradition = tradition_hird
+                        # has_cultural_tradition = tradition_druzhina #LotR
+                        # has_cultural_tradition = tradition_hird
                         has_cultural_tradition = tradition_fp1_coastal_warriors
 					}
 					NOT = {
@@ -2160,15 +2161,16 @@ save_type_specific_successor_culture_effect = {
 					scope:accolade_in_need = {
 						initial_type = accolade_type:archer_attribute
 					}
-					OR = {
-						has_cultural_pillar = heritage_brythonic
-						has_cultural_pillar = heritage_east_african
-						has_cultural_pillar = heritage_indo_aryan
-						has_cultural_pillar = heritage_dravidian
-						has_cultural_pillar = heritage_burman
-						has_cultural_pillar = heritage_yoruba
-						has_cultural_pillar = heritage_baltic
-						has_cultural_pillar = heritage_balto_finnic
+					OR = { #LotR
+						# has_cultural_pillar = heritage_brythonic
+						# has_cultural_pillar = heritage_east_african
+						# has_cultural_pillar = heritage_indo_aryan
+						# has_cultural_pillar = heritage_dravidian
+						# has_cultural_pillar = heritage_burman
+						# has_cultural_pillar = heritage_yoruba
+						# has_cultural_pillar = heritage_baltic
+						# has_cultural_pillar = heritage_balto_finnic
+						is_elf_culture = yes
 					}
 				}
 				# Skirmisher
@@ -2176,25 +2178,25 @@ save_type_specific_successor_culture_effect = {
 					scope:accolade_in_need = {
 						initial_type = accolade_type:skirmisher_attribute
 					}
-					OR = {
-						has_cultural_pillar = heritage_baltic
-						has_cultural_pillar = heritage_ugro_permian
-						has_cultural_pillar = heritage_balto_finnic
-						has_cultural_pillar = heritage_somalian
-						has_cultural_pillar = heritage_west_african
-						has_cultural_pillar = heritage_goidelic
-						has_cultural_pillar = heritage_brythonic
-					}
+					# OR = { #LotR
+					# 	has_cultural_pillar = heritage_baltic
+					# 	has_cultural_pillar = heritage_ugro_permian
+					# 	has_cultural_pillar = heritage_balto_finnic
+					# 	has_cultural_pillar = heritage_somalian
+					# 	has_cultural_pillar = heritage_west_african
+					# 	has_cultural_pillar = heritage_goidelic
+					# 	has_cultural_pillar = heritage_brythonic
+					# }
 				}
 				# Pike
 				AND = {
 					scope:accolade_in_need = {
 						initial_type = accolade_type:pike_attribute
 					}
-					OR = {
-						has_cultural_pillar = heritage_central_germanic
-						has_cultural_pillar = heritage_latin
-					}
+					# OR = { #LotR
+					# 	has_cultural_pillar = heritage_central_germanic
+					# 	has_cultural_pillar = heritage_latin
+					# }
 				}
 				# Outrider
 				AND = {
@@ -2203,19 +2205,19 @@ save_type_specific_successor_culture_effect = {
 					}
 					OR = {
 						has_cultural_tradition = tradition_ep3_indomitable_azatani
-						has_cultural_tradition = tradition_desert_ribat
-						has_cultural_tradition = tradition_chanson_de_geste
-						has_cultural_tradition = tradition_hussar
+						# has_cultural_tradition = tradition_desert_ribat
+						# has_cultural_tradition = tradition_chanson_de_geste
+						# has_cultural_tradition = tradition_hussar
 					}
 					OR = {
-						has_cultural_pillar = heritage_iranian
-						has_cultural_pillar = heritage_turkic
-						has_cultural_pillar = heritage_mongolic
-						has_cultural_pillar = heritage_arabic
-						has_cultural_pillar = heritage_berber
-						has_cultural_pillar = heritage_iberian
-						has_cultural_pillar = heritage_indo_aryan
-						has_cultural_pillar = heritage_magyar
+						# has_cultural_pillar = heritage_iranian
+						# has_cultural_pillar = heritage_turkic
+						# has_cultural_pillar = heritage_mongolic
+						# has_cultural_pillar = heritage_arabic
+						# has_cultural_pillar = heritage_berber
+						# has_cultural_pillar = heritage_iberian
+						# has_cultural_pillar = heritage_indo_aryan
+						# has_cultural_pillar = heritage_magyar
 					}
 				}
 				# Vanguard
@@ -2226,28 +2228,27 @@ save_type_specific_successor_culture_effect = {
 					OR = {
 						has_innovation = innovation_quilted_armor
 						has_cultural_tradition = tradition_fp1_coastal_warriors
-						has_cultural_tradition = tradition_hird
-						has_cultural_tradition = tradition_futuwaa
-						has_cultural_tradition = tradition_druzhina
-						has_cultural_tradition = tradition_khadga_puja
-						has_cultural_tradition = tradition_garuda_warriors
-						has_cultural_tradition = tradition_himalayan_settlers
-						has_cultural_tradition = tradition_mubarizuns
-						has_cultural_tradition = tradition_burman_royal_army
-						has_cultural_tradition = tradition_mountaineer_ruralism
-						has_innovation = innovation_sarawit
-						has_innovation = innovation_legionnaires
-						has_cultural_parameter = unlock_zhanmadao
-						has_cultural_parameter = unlock_burenjia
+						# has_cultural_tradition = tradition_hird #LotR
+						# has_cultural_tradition = tradition_futuwaa
+						# has_cultural_tradition = tradition_druzhina
+						# has_cultural_tradition = tradition_khadga_puja
+						# has_cultural_tradition = tradition_garuda_warriors
+						# has_cultural_tradition = tradition_himalayan_settlers
+						# has_cultural_tradition = tradition_mubarizuns
+						# has_cultural_tradition = tradition_burman_royal_army
+						# has_cultural_tradition = tradition_mountaineer_ruralism
+						# has_innovation = innovation_sarawit
+						# has_innovation = innovation_legionnaires
 					}
 					OR = {
-						has_cultural_pillar = heritage_central_germanic
-						has_cultural_pillar = heritage_north_germanic
-						has_cultural_pillar = heritage_west_germanic
-						has_cultural_pillar = heritage_east_slavic
-						has_cultural_pillar = heritage_burman
-						has_cultural_pillar = heritage_qiangic
-						has_cultural_pillar = heritage_tibetan
+						# has_cultural_pillar = heritage_central_germanic
+						# has_cultural_pillar = heritage_north_germanic
+						# has_cultural_pillar = heritage_west_germanic
+						# has_cultural_pillar = heritage_east_slavic
+						# has_cultural_pillar = heritage_burman
+						# has_cultural_pillar = heritage_qiangic
+						# has_cultural_pillar = heritage_tibetan
+						is_dwarf_culture = yes
 					}
 				}
 				# Lancer
@@ -2257,9 +2258,9 @@ save_type_specific_successor_culture_effect = {
 					}
 					OR = {
 						has_innovation = innovation_arched_saddle
-						has_cultural_tradition = tradition_caucasian_wolves
-						has_cultural_tradition = tradition_roman_legacy
-						has_innovation = innovation_valets
+						# has_cultural_tradition = tradition_caucasian_wolves #LotR
+						# has_cultural_tradition = tradition_roman_legacy
+						# has_innovation = innovation_valets
 						has_cultural_tradition = tradition_ep3_audacious_cadets
 						has_cultural_tradition = tradition_ep3_imperial_tagmata
 						has_cultural_parameter = unlock_maa_cataphract_archers
@@ -2267,14 +2268,13 @@ save_type_specific_successor_culture_effect = {
 						has_cultural_parameter = unlock_maa_black_armor_cavalry
 					}
 					OR = {
-						has_cultural_pillar = heritage_iranian
-						has_cultural_pillar = heritage_turkic
-						has_cultural_pillar = heritage_mongolic
-						has_cultural_pillar = heritage_central_germanic
-						has_cultural_pillar = heritage_frankish
-						has_cultural_pillar = heritage_indo_aryan
-						has_cultural_pillar = heritage_byzantine
-						has_cultural_pillar = heritage_caucasian
+						# has_cultural_pillar = heritage_iranian  #LotR
+						# has_cultural_pillar = heritage_turkic
+						# has_cultural_pillar = heritage_mongolic
+						# has_cultural_pillar = heritage_central_germanic
+						# has_cultural_pillar = heritage_frankish
+						# has_cultural_pillar = heritage_indo_aryan
+						# has_cultural_pillar = heritage_byzantine
 					}
 				}
 				# Besieger
@@ -2300,11 +2300,11 @@ save_type_specific_successor_culture_effect = {
 					}
 					OR = {
 						has_innovation = innovation_advanced_bowmaking
-						has_innovation = innovation_repeating_crossbow
+						# has_innovation = innovation_repeating_crossbow #LotR
 					}
 					OR = {
-						has_cultural_pillar = heritage_chinese
-						has_cultural_pillar = heritage_latin
+						# has_cultural_pillar = heritage_chinese #LotR
+						# has_cultural_pillar = heritage_latin
 						has_cultural_tradition = tradition_swords_for_hire
 					}
 				}
@@ -2313,11 +2313,11 @@ save_type_specific_successor_culture_effect = {
 					scope:accolade_in_need = {
 						initial_type = accolade_type:camelry_attribute
 					}
-					has_innovation = innovation_war_camels
+					has_innovation = innovation_war_camels #LotR
 					OR = {
-						has_cultural_pillar = heritage_arabic
-						has_cultural_pillar = heritage_berber
-						has_cultural_tradition = tradition_desert_nomads
+						# has_cultural_pillar = heritage_arabic #LotR
+						# has_cultural_pillar = heritage_berber
+						# has_cultural_tradition = tradition_desert_nomads
 						has_cultural_tradition = tradition_warriors_of_the_dry
 					}
 				}
@@ -2328,9 +2328,9 @@ save_type_specific_successor_culture_effect = {
 					}
 					has_innovation = innovation_elephantry
 					OR = {
-						has_cultural_pillar = heritage_dravidian
-						has_cultural_pillar = heritage_indo_aryan
-						has_cultural_pillar = heritage_burman
+						# has_cultural_pillar = heritage_dravidian #LotR
+						# has_cultural_pillar = heritage_indo_aryan
+						# has_cultural_pillar = heritage_burman
 					}
 				}
 				# Horse Archer
@@ -2339,11 +2339,11 @@ save_type_specific_successor_culture_effect = {
 						initial_type = accolade_type:horse_archer_attribute
 					}
 					culture_has_archer_cavalry_maa = yes
-					OR = {
-						has_cultural_pillar = heritage_turkic
-						has_cultural_pillar = heritage_mongolic
-						has_cultural_pillar = heritage_burman
-					}
+					#OR = {
+						# has_cultural_pillar = heritage_turkic
+						# has_cultural_pillar = heritage_mongolic
+						# has_cultural_pillar = heritage_burman
+					#}
 				}
 				# Huntsmaster
 				AND = {
@@ -2458,7 +2458,7 @@ accolade_character_creation_effect = {
 		limit = {
 			OR = {
 				is_ai = no
-				any_held_title = { this = title:e_byzantium }
+				#any_held_title = { this = title:e_byzantium } #LotR
 			}
 		}
 		#save a general knight-y culture that can randomly be used
@@ -10251,6 +10251,7 @@ accolade_create_squire_effect = {
 		if = {
 			limit = {
 				NOT = { exists = scope:chosen_knight }
+				exists = capital_province #LotR
 			}
 			accolade_character_creation_effect = yes
 		}
@@ -10286,12 +10287,13 @@ accolade_create_squire_effect = {
 		if = {
 			limit = {
 				NOT = { exists = scope:chosen_knight }
+				exists = capital_province #LotR
 			}
 			accolade_character_creation_effect = yes
 		}
 	}
 	#Boost stats of picked or created char based on squire quality
-	scope:chosen_knight = {
+	scope:chosen_knight ?= { #LotR
 		accolade_squires_boost_martial_tourney_effect = yes
 
 		accolade_squires_boost_prowess_effect = yes
@@ -10327,8 +10329,13 @@ accolade_create_squire_effect = {
 			add_courtier = scope:chosen_knight
 		}
 		
-		scope:chosen_knight = {
-			set_knight_status = force
+		if = { #LotR
+			limit = { 
+				scope:chosen_knight = { is_knight_permitted = scope:owner }
+			}
+			scope:chosen_knight = {
+				set_knight_status = force
+			}
 		}
 		
 		scope:accolade_in_need = {
