@@ -703,17 +703,17 @@
     	        desc = "Apocalyptic Plague in Top Realm"
     	    }
     	}
-    	#we don't want the Pope to host tournaments
-    	if = {
-    		limit = {
-    			government_has_flag = government_is_theocracy
-    			has_title = title:k_papal_state
-    		}
-    		add = {
-    			value = -1000
-    			desc = "Is Pope"
-    		}
-    	}
+    	#we don't want the Pope to host tournaments # WGH - No popes
+    	#if = {
+    	#	limit = {
+    	#		government_has_flag = government_is_theocracy
+		#		has_title = title:k_papal_state
+    	#	}
+    	#	add = {
+    	#		value = -1000
+    	#		desc = "Is Pope"
+    	#	}
+    	#}
     	# Celestial gov has better things to do
     	if = {
     		limit = {
@@ -1654,10 +1654,10 @@
 							terrain = hills
 							terrain = wetlands
 						}
-						OR = {
-							geographical_region = world_middle_east
-							geographical_region = world_africa_east
-						}
+						#OR = {
+						#	geographical_region = world_middle_east
+						#	geographical_region = world_africa_east
+						#}
 					}
 				}
 			}
@@ -1690,16 +1690,17 @@
 							terrain = wetlands
 							terrain = farmlands
 						}
-						OR = {
-							geographical_region = world_india
-							geographical_region = world_burma
-							geographical_region = world_asia_southeast
-						}
+						#OR = {
+						#	geographical_region = world_india
+						#	geographical_region = world_burma
+						#   geographical_region = world_asia_southeast
+						#}
 					}
 					AND = {
 						terrain = forest
-						geographical_region = world_africa_west
-
+						#OR = {
+						#	geographical_region = world_africa_west
+						#}
 					}
 				}
 			}
@@ -2783,23 +2784,23 @@
 						desc = tradition_chanson_de_geste_name
 					}
 				}
-				if = {
-					limit = { 
-						culture = { 
-							OR = {
-								has_cultural_pillar = heritage_central_germanic
-								has_cultural_pillar = heritage_frankish
-								has_cultural_pillar = heritage_iberian
-								has_cultural_pillar = heritage_west_germanic
-								has_cultural_pillar = heritage_west_slavic
-							}
-						}
-					}
-					add = {
-						value = 15
-						desc = game_rule_category_culture
-					}
-				}
+				#if = { # WGH TODO
+				#	limit = { 
+				#		culture = { 
+				#			OR = {
+				#				has_cultural_pillar = heritage_central_germanic
+				#				has_cultural_pillar = heritage_frankish
+				#				has_cultural_pillar = heritage_iberian
+				#				has_cultural_pillar = heritage_west_germanic
+				#				has_cultural_pillar = heritage_west_slavic
+				#			}
+				#		}
+				#	}
+				#	add = {
+				#		value = 15
+				#		desc = game_rule_category_culture
+				#	}
+				#}
 			}
 
 			cost = {
@@ -3073,7 +3074,7 @@
 					}
 				}
 				if = {
-					limit = { religion = religion:islam_religion }
+					limit = { religion = religion:arabyan_religion }
 					add = {
 						value = 50
 						desc = contest_ai_maysir
@@ -3086,30 +3087,30 @@
 						desc = tribal_government
 					}
 				}
-				if = {
-					limit = { 
-						culture = { 
-							OR = {
-								has_cultural_pillar = heritage_akan
-								has_cultural_pillar = heritage_brythonic
-								has_cultural_pillar = heritage_central_african
-								has_cultural_pillar = heritage_east_african
-								has_cultural_pillar = heritage_goidelic
-								has_cultural_pillar = heritage_west_african
-								has_cultural_pillar = heritage_somalian
-								has_cultural_pillar = heritage_indo_aryan
-								has_cultural_pillar = heritage_magyar
-								has_cultural_pillar = heritage_mongolic
-								has_cultural_pillar = heritage_yoruba
-								has_cultural_pillar = heritage_sahelian
-							}
-						}
-					}
-					add = {
-						value = 15
-						desc = game_rule_category_culture
-					}
-				}
+				#if = { # WGH TODO
+				#	limit = { 
+				#		culture = { 
+				#			OR = {
+				#				has_cultural_pillar = heritage_akan
+				#				has_cultural_pillar = heritage_brythonic
+				#				has_cultural_pillar = heritage_central_african
+				#				has_cultural_pillar = heritage_east_african
+				#				has_cultural_pillar = heritage_goidelic
+				#				has_cultural_pillar = heritage_west_african
+				#				has_cultural_pillar = heritage_somalian
+				#				has_cultural_pillar = heritage_indo_aryan
+				#				has_cultural_pillar = heritage_magyar
+				#				has_cultural_pillar = heritage_mongolic
+				#				has_cultural_pillar = heritage_yoruba
+				#				has_cultural_pillar = heritage_sahelian
+				#			}
+				#		}
+				#	}
+				#	add = {
+				#		value = 15
+				#		desc = game_rule_category_culture
+				#	}
+				#}
 			}
 
 			cost = {
@@ -3401,42 +3402,42 @@
 							desc = tradition_storytellers_name
 						}
 					}
-					if = {
-						limit = {
-							has_cultural_pillar = heritage_brythonic
-						}
-						add = {
-							value = 25
-							desc = heritage_brythonic_name
-						}
-					}
-					if = {
-						limit = {
-							has_cultural_pillar = heritage_goidelic
-						}
-						add = {
-							value = 25
-							desc = heritage_goidelic_name
-						}
-					}
-					if = {
-						limit = {
-							has_cultural_pillar = heritage_north_germanic
-						}
-						add = {
-							value = 25
-							desc = heritage_north_germanic_name
-						}
-					}
-					if = {
-						limit = {
-							has_cultural_pillar = heritage_latin
-						}
-						add = {
-							value = 25
-							desc = game_rule_category_culture
-						}
-					}
+					#if = { # WGH TODO
+					#	limit = {
+					#		has_cultural_pillar = heritage_brythonic
+					#	}
+					#	add = {
+					#		value = 25
+					#		desc = heritage_brythonic_name
+					#	}
+					#}
+					#if = { # WGH TODO
+					#	limit = {
+					#		has_cultural_pillar = heritage_goidelic
+					#	}
+					#	add = {
+					#		value = 25
+					#		desc = heritage_goidelic_name
+					#	}
+					#}
+					#if = { # WGH TODO
+					#	limit = {
+					#		has_cultural_pillar = heritage_north_germanic
+					#	}
+					#	add = {
+					#		value = 25
+					#		desc = heritage_north_germanic_name
+					#	}
+					#}
+					#if = { # WGH TODO
+					#	limit = {
+					#		has_cultural_pillar = heritage_latin
+					#	}
+					#	add = {
+					#		value = 25
+					#		desc = game_rule_category_culture
+					#	}
+					#}
 				}
 				if = {
 					limit = { government_has_flag = government_is_tribal }
@@ -3444,6 +3445,15 @@
 						value = 50
 						desc = tribal_government
 					}
+					#if = { # WGH TODO
+					#	limit = {
+					#		has_cultural_pillar = heritage_latin
+					#	}
+					#	add = {
+					#		value = 25
+					#		desc = game_rule_category_culture
+					#	}
+					#}
 				}
 			}
 
@@ -3799,21 +3809,21 @@
 						desc = culture_era_late_medieval
 					}
 				}
-				if = {
-					limit = { 
-						culture = { 
-							OR = {
-								has_cultural_pillar = heritage_frankish
-								has_cultural_pillar = heritage_west_germanic
-								has_cultural_pillar = heritage_central_germanic
-							}
-						}
-					}
-					add = {
-						value = 15
-						desc = game_rule_category_culture
-					}
-				}
+				#if = { # WGH TODO
+				#	limit = { 
+				#		culture = { 
+				#			OR = {
+				#				has_cultural_pillar = heritage_frankish
+				#				has_cultural_pillar = heritage_west_germanic
+				#				has_cultural_pillar = heritage_central_germanic
+				#			}
+				#		}
+				#	}
+				#	add = {
+				#		value = 15
+				#		desc = game_rule_category_culture
+				#	}
+				#}
 			}
 
 			cost = {
@@ -4054,51 +4064,81 @@
 						desc = tribal_government
 					}
 				}
-				if = {
-					limit = { 
-						culture = { 
-							OR = {
-								has_cultural_pillar = heritage_akan
-								has_cultural_pillar = heritage_arabic
-								has_cultural_pillar = heritage_balto_finnic
-								has_cultural_pillar = heritage_berber
-								has_cultural_pillar = heritage_burman
-								has_cultural_pillar = heritage_central_african
-								has_cultural_pillar = heritage_dravidian
-								has_cultural_pillar = heritage_east_african
-								has_cultural_pillar = heritage_east_slavic
-								has_cultural_pillar = heritage_goidelic
-								has_cultural_pillar = heritage_west_african
-								has_cultural_pillar = heritage_indo_aryan
-								has_cultural_pillar = heritage_yoruba
-								has_cultural_pillar = heritage_north_germanic
-								has_cultural_pillar = heritage_sahelian
-								has_cultural_pillar = heritage_senegambian
-								has_cultural_pillar = heritage_ugro_permian
-								has_cultural_pillar = heritage_west_slavic
-							}
-						}
-					}
-					add = {
-						value = 15
-						desc = game_rule_category_culture
-					}
-				}
-				if = {
-					limit = { 
-						culture = { 
-							OR = {
-								has_cultural_pillar = heritage_burman
-								has_cultural_pillar = heritage_iranian
-								has_cultural_pillar = heritage_mongolic
-							}
-						}
-					}
-					add = {
-						value = 30
-						desc = game_rule_category_culture
-					}
-				}
+				#if = { # WGH TODO
+				#	limit = { 
+				#		culture = { 
+				#			OR = {
+				#				has_cultural_pillar = heritage_akan
+				#				has_cultural_pillar = heritage_arabic
+				#				has_cultural_pillar = heritage_balto_finnic
+				#				has_cultural_pillar = heritage_berber
+				#				has_cultural_pillar = heritage_burman
+				#				has_cultural_pillar = heritage_central_african
+				#				has_cultural_pillar = heritage_dravidian
+				#				has_cultural_pillar = heritage_east_african
+				#				has_cultural_pillar = heritage_east_slavic
+				#				has_cultural_pillar = heritage_goidelic
+				#				has_cultural_pillar = heritage_west_african
+				#				has_cultural_pillar = heritage_indo_aryan
+				#				has_cultural_pillar = heritage_yoruba
+				#				has_cultural_pillar = heritage_north_germanic
+				#				has_cultural_pillar = heritage_sahelian
+				#				has_cultural_pillar = heritage_senegambian
+				#				has_cultural_pillar = heritage_ugro_permian
+				#				has_cultural_pillar = heritage_west_slavic
+				#			}
+				#		}
+				#	}
+				#	add = {
+				#		value = 15
+				#		desc = game_rule_category_culture
+				#	}
+				#}
+				#if = { # WGH TODO
+				#	limit = { 
+				#		culture = { 
+				#			OR = {
+				#				has_cultural_pillar = heritage_akan
+				#				has_cultural_pillar = heritage_arabic
+				#				has_cultural_pillar = heritage_balto_finnic
+				#				has_cultural_pillar = heritage_berber
+				#				has_cultural_pillar = heritage_burman
+				#				has_cultural_pillar = heritage_central_african
+				#				has_cultural_pillar = heritage_dravidian
+				#				has_cultural_pillar = heritage_east_african
+				#				has_cultural_pillar = heritage_east_slavic
+				#				has_cultural_pillar = heritage_goidelic
+				#				has_cultural_pillar = heritage_west_african
+				#				has_cultural_pillar = heritage_indo_aryan
+				#				has_cultural_pillar = heritage_yoruba
+				#				has_cultural_pillar = heritage_north_germanic
+				#				has_cultural_pillar = heritage_sahelian
+				#				has_cultural_pillar = heritage_senegambian
+				#				has_cultural_pillar = heritage_ugro_permian
+				#				has_cultural_pillar = heritage_west_slavic
+				#			}
+				#		}
+				#	}
+				#	add = {
+				#		value = 15
+				#		desc = game_rule_category_culture
+				#	}
+				#}
+				#if = { # WGH TODO
+				#	limit = { 
+				#		culture = { 
+				#			OR = {
+				#				has_cultural_pillar = heritage_burman
+				#				has_cultural_pillar = heritage_iranian
+				#				has_cultural_pillar = heritage_mongolic
+				#			}
+				#		}
+				#	}
+				#	add = {
+				#		value = 30
+				#		desc = game_rule_category_culture
+				#	}
+				#}
 			}
 
 			cost = {
@@ -4882,42 +4922,42 @@
 						desc = profligate
 					}
 				}
-				if = {
-					limit = {
-						culture = { has_cultural_pillar = heritage_arabic }
-					}
-					add = {
-						value = 50
-						desc = heritage_arabic_name
-					}
-				}
-				if = {
-					limit = {
-						culture = { has_cultural_tradition = tradition_roman_legacy }
-					}
-					add = {
-						value = 50
-						desc = tradition_roman_legacy_name
-					}
-				}
-				if = {
-					limit = {
-						culture = { has_cultural_tradition = tradition_ep3_imperial_tagmata }
-					}
-					add = {
-						value = 50
-						desc = tradition_ep3_imperial_tagmata_name
-					}
-				}
-				if = {
-					limit = {
-						culture = { has_cultural_tradition = tradition_ep3_indomitable_azatani }
-					}
-					add = {
-						value = 50
-						desc = tradition_ep3_indomitable_azatani_name
-					}
-				}
+				#if = { # WGH TODO
+				#	limit = {
+				#		culture = { has_cultural_pillar = heritage_arabic }
+				#	}
+				#	add = {
+				#		value = 50
+				#		desc = heritage_arabic_name
+				#	}
+				#}
+				#if = { # WGH TODO
+				#	limit = {
+				#		culture = { has_cultural_tradition = tradition_roman_legacy }
+				#	}
+				#	add = {
+				#		value = 50
+				#		desc = tradition_roman_legacy_name
+				#	}
+				#}
+				#if = { # WGH TODO
+				#	limit = {
+				#		culture = { has_cultural_tradition = tradition_ep3_imperial_tagmata }
+				#	}
+				#	add = {
+				#		value = 50
+				#		desc = tradition_ep3_imperial_tagmata_name
+				#	}
+				#}
+				#if = { # WGH TODO
+				#	limit = {
+				#		culture = { has_cultural_tradition = tradition_ep3_indomitable_azatani }
+				#	}
+				#	add = {
+				#		value = 50
+				#		desc = tradition_ep3_indomitable_azatani_name
+				#	}
+				#}
 				if = {
 					limit = {
 						culture = { has_cultural_tradition = tradition_horse_lords }
@@ -4946,27 +4986,27 @@
 					}
 				}
 				if = {
-					limit = { religion = religion:islam_religion }
+					limit = { religion = religion:arabyan_religion }
 					add = {
 						value = 50
 						desc = contest_ai_maysir
 					}
 				}
-				if = {
-					limit = { 
-						culture = { 
-							OR = {
-								has_cultural_pillar = heritage_magyar
-								has_cultural_pillar = heritage_mongolic
-								has_cultural_pillar = heritage_turkic
-							}
-						}
-					}
-					add = {
-						value = 15
-						desc = game_rule_category_culture
-					}
-				}
+				#if = { # WGH TODO
+				#	limit = {
+				#		culture = { 
+				#			OR = {
+				#				has_cultural_pillar = heritage_magyar
+				#				has_cultural_pillar = heritage_mongolic
+				#				has_cultural_pillar = heritage_turkic
+				#			}
+				#		}
+				#	}
+				#	add = {
+				#		value = 15
+				#		desc = game_rule_category_culture
+				#	}
+				#}
 			}
 
 			cost = {
@@ -5251,10 +5291,10 @@
    		   government_has_flag = government_is_mercenary
    		   add = -5000
    		}
-		modifier = {
-   		   has_title = title:h_china
-   		   add = -5000
-   		}
+		#modifier = {
+   		#   has_title = title:h_china
+   		#   add = -5000
+   		#}
 
 		modifier = {
 			is_pool_guest = yes
