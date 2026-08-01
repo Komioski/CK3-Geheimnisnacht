@@ -80,10 +80,8 @@ portrait_wear_no_headgear_trigger = {
 			NOR = { # Exceptions for dukes, kings, popes
 				highest_held_title_tier >= tier_duchy # Should wear ducal or royal crown instead.
 				portrait_religious_head_popes_trigger = yes
-				# WHG TODO
-				always = no
-				#culture = { has_cultural_pillar = heritage_japonic } # Showing the top of your head is shameful
-				#culture = { has_cultural_pillar = heritage_chinese } # Showing the top of your head is shameful
+				culture = { has_cultural_pillar = heritage_japonic } # Showing the top of your head is shameful
+				culture = { has_cultural_pillar = heritage_chinese } # Showing the top of your head is shameful
 			}
 		}
 
@@ -3020,172 +3018,138 @@ portrait_religious_christian_trigger = {
 }
 
 portrait_religious_catholic_trigger = {
-	# WHG TODO
-	always = no
-	#faith = {
-	#	portrait_religious_faith_or_foundational_trigger = { FAITH = faith:catholic }
-	#}
+	faith = {
+		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:catholic }
+	}
 }
 
 portrait_religious_orthodox_trigger = {
-	# WHG TODO
-	always = no
-	#faith = {
-	#	OR = {
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:orthodox }
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:armenian_apostolic }
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:coptic }
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:messalian }
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:bogomilist }
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:paulician }
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:nestorian }
-	#	}
-	#}
+	faith = {
+		OR = {
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:orthodox }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:armenian_apostolic }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:coptic }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:messalian }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:bogomilist }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:paulician }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:nestorian }
+		}
+	}
 }
 
 portrait_religious_jewish_trigger = {
-	# WHG TODO
-	always = no
-	#religion = religion:judaism_religion
+	religion = religion:judaism_religion
 }
 
 portrait_religious_hellenism_trigger = {
-	# WHG TODO
-	always = no
-	#religion = religion:hellenism_religion
+	religion = religion:hellenism_religion
 }
 
 portrait_religious_muslim_trigger = {
-	# WHG TODO
+	# Wwarhammer
 	always = no
 	#religion = religion:islam_religion
 }
 
 portrait_religious_norse_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	religion = religion:germanic_religion
-	#	religion = religion:baltic_religion
-	#	religion = religion:finno_ugric_religion
-	#	religion = religion:paganism_religion
-	#	religion = religion:slavic_religion
-	#}
+	OR = {
+		religion = religion:germanic_religion
+		religion = religion:baltic_religion
+		religion = religion:finno_ugric_religion
+		religion = religion:paganism_religion
+		religion = religion:slavic_religion
+	}
 }
 
 ## CCP4 KHANTY / SAMI ##
 
 portrait_religious_siberian_trigger = { # these probably need dlc check?
-	# WHG TODO
-	always = no
-	#has_cp4_dlc_trigger = yes
-	#religion = religion:siberian_religion
+	has_cp4_dlc_trigger = yes
+	religion = religion:siberian_religion
 }
 
 
 portrait_religious_sami_trigger = {
-	# WHG TODO
-	always = no
-	#has_cp4_dlc_trigger = yes
-	#religion = religion:finno_ugric_religion
-	#portrait_sami_clothing_trigger = yes
+	has_cp4_dlc_trigger = yes
+	religion = religion:finno_ugric_religion
+	portrait_sami_clothing_trigger = yes
 }
 
 ## CCP7 EMISHI AINU / NIVKH NANAI ##
 
 portrait_religious_emishi_trigger = {
-	# WHG TODO
-	always = no
-	#has_cp7_dlc_trigger = yes
-	#religion = religion:kamuyism_religion
+	has_cp7_dlc_trigger = yes
+	religion = religion:kamuyism_religion
 }
 portrait_religious_shamanism_trigger = {
 	# technically this just makes it so shamanists wear vanilla steppe religious clothing so probably doesn't need a dlc check
-
-	# WHG TODO
-	always = no
-	#religion = religion:shamanism_religion
+	religion = religion:shamanism_religion
 }
 portrait_religious_shamanism_nivkh_trigger = { # same as above but shamanists with nivkh aesthetics will sometimes wear ainu sapanpe headgear
-	# WHG TODO
-	always = no
-	#has_cp7_dlc_trigger = yes
-	#portrait_nivkh_clothing_trigger = yes
-	#religion = religion:shamanism_religion
+	has_cp7_dlc_trigger = yes
+	portrait_nivkh_clothing_trigger = yes
+	religion = religion:shamanism_religion
 }
 
 
 portrait_religious_steppe_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	religion = religion:tengrism_religion
-	#	religion = religion:qiangic_religion
-	#	religion = religion:siberian_religion
-	#	religion = religion:mundhum_religion
-	#	religion = religion:tani_religion
-	#	religion = religion:magyar_religion
-	#	faith = {
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:old_bon }
-	#	}
-	#}
+	OR = {
+		religion = religion:tengrism_religion
+		religion = religion:qiangic_religion
+		religion = religion:siberian_religion
+		religion = religion:mundhum_religion
+		religion = religion:tani_religion
+		religion = religion:magyar_religion
+		faith = {
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:old_bon }
+		}
+	}
 }
 
 portrait_religious_buddhist_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	religion = religion:buddhism_religion
-	#	faith = {
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:bon }
-	#	}
-	#}
+	OR = {
+		religion = religion:buddhism_religion
+		faith = {
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:bon }
+		}
+	}
 }
 
 portrait_religious_taoist_trigger = {
-	# WHG TODO
-	always = no
-	#religion = religion:taoism_religion
+	religion = religion:taoism_religion
 }
 
 portrait_religious_hindu_trigger = {
-	# WHG TODO
-	always = no
-	#religion = religion:hinduism_religion
+	religion = religion:hinduism_religion
 }
 
-portrait_religious_jain_trigger = {# WHG TODO
-	always = no
-	#religion = religion:jainism_religion
+portrait_religious_jain_trigger = {
+	religion = religion:jainism_religion
 }
 
 portrait_religious_zoroastrian_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	religion = religion:zoroastrianism_religion
-	#	religion = religion:yazidi_religion
-	#	religion = religion:zunism_religion
-	#	faith = {
-	#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:mandeaism }
-	#	}
-	#	religion = religion:dualism_religion
-	#	religion = religion:basque_religion
-	#}
+	OR = {
+		religion = religion:zoroastrianism_religion
+		religion = religion:yazidi_religion
+		religion = religion:zunism_religion
+		faith = {
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:mandeaism }
+		}
+		religion = religion:dualism_religion
+		religion = religion:basque_religion
+	}
 }
 
 portrait_religious_african_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	religion = religion:akom_religion
-	#	religion = religion:waaqism_religion
-	#	religion = religion:west_african_religion
-	#	religion = religion:west_african_bori_religion
-	#	religion = religion:west_african_roog_religion
-	#	religion = religion:kushitism_religion
-	#	religion = religion:west_african_orisha_religion
-	#}
+	OR = {
+		religion = religion:akom_religion
+		religion = religion:waaqism_religion
+		religion = religion:west_african_religion
+		religion = religion:west_african_bori_religion
+		religion = religion:west_african_roog_religion
+		religion = religion:kushitism_religion
+		religion = religion:west_african_orisha_religion
+	}
 }
 
 
@@ -3371,7 +3335,5 @@ portrait_shared_makeup_trigger = {
 }
 
 use_longsword_default_trigger = {
-	# WHG TODO
-	always = no
-	#culture = { has_cultural_pillar = heritage_japonic }
+	culture = { has_cultural_pillar = heritage_japonic }
 }
