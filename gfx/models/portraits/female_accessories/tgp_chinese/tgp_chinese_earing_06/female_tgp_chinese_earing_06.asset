@@ -1,0 +1,30 @@
+pdxmesh = {
+	name = "female_tgp_chinese_earing_06_mesh"
+	file = "female_tgp_chinese_earing_06.mesh"
+
+
+	meshsettings = {
+		name = "f_headgear_sec_tgp_chinese_roy_01Shape"
+		index = 0
+		texture_diffuse = "f_headgear_sec_tgp_chinese_roy_01_diffuse.dds"
+		texture_normal = "f_headgear_sec_tgp_chinese_roy_01_normal.dds"
+		texture_specular = "f_headgear_sec_tgp_chinese_roy_01_properties.dds"
+		shader = "portrait_attachment_alpha_to_coverage"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "female_tgp_chinese_earing_06_entity"
+	pdxmesh = "female_tgp_chinese_earing_06_mesh"
+
+
+        game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/f_headgear/tgp_chinese/roy_01/f_headgear_sec_tgp_chinese_roy_01_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "byzantine_nobility_headgear_01"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}

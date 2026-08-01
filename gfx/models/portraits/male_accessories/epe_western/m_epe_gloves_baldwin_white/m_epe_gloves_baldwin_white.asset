@@ -1,0 +1,33 @@
+pdxmesh = {
+	name = "m_epe_gloves_baldwin_white_mesh"
+	file = "m_epe_gloves_baldwin_white.mesh"
+
+	blend_shape = { id = "male_epe_gloves_baldwin_white_bs_fat"					type = "m_epe_gloves_baldwin_white_bs_fat.mesh" }
+
+	meshsettings = {
+		name = "_male_clothes_religious_catholic_head_01_male_clothes_religious"
+		index = 0
+		texture_diffuse = "m_clothes_religious_catholic_head_01_diffuse.dds"
+		texture_normal = "m_clothes_religious_catholic_head_01_normal.dds"
+		texture_specular = "m_clothes_religious_catholic_head_01_properties.dds"
+		shader = "portrait_attachment_pattern_alpha_to_coverage"
+		shader_file = "gfx/FX/jomini/portrait.shader"
+	}
+}
+
+entity = {
+	name = "m_epe_gloves_baldwin_white_entity"
+	pdxmesh = "m_epe_gloves_baldwin_white_mesh"
+
+
+	attribute = { name = "bs_body_fat_1"					blend_shape = "male_epe_gloves_baldwin_white_bs_fat" }
+	
+	game_data = {
+        portrait_entity_user_data = {
+			portrait_accessory = {
+				pattern_mask = "gfx/models/portraits/m_clothes/catholic_rel/head_01/m_clothes_religious_catholic_head_01_masks.dds"	#Any 4-channel texture. Each channel will be used to mask a pattern from the variation object
+				variation = "baldwin_clothes_royalty_01"	#A "variation" object in gfx/portraits/accessory_variations/
+			}
+        }
+	}
+}
