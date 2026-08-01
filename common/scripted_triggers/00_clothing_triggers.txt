@@ -438,18 +438,21 @@ portrait_wear_no_crown_trigger = { # Rulers should be coronated to wear a crown 
 }
 
 portrait_wear_christian_holy_order_trigger = { # Christian holy order members/vassals should wear different armor
-	OR = {
-		AND = { # Is a Christian holy order member
-			religion = religion:christianity_religion
-			government_has_flag = government_is_holy_order
-		}
-		AND = { # Is a Christian holy order vassal
-			religion = religion:christianity_religion
-			is_playable_character = no
-			portrait_wear_armor_trigger = yes
-			liege ?= {  government_has_flag = government_is_holy_order }
-		}
-	}
+	# WGH TODO
+	always = no
+
+	#OR = {
+	#	AND = { # Is a Christian holy order member
+	#		religion = religion:christianity_religion
+	#		government_has_flag = government_is_holy_order
+	#	}
+	#	AND = { # Is a Christian holy order vassal
+	#		religion = religion:christianity_religion
+	#		is_playable_character = no
+	#		portrait_wear_armor_trigger = yes
+	#		liege ?= {  government_has_flag = government_is_holy_order }
+	#	}
+	#}
 }
 
 portrait_has_trait_trigger = {
