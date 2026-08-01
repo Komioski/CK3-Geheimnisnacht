@@ -1235,13 +1235,14 @@ raiding.0023 = {
 					has_bad_nickname = yes
 				}
 			}
+			#if = { # WGH TODO
+			#	limit = {
+			#		culture = { has_cultural_pillar = heritage_north_germanic }
+			#	}
+			#	give_nickname = nick_the_viking
+			#}
+			#else_if = {
 			if = {
-				limit = {
-					culture = { has_cultural_pillar = heritage_north_germanic }
-				}
-				give_nickname = nick_the_viking
-			}
-			else_if = {
 				limit = {
 					is_male = yes
 				}
@@ -1274,23 +1275,26 @@ raiding.0023 = {
 # Hereward special raiding event
 # by Nick Meredith
 #################################
-
 #	You have the chance to sack a holding.
 raiding.0031 = {
 	hidden = yes
 	scope = army
 
 	trigger = {
+		# WGH TODO
+		always = no
+
 		#You need to be Hereward, plus leading your own forces.
-		army_commander ?= {
-			has_trait = the_wake
-		}
+		#exists = army_commander
+		#army_commander = {
+		#	has_trait = the_wake
+		#}
 
 		#The province must be ruled by a Norman, or Norman culture itself
-		OR = {
-			scope:barony.culture = culture:norman
-			scope:barony.holder.culture = culture:norman
-		}
+		#OR = {
+		#	scope:barony.culture = culture:norman
+		#	scope:barony.holder.culture = culture:norman
+		#}
 	}
 
 	immediate = {
