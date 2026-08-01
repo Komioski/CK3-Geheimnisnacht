@@ -48,7 +48,7 @@ fp3_yearly.2000 = {
 			}
 			# Faith must condemn drunkard/hashishiyah
 			faith = {
-				religion = religion:islam_religion
+				religion = religion:arabyan_religion
 				NOR = {
 					trait_is_virtue = drunkard
 					trait_is_virtue = hashishiyah
@@ -221,7 +221,7 @@ fp3_yearly.2001 = {
 			exists = scope:intoxicated
 			AND = {
 				NOT = { has_character_flag = had_event_fp3_yearly_2001 }
-				religion = religion:islam_religion
+				religion = religion:arabyan_religion
 				NOR = {
 					has_trait = drunkard
 					has_trait = hashishiyah
@@ -812,10 +812,10 @@ fp3_yearly.2020 = {
 
 	trigger = {
 		is_landed = yes
-		has_religion = religion:islam_religion
+		has_religion = religion:arabyan_religion
 		piety_level > low_negative_piety_level
 		liege ?= {
-			has_religion = religion:islam_religion
+			has_religion = religion:arabyan_religion
 			employs_tax_collector = yes
 			any_tax_collector = {
 				this != root
@@ -1128,11 +1128,11 @@ fp3_yearly.2021 = {
 	cooldown = { years = 5 }
 
 	trigger = {
-		has_religion = religion:islam_religion
+		has_religion = religion:arabyan_religion
 		employs_tax_collector = yes
 		any_tax_collector = {
 			any_tax_collector_vassal = {
-				has_religion = religion:islam_religion
+				has_religion = religion:arabyan_religion
 				piety_level > low_negative_piety_level
 				is_available_adult = yes
 				trigger_if = {
@@ -1151,7 +1151,7 @@ fp3_yearly.2021 = {
 			random_tax_collector = {
 				limit = {
 					any_tax_collector_vassal = {
-						has_religion = religion:islam_religion
+						has_religion = religion:arabyan_religion
 						piety_level > low_negative_piety_level
 						is_available_adult = yes
 						trigger_if = {
@@ -1211,7 +1211,7 @@ fp3_yearly.2021 = {
 					random_tax_collector_vassal = {
 						limit = {
 							is_available_ai_adult = yes
-							has_religion = religion:islam_religion
+							has_religion = religion:arabyan_religion
 							piety_level > low_negative_piety_level
 							NOT = { has_trait = shy }
 						}
@@ -1760,7 +1760,7 @@ fp3_yearly.2040 = {
 			triggered_desc = {
 				trigger = {
 					any_character_war = {
-						primary_attacker = { faith.religion = religion:islam_religion }
+						primary_attacker = { faith.religion = religion:arabyan_religion }
 					}
 				}
 				desc = fp3_yearly.2040.desc_attacker_is_muslim
@@ -1789,7 +1789,7 @@ fp3_yearly.2040 = {
 		NOT = { has_trait = incapable }
 		NOT = { has_variable = gone_adventuring }
 		NOT = { has_character_flag = planning_an_activity }
-		faith.religion = religion:islam_religion
+		faith.religion = religion:arabyan_religion
 		is_at_war_as_defender = yes
 		any_character_war = {
 			primary_defender = root
