@@ -2015,7 +2015,7 @@ combat_event.1014 = {
 				show_as_tooltip = {
 					every_in_list = {
 						list = relevant_slain_combatants
-						
+
 						death = {
 							death_reason = death_battle
 						}
@@ -2029,40 +2029,40 @@ combat_event.1014 = {
 }
 
 # Become known as a Gajapati if you have the prerequisites
-combat_event.2001 = {
-	hidden = yes
-	scope = combat_side
-
-	trigger = {
-		has_maa_of_type = war_elephant
-		side_commander ?= {
-			is_alive = yes
-			culture = {
-				has_cultural_parameter = elephant_bonuses_for_rank_4_education
-			}
-			OR = {
-				has_trait = education_diplomacy_4
-				has_trait = education_stewardship_4
-				has_trait = education_martial_4
-				has_trait = education_learning_4
-				has_trait = education_diplomacy_5
-				has_trait = education_stewardship_5
-				has_trait = education_martial_5
-				has_trait = education_learning_5
-			}
-			NOT = {
-				has_nickname = nick_gajapati
-			}
-		}
-	}
-
-	immediate = {
-		random = {
-			chance = 15
-			side_commander = { set_nickname_effect = { NICKNAME = nick_gajapati } }
-		}
-	}
-}
+#combat_event.2001 = { # WGH TODO
+#	hidden = yes
+#	scope = combat_side
+#
+#	trigger = {
+#		has_maa_of_type = war_elephant
+#		side_commander ?= {
+#			is_alive = yes
+#			culture = {
+#				has_cultural_parameter = elephant_bonuses_for_rank_4_education
+#			}
+#			OR = {
+#				has_trait = education_diplomacy_4
+#				has_trait = education_stewardship_4
+#				has_trait = education_martial_4
+#				has_trait = education_learning_4
+#				has_trait = education_diplomacy_5
+#				has_trait = education_stewardship_5
+#				has_trait = education_martial_5
+#				has_trait = education_learning_5
+#			}
+#			NOT = {
+#				has_nickname = nick_gajapati
+#			}
+#		}
+#	}
+#
+#	immediate = {
+#		random = {
+#			chance = 15
+#			side_commander = { set_nickname_effect = { NICKNAME = nick_gajapati } }
+#		}
+#	}
+#}
 
 #####################
 # Accolade Glory Changes
@@ -2135,37 +2135,36 @@ combat_event.2111 = {
 # Hereward the Wake
 
 # You beat a Norman! Gain XP.
-combat_event.2200 = {
-	hidden = yes
-	scope = combat_side
+# combat_event.2200 = { # WGH TODO
+# 	hidden = yes
+# 	scope = combat_side
 
-	trigger = {
-		exists = side_commander
-		exists = enemy_side.side_commander
-		enemy_side.side_commander = {
-			has_culture = culture:norman
-		}
-		side_commander = {
-			has_trait = the_wake
-		}
-	}
+# 	trigger = {
+# 		exists = enemy_side.side_commander
+# 		enemy_side.side_commander = {
+# 			has_culture = culture:norman
+# 		}
+# 		side_commander = {
+# 			has_trait = the_wake
+# 		}
+# 	}
 
-	immediate = {
-		if = { #Hereward should always have the trait, but just in case
-			limit = {
-				side_commander = {
-					has_trait = the_wake
-				}
-			}
-			side_commander = {
-				add_trait_xp = {
-					trait = the_wake
-					value = { 10 15 }
-				}
-			}
-		}
-	}
-}
+# 	immediate = {
+# 		if = { #Hereward should always have the trait, but just in case
+# 			limit = {
+# 				side_commander = {
+# 					has_trait = the_wake
+# 				}
+# 			}
+# 			side_commander = {
+# 				add_trait_xp = {
+# 					trait = the_wake
+# 					value = { 10 15 }
+# 				}
+# 			}
+# 		}
+# 	}
+# }
 
 ##############
 # Battle PoI #
