@@ -679,73 +679,85 @@ portrait_northern_clothing_spouse_trigger = {
 ### FP2 - Fate of Iberia ###
 
 portrait_fp2_iberian_muslim_clothing_trigger = {
-	has_fp2_dlc_trigger = yes
-	OR = {
-		portrait_shared_clothing_contents_trigger = {
-			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = iberian_muslim
-		}
-		trigger_if = {
-			limit = { exists = this	}
-			AND = {
-				religion = religion:islam_religion
-				capital_province ?= {
-					geographical_region = world_europe_west_iberia
-				}
-			}
-		}
-	}
+	# WGH TODO
+	always = no
+
+	#has_fp2_dlc_trigger = yes
+	#OR = {
+	#	portrait_shared_clothing_contents_trigger = {
+	#		CULTURE_SCOPE = scope:culture
+	#		CULTURE_FLAG = iberian_muslim
+	#	}
+	#	trigger_if = {
+	#		limit = { exists = this	}
+	#		AND = {
+	#			religion = religion:islam_religion
+	#			capital_province ?= {
+	#				geographical_region = world_europe_west_iberia
+	#			}
+	#		}
+	#	}
+	#}
 }
 
 portrait_fp2_iberian_muslim_clothing_spouse_trigger = {
-	has_fp2_dlc_trigger = yes
-	OR = {
-		portrait_shared_clothing_contents_trigger = {
-			CULTURE_SCOPE = culture
-			CULTURE_FLAG = iberian_muslim
-		}
-		AND = {
-			religion = religion:islam_religion
-			capital_province ?= {
-				geographical_region = world_europe_west_iberia
-			}
-		}
-	}
+	# WGH TODO
+	always = no
+
+	#has_fp2_dlc_trigger = yes
+	#OR = {
+	#	portrait_shared_clothing_contents_trigger = {
+	#		CULTURE_SCOPE = culture
+	#		CULTURE_FLAG = iberian_muslim
+	#	}
+	#	AND = {
+	#		religion = religion:islam_religion
+	#		capital_province ?= {
+	#			geographical_region = world_europe_west_iberia
+	#		}
+	#	}
+	#}
 }
 
 portrait_fp2_iberian_christian_clothing_trigger = {
-	has_fp2_dlc_trigger = yes
-	OR = {
-		portrait_shared_clothing_contents_trigger = {
-			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = iberian_christian
-		}
-		trigger_if = {
-			limit = { exists = this }
-			AND = {
-				religion = religion:christianity_religion
-				capital_province ?= {
-					geographical_region = world_europe_west_iberia
-				}
-			}
-		}
-	}
+	# WGH TODO
+	always = no
+
+	#has_fp2_dlc_trigger = yes
+	#OR = {
+	#	portrait_shared_clothing_contents_trigger = {
+	#		CULTURE_SCOPE = scope:culture
+	#		CULTURE_FLAG = iberian_christian
+	#	}
+	#	trigger_if = {
+	#		limit = { exists = this }
+	#		AND = {
+	#			religion = religion:christianity_religion
+	#			capital_province ?= {
+	#				geographical_region = world_europe_west_iberia
+	#			}
+	#		}
+	#	}
+	#}
 }
 
 portrait_fp2_iberian_christian_clothing_spouse_trigger = {
-	has_fp2_dlc_trigger = yes
-	OR = {
-		portrait_shared_clothing_contents_trigger = {
-			CULTURE_SCOPE = culture
-			CULTURE_FLAG = iberian_christian
-		}
-		AND = {
-			religion = religion:christianity_religion
-			capital_province ?= {
-				geographical_region = world_europe_west_iberia
-			}
-		}
-	}
+	# WGH TODO
+	always = no
+
+	#has_fp2_dlc_trigger = yes
+	#OR = {
+	#	portrait_shared_clothing_contents_trigger = {
+	#		CULTURE_SCOPE = culture
+	#		CULTURE_FLAG = iberian_christian
+	#	}
+	#	AND = {
+	#		religion = religion:christianity_religion
+	#		capital_province ?= {
+	#			geographical_region = world_europe_west_iberia
+	#		}
+	#	}
+	#}
 }
 
 ### FP3 - Legacy of Persia  ###
