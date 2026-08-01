@@ -1303,8 +1303,8 @@ yearly_playable_pulse = {
 		court_maintenance.0012 # Dynasty banner improves with renown
 		court_maintenance.0013 # Remove duplicate dynasty banners
 		wastelands.0020 #LotR
-		murder_scheme_maintenance.2 #LotR
-		murder_scheme_maintenance.3 #LotR
+		#murder_scheme_maintenance.2 #LotR - WGH TODO - Missing Lotr stuff
+		#murder_scheme_maintenance.3 #LotR - WGH TODO - Missing Lotr stuff
 	}
 	on_actions = {
 		ai_character_pulse
@@ -1519,28 +1519,28 @@ three_year_playable_pulse = {
 				domicile = { move_domicile = scope:scoped_ruler.capital_province }
 			}
 		}
-		if = { # Inspirations for courtiers of Advancement Movement rulers
-			limit = {
-				has_dlc_feature = all_under_heaven
-				top_participant_group:dynastic_cycle ?= {
-					participant_group_type = advancement_movement
-				}
-				any_courtier_or_guest = {
-					is_physically_able_adult = yes
-					ep1_is_valid_character_for_inspiration_trigger = yes
-					save_temporary_scope_as = inspired_courtier
-				}
-			}
-			grant_inspiration_to_character_no_court_artifacts_effect = {
-				CHARACTER = scope:inspired_courtier
-			}
-			send_interface_toast = {
-				type = msg_court_inspiration
-				left_icon = scope:inspired_courtier
-				title = courtier_inspired_message
-				desc = courtier_inspired_effect
-			}
-		}
+		#if = { # Inspirations for courtiers of Advancement Movement rulers # WGH TODO
+		#	limit = {
+		#		has_dlc_feature = all_under_heaven
+		#		top_participant_group:dynastic_cycle ?= {
+		#			participant_group_type = advancement_movement
+		#		}
+		#		any_courtier_or_guest = {
+		#			is_physically_able_adult = yes
+		#			ep1_is_valid_character_for_inspiration_trigger = yes
+		#			save_temporary_scope_as = inspired_courtier
+		#		}
+		#	}
+		#	grant_inspiration_to_character_no_court_artifacts_effect = {
+		#		CHARACTER = scope:inspired_courtier
+		#	}
+		#	send_interface_toast = {
+		#		type = msg_court_inspiration
+		#		left_icon = scope:inspired_courtier
+		#		title = courtier_inspired_message
+		#		desc = courtier_inspired_effect
+		#	}
+		#}
 		#Accolade knights training
 		if = {
 			limit = {
@@ -2644,20 +2644,20 @@ on_yearly_events = {
 		200 = fp1_yearly.0071 # In the Deep Places of the World - locals in your Scandi capital report a troll.
 		15 = fp1_yearly.2000 # A Child wants to run away to marry their beloved
 
-		#LotR Flavour Events - Generic adapted from VIET
-		75 = flavourevent.0001 # Hears a Sound on the Wind - Positive
-		75 = flavourevent.0002 # Hears a Sound on the Wind - Negative
-		150 = flavourevent.0003 # Offered Honey Cakes
-		150 = flavourevent.0004 # Overhear Gossiping Servants
-		150 = flavourevent.0005 # Tried and failed to remember a dream
-		150 = flavourevent.0006 # Servant's child recently died
-		200 = flavourevent.0007 # Reading about an ancient empire
-		150 = flavourevent.0008 # A difficult read
-		100 = flavourevent.0009 # A Forgotten Identity
-		75 = flavourevent.0010 # Rumors of illegitimate child with a peasant
-		100 = flavourevent.0012 # The Ivory Trader - Thani-Hazad area specific flavour event
-		75 = flavourevent.0013 # Numenorean gold hoard - Thani-Hazad area specific flavour event
-		500 = flavourevent.0016 # Haunted by the White Dread - sailing followup
+		#LotR Flavour Events - Generic adapted from VIET # WGH TODO
+		#75 = flavourevent.0001 # Hears a Sound on the Wind - Positive
+		#75 = flavourevent.0002 # Hears a Sound on the Wind - Negative
+		#150 = flavourevent.0003 # Offered Honey Cakes
+		#150 = flavourevent.0004 # Overhear Gossiping Servants
+		#150 = flavourevent.0005 # Tried and failed to remember a dream
+		#150 = flavourevent.0006 # Servant's child recently died
+		#200 = flavourevent.0007 # Reading about an ancient empire
+		#150 = flavourevent.0008 # A difficult read
+		#100 = flavourevent.0009 # A Forgotten Identity
+		#75 = flavourevent.0010 # Rumors of illegitimate child with a peasant
+		#100 = flavourevent.0012 # The Ivory Trader - Thani-Hazad area specific flavour event
+		#75 = flavourevent.0013 # Numenorean gold hoard - Thani-Hazad area specific flavour event
+		#500 = flavourevent.0016 # Haunted by the White Dread - sailing followup
 
 		#EP1 Flavor Events
 		50 = ep1_flavor.0001 # A neighbouring court has a secret child
