@@ -26,11 +26,6 @@
 # Does *not* provide scope:transfer_type
 lotr_on_title_destroyed = {
 	effect = {
-		if = {
-			# WGH
-			always = no
-		}
-
 		# Wasteland stuff
 		correct_wastelands_tracker = yes
 		remove_upkeep_modifier = yes
@@ -48,21 +43,24 @@ lotr_on_title_destroyed = {
 lotr_on_title_gain = {
 	effect = {
 		if = {
-			limit = {
-				has_defensive_alliance = yes
-				NOT = { confederation ?= { has_variable = lotr_no_confederation_rename } }
-				scope:title = root.primary_title
-			}
-			confederation = {
-				random_confederation_member = {
-					limit = { NOT = { this = root } }
-					save_scope_as = defensive_alliance_member
-				}
-			}
-			lotr_refresh_defensive_alliance_name = {
-				DEFENSIVE_ALLY = scope:defensive_alliance_member
-				LOC_KEY = two_realm_name
-			}
+			# WGH TODO
+			limit = { always = no }
+
+			#limit = {
+			#	has_defensive_alliance = yes
+			#	NOT = { confederation ?= { has_variable = lotr_no_confederation_rename } }
+			#	scope:title = root.primary_title
+			#}
+			#confederation = {
+			#	random_confederation_member = {
+			#		limit = { NOT = { this = root } }
+			#		save_scope_as = defensive_alliance_member
+			#	}
+			#}
+			#lotr_refresh_defensive_alliance_name = {
+			#	DEFENSIVE_ALLY = scope:defensive_alliance_member
+			#	LOC_KEY = two_realm_name
+			#}
 		}
 		if = {
 			limit = {
@@ -227,15 +225,15 @@ lotr_on_title_gain = {
 						limit = { is_halfling = yes } # WGH
 						set_holding_type = city_holding
 					}
-					else_if = {
-						limit = {
-							OR = {
-								is_maiar = yes
-								is_dwarf = yes
-							}
-						}
-						set_holding_type = castle_holding
-					}
+					#else_if = { # WGH TODO
+					#	limit = {
+					#		OR = {
+					#			is_maiar = yes
+					#			is_dwarf = yes
+					#		}
+					#	}
+					#	set_holding_type = castle_holding
+					#}
 				}
 			}
 			debug_log = "Wilderness: Illegal Wilderness turned to Tribal"
@@ -405,230 +403,6 @@ lotr_on_title_gain = {
 			}
 		}
 
-		if = {
-			limit = { scope:title ?= title:d_eryn_vorn }
-			trigger_event = druedain.0100
-		}
-		if = {
-			limit = {
-				AND = {
-					scope:title ?= title:e_isengard_unleashed
-					NOT = { root = character:lineofsaruman }
-				}
-			}
-			destroy_title = title:e_isengard_unleashed
-		}
-
-		#LotR - Convert Elven barons to the correct government
-		if = {
-			limit = {
-				scope:title ?= {
-					tier = tier_barony
-					title_province = { has_holding_type = elven_holding }
-				}
-				root = {
-					is_elf = yes
-				}
-				scope:title.county.holder = { is_elf = yes }
-				NOT = { government_has_flag = government_is_elven }
-			}
-			root = { change_government = elven_government }
-		}
-
-		# LotR - If orc gains county with non-orc buildings, destroy invalid buildings
-		if = {
-			limit = {
-				scope:title ?= {
-					tier = tier_county
-				}
-				root = {
-					is_orc = yes
-					is_ai = yes
-				}
-			}
-
-			scope:title ?= {
-				every_county_province = {
-					remove_building_any_level = { BUILDING = caravanserai }
-					remove_building_any_level = { BUILDING = watermills }
-					remove_building_any_level = { BUILDING = windmills }
-					remove_building_any_level = { BUILDING = common_tradeport }
-					remove_building_any_level = { BUILDING = pastures }
-					remove_building_any_level = { BUILDING = hunting_grounds }
-					remove_building_any_level = { BUILDING = orchards }
-					remove_building_any_level = { BUILDING = farm_estates }
-					remove_building_any_level = { BUILDING = cereal_fields }
-					remove_building_any_level = { BUILDING = logging_camps }
-					remove_building_any_level = { BUILDING = peat_quarries }
-					remove_building_any_level = { BUILDING = hill_farms }
-					remove_building_any_level = { BUILDING = elephant_pens }
-					remove_building_any_level = { BUILDING = plantations }
-					remove_building_any_level = { BUILDING = quarries }
-					remove_building_any_level = { BUILDING = guild_halls }
-					#remove_building_any_level = { BUILDING = ramparts }
-					#remove_building_any_level = { BUILDING = curtain_walls }
-					#remove_building_any_level = { BUILDING = watchtowers }
-					#remove_building_any_level = { BUILDING = hill_forts }
-					remove_building_any_level = { BUILDING = wind_furnace }
-					remove_building_any_level = { BUILDING = workshops }
-					remove_building_any_level = { BUILDING = horse_pastures }
-					remove_building_any_level = { BUILDING = hillside_grazing }
-					remove_building_any_level = { BUILDING = warrior_lodges }
-					remove_building_any_level = { BUILDING = military_camps }
-					remove_building_any_level = { BUILDING = regimental_grounds }
-					remove_building_any_level = { BUILDING = outposts }
-					remove_building_any_level = { BUILDING = barracks }
-					remove_building_any_level = { BUILDING = camel_farms }
-					remove_building_any_level = { BUILDING = stables }
-					remove_building_any_level = { BUILDING = smiths }
-					remove_building_any_level = { BUILDING = hillside_grazing }
-					remove_building_any_level = { BUILDING = murex_farm }
-					remove_building_any_level = { BUILDING = dwarven_ale_house }
-					remove_building_any_level = { BUILDING = dwarven_fungal_farm }
-					remove_building_any_level = { BUILDING = dwarven_terrace_farm }
-					remove_building_any_level = { BUILDING = dwarven_quarry }
-					remove_building_any_level = { BUILDING = dwarven_crafts }
-					remove_building_any_level = { BUILDING = dwarven_toolmaker_guild }
-					remove_building_any_level = { BUILDING = dwarven_vaults }
-					remove_building_any_level = { BUILDING = dwarven_roads }
-					remove_building_any_level = { BUILDING = dwarven_armory }
-					remove_building_any_level = { BUILDING = dwarven_hi_barracks }
-					remove_building_any_level = { BUILDING = dwarven_pike_barracks }
-					remove_building_any_level = { BUILDING = dwarven_archer_barracks }
-					remove_building_any_level = { BUILDING = dwarven_skirmisher_barracks }
-					remove_building_any_level = { BUILDING = dwarven_pit_mine }
-					remove_building_any_level = { BUILDING = goat_pastures }
-
-					remove_building_any_level_max_4 = { BUILDING = dwarven_surface_workshop }
-
-					remove_building_any_level_max_5 = { BUILDING = dwarven_hoard }
-					remove_building_any_level_max_5 = { BUILDING = dwarven_siege_workshop }
-
-
-					remove_building_any_level_max_6 = { BUILDING = dwarven_outpost }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_surface_farm }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_market }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_mustering_grounds }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_tavern }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_forestry }
-
-					remove_duchy_building_any_level = { BUILDING = military_specialization }
-					remove_duchy_building_any_level = { BUILDING = economic_specialization }
-					remove_duchy_building_any_level = { BUILDING = glory_specialization }
-					remove_duchy_building_any_level = { BUILDING = dwarven_bank_economic }
-					remove_duchy_building_any_level = { BUILDING = dwarven_kings_armory_military }
-					remove_duchy_building_any_level = { BUILDING = dwarven_grand_library }
-
-					remove_duchy_building_any_level = { BUILDING = hall_of_music_and_tales }
-					remove_duchy_building_any_level = { BUILDING = crafting_enclaves }
-					remove_duchy_building_any_level = { BUILDING = sentinel_keeps }
-					remove_duchy_building_any_level = { BUILDING = warriors_enclave }
-					remove_duchy_building_any_level = { BUILDING = sanctuary_groves }
-					#remove_building_any_level = { BUILDING = dwarven_forge }
-					if = { #Ruin Dwarven Capitals
-						limit = {
-							has_ruined_great_building = no
-							OR = {
-								has_building_with_flag = dwarven_capital_building
-								has_building_with_flag = elven_great_building
-
-							}
-						}
-						ruin_great_building = yes
-					}
-				}
-			}
-		}
-
-		# LotR - If non-orc gains county with orc buildings, destroy invalid buildings
-		if = {
-			limit = {
-				scope:title ?= {
-					tier = tier_county
-				}
-				root = {
-					lotr_orc_or_nurniag_buildings = no
-					is_ai = yes
-				}
-			}
-
-			scope:title ?= {
-				every_county_province = {
-					remove_building_any_level = { BUILDING = slave_farms }
-					remove_building_any_level = { BUILDING = logging_outposts }
-					remove_building_any_level = { BUILDING = raiding_camps }
-					remove_building_any_level = { BUILDING = slave_mines }
-					remove_building_any_level = { BUILDING = hunting_outposts }
-					remove_building_any_level = { BUILDING = uruk_pits }
-					remove_building_any_level = { BUILDING = furnaces }
-					remove_building_any_level = { BUILDING = warg_pits }
-					remove_building_any_level = { BUILDING = scouting_posts }
-					remove_building_any_level = { BUILDING = orc_siege_works }
-					remove_duchy_building_any_level = { BUILDING = liquor_stills }
-					remove_duchy_building_any_level = { BUILDING = orc_barracks }
-					remove_duchy_building_any_level = { BUILDING = loot_houses }
-					remove_duchy_building_any_level = { BUILDING = proving_ground }
-					remove_duchy_building_any_level = { BUILDING = tunnel_network }
-					remove_duchy_building_any_level = { BUILDING = experimental_workshop }
-					remove_duchy_building_any_level = { BUILDING = heavy_armoury }
-					remove_duchy_building_any_level = { BUILDING = snaga_warrens }
-					remove_duchy_building_any_level = { BUILDING = monster_warrens }
-					remove_duchy_building_any_level = { BUILDING = warg_warrens }
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				scope:title ?= {
-					tier = tier_county
-				}
-				is_elf = yes
-			}
-			scope:title ?= {
-				every_county_province = {
-					# Dwarves
-					remove_duchy_building_any_level = { BUILDING = military_specialization }
-					remove_duchy_building_any_level = { BUILDING = economic_specialization }
-					remove_duchy_building_any_level = { BUILDING = glory_specialization }
-					remove_duchy_building_any_level = { BUILDING = dwarven_bank_economic }
-					remove_duchy_building_any_level = { BUILDING = dwarven_kings_armory_military }
-					remove_duchy_building_any_level = { BUILDING = dwarven_grand_library }
-
-					# Orcs
-					remove_duchy_building_any_level = { BUILDING = liquor_stills }
-					remove_duchy_building_any_level = { BUILDING = orc_barracks }
-					remove_duchy_building_any_level = { BUILDING = loot_houses }
-					remove_duchy_building_any_level = { BUILDING = proving_ground }
-					remove_duchy_building_any_level = { BUILDING = tunnel_network }
-					remove_duchy_building_any_level = { BUILDING = experimental_workshop }
-					remove_duchy_building_any_level = { BUILDING = heavy_armoury }
-					remove_duchy_building_any_level = { BUILDING = snaga_warrens }
-					remove_duchy_building_any_level = { BUILDING = monster_warrens }
-					remove_duchy_building_any_level = { BUILDING = warg_warrens }
-
-					# Humans
-					remove_duchy_building_any_level = { BUILDING = cochineal_industry }
-					remove_duchy_building_any_level = { BUILDING = bazaar_of_middle_earth }
-					remove_duchy_building_any_level = { BUILDING = mumakil_pen }
-					remove_duchy_building_any_level = { BUILDING = dragon_kiln }
-					remove_duchy_building_any_level = { BUILDING = examination_hall }
-					remove_duchy_building_any_level = { BUILDING = charnel_grounds }
-					remove_duchy_building_any_level = { BUILDING = burial_site }
-					remove_duchy_building_any_level = { BUILDING = royal_garden }
-					remove_duchy_building_any_level = { BUILDING = military_academy }
-					remove_duchy_building_any_level = { BUILDING = siege_works }
-					remove_duchy_building_any_level = { BUILDING = royal_armory }
-					remove_duchy_building_any_level = { BUILDING = jousting_lists }
-					remove_duchy_building_any_level = { BUILDING = blacksmiths }
-					remove_duchy_building_any_level = { BUILDING = archery_ranges }
-					remove_duchy_building_any_level = { BUILDING = tax_assessor }
-					remove_duchy_building_any_level = { BUILDING = leisure_palace }
-					remove_duchy_building_any_level = { BUILDING = royal_forest }
-				}
-			}
-		}
-
 		if = { #Converting conquered colonies to new holder's culture/faith
 			limit = {
 				restricted_culture = no
@@ -664,341 +438,6 @@ lotr_on_title_gain = {
 				#}
 			}
 			#trigger_event = race.0001 # WGH TODO
-		}
-
-		# Elves are removed when conquered by Orcs or evil-aligned humans
-		if = {
-			limit = {
-				# WGH TODO
-				always = no
-				
-				#OR = {
-				#	is_orc = yes
-				#	is_nazgul = yes
-				#	is_maiar_fallen = yes
-				#	is_evil_istari = yes
-				#	faith_is_evil = yes
-				#}
-			}
-			if = {
-				limit = {
-					scope:title ?= {
-						tier = tier_county
-						is_elf = yes
-					}
-				}
-				send_interface_toast = {
-					left_icon = root
-					title = settlement_conquered_by_orcs.toast
-
-					if = {
-						limit = {
-							scope:title ?= {
-								has_county_modifier = marauding_orc_dregs_modifier
-							}
-						}
-						scope:title ?= {
-							remove_county_modifier = marauding_orc_dregs_modifier
-						}
-					}
-
-					if = {
-						limit = {
-							OR = {
-								is_nazgul = yes
-								is_maiar_fallen = yes
-							}
-						}
-						scope:title ?= {
-							if = {
-								limit = {
-									title_province = {
-										OR = {
-											geographical_region = middleearth_harad_far
-											geographical_region = middleearth_uttersouth
-											geographical_region = middleearth_harad_bayoformal
-											geographical_region = middleearth_mountains_yellow
-										}
-									}
-								}
-								set_county_culture = culture:rukhashai
-							}
-							else_if = {
-								limit = {
-									title_province = {
-										OR = {
-											geographical_region = middleearth_forodwaith
-											geographical_region = middleearth_west_arnor
-											geographical_region = middleearth_west_eregion
-											geographical_region = middleearth_mountains_blue
-											geographical_region = middleearth_west_beleriand
-										}
-									}
-								}
-								set_county_culture = culture:uruk_ongmair
-							}
-							else = { set_county_culture = culture:kazgumhoth }
-							set_county_faith = root.faith
-							if = {
-								limit = { county.development_level >= medium_development_level }
-								halve_development = yes
-							}
-							add_county_modifier = {
-								modifier = hidden_elven_refugees_modifier
-								years = 50
-							}
-							every_county_province = {
-								limit = {
-									NOT = {
-										OR = { # If the barony has a settlement or no holding... don't change them
-											has_holding_type = settlement_holding
-											province_has_no_holding_trigger = yes
-										}
-									}
-								}
-								if = {
-									limit = {
-										root = { government_has_flag = government_is_tribal }
-									}
-									set_holding_type = tribal_holding
-								}
-								else_if = {
-									limit = {
-										barony = { is_capital_barony = yes }
-									}
-									set_holding_type = castle_holding
-								}
-								else_if = {
-									limit = {
-										county = { NOT = { any_county_province = { has_holding_type = city_holding } } }
-									}
-									set_holding_type = city_holding
-								}
-								else_if = {
-									limit = {
-										county = { NOT = { any_county_province = { has_holding_type = church_holding } } }
-									}
-									set_holding_type = church_holding
-								}
-								else = { set_holding_type = castle_holding }
-							}
-						}
-					}
-					else = {
-						scope:title ?= {
-							set_county_culture = root.culture
-							set_county_faith = root.faith
-							if = {
-								limit = { county.development_level >= medium_development_level }
-								halve_development = yes
-							}
-							add_county_modifier = {
-								modifier = hidden_elven_refugees_modifier
-								years = 50
-							}
-							every_county_province = {
-								limit = {
-									NOT = {
-										OR = { # If the barony has a settlement or no holding... don't change them
-											has_holding_type = settlement_holding
-											province_has_no_holding_trigger = yes
-										}
-									}
-								}
-								if = {
-									limit = {
-										root = { government_has_flag = government_is_tribal }
-									}
-									set_holding_type = tribal_holding
-								}
-								else_if = {
-									limit = {
-										barony = { is_capital_barony = yes }
-									}
-									set_holding_type = castle_holding
-								}
-								else_if = {
-									limit = {
-										county = { NOT = { any_county_province = { has_holding_type = city_holding } } }
-									}
-									set_holding_type = city_holding
-								}
-								else_if = {
-									limit = {
-										county = { NOT = { any_county_province = { has_holding_type = church_holding } } }
-									}
-									set_holding_type = church_holding
-								}
-								else = { set_holding_type = castle_holding }
-								scope:title ?= { generate_coa = yes }
-							}
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					any_vassal_or_below = {
-						is_elf = yes
-						highest_held_title_tier >= tier_county
-					}
-				}
-				create_title_and_vassal_change = {
-					type = conquest_claim
-					save_scope_as = change
-					add_claim_on_loss = no
-				}
-				every_vassal_or_below = {
-					limit = {
-						is_elf = yes
-						highest_held_title_tier >= tier_county
-					}
-					every_sub_realm_county = {
-						change_title_holder = {
-							holder = root
-							change = scope:change
-							take_baronies = yes
-						}
-					}
-				}
-				resolve_title_and_vassal_change = scope:change
-			}
-		}
-
-		# Orcs are removed when conquered by Elves or when reconquering county with hidden elven refugees
-		if = {
-			limit = {
-				# WGH TODO
-				always = no
-
-				#is_elf = yes
-
-				#scope:title ?= {
-				#	tier = tier_county
-				#	OR = {
-				#		is_orc = yes
-				#		is_nazgul = yes
-				#		has_county_modifier = hidden_elven_refugees_modifier
-				#	}
-				#}
-			}
-			send_interface_toast = {
-				left_icon = root
-				title = settlement_conquered_by_elves.toast
-
-				if = {
-					limit = {
-						scope:title ?= {
-							has_county_modifier = hidden_elven_refugees_modifier
-						}
-					}
-					scope:title ?= {
-						remove_county_modifier = hidden_elven_refugees_modifier
-					}
-				}
-
-				scope:title ?= {
-					set_county_culture = root.culture
-					set_county_faith = root.faith
-					add_county_modifier = {
-						modifier = marauding_orc_dregs_modifier
-						years = 25
-					}
-					every_county_province = {
-						limit = { has_holding = yes }
-						set_holding_type = elven_holding
-						barony = { generate_coa = yes }
-					}
-				}
-			}
-
-		}
-		if = {
-			limit = {
-				is_elf = yes
-				any_vassal_or_below = {
-					is_orc = yes
-					highest_held_title_tier >= tier_county
-				}
-			}
-			create_title_and_vassal_change = {
-				type = conquest_claim
-				save_scope_as = change
-				add_claim_on_loss = no
-			}
-			every_vassal_or_below = {
-				limit = {
-					is_orc = yes
-					highest_held_title_tier >= tier_county
-				}
-
-				every_sub_realm_county = {
-					change_title_holder = {
-						holder = root
-						change = scope:change
-						take_baronies = yes
-					}
-				}
-
-			}
-			resolve_title_and_vassal_change = scope:change
-		}
-
-		# Orcs culture and faith converted when conquered by good aligned-characters
-		if = {
-			limit = {
-				faith_is_good = yes
-
-				scope:title ?= {
-					tier = tier_county
-					OR = {
-						is_orc = yes
-						is_nazgul = yes
-						is_maiar_fallen = yes
-					}
-				}
-			}
-			send_interface_toast = {
-				left_icon = root
-				title = settlement_conquered_by_elves.toast
-
-				if = {
-					limit = {
-						OR = {
-							is_maiar = yes
-						}
-					}
-					generate_new_good_faith = yes
-					generate_new_good_culture = yes
-					scope:title ?= {
-						set_county_culture = scope:new_culture
-						set_county_faith = scope:new_faith
-						add_county_modifier = {
-							modifier = marauding_orc_dregs_modifier
-							years = 25
-						}
-					}
-				}
-				else = {
-					scope:title ?= {
-						set_county_culture = root.culture
-						set_county_faith = root.faith
-						add_county_modifier = {
-							modifier = marauding_orc_dregs_modifier
-							years = 25
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					scope:title ?= { has_county_modifier = orc_anarchy_county_modifier }
-				}
-				hidden_effect = {
-					remove_county_modifier = orc_anarchy_county_modifier
-				}
-			}
-			scope:title ?= { generate_coa = yes }
 		}
 
 		if = {
@@ -1083,47 +522,9 @@ lotr_on_title_gain = {
 			resolve_title_and_vassal_change = scope:title_change
 			scope:title ?= { generate_coa = yes }
 		}
-		if = {
-			limit = {
-				scope:title.tier = tier_empire
-				is_dwarven_dynast = yes
-				any_held_title = {
-					count < 1
-					NOT = { this = scope:title }
-					tier = scope:title.tier
-				}
-			}
-			trigger_event = dwarven.9801
-		}
-		else_if = {
-			limit = {
-				scope:title.tier = tier_kingdom
-				scope:title = { is_dwarven_dynasty_title = yes }
-				primary_title.tier = tier_empire
-				is_dwarven_dynast = yes
-			}
-			trigger_event = dwarven.9801
-		}
-		if = {
-			limit = {
-				scope:title = { is_dwarven_dynasty_title = yes }
-				is_valid_for_dwarven_titular = no
-			}
-			destroy_title = scope:title
-		}
 
 		correct_wastelands_tracker = yes
 		scope:previous_holder ?= { correct_wastelands_tracker = yes }
-
-		if = {
-			limit = { # Destroy HoF title if incorrect faith
-				has_title = title:d_nhazadh
-				NOT = {
-					faith = { has_doctrine = special_doctrine_not_allowed_to_nhazadh }
-				}
-			}
-			destroy_title = title:d_nhazadh
-		}
 
 		## Hobbits can be laamps
 		if = {
@@ -1187,126 +588,6 @@ lotr_on_title_gain_inheritance = {
 				AMOUNT = 1
 			}
 			trigger_event = wastelands.0007
-		}
-
-		# LotR - If orc gains county with non-orc buildings, destroy invalid buildings
-		if = {
-			limit = {
-				scope:title ?= {
-					tier = tier_county
-				}
-				root = {
-					is_orc = yes
-					is_ai = yes
-				}
-			}
-
-			scope:title ?= {
-				every_county_province = {
-					remove_building_any_level = { BUILDING = caravanserai }
-					remove_building_any_level = { BUILDING = watermills }
-					remove_building_any_level = { BUILDING = windmills }
-					remove_building_any_level = { BUILDING = common_tradeport }
-					remove_building_any_level = { BUILDING = pastures }
-					remove_building_any_level = { BUILDING = hunting_grounds }
-					remove_building_any_level = { BUILDING = orchards }
-					remove_building_any_level = { BUILDING = farm_estates }
-					remove_building_any_level = { BUILDING = cereal_fields }
-					remove_building_any_level = { BUILDING = logging_camps }
-					remove_building_any_level = { BUILDING = peat_quarries }
-					remove_building_any_level = { BUILDING = hill_farms }
-					remove_building_any_level = { BUILDING = elephant_pens }
-					remove_building_any_level = { BUILDING = plantations }
-					remove_building_any_level = { BUILDING = quarries }
-					remove_building_any_level = { BUILDING = guild_halls }
-					#remove_building_any_level = { BUILDING = ramparts }
-					#remove_building_any_level = { BUILDING = curtain_walls }
-					#remove_building_any_level = { BUILDING = watchtowers }
-					#remove_building_any_level = { BUILDING = hill_forts }
-					remove_building_any_level = { BUILDING = wind_furnace }
-					remove_building_any_level = { BUILDING = workshops }
-					remove_building_any_level = { BUILDING = horse_pastures }
-					remove_building_any_level = { BUILDING = hillside_grazing }
-					remove_building_any_level = { BUILDING = warrior_lodges }
-					remove_building_any_level = { BUILDING = military_camps }
-					remove_building_any_level = { BUILDING = regimental_grounds }
-					remove_building_any_level = { BUILDING = outposts }
-					remove_building_any_level = { BUILDING = barracks }
-					remove_building_any_level = { BUILDING = camel_farms }
-					remove_building_any_level = { BUILDING = stables }
-					remove_building_any_level = { BUILDING = smiths }
-					remove_building_any_level = { BUILDING = hillside_grazing }
-					remove_building_any_level = { BUILDING = murex_farm }
-					remove_building_any_level = { BUILDING = dwarven_ale_house }
-					remove_building_any_level = { BUILDING = dwarven_fungal_farm }
-					remove_building_any_level = { BUILDING = dwarven_terrace_farm }
-					remove_building_any_level = { BUILDING = dwarven_quarry }
-					remove_building_any_level = { BUILDING = dwarven_crafts }
-					remove_building_any_level = { BUILDING = dwarven_toolmaker_guild }
-					remove_building_any_level = { BUILDING = dwarven_vaults }
-					remove_building_any_level = { BUILDING = dwarven_roads }
-					remove_building_any_level = { BUILDING = dwarven_armory }
-					remove_building_any_level = { BUILDING = dwarven_hi_barracks }
-					remove_building_any_level = { BUILDING = dwarven_pike_barracks }
-					remove_building_any_level = { BUILDING = dwarven_archer_barracks }
-					remove_building_any_level = { BUILDING = dwarven_skirmisher_barracks }
-					remove_building_any_level = { BUILDING = dwarven_pit_mine }
-					remove_building_any_level = { BUILDING = goat_pastures }
-					remove_building_any_level_max_4 = { BUILDING = dwarven_surface_workshop }
-					remove_building_any_level_max_5 = { BUILDING = dwarven_hoard }
-					remove_building_any_level_max_5 = { BUILDING = dwarven_siege_workshop }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_outpost }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_surface_farm }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_market }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_mustering_grounds }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_tavern }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_forestry }
-					remove_duchy_building_any_level = { BUILDING = military_specialization }
-					remove_duchy_building_any_level = { BUILDING = economic_specialization }
-					remove_duchy_building_any_level = { BUILDING = glory_specialization }
-					remove_duchy_building_any_level = { BUILDING = dwarven_bank_economic }
-					remove_duchy_building_any_level = { BUILDING = dwarven_kings_armory_military }
-					remove_duchy_building_any_level = { BUILDING = dwarven_grand_library }
-
-					remove_duchy_building_any_level = { BUILDING = hall_of_music_and_tales }
-					remove_duchy_building_any_level = { BUILDING = crafting_enclaves }
-					remove_duchy_building_any_level = { BUILDING = warriors_enclave }
-					remove_duchy_building_any_level = { BUILDING = sanctuary_groves }
-					#remove_building_any_level = { BUILDING = dwarven_forge }
-				}
-			}
-		}
-
-		#LotR - make sure races remain with correct government types
-		if = {
-			limit = { is_landless_adventurer = no }
-			if = {
-				limit = { is_elf = yes }
-				trigger_event = {
-					id = elven_racial.0011
-					days = 1
-				}
-			}
-			if = {
-				limit = { is_orc = yes }
-				trigger_event = {
-					id = orcs.9950
-					days = 1
-				}
-			}
-		}
-
-		#LotR - make sure hobbits remain with the hobbit government type
-		if = {
-			limit = {
-				is_halfling = yes # WGH
-				is_landless_adventurer = no
-				NOT = { government_has_flag = government_is_administrative }
-			}
-			trigger_event = {
-				id = hobbit.0001
-				days = 1
-			}
 		}
 
 		#If settlement inherited, give back to top liege, unless human.
@@ -1478,8 +759,11 @@ lotr_on_title_gain_inheritance = {
 
 		if = {
 			limit = {
-				scope:title = { is_dwarven_dynasty_title = yes }
-				NOT = { house ?= { house_head = root } }
+				# WGH TODO
+				always = no
+
+				#scope:title = { is_dwarven_dynasty_title = yes }
+				#NOT = { house ?= { house_head = root } }
 			}
 			house ?= { set_house_head = root }
 		}
@@ -1494,7 +778,9 @@ lotr_on_title_gain_inheritance = {
 		}
 
 		if = {
-			limit = { has_defensive_alliance = yes }
+			# WGH TODO
+			limit = { always = no }
+			#limit = { has_defensive_alliance = yes }
 			confederation = {
 				if = {
 					limit = {
@@ -1523,99 +809,6 @@ lotr_on_title_gain_inheritance = {
 # scope:previous_holder = previous holder. Shouldn't be dead
 lotr_on_title_gain_usurpation = {
 	effect = {
-		# LotR - If orc gains county with non-orc buildings, destroy invalid buildings
-		if = {
-			limit = {
-				scope:title ?= {
-					tier = tier_county
-				}
-				root = {
-					is_orc = yes
-					is_ai = yes
-				}
-			}
-
-			scope:title ?= {
-				every_county_province = {
-					remove_building_any_level = { BUILDING = caravanserai }
-					remove_building_any_level = { BUILDING = watermills }
-					remove_building_any_level = { BUILDING = windmills }
-					remove_building_any_level = { BUILDING = common_tradeport }
-					remove_building_any_level = { BUILDING = pastures }
-					remove_building_any_level = { BUILDING = hunting_grounds }
-					remove_building_any_level = { BUILDING = orchards }
-					remove_building_any_level = { BUILDING = farm_estates }
-					remove_building_any_level = { BUILDING = cereal_fields }
-					remove_building_any_level = { BUILDING = logging_camps }
-					remove_building_any_level = { BUILDING = peat_quarries }
-					remove_building_any_level = { BUILDING = hill_farms }
-					remove_building_any_level = { BUILDING = elephant_pens }
-					remove_building_any_level = { BUILDING = plantations }
-					remove_building_any_level = { BUILDING = quarries }
-					remove_building_any_level = { BUILDING = guild_halls }
-					#remove_building_any_level = { BUILDING = ramparts }
-					#remove_building_any_level = { BUILDING = curtain_walls }
-					#remove_building_any_level = { BUILDING = watchtowers }
-					#remove_building_any_level = { BUILDING = hill_forts }
-					remove_building_any_level = { BUILDING = wind_furnace }
-					remove_building_any_level = { BUILDING = workshops }
-					remove_building_any_level = { BUILDING = horse_pastures }
-					remove_building_any_level = { BUILDING = hillside_grazing }
-					remove_building_any_level = { BUILDING = warrior_lodges }
-					remove_building_any_level = { BUILDING = military_camps }
-					remove_building_any_level = { BUILDING = regimental_grounds }
-					remove_building_any_level = { BUILDING = outposts }
-					remove_building_any_level = { BUILDING = barracks }
-					remove_building_any_level = { BUILDING = camel_farms }
-					remove_building_any_level = { BUILDING = stables }
-					remove_building_any_level = { BUILDING = smiths }
-					remove_building_any_level = { BUILDING = hillside_grazing }
-					remove_building_any_level = { BUILDING = murex_farm }
-					remove_building_any_level = { BUILDING = dwarven_ale_house }
-					remove_building_any_level = { BUILDING = dwarven_fungal_farm }
-					remove_building_any_level = { BUILDING = dwarven_terrace_farm }
-					remove_building_any_level = { BUILDING = dwarven_quarry }
-					remove_building_any_level = { BUILDING = dwarven_crafts }
-					remove_building_any_level = { BUILDING = dwarven_toolmaker_guild }
-					remove_building_any_level = { BUILDING = dwarven_vaults }
-					remove_building_any_level = { BUILDING = dwarven_roads }
-					remove_building_any_level = { BUILDING = dwarven_armory }
-					remove_building_any_level = { BUILDING = dwarven_hi_barracks }
-					remove_building_any_level = { BUILDING = dwarven_pike_barracks }
-					remove_building_any_level = { BUILDING = dwarven_archer_barracks }
-					remove_building_any_level = { BUILDING = dwarven_skirmisher_barracks }
-					remove_building_any_level = { BUILDING = dwarven_pit_mine }
-					remove_building_any_level = { BUILDING = goat_pastures }
-
-					remove_building_any_level_max_4 = { BUILDING = dwarven_surface_workshop }
-
-					remove_building_any_level_max_5 = { BUILDING = dwarven_hoard }
-					remove_building_any_level_max_5 = { BUILDING = dwarven_siege_workshop }
-
-
-					remove_building_any_level_max_6 = { BUILDING = dwarven_outpost }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_surface_farm }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_market }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_mustering_grounds }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_tavern }
-					remove_building_any_level_max_6 = { BUILDING = dwarven_forestry }
-
-					remove_duchy_building_any_level = { BUILDING = military_specialization }
-					remove_duchy_building_any_level = { BUILDING = economic_specialization }
-					remove_duchy_building_any_level = { BUILDING = glory_specialization }
-					remove_duchy_building_any_level = { BUILDING = dwarven_bank_economic }
-					remove_duchy_building_any_level = { BUILDING = dwarven_kings_armory_military }
-					remove_duchy_building_any_level = { BUILDING = dwarven_grand_library }
-
-					remove_duchy_building_any_level = { BUILDING = hall_of_music_and_tales }
-					remove_duchy_building_any_level = { BUILDING = crafting_enclaves }
-					remove_duchy_building_any_level = { BUILDING = warriors_enclave }
-					remove_duchy_building_any_level = { BUILDING = sanctuary_groves }
-					#remove_building_any_level = { BUILDING = dwarven_forge }
-				}
-			}
-		}
-
 		if = {
 			limit = {
 				is_ai = yes
@@ -1849,8 +1042,11 @@ lotr_on_rank_down = {# Will not fire during history execution or for dying chara
 	effect = {
 		if = {
 			limit = {
-				has_defensive_alliance = yes
-				NOT = { confederation ?= { has_variable = lotr_no_confederation_rename } }
+				# WGH TODO
+				always = no
+
+				#has_defensive_alliance = yes
+				#NOT = { confederation ?= { has_variable = lotr_no_confederation_rename } }
 			}
 			confederation = {
 				random_confederation_member = {
