@@ -58,7 +58,8 @@ portrait_wear_no_headgear_trigger = {
 		}
 		has_character_flag = no_hat
 		portrait_prisoner_trigger = yes
-		has_character_modifier = hajj_halq_modifier # To show shaved hair
+		# WGH TODO
+		#has_character_modifier = hajj_halq_modifier # To show shaved hair
 
 		has_character_flag = roaming_character
 
@@ -77,12 +78,13 @@ portrait_wear_no_headgear_trigger = {
 				activity_tournament_shirtless_trigger = yes
 			}
 
-			NOR = { # Exceptions for dukes, kings, popes
-				highest_held_title_tier >= tier_duchy # Should wear ducal or royal crown instead.
-				portrait_religious_head_popes_trigger = yes
-				culture = { has_cultural_pillar = heritage_japonic } # Showing the top of your head is shameful
-				culture = { has_cultural_pillar = heritage_chinese } # Showing the top of your head is shameful
-			}
+			# WGH TODO
+			#NOR = { # Exceptions for dukes, kings, popes
+			#	highest_held_title_tier >= tier_duchy # Should wear ducal or royal crown instead.
+			#	portrait_religious_head_popes_trigger = yes
+			#	culture = { has_cultural_pillar = heritage_japonic } # Showing the top of your head is shameful
+			#	culture = { lhas_cultural_pillar = heritage_chinese } # Showing the top of your head is shameful
+			#}
 		}
 
 		AND = { # No headgear for vanity characters with the no_headgear flag, unless they are dukes or higher
@@ -91,7 +93,8 @@ portrait_wear_no_headgear_trigger = {
 			highest_held_title_tier < tier_duchy
 		}
 
-		portrait_ep2_ihram_clothes_trigger = yes # Remove headgear if you are undertaking the Hajj and meet the requirements for the Ihram clothes (Halq modifier and male)
+		# WGH TODO
+		#portrait_ep2_ihram_clothes_trigger = yes # Remove headgear if you are undertaking the Hajj and meet the requirements for the Ihram clothes (Halq modifier and male)
 
 		AND = { # No headgear for charioteers
 			exists = this
@@ -3272,10 +3275,13 @@ portrait_ep2_hajj_clothes_trigger = {
 }
 
 portrait_ep2_ihram_clothes_trigger = {
-	portrait_ep2_hajj_clothes_trigger = yes
-	is_male = yes
-	has_character_modifier = hajj_halq_modifier
-	primary_title.tier >= tier_duchy
+	# WGH TODO
+	always = no
+	
+	#portrait_ep2_hajj_clothes_trigger = yes
+	#is_male = yes
+	#has_character_modifier = hajj_halq_modifier
+	#primary_title.tier >= tier_duchy
 }
 
 portrait_ep2_western_cloak_duel_trigger = {
