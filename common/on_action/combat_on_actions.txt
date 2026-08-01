@@ -30,54 +30,54 @@ on_combat_end_winner = {
 		20 = legend_spread_events.8140	# Make this part of your legend?
 	}
 	effect = {
-		# #If you are el Cid you get a special events
-		# if = {
-		# 	limit = {
-		# 		side_primary_participant = { has_variable = ongoing_cid_story_cycle }
-		# 		enemy_side.side_commander.primary_title = title:k_valencia
-		# 	}
-		# 	enemy_side.side_commander ?= { save_scope_as = loser }
-		# 	side_primary_participant = {
-		# 		set_variable = {
-		# 			name = cid_title_to_give
-		# 			value = prev.enemy_side.side_commander.primary_title
-		# 		}
-		# 		trigger_event = cid.2000 #Tizona
-		# 	}
-		# }
-		# else_if = {
-		# 	limit = {
-		# 		side_primary_participant = { has_variable = ongoing_cid_story_cycle }
-		# 		OR = {
-		# 			enemy_side.side_commander.primary_title = title:c_barcelona
-		# 			enemy_side.side_commander.primary_title = title:d_barcelona
-		# 		}
-		# 	}
-		# 	enemy_side.side_commander ?= { save_scope_as = loser }
-		# 	side_primary_participant = {
-		# 		set_variable = {
-		# 			name = cid_title_to_give
-		# 			value = prev.enemy_side.side_commander.primary_title
-		# 		}
-		# 		trigger_event = cid.2001 #Colada
-		# 	}
-		# }
-		# else_if = {
-		# 	limit = {
-		# 		side_primary_participant = { has_variable = ongoing_cid_story_cycle }
-		# 	}
-		# 	random = {
-		# 		chance = 10
-		# 		enemy_side.side_commander ?= { save_scope_as = loser }
-		# 		side_primary_participant = {
-		# 			set_variable = {
-		# 				name = cid_title_to_give
-		# 				value = prev.enemy_side.side_commander.primary_title
-		# 			}
-		# 			trigger_event = cid.2000
-		# 		}
-		# 	}
-		# }
+		#If you are el Cid you get a special events
+		#if = {
+		#	limit = {
+		#		side_primary_participant = { has_variable = ongoing_cid_story_cycle }
+		#		enemy_side.side_commander.primary_title = title:k_valencia
+		#	}
+		#	enemy_side.side_commander ?= { save_scope_as = loser }
+		#	side_primary_participant = {
+		#		set_variable = {
+		#			name = cid_title_to_give
+		#			value = prev.enemy_side.side_commander.primary_title
+		#		}
+		#		trigger_event = cid.2000 #Tizona
+		#	}
+		#}
+		#else_if = {
+		#	limit = {
+		#		side_primary_participant = { has_variable = ongoing_cid_story_cycle }
+		#		OR = {
+		#			enemy_side.side_commander.primary_title = title:c_barcelona
+		#			enemy_side.side_commander.primary_title = title:d_barcelona
+		#		}
+		#	}
+		#	enemy_side.side_commander ?= { save_scope_as = loser }
+		#	side_primary_participant = {
+		#		set_variable = {
+		#			name = cid_title_to_give
+		#			value = prev.enemy_side.side_commander.primary_title
+		#		}
+		#		trigger_event = cid.2001 #Colada
+		#	}
+		#}
+		#else_if = {
+		#	limit = {
+		#		side_primary_participant = { has_variable = ongoing_cid_story_cycle }
+		#	}
+		#	random = {
+		#		chance = 10
+		#		enemy_side.side_commander ?= { save_scope_as = loser }
+		#		side_primary_participant = {
+		#			set_variable = {
+		#				name = cid_title_to_give
+		#				value = prev.enemy_side.side_commander.primary_title
+		#			}
+		#			trigger_event = cid.2000
+		#		}
+		#	}
+		#}
 		if = {
 			limit = {
 				exists = side_commander
