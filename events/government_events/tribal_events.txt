@@ -430,14 +430,17 @@ tribal.1001 = {
 	option = { #Flyting!
 		name = tribal.1001.b
 		trigger = {
-			culture = {
-				OR = {
-					has_cultural_pillar = heritage_north_germanic
-					has_cultural_pillar = heritage_west_germanic
-					has_cultural_pillar = heritage_brythonic
-					has_cultural_pillar = heritage_goidelic
-				}
-			}
+			# WGH TODO
+			always = no
+
+			#culture = {
+			#	OR = {
+			#		has_cultural_pillar = heritage_north_germanic
+			#		has_cultural_pillar = heritage_west_germanic
+			#		has_cultural_pillar = heritage_brythonic
+			#		has_cultural_pillar = heritage_goidelic
+			#	}
+			#}
 		}
 		show_as_tooltip = {
 			duel = {
@@ -1189,41 +1192,45 @@ tribal.1101 = {
 	}
 	
 	trigger = {
-		faith = faith:norse_pagan
-		government_has_flag = government_is_tribal
-		NOT = { has_character_flag = had_event_tribal_1101 }
-		any_relation = {
-			type = rival
-			faith = faith:norse_pagan
-			basic_is_available_ai = yes
-			save_temporary_scope_as = rival
-		}
-		OR = {
-			any_heir = {
-				tribal_1101_victim_trigger = yes
-			}
-			any_child = {
-				tribal_1101_victim_trigger = yes
-			}
-			any_spouse = {
-				tribal_1101_victim_trigger = yes
-			}
-		}
+		# WGH TODO
+		always = no
+
+		#faith = faith:norse_pagan
+		#government_has_flag = government_is_tribal
+		#NOT = { has_character_flag = had_event_tribal_1101 }
+		#any_relation = {
+		#	type = rival
+		#	faith = faith:norse_pagan
+		#	basic_is_available_ai = yes
+		#	save_temporary_scope_as = rival
+		#}
+		#OR = {
+		#	any_heir = {
+		#		tribal_1101_victim_trigger = yes
+		#	}
+		#	any_child = {
+		#		tribal_1101_victim_trigger = yes
+		#	}
+		#	any_spouse = {
+		#		tribal_1101_victim_trigger = yes
+		#	}
+		#}
 	}
 
-	weight_multiplier = {
-		base = 1
-
-		modifier = {
-			add = 1
-			any_relation = {
-				type = rival
-				faith = faith:norse_pagan
-				basic_is_available_ai = yes
-				is_in_the_same_court_as_or_guest = root
-			}
-		}
-	}
+	# WGH TODO
+	#weight_multiplier = {
+	#	base = 1
+	#
+	#	modifier = {
+	#		add = 1
+	#		any_relation = {
+	#			type = rival
+	#			faith = faith:norse_pagan
+	#			basic_is_available_ai = yes
+	#			is_in_the_same_court_as_or_guest = root
+	#		}
+	#	}
+	#}
 
 	immediate = {
 		add_character_flag = {
@@ -1233,12 +1240,12 @@ tribal.1101 = {
 		random_relation = {
 			type = rival
 			limit = {
-				faith = faith:norse_pagan
+				#faith = faith:norse_pagan # WGH TODO
 				is_in_the_same_court_as_or_guest = root
 				basic_is_available_ai = yes
 			}
 			alternative_limit = {
-				faith = faith:norse_pagan
+				#faith = faith:norse_pagan # WGH TODO
 				basic_is_available_ai = yes
 			}
 			weight = {
@@ -1616,26 +1623,29 @@ tribal.1201 = {
 	right_portrait = scope:villain_racer
 	
 	trigger = {
-		is_available_adult = yes
-		government_has_flag = government_is_tribal
-		capital_province = { geographical_region = world_steppe }
-		NOT = { has_character_flag = had_event_tribal_1201 }
-		OR = {
-			any_vassal = {
-				count >= 2
-				is_available_ai_adult = yes
-			}
-			any_courtier = {
-				count >= 2
-				is_available_ai_adult = yes
-			}
-			any_neighboring_realm_same_rank_owner = {
-				count >= 2
-				is_available_ai_adult = yes
-				government_has_flag = government_is_tribal
-				capital_province = { geographical_region = world_steppe }
-			}
-		}
+		# WGH TODO
+		always = no
+
+		#is_available_adult = yes
+		#government_has_flag = government_is_tribal
+		#capital_province = { geographical_region = world_steppe }
+		#NOT = { has_character_flag = had_event_tribal_1201 }
+		#OR = {
+		#	any_vassal = {
+		#		count >= 2
+		#		is_available_ai_adult = yes
+		#	}
+		#	any_courtier = {
+		#		count >= 2
+		#		is_available_ai_adult = yes
+		#	}
+		#	any_neighboring_realm_same_rank_owner = {
+		#		count >= 2
+		#		is_available_ai_adult = yes
+		#		government_has_flag = government_is_tribal
+		#		capital_province = { geographical_region = world_steppe }
+		#	}
+		#}
 	}
 
 	weight_multiplier = {
@@ -1659,14 +1669,15 @@ tribal.1201 = {
 						type = story_cycle_martial_lifestyle_warhorse
 					}
 				}
-				any_neighboring_realm_same_rank_owner = {
-					government_has_flag = government_is_tribal
-					capital_province = { geographical_region = world_steppe }
-					is_available_ai_adult = yes
-					any_owned_story = {
-						type = story_cycle_martial_lifestyle_warhorse
-					}
-				}
+				# WGH TODO
+				#any_neighboring_realm_same_rank_owner = {
+				#	government_has_flag = government_is_tribal
+				#	capital_province = { geographical_region = world_steppe }
+				#	is_available_ai_adult = yes
+				#	any_owned_story = {
+				#		type = story_cycle_martial_lifestyle_warhorse
+				#	}
+				#}
 			}
 		}
 	}
@@ -1689,23 +1700,24 @@ tribal.1201 = {
 				add_to_list = potential_racers
 			}
 		}
-		if = {
-			limit = {
-				any_neighboring_realm_same_rank_owner = {
-					is_available_ai_adult = yes
-					government_has_flag = government_is_tribal
-					capital_province = { geographical_region = world_steppe }
-				}
-			}
-			every_neighboring_realm_same_rank_owner = {
-				limit = {
-					is_available_ai_adult = yes
-					government_has_flag = government_is_tribal
-					capital_province = { geographical_region = world_steppe }
-				}
-				add_to_list = potential_racers
-			}
-		}
+		# WGH TODO
+		#if = {
+		#	limit = {
+		#		any_neighboring_realm_same_rank_owner = {
+		#			is_available_ai_adult = yes
+		#			government_has_flag = government_is_tribal
+		#			capital_province = { geographical_region = world_steppe }
+		#		}
+		#	}
+		#	every_neighboring_realm_same_rank_owner = {
+		#		limit = {
+		#			is_available_ai_adult = yes
+		#			government_has_flag = government_is_tribal
+		#			capital_province = { geographical_region = world_steppe }
+		#		}
+		#		add_to_list = potential_racers
+		#	}
+		#}
 		if = {
 			limit = {
 				any_courtier = {
@@ -2426,10 +2438,13 @@ tribal.1301 = {
 	}
 	
 	trigger = {
-		is_available_adult = yes
-		government_has_flag = government_is_tribal
-		capital_province = { geographical_region = world_africa }
-		NOT = { has_character_flag = had_event_tribal_1301 }
+		# WGH TODO
+		always = no
+
+		#is_available_adult = yes
+		#government_has_flag = government_is_tribal
+		#capital_province = { geographical_region = world_africa }
+		#NOT = { has_character_flag = had_event_tribal_1301 }
 	}
 
 	immediate = {
@@ -2567,12 +2582,15 @@ tribal.1303 = {
 	left_portrait = scope:councillor
 	
 	trigger = {
-		is_available_adult = yes
-		government_has_flag = government_is_tribal
-		capital_province = { geographical_region = world_africa }
-		exists = cp:councillor_steward
-		short_term_gold >= medium_gold_value
-		NOT = { has_character_flag = had_event_tribal_1301 }
+		# WGH TODO
+		always = no
+
+		#is_available_adult = yes
+		#government_has_flag = government_is_tribal
+		#capital_province = { geographical_region = world_africa }
+		#exists = cp:councillor_steward
+		#short_term_gold >= medium_gold_value
+		#NOT = { has_character_flag = had_event_tribal_1301 }
 	}
 
 	immediate = {
