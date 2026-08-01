@@ -4429,25 +4429,25 @@ on_vassal_change = {
 			}
 		}
 		# Make sure independent rulers and their vassals leave movements if they are part of the Dynastic Cycle
-		if = {
-			limit = {
-				exists = top_participant_group:dynastic_cycle
-				NOT = {
-					has_title = title:h_china
-				}
-				OR = {
-					liege = root
-					liege.top_participant_group:dynastic_cycle ?= {
-						participant_group_type = other_rulers
-					}
-				}
-			}
-			remove_variable = movement_member
-			every_vassal_or_below = {
-				remove_variable = movement_member
-			}
-			recalculate_participant_group = situation:dynastic_cycle
-		}
+		#if = { # WGH TODO
+		#	limit = {
+		#		exists = top_participant_group:dynastic_cycle
+		#		NOT = {
+		#			has_title = title:h_china
+		#		}
+		#		OR = {
+		#			liege = root
+		#			liege.top_participant_group:dynastic_cycle ?= {
+		#				participant_group_type = other_rulers
+		#			}
+		#		}
+		#	}
+		#	remove_variable = movement_member
+		#	every_vassal_or_below = {
+		#		remove_variable = movement_member
+		#	}
+		#	recalculate_participant_group = situation:dynastic_cycle
+		#}
 
 		# Additional Flavor Title
 		additional_flavor_check_effect = yes
