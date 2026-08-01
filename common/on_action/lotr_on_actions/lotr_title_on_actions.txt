@@ -74,16 +74,16 @@ lotr_on_title_gain = {
 			}
 			change_government = orcish_government
 		}
-		if = {
-			limit = {
-				is_landed = yes
-				any_maa_regiment = { is_maa_type = laamp_settler_maa }
-			}
-			random_maa_regiment = {
-				limit = { is_maa_type = laamp_settler_maa }
-				destroy_maa_regiment = yes
-			}
-		}
+		#if = { # WGH TODO
+		#	limit = {
+		#		is_landed = yes
+		#		any_maa_regiment = { is_maa_type = laamp_settler_maa }
+		#	}
+		#	random_maa_regiment = {
+		#		limit = { is_maa_type = laamp_settler_maa }
+		#		destroy_maa_regiment = yes
+		#	}
+		#}
 		#Artifact title inheritance stuff
 		if = {
 			limit = {
@@ -136,23 +136,6 @@ lotr_on_title_gain = {
 						}
 					}
 				}
-			}
-		}
-		# Heirloom artifacts handling
-		if = {
-			limit = {
-				primary_heir ?= {
-					dynasty = root.dynasty
-					is_lotr_adult = yes
-				}
-				any_character_artifact = {
-					has_variable = heirloom_of_title
-					root = var:heirloom_of_title.holder
-				}
-			}
-			trigger_event = {
-				id = lotr_artifact.0010
-				days = 5
 			}
 		}
 
@@ -463,12 +446,12 @@ lotr_on_title_gain = {
 				save_scope_as = new_holder
 				location = root.location
 			}
-			scope:new_holder = {
-				lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-					MAX = middle_age
-					MIN = young_age
-				}
-			}
+			#scope:new_holder = { # WGH TODO
+			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			#		MAX = middle_age
+			#		MIN = young_age
+			#	}
+			#}
 			create_title_and_vassal_change = { # Define type of title change as a granting of the title
 				type = granted
 				save_scope_as = title_change
@@ -501,12 +484,12 @@ lotr_on_title_gain = {
 				save_scope_as = new_holder
 				location = root.location
 			}
-			scope:new_holder = {
-				lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-					MAX = middle_age
-					MIN = young_age
-				}
-			}
+			#scope:new_holder = { # WGH TODO
+			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			#		MAX = middle_age
+			#		MIN = young_age
+			#	}
+			#}
 			create_title_and_vassal_change = { # Define type of title change as a granting of the title
 				type = granted
 				save_scope_as = title_change
@@ -638,12 +621,12 @@ lotr_on_title_gain_inheritance = {
 				save_scope_as = new_holder
 				location = root.location
 			}
-			scope:new_holder = {
-				lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-					MAX = middle_age
-					MIN = young_age
-				}
-			}
+			#scope:new_holder = { # WGH TODO
+			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			#		MAX = middle_age
+			#		MIN = young_age
+			#	}
+			#}
 			create_title_and_vassal_change = { # Define type of title change as a granting of the title
 				type = granted
 				save_scope_as = title_change
@@ -675,12 +658,12 @@ lotr_on_title_gain_inheritance = {
 				save_scope_as = new_holder
 				location = root.location
 			}
-			scope:new_holder = {
-				lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-					MAX = middle_age
-					MIN = young_age
-				}
-			}
+			#scope:new_holder = { # WGH TODO
+			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			#		MAX = middle_age
+			#		MIN = young_age
+			#	}
+			#}
 			create_title_and_vassal_change = { # Define type of title change as a granting of the title
 				type = granted
 				save_scope_as = title_change
@@ -732,29 +715,6 @@ lotr_on_title_gain_inheritance = {
 				}
 				root = { destroy_title = root.primary_title }
 			}
-		}
-
-		#Tracking Dwarven clan titles
-		if = {
-			limit = {
-				OR = {
-					scope:title = title:e_durins_folk
-					scope:title = title:k_durins_folk
-					scope:title = title:e_uris_folk
-					scope:title = title:k_uris_folk
-					scope:title = title:e_dwalins_folk
-					scope:title = title:k_dwalins_folk
-					scope:title = title:e_thrars_folk
-					scope:title = title:k_thrars_folk
-					scope:title = title:e_thulins_folk
-					scope:title = title:k_thulins_folk
-					scope:title = title:e_bavors_folk
-					scope:title = title:k_bavors_folk
-					scope:title = title:e_sindris_folk
-					scope:title = title:k_sindris_folk
-				}
-			}
-			clear_dwarven_kingdom_claims_post_game_start = yes
 		}
 
 		if = {
@@ -832,12 +792,12 @@ lotr_on_title_gain_usurpation = {
 				save_scope_as = new_holder
 				location = root.location
 			}
-			scope:new_holder = {
-				lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-					MAX = middle_age
-					MIN = young_age
-				}
-			}
+			#scope:new_holder = { # WGH TODO
+			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			#		MAX = middle_age
+			#		MIN = young_age
+			#	}
+			#}
 			create_title_and_vassal_change = { # Define type of title change as a granting of the title
 				type = granted
 				save_scope_as = title_change
@@ -869,12 +829,12 @@ lotr_on_title_gain_usurpation = {
 				save_scope_as = new_holder
 				location = root.location
 			}
-			scope:new_holder = {
-				lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-					MAX = middle_age
-					MIN = young_age
-				}
-			}
+			#scope:new_holder = { # WGH TODO
+			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+			#		MAX = middle_age
+			#		MIN = young_age
+			#	}
+			#}
 			create_title_and_vassal_change = { # Define type of title change as a granting of the title
 				type = granted
 				save_scope_as = title_change
@@ -968,16 +928,6 @@ lotr_on_explicit_claim_gain = {
 # scope:title = old primary title
 lotr_on_rank_up = {# Will not fire during history execution or for dying characters
 	effect = {
-		if = { # The Producer Strikes Back | Achievement
-			limit = {
-				NOT = { exists = global_var:lotr_achievement_72 }
-				realms_achievements_enabled = yes
-				is_ai = no
-				NOT = { scope:title = title:e_umbar }
-				root = character:lineeruholion4
-			}
-			set_global_variable = lotr_achievement_72
-		}
 		### Wastelands Management ###
 		if = {
 			limit = {
@@ -1040,25 +990,25 @@ lotr_on_rank_up = {# Will not fire during history execution or for dying charact
 # scope:title = old primary title
 lotr_on_rank_down = {# Will not fire during history execution or for dying characters
 	effect = {
-		if = {
-			limit = {
-				# WGH TODO
-				always = no
+		#if = { # WGH TODO
+		#	limit = {
+		#		# WGH TODO
+		#		always = no
 
-				#has_defensive_alliance = yes
-				#NOT = { confederation ?= { has_variable = lotr_no_confederation_rename } }
-			}
-			confederation = {
-				random_confederation_member = {
-					limit = { NOT = { this = root } }
-					save_scope_as = defensive_alliance_member
-				}
-			}
-			lotr_refresh_defensive_alliance_name = {
-				DEFENSIVE_ALLY = scope:defensive_alliance_member
-				LOC_KEY = two_realm_name
-			}
-		}
+		#		#has_defensive_alliance = yes
+		#		#NOT = { confederation ?= { has_variable = lotr_no_confederation_rename } }
+		#	}
+		#	confederation = {
+		#		random_confederation_member = {
+		#			limit = { NOT = { this = root } }
+		#			save_scope_as = defensive_alliance_member
+		#		}
+		#	}
+		#	lotr_refresh_defensive_alliance_name = {
+		#		DEFENSIVE_ALLY = scope:defensive_alliance_member
+		#		LOC_KEY = two_realm_name
+		#	}
+		#}
 		# LotR - if protectorate and same title tier as protector, break protectorate
 		every_relation = {
 			type = tributary_protectorate
@@ -1165,32 +1115,3 @@ lotr_on_vassal_gained = {
 		}
 	}
 }
-
-# A vassal changes their liege
-# root = vassal changing their status
-# scope:old_liege = the previous liege of the vassal
-# It is also fired for rulers gaining independence, those can be identified by checking current liege
-# lotr_on_vassal_change = {} #Not Used
-
-# A baron is found or created for a title, E.G., due to the player using the "Give to Low Noble" action
-# No transfer type here; it's always a grant
-# root = the baron
-# scope:liege = the person who wanted them created
-# scope:title = the barony
-lotr_on_baron_found_or_created_for_title = {
-	effect = {
-		lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-			MAX = middle_age
-			MIN = young_age
-		}
-	}
-	events = {
-		race.0001 #set up races
-	}
-}
-
-# Called when realm capital changes. It can be manual move, loss in conquest, move after inheritance,
-# move when granted a better title, becoming landed for the first time
-# root: New realm capital barony
-# scope:old_capital - previous capital barony. Can be empty, can be owned by someone else
-# lotr_on_realm_capital_change = {} #Not Used
