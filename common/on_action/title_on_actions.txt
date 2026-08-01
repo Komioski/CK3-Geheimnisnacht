@@ -27,6 +27,7 @@
 # scope:landed_title = the title that is being destroyed
 # Does *not* provide scope:transfer_type
 on_title_destroyed = {
+	on_actions = { lotr_on_title_destroyed } # LotR
 	effect = {
 		# If the title of an independent admin ruler is destroyed, let's make sure we handle any stray admin vassals
 		if = {
@@ -59,92 +60,118 @@ on_title_destroyed = {
 			}
 		}
 		#Notify folks the latin empire has fallen
-		else_if = {
-			limit = { scope:landed_title = title:e_latin_empire }
-			frankokratia_latin_emp_end_msg_effect = yes
-		}
+		#else_if = { # WGH
+		#	limit = { scope:landed_title = title:e_latin_empire }
+		#	frankokratia_latin_emp_end_msg_effect = yes
+		#}
 		#Create byz collapse variable that defines anarchy period
-		else_if = {
-			limit = {
-				scope:landed_title = {
-					this = title:e_byzantium
-				}
-			}
-			if = {
-				limit = {
-					exists = global_var:byz_collapse_counter
-				}
-				remove_global_variable = byz_collapse_counter
-			}
-			set_global_variable = {
-				name = byz_collapse_counter
-				value = {
-					value = current_year
-					add = 100
-				}
-			}
-			# Silk Road prosperity gets hit if Byzantium dies
-			tgp_silk_road_byzantium_destroyed_effect = yes
-		}
-		else_if = {
-			limit = {
-				scope:landed_title = title:h_china
-			}
-			situation:dynastic_cycle ?= {
-				if = {
-					limit = {
-						situation_top_has_catalyst = catalyst_hegemon_lost_mandate_of_heaven
-					}
-					trigger_situation_catalyst = {
-						catalyst = catalyst_hegemon_lost_mandate_of_heaven
-						character = root
-					}
-				}
-			}
-			# Because a change in liege isn't triggered when the title being destroyed
-			tgp_fire_china_realm_name_event_for_vassals_effect = yes
-			title:h_china = {
-				reset_title_name = yes
-			}
-		}
-		else_if = { # Danelaw-England partition calc.
-			limit = {
-				# Partition must be active.
-				exists = global_var:partition_active_danelaw
-				# And the destroyed title must be one of the two partitioned entities.
-				OR = {
-					scope:landed_title = title:k_england
-					scope:landed_title = title:k_danelaw
-				}
-			}
-			# If k_england has been destroyed, set k_danelaw as the de jure inheritor.
-			if = {
-				limit = { scope:landed_title = title:k_england }
-				title:k_danelaw = { save_scope_as = partition_winner }
-				# Try to grab the old holder for down the line.
-				if = {
-					limit = {
-						exists = this
-						is_alive = yes
-					}
-					save_scope_as = loser
-				}
-			}
-			# If k_danelaw has been destroyed, set k_england as the de jure inheritor.
-			if = {
-				limit = { scope:landed_title = title:k_danelaw }
-				title:k_england = { save_scope_as = partition_winner }
-				if = {
-					limit = {
-						exists = this
-						is_alive = yes
-					}
-					save_scope_as = loser
-				}
-			}
-			# Either way, trigger the maintenance event.
-			trigger_event = british_isles.1041
-		}
+		#else_if = { # WGH
+		#	limit = {
+		#		scope:landed_title = {
+		#			this = title:e_byzantium
+		#		}
+		#	}
+		#	if = {
+		#		limit = {
+		#			exists = global_var:byz_collapse_counter
+		#		}
+		#		remove_global_variable = byz_collapse_counter
+		#	}
+		#	set_global_variable = {
+		#		name = byz_collapse_counter
+		#		value = {
+		#			value = current_year
+		#			add = 100
+		#		}
+		#	}
+		#	# Silk Road prosperity gets hit if Byzantium dies
+		#	tgp_silk_road_byzantium_destroyed_effect = yes
+		#}
+		#else_if = { # WGH
+		#	limit = {
+		#		scope:landed_title = title:h_china
+		#	}
+		#	situation:dynastic_cycle ?= {
+		#		if = {
+		#			limit = {
+		#				situation_top_has_catalyst = catalyst_hegemon_lost_mandate_of_heaven
+		#			}
+		#			trigger_situation_catalyst = {
+		#				catalyst = catalyst_hegemon_lost_mandate_of_heaven
+		#				character = root
+		#			}
+		#		}
+		#	}
+		#	every_vassal = {
+		#		# Because a change in liege isn't triggered when the title being destroyed
+		#		if = {
+		#			limit = {
+		#				government_has_flag = government_is_celestial
+		#				highest_held_title_tier >= tier_kingdom
+		#				primary_title = {
+		#					has_custom_title_name = no
+		#				}
+		#				tgp_capital_not_in_chinese_naming_region = no
+		#			}
+		#			if = {
+		#				limit = {
+		#					is_ai = no
+		#				}
+		#				trigger_event = {
+		#					id = tgp_dynastic_cycle.9000
+		#					days = 1 # so the player gets to choose first
+		#				}
+		#			}
+		#		else = {
+		#				trigger_event = {
+		#					id = tgp_dynastic_cycle.9000
+		#					days = 2
+		#				}
+		#			}
+		#		}
+		#	}
+		#	title:h_china = {
+		#		reset_title_name = yes
+		#	}
+		#}
+		#else_if = { # Danelaw-England partition calc. # WGH
+		#	limit = {
+		#		# Partition must be active.
+		#		exists = global_var:partition_active_danelaw
+		#		# And the destroyed title must be one of the two partitioned entities.
+		#		OR = {
+		#			scope:landed_title = title:k_england
+		#			scope:landed_title = title:k_danelaw
+		#		}
+		#	}
+		#	# If k_england has been destroyed, set k_danelaw as the de jure inheritor.
+		#	if = {
+		#		limit = { scope:landed_title = title:k_england }
+		#		title:k_danelaw = { save_scope_as = partition_winner }
+		#		# Try to grab the old holder for down the line.
+		#		if = {
+		#			limit = {
+		#				exists = this
+		#				is_alive = yes
+		#			}
+		#			save_scope_as = loser
+		#		}
+		#	}
+		#	# If k_danelaw has been destroyed, set k_england as the de jure inheritor.
+		#	if = {
+		#		limit = { scope:landed_title = title:k_danelaw }
+		#		title:k_england = { save_scope_as = partition_winner }
+		#		if = {
+		#			limit = {
+		#				exists = this
+		#				is_alive = yes
+		#			}
+		#			save_scope_as = loser
+		#		}
+		#	}
+		#	# Either way, trigger the maintenance event.
+		#	trigger_event = british_isles.1041
+		#}
 		# Safety against invalid house bloc members
 		else_if = {
 			limit = {
@@ -185,6 +212,13 @@ on_title_destroyed = {
 # scope:title = the title that changes hands
 # scope:previous_holder = previous holder. Might be dead
 on_title_gain = {
+	on_actions = {
+		# WGH
+		wh_on_imperial_title_gain
+
+		# LotR
+		lotr_on_title_gain
+	}
 	effect = {
 		######################
 		# COUNTY-TIER TITLES #
@@ -531,112 +565,114 @@ on_title_gain = {
 			###########
 			# MPO - Siberian permafrost modifier switcharoo
 			###########
-			if = {
-				limit = {
-					scope:title.title_province ?= {
-						geographical_region = geographical_region:mpo_region_permafrost
-					}
-				}
-				if = {
-					limit = {
-						scope:title = {
-							has_county_modifier = mpo_siberian_permafrost_modifier_bad
-						}
-						culture ?= { has_cultural_parameter = permafrost_modifier_mechanic }
-					}
-					scope:title = {
-						remove_county_modifier = mpo_siberian_permafrost_modifier_bad
-						add_county_modifier = mpo_siberian_permafrost_modifier
-					}
-				}
-				else_if = {
-					limit = {
-						scope:title = {
-							has_county_modifier = mpo_siberian_permafrost_modifier
-						}
-						NOR = {
-							culture ?= { has_cultural_parameter = permafrost_modifier_mechanic }
-						}
-					}
-					scope:title = {
-						remove_county_modifier = mpo_siberian_permafrost_modifier
-						add_county_modifier = mpo_siberian_permafrost_modifier_bad
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					OR = {
-						scope:title = title:c_antiocheia
-						scope:title = title:c_jerusalem
-						scope:title = title:c_alexandria
-						scope:title = title:c_roma
-					}
-				}
-				if = {
-					limit = {
-						OR = {
-							AND = {
-								is_roman_emperor_trigger = yes
-								faith = faith:orthodox
-								faith = { has_doctrine = special_doctrine_ecumenical_christian }
-							}
-							any_liege_or_above = {
-								is_roman_emperor_trigger = yes
-								faith = faith:orthodox
-								faith = { has_doctrine = special_doctrine_ecumenical_christian }
-							}
-						}
-					}
-					trigger_event = roman_restoration.0199
-				}
-				###########
-				# Transfer the Samaritan HoF to the realm that holds Jerusalem
-				###########
-				if = {
-					limit = {
-						scope:title = title:c_jerusalem
-						title:d_samaritan.holder ?= {
-							# Samaritan HoF is not independent
-							# Samaritan liege is not Samaritan
-							top_liege.faith != faith:samaritan
-							top_liege != root
-						}
-						# root is at least a king, or their liege is, or their liege's liege is
-						OR = {
-							highest_held_title_tier >= tier_kingdom
-							any_liege_or_above = {
-								highest_held_title_tier >= tier_kingdom
-							}
-						}
-					}
-					create_title_and_vassal_change = {
-						type = created
-						save_scope_as = title_change
-						add_claim_on_loss = no
-					}
-					if = {
-						limit = {
-							highest_held_title_tier >= tier_kingdom
-						}
-						title:d_samaritan.holder = {
-							change_liege = {
-								liege = root
-								change = scope:title_change
-							}
-						}
-					}
-					else = {
-						title:d_samaritan.holder = {
-							change_liege = {
-								liege = root.top_liege
-								change = scope:title_change
-							}
-						}
-					}
-					resolve_title_and_vassal_change = scope:title_change
-				}
-			}
+			# if = { # WGH
+			# 	limit = {
+			# 		scope:title.title_province = {
+			# 			geographical_region = geographical_region:mpo_region_permafrost
+			# 		}
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			scope:title = {
+			# 				has_county_modifier = mpo_siberian_permafrost_modifier_bad
+			# 			}
+			# 			culture ?= scope:title.culture
+			# 			culture ?= { has_cultural_parameter = permafrost_modifier_mechanic }
+			# 		}
+			# 		scope:title = {
+			# 			remove_county_modifier = mpo_siberian_permafrost_modifier_bad
+			# 			add_county_modifier = mpo_siberian_permafrost_modifier
+			# 		}
+			# 	}
+			# 	else_if = {
+			# 		limit = {
+			# 			scope:title = {
+			# 				has_county_modifier = mpo_siberian_permafrost_modifier
+			# 			}
+			# 			NOR = {
+			# 				culture ?= scope:title.culture
+			# 				culture ?= { has_cultural_parameter = permafrost_modifier_mechanic }
+			# 			}
+			# 		}
+			# 		scope:title = {
+			# 			remove_county_modifier = mpo_siberian_permafrost_modifier
+			# 			add_county_modifier = mpo_siberian_permafrost_modifier_bad
+			# 		}
+			# 	}
+			# }
+			# else_if = { # WGH
+			# 	limit = {
+			# 		OR = {
+			# 			scope:title = title:c_antiocheia
+			# 			scope:title = title:c_jerusalem
+			# 			scope:title = title:c_alexandria
+			# 			scope:title = title:c_roma
+			# 		}
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			OR = {
+			# 				AND = {
+			# 					is_roman_emperor_trigger = yes
+			# 					faith = faith:orthodox
+			# 					faith = { has_doctrine = special_doctrine_ecumenical_christian }
+			# 				}
+			# 				any_liege_or_above = {
+			# 					is_roman_emperor_trigger = yes
+			# 					faith = faith:orthodox
+			# 					faith = { has_doctrine = special_doctrine_ecumenical_christian }
+			# 				}
+			# 			}
+			# 		}
+			# 		trigger_event = roman_restoration.0199
+			# 	}
+			# 	###########
+			# 	# Transfer the Samaritan HoF to the realm that holds Jerusalem
+			# 	###########
+			# 	if = {
+			# 		limit = {
+			# 			scope:title = title:c_jerusalem
+			# 			title:d_samaritan.holder ?= {
+			# 				# Samaritan HoF is not independent
+			# 				# Samaritan liege is not Samaritan
+			# 				top_liege.faith != faith:samaritan
+			# 				top_liege != root
+			# 			}
+			# 			# root is at least a king, or their liege is, or their liege's liege is
+			# 			OR = {
+			# 				highest_held_title_tier >= tier_kingdom
+			# 				any_liege_or_above = {
+			# 					highest_held_title_tier >= tier_kingdom
+			# 				}
+			# 			}
+			# 		}
+			# 		create_title_and_vassal_change = {
+			# 			type = created
+			# 			save_scope_as = title_change
+			# 			add_claim_on_loss = no
+			# 		}
+			# 		if = {
+			# 			limit = {
+			# 				highest_held_title_tier >= tier_kingdom
+			# 			}
+			# 			title:d_samaritan.holder = {
+			# 				change_liege = {
+			# 					liege = root
+			# 					change = scope:title_change
+			# 				}
+			# 			}
+			# 		}
+			# 		else = {
+			# 			title:d_samaritan.holder = {
+			# 				change_liege = {
+			# 					liege = root.top_liege
+			# 					change = scope:title_change
+			# 				}
+			# 			}
+			# 		}
+			# 		resolve_title_and_vassal_change = scope:title_change
+			# 	}
+			# }
 
 			###########
 			# FP1 - New holder for a county with a stele.
@@ -911,6 +947,13 @@ on_title_gain = {
 								prowess >= high_skill_rating
 							}
 						}
+						AND = { # LotR
+							has_realm_law = camp_purpose_rangers
+							OR = {
+								martial >= high_skill_rating
+								prowess >= high_skill_rating
+							}
+						}
 						AND = {
 							has_realm_law = camp_purpose_scholars
 							OR = {
@@ -996,17 +1039,12 @@ on_title_gain = {
 		#####################
 		else = {
 			# Newly formed Hegemon of China should spruce up their council
-			if = {
-				limit = {
-					scope:title = title:h_china
-					exists = root.dynasty
-					exists = scope:previous_holder.house
-					scope:previous_holder.house != root.house
-				}
-				save_scope_as = councillor_liege
-				fill_the_ministry_effect = yes
-			}
-			# Ceremonial Liege invalidation
+			#if = { # WGH
+			#	limit = { scope:title = title:h_china }
+			#	save_scope_as = councillor_liege
+			#	fill_the_ministry_effect = yes
+			#}
+			# Hegemonies cannot have Ceremonial Regents
 			if = {
 				limit = {
 					exists = this
@@ -1244,308 +1282,288 @@ on_title_gain = {
 					}
 				}
 				#Byzantium is reborn!
-				if = {
-					limit = {
-						scope:title = {
-							this = title:e_byzantium
-						}
-						exists = global_var:byz_collapse_counter
-					}
-					save_scope_as = byz_emperor
-					title:e_byzantium = {
-						every_in_de_jure_hierarchy = {
-							limit = {
-								tier <= tier_kingdom
-								tier >= tier_county
-								is_title_created = yes
-								exists = holder
-							}
-							if = {
-								limit = {
-									holder ?= {
-										is_alive = yes
-										NOR = {
-											is_in_list = byz_return_notify
-											any_held_title = {
-												this = title:e_byzantium
-											}
-										}
-									}
-								}
-								holder = {
-									add_to_list = byz_return_notify
-								}
-							}
-						}
-					}
-					title:e_latin_empire = {
-						every_in_de_jure_hierarchy = {
-							limit = {
-								tier <= tier_kingdom
-								tier >= tier_county
-								is_title_created = yes
-								exists = holder
-							}
-							if = {
-								limit = {
-									holder = {
-										is_alive = yes
-										NOR = {
-											is_in_list = byz_return_notify
-											any_held_title = {
-												this = title:e_byzantium
-											}
-										}
-									}
-								}
-								holder = {
-									add_to_list = byz_return_notify
-								}
-							}
-						}
-					}
-					every_in_list = {
-						list = byz_return_notify
-						trigger_event = ep3_frankokratia_events.0130
-					}
-					remove_global_variable = byz_collapse_counter
-				}
+				# if = { # WGH
+				# 	limit = {
+				# 		scope:title = {
+				# 			this = title:e_byzantium
+				# 		}
+				# 		exists = global_var:byz_collapse_counter
+				# 	}
+				# 	save_scope_as = byz_emperor
+				# 	title:e_byzantium = {
+				# 		every_in_de_jure_hierarchy = {
+				# 			limit = {
+				# 				tier <= tier_kingdom
+				# 				tier >= tier_county
+				# 				is_title_created = yes
+				# 				exists = holder
+				# 			}
+				# 			if = {
+				# 				limit = {
+				# 					holder ?= {
+				# 						is_alive = yes
+				# 						NOR = {
+				# 							is_in_list = byz_return_notify
+				# 							any_held_title = {
+				# 								this = title:e_byzantium
+				# 							}
+				# 						}
+				# 					}
+				# 				}
+				# 				holder = {
+				# 					add_to_list = byz_return_notify
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	title:e_latin_empire = {
+				# 		every_in_de_jure_hierarchy = {
+				# 			limit = {
+				# 				tier <= tier_kingdom
+				# 				tier >= tier_county
+				# 				is_title_created = yes
+				# 				exists = holder
+				# 			}
+				# 			if = {
+				# 				limit = {
+				# 					holder = {
+				# 						is_alive = yes
+				# 						NOR = {
+				# 							is_in_list = byz_return_notify
+				# 							any_held_title = {
+				# 								this = title:e_byzantium
+				# 							}
+				# 						}
+				# 					}
+				# 				}
+				# 				holder = {
+				# 					add_to_list = byz_return_notify
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	every_in_list = {
+				# 		list = byz_return_notify
+				# 		trigger_event = ep3_frankokratia_events.0130
+				# 	}
+				# 	remove_global_variable = byz_collapse_counter
+				# }
 				# TGP CHINA
-				else_if = {
-					limit = {
-						scope:title = title:h_china
-					}
-					# When conquering China - Change to conquest phase
-					if = {
-						limit = {
-							OR = {
-								root.dynasty != scope:previous_holder.dynasty
-								is_lowborn = yes # in the rare instance that a lowborn theocrat reunites China
-							}
-						}
-						if = {
-							limit = {
-								is_valid_celestial_dynasty = no
-							}
-							situation:dynastic_cycle = {
-								situation_top_sub_region = {
-									change_phase = { phase = situation_dynastic_cycle_phase_instability_conquest }
-								}
-							}
-						}
-						else_if = {
-							limit = {
-								situation:dynastic_cycle ?= {
-									situation_current_phase = situation_dynastic_cycle_phase_instability_conquest
-								}
-							}
-							situation:dynastic_cycle = {
-								situation_top_sub_region = {
-									change_phase = { phase = situation_dynastic_cycle_phase_instability }
-								}
-							}
-						}
-					}
-					# When inheriting China - Move towards instability/chaotic phase
-					if = {
-						limit = {
-							root.house != scope:previous_holder.house
-							current_date_is_start_date_trigger = no # We check this to avoid potentially triggering this immediately on game start
-						}
-						situation:dynastic_cycle = {
-							if = {
-								limit = {
-									situation_top_has_catalyst = catalyst_new_dynasty_inherits
-								}
-								trigger_situation_catalyst = catalyst_new_dynasty_inherits
-							}
-						}
-					}
-					# Clear the Strengthen Capital great project cooldown
-					situation:dynastic_cycle ?= {
-						if = {
-							limit = { has_variable = gp_strengthen_capital_cooldown }
-							remove_variable = gp_strengthen_capital_cooldown
-						}
-					}
-					#setup Grand Secretariat
-					if = {
-						limit = {
-							has_dlc_feature = all_under_heaven
-							NOT = { has_diarchy_type = grand_secretariat }
-						}
-						if = {#  Clear out any old diarchy
-							limit = { has_active_diarchy = yes }
-							end_diarchy = yes
-						}
-						if = {
-							limit = {
-								has_realm_law = grand_chancellor_law
-								exists = title:h_china.holder.cp:councillor_chancellor
-							}
-							try_start_diarchy = grand_secretariat
-							set_diarch = title:h_china.holder.cp:councillor_chancellor
-						}
-						else_if = {
-							limit = {
-								has_realm_law = grand_marshal_law
-								exists = title:h_china.holder.cp:minister_grand_marshal
-							}
-							try_start_diarchy = grand_secretariat
-							set_diarch = title:h_china.holder.cp:minister_grand_marshal
-						}
-						else_if = {
-							limit = {
-								exists = title:h_china.holder.cp:councillor_spymaster
-							}
-							try_start_diarchy = grand_secretariat
-							set_diarch = title:h_china.holder.cp:councillor_spymaster
-						}
-					}
-					root.house.house_head.domicile ?= {
-						set_family_accomplishment_effect = { ACCOMPLISHMENT = family_accomplishment_dynasty }
-					}
-				}
-				# left them in enum since we can not avoid touch here with encapsulated macro
-				else_if = {
-					limit = {
-						OR = {
-							scope:title = title:e_minister_chancellor
-							scope:title = title:e_minister_censor
-							scope:title = title:e_minister_grand_marshal
-							scope:title = title:e_minister_of_personnel
-							scope:title = title:e_minister_of_revenue
-							scope:title = title:e_minister_of_rites
-							scope:title = title:e_minister_of_war
-							scope:title = title:e_minister_of_justice
-							scope:title = title:e_minister_of_works
-						}
-					}
-					# set up the council holder as dejure liege of the ministry title, as this effect is not called with the same scope as council onactions
-					scope:title.de_jure_liege.holder = {
-						save_scope_as = councillor_liege
-					}
-					# If we get a minister title, make sure we set things up correctly
-					switch = {
-						trigger = scope:title
-						title:e_minister_chancellor = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_chancellor MINISTER_POSITION = councillor_chancellor }
-						}
-						title:e_minister_censor = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_censor MINISTER_POSITION = councillor_spymaster }
-						}
-						title:e_minister_grand_marshal = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_grand_marshal MINISTER_POSITION = minister_grand_marshal }
-						}
-						title:e_minister_of_personnel = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_of_personnel MINISTER_POSITION = minister_personnel }
-						}
-						title:e_minister_of_revenue = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_of_revenue MINISTER_POSITION = councillor_steward }
-						}
-						title:e_minister_of_rites = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_of_rites MINISTER_POSITION = councillor_court_chaplain }
-						}
-						title:e_minister_of_war = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_of_war MINISTER_POSITION = councillor_marshal }
-						}
-						title:e_minister_of_justice = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_of_justice MINISTER_POSITION = minister_justice }
-						}
-						title:e_minister_of_works = {
-							got_minister_position_effect = { MINISTER_TITLE = e_minister_of_works MINISTER_POSITION = minister_works }
-						}
-					}
-				}
+				# else_if = { # WGH
+				# 	limit = {
+				# 		scope:title = title:h_china
+				# 	}
+				# 	# When conquering China - Change to conquest phase
+				# 	if = {
+				# 		limit = {
+				# 			root.house != scope:previous_holder.house
+				# 			is_valid_celestial_dynasty = no
+				# 		}
+				# 		situation:dynastic_cycle = {
+				# 			situation_top_sub_region = {
+				# 				change_phase = { phase = situation_dynastic_cycle_phase_instability_conquest }
+				# 			}
+				# 		}
+				# 	}
+				# 	# When inheriting China - Move towards instability/chaotic phase
+				# 	else_if = {
+				# 		limit = {
+				# 			root.house != scope:previous_holder.house
+				# 			months_from_game_start > 0 # We check this to avoid potentially triggering this immediately on game start
+				# 		}
+				# 		situation:dynastic_cycle = {
+				# 			if = {
+				# 				limit = {
+				# 					situation_top_has_catalyst = catalyst_new_dynasty_inherits
+				# 				}
+				# 				trigger_situation_catalyst = catalyst_new_dynasty_inherits
+				# 			}
+				# 			else_if = {
+				# 				limit = {
+				# 					situation_current_phase = situation_dynastic_cycle_phase_instability_conquest
+				# 				}
+				# 				situation_top_sub_region = {
+				# 					change_phase = { phase = situation_dynastic_cycle_phase_instability }
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	# Clear the Strengthen Capital great project cooldown
+				# 	situation:dynastic_cycle ?= {
+				# 		if = {
+				# 			limit = { has_variable = gp_strengthen_capital_cooldown }
+				# 			remove_variable = gp_strengthen_capital_cooldown
+				# 		}
+				# 	}
+				# 	#setup Grand Secretariat
+				# 	if = {
+				# 		limit = {
+				# 			has_dlc_feature = all_under_heaven
+				# 			NOT = { has_diarchy_type = grand_secretariat }
+				# 		}
+				# 		if = {
+				# 			limit = {
+				# 				has_realm_law = grand_chancellor_law
+				# 				exists = title:h_china.holder.cp:councillor_chancellor
+				# 			}
+				# 			try_start_diarchy = grand_secretariat
+				# 			set_diarch = title:h_china.holder.cp:councillor_chancellor
+				# 		}
+				# 		else_if = {
+				# 			limit = {
+				# 				has_realm_law = grand_marshal_law
+				# 				exists = title:h_china.holder.cp:minister_grand_marshal
+				# 			}
+				# 			try_start_diarchy = grand_secretariat
+				# 			set_diarch = title:h_china.holder.cp:minister_grand_marshal
+				# 		}
+				# 		else_if = {
+				# 			limit = {
+				# 				exists = title:h_china.holder.cp:councillor_spymaster
+				# 			}
+				# 			try_start_diarchy = grand_secretariat
+				# 			set_diarch = title:h_china.holder.cp:councillor_spymaster
+				# 		}
+				# 	}
+				# 	root.house.house_head.domicile ?= {
+				# 		set_family_accomplishment_effect = { ACCOMPLISHMENT = family_accomplishment_dynasty }
+				# 	}
+				# }
+				# else_if = { # WGH
+				# 	limit = {
+				# 		OR = {
+				# 			scope:title = title:e_minister_chancellor
+				# 			scope:title = title:e_minister_censor
+				# 			scope:title = title:e_minister_grand_marshal
+				# 			scope:title = title:e_minister_of_personnel
+				# 			scope:title = title:e_minister_of_revenue
+				# 			scope:title = title:e_minister_of_rites
+				# 			scope:title = title:e_minister_of_war
+				# 			scope:title = title:e_minister_of_justice
+				# 			scope:title = title:e_minister_of_works
+				# 		}
+				# 	}
+				# 	If we get a minister title, make sure we set things up correctly
+				# 	switch = {
+				# 		trigger = scope:title
+				# 		title:e_minister_chancellor = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_chancellor MINISTER_POSITION = councillor_chancellor }
+				# 		}
+				# 		title:e_minister_censor = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_censor MINISTER_POSITION = councillor_spymaster }
+				# 		}
+				# 		title:e_minister_grand_marshal = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_grand_marshal MINISTER_POSITION = minister_grand_marshal }
+				# 		}
+				# 		title:e_minister_of_personnel = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_of_personnel MINISTER_POSITION = minister_personnel }
+				# 		}
+				# 		title:e_minister_of_revenue = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_of_revenue MINISTER_POSITION = councillor_steward }
+				# 		}
+				# 		title:e_minister_of_rites = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_of_rites MINISTER_POSITION = councillor_court_chaplain }
+				# 		}
+				# 		title:e_minister_of_war = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_of_war MINISTER_POSITION = councillor_marshal }
+				# 		}
+				# 		title:e_minister_of_justice = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_of_justice MINISTER_POSITION = minister_justice }
+				# 		}
+				# 		title:e_minister_of_works = {
+				# 			got_minister_position_effect = { MINISTER_TITLE = e_minister_of_works MINISTER_POSITION = minister_works }
+				# 		}
+				# 	}
+				# }
 				# TGP JAPAN
-				else_if = {
-					limit = { scope:title = title:e_japan }
-					# TGP RETIRED EMPEROR
-					if = {
-						limit = {
-							exists = title:e_japan.var:administrative_ui_special_title
-							has_title = title:e_japan.var:administrative_ui_special_title
-						}
-						# Flavourization setup
-						title:e_japan = { remove_variable = shogun_flag }
-						remove_character_flag = shogun_flag
-						if = { # Flavourization setup
-							limit = { has_global_variable = tenno_restored }
-							title:e_japan = { set_variable = ceremonial_liege_flag }
-							add_character_flag = ceremonial_liege_flag
-							trigger_event = {
-								id = tgp_japan_general.9100
-								days = 1
-							}
-						}
-						else = { # Event to abdicate and become Joko
-							trigger_event = {
-								id = tgp_japan_general.9120
-								days = 1
-							}
-						}
-					}
-					# TGP SHOGUN
-					else_if = {
-						limit = {
-							has_government = japan_feudal_government
-							has_global_variable = shogunate_established
-						}
-						title:e_japan = { remove_variable = ceremonial_liege_flag }
-						remove_character_flag = ceremonial_liege_flag
-						title:e_japan = { set_variable = shogun_flag }
-						add_character_flag = shogun_flag
-					}
-					# TGP KAMPAKU
-					else = {
-						title:e_japan = { remove_variable = ceremonial_liege_flag }
-						remove_character_flag = ceremonial_liege_flag
-						title:e_japan = { remove_variable = shogun_flag }
-						remove_character_flag = shogun_flag
-					}
-					# Japanese regent laws
-					if = {
-						limit = {
-							tgp_realm_has_ceremonial_liege_trigger = yes
-							government_is_japanese_trigger = yes
-							NOR = {
-								has_global_variable = shogunate_established
-								has_global_variable = tenno_restored
-							}
-						}
-						if = {
-							limit = {
-								government_has_flag = government_is_japan_administrative
-								NOT = { has_realm_law = japanese_regency_succession_law }
-							}
-							add_realm_law_skip_effects = japanese_regency_succession_law
-						}
-						else_if = {
-							limit = {
-								government_has_flag = government_is_japan_feudal
-								has_realm_law = japanese_regency_succession_law
-							}
-							remove_realm_law = japanese_regency_succession_law
-						}
-					}
-				}
+				# else_if = { # WGH
+				# 	limit = { scope:title = title:e_japan }
+				# 	# TGP RETIRED EMPEROR
+				# 	if = {
+				# 		limit = {
+				# 			exists = title:e_japan.var:administrative_ui_special_title
+				# 			has_title = title:e_japan.var:administrative_ui_special_title
+				# 		}
+				# 		# Flavourization setup
+				# 		title:e_japan = { remove_variable = shogun_flag }
+				# 		remove_character_flag = shogun_flag
+				# 		if = { # Flavourization setup
+				# 			limit = { has_global_variable = tenno_restored }
+				# 			title:e_japan = { set_variable = ceremonial_liege_flag }
+				# 			add_character_flag = ceremonial_liege_flag
+				# 			trigger_event = {
+				# 				id = tgp_japan_general.9100
+				# 				days = 1
+				# 			}
+				# 		}
+				# 		else = { # Event to abdicate and become Joko
+				# 			trigger_event = {
+				# 				id = tgp_japan_general.9120
+				# 				days = 1
+				# 			}
+				# 		}
+				# 	}
+				# 	# TGP SHOGUN
+				# 	else_if = {
+				# 		limit = {
+				# 			has_government = japan_feudal_government
+				# 			has_global_variable = shogunate_established
+				# 		}
+				# 		title:e_japan = { remove_variable = ceremonial_liege_flag }
+				# 		remove_character_flag = ceremonial_liege_flag
+				# 		title:e_japan = { set_variable = shogun_flag }
+				# 		add_character_flag = shogun_flag
+				# 	}
+				# 	# TGP KAMPAKU
+				# 	else = {
+				# 		title:e_japan = { remove_variable = ceremonial_liege_flag }
+				# 		remove_character_flag = ceremonial_liege_flag
+				# 		title:e_japan = { remove_variable = shogun_flag }
+				# 		remove_character_flag = shogun_flag
+				# 	}
+				# 	# Japanese regent laws
+				# 	if = {
+				# 		limit = {
+				# 			tgp_realm_has_ceremonial_liege_trigger = yes
+				# 			government_is_japanese_trigger = yes
+				# 			NOR = {
+				# 				has_global_variable = shogunate_established
+				# 				has_global_variable = tenno_restored
+				# 			}
+				# 		}
+				# 		if = {
+				# 			limit = {
+				# 				government_has_flag = government_is_japan_administrative
+				# 				NOT = { has_realm_law = japanese_regency_succession_law }
+				# 			}
+				# 			add_realm_law_skip_effects = japanese_regency_succession_law
+				# 		}
+				# 		else_if = {
+				# 			limit = {
+				# 				government_has_flag = government_is_japan_feudal
+				# 				has_realm_law = japanese_regency_succession_law
+				# 			}
+				# 			remove_realm_law = japanese_regency_succession_law
+				# 		}
+				# 	}
+				# }
 				# ROME
-				else_if = {
-					limit = {
-						OR = {
-							scope:title = title:h_roman_empire
-							scope:title = title:h_eastern_roman_empire 
-						}
-						NOT = { has_trait = augustus }
-					}
-					trigger_event = roman_restoration.0005
-				}
+				# else_if = { # WGH
+				# 	limit = {
+				# 		OR = {
+				# 			scope:title = title:h_roman_empire
+				# 			scope:title = title:h_eastern_roman_empire 
+				# 		}
+				# 		NOT = { has_trait = augustus }
+				# 	}
+				# 	trigger_event = roman_restoration.0005
+				# }
 				#Mongol empire and GoK should lose other empires
 				if = {
 					limit = {
 						primary_title ?= {
 							OR = {
-								this = title:e_mongol_empire
+								# this = title:e_mongol_empire # WGH
 								AND = {
 									exists = global_var:greatest_of_khans_title
 									this = global_var:greatest_of_khans_title
@@ -1554,7 +1572,7 @@ on_title_gain = {
 						}
 						scope:title = {
 							NOR = {
-								this = title:e_mongol_empire
+								# this = title:e_mongol_empire # WGH
 								AND = {
 									exists = global_var:greatest_of_khans_title
 									this = global_var:greatest_of_khans_title
@@ -1622,141 +1640,141 @@ on_title_gain = {
 				}
 			}
 			# West Francia becomes France when no longer controlled by a Karling
-			else_if = {
-				limit = {
-					scope:title = {
-						this = title:k_france
-					}
-					NOR = {
-						dynasty = { this = dynasty:25061 } # Not held by a Karling
-						any_liege_or_above = {
-							dynasty = { this = dynasty:25061 } # And does not have a liege that is a Karling
-						}
-						has_global_variable = west_francia_renamed
-					}
-				}
-				trigger_event = {
-					id = title_event.0001
-					days = 1
-				}
-			}
+			# else_if = { # WGH
+			# 	limit = {
+			# 		scope:title = {
+			# 			this = title:k_france
+			# 		}
+			# 		NOR = {
+			# 			dynasty = { this = dynasty:25061 } # Not held by a Karling
+			# 			any_liege_or_above = {
+			# 				dynasty = { this = dynasty:25061 } # And does not have a liege that is a Karling
+			# 			}
+			# 			has_global_variable = west_francia_renamed
+			# 		}
+			# 	}
+			# 	trigger_event = {
+			# 		id = title_event.0001
+			# 		days = 1
+			# 	}
+			# }
 			# East Francia becomes Germany when no longer controlled by a Karling
-			else_if = {
-				limit = {
-					scope:title = {
-						this = title:k_east_francia
-					}
-					NOR = {
-						dynasty = { this = dynasty:25061 }  # Not held by a Karling
-						any_liege_or_above = {
-							dynasty = { this = dynasty:25061 } # And does not have a liege that is a Karling
-						}
-						has_global_variable = east_francia_renamed
-					}
-				}
-				trigger_event = {
-					id = title_event.0002
-					days = 1
-				}
-			}
+			# else_if = {
+			# 	limit = {
+			# 		scope:title = {
+			# 			this = title:k_east_francia
+			# 		}
+			# 		NOR = {
+			# 			dynasty = { this = dynasty:25061 }  # Not held by a Karling
+			# 			any_liege_or_above = {
+			# 				dynasty = { this = dynasty:25061 } # And does not have a liege that is a Karling
+			# 			}
+			# 			has_global_variable = east_francia_renamed
+			# 		}
+			# 	}
+			# 	trigger_event = {
+			# 		id = title_event.0002
+			# 		days = 1
+			# 	}
+			# }
 			# Hidden management event to determine if we need to axe Asturias &, if we do, what notification events to send out afterwards.
-			else_if = {
-				limit = {
-					scope:title = title:k_castille
-					title:k_asturias = {
-						# Leon must be de jure part of Asturias, or else there's no reason to ever stop calling it Asturias.
-						any_in_de_jure_hierarchy = { this = title:d_leon }
-					}
-				}
-				trigger_event = {
-					id = title_event.0011
-					days = 1
-				}
-			}
+			# else_if = {
+			# 	limit = {
+			# 		scope:title = title:k_castille
+			# 		title:k_asturias = {
+			# 			# Leon must be de jure part of Asturias, or else there's no reason to ever stop calling it Asturias.
+			# 			any_in_de_jure_hierarchy = { this = title:d_leon }
+			# 		}
+			# 	}
+			# 	trigger_event = {
+			# 		id = title_event.0011
+			# 		days = 1
+			# 	}
+			# }
 			# FP2 El Cid Achievement
-			else_if = {
-				limit = {
-					scope:title = title:k_valencia
-					has_character_flag = fp2_el_cid_blood_relation_legacy
-				}
-				set_global_variable = { # DO. NOT. USE. add_achievement_global_variable_effect. IT BREAKS THE ACHIEVEMENT.
-					name = fp2_el_cid_achievement_unlocked
-					value = yes
-				}
-			}
+			# else_if = { # WGH
+			# 	limit = {
+			# 		scope:title = title:k_valencia
+			# 		has_character_flag = fp2_el_cid_blood_relation_legacy
+			# 	}
+			# 	set_global_variable = { # DO. NOT. USE. add_achievement_global_variable_effect. IT BREAKS THE ACHIEVEMENT.
+			# 		name = fp2_el_cid_achievement_unlocked
+			# 		value = yes
+			# 	}
+			# }
 			# TGP CEREMONIAL RULER
 			# IMPERIAL INHERITANCE
-			else_if = {
-				limit = {
-					exists = scope:title.var:ceremonial_title
-				}
-				add_character_flag = ceremonial_liege_flag
-				if = {
-					limit = { has_trait = devoted }
-					remove_trait = devoted
-				}
-				if = {
-					limit = { government_has_flag = government_is_landless_adventurer }
-					destroy_laamp_effect = { ADVENTURER = this }
-				}
-				trigger_event = {
-					id = tgp_japan_general.9100
-					days = 1
-				}
-			}
+			#else_if = { # WGH
+			#	limit = {
+			#		exists = scope:title.var:ceremonial_title
+			#	}
+			#	add_character_flag = ceremonial_liege_flag
+			#	if = {
+			#		limit = { has_trait = devoted }
+			#		remove_trait = devoted
+			#	}
+			#	if = {
+			#		limit = { government_has_flag = government_is_landless_adventurer }
+			#		destroy_laamp_effect = { ADVENTURER = this }
+			#	}
+			#	trigger_event = {
+			#		id = tgp_japan_general.9100
+			#		days = 1
+			#	}
+			#}
 			# Norway stuff
-			else_if = {
-				limit = {
-					# The title they've acquired is Norway.
-					scope:title = title:k_norway
-				}
-				# Tanglehair becomes Fairhair.
-				if = {
-					limit = {
-						# This character is Harald Fairhair.
-						exists = character:144000
-						this = character:144000
-						# Norway has been created by them.
-						scope:transfer_type = flag:created
-						# Norway has not been created previously.
-						NOT = { exists = global_var:norway_created }
-					}
-					trigger_event = {
-						id = fp1_major_decisions.1011
-						days = 1
-					}
-				}
-				# Check Norway's creation status.
-				if = {
-					limit = {
-						scope:transfer_type = flag:created
-						NOT = { exists = global_var:norway_created }
-					}
-					trigger_event = {
-						id = fp1_major_decisions.1012
-						days = 1
-					}
-				}
-			}
+			# else_if = {
+			# 	limit = {
+			# 		# The title they've acquired is Norway.
+			# 		scope:title = title:k_norway
+			# 	}
+			# 	# Tanglehair becomes Fairhair.
+			# 	if = {
+			# 		limit = {
+			# 			# This character is Harald Fairhair.
+			# 			exists = character:144000
+			# 			this = character:144000
+			# 			# Norway has been created by them.
+			# 			scope:transfer_type = flag:created
+			# 			# Norway has not been created previously.
+			# 			NOT = { exists = global_var:norway_created }
+			# 		}
+			# 		trigger_event = {
+			# 			id = fp1_major_decisions.1011
+			# 			days = 1
+			# 		}
+			# 	}
+			# 	# Check Norway's creation status.
+			# 	if = {
+			# 		limit = {
+			# 			scope:transfer_type = flag:created
+			# 			NOT = { exists = global_var:norway_created }
+			# 		}
+			# 		trigger_event = {
+			# 			id = fp1_major_decisions.1012
+			# 			days = 1
+			# 		}
+			# 	}
+			# }
 			# English Partition Result - Gained Both
-			else_if = {
-				limit = {
-					# Partition must be active.
-					exists = global_var:partition_active_danelaw
-					# The gained title must be one of the two partitioned entities.
-					OR = {
-						scope:title = title:k_england
-						scope:title = title:k_danelaw
-					}
-					# And you must now hold both titles.
-					this = title:k_england.holder
-					this = title:k_danelaw.holder
-				}
-				trigger_event = {
-					id = british_isles.1032
-					days = 1
-				}
-			}
+			# else_if = {
+			# 	limit = {
+			# 		# Partition must be active.
+			# 		exists = global_var:partition_active_danelaw
+			# 		# The gained title must be one of the two partitioned entities.
+			# 		OR = {
+			# 			scope:title = title:k_england
+			# 			scope:title = title:k_danelaw
+			# 		}
+			# 		# And you must now hold both titles.
+			# 		this = title:k_england.holder
+			# 		this = title:k_danelaw.holder
+			# 	}
+			# 	trigger_event = {
+			# 		id = british_isles.1032
+			# 		days = 1
+			# 	}
+			# }
 			# Lil Johnny Lackland changes his nickname.
 			if = {
 				limit = {
@@ -1769,118 +1787,118 @@ on_title_gain = {
 		#############
 		# STRUGGLES #
 		#############
-		if = {
-			limit = {
-				exists = struggle:persian_struggle
-			}
-			#Struggle Catalysts
-			if = {
-				limit = {
-					scope:title.empire ?= title:e_persia
-					scope:title = {
-						tier >= tier_county
-						is_landless_type_title = no
-					}
-					NOR = {
-						scope:transfer_type = flag:created
-						scope:transfer_type = flag:inheritance
-					}
-				}
-				if = {
-					limit = {
-						fp3_character_uninvolved_in_struggle_trigger = yes
-						scope:previous_holder ?= {
-							fp3_character_involved_in_struggle_trigger = yes
-							any_character_struggle = {
-								phase_has_catalyst = catalyst_interloper_uninvolved_gain_struggle_titles
-							}
-						}
-					}
-					scope:previous_holder ?= {
-						every_character_struggle = {
-							limit = { phase_has_catalyst = catalyst_interloper_uninvolved_gain_struggle_titles }
-							activate_struggle_catalyst = {
-								catalyst = catalyst_interloper_uninvolved_gain_struggle_titles
-								character = root
-							}
-							log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_interloper_uninvolved_gain_struggle_titles }
-						}
-					}
-				}
-				if = {
-					limit = {
-						fp3_character_involved_in_struggle_trigger = yes
-						any_character_struggle = {
-							phase_has_catalyst = catalyst_gain_struggle_titles_from_interlopers_uninvolved
-							# Stop catalyst from affecting those who are only just now uninvolved due to losing this title
-							OR = {
-								NOT = { is_culture_involved_in_struggle = scope:previous_holder.culture }
-								NOT = { is_faith_involved_in_struggle = scope:previous_holder.faith }
-							}
-						}
-						scope:previous_holder ?= {
-							OR = {
-								fp3_character_uninvolved_in_struggle_trigger = yes
-								fp3_character_interloper_in_struggle_trigger = yes
-							}
-						}
-					}
-					every_character_struggle = {
-						limit = { phase_has_catalyst = catalyst_gain_struggle_titles_from_interlopers_uninvolved }
-						activate_struggle_catalyst = {
-							catalyst = catalyst_gain_struggle_titles_from_interlopers_uninvolved
-							character = root
-						}
-						log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_gain_struggle_titles_from_interlopers_uninvolved }
-					}
-				}
-			}
-			# FP3 Struggle special cases
-			if = {
-				limit = {
-					scope:title = {
-						OR = {
-							this = title:d_sunni
-							this = title:e_arabia
-						}
-					}
-				}
-				## Convert detractors to supporters if they inherit either of the titles they're detracting against.
-				if = {
-					limit = {
-						NOT = { has_trait = fp3_struggle_supporter }
-					}
-					if = {
-						limit = { has_trait = fp3_struggle_detractor }
-						remove_trait = fp3_struggle_detractor
-					}
-					add_trait = fp3_struggle_supporter
-				}
-				# FP3 Title Transfer Notification
-				struggle:persian_struggle = { # Wet script
-					every_involved_ruler = {
-						send_interface_toast = {
-							type = event_toast_effect_bad
-							title = persian_struggle_central_title_transfer.t
-							left_icon = scope:previous_holder
-							right_icon = scope:title.holder
+		# if = { # WGH
+		# 	limit = {
+		# 		exists = struggle:persian_struggle
+		# 	}
+		# 	#Struggle Catalysts
+		# 	# if = { # WGH
+		# 	# 	limit = {
+		# 	# 		scope:title.empire ?= title:e_persia
+		# 	# 		scope:title = {
+		# 	# 			tier >= tier_county
+		# 	# 			is_landless_type_title = no
+		# 	# 		}
+		# 	# 		NOR = {
+		# 	# 			scope:transfer_type = flag:created
+		# 	# 			scope:transfer_type = flag:inheritance
+		# 	# 		}
+		# 	# 	}
+		# 	# 	if = {
+		# 	# 		limit = {
+		# 	# 			fp3_character_uninvolved_in_struggle_trigger = yes
+		# 	# 			scope:previous_holder ?= {
+		# 	# 				fp3_character_involved_in_struggle_trigger = yes
+		# 	# 				any_character_struggle = {
+		# 	# 					phase_has_catalyst = catalyst_interloper_uninvolved_gain_struggle_titles
+		# 	# 				}
+		# 	# 			}
+		# 	# 		}
+		# 	# 		scope:previous_holder ?= {
+		# 	# 			every_character_struggle = {
+		# 	# 				limit = { phase_has_catalyst = catalyst_interloper_uninvolved_gain_struggle_titles }
+		# 	# 				activate_struggle_catalyst = {
+		# 	# 					catalyst = catalyst_interloper_uninvolved_gain_struggle_titles
+		# 	# 					character = root
+		# 	# 				}
+		# 	# 				log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_interloper_uninvolved_gain_struggle_titles }
+		# 	# 			}
+		# 	# 		}
+		# 	# 	}
+		# 	# 	if = {
+		# 	# 		limit = {
+		# 	# 			fp3_character_involved_in_struggle_trigger = yes
+		# 	# 			any_character_struggle = {
+		# 	# 				phase_has_catalyst = catalyst_gain_struggle_titles_from_interlopers_uninvolved
+		# 	# 				# Stop catalyst from affecting those who are only just now uninvolved due to losing this title
+		# 	# 				OR = {
+		# 	# 					NOT = { is_culture_involved_in_struggle = scope:previous_holder.culture }
+		# 	# 					NOT = { is_faith_involved_in_struggle = scope:previous_holder.faith }
+		# 	# 				}
+		# 	# 			}
+		# 	# 			scope:previous_holder ?= {
+		# 	# 				OR = {
+		# 	# 					fp3_character_uninvolved_in_struggle_trigger = yes
+		# 	# 					fp3_character_interloper_in_struggle_trigger = yes
+		# 	# 				}
+		# 	# 			}
+		# 	# 		}
+		# 	# 		every_character_struggle = {
+		# 	# 			limit = { phase_has_catalyst = catalyst_gain_struggle_titles_from_interlopers_uninvolved }
+		# 	# 			activate_struggle_catalyst = {
+		# 	# 				catalyst = catalyst_gain_struggle_titles_from_interlopers_uninvolved
+		# 	# 				character = root
+		# 	# 			}
+		# 	# 			log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_gain_struggle_titles_from_interlopers_uninvolved }
+		# 	# 		}
+		# 	# 	}
+		# 	# }
+		# 	# FP3 Struggle special cases
+		# 	# if = { # WGH
+		# 	# 	limit = {
+		# 	# 		scope:title = {
+		# 	# 			OR = {
+		# 	# 				this = title:d_sunni
+		# 	# 				this = title:e_arabia
+		# 	# 			}
+		# 	# 		}
+		# 	# 	}
+		# 	# 	## Convert detractors to supporters if they inherit either of the titles they're detracting against.
+		# 	# 	if = {
+		# 	# 		limit = {
+		# 	# 			NOT = { has_trait = fp3_struggle_supporter }
+		# 	# 		}
+		# 	# 		if = {
+		# 	# 			limit = { has_trait = fp3_struggle_detractor }
+		# 	# 			remove_trait = fp3_struggle_detractor
+		# 	# 		}
+		# 	# 		add_trait = fp3_struggle_supporter
+		# 	# 	}
+		# 	# 	# FP3 Title Transfer Notification
+		# 	# 	struggle:persian_struggle = { # Wet script
+		# 	# 		every_involved_ruler = {
+		# 	# 			send_interface_toast = {
+		# 	# 				type = event_toast_effect_bad
+		# 	# 				title = persian_struggle_central_title_transfer.t
+		# 	# 				left_icon = scope:previous_holder
+		# 	# 				right_icon = scope:title.holder
 
-							custom_tooltip = persian_struggle_central_title_transfer.desc
-						}
-					}
-					every_interloper_ruler = {
-						send_interface_toast = {
-							type = event_toast_effect_bad
-							title = persian_struggle_central_title_transfer.t
-							left_icon = scope:previous_holder
-							right_icon = scope:title.holder
+		# 	# 				custom_tooltip = persian_struggle_central_title_transfer.desc
+		# 	# 			}
+		# 	# 		}
+		# 	# 		every_interloper_ruler = {
+		# 	# 			send_interface_toast = {
+		# 	# 				type = event_toast_effect_bad
+		# 	# 				title = persian_struggle_central_title_transfer.t
+		# 	# 				left_icon = scope:previous_holder
+		# 	# 				right_icon = scope:title.holder
 
-							custom_tooltip = persian_struggle_central_title_transfer.desc
-						}
-					}
-				}
-			}
-		}
+		# 	# 				custom_tooltip = persian_struggle_central_title_transfer.desc
+		# 	# 			}
+		# 	# 		}
+		# 	# 	}
+		# 	# }
+		# }
 
 		###############
 		# GOVERNMENTS #
@@ -1912,47 +1930,33 @@ on_title_gain = {
 			}
 		}
 		# TGP Catalysts
-		if = {
-			limit = {
-				scope:previous_holder ?= {
-					has_title = title:h_china
-				}
-				OR = {
-					scope:transfer_type = flag:granted
-					scope:transfer_type = flag:appointment
-				}
-				NOR = {
-					any_held_title = {
-						is_landless_type_title = no
-						this != scope:title
-					}
-					has_appointment_level_for_title = scope:title
-				}
-				# prevent penalty for giving non-feudal lands to nomad/tribals
-				OR = {
-					scope:title = {
-						has_title_law_flag = appointment_with_level_requirement
-					}
-					has_realm_law_flag = appointment_with_level_requirement
-				}
-				has_global_variable = game_has_started  # Don't mess up for initialization
-			}
-			situation:dynastic_cycle ?= {
-				if = {
-					limit = { situation_top_has_catalyst = catalyst_hegemon_appointing_low_merit_governor }
-					trigger_situation_catalyst = {
-						catalyst = catalyst_hegemon_appointing_low_merit_governor
-						character = scope:previous_holder
-					}
-				}
-			}
-		}
+		# if = { # WGH
+		# 	limit = {
+		# 		scope:previous_holder ?= {
+		# 			has_title = title:h_china
+		# 		}
+		# 		OR = {
+		# 			scope:transfer_type = flag:granted
+		# 			scope:transfer_type = flag:appointment
+		# 		}
+		# 		NOT = { has_appointment_level_for_title = scope:title }
+		# 	}
+		# 	situation:dynastic_cycle ?= {
+		# 		if = {
+		# 			limit = { situation_top_has_catalyst = catalyst_hegemon_appointing_low_merit_governor }
+		# 			trigger_situation_catalyst = {
+		# 				catalyst = catalyst_hegemon_appointing_low_merit_governor
+		# 				character = scope:previous_holder
+		# 			}
+		# 		}
+		# 	}
+		# }
 		# If the minister's merit rank is too low, it will affect the dynastic cycle
 		if = {
 			limit = {
 				scope:title = {
 					tgp_is_minister_title = yes
-					de_jure_liege = title:h_china
+					#de_jure_liege = title:h_china # WGH
 				}
 				NOT = { has_appointment_level_for_title = scope:title }
 			}
@@ -2039,28 +2043,32 @@ on_title_gain = {
 					scope:title = root.primary_title
 					has_ep3_dlc_trigger = yes
 					#Checks so this event doesn't fire after character creation, although it's not really a problem if it does
-					current_date_is_start_date_trigger = no
+					current_date_is_start_date_trigger = no # WGH
 				}
 				save_scope_as = emperor
 				#Should trigger special event during fourth crusade!
+				#if = { # WGH
+				# 	limit = {
+				# 		exists = global_var:byz_claimant_champion
+				# 		global_var:byz_claimant_champion = {
+				# 			any_owned_story = {
+				# 				type = frankokratia_story
+				# 				exists = var:byz_claimant
+				# 				var:byz_claimant = {
+				# 					this = root
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	every_vassal_or_below = {
+				# 		limit = {
+				# 			is_playable_character = yes
+				# 		}
+				# 		trigger_event = ep3_frankokratia_events.0110
+				# 	}
+				#}
+				#else_if = {
 				if = {
-					limit = {
-						scope:title = title:e_byzantium
-						global_var:byz_claimant_champion ?= {
-							any_owned_story = {
-								type = frankokratia_story
-								var:byz_claimant ?= root
-							}
-						}
-					}
-					every_vassal_or_below = {
-						limit = {
-							is_playable_character = yes
-						}
-						trigger_event = ep3_frankokratia_events.0110
-					}
-				}
-				else_if = {
 					limit = {
 						exists = house
 						exists = scope:previous_holder
@@ -2134,7 +2142,7 @@ on_title_gain = {
 						top_liege = root.top_liege
 						government_allows = administrative
 						this != scope:title_gainer
-						scope:title != title:k_chrysanthemum_throne
+						#scope:title != title:k_chrysanthemum_throne # WGH
 					}
 					send_interface_message = {
 						type = msg_admin_title_gained
@@ -2723,17 +2731,19 @@ on_title_gain = {
 		}
 	}
 	events = {
-		roman_restoration.0005		#New Roman Emperor gets Augustus trait. (old holder, if still alive, loses it)
-		roman_restoration.0199		#Restoring the Pentarchy.
+		#roman_restoration.0005		#New Roman Emperor gets Augustus trait. (old holder, if still alive, loses it) # WGH
+		#roman_restoration.0199		#Restoring the Pentarchy. # WGH
 		delay = { days = 1 }
 		realm_maintenance.2001		#Big notification about inheriting emperor tier title
-		british_isles.1032			# Danelaw-England partition calc.
-		title_event.0001			# Rename West Francia to France
-		title_event.0002			# Rename East Francia to Germany
-		title_event.0011			# Asturias becomes Leon upon emergence of Castille
+		# british_isles.1032			# Danelaw-England partition calc. # WGH
+		# fp1_major_decisions.1011	# Harald Tanglehair becomes Harald Fairhair. # WGH
+		# fp1_major_decisions.1012	# If Norway has just been created for the first time, flag that. # WGH
+		# title_event.0001			# Rename West Francia to France # WGH
+		# title_event.0002			# Rename East Francia to Germany # WGH
+		# title_event.0011			# Asturias becomes Leon upon emergence of Castille # WGH
 		# If we weren't already in a diarchy but should be, put us in one.
 		diarchy.0011
-		ep3_emperor_yearly.2020		# EP3: The Patriarch refuses to crown you as new emperor because you have a criminal trait
+		# ep3_emperor_yearly.2020		# EP3: The Patriarch refuses to crown you as new emperor because you have a criminal trait # WGH
 	}
 }
 
@@ -2742,6 +2752,7 @@ on_title_gain = {
 # scope:title = the title that changes hands
 # scope:previous_holder = previous holder. Should be dead
 on_title_gain_inheritance = {
+	on_actions = { lotr_on_title_gain_inheritance } # LotR
 	events = {
 		delay = { days = 1 }
 		# Try to end inherited entrenched regencies automatically — we need to launder this by a day to make sure the AI realises they've inherited a diarchy.
@@ -2752,7 +2763,7 @@ on_title_gain_inheritance = {
 			limit = {
 				scope:title = {
 					OR = {
-						this = title:e_mongol_empire
+						#this = title:e_mongol_empire # WGH
 						AND = {
 							exists = global_var:greatest_of_khans_title
 							this = global_var:greatest_of_khans_title
@@ -2763,15 +2774,15 @@ on_title_gain_inheritance = {
 			}
 			add_dread = 50
 		}
-		else_if = {
-			limit = { 
-				OR = {
-					scope:title = title:h_roman_empire 
-					scope:title = title:h_eastern_roman_empire
-				}
-			}
-			set_variable = uses_custom_caesar_flavourization
-		}
+		# else_if = { # WGH
+		# 	limit = { 
+		# 		OR = {
+		# 			scope:title = title:h_roman_empire 
+		# 			scope:title = title:h_eastern_roman_empire
+		# 		}
+		# 	}
+		# 	set_variable = uses_custom_caesar_flavourization
+		# }
 	}
 }
 
@@ -2780,75 +2791,76 @@ on_title_gain_inheritance = {
 # scope:title = the title that changes hands
 # scope:previous_holder = previous holder. Shouldn't be dead
 on_title_gain_usurpation = {
+	on_actions = { lotr_on_title_gain_usurpation } # LotR
 	events = {
 	}
 	effect = {
 		# Struggle Catalysts
-		if = {
-			limit = { # FP2
-				# We are only interested in the title within the Struggle Region
-				scope:title.empire ?= title:e_spain
-				# Only for usurpation
-				scope:transfer_type = flag:usurped
+		# if = { # WGH
+		# 	limit = { # FP2
+		# 		# We are only interested in the title within the Struggle Region
+		# 		scope:title.empire ?= title:e_spain
+		# 		# Only for usurpation
+		# 		scope:transfer_type = flag:usurped
 
-				root = {
-					any_character_struggle = {
-						involvement = involved
-						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-							CATALYST = catalyst_usurp_title_fp2
-							CHAR = root
-						}
-					}
-				}
-			}
-			root = {
-				every_character_struggle = {
-					involvement = involved
-					limit = {
-						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-							CATALYST = catalyst_usurp_title_fp2
-							CHAR = root
-						}
-					}
-					activate_struggle_catalyst = {
-						catalyst = catalyst_usurp_title_fp2
-						character = root
-					}
-				}
-			}
-		}
-		else_if = {
-			limit = { # FP3
-				scope:title.empire ?= title:e_persia
-				scope:transfer_type = flag:usurped
+		# 		root = {
+		# 			any_character_struggle = {
+		# 				involvement = involved
+		# 				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+		# 					CATALYST = catalyst_usurp_title_fp2
+		# 					CHAR = root
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	root = {
+		# 		every_character_struggle = {
+		# 			involvement = involved
+		# 			limit = {
+		# 				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+		# 					CATALYST = catalyst_usurp_title_fp2
+		# 					CHAR = root
+		# 				}
+		# 			}
+		# 			activate_struggle_catalyst = {
+		# 				catalyst = catalyst_usurp_title_fp2
+		# 				character = root
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# else_if = {
+		# 	limit = { # FP3
+		# 		scope:title.empire ?= title:e_persia
+		# 		scope:transfer_type = flag:usurped
 
-				root = {
-					any_character_struggle = {
-						involvement = involved
-						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-							CATALYST = catalyst_usurp_title_fp3
-							CHAR = root
-						}
-					}
-				}
-			}
-			root = {
-				every_character_struggle = {
-					involvement = involved
-					limit = {
-						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-							CATALYST = catalyst_usurp_title_fp3
-							CHAR = root
-						}
-					}
-					activate_struggle_catalyst = {
-						catalyst = catalyst_usurp_title_fp3
-						character = root
-					}
-					log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_usurp_title_fp3 }
-				}
-			}
-		}
+		# 		root = {
+		# 			any_character_struggle = {
+		# 				involvement = involved
+		# 				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+		# 					CATALYST = catalyst_usurp_title_fp3
+		# 					CHAR = root
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	root = {
+		# 		every_character_struggle = {
+		# 			involvement = involved
+		# 			limit = {
+		# 				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+		# 					CATALYST = catalyst_usurp_title_fp3
+		# 					CHAR = root
+		# 				}
+		# 			}
+		# 			activate_struggle_catalyst = {
+		# 				catalyst = catalyst_usurp_title_fp3
+		# 				character = root
+		# 			}
+		# 			log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_usurp_title_fp3 }
+		# 		}
+		# 	}
+		# }
 	}
 }
 
@@ -2857,8 +2869,9 @@ on_title_gain_usurpation = {
 # scope:title = the title that changes hands
 # scope:new_holder = new holder.
 on_title_lost = {
+	on_actions = { lotr_on_title_lost } # LotR
 	events = {
-		british_isles.1033	# Danelaw-England partition calc.
+		#british_isles.1033	# Danelaw-England partition calc. # WGH
 	}
 
 	effect = {
@@ -2880,31 +2893,37 @@ on_title_lost = {
 		#Earmark landless Scandinavians for adventuring.
 		if = {
 			limit = {
+				# WGH TODO
+				always = no
+
 				#We only want to grab tribal cultures.
-				culture = {
-					NOT = { has_cultural_era_or_later = culture_era_early_medieval }
-				}
+				#culture = {
+				#	NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+				#}
 				#Must have lost their last piece of land.
-				is_playable_character = no
+				#is_playable_character = no
 				#If they've ventured far outside Europe, they're unlikely to come back, so we don't #want them.
-				scope:title = {
-					tier = tier_county
-					title_province = {
-						OR = {
-							geographical_region = world_europe
-							geographical_region = world_asia_minor
-						}
-					}
-				}
+				#scope:title = {
+				#	tier = tier_county
+				#	title_province = {
+				#		OR = {
+				#			geographical_region = world_europe
+				#			geographical_region = world_asia_minor
+				#		}
+				#	}
+				#}
 			}
 			#Norse, Norwegians, & Danes go into the western adventurer list.
 			if = {
 				limit = {
-					OR = {
-						has_culture = culture:norse
-						has_culture = culture:norwegian
-						has_culture = culture:danish
-					}
+					# WGH TODO
+					always = no
+
+					#OR = {
+					#	has_culture = culture:norse
+					#	has_culture = culture:norwegian
+					#	has_culture = culture:danish
+					#}
 				}
 				add_to_global_variable_list = {
 					name = western_scandinavian_adventurer_list
@@ -2914,10 +2933,13 @@ on_title_lost = {
 			#Norse & Swedes go into the eastern adventurer list.
 			if = {
 				limit = {
-					OR = {
-						has_culture = culture:norse
-						has_culture = culture:swedish
-					}
+					# WGH TODO
+					always = no
+
+					#OR = {
+					#	has_culture = culture:norse
+					#	has_culture = culture:swedish
+					#}
 				}
 				add_to_global_variable_list = {
 					name = eastern_scandinavian_adventurer_list
@@ -3261,15 +3283,15 @@ on_title_lost = {
 		# Additional Flavor Title
 		additional_flavor_check_effect = yes
 
-		if = {
-			limit = { 
-				OR = {
-					scope:title = title:h_roman_empire 
-					scope:title = title:h_eastern_roman_empire
-				}
-			}
-			remove_variable = uses_custom_caesar_flavourization
-		}
+		#if = { # WGH
+		#	limit = { 
+		#		OR = {
+		#			scope:title = title:h_roman_empire 
+		#			scope:title = title:h_eastern_roman_empire
+		#		}
+		#	}
+		#	remove_variable = uses_custom_caesar_flavourization
+		#}
 		#Notification for house members of loser
 		if = {
 			limit = {
@@ -3519,16 +3541,24 @@ on_title_lost = {
 		}
 
 		# Remove manually added Ministers if they're not ministers anymore
-		if = {
-			limit = {
-				is_landed = no
-				tgp_is_any_minister = no
-				any_character_situation = { this = situation:dynastic_cycle }
-			}
-			situation:dynastic_cycle = {
-				remove_manual_participant = prev
-			}
-		}
+		#if = { # WGH
+		#	limit = {
+		#		NOR = {
+		#			primary_title = title:e_minister_chancellor
+		#			primary_title = title:e_minister_censor
+		#			primary_title = title:e_minister_grand_marshal
+		#			primary_title = title:e_minister_of_personnel
+		#			primary_title = title:e_minister_of_revenue
+		#			primary_title = title:e_minister_of_rites
+		#			primary_title = title:e_minister_of_war
+		#			primary_title = title:e_minister_of_justice
+		#			primary_title = title:e_minister_of_works
+		#		}
+		#	}
+		#	situation:dynastic_cycle = {
+		#		remove_manual_participant = prev
+		#	}
+		#}
 
 		# Move or destroy estates without a liege
 		if = {
@@ -3643,73 +3673,75 @@ on_title_lost = {
 # scope:title = the title that is claimed
 # scope:transfer_type = flag:inheritance or none
 on_explicit_claim_gain = {
+	on_actions = { lotr_on_explicit_claim_gain } # LotR
 	effect = {
-		if = {
-			limit = {
-				title:k_england.holder = root
-			}
-			title:k_england = {
-				update_dynamic_coa = yes
-			}
-		}
+		
+		# if = { # WGH
+		# 	limit = {
+		# 		title:k_england.holder = root
+		# 	}
+		# 	title:k_england = {
+		# 		update_dynamic_coa = yes
+		# 	}
+		# }
 		# Struggle Catalyst
-		if = { # FP2
-			limit = {
-				NOT = { scope:transfer_type = flag:inheritance }
-				
-				root = {
-					any_character_struggle = {
-						is_struggle_type = iberian_struggle
-						involvement = involved
-					}
-				}
-				title:e_spain = { any_in_de_jure_hierarchy = { this = scope:title } }
-			}
-			root = {
-				every_character_struggle = {
-					involvement = involved
-					limit = {
-						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-							CATALYST = catalyst_gain_claim_on_title_fp2
-							CHAR = root
-						}
-					}
-					activate_struggle_catalyst = {
-						catalyst = catalyst_gain_claim_on_title_fp2
-						character = root
-					}
-				}
-			}
-		}
-		else_if = { # FP3
-			limit = {
-				NOT = { scope:transfer_type = flag:inheritance }
-				
-				root = {
-					any_character_struggle = {
-						is_struggle_type = persian_struggle
-						involvement = involved
-					}
-				}
-				title:e_persia = { any_in_de_jure_hierarchy = { this = scope:title } }
-			}
-			root = {
-				every_character_struggle = {
-					involvement = involved
-					limit = {
-						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-							CATALYST = catalyst_gain_claim_on_title_fp3
-							CHAR = root
-						}
-					}
-					activate_struggle_catalyst = {
-						catalyst = catalyst_gain_claim_on_title_fp3
-						character = root
-					}
-					log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_gain_claim_on_title_fp3 }
-				}
-			}
-		}
+		# if = { # FP2
+		# 	limit = {
+		# 		NOT = { scope:transfer_type = flag:inheritance }
+
+		# 		root = {
+		# 			any_character_struggle = {
+		# 				is_struggle_type = iberian_struggle
+		# 				involvement = involved
+		# 			}
+		# 		}
+		# 		title:e_spain = { any_in_de_jure_hierarchy = { this = scope:title } }
+		# 	}
+		# 	root = {
+		# 		every_character_struggle = {
+		# 			involvement = involved
+		# 			limit = {
+		# 				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+		# 					CATALYST = catalyst_gain_claim_on_title_fp2
+		# 					CHAR = root
+		# 				}
+		# 			}
+		# 			activate_struggle_catalyst = {
+		# 				catalyst = catalyst_gain_claim_on_title_fp2
+		# 				character = root
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# else_if = { # FP3
+		# 	limit = {
+		# 		NOT = { scope:transfer_type = flag:inheritance }
+
+		# 		root = {
+		# 			any_character_struggle = {
+		# 				is_struggle_type = persian_struggle
+		# 				involvement = involved
+		# 			}
+		# 		}
+		# 		title:e_persia = { any_in_de_jure_hierarchy = { this = scope:title } }
+		# 	}
+		# 	root = {
+		# 		every_character_struggle = {
+		# 			involvement = involved
+		# 			limit = {
+		# 				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+		# 					CATALYST = catalyst_gain_claim_on_title_fp3
+		# 					CHAR = root
+		# 				}
+		# 			}
+		# 			activate_struggle_catalyst = {
+		# 				catalyst = catalyst_gain_claim_on_title_fp3
+		# 				character = root
+		# 			}
+		# 			log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_gain_claim_on_title_fp3 }
+		# 		}
+		# 	}
+		# }
 	}
 }
 
@@ -3718,14 +3750,14 @@ on_explicit_claim_gain = {
 # scope:title = the title that was claimed
 on_explicit_claim_lost = {
 	effect = {
-		if = {
-			limit = {
-				title:k_england.holder = root
-			}
-			title:k_england = {
-				update_dynamic_coa = yes
-			}
-		}
+		# if = { # WGH
+		# 	limit = {
+		# 		title:k_england.holder = root
+		# 	}
+		# 	title:k_england = {
+		# 		update_dynamic_coa = yes
+		# 	}
+		# }
 	}
 }
 
@@ -3733,6 +3765,7 @@ on_explicit_claim_lost = {
 # root = character ranking up
 # scope:title = old primary title
 on_rank_up = { # Will not fire during history execution or for dying characters
+	on_actions = { lotr_on_rank_up } # LotR
 	events = {
 	}
 	effect = {
@@ -3749,39 +3782,40 @@ on_rank_up = { # Will not fire during history execution or for dying characters
 			}
 			# celestial emperor+ ruler keep their capital when they were kingdom
 			# but if they become emperor+ without ever being a king, follow normal de jure realm
-			if = {
-				limit = {
-					tgp_use_chinese_naming_trigger = yes
-					trigger_if = {
-						limit = {
-							NOT = { exists = title:h_china.holder }
-							capital_county.title_province ?= {
-								OR = {
-									geographical_region = tgp_county_chinese_naming_region
-									geographical_region = tgp_duchy_chinese_naming_region
-								}
-							}
-						}
-						highest_held_title_tier >= tier_duchy
-					}
-					trigger_else = {
-						highest_held_title_tier >= tier_empire
-					}
-					primary_title = {
-						is_de_jure_liege_or_above_target = prev.capital_county
-					}
-				}
-				primary_title = {
-					if = {
-						limit = {
-							title_capital_county != prev.capital_county
-							NOT = { previous_holder.house ?= prev.house }
-						}
-						set_capital_county = prev.capital_county
-					}
-				}
-			}
-			else_if = { # Ensure we keep the old realm capital
+			#if = { # WGH
+			#	limit = {
+			#		tgp_use_chinese_naming_trigger = yes
+			#		trigger_if = {
+			#			limit = {
+			#				NOT = { exists = title:h_china.holder }
+			#				capital_county.title_province ?= {
+			#					OR = {
+			#						geographical_region = tgp_county_chinese_naming_region
+			#						geographical_region = tgp_duchy_chinese_naming_region
+			#					}
+			#				}
+			#			}
+			#			highest_held_title_tier >= tier_duchy
+			#		}
+			#		trigger_else = {
+			#			highest_held_title_tier >= tier_empire
+			#		}
+			#		primary_title = {
+			#			is_de_jure_liege_or_above_target = prev.capital_county
+			#		}
+			#	}
+			#	primary_title = {
+			#		if = {
+			#			limit = {
+			#				title_capital_county != prev.capital_county
+			#				NOT = { previous_holder.house ?= prev.house }
+			#			}
+			#			set_capital_county = prev.capital_county
+			#		}
+			#	}
+			#}
+			#else_if = { # Ensure we keep the old realm capital
+			if = { # WGH
 				limit = {
 					highest_held_title_tier >= tier_empire
 					primary_title = {
@@ -3806,6 +3840,7 @@ on_rank_up = { # Will not fire during history execution or for dying characters
 				NOR = {
 					has_variable = crowned_king_var
 					has_variable = crowned_emperor_var
+					has_variable = crowned_elf_var # LotR
 				}
 				NOR = {
 					has_character_flag = had_coronation_reminder
@@ -3825,7 +3860,7 @@ on_rank_up = { # Will not fire during history execution or for dying characters
 				NOR = {
 					has_game_rule = coronation_laws_no_imperial_uncrowned
 					has_game_rule = coronation_laws_off
-					has_character_flag = claimed_the_mandate_of_heaven
+					# has_character_flag = claimed_the_mandate_of_heaven # WGH
 				}
 				highest_held_title_tier >= tier_empire
 				exists = scope:title
@@ -3837,8 +3872,10 @@ on_rank_up = { # Will not fire during history execution or for dying characters
 				OR = {
 					has_realm_law = crowned_king
 					has_realm_law = crowned_emperor
+					has_realm_law = crowned_elf # LotR
 					has_variable = crowned_king_var
 					has_variable = crowned_emperor_var
+					has_variable = crowned_elf_var # LotR
 				}
 			}
 			if = {
@@ -3852,6 +3889,12 @@ on_rank_up = { # Will not fire during history execution or for dying characters
 					has_variable = crowned_king_var
 				}
 				remove_variable = crowned_king_var
+			}
+			if = { # LotR
+				limit = {
+					has_variable = crowned_elf_var
+				}
+				remove_variable = crowned_elf_var
 			}
 			add_realm_law_skip_effects = uncrowned
 			trigger_event = ach_yearly_events.1010
@@ -3949,38 +3992,54 @@ on_rank_up = { # Will not fire during history execution or for dying characters
 		}
 		if = {
 			limit = {
-				is_independent_ruler = yes
-				OR = {
-					tgp_use_chinese_naming_trigger = yes
-					primary_title = {
-						recent_history = {
-							type = conquest_populist
-							days = 1
-						}
-						previous_holder = {
-							tgp_use_chinese_naming_trigger = yes
-						}
-					}
-					AND = {
-						exists = var:claimed_mandate_var
-						primary_title ?= title:h_china
-					}
-				}
-				tgp_chinese_naming_tier_trigger = yes
-				OR = {
-					primary_title ?= {
-						has_custom_title_name = no
-					}
-					primary_title.previous_holder.dynasty != root.dynasty
-				}
-				trigger_if = {
-					limit = {
-						tgp_has_unique_chinese_naming = no
-					}
-					primary_title ?= title:h_china
-				}
+				# WGH
+				always = no
+
+				#is_independent_ruler = yes
+				#OR = {
+				#	tgp_use_chinese_naming_trigger = yes
+				#	primary_title = {
+				#		recent_history = {
+				#			type = conquest_populist
+				#			days = 1
+				#		}
+				#		previous_holder = {
+				#			tgp_use_chinese_naming_trigger = yes
+				#		}
+				#	}
+				#	AND = {
+				#		exists = var:claimed_mandate_var
+				#		primary_title ?= title:h_china
+				#	}
+				#}
+				#tgp_chinese_naming_tier_trigger = yes
+				#OR = {
+				#	primary_title ?= {
+				#		has_custom_title_name = no
+				#	}
+				#	primary_title.previous_holder.dynasty != root.dynasty
+				#}
+				#trigger_if = {
+				#	limit = {
+				#		tgp_has_unique_chinese_naming = no
+				#	}
+				#	primary_title ?= title:h_china
+				#}
+				#tgp_chinese_naming_tier_trigger = yes
+				#OR = {
+				#	primary_title ?= {
+				#		has_custom_title_name = no
+				#	}
+				#	primary_title.previous_holder.dynasty != root.dynasty
+				#}
+				#trigger_if = {
+				#	limit = {
+				#		tgp_has_unique_chinese_naming = no
+				#	}
+				#	primary_title ?= title:h_china
+				#}
 			}
-			tgp_fire_china_realm_name_event_effect = yes
+			#tgp_fire_china_realm_name_event_effect = yes # WGH
 		}
 
 		# ACH - Remove Coronated laws when titles are passed onto a new character
@@ -4044,6 +4103,7 @@ on_rank_up = { # Will not fire during history execution or for dying characters
 # root = character ranking down
 # scope:title = old primary title
 on_rank_down = { # Will not fire during history execution or for dying characters
+	on_actions = { lotr_on_rank_down } # LotR
 	events = {
 	}
 	effect = {
@@ -4144,6 +4204,7 @@ on_rank_down = { # Will not fire during history execution or for dying character
 # scope:vassal = vassal being gained
 # scope:old_liege = the previous liege of the vassal. Might be the null character (vassal used to be a non-ruler or independent), so make sure to use "exists" checks where relevant
 on_vassal_gained = {
+	on_actions = { lotr_on_vassal_gained } # LotR
 	events = {
 		realm_maintenance.1000 # Notify vassals of new liege
 	}
@@ -4250,6 +4311,7 @@ on_vassal_gained = {
 # scope:old_liege = the previous liege of the vassal
 # It is also fired for rulers gaining independence, those can be identified by checking current liege
 on_vassal_change = {
+	#on_actions = { lotr_on_vassal_change } # LotR
 	effect = {
 		### If a admin duke-tier character becomes the top-liege's direct vassal, ensure that they have a noble family title
 		if = {
@@ -4402,7 +4464,7 @@ on_vassal_change = {
 				}
 				OR = {
 					tgp_has_unique_chinese_naming = yes
-					primary_title = title:h_china # failsafe, in case this somehow ends up here
+					#primary_title = title:h_china # failsafe, in case this somehow ends up here # LotR
 				}
 			}
 			tgp_fire_china_realm_name_event_effect = yes
@@ -4459,6 +4521,7 @@ on_vassal_change = {
 # scope:liege = the person who wanted them created
 # scope:title = the barony
 on_baron_found_or_created_for_title = {
+	on_actions = { lotr_on_baron_found_or_created_for_title } # LotR
 	effect = {
 		add_opinion = {
 			target = scope:liege
