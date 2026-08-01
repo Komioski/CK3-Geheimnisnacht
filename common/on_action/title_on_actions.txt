@@ -4204,7 +4204,6 @@ on_rank_down = { # Will not fire during history execution or for dying character
 # scope:vassal = vassal being gained
 # scope:old_liege = the previous liege of the vassal. Might be the null character (vassal used to be a non-ruler or independent), so make sure to use "exists" checks where relevant
 on_vassal_gained = {
-	on_actions = { lotr_on_vassal_gained } # LotR
 	events = {
 		realm_maintenance.1000 # Notify vassals of new liege
 	}

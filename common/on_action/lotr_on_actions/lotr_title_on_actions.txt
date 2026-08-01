@@ -42,103 +42,6 @@ lotr_on_title_destroyed = {
 # scope:previous_holder = previous holder. Might be dead
 lotr_on_title_gain = {
 	effect = {
-		if = {
-			# WGH TODO
-			limit = { always = no }
-
-			#limit = {
-			#	has_defensive_alliance = yes
-			#	NOT = { confederation ?= { has_variable = lotr_no_confederation_rename } }
-			#	scope:title = root.primary_title
-			#}
-			#confederation = {
-			#	random_confederation_member = {
-			#		limit = { NOT = { this = root } }
-			#		save_scope_as = defensive_alliance_member
-			#	}
-			#}
-			#lotr_refresh_defensive_alliance_name = {
-			#	DEFENSIVE_ALLY = scope:defensive_alliance_member
-			#	LOC_KEY = two_realm_name
-			#}
-		}
-		if = {
-			limit = {
-				is_orc = yes
-				NOR = {
-					government_has_flag = government_is_orcish
-					government_has_flag = government_is_landless_adventurer
-					government_has_flag = government_is_mercenary
-					government_has_flag = government_is_holy_order
-				}
-			}
-			change_government = orcish_government
-		}
-		#if = { # WGH TODO
-		#	limit = {
-		#		is_landed = yes
-		#		any_maa_regiment = { is_maa_type = laamp_settler_maa }
-		#	}
-		#	random_maa_regiment = {
-		#		limit = { is_maa_type = laamp_settler_maa }
-		#		destroy_maa_regiment = yes
-		#	}
-		#}
-		#Artifact title inheritance stuff
-		if = {
-			limit = {
-				exists = scope:previous_holder
-				scope:previous_holder = {
-					any_character_artifact = {
-						has_variable = artifact_succession_title #Is this an artifact that should follow a title?
-						var:artifact_succession_title = { is_title_created = yes } #Does the title the artifact should follow exist?
-						var:artifact_succession_title = scope:title #Scope title is the artifact title
-					}
-				}
-			}
-			scope:previous_holder = {
-				every_character_artifact = {
-					limit = {
-						has_variable = artifact_succession_title #Is this an artifact that should follow a title?
-						var:artifact_succession_title = { is_title_created = yes } #Does the title the artifact should follow exist?
-						var:artifact_succession_title = scope:title #Scope title is the artifact title
-					}
-					if = {
-						limit = {
-							OR = {
-								scope:transfer_type = flag:conquest
-								scope:transfer_type = flag:conquest_holy_war
-								scope:transfer_type = flag:conquest_claim
-								scope:transfer_type = flag:conquest_populist
-								scope:transfer_type = flag:abdication
-								scope:transfer_type = flag:usurped
-								scope:transfer_type = flag:revoked
-								scope:transfer_type = flag:faction_demand
-							}
-						}
-						set_owner = {
-							target = root
-							history = {
-								type = conquest
-								actor = scope:previous_holder
-								recipient = root
-								location = scope:previous_holder.location
-							}
-						}
-					}
-					else = {
-						set_owner = {
-							target = root
-							history = {
-								type = inherited
-								recipient = root
-							}
-						}
-					}
-				}
-			}
-		}
-
 		### Wilderness fallback: turn illegal wilderness to Tribal if non-Tom characters somehow get ahold of it
 		if = {
 			limit = {
@@ -192,15 +95,14 @@ lotr_on_title_gain = {
 						has_holding_type = wastelands_holding
 					}
 					if = {
-						limit = { is_elf = yes }
-						set_holding_type = elven_holding
-					}
-					else_if = {
 						limit = {
-							OR = {
-								is_orc = yes
-								is_human = yes
-							}
+							# WGH TODO
+							always = no
+							
+							#OR = {
+							#	is_orc = yes
+							#	is_human = yes
+							#}
 						}
 						set_holding_type = tribal_holding
 					}
@@ -234,14 +136,14 @@ lotr_on_title_gain = {
 			make_settlement_county_wilderness = { COUNTY = scope:title }
 			debug_log = "Wilderness: Tom tried to give away Wilderness"
 		}
-		if = {
-			limit = {
-				has_character_modifier = lotr_vanquished_modifier
-				scope:previous_holder ?= character:k_wastelands_holder
-			}
-			make_settlement_county_wilderness = { COUNTY = scope:title }
-			debug_log = "Wilderness: Tom tried to give away Wilderness - Vanquished Version"
-		}
+		#if = { # WGH TODO
+		#	limit = {
+		#		has_character_modifier = lotr_vanquished_modifier
+		#		scope:previous_holder ?= character:k_wastelands_holder
+		#	}
+		#	make_settlement_county_wilderness = { COUNTY = scope:title }
+		#	debug_log = "Wilderness: Tom tried to give away Wilderness - Vanquished Version"
+		#}
 
 		### Stop Tom revoking
 		if = {
@@ -405,148 +307,8 @@ lotr_on_title_gain = {
 			}
 		}
 
-		if = {
-			limit = {
-				# WGH TODO
-				always = no
-
-				#is_from_ruler_designer = no
-				#OR = {
-				#	#not_valar = yes
-				#	not_nazgul = yes
-				#	not_istari = yes
-				#	not_istari_evil = yes
-				#	not_maiar = yes
-				#	not_maiar_fallen = yes
-				#}
-			}
-			#trigger_event = race.0001 # WGH TODO
-		}
-
-		if = {
-			limit = {
-				is_ai = yes
-				is_elf = yes
-				highest_held_title_tier > tier_county
-				scope:title ?= {
-					tier <= tier_county
-					title_province = {
-						NOR = {
-							has_holding_type = elven_holding
-							has_holding_type = settlement_holding
-							has_holding_type = wastelands_holding
-						}
-					}
-				}
-			}
-			create_character = {
-				gender = male
-				culture = scope:title.culture
-				faith = scope:title.faith
-				save_scope_as = new_holder
-				location = root.location
-			}
-			#scope:new_holder = { # WGH TODO
-			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-			#		MAX = middle_age
-			#		MIN = young_age
-			#	}
-			#}
-			create_title_and_vassal_change = { # Define type of title change as a granting of the title
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:title ?= {
-				change_title_holder = {
-					holder = scope:new_holder
-					change = scope:title_change
-					take_baronies = yes
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:title ?= { generate_coa = yes }
-		}
-		else_if = {
-			limit = {
-				is_ai = yes
-				NOT = { is_elf = yes }
-				highest_held_title_tier > tier_county
-				scope:title ?= {
-					tier <= tier_county
-					title_province = { has_holding_type = elven_holding }
-				}
-			}
-			create_character = {
-				gender = male
-				culture = scope:title.culture
-				faith = scope:title.faith
-				save_scope_as = new_holder
-				location = root.location
-			}
-			#scope:new_holder = { # WGH TODO
-			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-			#		MAX = middle_age
-			#		MIN = young_age
-			#	}
-			#}
-			create_title_and_vassal_change = { # Define type of title change as a granting of the title
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:title ?= {
-				change_title_holder = {
-					holder = scope:new_holder
-					change = scope:title_change
-					take_baronies = yes
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:title ?= { generate_coa = yes }
-		}
-
 		correct_wastelands_tracker = yes
 		scope:previous_holder ?= { correct_wastelands_tracker = yes }
-
-		## Hobbits can be laamps
-		if = {
-			limit = {
-				is_halfling = yes # WGH
-				is_landless_adventurer = no
-				NOT = { government_has_flag = government_is_administrative }
-			}
-			trigger_event = {
-				id = hobbit.0001
-				days = 1
-			}
-		}
-
-		if = { ### Late-blooming kids receive legitimacy reduction debuff ###
-			limit = {
-				coronation_trigger = yes
-				NOR = {
-					has_game_rule = coronation_laws_no_imperial_uncrowned
-					has_game_rule = coronation_laws_off
-				}
-				has_realm_law = uncrowned
-				OR = {
-					is_dwarf = yes
-					is_elf = yes
-					is_halfling = yes # WGH
-				}
-				age < lotr_coronation_minimum_age_value
-			}
-			if = {
-				limit = { is_dwarf = yes }
-				add_character_modifier = dwarven_child_legitimacy_boost_modifier
-			}
-			else_if = {
-				limit = { is_halfling = yes } # WGH
-				add_character_modifier = hobbit_child_legitimacy_boost_modifier
-			}
-			else = { add_character_modifier = elven_child_legitimacy_boost_modifier }
-		}
 	}
 }
 
@@ -598,165 +360,6 @@ lotr_on_title_gain_inheritance = {
 			}
 			resolve_title_and_vassal_change = scope:change
 		}
-		if = {
-			limit = {
-				is_ai = yes
-				is_elf = yes
-				highest_held_title_tier > tier_county
-				scope:title ?= {
-					tier <= tier_county
-					title_province = {
-						NOR = {
-							has_holding_type = elven_holding
-							has_holding_type = settlement_holding
-							has_holding_type = wastelands_holding
-						}
-					}
-				}
-			}
-			create_character = {
-				gender = male
-				culture = scope:title.culture
-				faith = scope:title.faith
-				save_scope_as = new_holder
-				location = root.location
-			}
-			#scope:new_holder = { # WGH TODO
-			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-			#		MAX = middle_age
-			#		MIN = young_age
-			#	}
-			#}
-			create_title_and_vassal_change = { # Define type of title change as a granting of the title
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:title ?= {
-				change_title_holder = {
-					holder = scope:new_holder
-					change = scope:title_change
-					take_baronies = yes
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-		}
-		else_if = {
-			limit = {
-				is_ai = yes
-				NOT = { is_elf = yes }
-				highest_held_title_tier > tier_county
-				scope:title ?= {
-					tier <= tier_county
-					title_province = { has_holding_type = elven_holding }
-				}
-			}
-			create_character = {
-				gender = male
-				culture = scope:title.culture
-				faith = scope:title.faith
-				save_scope_as = new_holder
-				location = root.location
-			}
-			#scope:new_holder = { # WGH TODO
-			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-			#		MAX = middle_age
-			#		MIN = young_age
-			#	}
-			#}
-			create_title_and_vassal_change = { # Define type of title change as a granting of the title
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:title ?= {
-				change_title_holder = {
-					holder = scope:new_holder
-					change = scope:title_change
-					take_baronies = yes
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-		}
-
-		if = {
-			limit = {
-				root.highest_held_title_tier != tier_empire
-				culture = { has_cultural_parameter = realms_shatter_on_succession }
-				scope:title ?= { tier > tier_duchy }
-				is_independent_ruler = yes
-			}
-			every_vassal = {
-				limit = {
-					opinion = {
-						target = root
-						value < 0
-					}
-				}
-				create_title_and_vassal_change = {
-					type = independency
-					save_scope_as = change
-					add_claim_on_loss = yes
-				}
-				becomes_independent = { change = scope:change }
-				resolve_title_and_vassal_change = scope:change
-			}
-		}
-		root.primary_title ?= {
-			if = {
-				limit = {
-					root.culture = { has_cultural_parameter = realms_destroyed_on_succession }
-					tier >= tier_kingdom
-					root = { is_independent_ruler = yes }
-					any_de_jure_county = {
-						percent < 0.5
-						holder.top_liege = root
-					}
-				}
-				root = { destroy_title = root.primary_title }
-			}
-		}
-
-		if = {
-			limit = {
-				# WGH TODO
-				always = no
-
-				#scope:title = { is_dwarven_dynasty_title = yes }
-				#NOT = { house ?= { house_head = root } }
-			}
-			house ?= { set_house_head = root }
-		}
-
-		#Clearing inappropriate inherited MaA
-		if = {
-			limit = { NOT = { same_race = { TARGET = scope:previous_holder } } }
-			trigger_event = {
-				id = race.0006
-				days = 1
-			}
-		}
-
-		if = {
-			# WGH TODO
-			limit = { always = no }
-			#limit = { has_defensive_alliance = yes }
-			confederation = {
-				if = {
-					limit = {
-						any_confederation_member = {
-							this != root
-							OR = {
-								any_liege_or_above = { this = root }
-								any_tributary = { this = root }
-								is_tributary_of_suzerain_or_above = root
-							}
-						}
-					}
-					remove_confederation_member = root
-				}
-			}
-		}
 
 		correct_wastelands_tracker = yes
 		scope:previous_holder ?= { correct_wastelands_tracker = yes }
@@ -769,87 +372,6 @@ lotr_on_title_gain_inheritance = {
 # scope:previous_holder = previous holder. Shouldn't be dead
 lotr_on_title_gain_usurpation = {
 	effect = {
-		if = {
-			limit = {
-				is_ai = yes
-				is_elf = yes
-				highest_held_title_tier > tier_county
-				scope:title ?= {
-					tier <= tier_county
-					title_province = {
-						NOR = {
-							has_holding_type = elven_holding
-							has_holding_type = settlement_holding
-							has_holding_type = wastelands_holding
-						}
-					}
-				}
-			}
-			create_character = {
-				gender = male
-				culture = scope:title.culture
-				faith = scope:title.faith
-				save_scope_as = new_holder
-				location = root.location
-			}
-			#scope:new_holder = { # WGH TODO
-			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-			#		MAX = middle_age
-			#		MIN = young_age
-			#	}
-			#}
-			create_title_and_vassal_change = { # Define type of title change as a granting of the title
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:title ?= {
-				change_title_holder = {
-					holder = scope:new_holder
-					change = scope:title_change
-					take_baronies = yes
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-		}
-		else_if = {
-			limit = {
-				is_ai = yes
-				NOT = { is_elf = yes }
-				highest_held_title_tier > tier_county
-				scope:title ?= {
-					tier <= tier_county
-					title_province = { has_holding_type = elven_holding }
-				}
-			}
-			create_character = {
-				gender = male
-				culture = scope:title.culture
-				faith = scope:title.faith
-				save_scope_as = new_holder
-				location = root.location
-			}
-			#scope:new_holder = { # WGH TODO
-			#	lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
-			#		MAX = middle_age
-			#		MIN = young_age
-			#	}
-			#}
-			create_title_and_vassal_change = { # Define type of title change as a granting of the title
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:title ?= {
-				change_title_holder = {
-					holder = scope:new_holder
-					change = scope:title_change
-					take_baronies = yes
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-		}
-
 		correct_wastelands_tracker = yes
 		scope:previous_holder ?= { correct_wastelands_tracker = yes }
 	}
@@ -887,6 +409,7 @@ lotr_on_title_lost = {
 				make_settlement_county_wilderness = { COUNTY = this }
 			}
 		}
+		
 		correct_wastelands_tracker = yes
 		scope:new_holder = { correct_wastelands_tracker = yes }
 	}
@@ -918,15 +441,10 @@ lotr_on_explicit_claim_gain = {
 	}
 }
 
-# A claim is lost by a character
-# root = the claimant
-# scope:title = the title that was claimed
-# lotr_on_explicit_claim_lost = {} #Not Used
-
 # A title change makes the character rank up in the landed tiers (eg Duke -> King)
 # root = character ranking up
 # scope:title = old primary title
-lotr_on_rank_up = {# Will not fire during history execution or for dying characters
+lotr_on_rank_up = { # Will not fire during history execution or for dying characters
 	effect = {
 		### Wastelands Management ###
 		if = {
@@ -942,46 +460,6 @@ lotr_on_rank_up = {# Will not fire during history execution or for dying charact
 		}
 
 		correct_wastelands_tracker = yes
-		### Long lived kids receive legitimacy reduction debuff ###
-		if = {
-			limit = {
-				coronation_trigger = yes
-				NOR = {
-					has_game_rule = coronation_laws_no_imperial_uncrowned
-					has_game_rule = coronation_laws_off
-				}
-				highest_held_title_tier >= tier_empire
-				exists = scope:title
-				scope:title = {
-					tier >= tier_kingdom
-					#Just double checking
-					tier < root.highest_held_title_tier
-				}
-				OR = {
-					has_realm_law = crowned_king
-					has_realm_law = crowned_emperor
-					has_realm_law = crowned_elf #LotR
-					has_variable = crowned_king_var
-					has_variable = crowned_emperor_var
-					has_variable = crowned_elf_var #LotR
-				}
-				OR = {
-					is_dwarf = yes
-					is_elf = yes
-					is_halfling = yes # WGH
-				}
-				age < lotr_coronation_minimum_age_value
-			}
-			if = {
-				limit = { is_dwarf = yes }
-				add_character_modifier = dwarven_child_legitimacy_boost_modifier
-			}
-			else_if = {
-				limit = { is_halfling = yes } # WGH
-				add_character_modifier = hobbit_child_legitimacy_boost_modifier
-			}
-			else = { add_character_modifier = elven_child_legitimacy_boost_modifier }
-		}
 	}
 }
 
@@ -990,50 +468,6 @@ lotr_on_rank_up = {# Will not fire during history execution or for dying charact
 # scope:title = old primary title
 lotr_on_rank_down = {# Will not fire during history execution or for dying characters
 	effect = {
-		#if = { # WGH TODO
-		#	limit = {
-		#		# WGH TODO
-		#		always = no
-
-		#		#has_defensive_alliance = yes
-		#		#NOT = { confederation ?= { has_variable = lotr_no_confederation_rename } }
-		#	}
-		#	confederation = {
-		#		random_confederation_member = {
-		#			limit = { NOT = { this = root } }
-		#			save_scope_as = defensive_alliance_member
-		#		}
-		#	}
-		#	lotr_refresh_defensive_alliance_name = {
-		#		DEFENSIVE_ALLY = scope:defensive_alliance_member
-		#		LOC_KEY = two_realm_name
-		#	}
-		#}
-		# LotR - if protectorate and same title tier as protector, break protectorate
-		every_relation = {
-			type = tributary_protectorate
-			limit = {
-				tier_difference = {
-					target = root
-					value >= 0
-				}
-			}
-			send_interface_toast = {
-				left_icon = root
-				right_icon = prev
-				title = rank_down_protectorate.toast
-				custom_tooltip = rank_down_protectorate.tt
-			}
-			prev = {
-				send_interface_toast = {
-						left_icon = root
-						title = rank_down_protector.toast
-						custom_tooltip = rank_down_protector.tt
-				}
-			}
-			end_tributary = yes
-		}
-
 		### Wastelands Management ###
 		if = {
 			limit = {
@@ -1048,70 +482,5 @@ lotr_on_rank_down = {# Will not fire during history execution or for dying chara
 		}
 
 		correct_wastelands_tracker = yes
-	}
-}
-
-# A character gains a vassal
-# root = character gaining vassal
-# scope:vassal = vassal being gained
-# scope:old_liege = the previous liege of the vassal. Might be the null character (vassal used to be a non-ruler or independent), so make sure to use "exists" checks where relevant
-lotr_on_vassal_gained = {
-	effect = {
-		scope:vassal ?= {
-			every_tributary = {
-				limit = { has_subject_contract_group = tributary_protectorate }
-				end_tributary = yes
-				send_interface_toast = {
-					left_icon = scope:vassal
-					title = protector_vassalised_protectorate.toast
-					custom_tooltip = protector_vassalised_protectorate.tt
-				}
-				scope:vassal ?= {
-					send_interface_toast = {
-						left_icon = scope:vassal
-						title = protector_vassalised_protector.toast
-						custom_tooltip = protector_vassalised_protector.tt
-					}
-				}
-			}
-		}
-		# LotR Struggle Catalyst
-		if = {
-			limit = {
-				# Verify if vassal used to be independent
-				NOT = { exists = scope:old_liege }
-				scope:transfer_type ?= flag:swear_fealty
-				any_character_struggle = {
-					involvement = involved
-					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-						CATALYST = catalyst_vassalize_independent_ruler
-						CHAR = scope:vassal
-					}
-				}
-			}
-			root = {
-				set_variable = dont_trigger_again_please
-			}
-			if = {
-				limit = { NOT = { root = { has_variable = dont_trigger_again_please } } }
-				scope:vassal = {
-					every_character_struggle = {
-						involvement = involved
-						limit = {
-							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-								CATALYST = catalyst_vassalize_independent_ruler
-								CHAR = scope:vassal
-							}
-						}
-						activate_struggle_catalyst = {
-							catalyst = catalyst_vassalize_independent_ruler
-							character = root
-						}
-					}
-				}
-			} else = {
-				root = { remove_variable = dont_trigger_again_please }
-			}
-		}
 	}
 }
