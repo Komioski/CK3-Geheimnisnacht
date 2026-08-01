@@ -1224,15 +1224,15 @@ tournament_contest_race_composition_effect = {
 	scope:activity = {
 		set_variable = { name = tournament_commenced }
 		# Set flavor variant
-		if = {
-			limit = {
-				scope:host.culture = { has_cultural_pillar = heritage_arabic }
-			}
-			set_variable = {
-				name = contest_horse_race_variant
-				value = flag:maydan
-			}
-		}
+		#if = { # WGH TODO
+		#	limit = {
+		#		scope:host.culture = { has_cultural_pillar = heritage_arabic }
+		#	}
+		#	set_variable = {
+		#		name = contest_horse_race_variant
+		#		value = flag:maydan
+		#	}
+		#}
 		else = {
 			set_variable = {
 				name = contest_horse_race_variant
@@ -3637,7 +3637,7 @@ tournament_bet_on_other_stress_effect = {
 tournament_contest_maysir_tooltip_effect = {
 	if = {
 		limit = {
-			religion = religion:islam_religion
+			religion = religion:arabyan_religion
 			scope:activity = {
 				NOR = {
 					has_current_phase = tournament_phase_archery
@@ -3653,7 +3653,7 @@ tournament_contest_maysir_tooltip_effect = {
 tournament_contest_maysir_effect = {
 	if = {
 		limit = {
-			religion = religion:islam_religion
+			religion = religion:arabyan_religion
 			scope:activity = {
 				NOR = {
 					has_current_phase = tournament_phase_archery
@@ -4872,60 +4872,60 @@ tournament_horse_race_fetch_horse_effect = {
 				random_list = {
 					## FAITH
 					# BUDDHISM
-					300 = { # Kanthaka - Siddhartha's
-						trigger = { religion = religion:buddhism_religion }
-						set_variable = { name = contest_horse_race_name value = flag:kanthaka }
-					}
+					#300 = { # Kanthaka - Siddhartha's # WGH TODO
+					#	trigger = { religion = religion:buddhism_religion }
+					#	set_variable = { name = contest_horse_race_name value = flag:kanthaka }
+					#}
 					# GODS/SAINTS
-					150 = {
-						trigger = {
-							NOT = {
-								religion = { is_in_family = rf_abrahamic }
-							}
-						}
-						modifier = {
-							factor = 2
-							faith = { has_doctrine = unreformed_faith_doctrine }
-						}
-						random_list = {
-							5 = { set_variable = { name = contest_horse_race_name value = flag:faith_fate_god } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:faith_knowledge_god } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:faith_night_god } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:faith_trickster_god } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:faith_war_god } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:faith_water_god } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:faith_wealth_god } }
-						}
-					}
+					#150 = { # WGH TODO
+					#	trigger = {
+					#		NOT = {
+					#			religion = { is_in_family = rf_abrahamic }
+					#		}
+					#	}
+					#	modifier = {
+					#		factor = 2
+					#		faith = { has_doctrine = unreformed_faith_doctrine }
+					#	}
+					#	random_list = {
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:faith_fate_god } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:faith_knowledge_god } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:faith_night_god } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:faith_trickster_god } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:faith_war_god } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:faith_water_god } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:faith_wealth_god } }
+					#	}
+					#}
 					# HINDUISM
-					300 = {
-						trigger = { religion = religion:hinduism_religion }
-						random_list = {
-							5 = { # Dadhi-krā - Dawn
-								set_variable = { name = contest_horse_race_name value = flag:dadhi_kra }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Devadatta - Vishnu's
-								set_variable = { name = contest_horse_race_name value = flag:devadatta }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Dyaus Pita - Sky Father
-								set_variable = { name = contest_horse_race_name value = flag:dyauspitar }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Keshi - Kalki's
-								set_variable = { name = contest_horse_race_name value = flag:keshi }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Uhchaihshravas - Horse King
-								set_variable = { name = contest_horse_race_name value = flag:uchchaihshravas }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-						}
-					}
+					#300 = { # WGH TODO
+					#	trigger = { religion = religion:hinduism_religion }
+					#	random_list = {
+					#		5 = { # Dadhi-krā - Dawn
+					#			set_variable = { name = contest_horse_race_name value = flag:dadhi_kra }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Devadatta - Vishnu's
+					#			set_variable = { name = contest_horse_race_name value = flag:devadatta }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Dyaus Pita - Sky Father
+					#			set_variable = { name = contest_horse_race_name value = flag:dyauspitar }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Keshi - Kalki's
+					#			set_variable = { name = contest_horse_race_name value = flag:keshi }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Uhchaihshravas - Horse King
+					#			set_variable = { name = contest_horse_race_name value = flag:uchchaihshravas }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#	}
+					#}
 					# ISLAM
 					300 = {
-						trigger = { religion = religion:islam_religion }
+						trigger = { religion = religion:arabyan_religion }
 						random_list = {
 							5 = { # Abbayan - Muhammad's mares
 								set_variable = { name = contest_horse_race_name value = flag:abbayan }
@@ -4979,472 +4979,472 @@ tournament_horse_race_fetch_horse_effect = {
 						}
 					}
 					# NORSE
-					300 = {
-						trigger = { religion = religion:germanic_religion }
-						random_list = {
-							5 = { # Alsviðr - Sól's
-								set_variable = { name = contest_horse_race_name value = flag:alsvidr }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Árvakr - Sól's
-								set_variable = { name = contest_horse_race_name value = flag:arvakr } 
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Falhófnir - Yggdrasil
-								set_variable = { name = contest_horse_race_name value = flag:falhofnir }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Glad - Yggdrasil
-								set_variable = { name = contest_horse_race_name value = flag:glad }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Glær - Yggdrasil
-								set_variable = { name = contest_horse_race_name value = flag:glaer }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Gulltoppr - Heimdallr's
-								set_variable = { name = contest_horse_race_name value = flag:gulltoppr }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Hófvarpnir - Gná's
-								set_variable = { name = contest_horse_race_name value = flag:hofvarpnir }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Hrímfaxi - Nótt's
-								set_variable = { name = contest_horse_race_name value = flag:hrimfaxi }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # # Skinfaxi - Dagur's
-								set_variable = { name = contest_horse_race_name value = flag:skinfaxi }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Sleipnir - Odin's
-								set_variable = { name = contest_horse_race_name value = flag:sleipnir }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Svaðilfari - Sleipnir father
-								set_variable = { name = contest_horse_race_name value = flag:svadilfari }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = { religion = religion:germanic_religion }
+					#	random_list = {
+					#		5 = { # Alsviðr - Sól's
+					#			set_variable = { name = contest_horse_race_name value = flag:alsvidr }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Árvakr - Sól's
+					#			set_variable = { name = contest_horse_race_name value = flag:arvakr } 
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Falhófnir - Yggdrasil
+					#			set_variable = { name = contest_horse_race_name value = flag:falhofnir }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Glad - Yggdrasil
+					#			set_variable = { name = contest_horse_race_name value = flag:glad }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Glær - Yggdrasil
+					#			set_variable = { name = contest_horse_race_name value = flag:glaer }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Gulltoppr - Heimdallr's
+					#			set_variable = { name = contest_horse_race_name value = flag:gulltoppr }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Hófvarpnir - Gná's
+					#			set_variable = { name = contest_horse_race_name value = flag:hofvarpnir }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Hrímfaxi - Nótt's
+					#			set_variable = { name = contest_horse_race_name value = flag:hrimfaxi }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # # Skinfaxi - Dagur's
+					#			set_variable = { name = contest_horse_race_name value = flag:skinfaxi }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Sleipnir - Odin's
+					#			set_variable = { name = contest_horse_race_name value = flag:sleipnir }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Svaðilfari - Sleipnir father
+					#			set_variable = { name = contest_horse_race_name value = flag:svadilfari }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#	}
+					#}
 					## CULTURE
 					# ARABIC
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_arabic }
-							}
-						}
-						random_list = {
-							5 = { # al-Dinari - Arabian horse father
-								set_variable = { name = contest_horse_race_name value = flag:al_dinari }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # al-Hujays - Arabian horse father
-								set_variable = { name = contest_horse_race_name value = flag:al_hujays }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # al-Ward - Arabian horse father
-								set_variable = { name = contest_horse_race_name value = flag:al_ward }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # A'waj - Arabian horse father
-								set_variable = { name = contest_horse_race_name value = flag:awaj }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}					
-							5 = { # Dhi al-'Uqqal - Arabian horse father
-								set_variable = { name = contest_horse_race_name value = flag:dhi_al_uqqal }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Sabal - Arabian horse mother
-								set_variable = { name = contest_horse_race_name value = flag:sabal }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-							5 = { # Zad al-Rakib - Arabian horse father
-								set_variable = { name = contest_horse_race_name value = flag:zad_al_rakib }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_arabic }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # al-Dinari - Arabian horse father
+					#			set_variable = { name = contest_horse_race_name value = flag:al_dinari }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # al-Hujays - Arabian horse father
+					#			set_variable = { name = contest_horse_race_name value = flag:al_hujays }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # al-Ward - Arabian horse father
+					#			set_variable = { name = contest_horse_race_name value = flag:al_ward }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # A'waj - Arabian horse father
+					#			set_variable = { name = contest_horse_race_name value = flag:awaj }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}					
+					#		5 = { # Dhi al-'Uqqal - Arabian horse father
+					#			set_variable = { name = contest_horse_race_name value = flag:dhi_al_uqqal }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Sabal - Arabian horse mother
+					#			set_variable = { name = contest_horse_race_name value = flag:sabal }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#		5 = { # Zad al-Rakib - Arabian horse father
+					#			set_variable = { name = contest_horse_race_name value = flag:zad_al_rakib }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#	}
+					#}
 					# BRYTHONIC
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_brythonic }
-							}
-						}
-						random_list = {
-							5 = { # Gringolet - Sir Gawain's
-								set_variable = { name = contest_horse_race_name value = flag:gringolet }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Hengroen - King Arthur's
-								set_variable = { name = contest_horse_race_name value = flag:hengroen }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Llamrei  - King Arthur's
-								set_variable = { name = contest_horse_race_name value = flag:llamrei }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-							5 = { # Morvarc’h - Breton
-								set_variable = { name = contest_horse_race_name value = flag:morvarch }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_brythonic }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # Gringolet - Sir Gawain's
+					#			set_variable = { name = contest_horse_race_name value = flag:gringolet }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Hengroen - King Arthur's
+					#			set_variable = { name = contest_horse_race_name value = flag:hengroen }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Llamrei  - King Arthur's
+					#			set_variable = { name = contest_horse_race_name value = flag:llamrei }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#		5 = { # Morvarc’h - Breton
+					#			set_variable = { name = contest_horse_race_name value = flag:morvarch }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#	}
+					#}
 					# CHINESE
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_chinese }
-							}
-						}
-						random_list = {
-							5 = { # Red Hare/Chi Tu - Lü Bu's
-								set_variable = { name = contest_horse_race_name value = flag:red_hare }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { set_variable = { name = contest_horse_race_name value = flag:typhoon } } # Typhoon
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_chinese }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # Red Hare/Chi Tu - Lü Bu's
+					#			set_variable = { name = contest_horse_race_name value = flag:red_hare }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:typhoon } } # Typhoon
+					#	}
+					#}
 					# FRANKISH
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_frankish }
-							}
-						}
-						random_list = {
-							5 = { # Baucent - Guillaume d'Orange's
-								set_variable = { name = contest_horse_race_name value = flag:baucent }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Bayard - Chansons de gestes
-								set_variable = { name = contest_horse_race_name value = flag:bayard }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Sorel - Gerin's
-								set_variable = { name = contest_horse_race_name value = flag:sorel }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Tencendur - Charlemagne's
-								set_variable = { name = contest_horse_race_name value = flag:tencendur }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Veillantif - Roland's
-								set_variable = { name = contest_horse_race_name value = flag:veillantif }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_frankish }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # Baucent - Guillaume d'Orange's
+					#			set_variable = { name = contest_horse_race_name value = flag:baucent }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Bayard - Chansons de gestes
+					#			set_variable = { name = contest_horse_race_name value = flag:bayard }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Sorel - Gerin's
+					#			set_variable = { name = contest_horse_race_name value = flag:sorel }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Tencendur - Charlemagne's
+					#			set_variable = { name = contest_horse_race_name value = flag:tencendur }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Veillantif - Roland's
+					#			set_variable = { name = contest_horse_race_name value = flag:veillantif }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#	}
+					#}
 					# GRECO-ROMAN
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = {
-									OR = {
-										has_cultural_pillar = heritage_byzantine
-										has_cultural_pillar = heritage_latin
-									}
-								}
-							}
-						}
-						random_list = {
-							5 = { # Arion - Iliad
-								set_variable = { name = contest_horse_race_name value = flag:arion }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Asturcus - Caesar's
-								set_variable = { name = contest_horse_race_name value = flag:asturcus }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Balius - Achilles'
-								set_variable = { name = contest_horse_race_name value = flag:balius }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Boreas - North Wind
-								set_variable = { name = contest_horse_race_name value = flag:boreas }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Bucephalus - Megas Alexandros'
-								set_variable = { name = contest_horse_race_name value = flag:bucephalus }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Caesar - Emperor
-								set_variable = { name = contest_horse_race_name value = flag:caesar }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Chiron - Centaur
-								set_variable = { name = contest_horse_race_name value = flag:chiron }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Epona - goddess
-								set_variable = { name = contest_horse_race_name value = flag:epona }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-							5 = { # Equuleus - Hippe
-								set_variable = { name = contest_horse_race_name value = flag:equuleus }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-							5 = { # Hippocampus - Poseidon's
-								set_variable = { name = contest_horse_race_name value = flag:hippocampus }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { set_variable = { name = contest_horse_race_name value = flag:incitatus } } # Incitatus - Caligula's
-							5 = { set_variable = { name = contest_horse_race_name value = flag:notus } } # Notus - South Wind
-							5 = { # Pedasos - Achilles'
-								set_variable = { name = contest_horse_race_name value = flag:pedasos }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Pegasus - Bellerophon's
-								set_variable = { name = contest_horse_race_name value = flag:pegasus }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-							5 = { # Rhaebus - Mezentius'
-								set_variable = { name = contest_horse_race_name value = flag:rhaebus }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { set_variable = { name = contest_horse_race_name value = flag:seianian } } # Seianian - Gnaeus Seius'
-							5 = { set_variable = { name = contest_horse_race_name value = flag:sterope } } # Sterope - Helios'
-							5 = { # Xanthos - Achilles'
-								set_variable = { name = contest_horse_race_name value = flag:xanthos }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { set_variable = { name = contest_horse_race_name value = flag:zephryus } } # Zephyrus - West Wind
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = {
+					#				OR = {
+					#					has_cultural_pillar = heritage_byzantine
+					#					has_cultural_pillar = heritage_latin
+					#				}
+					#			}
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # Arion - Iliad
+					#			set_variable = { name = contest_horse_race_name value = flag:arion }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Asturcus - Caesar's
+					#			set_variable = { name = contest_horse_race_name value = flag:asturcus }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Balius - Achilles'
+					#			set_variable = { name = contest_horse_race_name value = flag:balius }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Boreas - North Wind
+					#			set_variable = { name = contest_horse_race_name value = flag:boreas }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Bucephalus - Megas Alexandros'
+					#			set_variable = { name = contest_horse_race_name value = flag:bucephalus }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Caesar - Emperor
+					#			set_variable = { name = contest_horse_race_name value = flag:caesar }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Chiron - Centaur
+					#			set_variable = { name = contest_horse_race_name value = flag:chiron }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Epona - goddess
+					#			set_variable = { name = contest_horse_race_name value = flag:epona }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#		5 = { # Equuleus - Hippe
+					#			set_variable = { name = contest_horse_race_name value = flag:equuleus }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#		5 = { # Hippocampus - Poseidon's
+					#			set_variable = { name = contest_horse_race_name value = flag:hippocampus }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:incitatus } } # Incitatus - Caligula's
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:notus } } # Notus - South Wind
+					#		5 = { # Pedasos - Achilles'
+					#			set_variable = { name = contest_horse_race_name value = flag:pedasos }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Pegasus - Bellerophon's
+					#			set_variable = { name = contest_horse_race_name value = flag:pegasus }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#		5 = { # Rhaebus - Mezentius'
+					#			set_variable = { name = contest_horse_race_name value = flag:rhaebus }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:seianian } } # Seianian - Gnaeus Seius'
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:sterope } } # Sterope - Helios'
+					#		5 = { # Xanthos - Achilles'
+					#			set_variable = { name = contest_horse_race_name value = flag:xanthos }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:zephryus } } # Zephyrus - West Wind
+					#	}
+					#}
 					# GOIDELIC
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_goidelic }
-							}
-						}
-						random_list = {
-							5 = { # Dub Sainglend - Cúchulainn's
-								set_variable = { name = contest_horse_race_name value = flag:dub_sainglend }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Embarr - Lugh Lamh-fada's
-								set_variable = { name = contest_horse_race_name value = flag:enbarr }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-							5 = { # Kelpie - mythological
-								set_variable = { name = contest_horse_race_name value = flag:kelpie }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-							5 = { # Liath Macha - Cúchulainn's
-								set_variable = { name = contest_horse_race_name value = flag:liath_macha }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_goidelic }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # Dub Sainglend - Cúchulainn's
+					#			set_variable = { name = contest_horse_race_name value = flag:dub_sainglend }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Embarr - Lugh Lamh-fada's
+					#			set_variable = { name = contest_horse_race_name value = flag:enbarr }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#		5 = { # Kelpie - mythological
+					#			set_variable = { name = contest_horse_race_name value = flag:kelpie }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#		5 = { # Liath Macha - Cúchulainn's
+					#			set_variable = { name = contest_horse_race_name value = flag:liath_macha }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#	}
+					#}
 					# IBERIAN
-					300 = {
-						trigger = {
-							culture = { has_cultural_pillar = language_iberian }
-						}
-						random_list = {
-							5 = { # Altivo - El Dorado
-								set_variable = { name = contest_horse_race_name value = flag:altivo }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Babieca - El Cid's
-								set_variable = { name = contest_horse_race_name value = flag:babieca }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Rocinante - Don Quixote's
-								set_variable = { name = contest_horse_race_name value = flag:rocinante }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = {
-								set_variable = { name = contest_horse_race_name value = flag:tornado }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = { has_cultural_pillar = language_iberian }
+					#	}
+					#	random_list = {
+					#		5 = { # Altivo - El Dorado
+					#			set_variable = { name = contest_horse_race_name value = flag:altivo }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Babieca - El Cid's
+					#			set_variable = { name = contest_horse_race_name value = flag:babieca }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Rocinante - Don Quixote's
+					#			set_variable = { name = contest_horse_race_name value = flag:rocinante }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = {
+					#			set_variable = { name = contest_horse_race_name value = flag:tornado }
+					#		}
+					#	}
+					#}
 					# INDO-ARYAN
-					300 = {
-						trigger = {
-							culture = { has_cultural_pillar = heritage_indo_aryan }
-						}
-						random_list = {
-							5 = { # Pratap's
-								set_variable = { name = contest_horse_race_name value = flag:atak }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Pratap's
-								set_variable = { name = contest_horse_race_name value = flag:chetak }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Ranjit's
-								set_variable = { name = contest_horse_race_name value = flag:laili }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
-							5 = { # Pratap's
-								set_variable = { name = contest_horse_race_name value = flag:natak }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}			
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = { has_cultural_pillar = heritage_indo_aryan }
+					#	}
+					#	random_list = {
+					#		5 = { # Pratap's
+					#			set_variable = { name = contest_horse_race_name value = flag:atak }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Pratap's
+					#			set_variable = { name = contest_horse_race_name value = flag:chetak }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Ranjit's
+					#			set_variable = { name = contest_horse_race_name value = flag:laili }
+					#			set_variable = { name = contest_horse_race_gender value = flag:female }
+					#		}
+					#		5 = { # Pratap's
+					#			set_variable = { name = contest_horse_race_name value = flag:natak }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}			
+					#	}
+					#}
 					# MONGOLIC
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_mongolic }
-							}
-						}
-						random_list = {
-							5 = { set_variable = { name = contest_horse_race_name value = flag:aranjagaan } } # Aranjagaan - Jangar's
-							5 = { set_variable = { name = contest_horse_race_name value = flag:oyomaa } } # Oyomaa - Jangar's
-							5 = { set_variable = { name = contest_horse_race_name value = flag:tolin_khul } } # Tolin Khul - folk song
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_mongolic }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:aranjagaan } } # Aranjagaan - Jangar's
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:oyomaa } } # Oyomaa - Jangar's
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:tolin_khul } } # Tolin Khul - folk song
+					#	}
+					#}
 					# PERSIAN
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_iranian }
-							}
-						}
-						random_list = {
-							5 = { # Rahbar (Leader) - Akbar's
-								set_variable = { name = contest_horse_race_name value = flag:rahbar }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Rakhsh - Rostam's
-								set_variable = { name = contest_horse_race_name value = flag:rakhsh }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_iranian }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # Rahbar (Leader) - Akbar's
+					#			set_variable = { name = contest_horse_race_name value = flag:rahbar }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Rakhsh - Rostam's
+					#			set_variable = { name = contest_horse_race_name value = flag:rakhsh }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#	}
+					#}
 					# SCANDINAVIAN
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_north_germanic }
-							}
-						}
-						random_list = {							
-							5 = {
-								# Grani - Sigurd's
-								set_variable = { name = contest_horse_race_name value = flag:grani }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_north_germanic }
+					#		}
+					#	}
+					#	random_list = {							
+					#		5 = {
+					#			# Grani - Sigurd's
+					#			set_variable = { name = contest_horse_race_name value = flag:grani }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#	}
+					#}
 					# SLAVIC
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_east_slavic }
-							}
-						}
-						random_list = {
-							5 = { # Sivko-Burko - Ivan the Fool's
-								set_variable = { name = contest_horse_race_name value = flag:sivko_burko }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = {
-								set_variable = { name = contest_horse_race_name value = flag:sivko }
-							}
-							5 = {
-								set_variable = { name = contest_horse_race_name value = flag:burko }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_east_slavic }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # Sivko-Burko - Ivan the Fool's
+					#			set_variable = { name = contest_horse_race_name value = flag:sivko_burko }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = {
+					#			set_variable = { name = contest_horse_race_name value = flag:sivko }
+					#		}
+					#		5 = {
+					#			set_variable = { name = contest_horse_race_name value = flag:burko }
+					#		}
+					#	}
+					#}
 					# TURKIC
-					300 = {
-						trigger = {
-							culture = {
-								any_parent_culture_or_above = { has_cultural_pillar = heritage_turkic }
-							}
-						}
-						random_list = {
-							5 = { # G'irot - Koroghlu's
-								set_variable = { name = contest_horse_race_name value = flag:girot }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = { # Tulpar - mythological
-								set_variable = { name = contest_horse_race_name value = flag:tulpar }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-						}
-					}
+					#300 = {
+					#	trigger = {
+					#		culture = {
+					#			any_parent_culture_or_above = { has_cultural_pillar = heritage_turkic }
+					#		}
+					#	}
+					#	random_list = {
+					#		5 = { # G'irot - Koroghlu's
+					#			set_variable = { name = contest_horse_race_name value = flag:girot }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#		5 = { # Tulpar - mythological
+					#			set_variable = { name = contest_horse_race_name value = flag:tulpar }
+					#			set_variable = { name = contest_horse_race_gender value = flag:male }
+					#		}
+					#	}
+					#}
 					## COLOR/NOUN
-					300 = {
-						modifier = { # Mongol's prefer color/marking names
-							factor = 2
-							culture = { has_cultural_pillar = heritage_mongolic }
-						}
-						random_list = {
-							# COLOR
-							5 = { set_variable = { name = contest_horse_race_name value = flag:bay } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:black } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:blue } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:brindle } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:buckskin } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:chestnut } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:cloud } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:cream } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:crimson } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:dapple } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:dawn } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:dun } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:dusk } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:flaxen } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:flame } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:frost } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:golden } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:gray } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:leopard } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:milk } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:night } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:pearl } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:red } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:roan } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:rose } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:ruby } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:scarlet } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:shade } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:shadow } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:shining } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:silk } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:silver } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:smoke } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:snow } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:sorrel } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:sun } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:tawny } }
-							5 = { set_variable = { name = contest_horse_race_name value = flag:yellow } }
-						}
-						random = {
-							chance = 50
-							random_list = {
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:blaze } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:coat } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:dash } }	
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:face } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:feet } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:foot } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:hair } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:hide } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:hoof } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:hooves } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:mane } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:mottle } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:socks } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:speckles } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:spots } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:star } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:steed } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:stockings } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:streak } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:stripe } }
-								5 = { set_variable = { name = contest_horse_race_name_2 value = flag:tail } }
-							}
-						}
-					}
+					#300 = {
+					#	modifier = { # Mongol's prefer color/marking names
+					#		factor = 2
+					#		culture = { has_cultural_pillar = heritage_mongolic }
+					#	}
+					#	random_list = {
+					#		# COLOR
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:bay } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:black } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:blue } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:brindle } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:buckskin } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:chestnut } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:cloud } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:cream } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:crimson } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:dapple } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:dawn } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:dun } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:dusk } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:flaxen } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:flame } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:frost } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:golden } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:gray } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:leopard } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:milk } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:night } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:pearl } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:red } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:roan } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:rose } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:ruby } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:scarlet } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:shade } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:shadow } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:shining } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:silk } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:silver } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:smoke } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:snow } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:sorrel } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:sun } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:tawny } }
+					#		5 = { set_variable = { name = contest_horse_race_name value = flag:yellow } }
+					#	}
+					#	random = {
+					#		chance = 50
+					#		random_list = {
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:blaze } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:coat } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:dash } }	
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:face } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:feet } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:foot } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:hair } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:hide } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:hoof } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:hooves } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:mane } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:mottle } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:socks } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:speckles } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:spots } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:star } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:steed } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:stockings } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:streak } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:stripe } }
+					#			5 = { set_variable = { name = contest_horse_race_name_2 value = flag:tail } }
+					#		}
+					#	}
+					#}
 					# ADJECTIVE/NOUN
 					300 = {
 						# ADJECTIVE
@@ -5590,16 +5590,16 @@ tournament_horse_race_fetch_horse_effect = {
 									NOT = { government_has_flag = government_is_tribal }
 								}
 								random_list = {
-									5 = {
-										trigger = {
-											OR = {
-												religion = religion:germanic_religion
-												culture = { has_cultural_pillar = heritage_north_germanic }
-											}
-											faith = { has_doctrine = tenet_warmonger }
-										}
-										set_variable = { name = contest_horse_race_name value = flag:berserker }
-									}
+									#5 = { # WGH TODO
+									#	trigger = {
+									#		OR = {
+									#			religion = religion:germanic_religion
+									#			culture = { has_cultural_pillar = heritage_north_germanic }
+									#		}
+									#		faith = { has_doctrine = tenet_warmonger }
+									#	}
+									#	set_variable = { name = contest_horse_race_name value = flag:berserker }
+									#}
 									5 = {
 										trigger = {
 											faith = { has_doctrine_parameter = great_holy_wars_active }
@@ -5762,30 +5762,30 @@ tournament_horse_race_fetch_horse_effect = {
 					## EASTER EGGS
 					50 = {
 						random_list = {
-							5 = { # Arkle
-								trigger = { title:c_sutherland.holder.top_liege = root.top_liege }								
-								set_variable = { name = contest_horse_race_name value = flag:arkle }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = {
-								trigger = {
-									culture = { has_cultural_pillar = language_french }	
-								}
-								modifier = {
-									factor = 2
-									has_trait = drunkard
-								}
-								modifier = {
-									factor = 2
-									has_trait = arrogant
-								}
-								modifier = {
-									factor = 2
-									has_trait = depressed
-								}
-								set_variable = { name = contest_horse_race_name value = flag:beaujacques }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
+							#5 = { # Arkle  # WGH TODO
+							#	trigger = { title:c_sutherland.holder.top_liege = root.top_liege }								
+							#	set_variable = { name = contest_horse_race_name value = flag:arkle }
+							#	set_variable = { name = contest_horse_race_gender value = flag:male }
+							#}
+							#5 = {  # WGH TODO
+							#	trigger = {
+							#		culture = { has_cultural_pillar = language_french }	
+							#	}
+							#	modifier = {
+							#		factor = 2
+							#		has_trait = drunkard
+							#	}
+							#	modifier = {
+							#		factor = 2
+							#		has_trait = arrogant
+							#	}
+							#	modifier = {
+							#		factor = 2
+							#		has_trait = depressed
+							#	}
+							#	set_variable = { name = contest_horse_race_name value = flag:beaujacques }
+							#	set_variable = { name = contest_horse_race_gender value = flag:male }
+							#}
 							1 = { set_variable = { name = contest_horse_race_name value = flag:big_dog } }
 							1 = { set_variable = { name = contest_horse_race_name value = flag:big_honse } }
 							5 = { set_variable = { name = contest_horse_race_name value = flag:binky } }
@@ -5807,13 +5807,13 @@ tournament_horse_race_fetch_horse_effect = {
 							}
 							5 = { set_variable = { name = contest_horse_race_name value = flag:clip_clop } }
 							5 = { set_variable = { name = contest_horse_race_name value = flag:cloppy } }
-							5 = { # Wellington's
-								trigger = {
-									culture = { has_cultural_pillar = heritage_west_germanic }
-								}
-								set_variable = { name = contest_horse_race_name value = flag:copenhagen }
-								set_variable = { name = contest_horse_race_gender value = flag:female }
-							}
+							#5 = { # Wellington's  # WGH TODO
+							#	trigger = {
+							#		culture = { has_cultural_pillar = heritage_west_germanic }
+							#	}
+							#	set_variable = { name = contest_horse_race_name value = flag:copenhagen }
+							#	set_variable = { name = contest_horse_race_gender value = flag:female }
+							#}
 							5 = {
 								set_variable = { name = contest_horse_race_name value = flag:donkey }
 								set_variable = { name = contest_horse_race_gender value = flag:female }
@@ -5829,13 +5829,13 @@ tournament_horse_race_fetch_horse_effect = {
 								set_variable = { name = contest_horse_race_name value = flag:facilitate }
 								set_variable = { name = contest_horse_race_gender value = flag:female }
 							}
-							5 = { # Frankel
-								trigger = {
-									culture = { has_cultural_pillar = language_high_german }
-								}
-								set_variable = { name = contest_horse_race_name value = flag:frenkel }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
+							#5 = { # Frankel  # WGH TODO
+							#	trigger = {
+							#		culture = { has_cultural_pillar = language_high_german }
+							#	}
+							#	set_variable = { name = contest_horse_race_name value = flag:frenkel }
+							#	set_variable = { name = contest_horse_race_gender value = flag:male }
+							#}
 							5 = { # Man o' War
 								set_variable = { name = contest_horse_race_name value = flag:galley }
 								set_variable = { name = contest_horse_race_gender value = flag:male }
@@ -5846,85 +5846,85 @@ tournament_horse_race_fetch_horse_effect = {
 							1 = { set_variable = { name = contest_horse_race_name value = flag:honse } }
 							1 = { set_variable = { name = contest_horse_race_name value = flag:horsey } }
 							1 = { set_variable = { name = contest_horse_race_name value = flag:jerry } }
-							5 = {
-								trigger = { religion = religion:christianity_religion }
-								set_variable = { name = contest_horse_race_name value = flag:joseph }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = {
-								trigger = {
-									culture = {
-										OR = {
-											has_cultural_pillar = heritage_chinese
-											has_cultural_pillar = heritage_mongolic
-										}
-									}
-								}
-								set_variable = { name = contest_horse_race_name value = flag:khan }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
-							5 = {
-								trigger = {
-									culture = { has_cultural_pillar = heritage_north_germanic }
-								}
-								set_variable = { name = contest_horse_race_name value = flag:kjekk }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
+							#5 = {  # WGH TODO
+							#	trigger = { religion = religion:christianity_religion }
+							#	set_variable = { name = contest_horse_race_name value = flag:joseph }
+							#	set_variable = { name = contest_horse_race_gender value = flag:male }
+							#}
+							#5 = {  # WGH TODO
+							#	trigger = {
+							#		culture = {
+							#			OR = {
+							#				has_cultural_pillar = heritage_chinese
+							#				has_cultural_pillar = heritage_mongolic
+							#			}
+							#		}
+							#	}
+							#	set_variable = { name = contest_horse_race_name value = flag:khan }
+							#	set_variable = { name = contest_horse_race_gender value = flag:male }
+							#}
+							#5 = {  # WGH TODO
+							#	trigger = {
+							#		culture = { has_cultural_pillar = heritage_north_germanic }
+							#	}
+							#	set_variable = { name = contest_horse_race_name value = flag:kjekk }
+							#	set_variable = { name = contest_horse_race_gender value = flag:male }
+							#}
 							1 = { set_variable = { name = contest_horse_race_name value = flag:lord_pepper_iii } }
-							5 = { # Napoleon's
-								trigger = {
-									culture = {
-										OR = {
-											has_cultural_pillar = heritage_frankish
-											has_cultural_pillar = heritage_latin
-										}
-									}
-								}
-								set_variable = { name = contest_horse_race_name value = flag:marengo }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
+							#5 = { # Napoleon's  # WGH TODO
+							#	trigger = {
+							#		culture = {
+							#			OR = {
+							#				has_cultural_pillar = heritage_frankish
+							#				has_cultural_pillar = heritage_latin
+							#			}
+							#		}
+							#	}
+							#	set_variable = { name = contest_horse_race_name value = flag:marengo }
+							#	set_variable = { name = contest_horse_race_gender value = flag:male }
+							#}
 							5 = {
 								set_variable = { name = contest_horse_race_name value = flag:marshal_neigh }
 								set_variable = { name = contest_horse_race_gender value = flag:male }
 							}
-							5 = {
-								trigger = {
-									culture = {
-										OR = {
-											has_cultural_pillar = heritage_byzantine
-											has_cultural_pillar = heritage_latin
-										}
-									}
-								}
-								set_variable = { name = contest_horse_race_name value = flag:maximus }
-							}
+							#5 = {  # WGH TODO
+							#	trigger = {
+							#		culture = {
+							#			OR = {
+							#				has_cultural_pillar = heritage_byzantine
+							#				has_cultural_pillar = heritage_latin
+							#			}
+							#		}
+							#	}
+							#	set_variable = { name = contest_horse_race_name value = flag:maximus }
+							#}
 							5 = { # Seabiscuit
 								set_variable = { name = contest_horse_race_name value = flag:oceancracker }
 								set_variable = { name = contest_horse_race_gender value = flag:male }
 							}
 							5 = { set_variable = { name = contest_horse_race_name value = flag:pebbles } }
-							5 = {
-								trigger = {
-									culture = {
-										any_parent_culture_or_above = { has_cultural_pillar = language_anglic }
-										any_parent_culture_or_above = { has_cultural_pillar = language_brythonic }
-									}
-								}								
-								set_variable = { name = contest_horse_race_name value = flag:pringle }
-							}
-							5 = { # Galileo
-								trigger = {
-									culture = {
-										OR = {
-											has_cultural_pillar = heritage_arabic
-											has_cultural_pillar = heritage_byzantine
-											has_cultural_pillar = heritage_latin
-										}
-									}
-								}
-								set_variable = { name = contest_horse_race_name value = flag:ptolemy }
-								set_variable = { name = contest_horse_race_gender value = flag:male }
-							}
+							#5 = { # WGH TODO
+							#	trigger = {
+							#		culture = {
+							#			any_parent_culture_or_above = { has_cultural_pillar = language_anglic }
+							#			any_parent_culture_or_above = { has_cultural_pillar = language_brythonic }
+							#		}
+							#	}								
+							#	set_variable = { name = contest_horse_race_name value = flag:pringle }
+							#}
+							#5 = { # Galileo # WGH TODO
+							#	trigger = {
+							#		culture = {
+							#			OR = {
+							#				has_cultural_pillar = heritage_arabic
+							#				has_cultural_pillar = heritage_byzantine
+							#				has_cultural_pillar = heritage_latin
+							#			}
+							#		}
+							#	}
+							#	set_variable = { name = contest_horse_race_name value = flag:ptolemy }
+							#	set_variable = { name = contest_horse_race_gender value = flag:male }
+							#}
 							5 = { # Red Rum
 								trigger = {
 									NOT = {
