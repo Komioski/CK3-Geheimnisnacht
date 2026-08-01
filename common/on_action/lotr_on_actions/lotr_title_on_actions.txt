@@ -27,10 +27,8 @@
 lotr_on_title_destroyed = {
 	effect = {
 		if = {
-			limit = { scope:landed_title = title:e_golden_realm_rhun }
-			title:e_golden_realm_rhun = { add_to_temporary_list = titles_to_destroy }
-			save_scope_as = attacker
-			lotr_achievement_30_effect = yes
+			# WGH
+			always = no
 		}
 
 		# Wasteland stuff
@@ -63,7 +61,7 @@ lotr_on_title_gain = {
 			}
 			lotr_refresh_defensive_alliance_name = {
 				DEFENSIVE_ALLY = scope:defensive_alliance_member
-                LOC_KEY = two_realm_name
+				LOC_KEY = two_realm_name
 			}
 		}
 		if = {
@@ -177,33 +175,34 @@ lotr_on_title_gain = {
 				}
 				is_landless_adventurer = no
 			}
-			# if = {
-			# 	limit = { is_elf = yes }
-			# 	root = { change_government = elven_government }
-			# }
+			#if = { # WGH TODO
+			#	limit = { is_elf = yes }
+			#	root = { change_government = elven_government }
+			#}
+			#else_if = { # WGH TODO
 			if = {
 				limit = {
 					is_human = yes
 				}
 				root = { change_government = tribal_government }
 			}
-			# else_if = {
-			# 	limit = { is_halfling = yes }
-			# 	root = { change_government = hobbit_government }
-			# }
-			# else_if = {
-			# 	limit = {
-			# 		OR = {
-			# 			is_maiar = yes
-			# 			is_dwarf = yes
-			# 		}
-			# 	}
-			# 	root = { change_government = feudal_government }
-			# }
-			# else_if = {
-			# 	limit = { is_orc = yes }
-			# 	root = { change_government = orcish_government }
-			# }
+			#else_if = { # WGH TODO
+			#	limit = { is_halfling = yes } # WGH
+			#	root = { change_government = hobbit_government }
+			#}
+			#else_if = { # WGH TODO
+			#	limit = {
+			#		OR = {
+			#			is_maiar = yes
+			#			is_dwarf = yes
+			#		}
+			#	}
+			#	root = { change_government = feudal_government }
+			#}
+			#else_if = { # WGH TODO
+			#	limit = { is_orc = yes }
+			#	root = { change_government = orcish_government }
+			#}
 			scope:title ?= {
 				set_county_culture = root.culture
 				set_county_faith = root.faith
@@ -225,7 +224,7 @@ lotr_on_title_gain = {
 						set_holding_type = tribal_holding
 					}
 					else_if = {
-						limit = { is_halfling = yes }
+						limit = { is_halfling = yes } # WGH
 						set_holding_type = city_holding
 					}
 					else_if = {
@@ -263,41 +262,49 @@ lotr_on_title_gain = {
 			debug_log = "Wilderness: Tom tried to give away Wilderness - Vanquished Version"
 		}
 
-		# Trig Note - Commented out for history purposes, as it makes all Tom's counties wilderness on game start, making it dificult to test history code. Reenable before releasing beta.
-		## Clean up culture, faith, and holding type of Tom's counties
-		# character:k_wastelands_holder = {
-		# 	every_sub_realm_county = {
-		# 		limit = {
-		# 			NAND = {
-		# 				culture = culture:wastelands
-		# 				faith = faith:faith_wastelands_pagan
-		# 				title_province = { has_holding_type = wastelands_holding }
-		# 			}
-		# 		}
-		# 		save_scope_as = wilderness_county
-		# 		make_settlement_county_wilderness = { COUNTY = scope:wilderness_county }
-		# 	}
-		# }
-
-		### Underground | Both AI & Player ###
-		# If surface dwellers **somehow** manage to get underground terrain, make it wilderness ( and give them a bit of gold in return )
+		### Stop Tom revoking
 		if = {
 			limit = {
-				scope:title ?= {
-					tier = tier_county
-					title_province ?= { terrain = halls }
-				}
-				NOR = {
-					is_dwarf = yes
-					is_orc = yes
-					is_nazgul = yes
-					is_maiar_fallen = yes
-				}
+				NOT = { scope:previous_holder ?= character:k_wastelands_holder }
+				root = character:k_wastelands_holder
 			}
-			make_settlement_county_wilderness = { COUNTY = scope:title }
-			add_gold = 125
-			debug_log = "Wilderness: Surface Race got Underground - Making Wasteland"
+			if = {
+				limit = {
+					scope:previous_holder ?= { is_alive = yes }
+					scope:transfer_type = flag:revoked
+					scope:title.tier >= tier_duchy
+				}
+				create_title_and_vassal_change = {
+					type = returned
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				scope:title = {
+					change_title_holder = {
+						holder = scope:previous_holder
+						change = scope:change
+						take_baronies = yes
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
 		}
+
+		# Trig Note - Commented out for history purposes, as it makes all Tom's counties wilderness on game start, making it dificult to test history code. Reenable before releasing beta.
+		## Clean up culture, faith, and holding type of Tom's counties
+		#character:k_wastelands_holder = {
+		#	every_sub_realm_county = {
+		#		limit = {
+		#			NAND = {
+		#				culture = culture:wastelands
+		#				faith = faith:faith_wastelands_pagan
+		#				title_province = { has_holding_type = wastelands_holding }
+		#			}
+		#		}
+		#		save_scope_as = wilderness_county
+		#		make_settlement_county_wilderness = { COUNTY = scope:wilderness_county }
+		#	}
+		#}
 
 		### WILDERNESS | Player Side ###
 		if = { ## New Holder --> Gained settlement county
@@ -587,7 +594,7 @@ lotr_on_title_gain = {
 					remove_duchy_building_any_level = { BUILDING = dwarven_bank_economic }
 					remove_duchy_building_any_level = { BUILDING = dwarven_kings_armory_military }
 					remove_duchy_building_any_level = { BUILDING = dwarven_grand_library }
-					
+
 					# Orcs
 					remove_duchy_building_any_level = { BUILDING = liquor_stills }
 					remove_duchy_building_any_level = { BUILDING = orc_barracks }
@@ -621,7 +628,6 @@ lotr_on_title_gain = {
 				}
 			}
 		}
-	
 
 		if = { #Converting conquered colonies to new holder's culture/faith
 			limit = {
@@ -642,30 +648,37 @@ lotr_on_title_gain = {
 			}
 		}
 
-		# if = {
-		# 	limit = {
-		# 		is_from_ruler_designer = no
-		# 		OR = {
-		# 			#not_valar = yes
-		# 			not_nazgul = yes
-		# 			not_istari = yes
-		# 			not_istari_evil = yes
-		# 			not_maiar = yes
-		# 			not_maiar_fallen = yes
-		# 		}
-		# 	}
-		# 	trigger_event = race.0001
-		# }
+		if = {
+			limit = {
+				# WGH TODO
+				always = no
+
+				#is_from_ruler_designer = no
+				#OR = {
+				#	#not_valar = yes
+				#	not_nazgul = yes
+				#	not_istari = yes
+				#	not_istari_evil = yes
+				#	not_maiar = yes
+				#	not_maiar_fallen = yes
+				#}
+			}
+			#trigger_event = race.0001 # WGH TODO
+		}
 
 		# Elves are removed when conquered by Orcs or evil-aligned humans
 		if = {
 			limit = {
-				OR = {
-					is_orc = yes
-					is_nazgul = yes
-					is_maiar_fallen = yes
-					faith_is_evil = yes
-				}
+				# WGH TODO
+				always = no
+				
+				#OR = {
+				#	is_orc = yes
+				#	is_nazgul = yes
+				#	is_maiar_fallen = yes
+				#	is_evil_istari = yes
+				#	faith_is_evil = yes
+				#}
 			}
 			if = {
 				limit = {
@@ -719,7 +732,7 @@ lotr_on_title_gain = {
 											geographical_region = middleearth_west_eregion
 											geographical_region = middleearth_mountains_blue
 											geographical_region = middleearth_west_beleriand
-										}										
+										}
 									}
 								}
 								set_county_culture = culture:uruk_ongmair
@@ -844,6 +857,7 @@ lotr_on_title_gain = {
 						change_title_holder = {
 							holder = root
 							change = scope:change
+							take_baronies = yes
 						}
 					}
 				}
@@ -854,16 +868,19 @@ lotr_on_title_gain = {
 		# Orcs are removed when conquered by Elves or when reconquering county with hidden elven refugees
 		if = {
 			limit = {
-				is_elf = yes
+				# WGH TODO
+				always = no
 
-				scope:title ?= {
-					tier = tier_county
-					OR = {
-						is_orc = yes
-						is_nazgul = yes
-						has_county_modifier = hidden_elven_refugees_modifier
-					}
-				}
+				#is_elf = yes
+
+				#scope:title ?= {
+				#	tier = tier_county
+				#	OR = {
+				#		is_orc = yes
+				#		is_nazgul = yes
+				#		has_county_modifier = hidden_elven_refugees_modifier
+				#	}
+				#}
 			}
 			send_interface_toast = {
 				left_icon = root
@@ -919,6 +936,7 @@ lotr_on_title_gain = {
 					change_title_holder = {
 						holder = root
 						change = scope:change
+						take_baronies = yes
 					}
 				}
 
@@ -950,10 +968,7 @@ lotr_on_title_gain = {
 							is_maiar = yes
 						}
 					}
-					generate_new_good_faith = {
-						CHAR_SCOPE = flag:yes
-						TITLE_SCOPE = flag:no
-					}
+					generate_new_good_faith = yes
 					generate_new_good_culture = yes
 					scope:title ?= {
 						set_county_culture = scope:new_culture
@@ -1024,6 +1039,7 @@ lotr_on_title_gain = {
 				change_title_holder = {
 					holder = scope:new_holder
 					change = scope:title_change
+					take_baronies = yes
 				}
 			}
 			resolve_title_and_vassal_change = scope:title_change
@@ -1061,12 +1077,12 @@ lotr_on_title_gain = {
 				change_title_holder = {
 					holder = scope:new_holder
 					change = scope:title_change
+					take_baronies = yes
 				}
 			}
 			resolve_title_and_vassal_change = scope:title_change
 			scope:title ?= { generate_coa = yes }
 		}
-
 		if = {
 			limit = {
 				scope:title.tier = tier_empire
@@ -1112,7 +1128,7 @@ lotr_on_title_gain = {
 		## Hobbits can be laamps
 		if = {
 			limit = {
-				is_halfling = yes
+				is_halfling = yes # WGH
 				is_landless_adventurer = no
 				NOT = { government_has_flag = government_is_administrative }
 			}
@@ -1121,7 +1137,6 @@ lotr_on_title_gain = {
 				days = 1
 			}
 		}
-
 
 		if = { ### Late-blooming kids receive legitimacy reduction debuff ###
 			limit = {
@@ -1134,7 +1149,7 @@ lotr_on_title_gain = {
 				OR = {
 					is_dwarf = yes
 					is_elf = yes
-					is_halfling = yes
+					is_halfling = yes # WGH
 				}
 				age < lotr_coronation_minimum_age_value
 			}
@@ -1143,7 +1158,7 @@ lotr_on_title_gain = {
 				add_character_modifier = dwarven_child_legitimacy_boost_modifier
 			}
 			else_if = {
-				limit = { is_halfling = yes }
+				limit = { is_halfling = yes } # WGH
 				add_character_modifier = hobbit_child_legitimacy_boost_modifier
 			}
 			else = { add_character_modifier = elven_child_legitimacy_boost_modifier }
@@ -1284,7 +1299,7 @@ lotr_on_title_gain_inheritance = {
 		#LotR - make sure hobbits remain with the hobbit government type
 		if = {
 			limit = {
-				is_halfling = yes
+				is_halfling = yes # WGH
 				is_landless_adventurer = no
 				NOT = { government_has_flag = government_is_administrative }
 			}
@@ -1314,6 +1329,7 @@ lotr_on_title_gain_inheritance = {
 				change_title_holder = {
 					holder = root.top_liege
 					change = scope:change
+					take_baronies = yes
 				}
 			}
 			resolve_title_and_vassal_change = scope:change
@@ -1356,6 +1372,7 @@ lotr_on_title_gain_inheritance = {
 				change_title_holder = {
 					holder = scope:new_holder
 					change = scope:title_change
+					take_baronies = yes
 				}
 			}
 			resolve_title_and_vassal_change = scope:title_change
@@ -1392,6 +1409,7 @@ lotr_on_title_gain_inheritance = {
 				change_title_holder = {
 					holder = scope:new_holder
 					change = scope:title_change
+					take_baronies = yes
 				}
 			}
 			resolve_title_and_vassal_change = scope:title_change
@@ -1399,7 +1417,7 @@ lotr_on_title_gain_inheritance = {
 
 		if = {
 			limit = {
-			    root.highest_held_title_tier != tier_empire
+				root.highest_held_title_tier != tier_empire
 				culture = { has_cultural_parameter = realms_shatter_on_succession }
 				scope:title ?= { tier > tier_duchy }
 				is_independent_ruler = yes
@@ -1636,6 +1654,7 @@ lotr_on_title_gain_usurpation = {
 				change_title_holder = {
 					holder = scope:new_holder
 					change = scope:title_change
+					take_baronies = yes
 				}
 			}
 			resolve_title_and_vassal_change = scope:title_change
@@ -1672,11 +1691,11 @@ lotr_on_title_gain_usurpation = {
 				change_title_holder = {
 					holder = scope:new_holder
 					change = scope:title_change
+					take_baronies = yes
 				}
 			}
 			resolve_title_and_vassal_change = scope:title_change
 		}
-
 
 		correct_wastelands_tracker = yes
 		scope:previous_holder ?= { correct_wastelands_tracker = yes }
@@ -1702,7 +1721,7 @@ lotr_on_title_lost = {
 			every_held_title = {
 				limit = {
 					tier > tier_county
-					NOR = {  #Don't destroy noble/landless families
+					NOR = { #Don't destroy noble/landless families
 						is_landless_type_title = yes
 						is_noble_family_title = yes
 					}
@@ -1715,8 +1734,6 @@ lotr_on_title_lost = {
 				make_settlement_county_wilderness = { COUNTY = this }
 			}
 		}
-		# Khamul bug fix, maybe? This modifier removes any title he gains and adds it to its previous owner
-
 		correct_wastelands_tracker = yes
 		scope:new_holder = { correct_wastelands_tracker = yes }
 	}
@@ -1729,7 +1746,7 @@ lotr_on_title_lost = {
 lotr_on_explicit_claim_gain = {
 	effect = {
 		if = {
-            limit = {
+			limit = {
 				OR = {
 					root = {
 						has_culture = culture:wastelands
@@ -1739,8 +1756,8 @@ lotr_on_explicit_claim_gain = {
 						scope:title.culture = culture:wastelands
 					}
 				}
-            }
-            debug_log = "Preventing claims from/to Wastelands..."
+			}
+			debug_log = "Preventing claims from/to Wastelands..."
 			every_claim = {
 				root = { remove_claim = prev }
 			}
@@ -1808,7 +1825,7 @@ lotr_on_rank_up = {# Will not fire during history execution or for dying charact
 				OR = {
 					is_dwarf = yes
 					is_elf = yes
-					is_halfling = yes
+					is_halfling = yes # WGH
 				}
 				age < lotr_coronation_minimum_age_value
 			}
@@ -1817,7 +1834,7 @@ lotr_on_rank_up = {# Will not fire during history execution or for dying charact
 				add_character_modifier = dwarven_child_legitimacy_boost_modifier
 			}
 			else_if = {
-				limit = { is_halfling = yes }
+				limit = { is_halfling = yes } # WGH
 				add_character_modifier = hobbit_child_legitimacy_boost_modifier
 			}
 			else = { add_character_modifier = elven_child_legitimacy_boost_modifier }
@@ -1843,7 +1860,7 @@ lotr_on_rank_down = {# Will not fire during history execution or for dying chara
 			}
 			lotr_refresh_defensive_alliance_name = {
 				DEFENSIVE_ALLY = scope:defensive_alliance_member
-                LOC_KEY = two_realm_name
+				LOC_KEY = two_realm_name
 			}
 		}
 		# LotR - if protectorate and same title tier as protector, break protectorate
