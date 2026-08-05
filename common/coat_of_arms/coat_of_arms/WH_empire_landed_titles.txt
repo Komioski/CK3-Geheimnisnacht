@@ -15463,16 +15463,6 @@ pattern="pattern__solid_designer.dds"
 	}
 }
 
-
-c_saar = {
-	pattern = "pattern_solid.dds"
-	color1 = "white"
-	colored_emblem = {
-		texture = "ce_block_02.dds"
-		color1 = "white"
-		instance = { position = { 0.5 0.5 } scale = { 0.5 1.0 }  }
-	}
-}
 d_upper_bitter_moors = {
 	pattern = "pattern_solid.dds"
 	color1 = "white"
@@ -15482,33 +15472,102 @@ d_upper_bitter_moors = {
 		instance = { position = { 0.5 0.5 } scale = { 0.5 1.0 }  }
 	}
 }
-c_dornhan = {
-	pattern = "pattern_solid.dds"
-	color1 = "white"
-	colored_emblem = {
-		texture = "ce_block_02.dds"
-		color1 = "white"
-		instance = { position = { 0.5 0.5 } scale = { 0.5 1.0 }  }
+c_dornhan={
+	custom=yes
+	pattern="pattern_barruly_special.dds"
+	color1=wh_argent
+	color2=rgb { 132 30 30 }
+	color3=blue
+	colored_emblem={
+		color1=wh_azure
+		color2=wh_bold_brass
+		color3=wh_bold_brass
+		texture="cat_lion16_axe_wappen.dds"
 	}
+
 }
-c_sankt_veit = {
-	pattern = "pattern_solid.dds"
-	color1 = "white"
-	colored_emblem = {
-		texture = "ce_block_02.dds"
-		color1 = "white"
-		instance = { position = { 0.5 0.5 } scale = { 0.5 1.0 }  }
-	}
-}
-c_slodrecht = {
-pattern="pattern__solid_designer.dds"
+
+c_sankt_veit ={
+	custom=yes
+	pattern="pattern_checkers_02.dds"
 	color1=wh_sable
-	color2=wh_bright_gold
+	color2=rgb { 48 92 164 }
 	color3=black
 	colored_emblem={
-		color1=wh_bright_gold
-		texture="cat_burgundy_cross.dds"
+		color1=wh_old_gold
+		color2=wh_argent
+		texture="ce_lion_rampant.dds"
+		instance={
+			position={ 0.270000 0.750000 }
+			scale={ 0.500000 0.500000 }
+			depth=1.010000
+		}
+
 	}
+
+	colored_emblem={
+		color1=wh_old_gold
+		color2=wh_sable
+		color3=wh_old_gold
+		texture="cat_knight2.dds"
+		instance={
+			position={ 0.260000 0.250000 }
+			scale={ -0.550000 0.550000 }
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=wh_old_gold
+		color2=wh_light_silver
+		texture="ce_lion_rampant.dds"
+		instance={
+			position={ 0.750000 0.230000 }
+			scale={ 0.500000 0.500000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 48 92 164 }
+		color2=wh_sable
+		texture="ce_lozengy_bend.dds"
+		instance={
+			position={ 0.750000 0.745000 }
+			scale={ 0.500000 0.500000 }
+		}
+
+	}
+
+}
+
+c_huuzel={
+	custom=yes
+	pattern="pattern_vertical_stripes_01.dds"
+	color1=wh_old_gold
+	color2=wh_dark_red
+	color3=green
+	colored_emblem={
+		color1=rgb { 52 80 126 }
+		texture="ce_border_shield_engrailed_02.dds"
+	}
+
+}
+
+
+
+
+c_slodrecht = {
+	pattern="pattern__solid_designer.dds"
+		color1=wh_sable
+		color2=wh_bright_gold
+		color3=black
+		colored_emblem={
+			color1=wh_bright_gold
+			texture="cat_burgundy_cross.dds"
+		}
 
 }
 
