@@ -54,215 +54,215 @@ restore_mandala_capital_decision = {
 }
 
 ### Adopt Mandala Government ###
-convert_to_mandala_government_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/tgp_decision_mandala.dds"
-	}
-	decision_group_type = major
-	desc = convert_to_mandala_government_decision_desc
-
-	ai_check_interval_by_tier = {
-		barony = 0
-		county = 36
-		duchy = 36
-		kingdom = 36
-		empire = 36
-		hegemony = 36
-	}
-
-	is_shown = {
-		has_tgp_dlc_trigger = yes
-		is_landed = yes
-		has_mandala_culture_trigger = yes
-		NOT = { government_has_flag = government_is_mandala }
-		NOT = { religion = religion:sirayn_religion } # LoTR (they have their own path for this)
-		#We have a special decision for Mandala subjects...
-		trigger_if = {
-			limit = { is_tributary = yes }
-			NOT = { 
-				overlord = { government_has_flag = government_is_mandala }
-			}
-		}
-		highest_held_title_tier > tier_barony
-	}
-
-	is_valid = {
-		trigger_if = {
-			limit = {
-				has_legitimacy = yes
-				dynasty ?= {
-					NOT = { has_dynasty_perk = tgp_sea_legacy_3 } #Bypasses Tribal Authority Requirement
-				}
-			}
-			legitimacy_level >= 4
-		}
-		piety_level >= 4 # LOTR to make it a bit harder
-		prestige_level >= 4 # LOTR
-		lotr_has_max_authority = yes # LOTR
-
-		has_mandala_faith_trigger = yes
-		is_independent_ruler = yes
-		# This logic is necessary for the triggers in the options in the subsequent event, or else the player will not get the event
-		OR = {
-			any_realm_province = {
-				OR = {
-					custom_tooltip = {
-						text = convert_to_mandala_government_decision_is_temple_citadel_holding_tt
-						has_holding_type = temple_citadel_holding
-					}
-					custom_tooltip = {
-						text = convert_to_mandala_government_decision_has_no_holding_tt
-						has_holding = no
-					}
-				}
-			}
-			any_directly_owned_province = {
-				custom_tooltip = {
-					text = convert_to_mandala_government_decision_is_tribal_holding_tt
-					has_holding_type = tribal_holding
-				}
-			}
-		}
-	}
-
-	is_valid_showing_failures_only = {
-		custom_tooltip = {
-			text = not_changed_government_recently_tt
-			NOT = { has_variable = changed_government_recently }
-		}
-		government_is_japanese_trigger = no
-	}
-
-	cost = {
-		prestige = {
-			value = 0
-			if = {
-				limit = { government_has_flag = government_is_tribal }
-				add = convert_to_mandala_government_tribal_value
-			}
-			else = { add = convert_to_mandala_government_nontribal_value }
-			#'s cheap!
-			if = {
-				limit = { has_character_modifier = divine_happenstance_modifier }
-				divide = 2
-			}
-		}
-		piety = { #LOTR
-			value = 0
-			if = {
-				limit = { government_has_flag = government_is_tribal }
-				add = convert_to_mandala_government_tribal_value
-			}
-			else = { add = convert_to_mandala_government_nontribal_value }
-			#'s cheap!
-			if = {
-				limit = { has_character_modifier = divine_happenstance_modifier }
-				divide = 2
-			}
-		}
-	}
-
-	effect = {
-		# LotR - account for oligarchies 
-		if = {
-			limit = { has_government = oligarchy_government }
-			hidden_effect = {
-				primary_title.title_province = { set_holding_type = castle_holding }
-				change_government = clan_government
-			}
-		}
-		#GoK stops really being GoK
-		gok_government_change_story_end_effect = yes
-		#Out with the old laws, in with the new
-		change_to_mandala_government_decree_effect = yes
-		#No Succession for this character pls
-		set_variable = {
-			name = not_subject_to_succession_trials
-			value = flag:adopted_mandala_government
-		}
-		if = {
-			limit = { var:not_subject_to_succession_trials ?= flag:adopted_mandala_government }
-			#To prevent 'unused except in loc' errors :catto:
-		}
-		show_as_tooltip = {
-			change_government = mandala_government
-		}
-		#Huh, guess you _are_ divine
-		if = {
-			limit = { has_variable = vying_for_mandala_divinity }
-			custom_description_no_bullet = { text = because_of_your_divine_happenstance_tt }
-			show_as_tooltip = { divine_happenstance_adopt_mandala_effect = yes }
-		}
-		if = {
-			limit = {
-				culture = {
-					has_cultural_parameter = mandala_tributaries 
-				}
-				exists = confederation
-			}
-			custom_tooltip = confederates_to_tributaries_tt
-		}
-		trigger_event = tgp_east_asia_decision_events.0010
-		hidden_effect = {
-			every_vassal = {
-				trigger_event = {
-					id = tgp_east_asia_decision_events.0015
-					days = 3
-				}
-			}
-		}
-	}
-
-	ai_potential = {
-		has_mandala_culture_trigger = yes
-		trigger_if = {
-			limit = { government_has_flag = government_is_tribal }
-			has_realm_law = tribal_authority_3
-			prestige >= convert_to_mandala_government_tribal_value
-		}
-		trigger_else = {
-			prestige >= convert_to_mandala_government_nontribal_value
-		}
-		trigger_if = {
-			limit = { 
-				OR = {
-					government_has_flag = government_is_feudal
-					government_has_flag = government_is_clan
-				}
-			}
-			primary_title.tier <= tier_duchy
-		}
-		primary_title.tier > tier_barony
-		NOR = {	
-			government_has_flag = government_is_republic
-			government_has_flag = government_is_theocracy
-			government_has_flag = government_is_mercenary
-			government_has_flag = government_is_holy_order
-			government_has_flag = government_is_administrative
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_herder
-			government_has_flag = government_is_celestial
-			government_has_flag = government_is_steppe_admin
-			government_has_flag = government_is_meritocratic
-		}
-		NOT = {
-			any_owned_story = {
-				OR = {
-					story_type = story_greatest_of_khans
-					story_type = story_mongol_invasion
-				}
-			}
-		}
-	}
-
-	ai_will_do = {
-		base = 20
-		modifier = {
-			NOT = { government_has_flag = government_is_tribal }
-			add = -15
-		}
-	}
-}
+#convert_to_mandala_government_decision = {
+#	picture = {
+#		reference = "gfx/interface/illustrations/decisions/tgp_decision_mandala.dds"
+#	}
+#	decision_group_type = major
+#	desc = convert_to_mandala_government_decision_desc
+#
+#	ai_check_interval_by_tier = {
+#		barony = 0
+#		county = 36
+#		duchy = 36
+#		kingdom = 36
+#		empire = 36
+#		hegemony = 36
+#	}
+#
+#	is_shown = {
+#		has_tgp_dlc_trigger = yes
+#		is_landed = yes
+#		has_mandala_culture_trigger = yes
+#		NOT = { government_has_flag = government_is_mandala }
+#		NOT = { religion = religion:sirayn_religion } # LoTR (they have their own path for this)
+#		#We have a special decision for Mandala subjects...
+#		trigger_if = {
+#			limit = { is_tributary = yes }
+#			NOT = { 
+#				overlord = { government_has_flag = government_is_mandala }
+#			}
+#		}
+#		highest_held_title_tier > tier_barony
+#	}
+#
+#	is_valid = {
+#		trigger_if = {
+#			limit = {
+#				has_legitimacy = yes
+#				dynasty ?= {
+#					NOT = { has_dynasty_perk = tgp_sea_legacy_3 } #Bypasses Tribal Authority Requirement
+#				}
+#			}
+#			legitimacy_level >= 4
+#		}
+#		piety_level >= 4 # LOTR to make it a bit harder
+#		prestige_level >= 4 # LOTR
+#		lotr_has_max_authority = yes # LOTR
+#
+#		has_mandala_faith_trigger = yes
+#		is_independent_ruler = yes
+#		# This logic is necessary for the triggers in the options in the subsequent event, or else the player will not get the event
+#		OR = {
+#			any_realm_province = {
+#				OR = {
+#					custom_tooltip = {
+#						text = convert_to_mandala_government_decision_is_temple_citadel_holding_tt
+#						has_holding_type = temple_citadel_holding
+#					}
+#					custom_tooltip = {
+#						text = convert_to_mandala_government_decision_has_no_holding_tt
+#						has_holding = no
+#					}
+#				}
+#			}
+#			any_directly_owned_province = {
+#				custom_tooltip = {
+#					text = convert_to_mandala_government_decision_is_tribal_holding_tt
+#					has_holding_type = tribal_holding
+#				}
+#			}
+#		}
+#	}
+#
+#	is_valid_showing_failures_only = {
+#		custom_tooltip = {
+#			text = not_changed_government_recently_tt
+#			NOT = { has_variable = changed_government_recently }
+#		}
+#		government_is_japanese_trigger = no
+#	}
+#
+#	cost = {
+#		prestige = {
+#			value = 0
+#			if = {
+#				limit = { government_has_flag = government_is_tribal }
+#				add = convert_to_mandala_government_tribal_value
+#			}
+#			else = { add = convert_to_mandala_government_nontribal_value }
+#			#'s cheap!
+#			if = {
+#				limit = { has_character_modifier = divine_happenstance_modifier }
+#				divide = 2
+#			}
+#		}
+#		piety = { #LOTR
+#			value = 0
+#			if = {
+#				limit = { government_has_flag = government_is_tribal }
+#				add = convert_to_mandala_government_tribal_value
+#			}
+#			else = { add = convert_to_mandala_government_nontribal_value }
+#			#'s cheap!
+#			if = {
+#				limit = { has_character_modifier = divine_happenstance_modifier }
+#				divide = 2
+#			}
+#		}
+#	}
+#
+#	effect = {
+#		# LotR - account for oligarchies 
+#		if = {
+#			limit = { has_government = oligarchy_government }
+#			hidden_effect = {
+#				primary_title.title_province = { set_holding_type = castle_holding }
+#				change_government = clan_government
+#			}
+#		}
+#		#GoK stops really being GoK
+#		gok_government_change_story_end_effect = yes
+#		#Out with the old laws, in with the new
+#		change_to_mandala_government_decree_effect = yes
+#		#No Succession for this character pls
+#		set_variable = {
+#			name = not_subject_to_succession_trials
+#			value = flag:adopted_mandala_government
+#		}
+#		if = {
+#			limit = { var:not_subject_to_succession_trials ?= flag:adopted_mandala_government }
+#			#To prevent 'unused except in loc' errors :catto:
+#		}
+#		show_as_tooltip = {
+#			change_government = mandala_government
+#		}
+#		#Huh, guess you _are_ divine
+#		if = {
+#			limit = { has_variable = vying_for_mandala_divinity }
+#			custom_description_no_bullet = { text = because_of_your_divine_happenstance_tt }
+#			show_as_tooltip = { divine_happenstance_adopt_mandala_effect = yes }
+#		}
+#		if = {
+#			limit = {
+#				culture = {
+#					has_cultural_parameter = mandala_tributaries 
+#				}
+#				exists = confederation
+#			}
+#			custom_tooltip = confederates_to_tributaries_tt
+#		}
+#		trigger_event = tgp_east_asia_decision_events.0010
+#		hidden_effect = {
+#			every_vassal = {
+#				trigger_event = {
+#					id = tgp_east_asia_decision_events.0015
+#					days = 3
+#				}
+#			}
+#		}
+#	}
+#
+#	ai_potential = {
+#		has_mandala_culture_trigger = yes
+#		trigger_if = {
+#			limit = { government_has_flag = government_is_tribal }
+#			has_realm_law = tribal_authority_3
+#			prestige >= convert_to_mandala_government_tribal_value
+#		}
+#		trigger_else = {
+#			prestige >= convert_to_mandala_government_nontribal_value
+#		}
+#		trigger_if = {
+#			limit = { 
+#				OR = {
+#					government_has_flag = government_is_feudal
+#					government_has_flag = government_is_clan
+#				}
+#			}
+#			primary_title.tier <= tier_duchy
+#		}
+#		primary_title.tier > tier_barony
+#		NOR = {	
+#			government_has_flag = government_is_republic
+#			government_has_flag = government_is_theocracy
+#			government_has_flag = government_is_mercenary
+#			government_has_flag = government_is_holy_order
+#			government_has_flag = government_is_administrative
+#			government_has_flag = government_is_nomadic
+#			government_has_flag = government_is_herder
+#			government_has_flag = government_is_celestial
+#			government_has_flag = government_is_steppe_admin
+#			government_has_flag = government_is_meritocratic
+#		}
+#		NOT = {
+#			any_owned_story = {
+#				OR = {
+#					story_type = story_greatest_of_khans
+#					story_type = story_mongol_invasion
+#				}
+#			}
+#		}
+#	}
+#
+#	ai_will_do = {
+#		base = 20
+#		modifier = {
+#			NOT = { government_has_flag = government_is_tribal }
+#			add = -15
+#		}
+#	}
+#}
 
 ### Assimilate to Mandala Rule ###
 assimilate_to_mandala_decision = {
