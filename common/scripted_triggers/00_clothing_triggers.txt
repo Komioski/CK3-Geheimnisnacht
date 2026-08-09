@@ -2879,27 +2879,27 @@ portrait_religious_high_trigger = {
 	}
 }
 
-#portrait_iconoclast_high_trigger = {
-#	exists = this
-#	AND = {
-#		faith = { has_doctrine = tenet_aniconism }
-#		faith = { religion_tag = christianity_religion }
-#	}
-#	OR = {
-#		has_character_flag = need_priest_outfit
-#		is_theocratic_lessee = yes
-#		AND = {
-#			is_ruler = yes
-#			government_has_flag = government_is_theocracy
-#		}
-#		has_council_position = councillor_court_chaplain
-#	}
-#	NOT = {
-#		faith = {
-#			has_doctrine_parameter = vows_of_poverty_active
-#		}
-#	}
-#}
+portrait_iconoclast_high_trigger = {
+	exists = this
+	AND = {
+		faith = { has_doctrine = tenet_aniconism }
+		faith = { religion_tag = christianity_religion }
+	}
+	OR = {
+		has_character_flag = need_priest_outfit
+		is_theocratic_lessee = yes
+		AND = {
+			is_ruler = yes
+			government_has_flag = government_is_theocracy
+		}
+		has_council_position = councillor_court_chaplain
+	}
+	NOT = {
+		faith = {
+			has_doctrine_parameter = vows_of_poverty_active
+		}
+	}
+}
 
 portrait_religious_high_no_poverty_trigger = {
 	exists = this
@@ -2966,22 +2966,22 @@ portrait_religious_head_no_poverty_trigger = {
 	}
 }
 
-#portrait_religious_head_popes_trigger = {
-#	exists = this
-#	OR = {
-#		AND = {
-#			faith = faith:catholic
-#			is_adult = yes
-#			religion = religion:christianity_religion
-#			primary_title ?= {
-#				is_head_of_faith = yes
-#			}
-#		}
-#		any_equipped_character_artifact = {
-#			has_variable = pope_hat
-#		}
-#	}
-#}
+portrait_religious_head_popes_trigger = {
+	exists = this
+	OR = {
+		AND = {
+			faith = faith:catholic
+			is_adult = yes
+			religion = religion:christianity_religion
+			primary_title ?= {
+				is_head_of_faith = yes
+			}
+		}
+		any_equipped_character_artifact = {
+			has_variable = pope_hat
+		}
+	}
+}
 
 portrait_religious_head_ruler_trigger = {
 	exists = this
@@ -3015,65 +3015,65 @@ portrait_religious_faith_or_foundational_trigger = {
 	}
 }
 
-#portrait_religious_christian_trigger = {
-#	religion = religion:christianity_religion
-#}
+portrait_religious_christian_trigger = {
+	religion = religion:christianity_religion
+}
 
-#portrait_religious_catholic_trigger = {
-#	faith = {
-#		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:catholic }
-#	}
-#}
+portrait_religious_catholic_trigger = {
+	faith = {
+		portrait_religious_faith_or_foundational_trigger = { FAITH = faith:catholic }
+	}
+}
 
-#portrait_religious_orthodox_trigger = {
-#	faith = {
-#		OR = {
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:orthodox }
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:armenian_apostolic }
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:coptic }
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:messalian }
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:bogomilist }
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:paulician }
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:nestorian }
-#		}
-#	}
-#}
+portrait_religious_orthodox_trigger = {
+	faith = {
+		OR = {
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:orthodox }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:armenian_apostolic }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:coptic }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:messalian }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:bogomilist }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:paulician }
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:nestorian }
+		}
+	}
+}
 
-#portrait_religious_jewish_trigger = {
-#	religion = religion:judaism_religion
-#}
+portrait_religious_jewish_trigger = {
+	religion = religion:judaism_religion
+}
 
-#portrait_religious_hellenism_trigger = {
-#	religion = religion:hellenism_religion
-#}
+portrait_religious_hellenism_trigger = {
+	religion = religion:hellenism_religion
+}
 
-#portrait_religious_muslim_trigger = {
-#	religion = religion:arabyan_religion
-#}
+portrait_religious_muslim_trigger = {
+	religion = religion:arabyan_religion
+}
 
-#portrait_religious_norse_trigger = {
-#	OR = {
-#		religion = religion:germanic_religion
-#		religion = religion:baltic_religion
-#		religion = religion:finno_ugric_religion
-#		religion = religion:paganism_religion
-#		religion = religion:slavic_religion
-#	}
-#}
+portrait_religious_norse_trigger = {
+	OR = {
+		religion = religion:germanic_religion
+		religion = religion:baltic_religion
+		religion = religion:finno_ugric_religion
+		religion = religion:paganism_religion
+		religion = religion:slavic_religion
+	}
+}
 
 ## CCP4 KHANTY / SAMI ##
 
-#portrait_religious_siberian_trigger = { # these probably need dlc check?
-#	has_cp4_dlc_trigger = yes
-#	religion = religion:siberian_religion
-#}
+portrait_religious_siberian_trigger = { # these probably need dlc check?
+	has_cp4_dlc_trigger = yes
+	religion = religion:siberian_religion
+}
 
 
-#portrait_religious_sami_trigger = {
-#	has_cp4_dlc_trigger = yes
-#	religion = religion:finno_ugric_religion
-#	portrait_sami_clothing_trigger = yes
-#}
+portrait_religious_sami_trigger = {
+	has_cp4_dlc_trigger = yes
+	religion = religion:finno_ugric_religion
+	portrait_sami_clothing_trigger = yes
+}
 
 ## CCP7 EMISHI AINU / NIVKH NANAI ##
 
@@ -3092,68 +3092,80 @@ portrait_religious_shamanism_nivkh_trigger = { # same as above but shamanists wi
 }
 
 
-#portrait_religious_steppe_trigger = {
-#	OR = {
-#		religion = religion:tengrism_religion
-#		religion = religion:qiangic_religion
-#		religion = religion:siberian_religion
-#		religion = religion:mundhum_religion
-#		religion = religion:tani_religion
-#		religion = religion:magyar_religion
-#		faith = {
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:old_bon }
-#		}
-#	}
-#}
+portrait_religious_steppe_trigger = {
+	OR = {
+		religion = religion:tengrism_religion
+		religion = religion:qiangic_religion
+		religion = religion:siberian_religion
+		religion = religion:mundhum_religion
+		religion = religion:tani_religion
+		religion = religion:magyar_religion
+		faith = {
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:old_bon }
+		}
+	}
+}
 
-#portrait_religious_buddhist_trigger = {
-#	OR = {
-#		religion = religion:buddhism_religion
-#		faith = {
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:bon }
-#		}
-#	}
-#}
+portrait_religious_buddhist_trigger = {
+	OR = {
+		religion = religion:buddhism_religion
+		faith = {
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:bon }
+		}
+	}
+}
 
-#portrait_religious_taoist_trigger = {
-#	religion = religion:taoism_religion
-#}
+portrait_religious_taoist_trigger = {
+	religion = religion:taoism_religion
+}
 
-#portrait_religious_hindu_trigger = {
-#	religion = religion:hinduism_religion
-#}
+portrait_religious_hindu_trigger = {
+	religion = religion:hinduism_religion
+}
 
-#portrait_religious_jain_trigger = {
-#	religion = religion:jainism_religion
-#}
+portrait_religious_jain_trigger = {
+	religion = religion:jainism_religion
+}
 
-#portrait_religious_zoroastrian_trigger = {
-#	OR = {
-#		religion = religion:zoroastrianism_religion
-#		religion = religion:yazidi_religion
-#		religion = religion:zunism_religion
-#		faith = {
-#			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:mandeaism }
-#		}
-#		religion = religion:dualism_religion
-#		religion = religion:basque_religion
-#	}
-#}
+portrait_religious_zoroastrian_trigger = {
+	OR = {
+		religion = religion:zoroastrianism_religion
+		religion = religion:yazidi_religion
+		religion = religion:zunism_religion
+		faith = {
+			portrait_religious_faith_or_foundational_trigger = { FAITH = faith:mandeaism }
+		}
+		religion = religion:dualism_religion
+		religion = religion:basque_religion
+	}
+}
 
-#portrait_religious_african_trigger = {
-#	OR = {
-#		religion = religion:akom_religion
-#		religion = religion:waaqism_religion
-#		religion = religion:west_african_religion
-#		religion = religion:west_african_bori_religion
-#		religion = religion:west_african_roog_religion
-#		religion = religion:kushitism_religion
-#		religion = religion:west_african_orisha_religion
-#	}
-#}
+portrait_religious_african_trigger = {
+	OR = {
+		religion = religion:akom_religion
+		religion = religion:waaqism_religion
+		religion = religion:west_african_religion
+		religion = religion:west_african_bori_religion
+		religion = religion:west_african_roog_religion
+		religion = religion:kushitism_religion
+		religion = religion:west_african_orisha_religion
+	}
+}
 
 
 ### DDE HRE ###
+
+portrait_reichskrone_trigger = {
+	exists = this
+	OR = {
+		has_primary_title = title:e_hre
+		any_equipped_character_artifact = {
+			has_variable = reichskrone
+		}
+	}
+	portrait_wear_no_crown_trigger = no
+}
+
 
 ### EP2 ###
 
@@ -3246,34 +3258,34 @@ portrait_ep2_mena_travel_cloak_trigger = {
 	}
 }
 
-#portrait_ep2_hajj_clothes_trigger = {
-#	age > 4
-#	# Must be traveling on a pilgrimage
-#	exists = current_travel_plan.travel_plan_activity
-#	current_travel_plan = {
-#		travel_plan_activity = {
-#			has_activity_type = activity_pilgrimage
-#		}
-#	}
-#	religion = religion:arabyan_religion
-#	# Used for the following cultures
-#	OR = {
-#		portrait_mena_clothing_trigger = yes
-#		portrait_african_clothing_trigger = yes
-#		portrait_indian_clothing_trigger = yes
-#		portrait_steppe_clothing_trigger = yes
-#	}
-#}
+portrait_ep2_hajj_clothes_trigger = {
+	age > 4
+	# Must be traveling on a pilgrimage
+	exists = current_travel_plan.travel_plan_activity
+	current_travel_plan = {
+		travel_plan_activity = {
+			has_activity_type = activity_pilgrimage
+		}
+	}
+	religion = religion:arabyan_religion
+	# Used for the following cultures
+	OR = {
+		portrait_mena_clothing_trigger = yes
+		portrait_african_clothing_trigger = yes
+		portrait_indian_clothing_trigger = yes
+		portrait_steppe_clothing_trigger = yes
+	}
+}
 
-#portrait_ep2_ihram_clothes_trigger = {
-#	# WGH TODO
-#	always = no
-#	
-#	#portrait_ep2_hajj_clothes_trigger = yes
-#	#is_male = yes
-#	#has_character_modifier = hajj_halq_modifier
-#	#primary_title.tier >= tier_duchy
-#}
+portrait_ep2_ihram_clothes_trigger = {
+	# WGH TODO
+	always = no
+	
+	#portrait_ep2_hajj_clothes_trigger = yes
+	#is_male = yes
+	#has_character_modifier = hajj_halq_modifier
+	#primary_title.tier >= tier_duchy
+}
 
 portrait_ep2_western_cloak_duel_trigger = {
 	has_character_flag = cloak_duelist_flag
