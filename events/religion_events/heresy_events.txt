@@ -1,4 +1,5 @@
-﻿namespace = heresy
+﻿# LotR: removed real world reference. Please not that these events are bugged until Realms has religious diversity.
+namespace = heresy
 
 ##################################
 # Heresy Outbreak (Non-Eastern) #
@@ -18,10 +19,11 @@ heresy.0001 = {
 	scope = faith
 
 	trigger = {
-		OR = {
-			NOT = { has_doctrine = eastern_hostility_doctrine }
-			has_doctrine = heresy_hostility_doctrine #Zoroastrians also get heresies, despite being Eastern.
-		}
+		#OR = {	# juke note: this trigger does nothing, Im not sure why its here? Removing it for now
+		#	NOT = { has_doctrine = forcesofevil_hostility_doctrine }
+		#	NOT = { has_doctrine = freepeoples_hostility_doctrine }
+		#	NOT = { has_doctrine = darkness_hostility_doctrine }
+		#}
 	}
 
 	immediate = {
@@ -69,28 +71,27 @@ heresy.0001 = {
 					has_game_rule = strict_regional_heresy
 					trigger_if = {
 						limit = {
-							faith = faith:catholic
+							faith = faith:faith_edain
 						}
 						capital_county = {
 							title_province = {
 								OR = {
-									geographical_region = world_europe_west_britannia # Lollard
-									geographical_region = world_europe_west_francia # Cathar
-									geographical_region = world_europe_south_italy # Walddensian
+									geographical_region = middleearth_west_gondor # Covenant of Ulmo
+									geographical_region = middleearth_west_gondor_centralfiefdoms # Elendili
+									geographical_region = middleearth_west_rohan # Elder King
 								}
 							}
 						}
 					}
 					trigger_if = {
 						limit = {
-							faith = faith:orthodox
+							faith = faith:faith_rohirric
 						}
 						capital_county = {
 							title_province = {
 								OR = {
-									geographical_region = world_asia_minor # Paulician
-									geographical_region = custom_k_thessalonika # Iconoclast
-									geographical_region = world_europe_south_east # Bogomils
+									geographical_region = middleearth_west_rohan # Bema
+									geographical_region = middleearth_west_rhovanion  # Foldweyn
 								}
 							}
 						}
@@ -135,50 +136,48 @@ heresy.0001 = {
 					}
 					add_to_list = potential_heresies
 				}
+				#if = {
+				#	limit = {
+				#		is_in_family = rf_eruhini
+				#	}
+				#	# Men should not convert to Elves!
+				#	faith:faith_eldar = {
+				#		remove_from_list = potential_heresies
+				#	}
+				#}
 				if = {
-					# Abrahamics also get bonus dualistic heresies
 					limit = {
-						is_in_family = rf_abrahamic
-					}
-					if = {
-						limit = {
-							this = religion:christianity_religion
-						}
-						faith:mandeaism = {
-							add_to_list = potential_heresies
-						}
-						faith:priscillianism = {
-							add_to_list = potential_heresies
-						}
-						faith:cainitism = {
-							add_to_list = potential_heresies
-						}
-
-					}
-					else_if = {
-						limit = {
-							this = religion:islam_religion
-						}
-						faith:manichean = {
-							add_to_list = potential_heresies
-						}
-						faith:sabianism = {
-							add_to_list = potential_heresies
-						}
-						faith:valentinianism = {
-							add_to_list = potential_heresies
+						OR = {
+							this = religion:adunai_religion
+							this = religion:bellakari_religion
 						}
 					}
-					else_if = {
-						limit = {
-							this = religion:judaism_religion
-						}
-						faith:conversos = {
-							add_to_list = potential_heresies
-						}
-						faith:sethianism = {
-							add_to_list = potential_heresies
-						}
+					faith:faith_corsair = {
+						add_to_list = potential_heresies
+					}
+				}
+				#Pardahunuk is the rejection of the Sauronic religion
+				if = {
+					limit = {
+						this = religion:sauronic_religion
+					}
+					faith:way_of_strength = {
+						add_to_list = potential_heresies
+					}
+				}
+				#Sauronic faiths are fair game for orcs
+				if = {
+					limit = {
+						this = religion:orcish_religion
+					}
+					faith:lidless_eye = {
+						add_to_list = potential_heresies
+					}
+					faith:sons_of_sauron = {
+						add_to_list = potential_heresies
+					}
+					faith:faith_angmar_evil = {
+						add_to_list = potential_heresies
 					}
 				}
 			}
@@ -258,154 +257,177 @@ heresy.0001 = {
 					modifier = {
 						factor = 0.5
 						OR = {
-							#Dualist
-							this = faith:mandeaism
-							this = faith:sabianism
 						}
 					}
 					#Rare Faiths
 					modifier = {
 						factor = 0.1
 						OR = {
-							this = faith:sethianism
-							this = faith:priscillianism
-							this = faith:cainitism
+						}
+					}
+					# Disabled Faiths
+					modifier = {				
+						factor = 0
+						OR = {
+							this = faith:faith_eldar
+							this = faith:faith_druedain
 						}
 					}
 
-					# Lollards more likely in England.
+					# Covenant of Ulmo more likely in Gondor
 					modifier = {
 						factor = regional_heresy_factor
-						this = faith:lollard
+						this = faith:faith_edain_ulmo
 						scope:heretic_capital = {
 							title_province = {
 								OR = {
-									geographical_region = custom_netherlands
-									geographical_region = world_europe_west_britannia
+									geographical_region = middleearth_west_gondor 
 								}
 							}
 						}
 					}
-					# Cathars more likely in France
+					# Bema more likely in Rohan
 					modifier = {
 						factor = regional_heresy_factor
-						this = faith:cathar
-						scope:heretic_capital = {
-							title_province = {
-								geographical_region = world_europe_west_francia
-							}
-						}
-					}
-					# Waldensians more likely in Italy/South Germany
-					modifier = {
-						factor = regional_heresy_factor
-						this = faith:waldensian
+						this = faith:faith_rohan_orome
 						scope:heretic_capital = {
 							title_province = {
 								OR = {
-									geographical_region = world_europe_south_italy
-									geographical_region = custom_germany
-									geographical_region = custom_bavaria
+									geographical_region = middleearth_west_rohan 
 								}
 							}
 						}
 					}
-
-					# Paulicians more likely in Anatolia
+					# Foldewyn more likely in Rohan and Anduin Vale
 					modifier = {
 						factor = regional_heresy_factor
-						this = faith:paulician
-						scope:heretic_capital = {
-							title_province = {
-								geographical_region = world_asia_minor
-							}
-						}
-					}
-					# Iconoclasts more likely in Constantinople
-					modifier = {
-						factor = regional_heresy_factor
-						this = faith:iconoclast
-						scope:heretic_capital = {
-							title_province = {
-								geographical_region = custom_k_thessalonika
-							}
-						}
-					}
-					# Bogomils more likely in West ERE
-					modifier = {
-						factor = regional_heresy_factor
-						this = faith:bogomilist
-						scope:heretic_capital = {
-							title_province = {
-								geographical_region = world_europe_south_east
-							}
-						}
-					}
-					# Nestorian more likely in the East
-					modifier = {
-						factor = regional_heresy_factor
-						this = faith:nestorian
+						this = faith:faith_rohan_yavanna
 						scope:heretic_capital = {
 							title_province = {
 								OR = {
-									geographical_region = world_india
-									geographical_region = world_middle_east
-
+									geographical_region = middleearth_west_rohan
+									geographical_region = middleearth_west_rhovanion_anduin
 								}
 							}
 						}
 					}
-					# Priscillianism more likely in Egypt or Iberia
+					# Elendili more likely in central Gondor
 					modifier = {
 						factor = regional_heresy_factor
-						this = faith:priscillianism
+#						this = faith:waldensian #LotR
 						scope:heretic_capital = {
-							title_province = {						
+							title_province = {
 								OR = {
-									geographical_region = world_africa_north_east
-									geographical_region = world_europe_west_iberia
+									geographical_region = middleearth_west_gondor_centralfiefdoms 
 								}
 							}
 						}
 					}
-
-					# FP3 - Khurramism more likely in Iran
+					# Corsair along Coastline
 					modifier = {
 						factor = regional_heresy_factor
-						this = faith:khurramism
+						this = faith:faith_corsair
 						scope:heretic_capital = {
-							title_province = {						
-								geographical_region = world_middle_east_persia									
+							title_province = {
+								geographical_region = custom_close_corsair_coast 
 							}
 						}
 					}
-					# FP3 - Behafaridism more likely in Iran
+					# Red Eye Cult more likely in Mordor
 					modifier = {
 						factor = regional_heresy_factor
-						this = faith:zurvanism #Behafaridism
+						this = faith:red_eye_cult
 						scope:heretic_capital = {
-							title_province = {						
-								geographical_region = world_middle_east_persia
+							title_province = {
+								geographical_region = middleearth_mordor
 							}
 						}
 					}
-					# FP3 - The "arch heresy", aka Mazdakism more likely in Iran
+					# Witch-King Cult more likely in Eriador
 					modifier = {
 						factor = regional_heresy_factor
-						this = faith:mazdakism
+						this = faith:faith_angmar_evil
 						scope:heretic_capital = {
-							title_province = {						
-								geographical_region = world_middle_east_persia
+							title_province = {
+								OR = {
+									geographical_region = middleearth_forodwaith
+									geographical_region = custom_eriador
+								}
 							}
 						}
 					}
-					# FP3 - Manicheanism more likely in Iran
+					# Ulukai more likely in Gundabad
 					modifier = {
 						factor = regional_heresy_factor
-						this = faith:manichean
+						this = faith:cult_of_the_ulukai
 						scope:heretic_capital = {
-							title_province = {						
-								geographical_region = world_middle_east_persia
+							title_province = {
+								geographical_region = middleearth_mountains_misty_gundabad
+							}
+						}
+					}
+					# Balrog Cult more likely in Moria
+					modifier = {
+						factor = regional_heresy_factor
+						this = faith:faith_balrog_cult
+						scope:heretic_capital = {
+							title_province = {
+								geographical_region = middleearth_mountains_misty_khazad_dum
+							}
+						}
+					}
+					# Deep Cult more likely in Foundations of Stone
+					modifier = {
+						factor = regional_heresy_factor
+						this = faith:faith_deep_cult
+						scope:heretic_capital = {
+							title_province = {
+								geographical_region = middleearth_mountains_misty_foundationsofstone
+							}
+						}
+					}
+					# Great Goblin Cult more likely in the High Pass
+					modifier = {
+						factor = regional_heresy_factor
+						this = faith:faith_goblin_town
+						scope:heretic_capital = {
+							title_province = {
+								geographical_region = middleearth_mountains_misty_high_pass
+							}
+						}
+					}
+					# Dragon Cult more likely in the Grey Mountains
+					modifier = {
+						factor = regional_heresy_factor
+						this = faith:dragon_cult
+						scope:heretic_capital = {
+							title_province = {
+								geographical_region = middleearth_mountains_iron_greymountains
+							}
+						}
+					}
+					# Spider Cult more likely in Yellow Mountains
+					modifier = {
+						factor = regional_heresy_factor
+						this = faith:orc_spider_cult
+						scope:heretic_capital = {
+							title_province = {
+								geographical_region = middleearth_mountains_yellow
+							}
+						}
+					}
+					# Ulkhash more likely in Yellow Mountains and the far south in general
+					modifier = {
+						factor = regional_heresy_factor
+						this = faith:volcano_cult
+						scope:heretic_capital = {
+							title_province = {
+								OR = {
+									geographical_region = middleearth_uttersouth
+									geographical_region = middleearth_mountains_yellow
+									geographical_region = middleearth_harad_far
+									geographical_region = middleearth_harad_bayoformal
+								}
 							}
 						}
 					}
@@ -524,319 +546,10 @@ heresy.0005 = {
 	scope = faith
 
 	trigger = {
-		has_doctrine = eastern_hostility_doctrine
-		NOT = { has_doctrine = heresy_hostility_doctrine } #Exclude Zoroastrians
+		always = no
 	}
 
 	immediate = {
-		#Look for a valid Duke of this Faith to be our heresiarch.
-		random_faith_ruler = {
-			#Prefer Dukes with only 1 or 2 Duchies.
-			limit = {
-				faith = root
-				highest_held_title_tier = tier_duchy
-				any_held_title = {
-					title_tier = duchy
-					count < 3 #Limit the influence of Mega-Dukes
-				}
-				is_capable_adult_ai = yes
-				is_landed = yes
-				exists = capital_county
-				NOT = { has_trait = heresiarch }
-				no_heretical_hof_faith_trigger = yes
-			}
-			#Then accept any valid Duke.
-			alternative_limit = {
-				faith = root
-				highest_held_title_tier = tier_duchy
-				is_capable_adult_ai = yes
-				is_landed = yes
-				exists = capital_county
-				NOT = { has_trait = heresiarch }
-				no_heretical_hof_faith_trigger = yes
-			}
-			#If no Dukes exist, accept a Count.
-			alternative_limit = {
-				faith = root
-				highest_held_title_tier = tier_county
-				is_capable_adult_ai = yes
-				is_landed = yes
-				exists = capital_county
-				NOT = { has_trait = heresiarch }
-				no_heretical_hof_faith_trigger = yes
-			}
-
-			weight = {
-				base = 100
-
-				modifier = {
-					add = 100
-					is_powerful_vassal = yes
-				}
-				modifier = {
-					add = 75
-					top_liege = this
-				}
-				modifier = {
-					add = 50
-					is_a_faction_member = yes
-				}
-			}
-
-			save_scope_as = heretic_ruler
-			primary_title = {
-				save_scope_as = heretic_title
-			}
-			capital_county = {
-				save_scope_as = heretic_capital
-			}
-		}
-
-
-		#Once we have a heresiarch, look for a valid heretical faith to them to convert to.
-		if = {
-			limit = {
-				exists = scope:heretic_ruler
-			}
-
-			#Religions
-			faith:theravada.religion = { #Buddhism
-				add_to_list = eastern_religions
-			}
-			faith:manichean.religion = { #Hinduism
-				add_to_list = eastern_religions
-			}
-			faith:vaishnavism.religion = { #Jainism
-				add_to_list = eastern_religions
-			}
-			faith:digambara.religion = { #Dualism
-				add_to_list = eastern_religions
-			}
-
-			every_in_list = {
-				list = eastern_religions
-				every_faith = {
-					add_to_list = eastern_faiths
-				}
-			}
-
-			#Save a list of provinces in our religion group (we will be reusing this a lot for distance checks).
-			every_province = {
-				limit = {
-					is_county_capital = yes
-					faith.religion = { is_in_list = eastern_religions }
-					squared_distance = {
-						target = scope:heretic_capital
-						value < squared_distance_medium
-					}
-				}
-				add_to_list = neaby_same_religion_counties
-			}
-
-
-			#We want to pick certain faiths to be our heresy over others, assuming they are valid.
-			random_in_list = {
-				list = eastern_faiths
-				#Priority 1: Any nearby Eastern faith.
-				limit = {
-					num_county_followers > 0
-					is_valid_heresy = {
-						ORIGIN_FAITH = root
-						HERETICAL_FAITH = this
-					}
-					nearby_county_of_faith = yes
-				}
-				#Priority 2: Any non-existing Eastern Faith
-				alternative_limit = {
-					num_county_followers = 0
-					is_preferred_heresy = {
-						ORIGIN_FAITH = root
-						HERETICAL_FAITH = this
-					}
-				}
-				#Priority 3: Any far-away Eastern Faith
-				alternative_limit = {
-					is_valid_heresy = {
-						ORIGIN_FAITH = root
-						HERETICAL_FAITH = this
-					}
-					#No distance check here to save on perf (if we reach this point it's already not nearby)
-				}
-
-				weight = {
-					base = 100
-
-					#Much more likely to select smaller Faiths as our heresy, to prevent them from becomming extinct (or prevent any other Faith from becoming too large).
-					modifier = {
-						add = 800 #1000 weight
-						num_county_followers <= 3
-					}
-					modifier = {
-						add = 100 #200 weight
-						num_county_followers <= 6
-					}
-					modifier = {
-						add = -20 #80 weight
-						num_county_followers > 9
-					}
-					modifier = {
-						add = -30 #50 weight
-						num_county_followers > 12
-					}
-					modifier = {
-						add = -40 #10 weight
-						num_county_followers > 15
-					}
-
-					#More likely to flip to a different branch of current religion than switching to a different religion.
-					modifier = {
-						factor = 10
-						root.religion = this.religion
-					}
-
-					#Certain Faiths are much more likely to appear/spread than others, due to popularity/obscurity.
-					#Common Faiths
-					modifier = {
-						factor = 1
-						OR = {
-							#Buddhist
-							this = faith:theravada
-							this = faith:mahayana
-							this = faith:vajrayana
-
-							#Hindu
-							this = faith:vaishnavism
-							this = faith:smartism
-							this = faith:srikula_shaktism
-
-							#Jain
-							this = faith:digambara
-							this = faith:svetambara
-
-							#Dualist
-							this = faith:manichean
-						}
-					}
-
-					#Uncommon Faiths
-					modifier = {
-						factor = 0.5
-						OR = {
-							#Hindu
-							this = faith:advaitism
-							this = faith:krishnaism
-							this = faith:kalikula_shaktism
-
-							#Jain
-							this = faith:yapaniya
-
-							#Dualist
-							this = faith:mandeaism
-							this = faith:sabianism
-						}
-					}
-
-					#Rare Faiths
-					modifier = {
-						factor = 0.1
-						OR = {
-							#Dualist
-							this = faith:valentinianism
-							this = faith:sethianism
-							this = faith:priscillianism
-							this = faith:cainitism
-						}
-					}
-				}
-				save_scope_as = heretic_faith
-			}
-
-
-			#Trigger the heresy event for all rulers of the same Faith.
-			if = {
-				limit = {
-					exists = scope:heretic_faith
-				}
-
-				save_scope_as = origin_faith
-
-				#Determine roughly how many Counties we expext to flip to the heretical Faith.
-				random_list = {
-					20 = {
-						modifier = {
-							add = 20
-							fervor > 30
-						}
-						set_variable = {
-							name = heresy_power
-							value = 10
-						}
-					}
-					55 = {
-						set_variable = {
-							name = heresy_power
-							value = 15
-						}
-					}
-					20 = {
-						modifier = {
-							add = 30
-							fervor <= 20
-						}
-						set_variable = {
-							name = heresy_power
-							value = 20
-						}
-					}
-					5 = {
-						modifier = {
-							add = 45
-							fervor <= 10
-						}
-
-						set_variable = {
-							name = heresy_power
-							value = 25
-						}
-					}
-				}
-
-				# Modify heresy power for pluralist/fundamentalist
-				if = {
-					limit = {
-						has_doctrine_parameter = pluralism_pluralistic_resistant_to_heresy
-					}
-					change_variable = {
-						name = heresy_power
-						multiply = hostility_multiplier_pluralism
-					}
-				}
-				else_if = {
-					limit = {
-						has_doctrine_parameter = pluralism_fundamentalist_vulnerable_to_heresy
-					}
-					change_variable = {
-						name = heresy_power
-						multiply = hostility_multiplier_fundamentalist
-					}
-				}
-
-				#Flag the heretic faith as the parent faith's active heresy for the next 10 years.
-				set_variable = {
-					name = current_heresy
-					value = scope:heretic_faith
-					days = 3650
-				}
-
-				#Trigger the heresy outbreak event.
-				scope:heretic_ruler = {
-					trigger_event = {
-						id = heresy.0010
-						days = 3
-					}
-				}
-			}
-		}	
 	}
 }
 
@@ -935,7 +648,7 @@ heresy.0010 = {
 				limit = {
 					faith = {
 						OR = {
-							NOT = { has_doctrine = eastern_hostility_doctrine }
+							# NOT = { has_doctrine = eastern_hostility_doctrine } #LotR
 							has_doctrine = heresy_hostility_doctrine #Zoroastrians also get heresies, despite being Eastern.
 						}
 					}
@@ -1118,73 +831,73 @@ heresy.0011 = {
 		clear_saved_scope = convert_ruler
 		scope:origin_faith = {
 			random_faith_ruler = {
-				limit = {
+			limit = {
 					highest_held_title_tier > tier_barony #No Barons, they're inconsequential.
 					highest_held_title_tier < tier_kingdom #No AI Kings/Emperors, they're too powerful.
-					is_landed = yes
-					exists = capital_county
-					is_capable_adult_ai = yes
-					no_heretical_hof_faith_0011_trigger = yes
-					recently_converted_faith_trigger = no # As amusing as it may be, rulers shouldn't 'flip-flop' between Faiths, so we need to enforce a cooldown on heresy conversions.
+				is_landed = yes
+				exists = capital_county
+				is_capable_adult_ai = yes
+				no_heretical_hof_faith_0011_trigger = yes
+				recently_converted_faith_trigger = no # As amusing as it may be, rulers shouldn't 'flip-flop' between Faiths, so we need to enforce a cooldown on heresy conversions.
+			}
+
+			weight = {
+				base = 1000 # 100% weight
+
+				#Rulers of counties close to the Heresiarch's are more likely to join their Heresy.
+				modifier = {
+					add = -900 # 10% weight
+					capital_county = {
+						squared_distance = {
+							target = scope:heretic_capital
+							value > squared_distance_small
+						}
+					}
 				}
-
-				weight = {
-					base = 1000 # 100% weight
-
-					#Rulers of counties close to the Heresiarch's are more likely to join their Heresy.
-					modifier = {
-						add = -900 # 10% weight
-						capital_county = {
-							squared_distance = {
-								target = scope:heretic_capital
-								value > squared_distance_small
-							}
+				modifier = {
+					add = -90 # 1% weight
+					capital_county = {
+						squared_distance = {
+							target = scope:heretic_capital
+							value > squared_distance_medium
 						}
 					}
-					modifier = {
-						add = -90 # 1% weight
-						capital_county = {
-							squared_distance = {
-								target = scope:heretic_capital
-								value > squared_distance_medium
-							}
-						}
-					}
-					modifier = {
-						add = -10 # 0% weight (fallback only)
-						capital_county = {
-							squared_distance = {
-								target = scope:heretic_capital
-								value > squared_distance_large
-							}	
-						}
-					}
-
-					#Rulers of the same(or similar) culture are more likely to join Heresies.
-					modifier = {
-						factor = 3
-						culture = { has_same_culture_heritage = scope:heretic_ruler.culture }
-					}
-					modifier = {
-						factor = 4
-						has_same_culture_as = scope:heretic_ruler
-					}
-
-					#Counts are less likely to join a heresy than a Duke (though it's still possible if they're nearby)
-					modifier = {
-						factor = 0.25
-						highest_held_title_tier = 2
+				}
+				modifier = {
+					add = -10 # 0% weight (fallback only)
+					capital_county = {
+						squared_distance = {
+							target = scope:heretic_capital
+							value > squared_distance_large
+						}	
 					}
 				}
 
-				save_scope_as = convert_ruler
-				primary_title = {
-					save_scope_as = convert_title
+				#Rulers of the same(or similar) culture are more likely to join Heresies.
+				modifier = {
+					factor = 3
+					culture = { has_same_culture_heritage = scope:heretic_ruler.culture }
 				}
-				capital_county = {
-					save_scope_as = convert_capital
+				modifier = {
+					factor = 4
+					has_same_culture_as = scope:heretic_ruler
+				}
+
+				#Counts are less likely to join a heresy than a Duke (though it's still possible if they're nearby)
+				modifier = {
+					factor = 0.25
+					highest_held_title_tier = 2
 				}
 			}
+
+			save_scope_as = convert_ruler
+			primary_title = {
+				save_scope_as = convert_title
+			}
+			capital_county = {
+				save_scope_as = convert_capital
+			}
+		}
 		}
 
 		if = {
