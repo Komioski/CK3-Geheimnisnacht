@@ -29,7 +29,7 @@
 				incapable = no
 			}
 			NOT = { culture ?= culture:wastelands } #LotR
-			is_in_valinor = no #LotR
+			#is_in_valinor = no #LotR
 			custom_description = {
 				text = ALREADY_IN_ACTIVITY
 				NOR = {
@@ -1866,18 +1866,6 @@
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			NOT = { scope:host.location = scope:activity.activity_location }
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		texture = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	background = { #Desert, unsettled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -1925,15 +1913,15 @@
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 	
-	background = { #LotR forest deep
-		trigger = {
-			NOT = { scope:host.location = scope:activity.activity_location }
-			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-		}
-		texture = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
+	#background = { #LotR forest deep
+	#	trigger = {
+	#		NOT = { scope:host.location = scope:activity.activity_location }
+	#		scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
+	#	}
+	#	texture = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
+	#	environment = "environment_event_forest"
+	#	ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	#}
 
 
 	background = { #mountains, settled
@@ -2146,51 +2134,29 @@
 	}
 	
 
-	background = { #LotR underground, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_underground_caverns_trigger = yes
-				exists = province_owner
-				culture ?= { is_dwarf_culture = yes }
-			}
-		}
-		texture = "gfx/interface/illustrations/event_scenes/market_dwarven.dds"
-		environment = "environment_bp2_university"
-		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
-	}
-	background = { #LotR underground, orc settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_underground_caverns_trigger = yes
-				exists = province_owner
-				culture ?= { is_orc_culture = yes }
-			}
-		}
-		texture = "gfx/interface/illustrations/event_scenes/throneroom_goblins.dds"
-		environment = "environment_bp2_university"
-		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
-	}
-	background = { #LotR underground
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_underground_caverns_trigger = yes } 
-		}
-		texture = "gfx/interface/illustrations/event_scenes/halls.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
+	#background = { #LotR underground, dwarven settled
+	#	trigger = {
+	#		scope:host.location != scope:activity.activity_location
+	#		scope:host.location = {
+	#			graphical_underground_caverns_trigger = yes
+	#			exists = province_owner
+	#			culture ?= { is_dwarf_culture = yes }
+	#		}
+	#	}
+	#	texture = "gfx/interface/illustrations/event_scenes/market_dwarven.dds"
+	#	environment = "environment_bp2_university"
+	#	ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	#}
+	#background = { #LotR underground
+	#	trigger = {
+	#		scope:host.location != scope:activity.activity_location
+	#		scope:host.location = { graphical_underground_caverns_trigger = yes } 
+	#	}
+	#	texture = "gfx/interface/illustrations/event_scenes/halls.dds"
+	#	environment = "environment_event_alley"
+	#	ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	#}
 
-	background = { #LotR saltflats
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
-		}
-		texture = "gfx/interface/illustrations/event_scenes/saltflats.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	# End Travel
 
 	background = {

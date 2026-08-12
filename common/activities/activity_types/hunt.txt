@@ -1976,13 +1976,13 @@
 			}
 			desc = activity_hunt_province_desc_fertility_good
 		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = dwarven_outpost_03
-				NOT = { has_building_or_higher = dwarven_outpost_03 }
-			}
-			desc = activity_hunt_province_desc_dwarven_outpost_medium
-		}
+		#triggered_desc = { #LotR
+		#	trigger = {
+		#		has_building_or_higher = dwarven_outpost_03
+		#		NOT = { has_building_or_higher = dwarven_outpost_03 }
+		#	}
+		#	desc = activity_hunt_province_desc_dwarven_outpost_medium
+		#}
 		# -- / double minus bad
 		triggered_desc = {
 			trigger = {
@@ -2066,27 +2066,27 @@
 			}
 			desc = activity_hunt_province_desc_punished_poachers
 		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = elven_hunting_grounds_01
-				NOT = { has_building_or_higher = elven_hunting_grounds_02 }
-			}
-			desc = activity_hunt_province_desc_elven_hunting_grounds_minor
-		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = hunting_outposts_01
-				NOT = { has_building_or_higher = hunting_outposts_03 }
-			}
-			desc = activity_hunt_province_desc_hunting_outposts_minor
-		}
-		triggered_desc = { #LotR
-			trigger = {
-				has_building_or_higher = dwarven_outpost_01
-				NOT = { has_building_or_higher = dwarven_outpost_03 }
-			}
-			desc = activity_hunt_province_desc_dwarven_outpost_minor
-		}
+		#triggered_desc = { #LotR #WHG TODO
+		#	trigger = {
+		#		has_building_or_higher = elven_hunting_grounds_01
+		#		NOT = { has_building_or_higher = elven_hunting_grounds_02 }
+		#	}
+		#	desc = activity_hunt_province_desc_elven_hunting_grounds_minor
+		#}
+		#triggered_desc = { #LotR
+		#	trigger = {
+		#		has_building_or_higher = hunting_outposts_01
+		#		NOT = { has_building_or_higher = hunting_outposts_03 }
+		#	}
+		#	desc = activity_hunt_province_desc_hunting_outposts_minor
+		#}
+		#triggered_desc = { #LotR
+		#	trigger = {
+		#		has_building_or_higher = dwarven_outpost_01
+		#		NOT = { has_building_or_higher = dwarven_outpost_03 }
+		#	}
+		#	desc = activity_hunt_province_desc_dwarven_outpost_minor
+		#}
 		triggered_desc = {
 			trigger = {
 				county ?= { has_county_modifier = ep3_abundant_game_modifier }
@@ -2751,9 +2751,9 @@
 				OR = {
 					has_building_or_higher = royal_forest_01
 					has_building_or_higher = hunting_grounds_01
-					has_building_or_higher = elven_hunting_grounds_01 #LotR
-					has_building_or_higher = hunting_outposts_01 #LotR
-					has_building_or_higher = dwarven_outpost_01 #LotR
+					#has_building_or_higher = elven_hunting_grounds_01 #LotR #WHG TODO
+					#has_building_or_higher = hunting_outposts_01 #LotR
+					#has_building_or_higher = dwarven_outpost_01 #LotR
 				}
 			}
 		}
@@ -5683,28 +5683,6 @@
 							remove_variable = tgp_ceremonial_liege_events_0020_discount
 						}
 						
-						# LotR - Guests gain a bit of hope via intent 
-						every_attending_character = {
-							if = {
-								limit = { 
-									this != scope:host 
-									has_activity_intent = inspire_hope_intent
-								}
-								scope:activity = {
-									add_activity_log_entry = {
-										key = gained_hope_log
-										tags = { good }
-										# this line below adds the entry to the Effects section of the conclusion UI
-										show_in_conclusion = yes
-										character = root
-				
-										root = {
-											add_elven_hope_effect = { VALUE = minor_elven_hope_gain HOPE_EFFECT = effect_elven_hope_joined_hunt }
-										}
-									}
-								}
-							}
-						}
 					}
 				}
 			}

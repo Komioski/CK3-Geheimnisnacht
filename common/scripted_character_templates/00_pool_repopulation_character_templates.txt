@@ -205,7 +205,18 @@ pool_repopulate_diplomacy = {
 	age = { 20 40 }
 	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because chancellor gender is doctrine dependent
 	random_traits = yes
-	culture = root.culture
+	#culture = root.culture
+	random_culture = {
+		root.culture = {
+			trigger = {
+				trigger_if = {
+					limit = { exists = scope:activity } 
+					scope:activity.activity_host = { restricted_culture = no }
+				} trigger_else = { restricted_culture = no }
+			}
+		}
+		root.culture = { trigger = { always = yes } }
+	}
 	faith = root.faith
 	diplomacy = {
 		min_guest_template_skill max_guest_template_skill

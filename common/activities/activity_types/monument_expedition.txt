@@ -468,16 +468,16 @@
 					on_action = random_journey_event_pulse
 					days = 26
 				}
-				if = { # LotR: Elves get an event to gain hope
-					limit = {
-						has_activity_intent = inspire_hope_intent
-						is_ai = no
-					}
-					trigger_event = {
-						id = lotr_pilgrimage.0002
-						weeks = 3
-					}
-				}
+				#if = { # LotR: Elves get an event to gain hope
+				#	limit = {
+				#		has_activity_intent = inspire_hope_intent
+				#		is_ai = no
+				#	}
+				#	trigger_event = {
+				#		id = lotr_pilgrimage.0002
+				#		weeks = 3
+				#	}
+				#}
 				trigger_event = {
 					id = bp3_journey.0010
 					days = 33
@@ -601,7 +601,7 @@
 
 	host_intents = {
 		default = journey_knowledge_hoarding_intent
-		intents = { journey_knowledge_hoarding_intent journey_curiosity_intent spread_legend_intent inspire_hope_intent }
+		intents = { journey_knowledge_hoarding_intent journey_curiosity_intent spread_legend_intent }
 	}
 
 	guest_intents = {
@@ -770,22 +770,6 @@
 		environment = "environment_travel_farmlands"
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
-	background = { # Elven Farmland, settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				OR = {
-					terrain = farmlands
-					terrain = hills
-				}
-				exists = province_owner
-				culture ?= { is_elf_culture = yes }
-			}
-		}
-		texture = "gfx/interface/illustrations/event_scenes/elven_holding.dds"
-		environment = "environment_travel_farmlands"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
 	background = { # Farmland, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -821,18 +805,6 @@
 		}
 		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_desert.dds"
 		environment = "environment_travel_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			NOT = { scope:host.location = scope:activity.activity_location }
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		texture = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
 	background = { #Desert, unsettled
