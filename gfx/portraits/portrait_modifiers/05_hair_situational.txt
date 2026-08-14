@@ -13,14 +13,19 @@ hair_situational = {
 				value = 0
 			}
 		}   
-		outfit_tags = { bald }
+		outfit_tags = { bald beardles_plague } #LotR
 		weight = {
 			base = 0
-			modifier = {
-				add = 1000
+			# modifier = {
+			# 	add = 100
+            #     exists = this
+			#    	has_character_modifier = hajj_halq_modifier
+			# }
+            modifier = { # LotR: Beardrot makes your hair and beard fall out
+                add = 2000
                 exists = this
-				has_character_modifier = hajj_halq_modifier
-			}
+                has_trait = beardless_plague
+            }
 		}
 	}
 
@@ -37,17 +42,11 @@ hair_situational = {
 			base = 50
 			modifier = {
 				add = 200
-				#EPE Added
-				#AGOT Modified
-				#scope:age < 25 
-				OR = {
-					scope:age < 25 
-					has_game_rule = agot_no_balding
-				}
+				scope:age < 25 
 			}
 			modifier = {
 				factor = 0
-				portrait_steppe_clothing_trigger = yes
+				portrait_steppe_proxy_clothing_trigger = yes
 			}
 			modifier = {
 				add = 200
@@ -55,10 +54,6 @@ hair_situational = {
 					has_trait = eunuch_1
 					has_trait = beardless_eunuch
 				}
-			}
-			modifier = {
-				add = 10000
-				has_trait = immortal
 			}
 		}
 	}
@@ -73,26 +68,15 @@ hair_situational = {
 			}		
 		} 
 		weight = {
-			base = 0
+			base = 50
 			modifier = {
 				add = 200
 				scope:age < 25 
 			}
 			modifier = {
-				add = 50
-				portrait_steppe_clothing_trigger = yes
-			}
-			modifier = {
-				add = 110
-				OR = {
-					portrait_religious_high_trigger = yes
-					portrait_religious_devoted_trigger = yes
-				}
-				portrait_religious_buddhist_trigger = yes
-				OR = {
-					culture_has_east_asian_heritage_pillar_trigger = yes
-					culture_has_southeast_asian_heritage_pillar_trigger = yes
-					culture_has_south_asian_heritage_pillar_trigger = yes
+				factor = 0
+				NOT = {
+					portrait_steppe_proxy_clothing_trigger = yes
 				}
 			}
 		}
@@ -114,8 +98,49 @@ hair_situational = {
 					value = 0
 				}
 				trigger = {
+					NOT = { has_trait = blood_of_numenor }
 					morph_gene_value:gene_baldness > {
 						value = age
+						subtract = 10
+						multiply = 0.01
+					}
+				}
+			}
+			modifier = { #LotR - Accounting for extra life of Remnant Numenorean Blood
+				factor = {
+					value = 0
+				}
+				trigger = {
+					numenorean_blood_tier <= 3
+					morph_gene_value:gene_baldness > {
+						value = age
+						subtract = 100
+						multiply = 0.01
+					}
+				}
+			}
+			modifier = { #LotR - Accounting for extra life of Strong Numenorean Blood
+				factor = {
+					value = 0
+				}
+				trigger = {
+					numenorean_blood_tier <= 6
+					morph_gene_value:gene_baldness > {
+						value = age
+						subtract = 150
+						multiply = 0.01
+					}
+				}
+			}
+			modifier = { #LotR - Accounting for extra life of Pure Numenorean Blood
+				factor = {
+					value = 0
+				}
+				trigger = {
+					numenorean_blood_tier <= 9
+					morph_gene_value:gene_baldness > {
+						value = age
+						subtract = 200
 						multiply = 0.01
 					}
 				}
@@ -124,6 +149,19 @@ hair_situational = {
 				factor = 0
 				is_female = yes
 			}	
+			modifier = { #LotR - Of Dwarves: They took on the appearance of age only about ten years before their death, wrinkling and greying rapidly, but never going bald.
+				factor = 0
+				OR = {
+					has_character_flag = has_scripted_appearance #LotR
+					is_orc = yes
+					is_goblin = yes
+					is_elf = yes
+					is_dwarf = yes
+					is_maiar = yes
+					
+					numenorean_blood_tier > 9
+				}
+			}
 		}		  	
 	}
 
@@ -143,19 +181,73 @@ hair_situational = {
 					value = 0
 				}
 				trigger = {
+					NOT = { has_trait = blood_of_numenor }
 					morph_gene_value:gene_baldness > {
 						value = age
+						subtract = 10
 						multiply = 0.005
 					}
 				}
 			}	
+			modifier = { #LotR - Accounting for extra life of Remnant Numenorean Blood
+				factor = {
+					value = 0
+				}
+				trigger = {
+					
+					numenorean_blood_tier <= 3
+					morph_gene_value:gene_baldness > {
+						value = age
+						subtract = 100
+						multiply = 0.005
+					}
+				}
+			}
+			modifier = { #LotR - Accounting for extra life of Strong Numenorean Blood
+				factor = {
+					value = 0
+				}
+				trigger = {
+					numenorean_blood_tier <= 6
+					morph_gene_value:gene_baldness > {
+						value = age
+						subtract = 150
+						multiply = 0.005
+					}
+				}
+			}
+			modifier = { #LotR - Accounting for extra life of Pure Numenorean Blood
+				factor = {
+					value = 0
+				}
+				trigger = {
+					numenorean_blood_tier <= 9
+					morph_gene_value:gene_baldness > {
+						value = age
+						subtract = 200
+						multiply = 0.005
+					}
+				}
+			}
 			modifier = {
 				factor = 0
 				is_female = yes
 			}
+			modifier = { #LotR - Of Dwarves: They took on the appearance of age only about ten years before their death, wrinkling and greying rapidly, but never going bald.
+				factor = 0
+				OR = {
+					has_character_flag = has_scripted_appearance #LotR
+					is_orc = yes
+					is_goblin = yes
+					is_elf = yes
+					is_dwarf = yes
+					is_maiar = yes
+					numenorean_blood_tier > 9
+				}
+			}
 		}		  	
 	}
-
+	
 	random_haircut = {
 		dna_modifiers = {
 			accessory = {
@@ -185,4 +277,3 @@ hair_situational = {
 	}
 	
 }
-
