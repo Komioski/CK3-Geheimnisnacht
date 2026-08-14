@@ -1,0 +1,10 @@
+﻿wh_adopt_cultural_fashion_effect = {
+	if = {
+		limit = {
+			NOT = { culture = { has_clothing_gfx = north_bretonnian_clothing_gfx } }
+			scope:advanced_culture = { has_clothing_gfx = north_bretonnian_clothing_gfx }
+		}
+		adopt_cultural_fashion_culture_effect = { CULTURE = couronnean }
+	}
+
+}

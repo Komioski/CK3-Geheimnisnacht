@@ -177,411 +177,409 @@ adopt_cultural_fashion_culture_effect = {
 
 adopt_cultural_fashion_effect = {
 	save_scope_as = culture_adopter
-	if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = byzantine_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = byzantine_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = byzantine }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = indian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = indian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = indian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = mena_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = mena_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = mena }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = african_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = african_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = african }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = northern_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = northern_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = northern }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = iberian_muslim_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = iberian_muslim_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = iberian_muslim }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = iberian_christian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = iberian_christian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = iberian_christian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = mongol_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = mongol_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = mongol }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = fp1_norse_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = fp1_norse_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = fp1_norse }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = western_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = western_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = western }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = dde_hre_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = dde_hre_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = dde_hre }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = dde_abbasid_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = dde_abbasid_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = dde_abbasid }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = iranian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = iranian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = iranian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = turkic_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = turkic_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = turkic }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = afr_berber_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = afr_berber_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = afr_berber }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = west_slavic_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = west_slavic_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = west_slavic }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = french_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = french_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = french }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = east_slavic_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = east_slavic_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = east_slavic }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = sami_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = sami_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = sami }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = ugro_permian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = ugro_permian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = ugro_permian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = chinese_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = chinese_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = chinese }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = japanese_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = japanese_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = japanese }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = malay_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = malay_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = malay }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = southeast_asian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = southeast_asian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = southeast_asian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = korean_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = korean_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = korean }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = papuan_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = papuan_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = papuan }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = viet_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = viet_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = viet }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = tai_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = tai_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = tai }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = ainu_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = ainu_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = ainu }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = emishi_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = emishi_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = emishi }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = nivkh_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = nivkh_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = nivkh }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = swabian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = swabian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = swabian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = norman_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = norman_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = norman }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = english_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = english_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = english }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = breton_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = breton_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = breton }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = pommeranian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = pommeranian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = pommeranian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = cornish_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = cornish_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = cornish }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = welsh_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = welsh_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = welsh }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = khitan_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = khitan_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = khitan }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = dali_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = dali_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = dali }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = uyghur_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = uyghur_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = uyghur }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = tangut_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = tangut_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = tangut }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = jurchen_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = jurchen_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = jurchen }
-	}	
+	wh_adopt_cultural_fashion_effect = yes #WHG
+	#if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = byzantine_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = byzantine_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = byzantine }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = indian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = indian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = indian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = mena_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = mena_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = mena }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = african_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = african_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = african }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = northern_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = northern_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = northern }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = iberian_muslim_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = iberian_muslim_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = iberian_muslim }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = iberian_christian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = iberian_christian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = iberian_christian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = mongol_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = mongol_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = mongol }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = fp1_norse_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = fp1_norse_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = fp1_norse }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = western_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = western_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = western }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = dde_hre_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = dde_hre_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = dde_hre }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = dde_abbasid_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = dde_abbasid_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = dde_abbasid }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = iranian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = iranian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = iranian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = turkic_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = turkic_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = turkic }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = afr_berber_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = afr_berber_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = afr_berber }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = west_slavic_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = west_slavic_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = west_slavic }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = french_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = french_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = french }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = east_slavic_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = east_slavic_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = east_slavic }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = sami_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = sami_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = sami }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = ugro_permian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = ugro_permian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = ugro_permian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = chinese_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = chinese_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = chinese }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = japanese_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = japanese_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = japanese }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = malay_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = malay_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = malay }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = southeast_asian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = southeast_asian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = southeast_asian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = korean_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = korean_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = korean }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = papuan_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = papuan_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = papuan }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = viet_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = viet_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = viet }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = tai_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = tai_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = tai }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = ainu_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = ainu_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = ainu }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = emishi_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = emishi_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = emishi }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = nivkh_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = nivkh_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = nivkh }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = swabian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = swabian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = swabian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = norman_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = norman_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = norman }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = english_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = english_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = english }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = breton_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = breton_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = breton }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = pommeranian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = pommeranian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = pommeranian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = cornish_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = cornish_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = cornish }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = welsh_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = welsh_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = welsh }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = khitan_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = khitan_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = khitan }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = dali_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = dali_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = dali }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = uyghur_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = uyghur_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = uyghur }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = tangut_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = tangut_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = tangut }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = jurchen_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = jurchen_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = jurchen }
+	#}	
   ######################################################################################################
   ####### EPE expanded ################################################################################# 
   ######################################################################################################  
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_english_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_english_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_english }
-	} 
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_norse_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_norse_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_norse }
-	}	
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_bulgarian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_bulgarian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_bulgarian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_south_slav_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_south_slav_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_south_slav }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_armenian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_armenian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_armenian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_georgian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_georgian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_georgian }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_seljuk_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_seljuk_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_seljuk }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_uyghur_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_uyghur_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_uyghur }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_sino_iranian_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_sino_iranian_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_sino_iranian }
-	}	
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_east_slav_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_east_slav_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_east_slav }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_west_slav_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_west_slav_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_west_slav }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_gaelic_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_gaelic_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_gaelic }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_balto_finnic_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_balto_finnic_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_balto_finnic }
-	}
-	else_if = {
-		limit = {
-			NOT = { culture = { has_clothing_gfx = epe_western_turk_clothing_gfx } }
-			scope:advanced_culture = { has_clothing_gfx = epe_western_turk_clothing_gfx }
-		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = epe_western_turk }
-	}
-
-	
-	
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_english_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_english_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_english }
+	#} 
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_norse_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_norse_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_norse }
+	#}	
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_bulgarian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_bulgarian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_bulgarian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_south_slav_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_south_slav_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_south_slav }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_armenian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_armenian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_armenian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_georgian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_georgian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_georgian }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_seljuk_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_seljuk_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_seljuk }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_uyghur_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_uyghur_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_uyghur }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_sino_iranian_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_sino_iranian_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_sino_iranian }
+	#}	
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_east_slav_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_east_slav_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_east_slav }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_west_slav_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_west_slav_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_west_slav }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_gaelic_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_gaelic_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_gaelic }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_balto_finnic_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_balto_finnic_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_balto_finnic }
+	#}
+	#else_if = {
+	#	limit = {
+	#		NOT = { culture = { has_clothing_gfx = epe_western_turk_clothing_gfx } }
+	#		scope:advanced_culture = { has_clothing_gfx = epe_western_turk_clothing_gfx }
+	#	}
+	#	adopt_cultural_fashion_culture_effect = { CULTURE = epe_western_turk }
+	#}
 }
 
 bp2_save_traditions_to_consider_effect = {

@@ -1,0 +1,34 @@
+﻿######################## Geheimnisnacht Clothing triggers ########################
+
+
+
+portrait_western_proxy_clothing_trigger = {
+	scope:culture = { portrait_western_proxy_clothing_contents_trigger = yes }
+}
+
+portrait_western_proxy_clothing_spouse_trigger = {
+	culture = {
+		portrait_western_proxy_clothing_contents_trigger = yes
+	}
+}
+portrait_western_proxy_clothing_contents_trigger = {
+	OR = {
+		has_clothing_gfx = north_bretonnian_clothing_gfx
+	}
+}
+
+wh_portrait_western_clothing_trigger = {
+	scope:culture = { portrait_western_proxy_clothing_contents_trigger = yes }
+}
+
+wh_portrait_western_clothing_spouse_trigger = {
+	culture = { portrait_western_proxy_clothing_contents_trigger = yes }
+}
+
+wh_portrait_sp2_western_clothing_trigger = {
+	scope:culture = { portrait_western_proxy_clothing_contents_trigger = yes }
+}
+
+wh_portrait_sp2_western_clothing_spouse_trigger = {
+	culture = { portrait_western_proxy_clothing_contents_trigger = yes }
+}
