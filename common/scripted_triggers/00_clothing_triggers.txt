@@ -2299,6 +2299,13 @@ portrait_royalty_clothing_trigger = {
 	#portrait_wear_no_armor_trigger = yes
 }
 
+portrait_royalty_headgear_trigger = {
+	portrait_royalty_trigger = {
+		CULTURE_INPUT = $CULTURE_INPUT$
+	}
+	portrait_wear_no_crown_trigger = no
+}
+
 portrait_royalty_african_headgear_trigger = {
 	always = no #LotR
 	# trigger_if = { #LotR
@@ -2444,6 +2451,13 @@ portrait_imperial_clothing_trigger = {
 		CULTURE_INPUT = $CULTURE_INPUT$
 	}
 	#portrait_wear_no_armor_trigger = yes
+}
+
+portrait_imperial_headgear_trigger = {
+	portrait_imperial_trigger = {
+		CULTURE_INPUT = $CULTURE_INPUT$
+	}
+	portrait_wear_no_crown_trigger = no
 }
 
 portrait_imperial_nobles_headgear_trigger = {
@@ -2762,38 +2776,38 @@ portrait_armored_priest_trigger = {
 }
 
 
-#portrait_beggar_trigger = {
-#	exists = this
-#	portrait_has_trait_trigger = { TRAIT = peasant_leader }
-#	OR = {
-#		is_ruler = no
-#		is_leading_faction_type = peasant_faction
-#		AND = {
-#			is_ruler = yes
-#			is_playable_character = no
-#			OR = {
-#				government_has_flag = government_is_feudal
-#				government_has_flag = government_is_clan
-#			}
-#		}
-#	}
-#	trigger_if = {
-#		limit = {
-#			is_married = yes
-#		}
-#		NOT = {
-#			any_consort = {
-#				OR = {
-#					is_landed = yes
-#					AND = {
-#						government_has_flag = government_is_nomadic
-#						is_ruler = yes
-#					}
-#				}
-#			}
-#		}
-#	}
-#}
+portrait_beggar_trigger = {
+	exists = this
+	portrait_has_trait_trigger = { TRAIT = peasant_leader }
+	OR = {
+		is_ruler = no
+		is_leading_faction_type = peasant_faction
+		AND = {
+			is_ruler = yes
+			is_playable_character = no
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
+			}
+		}
+	}
+	trigger_if = {
+		limit = {
+			is_married = yes
+		}
+		NOT = {
+			any_consort = {
+				OR = {
+					is_landed = yes
+					AND = {
+						government_has_flag = government_is_nomadic
+						is_ruler = yes
+					}
+				}
+			}
+		}
+	}
+}
 
 
 portrait_prisoner_trigger = {
@@ -2801,14 +2815,10 @@ portrait_prisoner_trigger = {
 	trigger_if = {
 		limit = { is_alive = no }
 		death_reason = death_dungeon
-		is_sauron = no #LotR
-		is_nazgul = no #LotR
 	}
 	trigger_else = {
 		is_imprisoned = yes
 		is_in_prison_type = dungeon
-		is_sauron = no #LotR
-		is_nazgul = no #LotR
 	}
 }
 
