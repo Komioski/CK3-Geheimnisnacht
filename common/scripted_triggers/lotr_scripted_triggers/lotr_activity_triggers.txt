@@ -19,27 +19,14 @@ lotr_is_shown_adult_education_activity_trigger = {
 	}
 }
 
+lotr_has_different_clothing_gfx = {
+	switch = {
+		trigger = has_clothing_gfx
+		bretonnian_clothing_gfx = {
+			NOT = {
+				$CHAR$.culture = { has_clothing_gfx = bretonnian_clothing_gfx }
+			}
+		}
 
-
-# lotr_can_explore_histories = {
-# 	OR = {
-# 		AND = {
-# 			OR = { #Freep Eldar, Istari and Numenorean-descendants have access to Histories/Propaganda
-# 				lotr_has_numenorean_culture_trigger = yes
-# 				is_eldar = yes
-# 				is_istari = yes
-# 			}
-# 			religion = { is_in_family = rf_eruhini }
-# 		}
-# 		AND = {
-# 			lotr_has_numenorean_culture_trigger = yes
-# 			faith = {
-# 				OR = { #Faiths with Adunaic tenets have access to Histories/Propaganda
-# 					has_doctrine = tenet_adunaic_birthright
-# 					has_doctrine = tenet_adunaic_mandate
-# 					has_doctrine = tenet_memory_of_akallabeth
-# 				}
-# 			}
-# 		}
-# 	}
-# }
+	}
+}

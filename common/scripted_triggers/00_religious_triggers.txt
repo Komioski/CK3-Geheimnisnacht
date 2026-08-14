@@ -928,68 +928,7 @@ no_heretical_hof_faith_trigger = { #Head of Faith shouldn't convert.
 	}
 }
 
-#LotR Heresy Groups
-faiths_are_in_dunedain_group_and_appropriate = {
-	OR = {
-		$FAITH_1$ = faith:faith_numenorean
-		$FAITH_1$ = faith:faith_edain
-		$FAITH_1$ = faith:faith_edain_manwe
-		$FAITH_1$ = faith:faith_edain_varda
-		$FAITH_1$ = faith:faith_edain_ulmo
-	}
-	OR = {
-		$FAITH_2$ = faith:faith_edain
-		$FAITH_2$ = faith:faith_edain_manwe
-		$FAITH_2$ = faith:faith_edain_varda
-		AND = {	# Ulmo cult should be coastal
-			$FAITH_2$ = faith:faith_edain_ulmo
-			scope:heretic_capital = {
-				OR = {
-					is_coastal_county = yes
-					title_province = { geographical_region = middleearth_west_gondor_centralfiefdoms }
-					title_province = { geographical_region = middleearth_west_gondor_easternfiefdoms }
-					title_province = { geographical_region = middleearth_west_gondor_andrast }
-					title_province = { geographical_region = middleearth_west_arnor_cardolan }
-				}
-			}
-		}
-		AND = {	# Daen may resurge in Andrast
-			$FAITH_2$ = faith:faith_daen_gaoth
-			scope:heretic_capital = {
-				culture = {
-					OR = {
-						has_cultural_pillar = heritage_daen_coentis
-						any_parent_culture_or_above = {
-							has_cultural_pillar = heritage_daen_coentis
-						}
-						has_cultural_pillar = heritage_danan_lin
-						any_parent_culture_or_above = {
-							has_cultural_pillar = heritage_danan_lin
-						}
-					}
-				}
-				title_province = { geographical_region = middleearth_west_gondor_andrast }
-			}
-		}
-		AND = {	# Daen may resurge in White Mountains
-			$FAITH_2$ = faith:faith_daen_coentis
-			scope:heretic_capital = {
-				culture = {
-					OR = {
-						has_cultural_pillar = heritage_daen_coentis
-						any_parent_culture_or_above = {
-							has_cultural_pillar = heritage_daen_coentis
-						}
-						has_cultural_pillar = heritage_danan_lin
-						any_parent_culture_or_above = {
-							has_cultural_pillar = heritage_danan_lin
-						}
-					}
-				}
-			}
-		}
-	}
-}
+
 
 #Christian Heresy Groups
 faiths_are_in_western_christianity_group = {
