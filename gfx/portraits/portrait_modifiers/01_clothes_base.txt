@@ -12,7 +12,6 @@
 # CULTURE_INPUT = western_era3
 # CULTURE_INPUT = western_era4
 # CULTURE_INPUT = steppe
-
 # CULTURE_INPUT = fp1_norse
 # CULTURE_INPUT = fp2_iberian_christian
 # CULTURE_INPUT = fp2_iberian_muslim
@@ -23,7 +22,31 @@ clothes_effect = { # Gene modifers to apply for characters wearing or not wearin
     selection_behavior = max
     fallback = unclothed_body
     priority = 1
+    usage = game
+    selection_behavior = max
+    fallback = unclothed_body
+    priority = 1
 
+    clothed_body = {
+        dna_modifiers = {
+            morph = {
+                mode = modify_multiply
+                gene = gene_bs_bust
+                value = 0.8 # Setting this lower to reduce the exaggerated effect of large bust size when wearing clothes
+                template = bust_clothes
+            }            
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                NOR = {
+                    should_be_fully_naked_portrait_trigger = yes
+                    should_be_topless_portrait_trigger = yes
+                }
+            }  
+        }    
+    }
     clothed_body = {
         dna_modifiers = {
             morph = {
@@ -59,6 +82,9 @@ clothes = { # Special group for the ruler designer only. The game expects this t
     usage = game
     selection_behavior = weighted_random
     priority = 20
+    usage = game
+    selection_behavior = weighted_random
+    priority = 20
 
     ruler_designer_clothes = {
         dna_modifiers = {
@@ -87,6 +113,10 @@ clothes = { # Special group for the ruler designer only. The game expects this t
 
 clothes_base = { # The lowest priority group of clothes with triggers based on rank and culture. All clothes triggers are found in 00_clothing_triggers.txt
 
+    usage = game
+    selection_behavior = weighted_random
+    fallback = default_clothes
+    priority = 1
     usage = game
     selection_behavior = weighted_random
     fallback = default_clothes
@@ -220,7 +250,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = elven_low_clothes
 				range = { 0.51 0.99 } # For the randomness to work correctly
 			}
-		}
+		}		
 		weight = {
 			base = 0
 			modifier = {
@@ -240,7 +270,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = elven_high_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
-		}
+		}		
 		weight = {
 			base = 0
 			modifier = {
@@ -262,7 +292,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = northmen_low_clothes
 				range = { 0.01 0.49 } # For the randomness to work correctly
 			}
-		}
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -282,7 +312,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = northmen_low_clothes
 				range = { 0.51 0.99 } # For the randomness to work correctly
 			}
-		}
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -302,7 +332,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = northmen_high_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
-		}
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -324,7 +354,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = numenorean_low_clothes
 				range = { 0.01 0.49 } # For the randomness to work correctly
 			}
-		}
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -344,7 +374,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = numenorean_low_clothes
 				range = { 0.51 0.99 } # For the randomness to work correctly
 			}
-		}
+		}		
 		weight = {
 			base = 0
 			modifier = {
@@ -364,7 +394,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = numenorean_high_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
-		}
+		}		
 		weight = {
 			base = 0
 			modifier = {
@@ -532,7 +562,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = ioriag_low_clothes
 				range = { 0.01 0.49 } # For the randomness to work correctly
 			}
-		}
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -567,7 +597,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = ioriag_low_clothes
 				range = { 0.51 0.99 } # For the randomness to work correctly
 			}
-		}
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -621,7 +651,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = mumakani_low_clothes
 				range = { 0.01 0.49 } # For the randomness to work correctly
 			}
-		}
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -641,7 +671,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = mumakani_low_clothes
 				range = { 0.51 0.99 } # For the randomness to work correctly
 			}
-		}
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -682,6 +712,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = halfling_low_clothes
 				range = { 0.01 0.79 } # For the randomness to work correctly
 			}
+		}	
 		}	
 		weight = {
 			base = 0
@@ -995,6 +1026,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				range = { 0.50 1.0 } # For the randomness to work correctly
 			}
 		}	
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -1014,6 +1046,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = dunedain_high_clothes
 				range = { 0.50 1.0 } # For the randomness to work correctly
 			}
+		}	
 		}	
 		weight = {
 			base = 0
@@ -1106,6 +1139,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				range = { 0.0 0.39 } # For the randomness to work correctly
 			}
 		}	
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -1125,6 +1159,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = gondorian_low_clothes
 				range = { 0.50 0.89 } # For the randomness to work correctly
 			}
+		}	
 		}	
 		weight = {
 			base = 0
@@ -1151,6 +1186,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 			base = 0
 			modifier = {
 				add = 100
+				has_cp4_dlc_trigger = yes
 				OR = {
 					portrait_high_nobles_clothing_trigger = {
 						CULTURE_INPUT = gondorian
@@ -1412,6 +1448,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				range = { 0.50 1.0 } # For the randomness to work correctly
 			}
 		}	
+		}	
 		weight = {
 			base = 0
 			modifier = {
@@ -1432,6 +1469,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				template = harondorim_high_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
+		}	
 		}	
 		weight = {
 			base = 0
@@ -2046,14 +2084,97 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		weight = {
 			base = 0
 			modifier = {
-				add = 100
+				add = 200
+				portrait_snow_troll_clothing_trigger = yes
+			}
+		}
+	}	
+
+	## SIRAYNI ##
+		
+    sirayni_clothes_common = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = sirayni_low_clothes
+                range = { 0.41 0.69 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 50
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = sirayni
+                }
+            }
+        }
+    }
+
+    sirayni_clothes_low = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = sirayni_low_clothes
+                range = { 0.71 1.0 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                portrait_low_nobles_clothing_trigger = { 
+                    CULTURE_INPUT = sirayni
+                }
+            }
+        }
+    }
+
+    sirayni_clothes_high = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = sirayni_high_clothes
+                range = { 0.51 1.0 } # For the randomness to work correctly
+            }
+        }       
+        weight = {
+            base = 0
+            modifier = {
+                add = 125
+                portrait_high_nobles_clothing_trigger = { 
+                    CULTURE_INPUT = sirayni
+                }
+            }
+        }
+    }
+	
+	chennacatta_base = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = sirayni_low_clothes
+				range = { 0.01 0.19 } # For the randomness to work correctly
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
 				OR = {
+					portrait_commoner_clothing_trigger = {
+						CULTURE_INPUT = sirayni
+					}
 					portrait_low_nobles_clothing_trigger = {
 						CULTURE_INPUT = dalemen
 					}
 				}
 			}
-		}
+		}	
 	}
 
 	dale_clothes_high = {

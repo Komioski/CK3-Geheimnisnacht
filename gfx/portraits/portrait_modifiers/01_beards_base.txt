@@ -882,6 +882,97 @@ beards = {
         }
     }
 
+    dorwinion_straight = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = beards
+                template = dorwinion_beards_straight
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        # outfit_tags = { no_clothes }
+        weight = {
+            base = 0
+            modifier = {
+                add = 250
+                AND = {
+					has_fp1_dlc_trigger = yes
+					has_fp2_dlc_trigger = yes					
+					has_ep2_dlc_trigger = yes
+				}					
+                OR = {
+                    NOT = { exists = this }
+                    has_gene = {
+                        category = gene_hair_type
+                        template = hair_straight
+                    }       
+                    has_gene = {
+                        category = gene_hair_type
+                        template = hair_wavy
+                    }            
+                }
+                OR = {
+                    portrait_bretonnian_clothing_trigger = yes
+                }
+            }
+            modifier = {
+                add = -100
+                exists = this
+               OR = {
+                    is_from_ruler_designer = yes
+                    has_character_flag = has_scripted_appearance
+                }
+            }
+        }
+    }
+
+    dorwinion_curly = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = beards
+                template = dorwinion_beards_curly
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        # outfit_tags = { no_clothes }
+        weight = {
+            base = 0
+            modifier = {
+                add = 250
+                AND = {
+					has_fp2_dlc_trigger = yes
+					has_fp3_dlc_trigger = yes					
+					has_ep2_dlc_trigger = yes
+					has_ep3_dlc_trigger = yes					
+				}					
+                OR = {
+                    NOT = { exists = this }
+                     has_gene = {
+                        category = gene_hair_type
+                        template = hair_wavy
+                    }       
+                     has_gene = {
+                        category = gene_hair_type
+                        template = hair_curly
+                    }            
+                }
+                OR = {
+                    portrait_bretonnian_clothing_trigger = yes
+                }
+            }
+            modifier = {
+                add = -100
+                exists = this
+               OR = {
+                    is_from_ruler_designer = yes
+                    has_character_flag = has_scripted_appearance
+                }
+            }
+        }
+    }
+
 	## Rhunnic/Easterling Steppe ##
 
     rhunnic_straight = {
@@ -1285,6 +1376,99 @@ beards = {
     }
 
 	## Estalian ##
+
+    estalian_straight = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = beards
+                template = estalian_beards_straight
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        # outfit_tags = { no_clothes }
+        weight = {
+            base = 0
+            modifier = {
+                add = 250
+                AND = {
+					has_fp1_dlc_trigger = yes
+					has_fp2_dlc_trigger = yes					
+					has_ep2_dlc_trigger = yes
+				}							
+                OR = {
+                    NOT = { exists = this }
+                    has_gene = {
+                        category = gene_hair_type
+                        template = hair_straight
+                    }       
+                    has_gene = {
+                        category = gene_hair_type
+                        template = hair_wavy
+                    }            
+                }
+                OR = {
+                    portrait_estalian_clothing_trigger = yes
+                    portrait_pel_clothing_trigger = yes
+                }
+            }
+            modifier = {
+                add = -100
+                exists = this
+               OR = {
+                    is_from_ruler_designer = yes
+                    has_character_flag = has_scripted_appearance
+                }
+            }
+        }
+    }
+
+    estalian_curly = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = beards
+                template = estalian_beards_curly
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        # outfit_tags = { no_clothes }
+        weight = {
+            base = 0
+            modifier = {
+                add = 250
+                AND = {
+					has_fp2_dlc_trigger = yes
+					has_fp3_dlc_trigger = yes					
+					has_ep3_dlc_trigger = yes
+					has_ep2_dlc_trigger = yes
+				}							
+                OR = {
+                    NOT = { exists = this }
+                     has_gene = {
+                        category = gene_hair_type
+                        template = hair_wavy
+                    }       
+                     has_gene = {
+                        category = gene_hair_type
+                        template = hair_curly
+                    }            
+                }
+                OR = {
+                    portrait_estalian_clothing_trigger = yes
+                    portrait_pel_clothing_trigger = yes
+                }
+            }
+            modifier = {
+                add = -100
+                exists = this
+               OR = {
+                    is_from_ruler_designer = yes
+                    has_character_flag = has_scripted_appearance
+                }
+            }
+        }
+    }
 
     estalian_straight = {
         dna_modifiers = {
@@ -1958,7 +2142,7 @@ beards = {
             modifier = {
                 add = -100
                 exists = this
-                OR = {
+               OR = {
                     is_from_ruler_designer = yes
                     has_character_flag = has_scripted_appearance
                 }
@@ -2080,7 +2264,7 @@ beards = {
             modifier = {
                 add = -100
                 exists = this
-                OR = {
+               OR = {
                     is_from_ruler_designer = yes
                     has_character_flag = has_scripted_appearance
                 }
@@ -2118,7 +2302,7 @@ beards = {
             modifier = {
                 add = -100
                 exists = this
-                OR = {
+               OR = {
                     is_from_ruler_designer = yes
                     has_character_flag = has_scripted_appearance
                 }
@@ -2187,7 +2371,7 @@ beards = {
             modifier = {
                 add = -100
                 exists = this
-                OR = {
+               OR = {
                     is_from_ruler_designer = yes
                     has_character_flag = has_scripted_appearance
                 }
@@ -2225,7 +2409,7 @@ beards = {
             modifier = {
                 add = -100
                 exists = this
-                OR = {
+               OR = {
                     is_from_ruler_designer = yes
                     has_character_flag = has_scripted_appearance
                 }
@@ -2332,7 +2516,7 @@ beards = {
             modifier = {
                 add = -100
                 exists = this
-                OR = {
+               OR = {
                     is_from_ruler_designer = yes
                     has_character_flag = has_scripted_appearance
                 }
