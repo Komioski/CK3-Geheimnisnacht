@@ -18,7 +18,7 @@
 			NOT = { culture = { has_clothing_gfx = norscan_clothing_gfx } }
 			scope:advanced_culture = { has_clothing_gfx = norscan_clothing_gfx }
 		}
-		adopt_cultural_fashion_culture_effect = { CULTURE = asoborn }
+		adopt_cultural_fashion_culture_effect = { CULTURE = nordscane }
 	}
 	if = {
 		limit = {
@@ -34,7 +34,14 @@
 		}
 		adopt_cultural_fashion_culture_effect = { CULTURE = lucian }
 	}
-	if = {
+	if = { #Byzantine proxy
+		limit = {
+			NOT = { culture = { has_clothing_gfx = khyprian_clothing_gfx } }
+			scope:advanced_culture = { has_clothing_gfx = khyprian_clothing_gfx }
+		}
+		adopt_cultural_fashion_culture_effect = { CULTURE = asoborn }
+	}
+	if = { # Mena proxy
 		limit = {
 			NOT = { culture = { has_clothing_gfx = arabyan_clothing_gfx } }
 			scope:advanced_culture = { has_clothing_gfx = arabyan_clothing_gfx }

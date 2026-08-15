@@ -2796,49 +2796,6 @@ disburse_hunt_activity_rewards = {
 	hunt_individual_guest_awards_effect = yes
 	# Rewards based on Magnficence level
 	# Host Rewards
-	# LoTR - Hope gain for the host 
-	if = {
-		limit = { # Successful hunt
-			has_activity_intent = inspire_hope_intent
-			scope:activity = {
-				var:hunt_success ?= flag:yes
-			}
-		}
-		scope:activity = {
-			add_activity_log_entry = {
-				key = gained_hope_log
-				tags = { good }
-				# this line below adds the entry to the Effects section of the conclusion UI
-				show_in_conclusion = yes
-				character = root
-			
-				root = {
-					add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_hunt_hosted }
-				}
-			}
-		}
-	}
-	if = {
-		limit = { # Unsuccessful hunt
-			has_activity_intent = inspire_hope_intent
-			scope:activity = {
-				var:hunt_success ?= flag:no
-			}
-		}
-		scope:activity = {
-			add_activity_log_entry = {
-				key = gained_hope_log
-				tags = { good }
-				# this line below adds the entry to the Effects section of the conclusion UI
-				show_in_conclusion = yes
-				character = root
-			
-				root = {
-					add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_hunt_hosted }
-				}
-			}
-		}
-	}
 	# Adventurer Provisions
 	if = {
 		limit = {
@@ -4188,26 +4145,6 @@ disburse_feast_reveler_rewards = {
 	}
 	# LEGITIMACY GAIN FOR STANDARD ACTIVITY PARTICIPATION - FEAST
 	standard_activity_participation_legitimacy_effect = yes
-
-	# LotR: Gain hope via intent
-	if = {
-	    limit = { 
-		    has_activity_intent = inspire_hope_intent 
-		}
-		scope:activity = {
-			add_activity_log_entry = {
-				key = gained_hope_log
-				tags = { good }
-				# this line below adds the entry to the Effects section of the conclusion UI
-				show_in_conclusion = yes
-				character = root
-			
-				root = {
-					add_elven_hope_effect = { VALUE = medium_elven_hope_gain HOPE_EFFECT = effect_elven_hope_feast_visited }
-				}
-			}
-		}
-	}
 }
 
 
