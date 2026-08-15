@@ -34,6 +34,20 @@
 		}
 		adopt_cultural_fashion_culture_effect = { CULTURE = lucian }
 	}
+	if = {
+		limit = {
+			NOT = { culture = { has_clothing_gfx = arabyan_clothing_gfx } }
+			scope:advanced_culture = { has_clothing_gfx = arabyan_clothing_gfx }
+		}
+		adopt_cultural_fashion_culture_effect = { CULTURE = sartosan_arabyan }
+	}
+	else_if = { #Steppe proxy
+		limit = {
+			NOT = { culture = { has_clothing_gfx = strygan_clothing_gfx } }
+			scope:advanced_culture = { has_clothing_gfx = strygan_clothing_gfx }
+		}
+		adopt_cultural_fashion_culture_effect = { CULTURE = strygan }
+	}
 	else_if = { #Western proxy
 		limit = {
 			NOT = { culture = { has_clothing_gfx = halfling_clothing_gfx } }

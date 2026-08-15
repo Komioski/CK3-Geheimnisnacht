@@ -84,6 +84,7 @@ portrait_mena_proxy_clothing_spouse_trigger = {
 portrait_mena_proxy_clothing_contents_trigger = {
 	OR = {
 		has_clothing_gfx = arabyan_clothing_gfx #WHG TODO
+		has_clothing_gfx = strygan_clothing_gfx
 	} 
 }
 
@@ -319,10 +320,6 @@ portrait_duel_trigger = {
 lotr_wear_no_hat_trigger = {
 	has_character_flag = no_hat #LotR
 }
-
-#lotr_should_be_naked_trigger = {
-#	is_maiar = no #LotR
-#}
 
 #lotr_portrait_wear_no_headgear_trigger = {
 #	scope:age <= lotr_coronation_minimum_age_value
@@ -737,6 +734,25 @@ lotr_portrait_ep2_wedding_clothes_trigger = {
 ################### Geheimnisnacht Clothing Triggers Below ###################
 
 ### Cultural Clothing GFX ###
+
+## Strygan ##
+
+portrait_strygan_clothing_trigger = {
+	scope:culture = { portrait_strygan_clothing_contents_trigger = yes }
+}
+
+portrait_strygan_clothing_spouse_trigger = {
+	culture = {
+		portrait_strygan_clothing_contents_trigger = yes
+	}
+}
+
+portrait_strygan_clothing_contents_trigger = {
+	portrait_shared_clothing_contents_trigger = { #LotR
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = strygan
+	}
+}
 
 ## Halfling ##
 
@@ -1489,25 +1505,6 @@ portrait_honnin_clothing_contents_trigger = {
 	portrait_shared_clothing_contents_trigger = { #LotR
 		CULTURE_SCOPE = scope:culture
 		CULTURE_FLAG = honnin
-	}
-}
-
-## Variag ##
-
-portrait_variag_clothing_trigger = {
-	scope:culture = { portrait_variag_clothing_contents_trigger = yes }
-}
-
-portrait_variag_clothing_spouse_trigger = {
-	culture = {
-		portrait_variag_clothing_contents_trigger = yes
-	}
-}
-
-portrait_variag_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = variag
 	}
 }
 
