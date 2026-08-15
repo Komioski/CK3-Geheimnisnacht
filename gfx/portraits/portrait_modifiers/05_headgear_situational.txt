@@ -295,49 +295,4 @@
 	#		}
 	# 	}
 	# }
-
-	# LOTR
-	
-	dwarf_mining_headgear = { # Hi Ho, Hi Ho, Phrygian hat for mining dwarves
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = western_dwarf_low_headgear
-				range = { 0.31 0.44 } # For the randomness to work correctly
-			}
-		}
-		outfit_tags = { mining_headgear }
-		weight = {
-			base = 0
-			modifier = {
-				add = 1000
-				portrait_dwarf_clothing_trigger = yes
-				is_male = yes
-				involved_activity ?= { 
-					has_activity_type = activity_mining
-					activity_location = root.location
-				}
-			}
-		}
-	}
-
-	#LOTR Added
-	disfigurement_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = no_headgear
-				range = { 0 1 }
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 1000
-				lotr_visible_disfigurement_bandages_trigger = yes
-			}
-		}
-	}
 }

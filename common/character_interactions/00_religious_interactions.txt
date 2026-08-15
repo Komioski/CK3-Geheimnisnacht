@@ -1259,11 +1259,9 @@ demand_conversion_player_ruler_interaction = {
 	
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 	}
 
@@ -1855,11 +1853,9 @@ convert_to_religion_interaction = {
 
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			is_in_valinor = no
 		}
 
 		scope:actor.faith != scope:recipient.faith
@@ -4984,7 +4980,6 @@ host_honored_guest_interaction = {
 	is_shown = {
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			#is_in_valinor = no
 		}
 		scope:recipient != scope:actor
 		scope:actor = {
@@ -4993,7 +4988,6 @@ host_honored_guest_interaction = {
 			faith = {
 				has_doctrine_parameter = host_honored_guests_active
 			}
-			#is_in_valinor = no #LotR
 			NOT = { has_culture = culture:wastelands } #LotR
 		}
 	}

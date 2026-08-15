@@ -855,36 +855,36 @@ bp2_adult_education.1010 = {
 # Learning the lithurgical language
 
 scripted_effect bp2_learn_lithurgical_language_effect = {
-	if = {
-		limit = {
-			scope:activity.activity_location.county.faith.religion = religion:islam_religion
-		}
-		learn_language = language_arabic
-	}
-	else_if = {
-		limit = {
-			OR = {
-				scope:activity.activity_location.county.faith.religion = religion:judaism_religion
-				scope:activity.activity_location.county.faith = faith:nestorian
-			}
-		}
-		learn_language = language_aramaic
-	}
-	else_if = {
-		limit = {
-			scope:activity.activity_location.county.faith = faith:catholic
-		}
-		learn_language = language_latin
-	}
-	else_if = {
-		limit = {
-			OR = {
-				scope:activity.activity_location.county.faith = faith:orthodox
-				scope:activity.activity_location.county.faith = faith:coptic
-			}
-		}
-		learn_language = language_greek
-	}
+	# if = { #WH
+	# 	limit = {
+	# 		scope:activity.activity_location.county.faith.religion = religion:islam_religion
+	# 	}
+	# 	learn_language = language_arabic
+	# }
+	# else_if = { #WH
+	# 	limit = {
+	# 		OR = {
+	# 			scope:activity.activity_location.county.faith.religion = religion:judaism_religion
+	# 			scope:activity.activity_location.county.faith = faith:nestorian
+	# 		}
+	# 	}
+	# 	learn_language = language_aramaic
+	# }
+	# else_if = { #WH
+	# 	limit = {
+	# 		scope:activity.activity_location.county.faith = faith:catholic
+	# 	}
+	# 	learn_language = language_latin
+	# }
+	# else_if = { #WH
+	# 	limit = {
+	# 		OR = {
+	# 			scope:activity.activity_location.county.faith = faith:orthodox
+	# 			scope:activity.activity_location.county.faith = faith:coptic
+	# 		}
+	# 	}
+	# 	learn_language = language_greek
+	# }
 
 	############## WHG liturgical lingo ###############
 	### NEEDS REWORK AFTER BY GOD ALONE

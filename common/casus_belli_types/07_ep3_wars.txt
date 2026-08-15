@@ -5132,16 +5132,8 @@ ep3_laamp_apprehend_adventurer_cb = {
 					target = scope:defender
 				}
 			}
-			every_character_artifact = { #WHG TODO wtf is this
-				#limit = { 
-				#	NOR = {
-				#		AND = { 
-				#			has_variable = ring_of_power
-				#			sauron_is_alive = yes
-				#		}
-				#		has_variable = silmaril
-				#	}
-				#}
+			every_character_artifact = {
+				limit = { NOT = { has_variable = artifact_prevent_transfer } }
 				set_owner = {
 					target = scope:defender
 					history = {

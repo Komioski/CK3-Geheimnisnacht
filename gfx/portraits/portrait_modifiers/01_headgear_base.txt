@@ -758,117 +758,117 @@ headgear = {
 		}
 	}	
 
-	bretonnian_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = bretonnian_low_headgear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 101
-				has_ce1_dlc_trigger = yes
-                portrait_commoner_headgear_fallback_trigger = {
-                    CULTURE_INPUT = bretonnian
-                }
-			}
-			modifier = {
-				add = 101
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = bretonnian
-				}
-			}
-		}
-	}
+	# bretonnian_commoners = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = bretonnian_low_headgear
+	# 			range = { 0 1 } # For the randomness to work correctly
+	# 		}
+	# 	}	
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 101
+	# 			has_ce1_dlc_trigger = yes
+    #             portrait_commoner_headgear_fallback_trigger = {
+    #                 CULTURE_INPUT = bretonnian
+    #             }
+	# 		}
+	# 		modifier = {
+	# 			add = 101
+	# 			portrait_commoner_clothing_trigger = {
+	# 				CULTURE_INPUT = bretonnian
+	# 			}
+	# 		}
+	# 	}
+	# }
 	
-	bretonnian_counts = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = bretonnian_high_headgear
-				range = { 0.01 0.24 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 102
-				has_dlc = "Garments of the Holy Roman Empire"
-                portrait_low_nobles_clothing_trigger = {
-                    CULTURE_INPUT = bretonnian
-                }
-			}
-		}
-	}
+	# bretonnian_counts = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = bretonnian_high_headgear
+	# 			range = { 0.01 0.24 } # For the randomness to work correctly
+	# 		}
+	# 	}	
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 102
+	# 			has_dlc = "Garments of the Holy Roman Empire"
+    #             portrait_low_nobles_clothing_trigger = {
+    #                 CULTURE_INPUT = bretonnian
+    #             }
+	# 		}
+	# 	}
+	# }
 	
-	bretonnian_dukes = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = bretonnian_high_headgear
-				range = { 0.26 0.49 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 103
-				AND = {
-					has_ce1_dlc_trigger = yes
-					has_dlc = "Garments of the Holy Roman Empire"
-				}		
-                portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = bretonnian
-                }
-			}	
-		}		
-	}
+	# bretonnian_dukes = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = bretonnian_high_headgear
+	# 			range = { 0.26 0.49 } # For the randomness to work correctly
+	# 		}
+	# 	}	
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 103
+	# 			AND = {
+	# 				has_ce1_dlc_trigger = yes
+	# 				has_dlc = "Garments of the Holy Roman Empire"
+	# 			}		
+    #             portrait_high_nobles_headgear_trigger = {
+    #                 CULTURE_INPUT = bretonnian
+    #             }
+	# 		}	
+	# 	}		
+	# }
 	
-	bretonnian_kings = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = bretonnian_high_headgear
-				range = { 0.51 0.74 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 104
-                portrait_royalty_trigger = {
-                    CULTURE_INPUT = bretonnian
-                }   
-			}
-		}
-	}
+	# bretonnian_kings = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = bretonnian_high_headgear
+	# 			range = { 0.51 0.74 } # For the randomness to work correctly
+	# 		}
+	# 	}		
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 104
+    #             portrait_royalty_trigger = {
+    #                 CULTURE_INPUT = bretonnian
+    #             }   
+	# 		}
+	# 	}
+	# }
 	
-	bretonnian_emperors = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = bretonnian_high_headgear
-				range = { 0.76 0.99 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 105
-                portrait_imperial_trigger = {
-                    CULTURE_INPUT = bretonnian
-                }   
-			}
-		}		
-	}
+	# bretonnian_emperors = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = bretonnian_high_headgear
+	# 			range = { 0.76 0.99 } # For the randomness to work correctly
+	# 		}
+	# 	}	
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 105
+    #             portrait_imperial_trigger = {
+    #                 CULTURE_INPUT = bretonnian
+    #             }   
+	# 		}
+	# 	}		
+	# }
 
 	## Estalian ##
 

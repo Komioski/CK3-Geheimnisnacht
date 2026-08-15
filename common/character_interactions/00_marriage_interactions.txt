@@ -443,11 +443,9 @@ arrange_marriage_interaction = {
 
 		scope:actor = {
 			NOT = { has_culture = culture:wastelands } #LotR
-			#is_in_valinor = no #LotR
 		}
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
-			#is_in_valinor = no
 		}
 	}
 
@@ -1536,7 +1534,6 @@ marry_off_interaction = {
 			scope:secondary_recipient ?= { has_been_promised_grand_wedding = yes }
 		}
 		scope:actor ?= { #LotR
-			#is_in_valinor = no
 			NOT = { has_culture = culture:wastelands }
 		}
 	}
@@ -5551,7 +5548,6 @@ elope_interaction = {
 					has_perk = accomplished_forger_perk
 				}
 			}
-			#is_in_valinor = no #LotR
 		}
 		scope:recipient = {
 			#is_lotr_adult = yes #LotR
@@ -5561,7 +5557,6 @@ elope_interaction = {
 				is_consort_of = scope:actor
 			}
 			could_marry_character_trigger = { CHARACTER = scope:actor }
-			#is_in_valinor = no #LotR
 		}
 	}
 

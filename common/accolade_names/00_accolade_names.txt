@@ -4086,36 +4086,6 @@ accolade_the_foe_of_enemy_faith = {
 			# 	}
 			# 	desc = accolade_infidels
 			# }
-			triggered_desc = {
-				trigger = {
-					faith.religion = { is_in_family = rf_eruhini }
-					liege.capital_county.title_province ?= {
-						NOT = {
-							geographical_region = middleearth_harad_far
-						}
-					}
-				}
-				desc = accolade_orcs
-				
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = { is_in_family = rf_eruhini }
-					liege.capital_county.title_province ?= {
-						NOT = {
-							geographical_region = middleearth_harad_far
-						}
-					}
-				}
-				desc = accolade_trolls
-			}
-			triggered_desc = {
-				trigger = {
-					faith.religion = { is_in_family = rf_eruhini }
-					sauron_is_alive = yes
-				}
-				desc = accolade_dark_lords_servants
-			}
 			# triggered_desc = {
 			# 	trigger = {
 			# 		NOR = {
