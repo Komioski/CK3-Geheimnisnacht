@@ -3599,7 +3599,7 @@
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_mercenary_clothes
+				template = bretonnian_mercenary_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
 			accessory = {
@@ -3617,10 +3617,10 @@
                 government_has_flag = government_is_mercenary 
                 OR = {
                     portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                     portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
 					portrait_commoner_armor_trigger = { 
                         CULTURE_INPUT = dalemen
@@ -3635,10 +3635,10 @@
                 government_has_flag = government_is_mercenary  
                 OR = {
                     portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                     portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
 					portrait_commoner_armor_trigger = { 
                         CULTURE_INPUT = dalemen
@@ -3651,12 +3651,12 @@
 		}
 	}
 	
-    dorwinion_war_common = {
+    bretonnian_war_common = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_war_clothes
+				template = bretonnian_war_clothes
 				range = { 0.01 0.19 } # For the randomness to work correctly
 			}
 			accessory = {
@@ -3666,7 +3666,7 @@
 				range = { 0 1 }
 			}
 		}	
-        outfit_tags = { military_outfit dorwinion_war_commoners }	
+        outfit_tags = { military_outfit bretonnian_war_commoners }	
 		weight = {
 			base = 0
 			modifier = {
@@ -3675,7 +3675,7 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
@@ -3684,19 +3684,19 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
 		}
 	}	
 
-    dorwinion_war_low = {
+    bretonnian_war_low = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_war_clothes
+				template = bretonnian_war_clothes
 				range = { 0.21 0.39 } # For the randomness to work correctly
 			}
 			accessory = {
@@ -3706,7 +3706,7 @@
 				range = { 0 1 }
 			}
 		}	
-        outfit_tags = { military_outfit dorwinion_war_low }	
+        outfit_tags = { military_outfit bretonnian_war_low }	
 		weight = {
 			base = 0
 			modifier = {
@@ -3715,7 +3715,7 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
@@ -3724,19 +3724,19 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
 		}
 	}
 	
-    dorwinion_war_low_landed = {
+    bretonnian_war_low_landed = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_war_clothes
+				template = bretonnian_war_clothes
 				range = { 0.41 0.59 } # For the randomness to work correctly
 			}
 			accessory = {
@@ -3746,7 +3746,7 @@
 				range = { 0 1 }
 			}
 		}	
-        outfit_tags = { military_outfit dorwinion_war_low }	
+        outfit_tags = { military_outfit bretonnian_war_low }	
 		weight = {
 			base = 0
 			modifier = {
@@ -3756,7 +3756,7 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
@@ -3766,19 +3766,19 @@
 				highest_held_title_tier = tier_county
                 OR = {
                     portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
 		}
 	}	
 	
-	dorwinion_war_high = {
+	bretonnian_war_high = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_war_clothes
+				template = bretonnian_war_clothes
 				range = { 0.61 0.79 } # For the randomness to work correctly
 			}
 			accessory = {
@@ -3788,32 +3788,32 @@
 				range = { 0 1 }
 			}			
 		}	
-        outfit_tags = { military_outfit dorwinion_war_high }	
+        outfit_tags = { military_outfit bretonnian_war_high }	
 		weight = {
 			base = 0
 			modifier = {
                 add = 110
                 has_ep2_dlc_trigger = yes				
                 portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = dorwinion
+                    CULTURE_INPUT = bretonnian
                 }
             }
             modifier = {
                 add = 80        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
                 has_ep2_dlc_trigger = yes
                 portrait_high_nobles_armor_in_army_trigger = { 
-					CULTURE_INPUT = dorwinion
+					CULTURE_INPUT = bretonnian
                 }
             }
 		}
 	}
 
-    dorwinion_war_royalty = {
+    bretonnian_war_royalty = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_war_clothes
+				template = bretonnian_war_clothes
 				range = { 0.81 0.99 } # For the randomness to work correctly
 			}
 			accessory = {
@@ -3823,21 +3823,21 @@
 				range = { 0 1 }
 			}
 		}	
-        outfit_tags = { military_outfit dorwinion_war_royalty }
+        outfit_tags = { military_outfit bretonnian_war_royalty }
 		weight = {
 			base = 0
 			modifier = {
                 add = 200
 				has_ep1_dlc_trigger = yes				
                 portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = dorwinion
+                    CULTURE_INPUT = bretonnian
                 }
             }
 			modifier = {
                 add = 81
 				has_ep2_dlc_trigger = yes				
 				portrait_royalty_armor_in_army_trigger = {
-                    CULTURE_INPUT = dorwinion
+                    CULTURE_INPUT = bretonnian
                 }
             }			
 		}

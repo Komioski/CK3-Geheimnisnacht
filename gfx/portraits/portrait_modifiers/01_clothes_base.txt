@@ -12,26 +12,10 @@
 # CULTURE_INPUT = western_era3
 # CULTURE_INPUT = western_era4
 # CULTURE_INPUT = steppe
+
 # CULTURE_INPUT = fp1_norse
 # CULTURE_INPUT = fp2_iberian_christian
 # CULTURE_INPUT = fp2_iberian_muslim
-
-# CULTURE_INPUT = afr_berber
-
-### Valid culture inputs --> for LoTR ###
-# CULTURE_INPUT = dorwinion
-# CULTURE_INPUT = gondorian
-# CULTURE_INPUT = arnorian
-# CULTURE_INPUT = dunedain
-# CULTURE_INPUT = umbar
-# CULTURE_INPUT = umbaredain
-# CULTURE_INPUT = elven
-# CULTURE_INPUT = lasgalendrim
-# CULTURE_INPUT = numenorean 
-# CULTURE_INPUT = east_haradrim
-# CULTURE_INPUT = vale_woodmen
-# CULTURE_INPUT = dalemen
-# CULTURE_INPUT = rohirrim
 
 
 clothes_effect = { # Gene modifers to apply for characters wearing or not wearing clothes
@@ -68,16 +52,6 @@ clothes_effect = { # Gene modifers to apply for characters wearing or not wearin
             base = 10
         }
     }
-	
-    unclothed_body_event = {
-        dna_modifiers = {          
-        }
-        outfit_tags = { no_clothes }        
-        require_outfit_tags = yes
-        weight = {
-            base = 1000
-        }
-    }	
 }
 
 clothes = { # Special group for the ruler designer only. The game expects this to be named "clothes"
@@ -91,7 +65,7 @@ clothes = { # Special group for the ruler designer only. The game expects this t
             accessory = {
                 mode = add
                 gene = clothes
-                template = bedchamber_clothes
+                template = western_bedchamber
                 range = { 0 1 }
             }
             morph = {
@@ -106,31 +80,9 @@ clothes = { # Special group for the ruler designer only. The game expects this t
             modifier = {
                 add = 100
                 portrait_ruler_designer_trigger = yes
-				NOT = {
-                	has_global_variable = character_undress
-                }
             }
         }
     }    
-
-	ruler_designer_nude = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = no_clothes
-                range = { 0 1 }
-            }  
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                portrait_ruler_designer_trigger = yes
-				has_global_variable = character_undress
-            }
-        }
-    }
 }
 
 clothes_base = { # The lowest priority group of clothes with triggers based on rank and culture. All clothes triggers are found in 00_clothing_triggers.txt
@@ -141,12 +93,12 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
     priority = 1
 
 
-    default_clothes = { # LotR: Prison Clothes to make pre-conversion generated Maiar and Istari characters blend in better...
+    default_clothes = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = prison_clothes
+                template = western_bedchamber
                 range = { 0 1 } # For the randomness to work correctly
             }
         }   
@@ -156,860 +108,616 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
         }
     }
 
-    elven_clothes_common = {
+## DDE HRE ##
+
+    dde_hre_commoners = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = elven_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
+                template = dde_hre_commoner_clothes
+                range = { 0 1 } # For the randomness to work correctly
             }
         }   
-        outfit_tags = { western_commoner_outfit }
         weight = {
             base = 0
             modifier = {
-                add = 100
-                OR = {
-                    portrait_commoner_clothing_trigger = {
-                        CULTURE_INPUT = elven
-                    }
+                add = 20
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = dde_hre # CULTURE_INPUT gets added into the trigger referenced in 00_clothing_triggers.txt so it's important the input is a correct match to an existing culture trigger
                 }
             }
+            modifier = {
+                factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
+                has_ep2_dlc_trigger = yes   
+                NOT = { portrait_era2_trigger = yes } 
+            }
         }
     }
-	
-	elven_clothes_low = {
+    
+    dde_hre_low_nobles = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = elven_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
+                template = dde_hre_low_nobility_clothes
+                range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
+            court_fashion_level_4_modifier = { INPUT_PARAMETER = dde_hre } # common/scripted_modifiers/00_portrait_modifiers.txt
             modifier = {
-                add = 101
-                OR = {
-                    portrait_low_nobles_clothing_trigger = {  # This trigger different from one above
-                        CULTURE_INPUT = elven
-                    }
-                }       
-            }
-        }
-    }
-	
-	elven_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = elven_high_clothes
-                range = { 0.0 0.79 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                OR = {
-                    portrait_high_nobles_clothing_trigger = { 
-                        CULTURE_INPUT = elven
-                    }
+                add = 50
+                portrait_low_nobles_clothing_trigger = {  
+                    CULTURE_INPUT = dde_hre # CULTURE_INPUT gets added into the trigger referenced in 00_clothing_triggers.txt so it's important the input is a correct match to an existing culture trigger
                 }
             }
+            modifier = {
+                factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
+                has_ep2_dlc_trigger = yes   
+                NOT = { portrait_era2_trigger = yes } 
+            }
         }
     }
-	
-	elven_royalty_penni = {
+
+    dde_hre_high_nobles = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = elven_high_clothes
-                range = { 0.81 0.99 } # For the randomness to work correctly
+                template = dde_hre_high_nobility_clothes
+                range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
+            court_fashion_level_5_modifier = { INPUT_PARAMETER = dde_hre } 
             modifier = {
-                add = 120
-				scope:culture = culture:penni				
-				OR = {
-					portrait_royalty_clothing_trigger = {
-						CULTURE_INPUT = elven
-					}
-					portrait_imperial_clothing_trigger = {
-						CULTURE_INPUT = elven
-					}
-				}
+                add = 50
+                portrait_high_nobles_clothing_trigger = { 
+                    CULTURE_INPUT = dde_hre
+                }
+            }
+            modifier = {
+                factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
+                has_ep2_dlc_trigger = yes   
+                NOT = { portrait_era2_trigger = yes } 
             }
         }
-    }	
+    }
+    
 
-	##ELVEN RANGERS##
+## Western ##
 
-	camp_purpose_elven_rangers_clothes = {
+   ## Western - western_proxy ##
+
+	western_commoners = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = silvan_low_clothes
-                range = { 0.86 0.89 } # For the randomness to work correctly
+				template = elven_low_clothes
+				range = { 0.01 0.49 } # For the randomness to work correctly
 			}
-		}	
+		}
 		weight = {
 			base = 0
 			modifier = {
-				add = 500
-				is_elf = yes
-				government_has_flag = government_is_landless_adventurer
-				OR = {
-					has_realm_law = camp_purpose_rangers
-					liege ?= { has_realm_law = camp_purpose_rangers }
-				}
+				add = 10
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = western_proxy
+                }
 			}
 		}
 	}
 
-	##Mirkwood ELVES##	
-	lasgalendrim_clothes_common = {
+	western_low_nobles = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = silvan_low_clothes
-				range = { 0.81 0.84 } # For the randomness to work correctly
+				template = elven_low_clothes
+				range = { 0.51 0.99 } # For the randomness to work correctly
 			}
-		}	
+		}
 		weight = {
 			base = 0
 			modifier = {
-				add = 110
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = lasgalendrim
-					}
-				}
+				add = 15
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = western_proxy
+	            }
 			}
 		}
 	}
+
+	western_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = elven_high_clothes
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 20
+                portrait_high_nobles_clothing_trigger = {
+                    CULTURE_INPUT = western_proxy
+                }   
+			}
+		}
+	}
+    
+    ## Northron - northern_proxy ##
+
+	northern_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = northmen_low_clothes
+				range = { 0.01 0.49 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+				portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = northern_proxy
+                }
+			}
+		}
+	}
+
+	northern_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = northmen_low_clothes
+				range = { 0.51 0.99 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+				portrait_low_nobles_clothing_trigger = {
+                    CULTURE_INPUT = northern_proxy
+                }	
+			}
+		}
+	}
+
+	northern_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = northmen_high_clothes
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+				portrait_high_nobles_clothing_trigger = {
+                    CULTURE_INPUT = northern_proxy
+                }	
+			}
+		}
+	}
+
+    ## Byzantine - byzantine_proxy ##
 	
-	lasgalendrim_clothes_low = {
+	byzantine_commoners = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = silvan_low_clothes
-				range = { 0.91 0.99 } # For the randomness to work correctly
+				template = numenorean_low_clothes
+				range = { 0.01 0.49 } # For the randomness to work correctly
 			}
-		}	
+		}
 		weight = {
 			base = 0
 			modifier = {
-				add = 120
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = lasgalendrim
-					}
-				}
+				add = 10
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = byzantine_proxy
+                }
 			}
 		}
 	}
 
-	lasgalendrim_clothes_high = {
+	byzantine_low_nobles = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = silvan_high_clothes
-				range = { 0.81 0.89 } # For the randomness to work correctly
+				template = numenorean_low_clothes
+				range = { 0.51 0.99 } # For the randomness to work correctly
 			}
-		}		
+		}
 		weight = {
 			base = 0
 			modifier = {
-				add = 130
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = lasgalendrim
-					}
-				}
+				add = 15
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = byzantine_proxy
+	            }
 			}
 		}
 	}
 
-	lasgalendrim_clothes_royalty = {
+	byzantine_high_nobles = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = silvan_high_clothes
-				range = { 0.91 0.94 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 150
-				OR = {
-					portrait_royalty_clothing_trigger = {
-						CULTURE_INPUT = lasgalendrim
-					}
-					portrait_imperial_clothing_trigger = {
-						CULTURE_INPUT = lasgalendrim
-					}
-				}
+				template = numenorean_high_clothes
+				range = { 0 1 } # For the randomness to work correctly
 			}
 		}
-	}
-	
-	##SILVAN ELVES##
-	
-	silvan_clothes_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = silvan_low_clothes
-				range = { 0.01 0.39 } # For the randomness to work correctly
-			}
-		}	
 		weight = {
 			base = 0
 			modifier = {
-				add = 180
-				scope:culture = culture:silvan				
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = elven
-					}
-				}
+				add = 20
+                portrait_high_nobles_clothing_trigger = {
+                    CULTURE_INPUT = byzantine_proxy
+                }   
 			}
 		}
 	}
 
-	silvan_clothes_low = {
+	## MENA - mena_proxy ##
+
+	mena_commoners = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = silvan_low_clothes
-				range = { 0.41 0.79 } # For the randomness to work correctly
+				template = haradrim_low_clothes
+				range = { 0.01 0.49 } # For the randomness to work correctly
 			}
-		}	
+		}
 		weight = {
 			base = 0
 			modifier = {
-				add = 190
-				scope:culture = culture:silvan				
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = elven
-					}
-				}
+				add = 10
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = mena_proxy
+                }
 			}
 		}
 	}
 
-	silvan_clothes_high = {
+	mena_low_nobles = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = silvan_high_clothes
+				template = haradrim_low_clothes
+				range = { 0.51 0.99 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 15
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = mena_proxy
+	            }
+			}
+		}
+	}
+
+	mena_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = haradrim_high_clothes
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 20
+                portrait_high_nobles_clothing_trigger = {
+                    CULTURE_INPUT = mena_proxy
+                }   
+			}
+		}
+	}
+
+	## INDIAN - indian_proxy ##
+
+	indian_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = rayan_low_clothes
+				range = { 0.01 0.49 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = indian_proxy
+                }
+			}
+			# modifier = { #LotR
+			# 	add = 20
+			# 	portrait_commoner_clothing_trigger = {
+			# 		CULTURE_INPUT = southeast_asian
+			# 	}
+			# 	has_tgp_dlc_trigger = no
+			# }
+		}
+		
+	}
+
+	indian_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = rayan_low_clothes
+				range = { 0.51 0.99 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 15
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = indian_proxy
+	            }
+			}
+			# modifier = { #LotR
+			# 	add = 50
+			# 	portrait_low_nobles_clothing_trigger = {
+			# 		CULTURE_INPUT = southeast_asian
+			# 	}
+			# 	has_tgp_dlc_trigger = no
+			# }
+		}
+	}
+
+	indian_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = rayan_high_clothes
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 20
+                portrait_high_nobles_clothing_trigger = {
+                    CULTURE_INPUT = indian_proxy
+                }   
+			}
+			# modifier = {
+			# 	add = 50
+			# 	portrait_high_nobles_clothing_trigger = {
+			# 		CULTURE_INPUT = southeast_asian
+			# 	}
+			# 	has_tgp_dlc_trigger = no
+			# }
+		}
+	}
+
+	## STEPPE - steppe_proxy ##
+
+	steppe_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = ioriag_low_clothes
+				range = { 0.01 0.49 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = steppe_proxy
+                }
+			}
+			# modifier = { # For Chinese, Japanese and Korean characters for players without AUH
+			# 	add = 20
+			# 	OR = {
+			# 		portrait_commoner_clothing_trigger = {
+			# 			CULTURE_INPUT = chinese
+			# 		}
+			# 		portrait_commoner_clothing_trigger = {
+			# 			CULTURE_INPUT = japanese
+			# 		}
+			# 		portrait_commoner_clothing_trigger = {
+			# 			CULTURE_INPUT = ainu
+			# 		}
+			# 	}
+			# 	has_tgp_dlc_trigger = no
+			# }
+		}
+	}
+
+	steppe_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = ioriag_low_clothes
+				range = { 0.51 0.99 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 15
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = steppe_proxy
+	            }
+			}
+			# modifier = { # For Ainu characters for players without AUH
+			# 	add = 20
+			# 	OR = {
+			# 		portrait_low_nobles_clothing_trigger = {
+			# 			CULTURE_INPUT = ainu
+			# 		}
+			# 		portrait_high_nobles_clothing_trigger = {
+			# 			CULTURE_INPUT = ainu
+			# 		}
+			# 	}
+			# 	has_tgp_dlc_trigger = no
+			# }
+		}
+	}
+
+	steppe_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = ioriag_high_clothes
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 20
+                portrait_high_nobles_clothing_trigger = {
+                    CULTURE_INPUT = steppe_proxy
+                }   
+			}
+		}
+	}
+
+	## African - african_proxy ##
+
+	african_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = mumakani_low_clothes
+				range = { 0.01 0.49 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = african_proxy
+                }
+			}
+		}
+	}
+
+	african_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = mumakani_low_clothes
+				range = { 0.51 0.99 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 15
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = african_proxy
+	            }
+			}
+		}
+	}
+
+	african_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = mumakani_high_clothes
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 20
+                portrait_high_nobles_clothing_trigger = {
+                    CULTURE_INPUT = african_proxy
+                }   
+			}
+		}
+	}
+
+    ## HALFLING ##
+	halfling_clothes_low = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = halfling_low_clothes
 				range = { 0.01 0.79 } # For the randomness to work correctly
 			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				scope:culture = culture:silvan				
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = elven
-					}
-				}
-			}
-		}
-	}
-
-    ##NOLDOR ELVES##	
-	noldor_clothes_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = noldor_low_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
 		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 110
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = noldor
-					}
-				}
-			}
-		}
-	}
-	
-	noldor_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = noldor_low_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 120
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = noldor
-					}
-				}
-			}
-		}
-	}
-
-	noldor_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = noldor_high_clothes
-				range = { 0.01 0.89 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 130
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = noldor
-					}
-				}
-			}
-		}
-	}
-
-    ##SINDAR ELVES##	
-	sindar_clothes_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = sindar_low_clothes
-				range = { 0.0 0.49 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 110
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = sindar
-					}
-				}
-			}
-		}
-	}
-	
-	sindar_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = sindar_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 120
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = sindar
-					}
-				}
-			}
-		}
-	}
-
-	sindar_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = sindar_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 130
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = sindar
-					}
-				}
-			}
-		}
-	}
-
-	##GALADHRIM ELVES##	
-	galadhrim_clothes_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = galadhrim_low_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 110
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = galadhrim
-					}
-				}
-			}
-		}
-	}
-	
-	galadhrim_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = galadhrim_low_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 120
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = galadhrim
-					}
-				}
-			}
-		}
-	}
-
-	galadhrim_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = galadhrim_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 130
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = galadhrim
-					}
-				}
-			}
-		}
-	}
-	
-	##FALATHRIM ELVES##	
-	falathrim_clothes_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = falathrim_low_clothes
-				range = { 0.0 0.49 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 110
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = falathrim
-					}
-				}
-			}
-		}
-	}
-	
-	falathrim_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = falathrim_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 120
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = falathrim
-					}
-				}
-			}
-		}
-	}
-
-	falathrim_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = falathrim_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 130
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = falathrim
-					}
-				}
-			}
-		}
-	}
-	
-	##VANYAR ELVES##	
-	vanyar_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = vanyar_low_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				scope:culture = culture:vanyar				
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = elven
-					}
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = elven
-					}
-				}
-			}
-		}
-	}
-
-	vanyar_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = vanyar_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 250			
-				scope:culture = culture:vanyar
-				portrait_high_nobles_clothing_trigger = {
-					CULTURE_INPUT = elven
-				}
-			}
-		}
-	}
-
-	## DWARVES ##
-
-	western_dwarf_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = western_dwarf_low_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
 		weight = {
 			base = 0
 			modifier = {
 				add = 100
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = dwarf						
-				}
-			}
-		}
-	}
-
-	western_dwarf_low_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = western_dwarf_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				portrait_low_nobles_clothing_trigger = {
-					CULTURE_INPUT = dwarf						
-				}	
-			}
-		}
-	}
-
-	western_dwarf_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = western_dwarf_high_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				portrait_high_nobles_clothing_trigger = {
-					CULTURE_INPUT = dwarf						
-				}	
-			}
-		}
-	}
-
-	western_dwarf_kings = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = western_dwarf_high_clothes
-				range = { 0.5 1.0 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 110
-				OR = {
-					portrait_royalty_clothing_trigger = {
-						CULTURE_INPUT = dwarf						
-					}
-				}
-			}
-		}
-	}
-
-	eastern_dwarf_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_dwarf_low_clothes
-                range = { 0.01 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-			modifier = {
-				add = 120
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = dwarf						
-				}	
-				culture = {
-					OR = {
-						has_cultural_pillar = heritage_ironfist
-						has_cultural_pillar = heritage_stiffbeard
-					}
-				}						
-			}
-        }
-    }
-	
-	eastern_dwarf_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_dwarf_low_clothes
-                range = { 0.51 0.99 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-			modifier = {
-				add = 125
-				portrait_low_nobles_clothing_trigger = {
-					CULTURE_INPUT = dwarf						
-				}	
-				culture = {
-					OR = {
-						has_cultural_pillar = heritage_ironfist
-						has_cultural_pillar = heritage_stiffbeard
-					}
-				}						
-			}
-        }
-    }	
-	
-    eastern_dwarf_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_dwarf_high_clothes
-                range = { 0.01 0.49 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-			modifier = {
-				add = 130
-				portrait_high_nobles_clothing_trigger = {
-					CULTURE_INPUT = dwarf						
-				}
-				culture = {
-					OR = {
-						has_cultural_pillar = heritage_ironfist
-						has_cultural_pillar = heritage_stiffbeard
-					}
-				}							
-			}			
-        }
-    }
-	
-    eastern_dwarf_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_dwarf_high_clothes
-                range = { 0.51 0.99 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-			modifier = {
-				add = 140
-				OR = {
-					portrait_royalty_clothing_trigger = {
-						CULTURE_INPUT = dwarf						
-					}					
-					portrait_imperial_clothing_trigger = {
-						CULTURE_INPUT = dwarf						
-					}
-				}		
-				culture = {
-					OR = {
-						has_cultural_pillar = heritage_ironfist
-						has_cultural_pillar = heritage_stiffbeard
-					}
-				}							
-			}			
-        }
-    }	
-
-    southern_dwarf_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = southern_dwarf_low_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-			modifier = {
-				add = 120
 				OR = {
 					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = dwarf						
+						CULTURE_INPUT = halfling
 					}
-				}	
-				culture = {
-					OR = {
-						has_cultural_pillar = heritage_blacklock
-						has_cultural_pillar = heritage_stonefoot
-					}
-				}						
-			}
-        }
-    }
-	
-    southern_dwarf_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = southern_dwarf_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-			modifier = {
-				add = 140
-				OR = {
 					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = dwarf						
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = dwarf						
-					}
-					portrait_royalty_clothing_trigger = {
-						CULTURE_INPUT = dwarf						
-					}					
-					portrait_imperial_clothing_trigger = {
-						CULTURE_INPUT = dwarf						
+						CULTURE_INPUT = halfling
 					}
 				}	
-				culture = {
-					OR = {
-						has_cultural_pillar = heritage_blacklock
-						has_cultural_pillar = heritage_stonefoot
-					}
-				}							
-			}			
-        }
-    }	
+			}
+		}
+	}
+	
+	halfling_clothes_high = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = halfling_low_clothes
+				range = { 0.01 0.79 } # For the randomness to work correctly
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				portrait_high_nobles_clothing_trigger = {
+                    CULTURE_INPUT = halfling
+                }
+			}
+		}
+	}
 	
 	## NUMENOREAN ##		
 
@@ -1196,153 +904,6 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 			}
 		}
 	}
-
-	## ARNORIAN (rangers) ##
-	
-	camp_purpose_arnorian_rangers_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = dunedain_low_clothes
-				range = { 0.0 0.49 } # For the randomness to work correctly
-			}
-			accessory = {
-				mode = add
-				gene = cloaks
-                template = dunedain_ranger_cloak
- 				range = { 0 1 }
-			}						
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = arnorian
-                }
-				government_has_flag = government_is_landless_adventurer
-				OR = {
-					has_realm_law = camp_purpose_rangers
-					liege ?= { has_realm_law = camp_purpose_rangers }
-				}
-			}
-		}
-	}
-
-	camp_purpose_arnorian_rangers_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = dunedain_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-			accessory = {
-				mode = add
-				gene = cloaks
-                template = dunedain_ranger_cloak
- 				range = { 0 1 }
-			}						
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 205
-				portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = arnorian
-                }
-				government_has_flag = government_is_landless_adventurer
-				OR = {
-					has_realm_law = camp_purpose_rangers
-					liege ?= { has_realm_law = camp_purpose_rangers }
-				}
-			}
-		}
-	}
-
-	camp_purpose_arnorian_rangers_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = dunedain_high_clothes
-				range = { 0.0 0.49 } # For the randomness to work correctly
-			}
-			accessory = {
-				mode = add
-				gene = cloaks
-                template = dunedain_ranger_cloak
- 				range = { 0 1 }
-			}						
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 210
-				portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = arnorian
-                }
-				government_has_flag = government_is_landless_adventurer
-				OR = {
-					has_realm_law = camp_purpose_rangers
-					liege ?= { has_realm_law = camp_purpose_rangers }
-				}
-			}
-		}
-	}
-	
-	camp_purpose_arnorian_rangers_royalty = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = dunedain_high_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 215
-                portrait_royalty_clothing_trigger = { 
-                    CULTURE_INPUT = arnorian
-                }
-				government_has_flag = government_is_landless_adventurer
-				OR = {
-					has_realm_law = camp_purpose_rangers
-					liege ?= { has_realm_law = camp_purpose_rangers }
-				}
-			}
-			
-		}
-	}
-
-	camp_purpose_arnorian_rangers_imperial = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = dunedain_high_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 220
-                portrait_imperial_clothing_trigger = { 
-                    CULTURE_INPUT = arnorian
-                }
-				government_has_flag = government_is_landless_adventurer
-				OR = {
-					has_realm_law = camp_purpose_rangers
-					liege ?= { has_realm_law = camp_purpose_rangers }
-				}
-			}
-		}
-	}
-
 
 	## DUNEDAIN (rangers) ##
 	
@@ -2517,12 +2078,12 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		}
 	}
 	
-	dorwinion_clothes_common = {
+	bretonnian_clothes_common = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_low_clothes
+				template = bretonnian_low_clothes
 				range = { 0.01 0.49 } # For the randomness to work correctly
 			}
 		}	
@@ -2532,19 +2093,19 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				add = 100
 				OR = {
 					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = dorwinion
+						CULTURE_INPUT = bretonnian
 					}
 				}
 			}
 		}
 	}	
 	
-	dorwinion_clothes_low = {
+	bretonnian_clothes_low = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_low_clothes
+				template = bretonnian_low_clothes
 				range = { 0.51 0.99 } # For the randomness to work correctly
 			}
 		}	
@@ -2554,19 +2115,19 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				add = 100
 				OR = {
 					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = dorwinion
+						CULTURE_INPUT = bretonnian
 					}
 				}
 			}
 		}
 	}
 
-	dorwinion_clothes_high = {
+	bretonnian_clothes_high = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = clothes
-				template = dorwinion_high_clothes
+				template = bretonnian_high_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
 		}		
@@ -2576,7 +2137,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				add = 100
 				OR = {
 					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = dorwinion
+						CULTURE_INPUT = bretonnian
 					}
 				}
 			}
@@ -2678,4809 +2239,13 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 add = 100
 				has_fp1_dlc_trigger = yes
                 portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = gwathiurim
+                    CULTURE_INPUT = western
                 }
-            }
-        }
-    }
-
-    dunlending_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = dunlending_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				has_fp1_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = gwathiurim
-                }
-            }
-        }
-    }
-
-    dunlending_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = dunlending_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-				has_fp1_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = gwathiurim
-                } 
-            }
-        }
-    }
-	
-    daen_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = daen_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 105
-				has_fp1_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = gwathiurim
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_danan_lin					
-					}
-				}								
-            }
-        }
-    }
-
-    daen_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = daen_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-				has_fp1_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = gwathiurim
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_danan_lin					
-					}
-				}								
-            }
-        }
-    }
-
-    daen_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = daen_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 120
-				has_fp1_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = gwathiurim
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_danan_lin					
-					}
-				}								
-            }
-        }
-    }	
-
-	## HALFLING ##
-	halfling_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = halfling_low_clothes
-				range = { 0.01 0.79 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = halfling
-					}
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = halfling
-					}
-				}	
-			}
-		}
-	}
-	
-	halfling_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = halfling_low_clothes
-				range = { 0.01 0.79 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 101
-				portrait_high_nobles_clothing_trigger = {
-                    CULTURE_INPUT = halfling
-                }
-			}
-		}
-	}
-
-	##DRUEDAIN##	
-	honnin_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = uruk_berserker_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_honnin_clothing_trigger = yes
-			}
-		}
-	}	
-
-	##CIRCUMPOLAR##	
-	circumpolar_clothes_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = circumpolar_low_clothes
-				range = { 0.0 0.49 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				has_cp4_dlc_trigger = yes
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = circumpolar
-					}
-				}
-			}
-		}
-	}
-	
-	circumpolar_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = circumpolar_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				has_cp4_dlc_trigger = yes
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = circumpolar
-					}
-				}
-			}
-		}
-	}
-
-	circumpolar_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = circumpolar_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				has_cp4_dlc_trigger = yes
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = circumpolar
-					}
-				}
-			}
-		}
-	}
-
-	angmarrim_clothes_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = angmarrim_low_clothes
-				range = { 0.0 0.49 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				has_dlc = "Garments of the Holy Roman Empire"
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = angmarrim
-					}
-				}
-			}
-		}
-	}
-	
-	angmarrim_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = angmarrim_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				has_dlc = "Garments of the Holy Roman Empire"
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = angmarrim
-					}
-				}
-			}
-		}
-	}
-
-	angmarrim_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = angmarrim_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				has_dlc = "Garments of the Holy Roman Empire"
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = angmarrim
-					}
-				}
-			}
-		}
-	}
-
-    haradrim_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = haradrim_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { mena_commoner_clothes }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
- 				portrait_commoner_no_mayors_trigger = {
-					CULTURE_INPUT = north_haradrim
-				}
-				NOT = {
-					portrait_commoner_no_mayors_trigger = {
-						CULTURE_INPUT = east_haradrim
-					}
-				}				
-            }
-            modifier = {
-				add = -36 # Slightly lower if north african is valid
-				portrait_commoner_no_mayors_trigger = { 
-					CULTURE_INPUT = east_haradrim
-				}
-			}
-            modifier = {
-                add = 100
-				OR = {
-					portrait_mayor_trigger = {
-						CULTURE_INPUT = south_haradrim
-					}
-					portrait_commoner_no_mayors_trigger = {
-						CULTURE_INPUT = south_haradrim
-					}
-					portrait_low_nobles_clothing_trigger = { 
-						CULTURE_INPUT = south_haradrim
-					}
-					portrait_high_nobles_clothing_trigger = { 
-						CULTURE_INPUT = south_haradrim
-					}					
-				}
-				OR = {
-					scope:culture = culture:fariyin
-					scope:culture = culture:tandi					
-				}	
-            }			
-        }
-    }
-
-    haradrim_clothes_mayors = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = haradrim_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-				OR = {
-					portrait_mayor_trigger = {
-						CULTURE_INPUT = north_haradrim
-					}
-				}
-				NOT = {
-					portrait_mayor_trigger = {
-						CULTURE_INPUT = east_haradrim
-					}
-				}						
-            }
-            modifier = {
-				add = -36 # Slightly lower if north african is valid
-				portrait_mayor_trigger = { 
-					CULTURE_INPUT = afr_berber
-				}
-			}
-        }
-    }
-
-    haradrim_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = haradrim_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
- 				OR = {
-					portrait_low_nobles_clothing_trigger = { 
-						CULTURE_INPUT = north_haradrim
-					}
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = east_haradrim
-					}
-				}					
-            }
-            modifier = {
-				add = -36 # Slightly lower if north african is valid
-				portrait_mayor_trigger = { 
-					CULTURE_INPUT = afr_berber
-				}
-			}
-        }
-    }
-
-    haradrim_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = haradrim_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-				OR = {
-					portrait_high_nobles_clothing_trigger = { 
-						CULTURE_INPUT = north_haradrim
-					}
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = east_haradrim
-					}
-				}							
-            }
-            modifier = {
-				add = -36 # Slightly lower if north african is valid
-				portrait_mayor_trigger = { 
-					CULTURE_INPUT = afr_berber
-				}
-			}
-        }
-    }
-
-    east_haradrim_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_haradrim_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				has_dlc = "Fashion of the Abbasid Court"	
-				OR = {
-					portrait_commoner_no_mayors_trigger = {
-						CULTURE_INPUT = east_haradrim
-					}
-				}	
-            }
-        }
-    }
-	
-    east_haradrim_clothes_mayors = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_haradrim_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				has_dlc = "Fashion of the Abbasid Court"
-				OR = {
-					portrait_mayor_trigger = {
-						CULTURE_INPUT = east_haradrim
-					}
-				}			
-            }
-        }
-    }	
-
-    east_haradrim_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_haradrim_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				has_dlc = "Fashion of the Abbasid Court"
-				OR = {  
-					portrait_low_nobles_clothing_trigger = { 
-						CULTURE_INPUT = east_haradrim
-					}
-   				}	
-            }
-        }
-    }
-
-    east_haradrim_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_haradrim_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				has_dlc = "Fashion of the Abbasid Court"
-				OR = {  
-					portrait_high_nobles_clothing_trigger = { 
-						CULTURE_INPUT = east_haradrim
-					}
-   				}	
-            }
-        }
-    }
-
-	## RAYAN ##
-
-    gai_clothing = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = gai_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-				OR = { 
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = rayan
-					}
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = rayan						
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = rayan						
-					}					
-				}
-				OR = {
-					scope:culture = culture:gai
-					scope:culture = culture:elinse					
-				}									
-            }
-        }		
-    }
-
-    rayan_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = rayan_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = rayan
-                }
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 75
-				OR = { 
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = rayan
-					}
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = rayan						
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = rayan						
-					}					
-				}	
-				culture = {
-					OR = {
-						has_cultural_pillar = ethos_bellicose
-					}
-				}				
-            }
-        }		
-    }
-
-    rayan_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = rayan_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = rayan
-                }
-            }
-        }
-    }
-
-    rayan_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = rayan_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = rayan
-                }
-            }
-        }
-    }
-	
-	## NAFARATI  ##
-	
-    nafarati_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = nafarati_low_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = nafarati
-				}
-            }
-        }
-    }
-	
-    nafarati_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = nafarati_low_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-             modifier = {
-                add = 100
-				portrait_low_nobles_clothing_trigger = { 
-					CULTURE_INPUT = nafarati
-				}
-            }
-        }
-    }
-	
-    nafarati_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = nafarati_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { sub_saharan_high_nobility_clothes }     
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-				portrait_high_nobles_clothing_trigger = { 
-					CULTURE_INPUT = nafarati
-				}
-            }
-        }
-    }	
-	
-	## MUMAKANI  ##
-	
-    mumakani_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = mumakani_low_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = mumakani
-				}
-            }
-        }
-    }
-	
-    mumakani_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = mumakani_low_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-             modifier = {
-                add = 101
-				portrait_low_nobles_clothing_trigger = { 
-					CULTURE_INPUT = mumakani
-				}
-            }
-        }
-    }
-	
-    mumakani_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = mumakani_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { sub_saharan_high_nobility_clothes }     
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				portrait_high_nobles_clothing_trigger = { 
-					CULTURE_INPUT = mumakani
-				}
-            }
-        }
-    }
-	
-	## KIRANI  ##
-	
-	kirani_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = kirani_low_clothes
-                range = { 0.51 0.74 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 105
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = kirani
-				}
-            }
-        }
-    }
-	
-    kirani_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = kirani_low_clothes
-                range = { 0.76 0.99 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-             modifier = {
-                add = 110
-				portrait_low_nobles_clothing_trigger = { 
-					CULTURE_INPUT = kirani
-				}
-            }
-        }
-    }
-	
-    kirani_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = kirani_high_clothes
-                range = { 0.51 0.99 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { sub_saharan_high_nobility_clothes }     
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-				portrait_high_nobles_clothing_trigger = { 
-					CULTURE_INPUT = kirani
-				}
-            }
-        }
-    }
-	
-	usakani_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = kirani_low_clothes
-                range = { 0.01 0.24 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 120
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = kirani
-				}
-				OR = {
-					scope:culture = culture:usakani
-				}					
-            }
-        }
-    }
-	
-    usakani_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = kirani_low_clothes
-                range = { 0.25 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-             modifier = {
-                add = 125
-				portrait_low_nobles_clothing_trigger = { 
-					CULTURE_INPUT = kirani
-				}
-				OR = {
-					scope:culture = culture:usakani
-				}					
-            }
-        }
-    }
-	
-    usakani_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = kirani_high_clothes
-                range = { 0.01 0.49 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { sub_saharan_high_nobility_clothes }     
-        weight = {
-            base = 0
-            modifier = {
-                add = 130
-				portrait_high_nobles_clothing_trigger = { 
-					CULTURE_INPUT = kirani
-				}
-				OR = {
-					scope:culture = culture:usakani
-				}				
-            }
-        }
-    }	
-
-	## SHAYN  ##	
-	
-    lynerian_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = lynerian_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = shayn
-				}
-            }
-        }
-    }
-	
-    lynerian_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = lynerian_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-             modifier = {
-                add = 110
-				portrait_low_nobles_clothing_trigger = { 
-					CULTURE_INPUT = shayn
-				}
-            }
-        }
-    }
-	
-    lynerian_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = lynerian_high_clothes
-                range = { 0.01 0.49 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { sub_saharan_high_nobility_clothes }     
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-				portrait_high_nobles_clothing_trigger = { 
-					CULTURE_INPUT = shayn
-				}
-            }
-        }
-    }
-
-	drenim_base = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = shayn_low_clothes
-				range = { 0.01 0.09 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 150
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = shayn
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = shayn
-                    }
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}
-				}
-				OR = {
-					scope:culture = culture:drenim
-				}
-			}	
-		}	
-	}
-	
-	danak_base = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = shayn_low_clothes
-				range = { 0.11 0.24 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 150
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = shayn
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = shayn
-                    }
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}
-				}
-				OR = {
-					scope:culture = culture:danak						
-				}
-			}	
-		}	
-	}	
-
-	shayn_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = shayn_low_clothes
-				range = { 0.26 0.49 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 125
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = shayn
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = shayn
-                    }
-				}
-				OR = {
-					scope:culture = culture:sekak
-					scope:culture = culture:ahava
-					scope:culture = culture:ganim
-				}
-			}	
-		}	
-	}
-	
-	sekak_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = shayn_low_clothes
-				range = { 0.26 0.49 } # For the randomness to work correctly
-			}			
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_low_nobles_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}				
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}
-				}
-				OR = {
-					scope:culture = culture:sekak
-				}
-			}	
-		}	
-	}
-	
-	ganim_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = shayn_low_clothes
-				range = { 0.26 0.49 } # For the randomness to work correctly
-			}					
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_low_nobles_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}
-				}
-				OR = {
-					scope:culture = culture:ganim
-				}
-			}	
-		}	
-	}
-
-	
-	ganim_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = shayn_low_clothes
-				range = { 0.26 0.49 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 201
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}
-				}
-				OR = {
-					scope:culture = culture:ganim
-				}
-			}	
-		}	
-	}
-	
-	ahava_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = shayn_low_clothes
-				range = { 0.26 0.49 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 201
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}
-				}
-				OR = {
-					scope:culture = culture:ahava
-				}
-			}	
-		}	
-	}
-
-	ambason_base = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = ambason_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 155
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}				
-				}
-				OR = {
-					scope:culture = culture:ambason
-				}
-			}	
-		}	
-	}
-
-	ambason_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = ambason_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}				
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 165
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-				}
-				OR = {
-					scope:culture = culture:ambason
-				}
-			}	
-		}	
-	}		
-
-	sengani_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = shayn_low_clothes
-				range = { 0.51 0.74 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 250
-				OR = {
-					scope:culture = culture:sengani
-				}				
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_commoner_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}						
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = shayn
-					}
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = shayn
-                    }
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = shayn
-					}
-				}
-			}	
-		}	
-	}
-
-	hathorim_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = hathorim_low_clothes
-                range = { 0.01 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 155
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = kirani
-				}
-				OR = {
-					scope:culture = culture:hathorim
-				}				
-            }
-        }
-    }
-	
-    hathorim_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = hathorim_low_clothes
-                range = { 0.51 0.99 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-             modifier = {
-                add = 160
-				OR = {
-					portrait_low_nobles_clothing_trigger = { 
-						CULTURE_INPUT = kirani
-					}	
-					portrait_high_nobles_clothing_trigger = { 
-						CULTURE_INPUT = kirani					
-					}
-				}	
-				OR = {
-					scope:culture = culture:hathorim
-				}					
-            }
-        }
-    }	
-
-    ## MAG ##
-
-	mag_clothes_common = {#Pay DLC
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = mag_low_clothes
-				range = { 0.0 0.49 } # For the randomness to work correctly
-			}
-		}
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_afr_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = afr_berber
-                }
-            }
-        }
-	}
-
-	mag_clothes_low = {#Pay DLC
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = mag_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_afr_dlc_trigger = yes
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = afr_berber
-					}
-					portrait_mayor_trigger = {
-						CULTURE_INPUT = afr_berber
-					}
-				}
-            }
-        }
-	}
-
-	mag_clothes_high = {#Pay DLC
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = mag_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_afr_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = afr_berber
-                } 
-            }
-        }
-	}
-
-    pel_clothes_common = {#Pay DLC
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = pel_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_fp2_dlc_trigger = yes 
-                OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = pel
-					}
-					portrait_mayor_trigger = {
-						CULTURE_INPUT = pel
-					}
-					portrait_commoner_no_mayors_trigger = {
-						CULTURE_INPUT = pel
-					}
-                }
-            }
-        }
-
-    }
-
-    pel_clothes_low = {#Pay DLC
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = pel_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_fp2_dlc_trigger = yes  
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = pel
-                } 
-            }
-        }
-    }
-
-    pel_clothes_high = {#Pay DLC
-        dna_modifiers = {
-           accessory = {
-                mode = add
-                gene = clothes
-                template = pel_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_fp2_dlc_trigger = yes  
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = pel
-                } 
-            }
-        }
-    }
-
-    estalian_clothes_common = {#Pay DLC
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = estalian_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_fp2_dlc_trigger = yes  
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = estalian
-					}
-					portrait_mayor_trigger = {
-						CULTURE_INPUT = estalian
-					}
-					portrait_commoner_no_mayors_trigger = {
-						CULTURE_INPUT = estalian
-					}
-				}	
-            }
-        }
-    }
-
-
-
-    estalian_clothes_low = {#Pay DLC
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = estalian_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_fp2_dlc_trigger = yes  
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = estalian
-                }   
-            }
-        }
-    }
-
-    estalian_clothes_high = {#Pay DLC
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = estalian_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
+            }  
             modifier = {
-                add = 100
-                has_fp2_dlc_trigger = yes  
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = estalian
-                } 
-            }
+                factor = 0       
+                has_ep2_dlc_trigger = yes   
+            }     
         }
     }
-
-	variag_clothes_common = {#Pay DLC
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = variag_low_clothes
-				range = { 0.0 0.49 } # For the randomness to work correctly
-			}
-		}   
-		weight = {
-			base = 0
-			modifier = {
-				add = 100 # Slightly higher
-                has_fp3_dlc_trigger = yes
-				OR = {
-					portrait_commoner_clothing_trigger = { 
-						CULTURE_INPUT = variag
-					}
-				}
-			}
-		}
-	}
-
-	variag_clothes_low = {#Pay DLC
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = variag_low_clothes
-				range = { 0.50 1.0 } # For the randomness to work correctly
-			}
-		}   
-		weight = {
-			base = 0
-			modifier = {
-				add = 100 # Slightly higher
-                has_fp3_dlc_trigger = yes
-				OR = {
-					portrait_low_nobles_clothing_trigger = { 
-						CULTURE_INPUT = variag
-					}
-				}
-			}
-		}
-	}
-
-	variag_clothes_high = {#Pay DLC
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = variag_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}       
-		weight = {
-			base = 0
-			modifier = {
-				add = 100 # Slightly higher
-                has_fp3_dlc_trigger = yes
-				portrait_high_nobles_clothing_trigger = { 
-					CULTURE_INPUT = variag
-				} 
-			}
-		}
-	}
-
-    nurniag_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = nurniag_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-                has_fp3_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = variag
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_ioriag
-						has_cultural_pillar = ethos_bureaucratic
-					}
-				}				
-            }
-        }
-    }
-
-    nurniag_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = nurniag_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-                has_fp3_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = variag
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_ioriag
-						has_cultural_pillar = ethos_bureaucratic
-					}
-				}
-            }
-        }
-    }
-
-    nurniag_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = nurniag_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-                has_fp3_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = variag
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_ioriag
-						has_cultural_pillar = ethos_bureaucratic
-					}
-				}
-            }
-        }
-    }
-
-	## Steppe ##
-
-    ioriag_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ioriag_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = rhunnic
-				}
-            }
-        }
-    }
-
-    ioriag_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ioriag_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-				portrait_low_nobles_clothing_trigger = {
-					CULTURE_INPUT = rhunnic
-				}
-            }
-        }
-    }
-
-    ioriag_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ioriag_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-				portrait_high_nobles_clothing_trigger = {
-					CULTURE_INPUT = rhunnic
-				}
-            }
-        }
-    }
-	
-	igath_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = igath_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = rhunnic
-				}
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_igath
-					}
-				}
-				has_pol_dlc_trigger = yes			
-            }
-        }
-    }
-
-    igath_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = igath_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				portrait_low_nobles_clothing_trigger = {
-					CULTURE_INPUT = rhunnic
-				}
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_igath
-					}
-				}
-				has_pol_dlc_trigger = yes							
-            }
-        }
-    }
-
-    igath_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = igath_high_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-				portrait_high_nobles_clothing_trigger = {
-					CULTURE_INPUT = rhunnic
-				}
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_igath
-					}
-				}
-				has_pol_dlc_trigger = yes							
-            }
-        }
-    }
-	
-	igath_clothes_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = igath_high_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-        }       
-		weight = {
-            base = 0
-            modifier = {
-                add = 110
-                portrait_imperial_trigger = {
-                    CULTURE_INPUT = rhunnic
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_igath
-					}
-				}
-				has_pol_dlc_trigger = yes							
-            }
-            modifier = {
-                add = 101
-                portrait_royalty_trigger = {
-                    CULTURE_INPUT = rhunnic
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = heritage_igath
-					}
-				}
-				has_pol_dlc_trigger = yes							
-            }
-        }
-    }
-
-    khyan_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_low_clothes
-                range = { 0.21 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                has_fp3_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = khailuza
-                }
-            }
-        }
-    }
-
-    khyan_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_low_clothes
-                range = { 0.71 0.99 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-                has_fp3_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-            }
-        }
-    }
-
-    khyan_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_high_clothes
-                range = { 0.41 0.99 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-            }
-        }
-    }
-	
-    ashanuri_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_low_clothes
-                range = { 0.01 0.09 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:ashanuri
-            }
-        }
-    }
-
-    ashanuri_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_low_clothes
-                range = { 0.51 0.59 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:ashanuri		
-            }
-        }
-    }
-
-    ashanuri_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_high_clothes
-                range = { 0.01 0.19 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:ashanuri
-            }
-        }
-    }
-
-    clyan_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_low_clothes
-                range = { 0.11 0.19 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:clyan
-            }
-        }
-    }
-	
-    clyan_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_low_clothes
-                range = { 0.11 0.19 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:clyan			
-            }
-        }
-    }
-	
-    clyan_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_low_clothes
-                range = { 0.61 0.69 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:clyan				
-            }
-        }
-    }
-	
-    clyan_clothes_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = khyan_high_clothes
-                range = { 0.21 0.39 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 103
-                has_fp3_dlc_trigger = yes
-                portrait_royalty_clothing_trigger = { 
-					CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:clyan		
-            }
-        }
-    }				
-	
-    bulchyadean_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_low_clothes
-                range = { 0.0 0.19 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:bulchyadean
-            }
-        }
-    }
-	
-    bulchyadean_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_low_clothes
-                range = { 0.41 0.59 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:bulchyadean				
-            }
-        }
-    }
-	
-    bulchyadean_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_high_clothes
-                range = { 0.0 0.19 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:bulchyadean				
-            }
-        }
-    }
-
-    mejhanian_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_low_clothes
-                range = { 0.21 0.39 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:mejhanian
-            }
-        }
-    }
-	
-    mejhanian_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_low_clothes
-                range = { 0.61 0.79 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:mejhanian				
-            }
-        }
-    }
-	
-    mejhanian_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_high_clothes
-                range = { 0.21 0.39 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:mejhanian				
-            }
-        }
-    }	
-	
-    anarikean_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_low_clothes
-                range = { 0.81 0.99 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                has_fp3_dlc_trigger = yes
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:anarikean
-            }
-        }
-    }
-	
-    anarikean_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_low_clothes
-                range = { 0.81 0.99 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 103
-                has_fp3_dlc_trigger = yes
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:anarikean				
-            }
-        }
-    }
-	
-    anarikean_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_high_clothes
-                range = { 0.41 0.79 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 104
-                has_fp3_dlc_trigger = yes
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:anarikean		
-            }
-        }
-    }
-	
-    anarikean_clothes_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = bulchyadean_high_clothes
-                range = { 0.81 0.99 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 105
-                has_fp3_dlc_trigger = yes
-                portrait_royalty_clothing_trigger = { 
-					CULTURE_INPUT = khailuza
-                }
-				scope:culture = culture:anarikean		
-            }
-        }
-    }			
-
-    vulmaw_clothes_common = {#
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = vulmaw_low_clothes
-                range = { 0.0 0.49 } # For the randomness to work correctly
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 20
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = womaw
-                }
-            }
-        }
-    }
-	
-    muranian_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = muranian_low_clothes
-                range = { 0.01 0.49 } # For the randomness to work correctly
-            }
-            accessory = {
-                mode = add
-                gene = special_clothing_accessory
-                template = egyptian_legwear
-                range = { 0.51 0.99 } # For the randomness to work correctly
-            }						
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = muranian
-                }
-            }
-        }
-    }
-
-    muranian_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = muranian_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-            morph = {
-                mode = add
-                gene = cosmetics_eyeliner
-                template = egyptian_eyeliner
-                range = { 0 1 } # For the randomness to work correctly
-            }
-            morph = {
-                mode = add
-                gene = cosmetics_lipcolor
-                template = egyptian_lipcolor
-                range = { 0 1 } # For the randomness to work correctly
-            }					
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = muranian
-                }
-            }
-        }
-    }
-
-    muranian_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = muranian_high_clothes
-                range = { 0.01 0.50 } # For the randomness to work correctly
-            }
-            morph = {
-                mode = add
-                gene = cosmetics_eyeliner
-                template = egyptian_eyeliner
-                range = { 0 1 } # For the randomness to work correctly
-            }
-            morph = {
-                mode = add
-                gene = cosmetics_lipcolor
-                template = egyptian_lipcolor
-                range = { 0 1 } # For the randomness to work correctly
-            }			
-            morph = {
-                mode = add
-                gene = cosmetics_eyeshadow
-                template = egyptian_eyeshadow
-                range = { 0 1 } # For the randomness to work correctly
-            }						
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 102
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = muranian
-                }
-            }
-        }
-    }
-	
-    muranian_clothes_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = muranian_high_clothes
-                range = { 0.51 0.99 } # For the randomness to work correctly
-            }
-            morph = {
-                mode = add
-                gene = cosmetics_eyeliner
-                template = egyptian_eyeliner
-                range = { 0 1 } # For the randomness to work correctly
-            }
-            morph = {
-                mode = add
-                gene = cosmetics_lipcolor
-                template = egyptian_lipcolor
-                range = { 0 1 } # For the randomness to work correctly
-            }			
-            morph = {
-                mode = add
-                gene = cosmetics_eyeshadow
-                template = egyptian_eyeshadow
-                range = { 0 1 } # For the randomness to work correctly
-            }						
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 103
-                portrait_royalty_clothing_trigger = { 
-					CULTURE_INPUT = muranian
-                }
-            }
-        }
-    }	
-	
-
-    vulmaw_clothes_low = {#
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = vulmaw_low_clothes
-                range = { 0.50 1.0 } # For the randomness to work correctly
-            }
-            # accessory = {
-            #     mode = add
-            #     gene = special_belt_accessory
-            #     template = katana_01
-            #     range = { 0 1 }
-            # }       
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = womaw
-                }
-            }
-        }
-    }
-
-    vulmaw_clothes_high = {#
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = vulmaw_high_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-            # accessory = {
-            #     mode = add
-            #     gene = special_belt_accessory
-            #     template = katana_01
-            #     range = { 0 1 }
-            # }   
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = womaw
-                } 
-            }
-        }
-    }
-
-	mordor_orc_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = mordor_orc_clothes
-                range = { 0.01 0.49 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-                OR = {
-					portrait_mordor_uruk_clothing_trigger = yes
-                }
-			}
-		}
-	}
-	
-	moria_orc_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = moria_orc_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-                OR = {
-					portrait_moria_orc_clothing_trigger = yes
-                }
-			}
-		}
-	}	
-	
-	dol_guldur_orc_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = mordor_orc_clothes
-                range = { 0.51 0.99 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-                OR = {
-					portrait_dolguldur_orc_clothing_trigger = yes
-                }
-			}
-		}
-	}	
-
-	mountain_orc_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = mountain_orc_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-			accessory = {
-				mode = add	
-				gene = special_clothing_accessory
-				template = uruk_loincloth
-                range = { 0.21 0.59 } # For the randomness to work correctly
-			}			
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_mountain_orc_clothing_trigger = yes
-			}
-		}
-	}
-
-	burgulhai_orc_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = burgulhai_orc_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_burgulhai_clothing_trigger = yes
-			}
-		}
-	}
-
-	uruk_berserker_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = uruk_berserker_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				AND = {
-					has_trait = urukhai_berserker
-					OR = {	
-						portrait_isengard_uruk_clothing_trigger = yes
-					}
-				}
-			}
-		}
-	}
-
-	urukhai_orc_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = isengard_urukhai_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 150
-				portrait_isengard_uruk_clothing_trigger = yes
-			}
-		}
-	}	
-
-	goblin_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = goblin_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_goblin_clothing_trigger = yes
-			}
-		}
-	}
-	
-	southern_orc_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = goblin_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-			accessory = {
-				mode = add	
-				gene = special_clothing_accessory
-				template = uruk_loincloth
-                range = { 0.21 0.99 } # For the randomness to work correctly
-			}
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_southern_orc_clothing_trigger = yes
-			}
-		}
-	}
-	
-	black_troll_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = goblin_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_black_troll_clothing_trigger = yes
-			}
-		}
-	}	
-
-    snow_troll_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = uruk_berserker_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_snow_troll_clothing_trigger = yes
-			}
-		}
-	}	
-
-	## SIRAYNI ##
-		
-    sirayni_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = sirayni_low_clothes
-                range = { 0.41 0.69 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = sirayni
-                }
-            }
-        }
-    }
-
-    sirayni_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = sirayni_low_clothes
-                range = { 0.71 1.0 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = sirayni
-                }
-            }
-        }
-    }
-
-    sirayni_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = sirayni_high_clothes
-                range = { 0.51 1.0 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 125
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = sirayni
-                }
-            }
-        }
-    }
-	
-	chennacatta_base = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = sirayni_low_clothes
-				range = { 0.01 0.19 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 101
-				OR = {
-					portrait_commoner_clothing_trigger = {
-						CULTURE_INPUT = sirayni
-					}
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = sirayni
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = sirayni
-					}
-				}
-				culture = {
-					AND = {
-						has_cultural_pillar = ethos_spiritual
-						has_cultural_pillar = heritage_new_sirayni
-					}
-				}
-			}
-		}	
-	}
-
-    harani_clothes_common = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = sirayni_low_clothes
-                range = { 0.21 0.29 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = sirayni
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = ethos_bureaucratic
-						has_cultural_pillar = heritage_old_sirayni
-					}
-				}				
-            }
-        }
-    }
-
-    harani_clothes_low = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = sirayni_low_clothes
-                range = { 0.31 0.39 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-                portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = sirayni
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = ethos_bureaucratic
-						has_cultural_pillar = heritage_old_sirayni
-					}
-				}							
-            }
-        }
-    }
-
-    harani_clothes_high = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = sirayni_high_clothes
-                range = { 0.01 0.49 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-                portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = sirayni
-                }
-				culture = {
-					AND = {
-						has_cultural_pillar = ethos_bureaucratic
-						has_cultural_pillar = heritage_old_sirayni
-					}
-				}							
-            }
-        }
-    }	
-
-	## Northron - northern_proxy ##
-
-	northern_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = northmen_low_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = northern_proxy
-				}	
-			}
-		}
-	}
-
-	northern_low_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = northmen_low_clothes
-				range = { 0.51 0.99 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 15
-				portrait_low_nobles_clothing_trigger = {
-					CULTURE_INPUT = northern_proxy
-				}
-			}
-		}
-	}
-
-	northern_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = northmen_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 20
-				portrait_high_nobles_clothing_trigger = {
-					CULTURE_INPUT = northern_proxy
-				}	
-			}
-		}
-	}
-	
-	## Western - western_proxy ##
-
-	western_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = elven_low_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = western_proxy
-                }
-			}
-		}
-	}
-
-	western_low_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = elven_low_clothes
-				range = { 0.51 0.99 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 15
-				portrait_low_nobles_clothing_trigger = {
-	                CULTURE_INPUT = western_proxy
-	            }
-			}
-		}
-	}
-
-	western_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = elven_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 20
-                portrait_high_nobles_clothing_trigger = {
-                    CULTURE_INPUT = western_proxy
-                }   
-			}
-		}
-	}
-	
-	## Arnorian Proxy ##
-	
-	arnorian_clothes_common = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = gondorian_low_clothes
-				range = { 0.01 0.39 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 95
-				OR = {
-					has_ce1_dlc_trigger = no
-				}
-				portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = arnorian
-                }
-			}
-		}
-	}
-
-	arnorian_clothes_low = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = gondorian_low_clothes
-				range = { 0.50 0.89 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				OR = {				
-                	has_ep2_dlc_trigger = no
-				}
-				portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = arnorian
-                }
-			}
-		}
-	}
-
-	arnorian_clothes_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = gondorian_high_clothes
-				range = { 0.0 1.0 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 115
-				OR = {				
-					has_ep2_dlc_trigger = no
-				}
-				OR = {
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = arnorian
-					}
-					portrait_royalty_clothing_trigger = { 
-						CULTURE_INPUT = arnorian
-					}
-					portrait_imperial_clothing_trigger = { 
-						CULTURE_INPUT = arnorian
-					}					
-				}				
-			}
-		}
-	}
-
-	## Byzantine - byzantine_proxy ##
-	
-	byzantine_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = numenorean_low_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = byzantine_proxy
-                }
-			}
-		}
-	}
-
-	byzantine_low_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = numenorean_low_clothes
-				range = { 0.51 0.99 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-				portrait_low_nobles_clothing_trigger = {
-	                CULTURE_INPUT = byzantine_proxy
-	            }
-			}
-		}
-	}
-
-	byzantine_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = numenorean_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_high_nobles_clothing_trigger = {
-                    CULTURE_INPUT = byzantine_proxy
-                }   
-			}
-		}
-	}
-
-	## MENA - mena_proxy ##
-
-	mena_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = haradrim_low_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = mena_proxy
-                }
-			}
-		}
-	}
-
-	mena_low_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = haradrim_low_clothes
-				range = { 0.51 0.99 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-				portrait_low_nobles_clothing_trigger = {
-	                CULTURE_INPUT = mena_proxy
-	            }
-			}
-		}
-	}
-
-	mena_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = haradrim_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_high_nobles_clothing_trigger = {
-                    CULTURE_INPUT = mena_proxy
-                }   
-			}
-		}
-	}
-
-	## INDIAN - indian_proxy ##
-
-	indian_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = rayan_low_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = indian_proxy
-                }
-			}
-			# modifier = { #LotR
-			# 	add = 20
-			# 	portrait_commoner_clothing_trigger = {
-			# 		CULTURE_INPUT = southeast_asian
-			# 	}
-			# 	has_tgp_dlc_trigger = no
-			# }
-		}
-		
-	}
-
-	indian_low_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = rayan_low_clothes
-				range = { 0.51 0.99 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-				portrait_low_nobles_clothing_trigger = {
-	                CULTURE_INPUT = indian_proxy
-	            }
-			}
-			# modifier = { #LotR
-			# 	add = 50
-			# 	portrait_low_nobles_clothing_trigger = {
-			# 		CULTURE_INPUT = southeast_asian
-			# 	}
-			# 	has_tgp_dlc_trigger = no
-			# }
-		}
-	}
-
-	indian_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = rayan_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_high_nobles_clothing_trigger = {
-                    CULTURE_INPUT = indian_proxy
-                }   
-			}
-			# modifier = {
-			# 	add = 50
-			# 	portrait_high_nobles_clothing_trigger = {
-			# 		CULTURE_INPUT = southeast_asian
-			# 	}
-			# 	has_tgp_dlc_trigger = no
-			# }
-		}
-	}
-
-	## STEPPE - steppe_proxy ##
-
-	steppe_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = ioriag_low_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = steppe_proxy
-                }
-			}
-			# modifier = { # For Chinese, Japanese and Korean characters for players without AUH
-			# 	add = 20
-			# 	OR = {
-			# 		portrait_commoner_clothing_trigger = {
-			# 			CULTURE_INPUT = chinese
-			# 		}
-			# 		portrait_commoner_clothing_trigger = {
-			# 			CULTURE_INPUT = japanese
-			# 		}
-			# 		portrait_commoner_clothing_trigger = {
-			# 			CULTURE_INPUT = ainu
-			# 		}
-			# 	}
-			# 	has_tgp_dlc_trigger = no
-			# }
-		}
-	}
-
-	steppe_low_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = ioriag_low_clothes
-				range = { 0.51 0.99 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-				portrait_low_nobles_clothing_trigger = {
-	                CULTURE_INPUT = steppe_proxy
-	            }
-			}
-			# modifier = { # For Ainu characters for players without AUH
-			# 	add = 20
-			# 	OR = {
-			# 		portrait_low_nobles_clothing_trigger = {
-			# 			CULTURE_INPUT = ainu
-			# 		}
-			# 		portrait_high_nobles_clothing_trigger = {
-			# 			CULTURE_INPUT = ainu
-			# 		}
-			# 	}
-			# 	has_tgp_dlc_trigger = no
-			# }
-		}
-	}
-
-	steppe_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = ioriag_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_high_nobles_clothing_trigger = {
-                    CULTURE_INPUT = steppe_proxy
-                }   
-			}
-		}
-	}
-
-	## African - african_proxy ##
-
-	african_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = mumakani_low_clothes
-				range = { 0.01 0.49 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = african_proxy
-                }
-			}
-		}
-	}
-
-	african_low_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = mumakani_low_clothes
-				range = { 0.51 0.99 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-				portrait_low_nobles_clothing_trigger = {
-	                CULTURE_INPUT = african_proxy
-	            }
-			}
-		}
-	}
-
-	african_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = mumakani_high_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 10
-                portrait_high_nobles_clothing_trigger = {
-                    CULTURE_INPUT = african_proxy
-                }   
-			}
-		}
-	}
-
-	## TGP - Chinese ##
-
-	# chinese_commoner_clothes = { #LotR
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_commoner_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_commoner_clothing_trigger = {
-	# 				CULTURE_INPUT = chinese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# chinese_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_era1_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		court_fashion_level_4_modifier = { INPUT_PARAMETER = chinese }
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_low_nobles_clothing_trigger = {
-	# 				CULTURE_INPUT = chinese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# chinese_nobility_clothes_no_dlc = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_era1_nobility_clothes
-	# 			range = { 0 0.1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		court_fashion_level_4_modifier = { INPUT_PARAMETER = chinese }
-	# 		modifier = {
-	# 			add = 100
-	# 			OR = {
-	# 				portrait_low_nobles_clothing_trigger = {
-	# 					CULTURE_INPUT = chinese
-	# 				}
-	# 				portrait_high_nobles_clothing_trigger = {
-	# 					CULTURE_INPUT = chinese
-	# 				}
-	# 				portrait_low_nobles_clothing_trigger = {
-	# 					CULTURE_INPUT = japanese
-	# 				}
-	# 				portrait_high_nobles_clothing_trigger = {
-	# 					CULTURE_INPUT = japanese
-	# 				}
-	# 			}
-	# 			has_tgp_dlc_trigger = no
-	# 		}
-	# 	}
-	# }
-
-	# chinese_high_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_high_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		court_fashion_level_5_modifier = { INPUT_PARAMETER = chinese }
-	# 		modifier = {
-	# 			add = 100
-	# 			is_merit_based_official = no
-	# 			portrait_high_nobles_trigger = {
-	# 				CULTURE_INPUT = chinese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-	
-	# chinese_merit_rank_lower_blue_tang = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_nob_01_m2
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	#			is_merit_based_official = yes
-	#			OR = {
-	#				liege.culture = {
-	#					has_clothing_gfx = chinese_clothing_gfx
-	#					NOT = { has_clothing_gfx = korean_clothing_gfx }
-	#				}
-	#				culture = {
-	#					has_clothing_gfx = chinese_clothing_gfx
-	#					NOT = { has_clothing_gfx = korean_clothing_gfx }
-	#				}
-	#			}
-	#			has_tgp_dlc_trigger = yes
-	#			OR = {
-	#				merit_level = 4
-	#				merit_level = 3
-	#			}
-	#			NOT = { exists = global_var:chinese_fashion_change }
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_mid_green_tang = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_nob_01_m3
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			is_merit_based_official = yes
-				# OR = {
-				# 	liege.culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# 	culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# }
-				# has_tgp_dlc_trigger = yes
-				# OR = {
-				# 	merit_level = 4
-				# 	merit_level = 3
-				# }
-				# NOT = { exists = global_var:chinese_fashion_change }
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_upper_red_tang = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_nob_01_m4
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-				# add = 100
-				# is_merit_based_official = yes
-				# OR = {
-				# 	liege.culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# 	culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# }
-				# has_tgp_dlc_trigger = yes
-				# OR = {
-				# 	merit_level = 6
-				# 	merit_level = 5
-				# }
-				# NOT = { exists = global_var:chinese_fashion_change }
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_top_purple_tang = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_nob_01_m5
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			is_merit_based_official = yes
-				# OR = {
-				# 	liege.culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# 	culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# }
-				# has_tgp_dlc_trigger = yes
-				# merit_level >= 7
-				# NOT = { exists = global_var:chinese_fashion_change }
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_lower_blue_song = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_roy_01_m2
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			is_merit_based_official = yes
-				# OR = {
-				# 	liege.culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# 	culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# }
-				# has_tgp_dlc_trigger = yes
-				# merit_level <= 2
-				# exists = global_var:chinese_fashion_change
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_mid_green_song = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_roy_01_m3
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			is_merit_based_official = yes
-				# OR = {
-				# 	liege.culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# 	culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# }
-				# has_tgp_dlc_trigger = yes
-				# OR = {
-				# 	merit_level = 4
-				# 	merit_level = 3
-				# }
-				# exists = global_var:chinese_fashion_change
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_upper_red_song = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_roy_01_m4
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			is_merit_based_official = yes
-	#			OR = {
-	#				liege.culture = {
-	#					has_clothing_gfx = chinese_clothing_gfx
-	#					NOT = { has_clothing_gfx = korean_clothing_gfx }
-	#				}
-	#				culture = {
-	#					has_clothing_gfx = chinese_clothing_gfx
-	#					NOT = { has_clothing_gfx = korean_clothing_gfx }
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 			OR = {
-	# 				merit_level = 6
-	# 				merit_level = 5
-	# 			}
-	# 			exists = global_var:chinese_fashion_change
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_top_purple_song = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_roy_01_m5
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			is_merit_based_official = yes
-				# OR = {
-				# 	liege.culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# 	culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# }
-	# 			has_tgp_dlc_trigger = yes
-	# 			merit_level >= 7
-	# 			exists = global_var:chinese_fashion_change
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_lower_blue_ming = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_nob_02_m2
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 200
-	# 			is_merit_based_official = yes
-				# OR = {
-				# 	liege.culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# 	culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# }
-	# 			has_tgp_dlc_trigger = yes
-	# 			merit_level <= 2
-	# 			culture = {
-	# 				has_cultural_era_or_later = culture_era_late_medieval
-	# 			}
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_mid_green_ming = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_nob_02_m3
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 200
-	# 			is_merit_based_official = yes
-				# OR = {
-				# 	liege.culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# 	culture = {
-				# 		has_clothing_gfx = chinese_clothing_gfx
-				# 		NOT = { has_clothing_gfx = korean_clothing_gfx }
-				# 	}
-				# }
-	# 			has_tgp_dlc_trigger = yes
-	# 			OR = {
-	# 				merit_level = 4
-	# 				merit_level = 3
-	# 			}
-	# 			culture = {
-	# 				has_cultural_era_or_later = culture_era_late_medieval
-	# 			}
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_upper_red_ming = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_nob_02_m4
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 200
-	# 			is_merit_based_official = yes
-	#			OR = {
-	#				liege.culture = {
-	#					has_clothing_gfx = chinese_clothing_gfx
-	#					NOT = { has_clothing_gfx = korean_clothing_gfx }
-	#				}
-	#				culture = {
-	#					has_clothing_gfx = chinese_clothing_gfx
-	#					NOT = { has_clothing_gfx = korean_clothing_gfx }
-	#				}
-	#			}
-	# 			has_tgp_dlc_trigger = yes
-	# 			OR = {
-	# 				merit_level = 6
-	# 				merit_level = 5
-	# 			}
-	# 			culture = {
-	# 				has_cultural_era_or_later = culture_era_late_medieval
-	# 			}
-	# 		}
-	# 	}
-	# }
-
-	# chinese_merit_rank_top_purple_ming = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_ministers
-	# 			accessory = m_clothes_sec_tgp_chinese_nob_02_m5
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 200
-	# 			is_merit_based_official = yes
-	#			OR = {
-	#				liege.culture = {
-	#					has_clothing_gfx = chinese_clothing_gfx
-	#					NOT = { has_clothing_gfx = korean_clothing_gfx }
-	#				}
-	#				culture = {
-	#					has_clothing_gfx = chinese_clothing_gfx
-	#					NOT = { has_clothing_gfx = korean_clothing_gfx }
-	#				}
-	#			}
-	#			has_tgp_dlc_trigger = yes
-	#			merit_level >= 7
-	#			culture = {
-	#				has_cultural_era_or_later = culture_era_late_medieval
-	#			}
-	# 			has_tgp_dlc_trigger = yes
-	# 			merit_level >= 7
-	# 			culture = {
-	# 				has_cultural_era_or_later = culture_era_late_medieval
-	# 			}
-	# 		}
-	# 	}
-	# }
-
-	# chinese_royalty_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_royalty_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 90
-	# 			is_independent_ruler = no
-	# 			portrait_royalty_trigger = {
-	# 				CULTURE_INPUT = chinese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# chinese_imperial_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_imperial_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 95
-	# 			portrait_imperial_nobles_headgear_trigger = {
-	# 				CULTURE_INPUT = chinese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-	
-	# chinese_imperial_clothes_tang = { # Intentionally included as free content
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_imperial_clothes
-	# 			accessory = m_clothes_sec_tgp_chinese_imp_02
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 120
-	# 			primary_title ?= title:h_china
-	# 			NOT = { exists = global_var:chinese_fashion_change }
-	# 		}
-	# 		modifier = {
-	# 			add = 120
-	# 			primary_title ?= title:h_china
-	# 			has_tgp_dlc_trigger = no
-	# 		}
-	# 	}
-	# }
-
-	# chinese_imperial_clothes_song = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_chinese_imperial_clothes
-	# 			accessory = m_clothes_sec_tgp_chinese_imp_01
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 120
-	# 			primary_title ?= title:h_china
-	# 			has_tgp_dlc_trigger = yes
-	# 			exists = global_var:chinese_fashion_change
-	# 		}
-	# 	}
-	# }
-
-	# ## TGP - Japanese ##
-
-	# japanese_commoner_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_japanese_commoner_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_commoner_clothing_trigger = {
-	# 				CULTURE_INPUT = japanese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# japanese_low_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_japanese_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_low_nobles_trigger = {
-	# 				CULTURE_INPUT = japanese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# japanese_high_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_japanese_high_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_high_nobles_trigger = {
-	# 				CULTURE_INPUT = japanese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# japanese_royalty_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_japanese_royalty_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_royalty_trigger = {
-	# 				CULTURE_INPUT = japanese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 		modifier = {
-	# 			add = 151
-	# 			government_is_japanese_trigger = yes
-	# 			tgp_is_ceremonial_regent_trigger = yes # Not 'actual' ruler
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# japanese_imperial_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_japanese_imperial_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_imperial_trigger = {
-	# 				CULTURE_INPUT = japanese
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 		modifier = {
-	# 			add = 1000
-	# 			has_title = title:k_chrysanthemum_throne
-	# 			portrait_imperial_nobles_headgear_trigger = {
-	# 				CULTURE_INPUT = japanese
-	# 			}
-	# 		}
-	# 	}
-	# }
-
-	# ## TGP - Korean ##
-
-	# korean_commoner_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_korean_commoner_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_commoner_clothing_trigger = {
-	# 				CULTURE_INPUT = korean
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# korean_low_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_korean_era1_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_low_nobles_trigger = {
-	# 				CULTURE_INPUT = korean
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# korean_high_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_korean_high_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_high_nobles_trigger = {
-	# 				CULTURE_INPUT = korean
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# korean_imperial_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_korean_imperial_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_imperial_trigger = {
-	# 				CULTURE_INPUT = korean
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# ## TGP - Khmer ##
-
-	# khmer_commoner_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_southeast_commoner_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_commoner_clothing_trigger = {
-	# 				CULTURE_INPUT = southeast_asian
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# khmer_low_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_southeast_low_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_low_nobles_trigger = {
-	# 				CULTURE_INPUT = southeast_asian
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# khmer_high_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_southeast_high_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_high_nobles_trigger = {
-	# 				CULTURE_INPUT = southeast_asian
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# ## TGP - Ainu ##
-
-	# ainu_commoner_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_ainu_commoner_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			portrait_commoner_clothing_trigger = {
-	# 				CULTURE_INPUT = ainu
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	# ainu_nobility_clothes = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = tgp_ainu_low_nobility_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 100
-	# 			OR = {
-	# 				portrait_low_nobles_trigger = {
-	# 					CULTURE_INPUT = ainu
-	# 				}	
-	# 				portrait_high_nobles_trigger = {
-	# 					CULTURE_INPUT = ainu
-	# 				}				
-	# 			}
-	# 			has_tgp_dlc_trigger = yes
-	# 		}
-	# 	}
-	# }
-
-	## WASTELANDS
-	# wastelands_no_clothes = { # Disabling to render characters for events
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = clothes
-	# 			template = wastelands_no_clothes
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = no_headgear
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}			
-	# 	}	
-	# 	weight = {
-	# 		base = 0			
-	# 		modifier = {
-	# 			add = 1000
-	# 			portrait_wastelands_clothing_trigger = yes
-	# 		}
-	# 	}	
-	# }
-
-	## CCP7 EMISHI AINU ##
-
-# 	ccp7_emishi_commoners = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp7_emishi_com_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 100
-# 				portrait_commoner_no_mayors_trigger = {
-# 					CULTURE_INPUT = emishi
-# 				}
-# 				has_cp7_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	ccp7_emishi_low_nobles = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp7_emishi_low_nob_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 100
-# 				OR = {
-# 					portrait_low_nobles_clothing_trigger = {
-# 						CULTURE_INPUT = emishi
-# 					}
-# 					portrait_mayor_trigger = {
-# 						CULTURE_INPUT = emishi
-# 					}
-# 				}
-# 				has_cp7_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	ccp7_emishi_high_nobles = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp7_emishi_hi_nob_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			court_fashion_level_4_modifier = { INPUT_PARAMETER = emishi }
-# 			modifier = {
-# 				add = 100
-# 				portrait_high_nobles_clothing_trigger = {
-# 					CULTURE_INPUT = emishi
-# 				}
-# 				has_cp7_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	ccp7_emishi_royalty = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp7_emishi_roy_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			court_fashion_level_5_modifier = { INPUT_PARAMETER = emishi }
-# 			modifier = {
-# 				add = 100
-# 				portrait_royalty_trigger = {
-# 					CULTURE_INPUT = emishi
-# 				}
-# 				has_cp7_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	## CCP7 NIVKH NANAI ##
-
-# 	ccp7_nivkh_commoners = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp7_nivkh_com_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 110
-# 				portrait_commoner_clothing_trigger = {
-# 					CULTURE_INPUT = nivkh
-# 				}
-# 				has_cp7_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	ccp7_nivkh_nobles = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp7_nivkh_low_nob_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 110
-# 				OR = {
-# 					portrait_low_nobles_clothing_trigger = {
-# 						CULTURE_INPUT = nivkh
-# 					}	
-# 					#portrait_high_nobles_clothing_trigger = {
-# 					#	CULTURE_INPUT = nivkh
-# 					#}				
-# 				}
-# 	#			has_cp7_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# ## CCP9 ##
-
-# 	ccp9_liao_clothes = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp9_lia_nob_01_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 120
-# 				OR = {
-# 					portrait_high_nobles_clothing_trigger = {
-# 						CULTURE_INPUT = khitan
-# 					}
-# 					portrait_royalty_clothing_trigger = {
-# 						CULTURE_INPUT = khitan
-# 					}
-# 					portrait_high_nobles_clothing_trigger = {
-# 						CULTURE_INPUT = jurchen
-# 					}
-# 					portrait_royalty_clothing_trigger = {
-# 						CULTURE_INPUT = jurchen
-# 					}
-# 				}
-# 				has_cp9_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	ccp9_dali_clothes = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp9_dal_nob_01_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 500
-# 				portrait_high_nobles_clothing_trigger = {
-# 					CULTURE_INPUT = dali
-# 				}
-# 				highest_held_title_tier >= tier_kingdom
-# 				has_cp9_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-# 	ccp9_uyghur_nobility_clothes = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp9_uyg_nob_01_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 90
-# 				OR={
-# 					portrait_high_nobles_clothing_trigger = {
-# 						CULTURE_INPUT = uyghur
-# 					}
-# 					portrait_low_nobles_clothing_trigger = {
-# 						CULTURE_INPUT = uyghur
-# 					}
-# 				}
-# 				is_female = yes # Currently we only have female Uyghur clothes, remove this line if we add male ones
-# 				has_cp9_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	ccp9_uyghur_royalty_clothes = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp9_uyg_roy_01_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 120
-# 				portrait_royalty_clothing_trigger = {
-# 					CULTURE_INPUT = uyghur
-# 				}
-# 				is_female = yes # Currently we only have female Uyghur clothes, remove this line if we add male ones
-# 				has_cp9_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	ccp9_tangut_nobility_clothes = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp9_tan_nob_01_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 80
-# 				portrait_high_nobles_clothing_trigger = {
-# 					CULTURE_INPUT = tangut
-# 				}
-# 				has_cp9_dlc_trigger = yes
-# 			}
-# 		}
-# 	}
-
-# 	ccp9_tangut_royalty_clothes = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp9_tan_roy_01_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 130
-# 				OR={
-# 					portrait_high_nobles_clothing_trigger = {
-# 						CULTURE_INPUT = tangut
-# 					}
-# 					portrait_imperial_clothing_trigger = {
-# 						CULTURE_INPUT = tangut
-# 					}
-# 				}
-# 				has_cp9_dlc_trigger = yes
-# 				is_female = yes
-# 			}
-# 			modifier = {
-# 				add = 130
-# 				portrait_high_nobles_clothing_trigger = {
-# 					CULTURE_INPUT = tangut
-# 				}
-# 				has_cp9_dlc_trigger = yes
-# 				highest_held_title_tier < tier_empire
-# 			}
-# 		}
-# 	}
-
-
-# 	ccp9_ming_clothes = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = clothes
-# 				template = ccp9_min_nob_01_clothes
-# 				range = { 0 1 } # For the randomness to work correctly
-# 			}
-# 		}
-# 		weight = {
-# 			base = 0
-# 			modifier = { #For the ming dynasty emperor
-# 				add = 300
-# 				OR = {
-# 					portrait_high_nobles_clothing_trigger = {
-# 						CULTURE_INPUT = chinese
-# 					}
-# 					portrait_royalty_clothing_trigger = {
-# 						CULTURE_INPUT = chinese
-# 					}
-# 				}
-# 				has_cp9_dlc_trigger = yes
-# 				portrait_era4_trigger = yes
-# 				OR = {
-# 					highest_held_title_tier >= tier_kingdom
-# 					is_female = yes
-# 				}
-# 			}
-# 		}
-# 	}
 }

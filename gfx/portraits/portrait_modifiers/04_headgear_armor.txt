@@ -1195,12 +1195,6 @@
                 template = dunedain_war_headgear
  				range = { 0 1 }
 			}			
-			accessory = {
-				mode = add
-				gene = special_headgear_generic_mask_01
-                template = generic_mask
- 				range = { 0 1 }
-			}
 		}
         outfit_tags = { military_outfit ithilien_ranger_war }		
 		weight = {
@@ -1246,12 +1240,6 @@
 				gene = headgear
 				template = caledhrim_war_headgear
 				range = { 0 1 }
-			}
-			accessory = {
-				mode = add
-				gene = special_headgear_generic_mask_01
-                template = generic_mask
- 				range = { 0 1 }
 			}
 		}
 		outfit_tags = { military_outfit caledhrim_war }
@@ -2517,16 +2505,16 @@
 
 	## DORWINION ##
 
-	dorwinion_war_commoners = {
+	bretonnian_war_commoners = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = headgear
-				template = dorwinion_war_headgear
+				template = bretonnian_war_headgear
 				range = { 0.01 0.25 } # For the randomness to work correctly
 			}
 		}
-        outfit_tags = { military_outfit dorwinion_war_commoners }		
+        outfit_tags = { military_outfit bretonnian_war_commoners }		
 		weight = {
 			base = 0
 			modifier = {
@@ -2539,23 +2527,23 @@
 				portrait_wear_helmet_trigger = yes				
                 OR = {
                     portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }				
 			}
 		}
 	}
 
-	dorwinion_war_low_nobility = {
+	bretonnian_war_low_nobility = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = headgear
-				template = dorwinion_war_headgear
+				template = bretonnian_war_headgear
 				range = { 0.26 0.50 } # For the randomness to work correctly
 			}
 		}
-        outfit_tags = { military_outfit dorwinion_war_low }		
+        outfit_tags = { military_outfit bretonnian_war_low }		
 		weight = {
 			base = 0
 			modifier = {
@@ -2568,23 +2556,23 @@
 				portrait_wear_helmet_trigger = yes				
                 OR = {
                     portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
 			}
 		}
 	}
 	
-	dorwinion_war_high_nobility = {
+	bretonnian_war_high_nobility = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = headgear
-				template = dorwinion_war_headgear
+				template = bretonnian_war_headgear
 				range = { 0.51 0.75 } # For the randomness to work correctly
 			}
 		}
-        outfit_tags = { military_outfit dorwinion_war_high }		
+        outfit_tags = { military_outfit bretonnian_war_high }		
 		weight = {
 			base = 0
 			modifier = {
@@ -2596,23 +2584,23 @@
 				portrait_wear_helmet_trigger = yes				
                 OR = {
                     portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
 			}
 		}
 	}
 	
-	dorwinion_war_royalty = {
+	bretonnian_war_royalty = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = headgear
-				template = dorwinion_war_headgear
+				template = bretonnian_war_headgear
 				range = { 0.76 1.0 } # For the randomness to work correctly
 			}
 		}
-        outfit_tags = { military_outfit dorwinion_war_royalty }		
+        outfit_tags = { military_outfit bretonnian_war_royalty }		
 		weight = {
 			base = 0
 			modifier = {
@@ -2621,7 +2609,7 @@
 				portrait_wear_helmet_trigger = yes				
                 OR = {
                     portrait_royalty_armor_trigger = {
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }					
                 }
 			}
@@ -3873,13 +3861,7 @@
 	#			gene = headgear
 	#			template = ioriag_war_headgear
 	#			range = { 0.01 0.24 } # For the randomness to work correctly
-	#		}
-	#		accessory = {
-	#			mode = add
-	#			gene = special_headgear_generic_mask_01
-	#			template = generic_mask
-	#			range = { 0 1 } # For the randomness to work correctly
-	#		}			
+	#		}		
 	#	}
     #    outfit_tags = { military_outfit ioriag_mercenary }		
 	#	weight = {
@@ -3906,12 +3888,6 @@
 				gene = headgear
 				template = ioriag_war_headgear
 				range = { 0.01 0.24 } # For the randomness to work correctly
-			}
-			accessory = {
-				mode = add
-				gene = special_headgear_generic_mask_01
-				template = generic_mask
-				range = { 0 1 } # For the randomness to work correctly
 			}					
 		}
         outfit_tags = { military_outfit ioriag_war_commoners }		
@@ -3956,13 +3932,7 @@
 				gene = headgear
 				template = ioriag_war_headgear
 				range = { 0.26 0.74 } # For the randomness to work correctly
-			}
-			accessory = {
-				mode = add
-				gene = special_headgear_generic_mask_01
-				template = generic_mask
-				range = { 0 1 } # For the randomness to work correctly
-			}					
+			}				
 		}
         outfit_tags = { military_outfit ioriag_war_nobility }		
 		weight = {

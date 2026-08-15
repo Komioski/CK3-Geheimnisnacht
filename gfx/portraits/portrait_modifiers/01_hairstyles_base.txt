@@ -35,6 +35,11 @@ hairstyles = {
                 exists = this
                 has_nickname = nick_the_actually_bald
             }
+             modifier = {
+                add = 2000
+                exists = this
+                has_trait = nurglepox
+            }
         }
     }
 
@@ -803,12 +808,12 @@ hairstyles = {
 
 	## Dorwinion ##
 
-    dorwinion_straight = {
+    bretonnian_straight = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = hairstyles
-                template = dorwinion_hairstyles_straight
+                template = bretonnian_hairstyles_straight
                 range = { 0 1 } # For the randomness to work correctly
             }
         }   
@@ -838,12 +843,12 @@ hairstyles = {
         }
     }
 
-    dorwinion_wavy = {
+    bretonnian_wavy = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = hairstyles
-                template = dorwinion_hairstyles_wavy
+                template = bretonnian_hairstyles_wavy
                 range = { 0 1 } # For the randomness to work correctly
             }
         }   
@@ -867,12 +872,12 @@ hairstyles = {
         }
     }
 	
-    dorwinion_curly = {
+    bretonnian_curly = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = hairstyles
-                template = dorwinion_hairstyles_curly
+                template = bretonnian_hairstyles_curly
                 range = { 0 1 } # For the randomness to work correctly
             }
         }   
@@ -3614,20 +3619,20 @@ hairstyles = {
             }						
         }
     }
-	
+
     mena_straight = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = hairstyles
-                template = mena_hairstyles_straight #LotR
+                template = mena_hairstyles_straight
                 range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 OR = {
                     NOT = { exists = this }
 					has_gene = {
@@ -3641,21 +3646,6 @@ hairstyles = {
 				}
                 portrait_mena_proxy_clothing_trigger = yes
             }
-            modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}
-				}
-                portrait_mena_proxy_clothing_trigger = yes
-            }			
         }
     }
 
@@ -3664,14 +3654,14 @@ hairstyles = {
             accessory = {
                 mode = add
                 gene = hairstyles
-                template = mena_hairstyles_wavy #LotR
+                template = mena_hairstyles_wavy
                 range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -3679,17 +3669,6 @@ hairstyles = {
                 }
                 portrait_mena_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-				}
-                portrait_mena_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -3698,14 +3677,14 @@ hairstyles = {
             accessory = {
                 mode = add
                 gene = hairstyles
-                template = mena_hairstyles_curly #LotR
+                template = mena_hairstyles_curly
                 range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -3713,17 +3692,6 @@ hairstyles = {
                 }
                 portrait_mena_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-				}
-                portrait_mena_proxy_clothing_trigger = yes
-            }								
         }
     }
 
@@ -3732,14 +3700,14 @@ hairstyles = {
             accessory = {
                 mode = add
                 gene = hairstyles
-                template = mena_hairstyles_curly #LotR
+                template = mena_hairstyles_afro
                 range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -3747,17 +3715,6 @@ hairstyles = {
                 }
                 portrait_mena_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_afro
-					}
-				}
-                portrait_mena_proxy_clothing_trigger = yes
-            }								
         }
     }
 
@@ -3773,7 +3730,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 OR = {
                     NOT = { exists = this }
 					has_gene = {
@@ -3787,21 +3744,6 @@ hairstyles = {
 				}
                 portrait_byzantine_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}
-				}
-                portrait_byzantine_proxy_clothing_trigger = yes
-            }							
         }
     }
 
@@ -3817,7 +3759,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -3825,17 +3767,6 @@ hairstyles = {
                 }
                 portrait_byzantine_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-				}
-                portrait_byzantine_proxy_clothing_trigger = yes
-            }						
         }
     }
 
@@ -3851,7 +3782,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -3859,17 +3790,6 @@ hairstyles = {
                 }
                 portrait_byzantine_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-				}
-                portrait_byzantine_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -3885,7 +3805,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -3893,17 +3813,6 @@ hairstyles = {
                 }
                 portrait_byzantine_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_afro
-					}
-				}
-                portrait_byzantine_proxy_clothing_trigger = yes
-            }											
         }
     }
 
@@ -3919,7 +3828,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 OR = {
                     NOT = { exists = this }
 					has_gene = {
@@ -3933,40 +3842,6 @@ hairstyles = {
 				}
                 portrait_indian_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}
-				}
-                portrait_indian_proxy_clothing_trigger = yes
-            }
-			modifier = {
-                add = 300
-                scope:age < 20
-				OR = {
-					scope:culture = culture:fariyin
-					scope:culture = culture:tandi
-				}
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}
-				}
-                portrait_south_haradrim_clothing_trigger = yes
-            }							
         }
     }
 
@@ -3982,7 +3857,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -3990,32 +3865,6 @@ hairstyles = {
                 }
                 portrait_indian_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-				}
-                portrait_indian_proxy_clothing_trigger = yes
-            }
-			modifier = {
-                add = 300
-                scope:age < 20
-				OR = {
-					scope:culture = culture:fariyin
-					scope:culture = culture:tandi
-				}
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-				}
-                portrait_south_haradrim_clothing_trigger = yes
-            }								
         }
     }
 
@@ -4031,7 +3880,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4039,32 +3888,6 @@ hairstyles = {
                 }
                 portrait_indian_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-				}
-                portrait_indian_proxy_clothing_trigger = yes
-            }
-			modifier = {
-                add = 300
-                scope:age < 20
-				OR = {
-					scope:culture = culture:fariyin
-					scope:culture = culture:tandi
-				}
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-				}
-                portrait_south_haradrim_clothing_trigger = yes
-            }								
         }
     }
 
@@ -4080,7 +3903,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4088,32 +3911,6 @@ hairstyles = {
                 }
                 portrait_indian_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_afro
-					}
-				}
-                portrait_indian_proxy_clothing_trigger = yes
-            }
-			modifier = {
-                add = 300
-                scope:age < 20
-				OR = {
-					scope:culture = culture:fariyin
-					scope:culture = culture:tandi
-				}
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_afro
-					}
-				}
-                portrait_south_haradrim_clothing_trigger = yes
-            }								
         }
     }
 
@@ -4123,13 +3920,13 @@ hairstyles = {
                 mode = add
                 gene = hairstyles
                 template = steppe_hairstyles_straight
-                range = { 0.20 1.0 } # For the randomness to work correctly
+                range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 OR = {
                     NOT = { exists = this }
 					has_gene = {
@@ -4143,26 +3940,6 @@ hairstyles = {
 				}
                 portrait_steppe_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}
-				}
-                portrait_steppe_proxy_clothing_trigger = yes
-            }
-            # modifier = { #LotR
-			# 	factor = 0
-			# 	portrait_chinese_clothing_trigger = yes
-			# 	has_tgp_dlc_trigger = yes 
-			# }				
         }
     }
 
@@ -4172,13 +3949,13 @@ hairstyles = {
                 mode = add
                 gene = hairstyles
                 template = steppe_hairstyles_wavy
-                range = { 0.20 1.0 } # For the randomness to work correctly
+                range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4186,22 +3963,6 @@ hairstyles = {
                 }
                 portrait_steppe_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-				}
-                portrait_steppe_proxy_clothing_trigger = yes
-            }
-            # modifier = { #LotR
-			# 	factor = 0
-			# 	portrait_chinese_clothing_trigger = yes
-			# 	has_tgp_dlc_trigger = yes 
-			# }				
         }
     }
 
@@ -4211,13 +3972,13 @@ hairstyles = {
                 mode = add
                 gene = hairstyles
                 template = steppe_hairstyles_curly
-                range = { 0.20 1.0 } # For the randomness to work correctly
+                range = { 0 1 } # For the randomness to work correctly
             }
         }   
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4225,17 +3986,6 @@ hairstyles = {
                 }
                 portrait_steppe_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-				}
-                portrait_steppe_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -4251,7 +4001,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4259,17 +4009,6 @@ hairstyles = {
                 }
                 portrait_steppe_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_afro
-					}
-				}
-                portrait_steppe_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -4285,7 +4024,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 OR = {
                     NOT = { exists = this }
 					has_gene = {
@@ -4299,21 +4038,6 @@ hairstyles = {
 				}
                 portrait_northern_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}
-				}
-                portrait_northern_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -4329,7 +4053,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4337,17 +4061,6 @@ hairstyles = {
                 }
                 portrait_northern_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-				}
-                portrait_northern_proxy_clothing_trigger = yes
-            }				
         }
     }
 
@@ -4363,7 +4076,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4371,17 +4084,6 @@ hairstyles = {
                 }
                 portrait_northern_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-				}
-                portrait_northern_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -4397,7 +4099,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4405,17 +4107,6 @@ hairstyles = {
                 }
                 portrait_northern_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_afro
-					}
-				}
-                portrait_northern_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -4431,7 +4122,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 OR = {
                     NOT = { exists = this }
 					has_gene = {
@@ -4445,21 +4136,6 @@ hairstyles = {
 				}
                 portrait_african_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}
-				}
-                portrait_african_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -4475,23 +4151,12 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
                     template = hair_wavy
                 }
-                portrait_african_proxy_clothing_trigger = yes
-            }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-				}
                 portrait_african_proxy_clothing_trigger = yes
             }
         }
@@ -4509,7 +4174,7 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
+                add = 55
                 exists = this
                 has_gene = {
                     category = gene_hair_type
@@ -4517,17 +4182,6 @@ hairstyles = {
                 }
                 portrait_african_proxy_clothing_trigger = yes
             }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-				}
-                portrait_african_proxy_clothing_trigger = yes
-            }					
         }
     }
 
@@ -4543,322 +4197,14 @@ hairstyles = {
         weight = {
             base = 0
             modifier = {
-                add = 10
-				OR = {
-				portrait_african_proxy_clothing_trigger = yes
-				}
-            }
-			modifier = {
-                add = 250
-                scope:age < 20				
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_afro
-					}
-				}
+                add = 55
+                exists = this
+                has_gene = {
+                    category = gene_hair_type
+                    template = hair_afro
+                }
                 portrait_african_proxy_clothing_trigger = yes
-            }						
+            }
         }
     }
-	
-	wastelands_hairstyles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = hairstyles
-                template = barbershop_vanilla_hairstyles_base
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 250
-				portrait_wastelands_clothing_trigger = yes
-			}
-        }
-    }	
-
-    ### TGP - Chinese ##
-	#
-	#tgp_hairstyles_chinese = { #LotR
-	#	dna_modifiers = {
-	#		accessory = {
-	#			mode = add
-	#			gene = hairstyles
-	#			template = tgp_chinese_hairstyles
-	#			range = { 0 1 } # For the randomness to work correctly
-	#		}
-	#	}   
-	#	weight = {
-	#		base = 0
-	#		modifier = {
-	#			add = 120
-	#			OR = {
-	#				has_gene = {
-	#					category = gene_hair_type
-	#					template = hair_straight_thin_beard
-	#				}
-	#				has_gene = {
-	#					category = gene_hair_type
-	#					template = hair_straight
-	#				}
-	#				has_gene = {
-	#					category = gene_hair_type
-	#					template = hair_wavy
-	#				}
-	#			}
-	#			portrait_chinese_clothing_trigger = yes
-	#		}
-	#	}
-	#}
-	#
-	### TGP - Japanese ##
-	#
-	#tgp_hairstyles_japanese = { 
-	#	dna_modifiers = {
-	#		accessory = {
-	#			mode = add
-	#			gene = hairstyles
-	#			template = tgp_japanese_hairstyles
-	#			range = { 0 1 } # For the randomness to work correctly
-	#		}
-	#	}   
-	#	weight = {
-	#		base = 0
-	#		# modifier = { #LotR
-	#		# 	add = 120
-	#		# 	OR = {
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight_thin_beard
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_wavy
-	#		# 		}
-	#		# 	}
-	#		# 	portrait_japanese_clothing_trigger = yes
-	#		# 	has_tgp_dlc_trigger = yes
-	#		# 	OR = {
-	#		# 		is_female = yes
-	#		# 		age > 16
-	#		# 	}
-	#		# }
-	#	}
-	#}
-	#
-	#tgp_hairstyles_japanese_high_nobility = { 
-	#	dna_modifiers = {
-	#		accessory = {
-	#			mode = add
-	#			gene = hairstyles
-	#			template = tgp_japanese_high_nobility_hairstyles
-	#			range = { 0 1 } # For the randomness to work correctly
-	#		}
-	#	}   
-	#	weight = {
-	#		base = 0
-	#		# modifier = { #LotR
-	#		# 	add = 240
-	#		# 	OR = {
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight_thin_beard
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_wavy
-	#		# 		}
-	#		# 	}
-	#		# 	portrait_high_nobles_trigger = { CULTURE_INPUT = japanese }
-	#		# 	has_tgp_dlc_trigger = yes
-	#		# 	OR = {
-	#		# 		is_female = yes
-	#		# 		age > 16
-	#		# 	}
-	#		# }
-	#	}
-	#}
-	#
-	#tgp_hairstyles_japanese_royal = { 
-	#	dna_modifiers = {
-	#		accessory = {
-	#			mode = add
-	#			gene = hairstyles
-	#			template = tgp_japanese_royal_hairstyles
-	#			range = { 0 1 } # For the randomness to work correctly
-	#		}
-	#	}   
-	#	weight = {
-	#		base = 0
-	#		# modifier = { #LotR
-	#		# 	add = 320
-	#		# 	OR = {
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight_thin_beard
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_wavy
-	#		# 		}
-	#		# 	}
-	#		# 	OR = {
-	#		# 		portrait_royalty_trigger = { CULTURE_INPUT = japanese }
-	#		# 		portrait_imperial_trigger = { CULTURE_INPUT = japanese }
-	#		# 	}
-	#		# 	has_tgp_dlc_trigger = yes
-	#		# }
-	#	}
-	#}
-	#
-	#tgp_hairstyles_japanese_no_dlc = { 
-	#	dna_modifiers = {
-	#		accessory = {
-	#			mode = add
-	#			gene = hairstyles
-	#			template = tgp_japanese_hairstyles
-	#			value = 0.51 # For the randomness to work correctly
-	#		}
-	#	}   
-	#	weight = {
-	#		base = 0
-	#		# modifier = { #LotR
-	#		# 	add = 240
-	#		# 	OR = {
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight_thin_beard
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_wavy
-	#		# 		}
-	#		# 	}
-	#		# 	portrait_japanese_clothing_trigger = yes
-	#		# 	has_tgp_dlc_trigger = no
-	#		# }
-	#	}
-	#}
-	#
-	#tgp_hairstyles_japanese_children = { 
-	#	dna_modifiers = {
-	#		accessory = {
-	#			mode = add
-	#			gene = hairstyles
-	#			template = tgp_japanese_children_hairstyles
-	#			range = { 0 1 } # For the randomness to work correctly
-	#		}
-	#	}   
-	#	weight = {
-	#		base = 0
-	#		# modifier = { #LotR
-	#		# 	add = 120
-	#		# 	OR = {
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight_thin_beard
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_wavy
-	#		# 		}
-	#		# 	}
-	#		# 	portrait_japanese_clothing_trigger = yes
-	#		# 	age < 16
-	#		# }
-	#	}
-	#}
-	#
-	#tgp_hairstyles_southeast = { 
-	#	dna_modifiers = {
-	#		accessory = {
-	#			mode = add
-	#			gene = hairstyles
-	#			template = tgp_southeast_hairstyles
-	#			range = { 0 1 } # For the randomness to work correctly
-	#		}
-	#	}   
-	#	weight = {
-	#		base = 0
-	#		# modifier = { #LotR
-	#		# 	add = 55
-	#		# 	OR = {
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight_thin_beard
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_wavy
-	#		# 		}
-	#		# 	}
-	#		# 	portrait_southeast_asian_clothing_trigger = yes
-	#		# }
-	#	}
-	#}
-	#
-	#tgp_hairstyles_ainu = { 
-	#	dna_modifiers = {
-	#		accessory = {
-	#			mode = add
-	#			gene = hairstyles
-	#			template = tgp_ainu_hairstyles
-	#			range = { 0 1 } # For the randomness to work correctly
-	#		}
-	#	}   
-	#	weight = {
-	#		base = 0
-	#		# modifier = { #LotR
-	#		# 	add = 155
-	#		# 	OR = {
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight_thin_beard
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_straight
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_wavy
-	#		# 		}
-	#		# 		has_gene = {
-	#		# 			category = gene_hair_type
-	#		# 			template = hair_curly
-	#		# 		}
-	#		# 	}
-	#		# 	portrait_ainu_clothing_trigger = yes
-	#		# }
-	#	}
-	#}
 }
-
-

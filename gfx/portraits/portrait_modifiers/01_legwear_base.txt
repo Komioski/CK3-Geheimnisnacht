@@ -2071,7 +2071,7 @@
 	# 		accessory = {
 	# 			mode = add
 	# 			gene = legwear
-	# 			template = dorwinion_common_legwear
+	# 			template = bretonnian_common_legwear
 	# 			range = { 0 1 } # For the randomness to work correctly
 	# 		}
 	# 	}	
@@ -2105,10 +2105,10 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                     portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
@@ -2117,10 +2117,10 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                     portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
@@ -2132,7 +2132,7 @@
 			accessory = {
 				mode = add
 				gene = legwear
-				template = dorwinion_war_legwear
+				template = bretonnian_war_legwear
 				range = { 0 1 } # For the randomness to work correctly
 			}
 		}	
@@ -2146,7 +2146,7 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_high_nobles_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
@@ -2155,19 +2155,19 @@
 				NOT = { AND = { government_has_flag = government_is_mercenary  } }
                 OR = {
                     portrait_high_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
+                        CULTURE_INPUT = bretonnian
                     }
                 }
             }
 		}
 	}
 	
-	dorwinion_war_kings = {
+	bretonnian_war_kings = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = legwear
-				template = dorwinion_royal_plate_legwear
+				template = bretonnian_royal_plate_legwear
 				range = { 0 1 } # For the randomness to work correctly
 			}
 		}	
@@ -2177,68 +2177,19 @@
                 add = 160
 				highest_held_title_tier >= tier_kingdom				
                 portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = dorwinion
+                    CULTURE_INPUT = bretonnian
                 }
             }
             modifier = {
                 add = 80        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
 				highest_held_title_tier >= tier_kingdom
                 portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = dorwinion
+                    CULTURE_INPUT = bretonnian
                 }
             }
 		}
 	}
 	
-	dorwinion_mercenary = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = mercenary_plate_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-                add = 100
-                government_has_flag = government_is_mercenary 
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = dorwinion
-                    }
-					portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = dalemen
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = dalemen
-                    }
-                }
-            }
-            modifier = {
-                add = 80        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                government_has_flag = government_is_mercenary 
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = dorwinion
-                    }
-					portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = dalemen
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = dalemen
-                    }
-                }
-            }
-		}
-	}
 	
 	breelander_legwear = {
 		dna_modifiers = {
