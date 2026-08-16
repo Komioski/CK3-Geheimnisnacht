@@ -314,35 +314,6 @@ guest_allowed_to_arrive_trigger = {
 		is_wastelands = yes #Watelands characters aren't welcome
 		$HOST$ = { is_wastelands = yes } #Tom doesn't take any more visitors
 	} 
-	#trigger_if = { #LotR
-	#	limit = {
-	#		is_elf = yes
-	#	}
-	#	$HOST$ = { is_elf = yes }
-	#}
-	#trigger_if = { #LotR
-	#	limit = { 
-	#		is_orc = yes
-	#	}
-	#	same_alignment = { TARGET = $HOST$ }
-	#	trigger_if = {
-	#		limit = { $HOST$ = { is_ai = yes} }
-	#		$HOST$ = {
-	#			OR = {
-	#				is_orc = yes
-	#				cannot_be_killed = yes
-	#			}
-	#		}
-	#	}
-	#}
-	#trigger_if = { #LotR
-	#	limit = {
-	#		is_in_valinor = yes
-	#	}
-	#	$HOST$ = {
-	#		capital_county.empire = title:e_valinor
-	#	}
-	#}
 	trigger_if = {
 		limit = { exists = var:last_visited_ruler }
 		NOT = { var:last_visited_ruler = $HOST$ }

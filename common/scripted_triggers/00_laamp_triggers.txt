@@ -145,7 +145,7 @@ laamp_request_likely_marriable_woman_trigger = {
 	}
 	is_lotr_adult = yes #LotR
 	NOT = { culture ?= culture:wastelands } #LotR
-	is_in_valinor = no #LotR
+	
 	can_marry_trigger = yes
 }
 
@@ -156,7 +156,7 @@ laamp_request_likely_marriable_man_trigger = {
 	}
 	is_lotr_adult = yes #LotR
 	NOT = { culture ?= culture:wastelands } #LotR
-	is_in_valinor = no #LotR
+	
 	can_marry_trigger = yes
 }
 
@@ -275,7 +275,7 @@ playable_relative_trigger = {
 		advanced_ruler = yes
 	}
 	NOT = { culture ?= culture:wastelands } #LotR
-	is_in_valinor = no #LotR
+	
 	house = root.house
 }
 
@@ -286,7 +286,7 @@ ep3_laamp_interesting_sibling_trigger = {
 		advanced_ruler = no
 	}
 	NOT = { culture ?= culture:wastelands } #LotR
-	is_in_valinor = no #LotR
+	
 	NOT = {
 		any_consort = {
 			is_ruler = yes
@@ -325,7 +325,7 @@ ep3_adventurer_invasion_allowed_for_character_trigger = {
 	government_has_flag = government_is_landless_adventurer
 	is_landed = no
 	is_wastelands = no #LOTR
-	is_in_valinor = no #LOTR
+	
 }
 
 ep3_adventurer_invasion_allowed_for_character_display_regardless_trigger = {
@@ -337,11 +337,11 @@ ep3_adventurer_landless_allowed_against_character_trigger = {
 	is_landed = yes
 	scope:attacker = {
 		is_wastelands = no #LOTR
-		is_in_valinor = no #LOTR
+		
 	}
 	scope:defender = {
 		is_wastelands = no #LOTR
-		is_in_valinor = no #LOTR
+		
 	}
 	# Players vs. AI filtering.
 	OR = {
@@ -541,7 +541,7 @@ valid_laamp_sensible_start_trigger = {
 			imprisoned = no
 		}
 		NOT = { culture ?= culture:wastelands } #LotR
-		is_in_valinor = no #LotR
+		
 	}
 	trigger_if = {
 		limit = {
@@ -833,7 +833,7 @@ ai_can_valid_to_create_laamp_trigger = {
 	save_temporary_scope_as = char_temp
 	scope:char_temp = {
 		is_wastelands = no #LOTR
-		is_in_valinor = no #LOTR
+		
 	}
 	OR = {
 		# General checking.

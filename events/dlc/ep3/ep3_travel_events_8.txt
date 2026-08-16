@@ -486,23 +486,14 @@ ep3_travel_events.8010 = {
 		animation = survey
 	}
     
-    override_background = { #LOTR
-        trigger = {
-			scope:location = {
-				geographical_region = adventure_dwarvenlands
-				terrain = halls
-			}
-		}
-        reference = durins_door
-    }
-    override_background = { #LOTR
-        trigger = {
-			scope:location = {
-				terrain = halls
-			}
-		}
-        reference = wilderness_underground
-    }
+    #override_background = { #LOTR
+    #    trigger = {
+	#		scope:location = {
+	#			terrain = halls
+	#		}
+	#	}
+    #    reference = wilderness_underground
+    #}
 	override_background = { reference = ce1_catacombs }
 	cooldown = { years = 15 }
 	trigger = {
