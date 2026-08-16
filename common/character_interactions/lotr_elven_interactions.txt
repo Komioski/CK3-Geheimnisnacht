@@ -119,6 +119,18 @@ feudalize_into_castle_holding_interaction = {
 				limit = { scope:actor = { is_ai = no } }
 				add = feudalize_tribal_holding_interaction_cost
 			}
+			if = {
+				limit = { scope:actor = { is_orc = yes } }
+				multiply = 0.5
+			}
+		}
+		prestige = {
+			value = 0
+			
+			if = {
+				limit = { scope:actor = { is_ai = no is_orc = yes } }
+				add = feudalize_tribal_holding_interaction_cost
+			}
 		}
 	}
 
