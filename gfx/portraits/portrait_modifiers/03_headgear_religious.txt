@@ -4,360 +4,536 @@
 	selection_behavior = weighted_random
 	priority = 3
 
+## Dwarves ##
+
+	religious_dwarves_western_headgear = { 
+	    dna_modifiers = {
+	        accessory = {
+	            mode = add
+	            gene = headgear
+	            template = religious_headgear
+	            range = { 0.16 0.19 }
+	        }
+	    }
+	    outfit_tags = { priest_outfit }
+	    weight = {
+	        base = 0
+	        modifier = {
+                add = 200
+				OR = {
+					faith = faith:faith_firebeards
+					faith = faith:faith_broadbeams
+					faith = faith:faith_khazad
+				}
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_longbeard
+						has_cultural_pillar = heritage_firebeard
+						has_cultural_pillar = heritage_broadbeam
+					}
+				}
+                portrait_religious_high_trigger = yes				
+                portrait_religious_high_no_poverty_trigger = yes
+                religion = religion:dwarven_religion
+				NOT = {
+					AND = {
+						exists = liege
+						liege = { primary_title = title:d_mount_dolmed }
+					}
+				}
+            }
+	    }
+	}	
+
+	religious_dwarves_eastern_headgear = { 
+	    dna_modifiers = {
+	        accessory = {
+	            mode = add
+	            gene = headgear
+	            template = religious_headgear
+	            range = { 0.21 0.24 }
+	        }
+	    }
+	    outfit_tags = { priest_outfit }
+	    weight = {
+	        base = 0
+	        modifier = {
+                add = 200
+				OR = {
+					faith = faith:faith_ironfists
+					faith = faith:faith_stiffbeards
+					faith = faith:faith_eastern_khazad
+				}
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_ironfist
+						has_cultural_pillar = heritage_stiffbeard
+					}
+				}
+                portrait_religious_high_trigger = yes				
+                portrait_religious_high_no_poverty_trigger = yes
+                religion = religion:dwarven_religion
+            }
+	    }
+	}	
+
+	religious_dwarves_southern_headgear = { 
+	    dna_modifiers = {
+	        accessory = {
+	            mode = add
+	            gene = headgear
+	            template = religious_headgear
+	            range = { 0.81 0.84 }
+	        }
+	    }
+	    outfit_tags = { priest_outfit }
+	    weight = {
+	        base = 0
+	        modifier = {
+                add = 200
+				OR = {
+					faith = faith:faith_blacklocks
+					faith = faith:faith_eastern_khazad
+				}
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_blacklock
+						has_cultural_pillar = heritage_stonefoot
+					}
+				}
+                portrait_religious_high_trigger = yes				
+                portrait_religious_high_no_poverty_trigger = yes
+                religion = religion:dwarven_religion
+            }
+	    }
+	}	
+
+	religious_headgear_greybeards = {
+		dna_modifiers = {
+			accessory = {
+	            mode = add
+	            gene = headgear
+	            template = no_headgear
+	            range = { 0 1 }
+	        }
+		}	
+		weight = {
+			base = 0
+			modifier = {
+                add = 250
+				is_male = yes
+				OR = {
+					portrait_commoner_clothing_trigger = { 
+                        CULTURE_INPUT = dwarf
+                    }
+					portrait_low_nobles_clothing_trigger = {
+						CULTURE_INPUT = dwarf						
+					}
+					portrait_high_nobles_clothing_trigger = {
+						CULTURE_INPUT = dwarf						
+					}	
+				}
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_longbeard			
+						has_cultural_pillar = heritage_firebeard
+						has_cultural_pillar = heritage_broadbeam
+						has_cultural_pillar = heritage_ironfist
+						has_cultural_pillar = heritage_stiffbeard
+						has_cultural_pillar = heritage_blacklock
+						has_cultural_pillar = heritage_stonefoot
+					}
+				}
+				exists = liege
+				liege = { primary_title = title:d_mount_dolmed }				
+            }
+			modifier = {
+                add = 250
+				is_male = yes
+				is_alive = no
+				OR = {
+					dynasty = dynasty:dynasty_eldran
+					dynasty = dynasty:dynasty_borri
+				}			
+            }
+		}
+	}
+
 ## Haradrim ##
 
-# 	religious_haradrim_high_headgear = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = headgear
-# 				template = religious_headgear
-# 				range = { 0.36 0.39 }
-# 			}
-# 		}
-# 		outfit_tags = { priest_outfit }
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 150
-# 				portrait_religious_high_no_poverty_trigger = yes
-#                 religion = religion:harad_religion
-# 			}
-# 		}
-# 	}
+	religious_haradrim_high_headgear = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = religious_headgear
+				range = { 0.36 0.39 }
+			}
+		}
+		outfit_tags = { priest_outfit }
+		weight = {
+			base = 0
+			modifier = {
+				add = 150
+				portrait_religious_high_no_poverty_trigger = yes
+                religion = religion:harad_religion
+			}
+		}
+	}
 
-#     religious_east_haradrim_headgear_ = {
-#         dna_modifiers = {
-#             accessory = {
-#                 mode = add
-#                 gene = headgear
-#                 template = religious_headgear
-#                 range = { 0.41 0.43 }
-#             }
-#         }
-#         weight = {
-#             base = 0
-#             modifier = {
-#                 add = 150
-#                 portrait_religious_high_trigger = yes
-#                 OR = {
-#                     religion = religion:far_harad_religion
-#                 }
-#             }
-#         }
-#     }
+    religious_east_haradrim_headgear_ = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = religious_headgear
+                range = { 0.41 0.43 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 150
+                portrait_religious_high_trigger = yes
+                OR = {
+                    religion = religion:far_harad_religion
+                }
+            }
+        }
+    }
 
 
-# ## Northern Pagan ##
+## Northern Pagan ##
 
-# 	religious_northern_high_headgear = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = headgear
-# 				template = religious_headgear
-# 				range = { 0.61 0.64 }
-# 			}
-# 		}
-# 		outfit_tags = { priest_outfit }
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 100
-# 				portrait_religious_high_no_poverty_trigger = yes
-# 				OR = {
-#                     religion = religion:gwathuirim_religion
-#                     religion = religion:anduinic_religion
-#                     religion = religion:religion_wastelands_pagan
-#                 }
-# 			}
-# 		}
-# 	}
+	religious_northern_high_headgear = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = religious_headgear
+				range = { 0.61 0.64 }
+			}
+		}
+		outfit_tags = { priest_outfit }
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				portrait_religious_high_no_poverty_trigger = yes
+				OR = {
+                    religion = religion:gwathuirim_religion
+                    religion = religion:anduinic_religion
+                    religion = religion:religion_wastelands_pagan
+                }
+                NOT = {
+                    AND = {
+                        exists = this
+                        exists = character:lineofradagast
+                        this = character:lineofradagast
+                    }
+                }
+			}
+		}
+	}
 
-# 	religious_dale_high_headgear = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = headgear
-# 				template = religious_headgear
-# 				range = { 0.01 0.03 }
-# 			}
-# 		}
-# 		outfit_tags = { priest_outfit }
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 101
-# 				portrait_religious_high_no_poverty_trigger = yes
-#                 religion = religion:northmen_religion
-# 				faith = faith:faith_dale
-# 			}
-# 		}
-# 	}
+	religious_dale_high_headgear = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = religious_headgear
+				range = { 0.01 0.03 }
+			}
+		}
+		outfit_tags = { priest_outfit }
+		weight = {
+			base = 0
+			modifier = {
+				add = 101
+				portrait_religious_high_no_poverty_trigger = yes
+                religion = religion:northmen_religion
+				faith = faith:faith_dale
+                NOT = {
+                    AND = {
+                        exists = this
+                        exists = character:lineofradagast
+                        this = character:lineofradagast
+                    }
+                }
+			}
+		}
+	}
 	
-# 	religious_dorwinion_high_headgear = {
-# 		dna_modifiers = {
-# 			accessory = {
-# 				mode = add
-# 				gene = headgear
-# 				template = religious_headgear
-# 				range = { 0.06 0.09 }
-# 			}
-# 		}
-# 		outfit_tags = { priest_outfit }
-# 		weight = {
-# 			base = 0
-# 			modifier = {
-# 				add = 301
-# 				portrait_religious_high_no_poverty_trigger = yes
-#                 religion = religion:northmen_religion
-# 				faith = faith:faith_dorwinion				
-# 			}
-# 		}
-# 	}
+	religious_dorwninion_high_headgear = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = religious_headgear
+				range = { 0.06 0.09 }
+			}
+		}
+		outfit_tags = { priest_outfit }
+		weight = {
+			base = 0
+			modifier = {
+				add = 301
+				portrait_religious_high_no_poverty_trigger = yes
+                religion = religion:northmen_religion
+				faith = faith:faith_dorwinion				
+                NOT = {
+                    AND = {
+                        exists = this
+                        exists = character:lineofradagast
+                        this = character:lineofradagast
+                    }
+                }
+			}
+		}
+	}
 
-# ## Bellakar ##	
+## Bellakar ##	
 
-# 	religious_bellakar_priest = {
-# 	    dna_modifiers = {
-# 	        accessory = {
-# 	            mode = add
-# 	            gene = headgear
-# 	            template = religious_headgear
-# 	            range = { 0.66 0.69 }
-# 	        }
-# 	    }
-# 	    outfit_tags = { priest_outfit }
-# 	    weight = {
-# 	        base = 0
-# 	        modifier = {
-# 				add = 110
-# 				portrait_religious_high_no_poverty_trigger = yes
-# 				OR = {
-#                     religion = religion:bellakari_religion
-#                 }
-# 			}
-# 	    }
-# 	}
+	religious_bellakar_priest = {
+	    dna_modifiers = {
+	        accessory = {
+	            mode = add
+	            gene = headgear
+	            template = religious_headgear
+	            range = { 0.66 0.69 }
+	        }
+	    }
+	    outfit_tags = { priest_outfit }
+	    weight = {
+	        base = 0
+	        modifier = {
+				add = 110
+				portrait_religious_high_no_poverty_trigger = yes
+				OR = {
+                    religion = religion:bellakari_religion
+                }
+			}
+	    }
+	}
 
-# 	religious_bellakar_head = {
-# 	    dna_modifiers = {
-# 	        accessory = {
-# 	            mode = add
-# 	            gene = headgear
-# 	            template = religious_headgear
-# 	            range = { 0.71 0.74 }
-# 	        }
-# 	    }
-# 	    weight = {
-# 	        base = 0
-# 	        modifier = {
-# 				add = 200
-# 				portrait_religious_head_trigger = yes
-# 				OR = {
-#                     religion = religion:bellakari_religion
-#                 }
-# 			}
-# 	    }
-# 	}
+	religious_bellakar_head = {
+	    dna_modifiers = {
+	        accessory = {
+	            mode = add
+	            gene = headgear
+	            template = religious_headgear
+	            range = { 0.71 0.74 }
+	        }
+	    }
+	    weight = {
+	        base = 0
+	        modifier = {
+				add = 200
+				portrait_religious_head_trigger = yes
+				OR = {
+                    religion = religion:bellakari_religion
+                }
+			}
+	    }
+	}
 	
-# 	religious_honnin_head = {
-# 	    dna_modifiers = {
-# 	        accessory = {
-# 	            mode = add
-# 	            gene = headgear
-# 	            template = wedding_headgear
-# 	            range = { 0.01 0.49 }
-# 	        }
-# 	    }
-# 	    weight = {
-# 	        base = 0
-# 	        modifier = {
-# 				add = 200
-# 				portrait_religious_high_no_poverty_trigger = yes
-# 				OR = {
-#                     religion = religion:dru_diaspora_religion
-#                 }
-# 			}
-# 	    }
-# 	}
+	religious_honnin_head = {
+	    dna_modifiers = {
+	        accessory = {
+	            mode = add
+	            gene = headgear
+	            template = wedding_headgear
+	            range = { 0.01 0.49 }
+	        }
+	    }
+	    weight = {
+	        base = 0
+	        modifier = {
+				add = 200
+				portrait_religious_high_no_poverty_trigger = yes
+				OR = {
+                    religion = religion:dru_diaspora_religion
+                }
+			}
+	    }
+	}
 
-# 	religious_dunedain_loremaster = {
-# 	    dna_modifiers = {
-# 	        accessory = {
-# 	            mode = add
-# 	            gene = headgear
-# 	            template = no_headgear
-# 	            range = { 0 1 }
-# 	        }
-# 	    }
-# 	    weight = {
-# 	        base = 0
-# 	        modifier = {
-# 				add = 200
-# 				portrait_religious_high_no_poverty_trigger = yes				
-# 				OR = {
-#                     religion = religion:dunedain_religion	
-#                 }
-# 			}
-# 	    }
-# 	}
+	religious_dunedain_loremaster = {
+	    dna_modifiers = {
+	        accessory = {
+	            mode = add
+	            gene = headgear
+	            template = no_headgear
+	            range = { 0 1 }
+	        }
+	    }
+	    weight = {
+	        base = 0
+	        modifier = {
+				add = 200
+				portrait_religious_high_no_poverty_trigger = yes				
+				OR = {
+                    religion = religion:dunedain_religion	
+                }
+			}
+	    }
+	}
 
-# 	religious_mag = {
-# 	    dna_modifiers = {
-# 	        accessory = {
-# 	            mode = add
-# 	            gene = headgear
-# 	            template = nafarati_low_headgear
-# 	            range = { 0.51 0.99 }
-# 	        }
-# 	    }
-# 	    weight = {
-# 	        base = 0
-# 	        modifier = {
-# 				add = 200
-# 				portrait_religious_high_no_poverty_trigger = yes				
-# 				OR = {
-#                     religion = religion:magrin_religion	
-#                 }
-# 			}
-# 	    }
-# 	}
+	religious_mag = {
+	    dna_modifiers = {
+	        accessory = {
+	            mode = add
+	            gene = headgear
+	            template = nafarati_low_headgear
+	            range = { 0.51 0.99 }
+	        }
+	    }
+	    weight = {
+	        base = 0
+	        modifier = {
+				add = 200
+				portrait_religious_high_no_poverty_trigger = yes				
+				OR = {
+                    religion = religion:magrin_religion	
+                }
+			}
+	    }
+	}
 	
-# ## Variag/Nurniag ##
-#     religious_clothes_variag = {
-#         dna_modifiers = {
-#             accessory = {
-#                 mode = add
-#                 gene = headgear
-#                 template = religious_headgear
-#                 range = { 0.52 0.54 }
-#             }
-#         }
-#         outfit_tags = { priest_outfit }
-#         weight = {
-#             base = 0
-#             modifier = {
-#                 add = 150
-#                 portrait_religious_high_no_poverty_trigger = yes
-#                 OR = {
-#                     religion = religion:talataerim_religion
+## Variag/Nurniag ##
+    religious_clothes_variag = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = religious_headgear
+                range = { 0.52 0.54 }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 150
+                portrait_religious_high_no_poverty_trigger = yes
+                OR = {
+                    religion = religion:talataerim_religion
 				
-#                 }
-#             }
-#         }
-#     }	
+                }
+            }
+        }
+    }	
 
-#     religious_khyan = { 
-#         dna_modifiers = {
-#             accessory = {
-#                 mode = add
-#                 gene = headgear
-#                 template = religious_headgear
-#                 range = { 0.87 0.88  }
-#             }
-#         }
-#         outfit_tags = { priest_outfit }
-#         weight = {
-#             base = 0
-#             modifier = {
-#                 add = 200
-# 				portrait_religious_high_no_poverty_trigger = yes
-# 				faith = faith:faith_arienism
-#                 OR = {
-# 					religion = religion:ormalbay_religion				
-#                 }
-#             }
-#         }
-# 	}
+    religious_khyan = { 
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = religious_headgear
+                range = { 0.87 0.88  }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 200
+				portrait_religious_high_no_poverty_trigger = yes
+				faith = faith:faith_arienism
+                OR = {
+					religion = religion:ormalbay_religion				
+                }
+            }
+        }
+	}
 
-#     religious_sauronic = {
-#         dna_modifiers = {
-#             accessory = {
-#                 mode = add
-#                 gene = headgear
-#                 template = religious_headgear
-#                 range = { 0.92 0.93 }
-#             }
-#         }
-#         weight = {
-#             base = 0
-#             modifier = {
-#                 add = 200
-#                 portrait_religious_high_trigger = yes
-#                 OR = {
-# 					religion = religion:sauronic_religion					
-#                 }
-# 				faith = faith:faith_angmar_evil
-# 				NOT = { 
-# 					is_orc = yes
-# 				}
-#             }
-#         }
-#     }
+    religious_sauronic = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = religious_headgear
+                range = { 0.92 0.93 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 200
+                portrait_religious_high_trigger = yes
+                OR = {
+					religion = religion:sauronic_religion					
+                }
+				faith = faith:faith_angmar_evil
+				NOT = { 
+					is_orc = yes
+				}
+            }
+        }
+    }
 	
 
-#     religious_witch_king = {
-#         dna_modifiers = {
-#             accessory = {
-#                 mode = add
-#                 gene = headgear
-#                 template = religious_headgear
-#                 range = { 0.91 0.94 }
-#             }
-#         }
-#         weight = {
-#             base = 0
-#             modifier = {
-#                 add = 200
-#                 portrait_religious_high_trigger = yes
-# 				religion = religion:sauronic_religion				
-# 				faith = faith:faith_angmar_evil
-# 			}
-#         }
-# 	}	
+    religious_witch_king = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = religious_headgear
+                range = { 0.91 0.94 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 200
+                portrait_religious_high_trigger = yes
+				religion = religion:sauronic_religion				
+				faith = faith:faith_angmar_evil
+			}
+        }
+	}	
 	
-#     religious_mumakan = {
-#         dna_modifiers = {
-#             accessory = {
-#                 mode = add
-#                 gene = headgear
-#                 template = religious_headgear
-#                 range = { 0.46 0.49 }
-#             }
-#         }
-#         weight = {
-#             base = 0
-#             modifier = {
-#                 add = 200
-#                 portrait_religious_high_trigger = yes
-# 				religion = religion:mumakan_religion
-# 				faith = faith:faith_indur				
-#             }
-#         }
-#     }
+    religious_mumakan = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = religious_headgear
+                range = { 0.46 0.49 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 200
+                portrait_religious_high_trigger = yes
+				religion = religion:mumakan_religion
+				faith = faith:faith_indur				
+            }
+        }
+    }
 
-#     religious_clothes_nurniag = {
-#         dna_modifiers = {
-#             accessory = {
-#                 mode = add
-#                 gene = headgear
-#                 template = no_headgear
-#                 range = { 0 1 }
-#             }
-#         }
-#         outfit_tags = { priest_outfit }
-#         weight = {
-#             base = 0
-#             modifier = {
-#                 add = 160
-# 				scope:culture = culture:nurniag					
-#                 portrait_religious_high_trigger = yes
-#                 OR = {
-#                     religion = religion:sauronic_religion
+    religious_clothes_nurniag = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = no_headgear
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 160
+				scope:culture = culture:nurniag					
+                portrait_religious_high_trigger = yes
+                OR = {
+                    religion = religion:sauronic_religion
 				
-#                 }
-#             }
-#         }
-#     }			
+                }
+            }
+        }
+    }			
 }

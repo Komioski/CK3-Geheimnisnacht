@@ -80,6 +80,7 @@ lotr_on_game_start = {
 		#				is_elf = yes
 		#				is_dwarf = yes
 		#				is_orc = yes
+		#				is_nazgul = yes
 		#				is_halfling = yes
 		#				is_druedain = yes
 		#			}
@@ -202,6 +203,20 @@ lotr_on_game_start_after_lobby = {
 
 		### Give characters with settlement holdings correct amount of upkeep
 		add_settlement_upkeep_in_history = yes
+
+		# ### RACE SETUP ###
+		# every_living_character = {
+		# 	limit = {
+		# 		is_from_ruler_designer = no
+		# 		OR = {
+		# 			#not_valar = yes
+		# 			not_nazgul = yes
+		# 			not_maiar = yes
+		# 			not_maiar_fallen = yes
+		# 		}
+		# 	}
+		# 	trigger_event = race.0001
+		# }
 
 		### UPDATE DYNAMIC COA ###
 		#every_ruler = {

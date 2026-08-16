@@ -27,6 +27,7 @@ lotr_marriage_to_allowed = { #example lotr_marriage_to_allowed = { TARGET = scop
 	# trigger_if = {
 	# 	limit = {
 	# 		is_ai = yes
+	# 		has_trait = blood_of_numenor
 	# 		$TARGET$ = { is_ai = yes }
 	# 		trigger_if = {
 	# 			limit = { exists = employer }
@@ -49,6 +50,81 @@ lotr_marriage_to_allowed = { #example lotr_marriage_to_allowed = { TARGET = scop
 	# 	}
 	# 	trigger_else = { #Women will not marry men that are too old
 	# 		$TARGET$ = { health_age_equivalent < 60 }
+	# 	}
+
+	# 	trigger_if = { #Prioritise BoN suitors, if possible
+	# 		limit = {
+
+	# 			# If the character is too old to be eligible, don't apply the condition to them
+	# 			trigger_if = {
+	# 				limit = { is_female = no }
+	# 				health_age_equivalent < 60
+	# 			}
+	# 			trigger_else = { fertility_age_equivalent < 36 }
+
+	# 			trigger_if = {
+	# 				limit = { 
+	# 					exists = employer
+	# 					employer.culture = { has_cultural_parameter = values_numenorean_blood }
+	# 				}
+	# 				any_living_character = {
+	# 					is_married = no
+	# 					has_trait = blood_of_numenor
+	# 					NOR = {
+	# 						has_trait = cannot_marry
+	# 						has_trait = widowed
+	# 						is_close_or_extended_family_of = scope:lotr_marriage_to_allowed_check
+	# 					}
+	# 					in_diplomatic_range = scope:lotr_marriage_to_allowed_check.employer
+	# 					allowed_to_marry_character_gender_trigger = { CHARACTER = scope:lotr_marriage_to_allowed_check }
+						
+	# 					OR = {
+	# 						is_nubile = yes
+	# 						AND = {
+	# 							years_to_nubility < 5
+	# 							scope:lotr_marriage_to_allowed_check = {
+	# 								OR = {
+	# 									fertility_age_equivalent < 31
+	# 									AND = {
+	# 										is_female = no
+	# 										health_age_equivalent < 55
+	# 									}
+	# 								}
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			trigger_else = {
+	# 				trigger_if = {
+	# 					limit = { culture = { has_cultural_parameter = values_numenorean_blood } } 
+	# 					any_living_character = {
+	# 						is_married = no
+	# 						has_trait = blood_of_numenor
+	# 						NOR = {
+	# 							has_trait = cannot_marry
+	# 							has_trait = widowed
+	# 							is_close_or_extended_family_of = scope:lotr_marriage_to_allowed_check
+	# 						}
+	# 						in_diplomatic_range = scope:lotr_marriage_to_allowed_check
+	# 						allowed_to_marry_character_gender_trigger = { CHARACTER = scope:lotr_marriage_to_allowed_check }
+	# 						OR = {
+	# 							is_nubile = yes
+	# 							AND = {
+	# 								years_to_nubility < 5
+	# 								scope:lotr_marriage_to_allowed_check = {
+	# 									OR = {
+	# 										is_female = no
+	# 										fertility_age_equivalent < 31
+	# 									}
+	# 								}
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 		$TARGET$ = { has_trait = blood_of_numenor }
 	# 	}
 	# 	trigger_else = { $TARGET$ = { is_lowborn = no } } #If not, at least don't marry lowborns
 	# }
@@ -304,6 +380,7 @@ lotr_can_adopt = {
 	is_nubile = yes
 	same_race = { TARGET = $ADOPTED$ }
 	cannot_be_killed = no
+	is_in_valinor = no
 	NOR = { 
 		culture = culture:wastelands
 		# Shouldn't adopt for story reasons

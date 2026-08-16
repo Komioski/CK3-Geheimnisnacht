@@ -50,7 +50,7 @@ portrait_wear_no_headgear_trigger = {
 			}
 			trigger_else = { # Unless it's a crown
 				scope:age <= coronation_minimum_age_value #LotR
-				#wh_portrait_wear_no_headgear_trigger = yes
+				#lotr_portrait_wear_no_headgear_trigger = yes
 			}
 			NOR = {
 				portrait_sami_clothing_trigger = yes
@@ -110,7 +110,7 @@ portrait_wear_no_headgear_trigger = {
 }
 
 portrait_wear_armor_trigger = {
-	wh_portrait_wear_armor_trigger = yes #WH
+	lotr_portrait_wear_armor_trigger = yes #LotR
 	# exists = this #LotR
 	# is_incapable = no
 	# is_imprisoned = no
@@ -241,7 +241,7 @@ portrait_wear_armor_trigger = {
 }
 
 portrait_wear_armor_currently_in_army_trigger = {
-	wh_portrait_wear_armor_currently_in_army_trigger = yes #LotR
+	lotr_portrait_wear_armor_currently_in_army_trigger = yes #LotR
 	exists = this
 	OR = {
 		is_commanding_army = yes
@@ -286,7 +286,7 @@ portrait_accoladed_knight_trigger = {
 }
 
 portrait_wear_helmet_trigger = { # Different from Armor, as (crowned) Kings and Emperors should show their crowns!
-	wh_portrait_wear_helmet_trigger = yes
+	lotr_portrait_wear_helmet_trigger = yes
 	exists = this
 	trigger_if = {
 		limit = { exists = involved_activity }
@@ -608,7 +608,7 @@ portrait_ccp4_sami_travel_coat_trigger = {
 }
 
 portrait_byzantine_clothing_trigger = {
-	wh_portrait_byzantine_clothing_trigger = yes #LotR
+	lotr_portrait_byzantine_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = byzantine
@@ -616,7 +616,7 @@ portrait_byzantine_clothing_trigger = {
 }
 
 portrait_byzantine_clothing_spouse_trigger = {
-	wh_portrait_byzantine_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_byzantine_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = byzantine
@@ -624,7 +624,7 @@ portrait_byzantine_clothing_spouse_trigger = {
 }
 
 portrait_indian_clothing_trigger = {
-	wh_portrait_indian_clothing_trigger = yes #LotR
+	lotr_portrait_indian_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = indian
@@ -632,7 +632,7 @@ portrait_indian_clothing_trigger = {
 }
 
 portrait_indian_clothing_spouse_trigger = {
-	wh_portrait_indian_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_indian_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = indian
@@ -640,7 +640,7 @@ portrait_indian_clothing_spouse_trigger = {
 }
 
 portrait_mena_clothing_trigger = {
-	wh_portrait_mena_clothing_trigger = yes #LotR
+	lotr_portrait_mena_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = mena
@@ -648,7 +648,7 @@ portrait_mena_clothing_trigger = {
 }
 
 portrait_mena_clothing_spouse_trigger = {
-	wh_portrait_mena_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_mena_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = mena
@@ -656,7 +656,7 @@ portrait_mena_clothing_spouse_trigger = {
 }
 
 portrait_african_clothing_trigger = {
-	wh_portrait_african_clothing_trigger = yes #LotR
+	lotr_portrait_african_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = african
@@ -664,7 +664,7 @@ portrait_african_clothing_trigger = {
 }
 
 portrait_african_clothing_spouse_trigger = {
-	wh_portrait_african_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_african_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = african
@@ -672,7 +672,7 @@ portrait_african_clothing_spouse_trigger = {
 }
 
 portrait_northern_clothing_trigger = {
-	wh_portrait_northern_clothing_trigger = yes #LotR
+	lotr_portrait_northern_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = northern
@@ -693,7 +693,7 @@ portrait_northern_clothing_trigger = {
 }
 
 portrait_northern_clothing_spouse_trigger = {
-	wh_portrait_northern_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_northern_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = northern
@@ -717,7 +717,7 @@ portrait_northern_clothing_spouse_trigger = {
 ### FP2 - Fate of Iberia ###
 
 portrait_fp2_iberian_muslim_clothing_trigger = {
-	wh_portrait_fp2_iberian_muslim_clothing_trigger = yes #LotR
+	lotr_portrait_fp2_iberian_muslim_clothing_trigger = yes #LotR
 	has_fp2_dlc_trigger = yes
 	# OR = { #LotR
 	# 	portrait_shared_clothing_contents_trigger = {
@@ -737,7 +737,7 @@ portrait_fp2_iberian_muslim_clothing_trigger = {
 }
 
 portrait_fp2_iberian_muslim_clothing_spouse_trigger = {
-	wh_portrait_fp2_iberian_muslim_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_fp2_iberian_muslim_clothing_spouse_trigger = yes #LotR
 	has_fp2_dlc_trigger = yes
 	# OR = { #LotR
 	# 	portrait_shared_clothing_contents_trigger = {
@@ -754,7 +754,7 @@ portrait_fp2_iberian_muslim_clothing_spouse_trigger = {
 }
 
 portrait_fp2_iberian_christian_clothing_trigger = {
-	wh_portrait_fp2_iberian_christian_clothing_trigger = yes #LotR
+	lotr_portrait_fp2_iberian_christian_clothing_trigger = yes #LotR
 	has_fp2_dlc_trigger = yes
 	# OR = { #LotR
 	# 	portrait_shared_clothing_contents_trigger = {
@@ -774,7 +774,7 @@ portrait_fp2_iberian_christian_clothing_trigger = {
 }
 
 portrait_fp2_iberian_christian_clothing_spouse_trigger = {
-	wh_portrait_fp2_iberian_christian_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_fp2_iberian_christian_clothing_spouse_trigger = yes #LotR
 	has_fp2_dlc_trigger = yes
 	# OR = { #LotR
 	# 	portrait_shared_clothing_contents_trigger = {
@@ -793,7 +793,7 @@ portrait_fp2_iberian_christian_clothing_spouse_trigger = {
 ### FP3 - Legacy of Persia  ###
 #iranian
 portrait_fp3_iranian_clothing_trigger = {
-	wh_portrait_fp3_iranian_clothing_trigger = yes #LotR
+	lotr_portrait_fp3_iranian_clothing_trigger = yes #LotR
 	has_fp3_dlc_trigger = yes
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
@@ -802,7 +802,7 @@ portrait_fp3_iranian_clothing_trigger = {
 }
 
 portrait_fp3_iranian_clothing_spouse_trigger = {
-	wh_portrait_fp3_iranian_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_fp3_iranian_clothing_spouse_trigger = yes #LotR
 	has_fp3_dlc_trigger = yes
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
@@ -812,7 +812,7 @@ portrait_fp3_iranian_clothing_spouse_trigger = {
 
 #turkic
 portrait_fp3_turkic_clothing_trigger = {
-	wh_portrait_fp3_turkic_clothing_trigger = yes #LotR
+	lotr_portrait_fp3_turkic_clothing_trigger = yes #LotR
 	OR = {
 		has_fp3_dlc_trigger = yes
 		has_mpo_dlc_trigger = yes
@@ -824,7 +824,7 @@ portrait_fp3_turkic_clothing_trigger = {
 }
 
 portrait_fp3_turkic_clothing_spouse_trigger = {
-	wh_portrait_fp3_turkic_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_fp3_turkic_clothing_spouse_trigger = yes #LotR
 	OR = {
 		has_fp3_dlc_trigger = yes
 		has_mpo_dlc_trigger = yes
@@ -836,7 +836,7 @@ portrait_fp3_turkic_clothing_spouse_trigger = {
 }
 
 portrait_turkic_clothing_trigger = {
-	wh_portrait_fp3_turkic_clothing_trigger = yes #LotR
+	lotr_portrait_fp3_turkic_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = {
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = turkic
@@ -844,7 +844,7 @@ portrait_turkic_clothing_trigger = {
 }
 
 portrait_turkic_clothing_spouse_trigger = {
-	wh_portrait_fp3_turkic_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_fp3_turkic_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = {
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = turkic
@@ -854,7 +854,7 @@ portrait_turkic_clothing_spouse_trigger = {
 ### AFR ###
 
 portrait_afr_berber_clothing_trigger = {
-	wh_portrait_afr_berber_clothing_trigger = yes #LotR
+	lotr_portrait_afr_berber_clothing_trigger = yes #LotR
 	has_afr_dlc_trigger = yes
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
@@ -870,7 +870,7 @@ portrait_afr_berber_clothing_trigger = {
 }
 
 portrait_afr_berber_clothing_spouse_trigger = {
-	wh_portrait_afr_berber_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_afr_berber_clothing_spouse_trigger = yes #LotR
 	has_afr_dlc_trigger = yes
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
@@ -1205,7 +1205,7 @@ portrait_pommeranian_clothing_spouse_trigger = {
 ### FP1 ###
 
 portrait_fp1_norse_clothing_trigger = {
-	wh_portrait_fp1_norse_clothing_trigger = yes #LotR
+	lotr_portrait_fp1_norse_clothing_trigger = yes #LotR
 	has_fp1_dlc_trigger = yes
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
@@ -1214,7 +1214,7 @@ portrait_fp1_norse_clothing_trigger = {
 }
 
 portrait_fp1_norse_clothing_spouse_trigger = {
-	wh_portrait_fp1_norse_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_fp1_norse_clothing_spouse_trigger = yes #LotR
 	has_fp1_dlc_trigger = yes
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
@@ -1223,7 +1223,7 @@ portrait_fp1_norse_clothing_spouse_trigger = {
 }
 
 portrait_steppe_clothing_trigger = {
-	wh_portrait_steppe_clothing_trigger = yes #LotR
+	lotr_portrait_steppe_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = mongol
@@ -1231,7 +1231,7 @@ portrait_steppe_clothing_trigger = {
 }
 
 portrait_steppe_clothing_spouse_trigger = {
-	wh_portrait_steppe_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_steppe_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = mongol
@@ -1239,7 +1239,7 @@ portrait_steppe_clothing_spouse_trigger = {
 }
 
 portrait_western_clothing_trigger = {
-	wh_portrait_western_clothing_trigger = yes #LotR
+	lotr_portrait_western_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = western
@@ -1247,7 +1247,7 @@ portrait_western_clothing_trigger = {
 }
 
 portrait_western_clothing_spouse_trigger = {
-	wh_portrait_western_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_western_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = western
@@ -1255,7 +1255,7 @@ portrait_western_clothing_spouse_trigger = {
 }
 
 portrait_french_clothing_trigger = {
-	wh_portrait_french_clothing_trigger = yes #LotR
+	lotr_portrait_french_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = western
@@ -1263,7 +1263,7 @@ portrait_french_clothing_trigger = {
 }
 
 portrait_french_clothing_spouse_trigger = {
-	wh_portrait_french_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_french_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = western
@@ -1306,7 +1306,7 @@ portrait_dde_hre_clothing_spouse_trigger = {
 }
 
 portrait_dde_abbasid_clothing_trigger = {
-	wh_portrait_dde_abbasid_clothing_trigger = yes #LotR
+	lotr_portrait_dde_abbasid_clothing_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
 	# 	CULTURE_FLAG = dde_abbasid
@@ -1315,7 +1315,7 @@ portrait_dde_abbasid_clothing_trigger = {
 }
 
 portrait_dde_abbasid_clothing_spouse_trigger = {
-	wh_portrait_dde_abbasid_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_dde_abbasid_clothing_spouse_trigger = yes #LotR
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
 	# 	CULTURE_FLAG = dde_abbasid
@@ -1326,7 +1326,7 @@ portrait_dde_abbasid_clothing_spouse_trigger = {
 ### SP2 - Elegance of the Empire ###
 
 portrait_sp2_western_clothing_trigger = {
-	wh_portrait_sp2_western_clothing_trigger = yes #LotR
+	lotr_portrait_sp2_western_clothing_trigger = yes #LotR
 	has_dlc_feature = elegance_of_the_empire
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = scope:culture
@@ -1335,7 +1335,7 @@ portrait_sp2_western_clothing_trigger = {
 }
 
 portrait_sp2_western_clothing_spouse_trigger = {
-	wh_portrait_sp2_western_clothing_spouse_trigger = yes #LotR
+	lotr_portrait_sp2_western_clothing_spouse_trigger = yes #LotR
 	has_dlc_feature = elegance_of_the_empire
 	# portrait_shared_clothing_contents_trigger = { #LotR
 	# 	CULTURE_SCOPE = culture
@@ -3346,7 +3346,7 @@ portrait_ep2_mena_cloak_duel_trigger = {
 }
 
 portrait_ep2_wedding_clothes_trigger = {
-	wh_portrait_ep2_wedding_clothes_trigger = yes #LotR
+	lotr_portrait_ep2_wedding_clothes_trigger = yes #LotR
 	# involved_activity ?= { #LotR
 	# 	has_activity_type = activity_wedding
 	# }

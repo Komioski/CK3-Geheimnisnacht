@@ -221,10 +221,10 @@ cloaks = {
 			modifier = {
 				add = 1000
 				highest_held_title_tier >= tier_kingdom
-				# OR = {
-				# 	portrait_elven_clothing_trigger = yes
-				# 	portrait_dalemen_clothing_trigger = yes
-				# }
+				OR = {
+					portrait_elven_clothing_trigger = yes
+					portrait_dalemen_clothing_trigger = yes
+				}
 			}
 			modifier = {
 				factor = 0
@@ -241,7 +241,20 @@ cloaks = {
 					involved_activity ?= { has_activity_type = activity_hunt }
 					cannot_be_killed = yes
 				}
-			}	
+			}
+			modifier = { # For Sauruman and Sauron
+				factor = 0
+				OR = { 
+					AND = {
+						exists = character:lineofsaruman #Saruman
+						this = character:lineofsaruman #Saruman
+					}
+					AND = {
+						exists = character:lineofsauron #Sauron
+						this = character:lineofsauron #Sauron
+					}
+				}
+			}		
 		}
 	}
 
@@ -263,12 +276,66 @@ cloaks = {
 				highest_held_title_tier < tier_kingdom
 			}
 			modifier = {
+				add = 60
+				portrait_gwathiurim_clothing_trigger = yes
+			}	
+			modifier = {
+				add = -30
+				portrait_gwathiurim_clothing_trigger = yes
+				highest_held_title_tier >= tier_county
+			}	
+			modifier = {
+				add = -15
+				portrait_gwathiurim_clothing_trigger = yes
+				exists = primary_spouse
+				OR = {
+					is_ruler = no
+					highest_held_title_tier = tier_barony
+				}
+				primary_spouse = {
+					highest_held_title_tier >= tier_county
+				}
+			}	
+			modifier = {
+				add = -30
+				portrait_gwathiurim_clothing_trigger = yes
+				highest_held_title_tier >= tier_duchy
+			}	
+			modifier = {
+				add = -15
+				portrait_gwathiurim_clothing_trigger = yes
+				exists = primary_spouse
+				OR = {
+					is_ruler = no
+					highest_held_title_tier = tier_barony
+				}
+				primary_spouse = {
+					highest_held_title_tier >= tier_duchy
+				}
+			}	
+			modifier = {
+				add = -60
+				portrait_gwathiurim_clothing_trigger = yes
+				OR = {
+					portrait_wear_armor_trigger = yes
+					portrait_has_trait_trigger = { TRAIT = berserker }
+				}
+			}
+			modifier = {
 				add = 200
 				OR = {
 					portrait_wear_armor_trigger = yes
 					activity_tournament_shirtless_trigger = yes
 				}
-			}	
+			}
+			# modifier = { #LotR: Gondorians do not wear cloaks
+			# 	add = 1000
+            #     OR = {
+            #         portrait_gondorian_clothing_trigger = yes
+			# 		  portrait_belfalathrim_clothing_trigger = yes
+            #         portrait_harondorim_clothing_trigger = yes
+            #     }
+			# }		
 		}
 	}
 
@@ -292,6 +359,16 @@ cloaks = {
 # 		modifier = {
 # 			add = 1000
 # 			has_fp1_dlc_trigger = yes
+# 			OR = {
+# 				portrait_vale_woodmen_clothing_trigger = yes
+# 				portrait_gwathiurim_clothing_trigger = yes
+# 				portrait_northron_clothing_trigger = yes
+# 				portrait_angmarrim_clothing_trigger = yes
+# 				AND = { # Special case for tribal Rohirric to give them that more rustic edge - largely effects Leofrings and Framlings
+# 					portrait_rohirrim_clothing_trigger = yes
+# 					government_has_flag = government_is_tribal
+# 				}
+# 			}
 # 			NOT = { portrait_has_trait_trigger = { TRAIT = berserker } }
 # 		}
 # 		modifier = {
@@ -324,6 +401,7 @@ cloaks = {
 			modifier = {
 				add = 1000
 				has_fp1_dlc_trigger = yes
+				portrait_vale_woodmen_clothing_trigger = yes
 				portrait_has_trait_trigger = { TRAIT = berserker }
 			}
 			modifier = {
@@ -372,17 +450,17 @@ cloaks = {
                 add = 100
 				highest_held_title_tier >= tier_kingdom
                 has_dlc_feature = elegance_of_the_empire
-				# OR = {
-				# 	portrait_imperial_trigger = {
-				# 		CULTURE_INPUT = umbar
-				# 	}
-				# 	portrait_imperial_trigger = {
-				# 		CULTURE_INPUT = numenorean
-				# 	}
-				# 	portrait_royalty_trigger = {
-				# 		CULTURE_INPUT = umbar
-				# 	}
-				# }  
+				OR = {
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = umbar
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = numenorean
+					}
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = umbar
+					}
+				}  
             }
             # modifier = {
             #     factor = 0
@@ -662,72 +740,569 @@ cloaks = {
         }
     }    
 	
-	######################## WARHAMMER CONTENT BELOW HERE ########################	
-
-    # dorwinion_low_nobles_cloaks = { # Carolingian Cloak
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = bretonnian_cloaks
-    #             range = { 0.01 0.49 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 500
-    #             OR = { 
-    #             	portrait_duchy_trigger = { 
-	#                     CULTURE_INPUT = dorwinion
-	#                 }
-    #             }
-	# 			NAND = {
-	# 				is_ruler = yes
-	# 				government_has_flag = government_is_theocracy
-	# 			}
-    #             has_ep2_dlc_trigger = yes   
-    #             # portrait_era1_trigger = yes     
-    #         }
-	# 		modifier = {
-	# 			factor = 0 
-	# 			portrait_wear_armor_trigger = yes
-	# 		}
-    #     }
-    # }
+	######################## LotR: REALMS IN EXILE CONTENT BELOW HERE ########################
 	
-	# bretonnian_high_nobles_cloaks = { # Noble Carolingian Cloak
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = bretonnian_cloaks
-    #             range = { 0.51 0.99 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 500
-    #             OR = {   
-    #             	portrait_royalty_trigger = { 
-	#                     CULTURE_INPUT = bretonnian
-	#                 }  
-	# 				portrait_imperial_trigger = { 
-	#                     CULTURE_INPUT = bretonnian
-	#                 }
-    #             }
-	# 			NAND = {
-	# 				is_ruler = yes
-	# 				has_government = theocracy_government
-	# 			}
-    #             has_ep2_dlc_trigger = yes   
-    #             # portrait_era1_trigger = yes     
-    #         }
-	# 		modifier = {
-	# 			factor = 0 
-	# 			portrait_wear_armor_trigger = yes
-	# 		}
-    #     }
-    # }
+	rohirrim_nobility = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = rohirrim_nobility
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				portrait_rohirrim_clothing_trigger = yes
+				highest_held_title_tier >= tier_kingdom
+			}
+			modifier = {
+				factor = 0
+				exists = this
+				OR = {
+					is_adult = no
+					government_has_flag = government_is_theocracy
+					is_theocratic_lessee = yes
+					has_character_modifier = vow_of_poverty_modifier
+					# Deliberately not the "fully naked" one since dropping your cloak's intended even if nudity is disabled
+					should_be_naked_trigger = yes
+					portrait_wear_armor_trigger = yes
+					cannot_be_killed = yes
+				}
+			}			
+		}
+	}
+	
+	theoden_cloak = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = theoden_cloak
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+            modifier = {
+                add = 2000
+				exists = character:lineofeorl28 #Theoden
+				this = character:lineofeorl28 #Theoden
+            }
+		}
+	}
+	
+	anbalukkhori_emperor_cloaks = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = ep3_byzantine_era2_imp_01_loros
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 200
+				has_ep3_dlc_trigger = yes
+				AND = {
+					portrait_anbalukkhori_clothing_trigger = yes
+					highest_held_title_tier = tier_empire
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_adult = no
+					government_has_flag = government_is_theocracy
+					is_theocratic_lessee = yes
+					has_character_modifier = vow_of_poverty_modifier
+					# Deliberately not the "fully naked" one since dropping your cloak's intended even if nudity is disabled
+					should_be_naked_trigger = yes
+					portrait_wear_armor_trigger = yes
+					cannot_be_killed = yes
+				}
+			}
+		}
+	}
+	
+	anbalukkhori_royal_cloaks = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = ep3_byzantine_era2_roy_01_loros
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 200
+				has_ep3_dlc_trigger = yes
+				AND = {
+					portrait_anbalukkhori_clothing_trigger = yes
+					highest_held_title_tier = tier_kingdom
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_adult = no
+					government_has_flag = government_is_theocracy
+					is_theocratic_lessee = yes
+					has_character_modifier = vow_of_poverty_modifier
+					# Deliberately not the "fully naked" one since dropping your cloak's intended even if nudity is disabled
+					should_be_naked_trigger = yes
+					portrait_wear_armor_trigger = yes
+					cannot_be_killed = yes
+				}
+			}
+		}
+	}
+	
+	thani_hazad_royal_cloaks = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = thani_hazad_royal_cloak
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 200
+				AND = {
+					portrait_estalian_clothing_trigger = yes
+					highest_held_title_tier = tier_kingdom
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_adult = no
+					government_has_flag = government_is_theocracy
+					is_theocratic_lessee = yes
+					has_character_modifier = vow_of_poverty_modifier
+					# Deliberately not the "fully naked" one since dropping your cloak's intended even if nudity is disabled
+					should_be_naked_trigger = yes
+					portrait_wear_armor_trigger = yes
+					cannot_be_killed = yes
+				}
+			}
+		}
+	}	
+
+	mountain_orc_cloak = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = mountain_orc_cloak
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				has_fp1_dlc_trigger = yes
+				portrait_mountain_orc_clothing_trigger = yes
+			}		
+		}
+	}
+	
+	circumpolar_furs = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = polar_cloak
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				has_fp1_dlc_trigger = yes
+				portrait_circumpolar_clothing_trigger = yes
+			}		
+		}
+	}
+	
+	angmarrim_cloak_low = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = fp1_cloak_berserker
+				range = { 0.41 0.99 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 250
+				portrait_wear_helmet_trigger = yes				
+                OR = {
+                    portrait_commoner_armor_trigger = {
+                        CULTURE_INPUT = angmarrim
+                    }
+                    portrait_low_nobles_armor_trigger = {
+                        CULTURE_INPUT = angmarrim
+                    }
+                }
+			}		
+		}
+	}	
+	
+	angmarrim_cloak_high = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = wam_light_cloaks
+				range = { 0.81 0.99 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 300
+				portrait_wear_helmet_trigger = yes				
+                portrait_high_nobles_headgear_trigger = { 
+	                CULTURE_INPUT = angmarrim
+	            }
+			}		
+		}
+	}
+	
+	northron = { 
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = northron_cloak
+				range = { 0 1 }
+			}
+			morph = {
+				mode = add
+				gene = gene_bs_cloak
+				template = cloak
+				value = 1.0
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				has_fp1_dlc_trigger = yes
+				has_ep2_dlc_trigger = yes   
+				OR = {
+					portrait_vale_woodmen_clothing_trigger = yes
+					#portrait_northron_clothing_trigger = yes
+					AND = { # Special case for tribal Rohirric to give them that more rustic edge - largely effects Leofrings and Framlings
+						portrait_rohirrim_clothing_trigger = yes
+						government_has_flag = government_is_tribal
+					}
+				}
+				NOT = { portrait_has_trait_trigger = { TRAIT = berserker } }
+				NOT = { scope:culture = culture:valemen }				
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_adult = no
+					government_has_flag = government_is_theocracy
+					is_theocratic_lessee = yes
+					has_character_modifier = vow_of_poverty_modifier
+					# Deliberately not the "fully naked" one since dropping your cloak's intended even if nudity is disabled
+					should_be_naked_trigger = yes
+					portrait_wear_armor_trigger = yes
+					cannot_be_killed = yes
+				}
+			}			
+		}
+	}
+	
+	daen = { 
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = daen_cloak
+				range = { 0 1 }
+			}
+			morph = {
+				mode = add
+				gene = gene_bs_cloak
+				template = cloak
+				value = 1.0
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				has_fp1_dlc_trigger = yes
+				has_ep2_dlc_trigger = yes   
+				portrait_gwathiurim_clothing_trigger = yes
+				NOT = { portrait_has_trait_trigger = { TRAIT = berserker } }
+				NOT = {
+					culture = {
+						has_cultural_pillar = heritage_danan_lin
+					}
+				}						
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_adult = no
+					government_has_flag = government_is_theocracy
+					is_theocratic_lessee = yes
+					has_character_modifier = vow_of_poverty_modifier
+					# Deliberately not the "fully naked" one since dropping your cloak's intended even if nudity is disabled
+					should_be_naked_trigger = yes
+					portrait_wear_armor_trigger = yes
+					cannot_be_killed = yes
+				}
+			}			
+		}
+	}
+
+	dwarf_western_royalty = { 
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = dwarf_western_royalty_cloak
+				range = { 0 1 }
+			}
+			morph = {
+				mode = add
+				gene = gene_bs_cloak
+				template = cloak
+				value = 1.0
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				has_fp1_dlc_trigger = yes
+				has_ep2_dlc_trigger = yes
+				highest_held_title_tier >= tier_kingdom
+				OR = {
+                	portrait_royalty_trigger = {
+                    	CULTURE_INPUT = dwarf
+                	}
+                	portrait_imperial_trigger = {
+                   		CULTURE_INPUT = dwarf
+                	}
+				}
+				NOT = { portrait_has_trait_trigger = { TRAIT = berserker } }
+				culture = {
+					NOR = {
+						has_cultural_pillar = heritage_ironfist
+						has_cultural_pillar = heritage_stiffbeard
+						has_cultural_pillar = heritage_blacklock
+						has_cultural_pillar = heritage_stonefoot
+					}
+				}			
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_adult = no
+					government_has_flag = government_is_theocracy
+					is_theocratic_lessee = yes
+					has_character_modifier = vow_of_poverty_modifier
+					# Deliberately not the "fully naked" one since dropping your cloak's intended even if nudity is disabled
+					should_be_naked_trigger = yes
+					portrait_wear_armor_trigger = yes
+					cannot_be_killed = yes
+				}
+			}			
+		}
+	}
+
+	dwarf_eastern_royalty = { 
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = dwarf_eastern_royalty_cloak
+				range = { 0 1 }
+			}
+			morph = {
+				mode = add
+				gene = gene_bs_cloak
+				template = cloak
+				value = 1.0
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				highest_held_title_tier >= tier_kingdom
+				OR = {
+                	portrait_royalty_trigger = {
+                    	CULTURE_INPUT = dwarf
+                	}
+                	portrait_imperial_trigger = {
+                   		CULTURE_INPUT = dwarf
+                	}
+				}
+				NOT = { portrait_has_trait_trigger = { TRAIT = berserker } }
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_ironfist
+						has_cultural_pillar = heritage_stiffbeard
+					}
+				}			
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_adult = no
+					government_has_flag = government_is_theocracy
+					is_theocratic_lessee = yes
+					has_character_modifier = vow_of_poverty_modifier
+					# Deliberately not the "fully naked" one since dropping your cloak's intended even if nudity is disabled
+					should_be_naked_trigger = yes
+					portrait_wear_armor_trigger = yes
+					cannot_be_killed = yes
+				}
+			}			
+		}
+	}
+	
+	drenim_cloaks = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = drenim_cloaks
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+                scope:age > 20
+				portrait_shayn_clothing_trigger = yes
+				scope:culture = culture:drenim	
+			}		
+		}
+	}	
+
+	shayn_war_shield = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = shayn_war
+				range = { 0 1 }
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 900
+				portrait_wear_helmet_trigger = yes
+                OR = { 
+                    portrait_commoner_armor_trigger = { 
+                        CULTURE_INPUT = shayn
+                    }
+                    portrait_low_nobles_armor_trigger = { 
+                        CULTURE_INPUT = shayn
+                    }
+                    portrait_high_nobles_armor_trigger = { 
+                        CULTURE_INPUT = shayn
+                    }
+                }				
+				OR = {
+					scope:culture = culture:sekak
+					scope:culture = culture:ahava
+					scope:culture = culture:ganim
+					scope:culture = culture:drenim					
+				}
+			}		
+		}
+	}		
+
+    dorwinion_low_nobles_cloaks = { # Carolingian Cloak
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = dorwinion_cloaks
+                range = { 0.01 0.49 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 500
+                OR = { 
+                	portrait_duchy_trigger = { 
+	                    CULTURE_INPUT = dorwinion
+	                }
+                }
+				NAND = {
+					is_ruler = yes
+					government_has_flag = government_is_theocracy
+				}
+                has_ep2_dlc_trigger = yes   
+                # portrait_era1_trigger = yes     
+            }
+			modifier = {
+				factor = 0 
+				portrait_wear_armor_trigger = yes
+			}
+        }
+    }
+	
+	dorwinion_high_nobles_cloaks = { # Noble Carolingian Cloak
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = dorwinion_cloaks
+                range = { 0.51 0.99 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 500
+                OR = {   
+                	portrait_royalty_trigger = { 
+	                    CULTURE_INPUT = dorwinion
+	                }  
+					portrait_imperial_trigger = { 
+	                    CULTURE_INPUT = dorwinion
+	                }
+                }
+				NAND = {
+					is_ruler = yes
+					has_government = theocracy_government
+				}
+                has_ep2_dlc_trigger = yes   
+                # portrait_era1_trigger = yes     
+            }
+			modifier = {
+				factor = 0 
+				portrait_wear_armor_trigger = yes
+			}
+        }
+    }
 }

@@ -4,6 +4,7 @@
 		NAND = {
 			OR = {
 				is_elf = yes
+				is_istari = yes
 			}
 			faith_is_good = yes
 		}
@@ -269,6 +270,7 @@ lotr_laamp_can_visit_location = {
 		trigger_if = {
 			limit = {
 				NOT = { is_elf = yes }
+				is_maiar = no
 				NAND = {
 					location.county.holder.top_liege = title:k_imladris.holder
 					culture = culture:dunedain_ranger

@@ -16,9 +16,11 @@ start_murder_interaction = {
 		scope:recipient != scope:actor
 		scope:actor = { #LotR
 			NOT = { has_culture = culture:wastelands }
+			#is_in_valinor = no
 		}
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
+			#is_in_valinor = no
 		}
 
 		NAND = { # Game Rules!
@@ -578,10 +580,12 @@ befriend_interaction = {
 	is_shown = {
 		scope:recipient = { #LotR
 			NOT = { has_culture = culture:wastelands }
+			#is_in_valinor = no
 		}
 		scope:actor = {
 			can_use_befriend_scheme_trigger = { TARGET = scope:recipient }
 			NOT = { has_culture = culture:wastelands } #LotR
+			#is_in_valinor = no #LotR
 		}
 		NOT = { scope:actor = scope:recipient }
 		scope:actor != scope:recipient

@@ -199,4 +199,29 @@
 	# 		}
 	# 	}
 	# }
+
+	## Dwarven ##
+	
+    dwarven_mining_no_cloak = { # No cloaks while mining!
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = no_cloak
+				range = { 0 1 }
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 1000
+				portrait_dwarf_clothing_trigger = yes
+				is_male = yes
+				involved_activity ?= { 
+					has_activity_type = activity_mining
+					activity_location = root.location
+				}
+			}
+		}
+	}
 }

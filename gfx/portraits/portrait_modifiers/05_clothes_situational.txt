@@ -245,4 +245,152 @@
             } 
         } 
     }
+
+    # Charioteer - Blue
+    charioteer_blue = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = anbalukkhori_war_clothes
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                has_ep3_dlc_trigger = yes
+                has_trait = charioteer_blue
+                is_ruler = no
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    is_adult = no
+                    should_be_naked_trigger = yes
+                }
+            } 
+        } 
+    }
+
+    # Charioteer - Green
+    charioteer_green = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = anbalukkhori_war_clothes
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                has_ep3_dlc_trigger = yes
+                has_trait = charioteer_green
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    is_adult = no
+                    is_ruler = yes 
+                    should_be_naked_trigger = yes
+                }
+            } 
+        } 
+    }
+
+    # Charioteer - White
+    charioteer_white = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = anbalukkhori_war_clothes
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                has_ep3_dlc_trigger = yes
+                has_trait = charioteer_white
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    is_adult = no
+                    is_ruler = yes
+                    should_be_naked_trigger = yes
+                }
+            } 
+        } 
+    }
+
+    # Charioteer - Red
+    charioteer_red = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = anbalukkhori_war_clothes
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 1000
+                has_ep3_dlc_trigger = yes
+                has_trait = charioteer_red
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    is_adult = no
+                    is_ruler = yes
+                    should_be_naked_trigger = yes
+                }
+            } 
+        } 
+    }
+	
+	gondor_prince = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = no_headgear
+                value = { 0 1 }
+            }
+        }
+		outfit_tags = { gondor_prince }
+        weight = {
+            base = 0           
+        }
+    }
+	
+	gondor_war_prince = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = gondorian_war_clothes
+                range = { 0 1 } # For the randomness to work correctly
+            }
+			accessory = {
+                mode = add
+                gene = headgear
+                template = gondorian_war_headgear
+                value = { 0 1 }
+            }
+        }
+		
+        weight = {
+            base = 0          
+        }
+    }
 }

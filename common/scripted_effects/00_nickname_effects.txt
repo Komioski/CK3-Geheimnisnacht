@@ -6,6 +6,7 @@
 				cannot_be_killed = yes
 				is_ai = yes
 			}
+			#is_in_valinor = no
 			NAND = { # I cannot already have a bad nickname if the nickname I'm getting is also bad
 				has_bad_nickname = yes
 				is_bad_nickname = $NICKNAME$
@@ -86,6 +87,7 @@ assign_random_nickname_effect = {
 			# 		age > young_age #LotR
 			# 		NOR = {  #LotR
 			# 			culture = { portrait_african_clothing_contents_trigger = yes } # They have a chance to be bald normally; it's not weird or tease-worthy
+			# 			has_trait = blood_of_numenor
 			# 		}
 			# 		#age >= 30
 			# 		stress >= 100
@@ -1219,6 +1221,7 @@ assign_random_nickname_effect = {
 					is_elf = no
 					cannot_be_killed = no
 					is_orc = no
+					#NOT = { has_trait = blood_of_numenor }
 				}
 				give_nickname = nick_the_bear
 				# Flag this as having been spat out already, in case we're applying several nicknames in quick succession.

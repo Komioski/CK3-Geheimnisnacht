@@ -315,7 +315,10 @@
                 has_ep2_dlc_trigger = yes				
 				government_has_flag = government_is_mercenary 
 				portrait_wear_helmet_trigger = yes
-				portrait_bretonnian_clothing_trigger = yes	
+				OR = {
+					portrait_bretonnian_clothing_trigger = yes
+					portrait_dalemen_clothing_trigger = yes
+				}	
 			}
 		}
 	}
