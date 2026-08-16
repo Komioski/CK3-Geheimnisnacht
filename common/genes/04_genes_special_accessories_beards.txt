@@ -5,15 +5,17 @@ special_genes = {
 	accessory_genes = {
 
 
-		#####################################
-		#									#
-		# 			  BEARDS 				#
-		#									#
-		#####################################
+	#####################################
+	#									#
+	# 			  BEARDS 				#
+	#									#
+	#####################################
 
-
+		
 		beards = {
 			group = beard
+			
+			## NO BEARD ##
 
 			no_beard = {
 				index = 0
@@ -26,1228 +28,757 @@ special_genes = {
 				}
 			}
 
-			all_beards = {
-				index = 1
-				male = {
-					1 = empty
-					1 = male_beard_western_01
-					1 = male_beard_western_02
-					1 = male_beard_western_03
-					1 = male_beard_western_04
-					1 = male_beard_western_05
-					1 = male_beard_western_06
-					1 = male_beard_western_07
-					1 = male_beard_western_08
-					1 = male_beard_western_09
-					1 = male_beard_western_10
-					1 = male_beard_mena_01
-					1 = male_beard_mena_02
-					1 = male_beard_mena_03
-					1 = male_beard_mena_04
-					1 = male_beard_northern_01
-					1 = male_beard_northern_02
-					1 = male_beard_northern_03
-					1 = male_beard_steppe_01
-					1 = male_beard_steppe_02
-					1 = male_beard_sub_saharan_01
-					1 = male_beard_sub_saharan_02
-					1 = male_beard_sub_saharan_03
-					1 = male_beard_indian_01
-					1 = male_beard_indian_02
-					1 = male_beard_indian_03
-					1 = male_beard_fp1_01 # Twin braids with metal rings
-					1 = male_beard_fp1_02 # Short low beard
-					1 = male_beard_fp1_03 # Wavy pointy beard
-					1 = male_beard_fp1_04 # Huge braid
-					1 = male_beard_fp1_05 # Long narrow wavy
-					1 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-					1 = male_beard_fp2_iberian_christian_02 # Iberian goatee
-					1 = male_beard_fp2_iberian_christian_03 # Caballero's beard
-					1 = male_beard_fp2_iberian_christian_04 # Droopy moustache
-					1 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard
-					1 = male_beard_fp2_iberian_muslim_02 # Scholar's beard
-					1 = male_beard_fp2_iberian_muslim_03 # Forked beard
-					1 = m_beard_fp3_iranian_01
-					1 = m_beard_fp3_iranian_02
-					1 = m_beard_fp3_iranian_03
-					1 = m_beard_ep2_western_01
-					1 = m_beard_ep2_western_02
-					1 = m_beard_ep2_western_03
-					1 = m_beard_sp2_western_01 # The Ultimate Moustache 
-					1 = m_beard_sp3_western_01
-					1 = m_beard_ep3_byzantine_01
-					1 = m_beard_ep3_byzantine_02
-					1 = m_beard_ep3_byzantine_03
-					1 = m_beard_ep3_byzantine_04
-					###EPE
-					1 = male_beard_custom_01 	
-					1 = male_beard_custom_02 
-					1 = male_beard_custom_03 	
-					1 = male_beard_custom_04 
-					1 = male_beard_custom_05 
-					1 = male_beard_custom_06
-					1 = male_beard_custom_07 
-					1 = male_beard_custom_08 
-					1 = male_beard_custom_09
-					1 = m_beard_sp4_rus_01
-					1 = m_beard_sp4_mena_01				
+			#	index = 1-2  PLACEHOLDER
 
-				}
-				female = {
-					1 = empty
-				}
-			}
+			# Bretonnian #
 
-			legacy_dna_beards = {
-				index = 100
-				male = {
-					1 = empty
-					1 = male_beard_western_01
-					1 = male_beard_western_02
-					1 = male_beard_western_03
-					1 = male_beard_western_04
-					1 = male_beard_western_05
-					1 = male_beard_western_06
-					1 = male_beard_western_07
-					1 = male_beard_western_08
-					1 = male_beard_western_09
-					1 = male_beard_mena_01
-					1 = male_beard_mena_02
-					1 = male_beard_mena_03
-					1 = male_beard_mena_04
-					1 = male_beard_northern_01
-					1 = male_beard_northern_02
-					1 = male_beard_northern_03
-					1 = male_beard_steppe_01
-					1 = male_beard_steppe_02
-					1 = male_beard_sub_saharan_01
-					1 = male_beard_sub_saharan_02
-					1 = male_beard_sub_saharan_03
-					1 = male_beard_indian_01
-					1 = male_beard_indian_02
-					1 = male_beard_indian_03
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			western_beards_straight = {
-				index = 2
-
-				male = {
-					5 = empty
-					20 = male_beard_western_01 # Standard full beard
-					10 = male_beard_western_02 # Standard goatee
-					10 = male_beard_western_03 # Short beard
-					5 = male_beard_western_04 # Short goatee
-					5 = male_beard_western_05 # Mustache
-					10 = male_beard_western_06 # Big bushy beard
-					10 = male_beard_western_07 # Chin strap
-					10 = male_beard_western_08 # Big with fancy mustache
-					10 = male_beard_western_09 # Pointy beard
-					10 = male_beard_western_10 # Chin goatee
-					15 = male_beard_mena_04 # Short stylish
-					5 = male_beard_custom_06
-					5 = male_beard_mena_04b #	
-					5 = male_beard_western_1b #	
-				    5 = male_beard_western_2b #						
-				}
-				female = {
-					1 = empty
-				}
-			}	
-
-			western_beards_curly = {
+			bretonnian_beards_straight = {
 				index = 3
 
 				male = {
-					5 = empty
-					20 = male_beard_western_01 # Standard full beard
-					10 = male_beard_western_02 # Standard goatee
-					10 = male_beard_western_03 # Short beard
-					5 = male_beard_western_04 # Short goatee
-					5 = male_beard_western_05 # Mustache
-					20 = male_beard_western_06 # Big bushy beard
-					15 = male_beard_mena_04 # Short stylish
-					10 = male_beard_mena_04b #
-					10 = male_beard_western_1b #	
-				    5 = male_beard_western_2b #
-					4 = male_beard_western_9b #						
+					8 = empty
+					3 = male_beard_western_05 #"Mustache" - straight					
+					4 = male_beard_western_07 #"Chinstrap Beard" - straight
+					3 = male_beard_mena_04 #"Short Stylish Beard" - straight
+					3 = male_beard_fp1_02 # Aspiring Raider -straight
+					3 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard - straight
+					3 = male_beard_fp2_iberian_christian_04 # Droopy moustache - straight
+					4 = m_beard_sp2_western_01 # Regal Moustache - straight
+					2 = japanese_moustache_03 # Womaw Moustache - straight
+					2 = male_beard_western_01 #"Full Beard" - any
+					2 = male_beard_western_02 #"Goatee" - any					
+					2 = male_beard_western_03 #"Short Beard" - any
+					2 = male_beard_western_04 #"Short Goatee" - any
+					2 = male_beard_western_10 #"Chin Goatee" - any					
+					2 = male_beard_indian_01 #"Mustache with Sideburns" - any
+					2 = male_beard_indian_02 #"Wavy Pointy Beard" - any
+					2 = male_beard_fp2_iberian_christian_02 # Adunai Goatee - any
+					2 = male_beard_fp2_iberian_christian_03 # Kharadunaim Beard - any
+					4 = m_beard_ep2_western_01 # Western Nobleman's Beard - any
+					3 = m_beard_ep2_western_02 # Western Forked Beard - any
+					4 = m_beard_ep2_western_03 # Western Mustache - any
+					3 = m_beard_sp4_rus_01 # Impressive Mustache - any
 				}
 				female = {
 					1 = empty
 				}
-			}	
+				boy = {
+					1 = empty
+				}
+			}
 
-			mena_beards_straight = {
+			bretonnian_beards_curly = {
 				index = 4
 
 				male = {
-				# 0 = empty
-				5 = male_beard_western_01
-				5 = male_beard_western_02
-				5 = male_beard_western_03
-				# 5 = male_beard_western_04
-				20 = male_beard_mena_01
-				20 = male_beard_mena_02
-				20 = male_beard_mena_03
-				20 = male_beard_mena_04
-				10 = mena_curled_mustache_chinstrap_01
-				10 = mena_islamic_pointed_beard		
-				10 = mena_islamic_pointed_beard_03
-				20 = male_beard_sub_saharan_03
-				10 = male_beard_northern_01
-				20 = male_beard_mena_05 #		
-				20 = male_beard_mena_06 #	
-				10 = male_beard_mena_08 #
-				4 = male_beard_western_9b #	
-			 ###fp2 Mashriqi and Bedouin
-				7 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-				7 = male_beard_fp2_iberian_christian_02 # Iberian goatee
-				7 = male_beard_fp2_iberian_christian_03 # Caballero's beard
-				7 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard
-				6 = male_beard_fp2_iberian_muslim_02 # Scholar's beard					
+					8 = empty
+					3 = male_beard_mena_01 #"Full Curly Beard" - curly					
+					3 = male_beard_sub_saharan_02 #"Fine Curls Goatee" - curly
+					3 = m_beard_fp3_iranian_02 # Long Pointy Beard - curly
+					3 = m_beard_ep3_byzantine_01 # Adunai Short Beard - curly
+					3 = m_beard_ep3_byzantine_02 # Adunai Courtier's Beard - curly
+					3 = m_beard_ep3_byzantine_03 # Traditional Adunai Beard - curly
+					5 = m_beard_sp3_western_01 # Regal Beard - curly
+					4 = beard_tywins_muttonchops # Tasteful Mutton Chops - curly
+					1 = male_beard_western_01 #"Full Beard" - any
+					1 = male_beard_western_02 #"Goatee" - any					
+					1 = male_beard_western_03 #"Short Beard" - any
+					1 = male_beard_western_04 #"Short Goatee" - any
+					1 = male_beard_western_10 #"Chin Goatee" - any					
+					1 = male_beard_indian_01 #"Mustache with Sideburns" - any
+					1 = male_beard_indian_02 #"Wavy Pointy Beard" - any
+					1 = male_beard_fp2_iberian_christian_02 # Adunai Goatee - any
+					1 = male_beard_fp2_iberian_christian_03 # Kharadunaim Beard - any
+					2 = m_beard_ep2_western_01 # Western Nobleman's Beard - any
+					2 = m_beard_ep2_western_02 # Western Forked Beard - any
+					2 = m_beard_ep2_western_03 # Western Mustache - any
+					1 = m_beard_sp4_rus_01 # Impressive Mustache - any					
 				}
 				female = {
 					1 = empty
 				}
-			}	
+				boy = {
+					1 = empty
+				}
+			}
 
-			mena_beards_curly = {
+			# Estalian #
+
+			estalian_beards_straight = {
 				index = 5
 
 				male = {
-					# 0 = empty
-					5 = male_beard_western_03 # Short beard
-					15 = male_beard_mena_01 # Very curly medium length full beard
-					15 = male_beard_mena_02 # Big with small mustache
-					15 = male_beard_mena_03 # Big chin strap 
-					10 = mena_islamic_pointed_beard		
-					10 = mena_islamic_pointed_beard_03
-					10 = male_beard_sub_saharan_03
-					10 = male_beard_northern_01	
-					10 = male_beard_mena_05 #		
-				    10 = male_beard_mena_06 #	
-				    10 = male_beard_mena_08 #	
-				  ###Mashriqi and Bedouin
-					7 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard
-					7 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-					7 = male_beard_fp2_iberian_muslim_02 # Scholar's beard
-					5 = male_beard_fp2_iberian_muslim_03 # Forked beard
-					7 = male_beard_fp2_iberian_christian_03 # Caballero's beard							
+					6 = empty
+					3 = male_beard_western_05 #"Mustache" - straight					
+					3 = male_beard_western_07 #"Chinstrap Beard" - straight
+					3 = male_beard_mena_04 #"Short Stylish Beard" - straight
+					3 = male_beard_fp1_02 # Aspiring Raider -straight
+					6 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard - straight
+					6 = male_beard_fp2_iberian_christian_04 # Droopy moustache - straight
+					5 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard - straight
+					3 = m_beard_sp2_western_01 # Regal Moustache - straight
+					2 = male_beard_western_10 #"Chin Goatee" - any					
+					2 = male_beard_indian_01 #"Mustache with Sideburns" - any
+					2 = male_beard_indian_02 #"Wavy Pointy Beard" - any
+					5 = male_beard_fp2_iberian_christian_02 # Adunai Goatee - any
+					5 = male_beard_fp2_iberian_christian_03 # Kharadunaim Beard - any
+					3 = male_beard_fp2_iberian_muslim_02 # Scholar's beard - any
+					2 = m_beard_ep2_western_01 # Western Nobleman's Beard - any
+					2 = m_beard_ep2_western_02 # Western Forked Beard - any
+					2 = m_beard_ep2_western_03 # Western Mustache - any
+					2 = m_beard_sp4_rus_01 # Impressive Mustache - any
+				}
 					
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			estalian_beards_curly = {
+				index = 6
+
+				male = {
+					6 = empty
+					3 = male_beard_mena_01 #"Full Curly Beard" - curly					
+					4 = male_beard_fp2_iberian_muslim_03 # Forked beard - curly
+					3 = m_beard_fp3_iranian_02 # Long Pointy Beard - curly
+					3 = m_beard_ep3_byzantine_01 # Adunai Short Beard - curly
+					3 = m_beard_ep3_byzantine_02 # Adunai Courtier's Beard - curly
+					3 = m_beard_ep3_byzantine_03 # Traditional Adunai Beard - curly
+					3 = m_beard_ep3_byzantine_04 # Pious Long Beard - curly
+					3 = m_beard_sp3_western_01 # Regal Beard - curly
+					3 = m_beard_sp4_mena_01 # Steppe Conqueror's Beard - curly
+					#3 = beard_tywins_muttonchops # Tasteful Mutton Chops - curly
+					1 = male_beard_western_10 #"Chin Goatee" - any					
+					1 = male_beard_indian_01 #"Mustache with Sideburns" - any
+					1 = male_beard_indian_02 #"Wavy Pointy Beard" - any
+					2 = male_beard_fp2_iberian_christian_02 # Adunai Goatee - any
+					2 = male_beard_fp2_iberian_christian_03 # Kharadunaim Beard - any
+					2 = male_beard_fp2_iberian_muslim_02 # Scholar's beard - any
+					1 = m_beard_ep2_western_01 # Western Nobleman's Beard - any
+					1 = m_beard_ep2_western_02 # Western Forked Beard - any
+					1 = m_beard_ep2_western_03 # Western Mustache - any
+					1 = m_beard_sp4_rus_01 # Impressive Mustache - any					
+				}
+
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			#	index = 13-14  PLACEHOLDER			
+			
+			# Strygan #
+
+			strygan_beards_straight = {
+				index = 7
+
+				male = {
+					8 = empty
+					3 = male_beard_western_05 #"Mustache" - straight					
+					3 = male_beard_western_09 #"Pointy Beard" - straight					
+					4 = male_beard_mena_04 #"Short Stylish Beard" - straight
+					4 = male_beard_steppe_01 #"Straight Pointy Beard" - straight
+					4 = male_beard_steppe_02 #"Straight Medium Beard" - straight
+					3 = male_beard_fp1_02 # Aspiring Raider -straight
+					3 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard - straight
+					3 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard - straight
+					5 = m_beard_fp3_iranian_01 # Medium Beard with Knot - straight
+					3 = japanese_beard_01 # Womaw Beard - straight					
+					2 = male_beard_western_01 #"Full Beard" - any
+					2 = male_beard_western_02 #"Goatee" - any					
+					2 = male_beard_western_03 #"Short Beard" - any
+					2 = male_beard_western_04 #"Short Goatee" - any
+					2 = male_beard_western_10 #"Chin Goatee" - any					
+					2 = male_beard_indian_01 #"Mustache with Sideburns" - any
+					2 = male_beard_fp2_iberian_christian_03 # Kharadunaim Beard - any
+					2 = m_beard_ep2_western_01 # Western Nobleman's Beard - any
+					2 = m_beard_ep2_western_03 # Western Mustache - any
+
 				}
 				female = {
 					1 = empty
 				}
-			}	
+				boy = {
+					1 = empty
+				}
+			}
 
-
-			northern_beards_straight = {
-				index = 6
+			strygan_beards_curly = {
+				index = 8
 
 				male = {
-					# 10 = empty
-					5 = male_beard_western_01 # Standard full beard
-					5 = male_beard_western_02 # Standard goatee
-					5 = male_beard_western_03 # Short beard
-					5 = male_beard_western_04 # Short goatee
-					20 = male_beard_northern_01 # Big wide
-					20 = male_beard_northern_02 # Single braid
-					20 = male_beard_northern_03 # Beaded beard
-					15 = male_beard_mena_04 # Short stylish
-					5 = male_beard_custom_07
-					5 = male_beard_custom_08	
-				    1 = epe_male_beard_fp1_04 #	
-					5 = male_beard_custom_06	
-
-								
+					7 = empty
+					3 = male_beard_mena_01 #"Full Curly Beard" - curly					
+					6 = m_beard_fp3_iranian_02 # Long Pointy Beard - curly
+					6 = m_beard_fp3_iranian_03 # Variag Beard - curly
+					3 = m_beard_ep3_byzantine_01 # Adunai Short Beard - curly
+					3 = m_beard_ep3_byzantine_02 # Adunai Courtier's Beard - curly
+					3 = m_beard_ep3_byzantine_03 # Traditional Adunai Beard - curly
+					3 = m_beard_sp3_western_01 # Regal Beard - curly
+					5 = m_beard_sp4_mena_01 # Steppe Conqueror's Beard - curly
+					1 = male_beard_western_01 #"Full Beard" - any
+					1 = male_beard_western_02 #"Goatee" - any					
+					1 = male_beard_western_03 #"Short Beard" - any
+					1 = male_beard_western_04 #"Short Goatee" - any
+					1 = male_beard_western_10 #"Chin Goatee" - any					
+					1 = male_beard_indian_01 #"Mustache with Sideburns" - any
+					1 = male_beard_fp2_iberian_christian_03 # Kharadunaim Beard - any
+					1 = m_beard_ep2_western_01 # Western Nobleman's Beard - any
+					1 = m_beard_ep2_western_03 # Western Mustache - any					
 				}
 				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+			
+			#	index = 31-32  PLACEHOLDER			
+
+			wastelands_beards = {
+				index = 9
+
+				male = {					
+					#10 = male_beard_sub_saharan_03 # Full african beard long
+					10 = male_beard_fp1_05 # Long narrow wavy	
+					#10 = male_beard_steppe_01 # low rough beard
+					#10 = male_beard_northern_01 # Big wide
+					#10 = male_beard_western_06 # Big bushy beard
+					#10 = male_beard_mena_02 # Big with small mustache				
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+			
+			#	index = 55-58  PLACEHOLDER			
+
+			## PROXIES ##
+
+			northern_beards_straight = {
+				index = 10
+
+				male = {
+					1 = empty
+					1 = male_beard_northern_01 
+					1 = male_beard_northern_02 
+					1 = male_beard_northern_03
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
 					1 = empty
 				}
 			}
 
 			northern_beards_curly = {
-				index = 7
+				index = 11
 
 				male = {
-					# 10 = empty
-					5 = male_beard_western_01 # Standard full beard
-					5 = male_beard_western_02 # Standard goatee
-					5 = male_beard_western_03 # Short beard
-					10 = male_beard_western_04 # Short goatee
-					10 = male_beard_western_06 # Big bushy beard
-				    1 = epe_male_beard_fp1_04 #
-								
+					1 = empty
+					1 = male_beard_northern_01 
+					1 = male_beard_northern_02 
+					1 = male_beard_northern_03
 				}
 				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			western_beards_straight = {
+				index = 12
+
+				male = {
+					30 = empty
+					20 = male_beard_western_01 
+					10 = male_beard_western_02 
+					10 = male_beard_western_03
+					5 = male_beard_western_04 
+					5 = male_beard_western_05 
+					10 = male_beard_western_06 
+					10 = male_beard_western_07 
+					10 = male_beard_western_08 
+					10 = male_beard_western_09
+					10 = male_beard_western_10 
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			western_beards_curly = {
+				index = 13
+
+				male = {
+					30 = empty
+					20 = male_beard_western_01 
+					10 = male_beard_western_02 
+					10 = male_beard_western_03
+					5 = male_beard_western_04 
+					5 = male_beard_western_05 
+					20 = male_beard_western_06 
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			mena_beards_straight = {
+				index = 14
+
+				male = {
+					20 = male_beard_mena_01
+					20 = male_beard_mena_02 
+					20 = male_beard_mena_03  
+					20 = male_beard_mena_04 
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			mena_beards_curly = {
+				index = 15
+
+				male = {
+					20 = male_beard_mena_01 
+					20 = male_beard_mena_02 
+					20 = male_beard_mena_03 
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
 					1 = empty
 				}
 			}
 
 			steppe_beards_straight = {
-				index = 8
+				index = 16
 
 				male = {
-					# 5 = empty
-					#10 = male_beard_steppe_01 # low rough beard
-					#10 = male_beard_steppe_02 # long at chin with mustache
-					5 = male_beard_custom_01
-					5 = male_beard_custom_02
-					5 = male_beard_custom_03				 
-					1 = male_beard_steppe_01
-					1 = male_beard_steppe_02
-					5 = male_beard_turkic_01
-				    5 = epe_male_beard_fp1_02 #
-					5 = male_beard_custom_06	
-					
+					5 = empty
+					10 = male_beard_steppe_01
+					10 = male_beard_steppe_02
 				}
 				female = {
+					1 = empty
+				}
+				boy = {
 					1 = empty
 				}
 			}
 
 			steppe_beards_curly = {
-				index = 9
+				index = 17
 
 				male = {
-					# 5 = empty
-					5 = male_beard_mena_01 # Very curly medium length full beard
-					15 = male_beard_mena_04 # Short stylish
-					5 = male_beard_western_04 # Short goatee
-					5 = male_beard_custom_01
-					5 = male_beard_custom_02
-					5 = male_beard_custom_03				 
-					5 = male_beard_turkic_01					
+					5 = empty
+					10 = male_beard_steppe_01
+					10 = male_beard_steppe_02
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			sub_saharan_beards = {
+				index = 18
+				set_tags = "very_curly_hair"
+				male = {
+					30 = empty
+					20 = male_beard_sub_saharan_01
+					20 = male_beard_sub_saharan_02
+					10 = male_beard_sub_saharan_03		
 					
 				}
 				female = {
 					1 = empty
 				}
-			}
-
-			sub_saharan_beards_afro = {
-				index = 10
-				set_tags = "very_curly_hair"
-				male = {
-					10 = empty
-					20 = male_beard_sub_saharan_01 # Full african beard medium
-					20 = male_beard_sub_saharan_02 # Stylish african goatee
-					10 = male_beard_sub_saharan_03 # Full african beard long		
-					
-				}
-				female = {
+				boy = {
 					1 = empty
 				}
 			}
 
 			indian_beards_straight = {
-				index = 11
+				index = 19
 
 				male = {
-					# 5 = empty
-					2 = male_beard_indian_01 # Handlebar mustache
-					2 = male_beard_indian_02 # Indian pointy
-					2 = male_beard_indian_03 # Big messy straight beard
-					2 = male_beard_indian_01 # Handlebar mustache
-					2 = male_beard_indian_02 # Indian pointy
-					2 = male_beard_indian_03 # Big messy straight beard
-					2 = male_long_mustache_indian_01	
-					2 = male_long_mustache_indian_02	
-					2 = male_long_mustache_indian_03					
-					2 = epe_male_beard_indian_01 #	
-					2 = epe_male_beard_fp1_04	
-					2 = male_beard_western_8b #		
-				    2 = male_beard_western_8c #		
-				    2 = male_beard_western_8d #	
-				    2 = male_beard_western_8e #	
-				    2 = male_beard_western_8f #	
-								
+					5 = empty
+					20 = male_beard_indian_01
+					10 = male_beard_indian_02
+					10 = male_beard_indian_03
 				}
 				female = {
+					1 = empty
+				}
+				boy = {
 					1 = empty
 				}
 			}
 
 			indian_beards_curly = {
-				index = 12
-
-				male = {
-					# 5 = empty
-					2 = male_beard_indian_01 # Handlebar mustache
-					2 = male_beard_indian_02 # Indian pointy
-					2 = male_beard_indian_03 # Big messy straight beard
-					2 = male_beard_indian_01 # Handlebar mustache
-					2 = male_beard_indian_02 # Indian pointy
-					2 = male_beard_indian_03 # Big messy straight beard
-					2 = male_long_mustache_indian_02	
-					2 = male_long_mustache_indian_03						
-					2 = epe_male_beard_indian_01 #
-					2 = epe_male_beard_fp1_04	
-					1 = male_beard_western_8b #		
-				    1 = male_beard_western_8c #		
-				    1 = male_beard_western_8d #	
-				    1 = male_beard_western_8e #	
-				    1 = male_beard_western_8f #	
-								
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			rtt_beards = {
-				index = 13
-
-				male = {
-					1 = male_beard_rtt_01 # Wizard beard
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			fp1_beards_straight = {
-				index = 14
-
-				male = {
-					# 10 = empty
-					5 = male_beard_fp1_01 # Twin braids with metal rings
-					5 = male_beard_fp1_02 # Short low beard
-					5 = male_beard_fp1_03 # Wavy pointy beard
-					5 = male_beard_fp1_04 # Huge braid
-					5 = male_beard_fp1_05 # Long narrow wavy
-					
-								
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			fp1_beards_curly = {
-				index = 15
-
-				male = {
-					# 10 = empty
-					5 = male_beard_fp1_03 # Wavy pointy beard	
-					5 = male_beard_fp1_05 # Long narrow wavy				
-								
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			fp2_beards_straight = {
-				index = 16
-
-				male = {
-					# 10 = empty
-					5 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-					5 = male_beard_fp2_iberian_christian_02 # Iberian goatee
-					5 = male_beard_fp2_iberian_christian_03 # Caballero's beard
-					5 = male_beard_fp2_iberian_christian_04 # Droopy moustache
-					5 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard
-					5 = male_beard_fp2_iberian_muslim_02 # Scholar's beard		
-				}
-				
-				female = {
-					1 = empty
-				}
-			}
-
-			fp2_beards_curly = {
-				index = 17
-
-				male = {
-					5 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard
-					5 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-					5 = male_beard_fp2_iberian_muslim_02 # Scholar's beard
-					5 = male_beard_fp2_iberian_muslim_03 # Forked beard
-					5 = male_beard_fp2_iberian_christian_03 # Caballero's beard
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-
-			sp2_beards_straight = {
-				index = 18
-
-				male = {
-					5 = m_beard_sp2_western_01	# The Ultimate Moustache	
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-
-
-			ep2_beards = {
-				index = 19
-
-				male = {
-					1 = empty
-					10 = m_beard_ep2_western_01 # Tidy short beard with slightly pointy mustache
-					10 = m_beard_ep2_western_02 # Long flowy forked beard
-					10 = m_beard_ep2_western_03 # Mustache from m_beard_ep2_western_01
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-
-			scripted_character_beards_01 = { # THIS TEMPLATE SHOULD NOT BE CHANGED IN ANY WAY! If new beards are added for scripted characters they should be added in a new template.
 				index = 20
+
 				male = {
-					1 = empty
-					1 = male_beard_western_01
-					1 = male_beard_western_02
-					1 = male_beard_western_03
-					1 = male_beard_western_04
-					1 = male_beard_western_05
-					1 = male_beard_western_06
-					1 = male_beard_western_07
-					1 = male_beard_western_08
-					1 = male_beard_western_09
-					1 = male_beard_western_10
-					1 = male_beard_mena_01
-					1 = male_beard_mena_02
-					1 = male_beard_mena_03
-					1 = male_beard_mena_04
-					1 = male_beard_northern_01
-					1 = male_beard_northern_02
-					1 = male_beard_northern_03
-					1 = male_beard_steppe_01
-					1 = male_beard_steppe_02
-					1 = male_beard_sub_saharan_01
-					1 = male_beard_sub_saharan_02
-					1 = male_beard_sub_saharan_03
-					1 = male_beard_indian_01
-					1 = male_beard_indian_02
-					1 = male_beard_indian_03
-					1 = male_beard_fp1_01
-					1 = male_beard_fp1_02
-					1 = male_beard_fp1_03
-					1 = male_beard_fp1_04
-					1 = male_beard_fp1_05
+					5 = empty
+					20 = male_beard_indian_01
+					10 = male_beard_indian_02
 				}
 				female = {
 					1 = empty
 				}
+				boy = {
+					1 = empty
+				}
 			}
-
-
-			thin_beards_straight = {
+			
+			#	index = 70-73  PLACEHOLDER			
+			
+			## BEARDS BY TYPE ##
+			
+			all_beards_by_type = { #do not use this for bookmarks or custom characters as it changes
 				index = 21
-
 				male = {
-					# 5 = empty
-					10 = male_beard_steppe_01
-					10 = male_beard_steppe_02
-					5 = male_beard_custom_01
-					5 = male_beard_custom_02
-					5 = male_beard_custom_03				 
-					5 = male_beard_steppe_01
-					5 = male_beard_steppe_02
-					5 = male_beard_turkic_01
-					5 = epe_male_beard_fp1_02 #						
-
+					#STRAIGHT#
+					1 = male_beard_western_05 #"Mustache" - straight					
+					1 = male_beard_western_07 #"Chinstrap Beard" - straight
+					1 = male_beard_western_08 #"Long Wavy Beard" - straight
+					1 = male_beard_western_09 #"Pointy Beard" - straight					
+					1 = male_beard_mena_04 #"Short Stylish Beard" - straight
+					1 = male_beard_northern_03 #"Beaded Beard" - straight
+					1 = male_beard_steppe_01 #"Straight Pointy Beard" - straight
+					1 = male_beard_steppe_02 #"Straight Medium Beard" - straight
+					1 = male_beard_indian_03 #"Long Straight Rough Beard" - straight
+					1 = male_beard_fp1_01 # Bodyguard's Braids - straight
+					1 = male_beard_fp1_02 # Aspiring Raider -straight
+					1 = male_beard_fp1_04 # Massive Braid - straight
+					1 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard - straight
+					1 = male_beard_fp2_iberian_christian_04 # Droopy moustache - straight
+					1 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard - straight
+					1 = m_beard_fp3_iranian_01 # Medium Beard with Knot - straight
+					1 = m_beard_sp2_western_01 # Regal Moustache - straight
+					1 = japanese_moustache_01 # Womaw Small Moustache - straight
+					1 = japanese_moustache_03 # Womaw Moustache - straight
+					1 = japanese_beard_01 # Womaw Beard - straight
+					1 = m_beard_tgp_japanese_01 # Senior Official's Beard - straight
+					1 = m_beard_tgp_japanese_02 # Fierce Warrior's Beard - straight
+					1 = m_beard_tgp_japanese_03 # Eastern Small Mustache straight
+					1 = m_beard_tgp_japanese_04 # Easterm Small Mustache with Lip Patch - straight
+					1 = m_beard_tgp_japanese_05 # Eastern Chinstrap Beard - straight
+					1 = m_beard_tgp_japanese_06 # Eastern Fancy Mustache - straight
+					1 = m_beard_tgp_japanese_07 # Warrior's Beard without Mustache - straight					
+					1 = m_beard_tgp_chinese_01 # Eastern Pointed Beard - straight
+					1 = m_beard_tgp_chinese_02 # Eastern Three-Pronged Beard - straight
+					1 = m_beard_tgp_chinese_03 # Long Chin-Beard with Mustache - straight
+					1 = m_beard_tgp_chinese_04 # Full Beard with Long Mustache - straight
+					1 = m_beard_tgp_chinese_05 # Mustache with Lip Patch - straight
+					1 = m_beard_tgp_chinese_06 # Eastern Long Goatee - straight
+					1 = m_beard_tgp_chinese_07 # Eastern Pointed Beard without Mustache - straight
+					1 = m_beard_tgp_chinese_08 # Eastern Thin Mustache - straight
+					1 = m_beard_tgp_chinese_09 # Three-Pronged Beard without Mustache - straight
+					1 = m_beard_tgp_chinese_10 # Eastern Fancy Mustache - straight
+					1 = m_beard_tgp_chinese_11 # Long Chin-Beard - straight
+					1 = m_beard_tgp_chinese_12 # Eastern Long Mustache - straight
+					1 = m_beard_tgp_chinese_13 # Long Chinstrap Beard - straight				
+					#WAVY#
+					1 = male_beard_western_01 #"Full Beard" - any
+					1 = male_beard_western_02 #"Goatee" - any					
+					1 = male_beard_western_03 #"Short Beard" - any
+					1 = male_beard_western_04 #"Short Goatee" - any
+					1 = male_beard_western_10 #"Chin Goatee" - any					
+					1 = male_beard_mena_02 #"Big Wavy Beard" - any
+					1 = male_beard_mena_03 #"Big Chinstrap Beard" - any
+					1 = male_beard_northern_01 #"Big Wild Beard" - any
+					1 = male_beard_northern_02 #"Single Braid Beard" - any
+					1 = male_beard_indian_01 #"Mustache with Sideburns" - any
+					1 = male_beard_indian_02 #"Wavy Pointy Beard" - any
+					1 = male_beard_fp1_05 # Grizzled Guardsman - any
+					1 = male_beard_fp2_iberian_christian_02 # Adunai Goatee - any
+					1 = male_beard_fp2_iberian_christian_03 # Kharadunaim Beard - any
+					1 = male_beard_fp2_iberian_muslim_02 # Scholar's beard - any
+					1 = m_beard_ep2_western_01 # Western Nobleman's Beard - any
+					1 = m_beard_ep2_western_02 # Western Forked Beard - any
+					1 = m_beard_ep2_western_03 # Western Mustache - any
+					1 = male_beard_rtt_01 # Wizard's Beard - any
+					1 = m_beard_sp4_rus_01 # Impressive Mustache - any
+					#CURLY#
+					1 = male_beard_western_06 #"Big Bushy Beard" - curly					
+					1 = male_beard_mena_01 #"Full Curly Beard" - curly					
+					1 = male_beard_sub_saharan_01 #"Fine Curls Beard" - curly
+					1 = male_beard_sub_saharan_02 #"Fine Curls Goatee" - curly
+					1 = male_beard_sub_saharan_03 #"Long Curly Beard" - curly	
+					1 = male_beard_fp1_03 # Beard with Big Mustache - curly
+					1 = male_beard_fp2_iberian_muslim_03 # Forked beard - curly
+					1 = m_beard_fp3_iranian_02 # Long Pointy Beard - curly
+					1 = m_beard_fp3_iranian_03 # Variag Beard - curly
+					1 = m_beard_ep3_byzantine_01 # Adunai Short Beard - curly
+					1 = m_beard_ep3_byzantine_02 # Adunai Courtier's Beard - curly
+					1 = m_beard_ep3_byzantine_03 # Traditional Adunai Beard - curly
+					1 = m_beard_ep3_byzantine_04 # Pious Long Beard - curly
+					1 = m_beard_sp3_western_01 # Regal Beard - curly
+					1 = m_beard_sp4_mena_01 # Steppe Conqueror's Beard - curly
+					1 = beard_tywins_muttonchops # Tasteful Mutton Chops - curly
 				}
 				female = {
 					1 = empty
 				}
+				boy = {
+					1 = empty
+				}
 			}
-
-			orthodox_beards = {
+			
+			## BARBERSHOP ##
+			
+			barbershop_non_dlc_beards = { #do not use this for bookmarks or custom characters as it changes
 				index = 22
 				male = {
-					20 = male_beard_western_01 # Standard full beard
-					5 = male_beard_western_02 # Standard goatee
-					5 = male_beard_western_03 # Short beard
-					10 = male_beard_western_06 # Big bushy beard
-					5 = male_beard_western_07 # Chin strap
-					20 = male_beard_western_08 # Big with fancy mustache
-					10 = male_beard_western_09 # Pointy beard
-					5 = male_beard_mena_04 # Short stylish
-					10 = male_beard_mena_01 # Very curly medium length full beard
-					10 = male_beard_mena_02 # Big with small mustache
+					1 = empty
+					1 = male_beard_western_01 # "Full Beard"
+					1 = male_beard_western_02 # "Goatee"
+					1 = male_beard_western_03 # "Short Beard"
+					1 = male_beard_western_04 # "Short Goatee"
+					1 = male_beard_western_05 # "Mustache"
+					1 = male_beard_western_06 # "Big Bushy Beard"
+					1 = male_beard_western_07 # "Chinstrap Beard"
+					1 = male_beard_western_08 # "Long Wavy Beard"
+					1 = male_beard_western_09 # "Pointy Beard"
+					1 = male_beard_western_10 # "Chin Goatee"
+					1 = male_beard_mena_01 # "Full Curly Beard"
+					1 = male_beard_mena_02 # "Big Wavy Beard"
+					1 = male_beard_mena_03 # "Big Chinstrap Beard"
+					1 = male_beard_mena_04 # "Short Stylish Beard"
+					1 = male_beard_northern_01 # "Big Wild Beard"
+					1 = male_beard_northern_02 # "Single Braid Beard"
+					1 = male_beard_northern_03 # "Beaded Beard"
+					1 = male_beard_steppe_01 # "Straight Pointy Beard"
+					1 = male_beard_steppe_02 # "Straight Medium Beard"
+					1 = male_beard_sub_saharan_01 # "Fine Curls Beard"
+					1 = male_beard_sub_saharan_02 # "Fine Curls Goatee"
+					1 = male_beard_sub_saharan_03 # "Long Curly Beard"		
+					1 = male_beard_indian_01 # "Mustache with Sideburns"
+					1 = male_beard_indian_02 # "Wavy Pointy Beard"
+					1 = male_beard_indian_03 # "Long Straight Rough Beard"
+					1 = male_beard_rtt_01 # Wizard's Beard
+					1 = japanese_moustache_01 # Womaw Small Moustache
+					1 = japanese_moustache_03 # Womaw Moustache
+					1 = japanese_beard_01 # Womaw Beard
 				}
 				female = {
 					1 = empty
 				}
+				boy = {
+					1 = empty
+				}
 			}
-			scripted_character_beards_02 = {
+			
+			# MPO #
+			
+			barbershop_mpo_beards = {
 				index = 23
+
+				male = {
+					1 = m_beard_mpo_mongol_01
+					1 = m_beard_mpo_mongol_02
+					1 = m_beard_mpo_mongol_03
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+			
+			# Crowns of the World #
+
+			barbershop_sp4_beards = {
+				index = 24
+
+				male = {
+					1 = m_beard_sp4_rus_01 # Impressive Mustache
+					1 = m_beard_sp4_mena_01 # Steppe Conqueror's Beard
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+			
+			# Couture of the Capets #
+
+			barbershop_sp3_beards = {
+				index = 25
+
+				male = {
+					1 = m_beard_sp3_western_01 # Regal Beard
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			barbershop_sp2_beards = {
+				index = 26
+
+				male = {
+					1 = m_beard_sp2_western_01 # Regal Moustache  
+				}
+				female = {
+					1 = f_beard_sp2_western_01
+				}
+				boy = {
+					1 = empty
+				}
+			}
+			
+			# Northern Lords #
+
+			barbershop_fp1_beards = {
+				index = 27
+
+				male = {
+					1 = male_beard_fp1_01 # Bodyguard's Braids
+					1 = male_beard_fp1_02 # Aspiring Raider
+					1 = male_beard_fp1_03 # Beard with Big Mustache
+					1 = male_beard_fp1_04 # Massive Braid
+					1 = male_beard_fp1_05 # Grizzled Guardsman
+				}
+				female = {
+					1 = female_beard_fp1_01
+					1 = female_beard_fp1_02
+					1 = female_beard_fp1_03
+					1 = female_beard_fp1_04
+					1 = female_beard_fp1_05
+				}
+				boy = {
+					1 = empty
+				}
+			}
+			
+			# Fate of Iberia #
+
+			barbershop_fp2_beards = {
+				index = 28
+
 				male = {
 					1 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-					1 = male_beard_fp2_iberian_christian_02 # Iberian goatee
-					1 = male_beard_fp2_iberian_christian_03 # Caballero's beard
+					1 = male_beard_fp2_iberian_christian_02 # Adunai Goatee
+					1 = male_beard_fp2_iberian_christian_03 # Kharadunaim Beard
 					1 = male_beard_fp2_iberian_christian_04 # Droopy moustache
 					1 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard
 					1 = male_beard_fp2_iberian_muslim_02 # Scholar's beard
 					1 = male_beard_fp2_iberian_muslim_03 # Forked beard
-					1 = empty
-
 				}
 				female = {
+					1 = female_beard_fp2_iberian_christian_01
+					1 = female_beard_fp2_iberian_christian_02
+					1 = female_beard_fp2_iberian_christian_03
+					1 = female_beard_fp2_iberian_christian_04
+					1 = female_beard_fp2_iberian_muslim_01
+					1 = female_beard_fp2_iberian_muslim_02
+					1 = female_beard_fp2_iberian_muslim_03
+				}
+				boy = {
 					1 = empty
 				}
 			}
+			
+			# Legacy of Persia #
 
-			scripted_character_beards_03 = {
-				index = 24
-				male = {
-					1 = m_beard_ep2_western_01
-					1 = m_beard_ep2_western_02
-					1 = m_beard_ep2_western_03
-
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			#FP3
-			#iranian
-			fp3_iranian_beards_straight = {
-				index = 25
-
-				male = {
-					5 = m_beard_fp3_iranian_01  # Medium beard with bun
-					2 = m_beard_fp3_iranian_03 	# Babylonian beard
-					1 = male_beard_indian_01 #Handlebar Moustache
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			fp3_iranian_beards_curly = {
-				index = 26
-
-				male = {
-					5 = m_beard_fp3_iranian_02 # Long pointy beard
-					2 = m_beard_fp3_iranian_03 	# Babylonian beard
-					1 = male_beard_indian_01 #Handlebar Moustache
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			#turkic
-			fp3_turkic_beards_straight = {
-				index = 27
-
-				male = {
-					5 = m_beard_fp3_iranian_02 # Long pointy beard
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			fp3_turkic_beards_curly = {
-				index = 28
-
-				male = {
-					5 = m_beard_fp3_iranian_02 # Long pointy beard
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			scripted_character_beards_04 = {
+			barbershop_fp3_beards = {
 				index = 29
+
 				male = {
-					1 = m_beard_fp3_iranian_01 # Medium beard with bun
-					1 = m_beard_fp3_iranian_02 # Long pointy beard
-					1 = m_beard_fp3_iranian_03 # Babylonian beard
+					1 = m_beard_fp3_iranian_01 # Medium Beard with Knot
+					1 = m_beard_fp3_iranian_02 # Long Pointy Beard
+					1 = m_beard_fp3_iranian_03 # Variag Beard
 				}
 				female = {
+					1 = f_beard_fp3_iranian_01
+					1 = f_beard_fp3_iranian_02
+					1 = f_beard_fp3_iranian_03
+				}
+				boy = {
 					1 = empty
 				}
 			}
+			
+			# Tours and Tournaments #
 
-			sp3_beards_straight = {
+			barbershop_ep2_beards = {
 				index = 30
 
 				male = {
-					5 = m_beard_sp3_western_01	# The Ultimate Moustache	
+					1 = m_beard_ep2_western_01 # Western Nobleman's Beard
+					1 = m_beard_ep2_western_02 # Western Forked Beard
+					1 = m_beard_ep2_western_03 # Western Mustache
 				}
-
 				female = {
+					1 = f_beard_ep2_western_01
+					1 = f_beard_ep2_western_02
+					1 = f_beard_ep2_western_03
+				}
+				boy = {
 					1 = empty
 				}
 			}
+			
+			# Roads to Power #
 
-			##########################################################################
-			####Byzantine 
-			##########################################################################					
-			byzantine_beards_straight = {
+			barbershop_ep3_beards = {
 				index = 31
 
 				male = {
-					# 30 = empty
-					20 = male_beard_western_01 # Standard full beard
-					10 = male_beard_western_02 # Standard goatee
-					10 = male_beard_western_03 # Short beard
-					5 = male_beard_western_04 # Short goatee
-					15 = male_beard_western_06 # Big bushy beard
-					10 = male_beard_western_08 # Big with fancy mustache
-					15 = male_beard_western_09 # Pointy beard
-					10 = male_beard_mena_04 # Short stylish
-					10 = male_beard_western_1b #		
+					1 = m_beard_ep3_byzantine_01 # Adunai Short Beard
+					1 = m_beard_ep3_byzantine_02 # Adunai Courtier's Beard
+					1 = m_beard_ep3_byzantine_03 # Traditional Adunai Beard
+					1 = m_beard_ep3_byzantine_04 # Pious Long Beard
 				}
 				female = {
 					1 = empty
 				}
-			}	
-
-			byzantine_beards_curly = {
+				boy = {
+					1 = empty
+				}
+			}
+			
+			# TGP #
+			
+			barbershop_tgp_japanese_beards = {
 				index = 32
-
-				male = {
-					# 30 = empty
-					20 = male_beard_western_01 # Standard full beard
-					10 = male_beard_western_02 # Standard goatee
-					10 = male_beard_western_03 # Short beard
-					5 = male_beard_western_04 # Short goatee
-					20 = male_beard_western_06 # Big bushy beard
-					10 = male_beard_mena_04 # Short stylish
-					10 = male_beard_western_1b #		
-				}
-				female = {
-					1 = empty
-				}
-			}	
-
-			ep3_beards_straight = {
-				index = 33
-
-				male = {
-					5 = m_beard_ep3_byzantine_01
-					5 = m_beard_ep3_byzantine_02
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-
-			ep3_beards_curly = {
-				index = 34
-
-				male = {
-					5 = m_beard_ep3_byzantine_01
-					5 = m_beard_ep3_byzantine_02
-					5 = m_beard_ep3_byzantine_03
-					5 = m_beard_ep3_byzantine_04
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-			
-			
-			############################################################################################################################################
-			######################################################### EPE ADDED HEADGEAR ###############################################################
-			############################################################################################################################################							
-			
-			##########################################################################
-			####East Slav 
-			##########################################################################	
-
-			east_slav_beards_straight = {
-				index = 35
-
-				male = {
-					# 10 = empty
-					5 = male_beard_western_01 # Standard full beard
-					5 = male_beard_western_02 # Standard goatee
-					5 = male_beard_western_03 # Short beard
-					5 = male_beard_western_04 # Short goatee
-					20 = male_beard_northern_01 # Big wide
-					20 = male_beard_northern_02 # Single braid
-					20 = male_beard_northern_03 # Beaded beard
-					15 = male_beard_mena_04 # Short stylish
-				    5 = male_beard_custom_07
-				    5 = male_beard_custom_08
-					5 = male_beard_fp1_01 # Twin braids with metal rings
-					5 = male_beard_fp1_02 # Short low beard
-					5 = male_beard_fp1_03 # Wavy pointy beard
-					5 = male_beard_fp1_04 # Huge braid
-					5 = male_beard_fp1_05 # Long narrow wavy
-					5 = epe_male_beard_fp1_02 #
-					5 = male_beard_custom_06					
-								
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			east_slav_beards_curly = {
-				index = 36
-
-				male = {
-					# 10 = empty
-					5 = male_beard_western_01 # Standard full beard
-					5 = male_beard_western_02 # Standard goatee
-					5 = male_beard_western_03 # Short beard
-					10 = male_beard_western_04 # Short goatee
-					10 = male_beard_western_06 # Big bushy beard
-					5 = male_beard_fp1_03 # Wavy pointy beard	
-					5 = male_beard_fp1_05 # Long narrow wavy
-					5 = epe_male_beard_fp1_02 #
-					5 = male_beard_western_2b #	
-								
-				}
-				female = {
-					1 = empty
-				}
-			}			
-			
-					
-			##########################################################################
-			####Han Chinese
-			##########################################################################	
-			
-			han_thin_beards_straight = {
-				index = 37
-
-				male = {
-					2 = empty
-					5 = male_beard_steppe_01
-					5 = male_beard_steppe_02
-					5 = male_beard_custom_01
-					5 = male_beard_custom_02
-					5 = male_beard_custom_03				 
-					5 = male_beard_turkic_01
-					5 = male_beard_chinese_01 #	
-					
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			han_beards_curly = {
-				index = 38
-
-				male = {
-					# 5 = empty
-					5 = male_beard_mena_01 # Very curly medium length full beard
-					15 = male_beard_mena_04 # Short stylish
-					5 = male_beard_western_04 # Short goatee
-					
-				}
-				female = {
-					1 = empty
-				}
-			}			
-			
-			##########################################################################
-			####Gaelic/Irish  
-			##########################################################################	
-
-			gaelic_beards_straight = {
-				index = 39
-
-				male = {
-				# 30 = empty
-				20 = male_beard_western_01
-				10 = male_beard_western_02
-				10 = male_beard_western_03
-				5 = male_beard_western_04
-				5 = male_beard_western_05
-				20 = male_beard_western_06
-				10 = male_beard_western_07
-				10 = male_beard_western_08
-				5 = male_beard_western_09
-				#5 = male_beard_western_10	
-				5 = epe_male_beard_fp1_04 #	
-				5 = male_beard_custom_06
-				5 = male_beard_western_8b #		
-				5 = male_beard_western_8c #		
-				5 = male_beard_western_8d #	
-				5 = male_beard_western_8e #	
-				5 = male_beard_western_8f #
-				5 = male_beard_western_1b #
-				5 = male_beard_western_9b #	
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			gaelic_beards_curly = {
-				index = 40
-
-				male = {
-					# 30 = empty
-					20 = male_beard_western_01 # Standard full beard
-					10 = male_beard_western_02 # Standard goatee
-					10 = male_beard_western_03 # Short beard
-					5 = male_beard_western_04 # Short goatee
-					5 = male_beard_western_05 # Mustache
-					20 = male_beard_western_06 # Big bushy beard
-					15 = male_beard_mena_04 # Short stylish
-					5 = epe_male_beard_fp1_04 #	
-					5 = male_beard_western_8b #		
-					5 = male_beard_western_8c #		
-					5 = male_beard_western_8d #	
-					5 = male_beard_western_8e #	
-					5 = male_beard_western_8f #
-					5 = male_beard_western_1b #
-					5 = male_beard_western_9b #	
-				}
-				female = {
-					1 = empty
-				}
-			}			
-			
-			##########################################################################
-			####Eastern Turkic/Default Turk
-			##########################################################################	
-
-			turkic_thin_beards_straight = {
-				index = 41
-
-				male = {
-					1 = empty
-					5 = male_beard_steppe_01
-					5 = male_beard_steppe_02
-					5 = male_beard_custom_01
-					5 = male_beard_custom_02
-					5 = male_beard_custom_03				 
-					5 = male_beard_steppe_01
-					5 = male_beard_steppe_02
-					5 = male_beard_turkic_01
-					5 = epe_male_beard_fp1_02 #	
-					5 = male_beard_custom_06		
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			turkic_beards_straight = {
-				index = 42
-
-				male = {
-					1 = empty
-					5 = male_beard_steppe_01
-					5 = male_beard_western_03 # Short beard
-					5 = male_beard_fp1_02 # Short low beard				 
-					5 = male_beard_western_05
-					5 = male_beard_mena_04
-					5 = male_mustache_iranian_05
-					5 = epe_male_beard_fp1_02 #	
-					5 = male_beard_steppe_01
-					5 = male_beard_steppe_02
-					5 = male_beard_custom_01
-					5 = male_beard_custom_02
-					5 = male_beard_custom_03				 
-					5 = male_beard_steppe_01
-					5 = male_beard_steppe_02
-					5 = male_beard_custom_06	
-				}
-				female = {
-					1 = empty
-				}
-			}
-			turkic_beards_curly = {
-				index = 43
-
-				male = {
-					# 5 = empty
-					5 = m_beard_fp3_iranian_02 # Long Pointy Beard
-					5 = male_beard_western_01 # Short beard
-					5 = male_beard_western_02
-					5 = male_beard_northern_01 # Big wide
-					5 = male_mustache_iranian_05		
-					5 = male_beard_fp1_02 # Short low beard
-					5 = male_beard_mena_04
-					5 = epe_male_beard_fp1_02 #						
-				}
-				female = {
-					1 = empty
-				}
-			}			
-			
-			##########################################################################
-			####Seljuk Turk
-			##########################################################################	
-
-			seljuk_thin_beards_straight = {
-				index = 44
-
-				male = {
-					1 = empty
-					5 = male_beard_steppe_01
-					5 = male_beard_steppe_02
-					5 = male_beard_custom_01
-					5 = male_beard_custom_02
-					5 = male_beard_custom_03				 
-					5 = male_beard_steppe_01
-					5 = male_beard_steppe_02
-					5 = male_beard_turkic_01
-					5 = epe_male_beard_fp1_02 #	
-					5 = male_beard_custom_06			
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-			seljuk_beards_straight = {
-				index = 45
-
-				male = {
-					1 = empty
-					5 = m_beard_fp3_iranian_01 # Medium beard with bun
-					5 = male_beard_western_03 # Short beard
-					5 = male_beard_fp1_02 # Short low beard				 
-					5 = male_beard_western_05
-					5 = male_beard_mena_04
-					5 = mena_curled_mustache_chinstrap_01
-					5 = mena_islamic_pointed_beard_03
-					5 = male_mustache_iranian_05	
-					5 = mena_islamic_pointed_beard						 
-				}
-				female = {
-					1 = empty
-				}
-			}
-			seljuk_beards_curly = {
-				index = 46
-
-				male = {
-					# 5 = empty
-					5 = m_beard_fp3_iranian_02 # Long Pointy Beard
-					5 = male_beard_western_01 # Short beard
-					5 = male_beard_western_02
-					5 = male_beard_northern_01 # Big wide
-					5 = male_mustache_iranian_05		
-					5 = male_beard_fp1_02 # Short low beard
-					5 = male_beard_mena_04
-					5 = epe_male_beard_fp1_02 #	
-					5 = mena_islamic_pointed_beard_03	
-					5 = mena_islamic_pointed_beard								
-				}
-				female = {
-					1 = empty
-				}
-			}			
-			
-			#######################
-			###### Islamic Iranian #######
-			#######################
-
-			iranian_beards_straight = {
-				index = 47
-
-				male = {
-					5 = m_beard_fp3_iranian_01 # Medium beard with bun
-					5 = m_beard_fp3_iranian_02 # Long pointy beard
-				    5 = m_beard_ep3_byzantine_03
-				    5 = m_beard_ep3_byzantine_04					
-					5 = male_beard_western_08
-					6 = male_beard_western_05
-					5 = male_beard_western_07
-					5 = male_beard_western_09	
-					5 = m_beard_tgp_chinese_10
-					5 = male_beard_mena_01
-					5 = male_beard_mena_04
-					5 = male_beard_western_01
-					5 = male_beard_western_03
-					5 = mena_curled_mustache_chinstrap_01
-					5 = mena_islamic_pointed_beard		
-					5 = mena_islamic_pointed_beard_03
-					7 = male_mustache_iranian_05
-					5 = male_beard_western_8b #		
-					5 = male_beard_western_8c #		
-					5 = male_beard_western_8d #
-				    5 = male_beard_western_8e #	
-				    5 = male_beard_western_8f #						
-				}
-				female = {
-					1 = empty
-				}
-			}	
-
-			iranian_beards_curly = {
-				index = 48
-
-				male = {
-				# 0 = empty
-				5 = m_beard_fp3_iranian_02 # Long pointy beard
-				5 = m_beard_ep3_byzantine_03
-				5 = m_beard_ep3_byzantine_04					
-				5 = male_beard_western_03 # Short beard
-				2 = male_beard_mena_01 # Very curly medium length full beard
-				2 = male_beard_mena_02 # Big with small mustache
-				2 = male_beard_mena_03 # Big chin strap
-				2 = western_5_mustache_bushier			
-				5 = male_beard_sub_saharan_03	
-				5 = mena_islamic_pointed_beard		
-				5 = mena_islamic_pointed_beard_03
-				5 = male_mustache_iranian_05
-				5 = male_beard_western_8b #		
-				5 = male_beard_western_8c #		
-				5 = male_beard_western_8d #	
-				5 = male_beard_western_8e #	
-				5 = male_beard_western_8f #					
-				}
-				female = {
-					1 = empty
-				}
-			}
-			
-			
-			#######################
-			###### Eastern Non-Islamic Iranian #######
-			#######################
-
-			eastern_iranian_beards_straight = {
-				index = 49
-
-				male = {
-				5 = m_beard_tgp_chinese_10
-				5 = male_beard_mena_04
-				5 = male_beard_western_01
-				5 = male_beard_western_03
-				5 = mena_islamic_pointed_beard_03
-				7 = male_mustache_iranian_05
-				5 = m_beard_fp3_iranian_01  # Medium beard with bun
-				5 = m_beard_fp3_iranian_02 # Long pointy beard
-				2 = m_beard_tgp_chinese_01 # long at chin with mustache
-				2 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-				}
-				female = {
-					1 = empty
-				}
-			}	
-
-			eastern_iranian_beards_curly = {
-				index = 50
-
-				male = {
-				# 0 = empty
-				2 = mena_islamic_pointed_beard
-				2 = m_beard_fp3_iranian_02 # Long pointy beard
-				2 = m_beard_fp3_iranian_03 	# Babylonian beard	
-				2 = male_beard_indian_02 # Indian pointy
-				2 = male_beard_mena_01 # Very curly medium length full beard
-				2 = male_beard_fp2_iberian_muslim_01
-				2 = m_beard_ep3_byzantine_03
-				2 = m_beard_ep3_byzantine_04				
-				}
-				female = {
-					1 = empty
-				}
-			}
-			
-			
-			#######################
-			###### Western Non-Islamic Iranian #######
-			#######################
-
-			western_iranian_beards_straight = {
-				index = 51
-
-				male = {
-					5 = male_beard_western_08
-					6 = male_beard_western_05
-					5 = male_beard_western_09	
-					5 = male_beard_mena_04
-					5 = male_beard_western_01
-					5 = male_beard_western_03
-					5 = male_mustache_iranian_05
-					5 = male_beard_western_8b #		
-					5 = male_beard_western_8c #		
-					5 = male_beard_western_8d #	
-					1 = m_beard_fp3_iranian_01 # Medium beard with bun
-					1 = m_beard_fp3_iranian_02 # Long pointy beard
-	
-				}
-				female = {
-					1 = empty
-				}
-			}	
-
-			western_iranian_beards_curly = {
-				index = 52
-
-				male = {
-					# 0 = empty
-					2 = male_beard_mena_01 # Very curly medium length full beard
-					5 = male_beard_sub_saharan_03	
-					5 = male_mustache_iranian_05
-					2 = male_beard_western_8b #		
-					2 = male_beard_western_8c #		
-					2 = male_beard_western_8d #	
-					5 = m_beard_fp3_iranian_02 # Long pointy beard
-					5 = m_beard_fp3_iranian_03 	# Babylonian beard	
-				}
-				female = {
-					1 = empty
-				}
-			}			
-			
-			sp4_mena_beards = {
-				index = 53
-
-				male = {
-					5 = m_beard_sp4_mena_01
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-
-			sp4_rus_beards = {
-				index = 54
-
-				male = {
-					5 = m_beard_sp4_rus_01
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-
-			mpo_mongol_beards = {
-				index = 55
-
-				male = {
-					5 = m_beard_mpo_mongol_01
-					5 = m_beard_mpo_mongol_02
-					5 = m_beard_mpo_mongol_03
-					5 = m_beard_mpo_mongol_04
-					5 = m_beard_mpo_mongol_05
-					5 = m_beard_mpo_mongol_06
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-			
-			tgp_japanese_beards = {
-				index = 56
 
 				male = {
 					5 = m_beard_tgp_japanese_01
@@ -1262,13 +793,15 @@ special_genes = {
 				female = {
 					1 = empty
 				}
+				boy = {
+					1 = empty
+				}
 			}
 
-			tgp_chinese_beards = {
-				index = 57
+			barbershop_tgp_chinese_beards = {
+				index = 33
 
 				male = {
-					2 = empty				
 					5 = m_beard_tgp_chinese_01
 					5 = m_beard_tgp_chinese_02
 					5 = m_beard_tgp_chinese_03
@@ -1287,93 +820,13 @@ special_genes = {
 				female = {
 					1 = empty
 				}
-			}
-
-			tgp_sea_beards = {
-				index = 58
-
-				male = {
-					5 = m_beard_tgp_japanese_03
-					5 = m_beard_tgp_japanese_04
-					5 = m_beard_tgp_japanese_06
-					5 = m_beard_tgp_chinese_01
-					5 = m_beard_tgp_chinese_05
-					5 = m_beard_tgp_chinese_07
-					5 = m_beard_tgp_chinese_08
-					5 = m_beard_tgp_chinese_10
-				}
-
-				female = {
+				boy = {
 					1 = empty
 				}
-			}
+			}		
 
-			tgp_ainu_beards = {
-				index = 59
-
-				male = {
-					5 = male_beard_western_06
-					2 = male_beard_western_09
-					2 = male_beard_mena_02
-					2 = male_beard_northern_01
-					2 = male_beard_fp1_05
-					5 = male_beard_fp2_iberian_muslim_01
-					5 = male_beard_fp2_iberian_muslim_02
-					5 = m_beard_ep3_byzantine_03
-					5 = m_beard_ep3_byzantine_04
-				}
-
-				female = {
-					1 = empty
-				}
-			}
-
-			cp7_emishi_ainu_beards = {
-				index = 60
-				male = {
-			       ##########################################################						
-					####cp7_emishi_ainu_beards_straight				
-					2 = male_beard_western_01
-					1 = male_beard_western_09
-					2 = male_beard_mena_04
-					5 = male_beard_northern_01
-					2 = male_beard_fp1_05
-					5 = male_beard_fp2_iberian_muslim_01
-					5 = male_beard_fp2_iberian_muslim_02
-					2 = male_beard_indian_03
-					1 = male_beard_rtt_01
-					
-			       ##########################################################						
-					####cp7_emishi_ainu_beards_wavy				
-				    2 = empty
-					1 = male_beard_western_01
-					2 = male_beard_mena_02
-					5 = male_beard_western_06
-					2 = male_beard_mena_01
-					2 = male_beard_sub_saharan_01
-					2 = male_beard_sub_saharan_03
-					2 = male_beard_indian_03
-					5 = m_beard_ep3_byzantine_03
-					5 = m_beard_ep3_byzantine_04
-					1 = male_beard_rtt_01
-
-			       ##########################################################						
-					####cp7_emishi_ainu_beards_curly				
-				    2 = empty	
-					2 = male_beard_mena_01
-					1 = male_beard_mena_01
-					2 = male_beard_sub_saharan_01
-					2 = male_beard_sub_saharan_03	
-					1 = m_beard_ep3_byzantine_04						
-				}
-				female = {
-					1 = empty
-				}
-			}
-
-
-			sp5_western_beards = {
-				index = 61
+			barbershop_sp5_western_beards = {
+				index = 34
 				male = {
 					1 = m_beard_sp5_western_01
 			
@@ -1382,78 +835,211 @@ special_genes = {
 					1 = empty
 				}
 			}
+			
+			#	index = 88 - 92  PLACEHOLDER			
 
-			#######################
-			###### Ottoman Turks era4 #######
-			#######################
+			## BOOKMARKS ##
 
-			ottomans_beards_era4 = {
-				index = 62
-
+			all_beards = { #incomplete - used for bookmarks and custom characters so can't be changed
+				index = 35
 				male = {
-			       ##########################################################						
-					####ottomans_beards_straight							
-					5 = m_beard_fp3_iranian_02 # Long pointy beard
-					5 = m_beard_ep3_byzantine_02
-					5 = m_beard_ep3_byzantine_03
-					5 = m_beard_ep3_byzantine_04				
-					5 = male_beard_western_08
-					6 = male_beard_western_05
-
-					5 = male_beard_western_09	
-					5 = m_beard_tgp_chinese_10
-					5 = m_beard_ep2_western_01
-					5 = m_beard_ep2_western_03
-					5 = m_beard_sp2_western_01 # The Ultimate Moustache 
-					5 = m_beard_sp3_western_01
-					5 = male_beard_mena_04
-					5 = male_beard_western_01
-					5 = mena_curled_mustache_chinstrap_01
-					5 = mena_islamic_pointed_beard		
-					5 = mena_islamic_pointed_beard_03
-					7 = male_mustache_iranian_05
-					5 = male_beard_western_8b #		
-					5 = male_beard_western_8c #		
-					5 = male_beard_western_8d #
-				    5 = male_beard_western_8e #	
-				    5 = male_beard_western_8f #	
-					5 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-					5 = male_beard_fp2_iberian_christian_02 # Iberian goatee
-					5 = male_beard_fp2_iberian_christian_03 # Caballero's beard
-					5 = male_beard_fp2_iberian_christian_04 # Droopy moustache
-					5 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard
-					5 = male_beard_fp2_iberian_muslim_02 # Scholar's beard	
-			       ##########################################################						
-					####ottomans_beards_curly				
-				    2 = empty
-				    5 = m_beard_fp3_iranian_02 # Long pointy beard
-				    5 = m_beard_ep3_byzantine_03
-				    5 = m_beard_ep3_byzantine_04					
-			    	2 = male_beard_mena_01 # Very curly medium length full beard
-				    2 = male_beard_mena_02 # Big with small mustache
-				    2 = western_5_mustache_bushier			
-				    5 = male_beard_sub_saharan_03	
-				    5 = mena_islamic_pointed_beard		
-				    5 = mena_islamic_pointed_beard_03
-				    5 = male_mustache_iranian_05
-			     	5 = male_beard_western_8b #		
-				    5 = male_beard_western_8c #		
-				    5 = male_beard_western_8d #	
-				    5 = male_beard_western_8e #	
-				    5 = male_beard_western_8f #		
-				    5 = male_beard_fp2_iberian_muslim_01 # Thick Groomed Beard
-				    5 = male_beard_fp2_iberian_christian_01 # Short Well-Kept Beard
-				    5 = male_beard_fp2_iberian_muslim_02 # Scholar's beard
-				    5 = male_beard_fp2_iberian_christian_03 # Caballero's beard								
+					1 = empty
+					1 = male_beard_western_01 
+					1 = male_beard_western_02 
+					1 = male_beard_western_03 
+					1 = male_beard_western_04 
+					1 = male_beard_western_05 
+					1 = male_beard_western_06 
+					1 = male_beard_western_07 
+					1 = male_beard_western_08 
+					1 = male_beard_western_09 
+					1 = male_beard_western_10 
+					1 = male_beard_mena_01 
+					1 = male_beard_mena_02 
+					1 = male_beard_mena_03 
+					1 = male_beard_mena_04 
+					1 = male_beard_northern_01
+					1 = male_beard_northern_02
+					1 = male_beard_northern_03
+					1 = male_beard_steppe_01
+					1 = male_beard_steppe_02
+					1 = male_beard_sub_saharan_01
+					1 = male_beard_sub_saharan_02
+					1 = male_beard_sub_saharan_03		
+					1 = male_beard_indian_01
+					1 = male_beard_indian_02
+					1 = male_beard_indian_03
+					1 = male_beard_fp1_01 
+					1 = male_beard_fp1_02 
+					1 = male_beard_fp1_03 
+					1 = male_beard_fp1_04 
+					1 = male_beard_fp1_05 
+					1 = male_beard_fp2_iberian_christian_01 
+					1 = male_beard_fp2_iberian_christian_02 
+					1 = male_beard_fp2_iberian_christian_03 
+					1 = male_beard_fp2_iberian_christian_04 
+					1 = male_beard_fp2_iberian_muslim_01 
+					1 = male_beard_fp2_iberian_muslim_02 
+					1 = male_beard_fp2_iberian_muslim_03 
+					1 = m_beard_fp3_iranian_01 
+					1 = m_beard_fp3_iranian_02 
+					1 = m_beard_fp3_iranian_03 
+					1 = m_beard_ep2_western_01
+					1 = m_beard_ep2_western_02
+					1 = m_beard_ep2_western_03
+					1 = m_beard_sp2_western_01 
+					1 = m_beard_sp3_western_01 
+					1 = m_beard_ep3_byzantine_01
+					1 = m_beard_ep3_byzantine_02
+					1 = m_beard_ep3_byzantine_03
+					1 = m_beard_ep3_byzantine_04
+					1 = male_beard_saruman
+					1 = male_beard_mountain_orc_01
+					1 = male_beard_mountain_orc_02
+					1 = male_beard_rtt_01
+					1 = beard_tywins_muttonchops
 				}
 				female = {
 					1 = empty
 				}
-			}	
+				boy = {
+					1 = empty
+				}
+			}
 
-			
+			legacy_dna_beards = {
+				index = 36
+				male = {
+					1 = empty
+					1 = male_beard_western_01
+					1 = male_beard_western_02
+					1 = male_beard_western_03
+					1 = male_beard_western_04
+					1 = male_beard_western_05
+					1 = male_beard_western_06
+					1 = male_beard_western_07
+					1 = male_beard_western_08
+					1 = male_beard_western_09
+					1 = male_beard_mena_01
+					1 = male_beard_mena_02
+					1 = male_beard_mena_03
+					1 = male_beard_mena_04
+					1 = male_beard_northern_01
+					1 = male_beard_northern_02
+					1 = male_beard_northern_03
+					1 = male_beard_steppe_01
+					1 = male_beard_steppe_02
+					1 = male_beard_sub_saharan_01
+					1 = male_beard_sub_saharan_02
+					1 = male_beard_sub_saharan_03		
+					1 = male_beard_indian_01
+					1 = male_beard_indian_02
+					1 = male_beard_indian_03
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}			
 
+			## SCRIPTED CHARACTER BEARDS ##
+
+			scripted_character_beards_01 = { # THIS TEMPLATE SHOULD NOT BE CHANGED IN ANY WAY! If new beards are added for scripted characters they should be added in a new template.
+				index = 37
+				male = {
+					1 = empty
+					1 = male_beard_western_01
+					1 = male_beard_western_02
+					1 = male_beard_western_03
+					1 = male_beard_western_04
+					1 = male_beard_western_05
+					1 = male_beard_western_06
+					1 = male_beard_western_07
+					1 = male_beard_western_08
+					1 = male_beard_western_09
+					1 = male_beard_western_10
+					1 = male_beard_mena_01
+					1 = male_beard_mena_02
+					1 = male_beard_mena_03
+					1 = male_beard_mena_04
+					1 = male_beard_northern_01
+					1 = male_beard_northern_02
+					1 = male_beard_northern_03
+					1 = male_beard_steppe_01
+					1 = male_beard_steppe_02
+					1 = male_beard_sub_saharan_01
+					1 = male_beard_sub_saharan_02
+					1 = male_beard_sub_saharan_03		
+					1 = male_beard_indian_01
+					1 = male_beard_indian_02
+					1 = male_beard_indian_03
+					1 = male_beard_fp1_01
+					1 = male_beard_fp1_02
+					1 = male_beard_fp1_03
+					1 = male_beard_fp1_04
+					1 = male_beard_fp1_05	
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+
+			scripted_character_beards_02 = {
+				index = 38
+				male = {
+					1 = male_beard_fp2_iberian_christian_01
+					1 = male_beard_fp2_iberian_christian_02
+					1 = male_beard_fp2_iberian_christian_03
+					1 = male_beard_fp2_iberian_christian_04
+					1 = male_beard_fp2_iberian_muslim_01
+					1 = male_beard_fp2_iberian_muslim_02
+					1 = male_beard_fp2_iberian_muslim_03
+					1 = empty
+
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
 			
+			scripted_character_beards_03 = {
+				index = 39
+				male = {
+					1 = m_beard_ep2_western_01
+					1 = m_beard_ep2_western_02
+					1 = m_beard_ep2_western_03
+
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}
+			
+			scripted_character_beards_04 = {
+				index = 40
+				male = {
+					1 = m_beard_fp3_iranian_01 # Medium beard with bun
+					1 = m_beard_fp3_iranian_02 # Long pointy beard
+					1 = m_beard_fp3_iranian_03 # Babylonian beard
+				}
+				female = {
+					1 = empty
+				}
+				boy = {
+					1 = empty
+				}
+			}		
 		}
 	}
 }
