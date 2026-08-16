@@ -56,10 +56,14 @@ special_genes = {
 			elven_common_legwear = {
 				index = 13
 				male = {
-					1 = male_legwear_secular_western_common_01				
+					1 = male_legwear_secular_western_common_01
+					##royalty
+					1 = male_lasgalendrim_pants_02					
 				}
 				female = {
-					1 = female_legwear_secular_western_common_01				
+					1 = female_legwear_secular_western_common_01
+					#royalty
+					1 = female_legwear_sandals #AGOT Asset by Nerdman3000					
 				}
 				boy = male
 				girl = female
@@ -3311,5 +3315,128 @@ special_genes = {
 				girl = female
 			}
 		}
+	
+		#####################################
+		#									#
+		# 		   Belt Accessory		    #
+		#									#
+		#####################################
+
+		special_belt_accessory = {
+			katana_01 = {
+				index = 0
+				male = {
+					1 = empty
+					1 = male_katana_01	#daisho, katana + wakizashi
+				}
+				female = {}
+				boy = {}
+				girl = {}
+			}
+		}
+		
+		special_clothing_accessory = {
+			uruk_loincloth = {
+				index = 0
+				male = {
+					20 = empty
+					20 = male_legwear_uruk_beserker_1
+					20 = male_legwear_uruk_beserker_2 #chain
+					20 = male_legwear_uruk_beserker_3 #dark
+					20 = male_legwear_uruk_beserker_4 #dark chain					
+				}
+				female = {
+					20 = empty				
+					40 = female_legwear_uruk_beserker_1
+					40 = female_legwear_uruk_beserker_3 #dark
+				}
+				boy = male
+				girl = female
+			}
+			
+			#Bronze Age Maryannu
+			egyptian_legwear = {
+				index = 1
+				male = {
+					50 = empty				
+					25 = male_legwear_egyptian_shendyt_common
+					25 = male_legwear_egyptian_shendyt_high					
+				}
+				female = {
+					25 = empty
+					25 = empty
+				}
+				boy = male
+				girl = female
+			}
+		}
+		
+		misc_accessories = {
+			# From The Bronze Age: Maryannu mod
+			# https://steamcommunity.com/sharedfiles/filedetails/?id=2216525506
+			# Made by Owlcoholic/Rewinged
+			egyptian_bracelet = {
+				index = 0
+				
+				male = {
+					10 = egyptian_bracelets
+				}
+				female = { 
+					10 = female_egyptian_bracelets
+				}	
+				boy = male
+				girl = female
+			}
+			iron_bracelet = {
+				index = 1
+				
+				male = {
+					10 = iron_bracelets
+				}
+				female = { 
+					10 = empty
+				}	
+				boy = male
+				girl = female
+			}			
+			## OMA ##
+			meso_bracelet = {
+				index = 2
+				
+				male = {
+					25 = meso_clothes_01
+					25 = meso_clothes_03
+					25 = meso_clothes_03b
+					25 = meso_clothes_02					
+				}
+				female = { 
+					1 = empty
+				}
+				boy = { 1 = empty }
+				girl = female
+			}
+			am_bracelet = {
+				index = 3
+				
+				male = {
+					1 = empty
+					1 = am_armbands_01
+					2 = am_armbands_01b
+					2 = am_armbands_01c
+					2 = am_armbands_01d
+					2 = am_armbands_01e
+				}
+				female = { 
+					1 = empty
+					1 = female_am_armbands_01
+					2 = female_am_armbands_01b
+					2 = female_am_armbands_01c
+					2 = female_am_armbands_01d
+					2 = female_am_armbands_01e
+				}
+				boy = male
+				girl = female
+			}
+		}		
 	}
 }

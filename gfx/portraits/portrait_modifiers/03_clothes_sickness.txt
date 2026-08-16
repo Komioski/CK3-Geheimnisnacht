@@ -253,80 +253,80 @@
 	
 ## Persian Proxy ##
 
-	# khailuza_commoner_sickness = {
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = clothes
-    #             template = bedchamber_clothes
-    #             range = { 0.81 0.84 } # For the randomness to work correctly
-    #         }
-    #         accessory = {
-    #             mode = add
-    #             gene = headgear
-    #             template = no_headgear
-    #             range = { 0 1 } # For the randomness to work correctly
-    #         }
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = no_cloak
-    #             range = { 0 1 } # For the randomness to work correctly
-    #         }
-    #     }
-    # 	outfit_tags = { khailuza_commoner_bedchamber_clothes }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 550
-    #             portrait_sickness_trigger = yes
-    #             OR = {
-    #                 portrait_commoner_clothing_trigger = {
-    #                     CULTURE_INPUT = khailuza
-    #                 }
-    #             }
-    #         }
-    #     }
-    # }	
+	khailuza_commoner_sickness = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = bedchamber_clothes
+                range = { 0.81 0.84 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = headgear
+                template = no_headgear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = no_cloak
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+    	outfit_tags = { khailuza_commoner_bedchamber_clothes }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 550
+                portrait_sickness_trigger = yes
+                OR = {
+                    portrait_commoner_clothing_trigger = {
+                        CULTURE_INPUT = khailuza
+                    }
+                }
+            }
+        }
+    }	
 
-    # khailuza_noble_sickness = {
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = clothes
-    #             template = bedchamber_clothes
-    #             range = { 0.86 0.89 } # For the randomness to work correctly
-    #         }
-    #         accessory = {
-    #             mode = add
-    #             gene = headgear
-    #             template = no_headgear
-    #             range = { 0 1 } # For the randomness to work correctly
-    #         }
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = no_cloak
-    #             range = { 0 1 } # For the randomness to work correctly
-    #         }
-    #     }
-    # 	outfit_tags = { khailuza_noble_bedchamber_clothes }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 500
-    #             portrait_sickness_trigger = yes
-    #             OR = {
-	# 				portrait_low_nobles_clothing_trigger = { 
-	# 					CULTURE_INPUT = khailuza
-	# 				}
-    #                 portrait_high_nobles_clothing_trigger = {
-    #                     CULTURE_INPUT = khailuza
-    #                 }					
-    #             }
-    #         }
-    #     }
-    # }
+    khailuza_noble_sickness = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = bedchamber_clothes
+                range = { 0.86 0.89 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = headgear
+                template = no_headgear
+                range = { 0 1 } # For the randomness to work correctly
+            }
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = no_cloak
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+    	outfit_tags = { khailuza_noble_bedchamber_clothes }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 500
+                portrait_sickness_trigger = yes
+                OR = {
+					portrait_low_nobles_clothing_trigger = { 
+						CULTURE_INPUT = khailuza
+					}
+                    portrait_high_nobles_clothing_trigger = {
+                        CULTURE_INPUT = khailuza
+                    }					
+                }
+            }
+        }
+    }
 	
 
 ## Mena Proxy ##
@@ -342,7 +342,7 @@
             accessory = {
                 mode = add
                 gene = headgear
-                template = arabyan_low_headgear
+                template = haradrim_low_headgear
                 range = { 0.11 0.19 } # For the randomness to work correctly
             }
             accessory = {
@@ -378,7 +378,7 @@
             accessory = {
                 mode = add
                 gene = headgear
-                template = arabyan_low_headgear
+                template = haradrim_low_headgear
                 range = { 0.11 0.19 } # For the randomness to work correctly
             }
             accessory = {
@@ -445,11 +445,14 @@
 					portrait_commoner_clothing_trigger = { 
 						CULTURE_INPUT = indian_proxy
 					}
+					portrait_commoner_clothing_trigger = { 
+						CULTURE_INPUT = honnin
+					}
                     portrait_low_nobles_clothing_trigger = { 
-                        CULTURE_INPUT = indian_proxy
+                        CULTURE_INPUT = honnin
                     }
                     portrait_high_nobles_clothing_trigger = {
-                        CULTURE_INPUT = indian_proxy
+                        CULTURE_INPUT = honnin
                     }							
                 }
             }
@@ -570,13 +573,22 @@
                 portrait_sickness_trigger = yes
                 OR = {
                     portrait_commoner_clothing_trigger = {
-                        CULTURE_INPUT = african_proxy
+                        CULTURE_INPUT = mumakani
+                    }
+                    portrait_commoner_clothing_trigger = {
+                        CULTURE_INPUT = shayn
                     }
                     portrait_low_nobles_clothing_trigger = { 
-                        CULTURE_INPUT = african_proxy
+                        CULTURE_INPUT = mumakani
+                    }
+                    portrait_low_nobles_clothing_trigger = { 
+                        CULTURE_INPUT = shayn
                     }
                     portrait_high_nobles_clothing_trigger = {
-                        CULTURE_INPUT = african_proxy
+                        CULTURE_INPUT = mumakani
+                    }
+                    portrait_high_nobles_clothing_trigger = {
+                        CULTURE_INPUT = shayn
                     }
                 }
             }

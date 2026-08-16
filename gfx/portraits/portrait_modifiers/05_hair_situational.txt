@@ -13,7 +13,7 @@ hair_situational = {
 				value = 0
 			}
 		}   
-		outfit_tags = { bald }
+		outfit_tags = { bald beardles_plague } #LotR
 		weight = {
 			base = 0
 			# modifier = {
@@ -21,6 +21,11 @@ hair_situational = {
             #     exists = this
 			#    	has_character_modifier = hajj_halq_modifier
 			# }
+            modifier = { # LotR: Beardrot makes your hair and beard fall out
+                add = 2000
+                exists = this
+                has_trait = beardless_plague
+            }
 		}
 	}
 

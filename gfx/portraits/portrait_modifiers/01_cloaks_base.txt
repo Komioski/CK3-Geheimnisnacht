@@ -4,208 +4,208 @@ cloaks = {
 	usage = game
 	fallback = no_cloak
 
-    # ep2_western_era2_low_nobles_cloaks = { # Carolingian Cloak
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = arnorian_cloaks
-    #             range = { 0.01 0.49 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 500
-    #             OR = { 
-	# 				portrait_high_nobles_clothing_trigger = { 
-	# 					CULTURE_INPUT = arnorian
-	# 				} 
-    #             }
-	# 			NAND = {
-	# 				is_ruler = yes
-	# 				government_has_flag = government_is_theocracy
-	# 			}
-    #             has_ep2_dlc_trigger = yes   
-    #             # portrait_era1_trigger = yes     
-    #         }
-	# 		modifier = {
-	# 			factor = 0 
-	# 			portrait_wear_armor_trigger = yes
-	# 		}
-    #     }
-    # }
+    ep2_western_era2_low_nobles_cloaks = { # Carolingian Cloak
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = arnorian_cloaks
+                range = { 0.01 0.49 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 500
+                OR = { 
+					portrait_high_nobles_clothing_trigger = { 
+						CULTURE_INPUT = arnorian
+					} 
+                }
+				NAND = {
+					is_ruler = yes
+					government_has_flag = government_is_theocracy
+				}
+                has_ep2_dlc_trigger = yes   
+                # portrait_era1_trigger = yes     
+            }
+			modifier = {
+				factor = 0 
+				portrait_wear_armor_trigger = yes
+			}
+        }
+    }
     
-    # ep2_western_era2_high_nobles_cloaks = { # Noble Carolingian Cloak
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = arnorian_cloaks
-    #             range = { 0.51 0.99 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 550
-    #             OR = {
-	# 				portrait_royalty_trigger = { 
-	#                     CULTURE_INPUT = arnorian
-	#                 }  				
-	# 				portrait_imperial_trigger = { 
-	#                     CULTURE_INPUT = arnorian
-	#                 }          					
-    #             }
-	# 			NAND = {
-	# 				is_ruler = yes
-	# 				has_government = theocracy_government
-	# 			}
-    #             has_ep2_dlc_trigger = yes   
-    #             # portrait_era1_trigger = yes     
-    #         }
-	# 		modifier = {
-	# 			factor = 0 
-	# 			portrait_wear_armor_trigger = yes
-	# 		}
-    #     }
-    # }
+    ep2_western_era2_high_nobles_cloaks = { # Noble Carolingian Cloak
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = arnorian_cloaks
+                range = { 0.51 0.99 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 550
+                OR = {
+					portrait_royalty_trigger = { 
+	                    CULTURE_INPUT = arnorian
+	                }  				
+					portrait_imperial_trigger = { 
+	                    CULTURE_INPUT = arnorian
+	                }          					
+                }
+				NAND = {
+					is_ruler = yes
+					has_government = theocracy_government
+				}
+                has_ep2_dlc_trigger = yes   
+                # portrait_era1_trigger = yes     
+            }
+			modifier = {
+				factor = 0 
+				portrait_wear_armor_trigger = yes
+			}
+        }
+    }
 	
 	## EP3 - Roads to Power ##
 
-    # ep3_byzantine_era1_low_nobles = {
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = ep3_byzantine_era1_nob
-    #             range = { 0.01 0.75 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 80
-    #             portrait_low_nobles_clothing_trigger = { 
-    #                 CULTURE_INPUT = bellakari
-    #             } 
-    #             has_ep3_dlc_trigger = yes   
-    #             portrait_era1_trigger = yes     
-    #         }
-    #     }
-    # }
+    ep3_byzantine_era1_low_nobles = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = ep3_byzantine_era1_nob
+                range = { 0.01 0.75 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 80
+                portrait_low_nobles_clothing_trigger = { 
+                    CULTURE_INPUT = bellakari
+                } 
+                has_ep3_dlc_trigger = yes   
+                portrait_era1_trigger = yes     
+            }
+        }
+    }
 	
-	# ep3_byzantine_era1_high_nobles = {
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = ep3_byzantine_era1_nob
-    #             range = { 0.25 0.99 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 80
-    #             portrait_high_nobles_clothing_trigger = { 
-    #                 CULTURE_INPUT = bellakari
-    #             } 
-    #             has_ep3_dlc_trigger = yes   
-    #             portrait_era1_trigger = yes     
-    #         }
-    #     }
-    # }
+	ep3_byzantine_era1_high_nobles = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = ep3_byzantine_era1_nob
+                range = { 0.25 0.99 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 80
+                portrait_high_nobles_clothing_trigger = { 
+                    CULTURE_INPUT = bellakari
+                } 
+                has_ep3_dlc_trigger = yes   
+                portrait_era1_trigger = yes     
+            }
+        }
+    }
 	
-	# ep3_byzantine_era1_imperial = {
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = ep3_byzantine_era1_imperial
-    #             range = { 0 1 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-	# 			add = 1000
-    #             OR = {
-	#                 portrait_royalty_clothing_trigger = { 
-	#                     CULTURE_INPUT = bellakari
-	#                 } 
-	#                 portrait_imperial_clothing_trigger = { 
-	#                     CULTURE_INPUT = bellakari
-	#                 } 
-    #             } 
-    #             has_ep3_dlc_trigger = yes   
-    #             portrait_era1_trigger = yes     
-    #         }
-    #     }
-    # }
+	ep3_byzantine_era1_imperial = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = ep3_byzantine_era1_imperial
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+				add = 1000
+                OR = {
+	                portrait_royalty_clothing_trigger = { 
+	                    CULTURE_INPUT = bellakari
+	                } 
+	                portrait_imperial_clothing_trigger = { 
+	                    CULTURE_INPUT = bellakari
+	                } 
+                } 
+                has_ep3_dlc_trigger = yes   
+                portrait_era1_trigger = yes     
+            }
+        }
+    }
 
-    # ep3_byzantine_era2_low_nobles = {
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = ep3_byzantine_era2_nob
-    #             range = { 0.01 0.75 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 80
-    #             portrait_low_nobles_clothing_trigger = { 
-    #                 CULTURE_INPUT = anbalukkhori
-    #             } 
-    #             has_ep3_dlc_trigger = yes   
-    #             OR = {
-    #             	portrait_era2_trigger = yes  
-    #             	portrait_era3_trigger = yes  
-    #             	portrait_era4_trigger = yes  
-    #             }    
-    #         }
-    #     }
-    # }
+    ep3_byzantine_era2_low_nobles = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = ep3_byzantine_era2_nob
+                range = { 0.01 0.75 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 80
+                portrait_low_nobles_clothing_trigger = { 
+                    CULTURE_INPUT = anbalukkhori
+                } 
+                has_ep3_dlc_trigger = yes   
+                OR = {
+                	portrait_era2_trigger = yes  
+                	portrait_era3_trigger = yes  
+                	portrait_era4_trigger = yes  
+                }    
+            }
+        }
+    }
 
-    # ep3_byzantine_era2_high_nobles = {
-    #     dna_modifiers = {
-    #         accessory = {
-    #             mode = add
-    #             gene = cloaks
-    #             template = ep3_byzantine_era2_nob
-    #             range = { 0.25 0.99 } # For the randomness to work correctly
-    #         }
-    #     }   
-    #     weight = {
-    #         base = 0
-    #         modifier = {
-    #             add = 80
-    #             portrait_high_nobles_clothing_trigger = { 
-    #                 CULTURE_INPUT = anbalukkhori
-    #             } 
-    #             has_ep3_dlc_trigger = yes   
-    #          #OR = {
-    #          #	portrait_era2_trigger = yes  
-    #          #	portrait_era3_trigger = yes  
-    #          #	portrait_era4_trigger = yes  
-    #          #}   
-    #         }
-    #         modifier = {
-    #             factor = 0
-    #             OR = {
-	#                 portrait_royalty_clothing_trigger = { 
-	#                     CULTURE_INPUT = anbalukkhori
-	#                 } 
-	#                 portrait_imperial_clothing_trigger = { 
-	#                     CULTURE_INPUT = anbalukkhori
-	#                 } 
-    #             } 
-    #         }
-    #     }
-    # }
+    ep3_byzantine_era2_high_nobles = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = ep3_byzantine_era2_nob
+                range = { 0.25 0.99 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 80
+                portrait_high_nobles_clothing_trigger = { 
+                    CULTURE_INPUT = anbalukkhori
+                } 
+                has_ep3_dlc_trigger = yes   
+             #OR = {
+             #	portrait_era2_trigger = yes  
+             #	portrait_era3_trigger = yes  
+             #	portrait_era4_trigger = yes  
+             #}   
+            }
+            modifier = {
+                factor = 0
+                OR = {
+	                portrait_royalty_clothing_trigger = { 
+	                    CULTURE_INPUT = anbalukkhori
+	                } 
+	                portrait_imperial_clothing_trigger = { 
+	                    CULTURE_INPUT = anbalukkhori
+	                } 
+                } 
+            }
+        }
+    }
 
 	western_kings = { # Royal Cloak
 		dna_modifiers = {

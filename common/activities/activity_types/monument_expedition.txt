@@ -468,6 +468,16 @@
 					on_action = random_journey_event_pulse
 					days = 26
 				}
+				#if = { # LotR: Elves get an event to gain hope
+				#	limit = {
+				#		has_activity_intent = inspire_hope_intent
+				#		is_ai = no
+				#	}
+				#	trigger_event = {
+				#		id = lotr_pilgrimage.0002
+				#		weeks = 3
+				#	}
+				#}
 				trigger_event = {
 					id = bp3_journey.0010
 					days = 33
