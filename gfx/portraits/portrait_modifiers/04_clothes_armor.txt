@@ -42,8 +42,8 @@
 			accessory = {
 				mode = add
 				gene = clothes
-				template = arnorian_war_clothes
-				range = { 0.81 0.99 } # For the randomness to work correctly
+				template = western_proxy_war_clothes
+				range = { 0 1 } # For the randomness to work correctly
 			}
 		}
         outfit_tags = { military_outfit }
@@ -73,7 +73,7 @@
 			accessory = {
 				mode = add
 				gene = clothes
-				template = numenorean_war_clothes
+				template = byzantine_proxy_war_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
 		}
@@ -104,7 +104,7 @@
 			accessory = {
 				mode = add
 				gene = clothes
-				template = haradrim_war_clothes
+				template = arabyan_war_clothes
 				range = { 0 1 } # For the randomness to work correctly
 			}
 		}
@@ -224,44 +224,34 @@
 
 	## African - african_proxy ##
 
-	african_commoners = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = mumakani_low_clothes
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-        outfit_tags = { military_outfit }
-		weight = {
-			base = 0
-			modifier = {
-				add = 15
-				OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = african_proxy
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = african_proxy
-                    }
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = african_proxy
-					}
-				}
-				NOT = {
-					OR = {
-						scope:culture = culture:drenim
-						scope:culture = culture:danak
-						scope:culture = culture:ganim
-						scope:culture = culture:ahava
-						scope:culture = culture:sekak
-						scope:culture = culture:ambason						
-					}
-				}	
-			}
-		}
-	}
+	# african_commoners = { #TODO
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = clothes
+	# 			template = mumakani_low_clothes
+	# 			range = { 0 1 } # For the randomness to work correctly
+	# 		}
+	# 	}
+    #     outfit_tags = { military_outfit }
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 15
+	# 			OR = {
+    #                 portrait_commoner_armor_trigger = {
+    #                     CULTURE_INPUT = african_proxy
+    #                 }
+    #                 portrait_low_nobles_armor_trigger = {
+    #                     CULTURE_INPUT = african_proxy
+    #                 }
+	# 				portrait_high_nobles_armor_trigger = {
+	# 					CULTURE_INPUT = african_proxy
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
 	
     bretonnian_war_common = {
 		dna_modifiers = {
