@@ -544,189 +544,189 @@ headgear = {
 
 	## STEPPE - steppe_proxy ##
 
-	# steppe_commoners = { #TODO
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = igath_low_headgear
-	# 			range = { 0.95 0.99 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 10
-    #             portrait_commoner_headgear_fallback_trigger = {
-    #                 CULTURE_INPUT = steppe_proxy
-    #             }
-	# 		}
-	# 		modifier = {
-	# 			add = 10
-    #             portrait_commoner_clothing_trigger = {
-    #                 CULTURE_INPUT = steppe_proxy
-    #             }
-	# 		}
-	# 	}
-	# }
+	steppe_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = igath_low_headgear
+				range = { 0.95 0.99 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+                portrait_commoner_headgear_fallback_trigger = {
+                    CULTURE_INPUT = steppe_proxy
+                }
+			}
+			modifier = {
+				add = 10
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = steppe_proxy
+                }
+			}
+		}
+	}
 
-	# steppe_low_nobles = { #TODO
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = igath_low_headgear
-	# 			range = { 0.95 0.99 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 15
-	# 			portrait_low_nobles_clothing_trigger = {
-	#                 CULTURE_INPUT = steppe_proxy
-	#             }
-	# 		}
-	# 	}
-	# }
+	steppe_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = igath_low_headgear
+				range = { 0.95 0.99 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 15
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = steppe_proxy
+	            }
+			}
+		}
+	}
 
-	# steppe_high_nobles = { #TODO
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = ioriag_low_headgear
-	# 			range = { 0.95 0.99 } # For the randomness to work correctly
-	# 		}
-	# 	}	
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 20
-    #             portrait_high_nobles_headgear_trigger = {
-    #                 CULTURE_INPUT = steppe_proxy
-    #             }   
-	# 		}
-	# 	}
-	# }
+	steppe_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ioriag_low_headgear
+				range = { 0.95 0.99 } # For the randomness to work correctly
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 20
+                portrait_high_nobles_headgear_trigger = {
+                    CULTURE_INPUT = steppe_proxy
+                }   
+			}
+		}
+	}
 
-	# steppe_royalty = { #TODO
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = ioriag_high_headgear
-	# 			range = { 0.95 0.99 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 25
-	# 			OR = {
-	# 				portrait_royalty_trigger = {
-	# 					CULTURE_INPUT = steppe_proxy
-	# 				}
-	# 				portrait_imperial_trigger = {
-	# 					CULTURE_INPUT = steppe_proxy
-	# 				}
-	# 			}
-	# 		}
-	# 	}
-	# }
+	steppe_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = ioriag_high_headgear
+				range = { 0.95 0.99 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 25
+				OR = {
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = steppe_proxy
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = steppe_proxy
+					}
+				}
+			}
+		}
+	}
 
 	## African - african_proxy ##
 
-	# african_commoners = { #TODO
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = mumakani_low_headgear
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 10
-    #             portrait_commoner_headgear_fallback_trigger = {
-    #                 CULTURE_INPUT = african_proxy
-    #             }
-	# 		}
-	# 		modifier = {
-	# 			add = 10
-    #             portrait_commoner_clothing_trigger = {
-    #                 CULTURE_INPUT = african_proxy
-    #             }
-	# 		}
-	# 	}
-	# }
+	african_commoners = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = mumakani_low_headgear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10
+                portrait_commoner_headgear_fallback_trigger = {
+                    CULTURE_INPUT = african_proxy
+                }
+			}
+			modifier = {
+				add = 10
+                portrait_commoner_clothing_trigger = {
+                    CULTURE_INPUT = african_proxy
+                }
+			}
+		}
+	}
 
-	# african_low_nobles = { #TODO
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = mumakani_low_headgear
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 15
-	# 			portrait_low_nobles_clothing_trigger = {
-	#                 CULTURE_INPUT = african_proxy
-	#             }
-	# 		}
-	# 	}
-	# }
+	african_low_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = mumakani_low_headgear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 15
+				portrait_low_nobles_clothing_trigger = {
+	                CULTURE_INPUT = african_proxy
+	            }
+			}
+		}
+	}
 
-	# african_high_nobles = { #TODO
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = mumakani_low_headgear
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}	
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 20
-    #             portrait_high_nobles_headgear_trigger = {
-    #                 CULTURE_INPUT = african_proxy
-    #             }   
-	# 		}
-	# 	}
-	# }
+	african_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = mumakani_low_headgear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+				add = 20
+                portrait_high_nobles_headgear_trigger = {
+                    CULTURE_INPUT = african_proxy
+                }   
+			}
+		}
+	}
 
-	# african_royalty = { #TODO
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = headgear
-	# 			template = mumakani_high_headgear
-	# 			range = { 0.26 0.49 } # For the randomness to work correctly
-	# 		}
-	# 	}
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-	# 			add = 25
-	# 			OR = {
-	# 				portrait_royalty_trigger = {
-	# 					CULTURE_INPUT = african_proxy
-	# 				}
-	# 				portrait_imperial_trigger = {
-	# 					CULTURE_INPUT = african_proxy
-	# 				}
-	# 			}
-	# 		}
-	# 	}
-	# }
+	african_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = mumakani_high_headgear
+				range = { 0.26 0.49 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 25
+				OR = {
+					portrait_royalty_trigger = {
+						CULTURE_INPUT = african_proxy
+					}
+					portrait_imperial_trigger = {
+						CULTURE_INPUT = african_proxy
+					}
+				}
+			}
+		}
+	}
 	
 	## Bretonnian ##
 	
@@ -877,7 +877,7 @@ headgear = {
 			accessory = {
 				mode = add
 				gene = headgear
-				template = bretonnian_low_headgear
+				template = anbalukkhori_high_headgear
 				range = { 0.51 0.74 } # For the randomness to work correctly
 			}
 		}	
@@ -1014,6 +1014,140 @@ headgear = {
 			}
 		}	
 	}
+
+	## arabyan ##
+
+			# Near Harad (mena_proxy) #
+
+			arabyan_low_headgear = {
+				index = 110
+				male = {
+					# North
+					10 = empty
+					10 = male_headgear_secular_mena_common_01
+					10 = male_headgear_epe_white_mena_common_02
+					20 = male_headgear_secular_sub_saharan_common_01
+					# South
+					10 = empty
+					15 = male_headgear_secular_sub_saharan_common_01
+					# East
+					10 = male_headgear_secular_dde_abbasid_common_01
+					15 = male_headgear_secular_dde_abbasid_common_02
+				}
+				female = {
+					# North
+					10 = empty
+					20 = female_headgear_secular_mena_common_01
+					20 = female_headgear_secular_mena_common_02	
+					# South
+					10 = empty
+					15 = female_headgear_secular_dde_abbasid_common_01
+					# East
+					10 = female_headgear_secular_dde_abbasid_common_01
+					15 = female_headgear_secular_dde_abbasid_common_02	
+				}
+				boy = male
+				girl = female
+			}
+
+			arabyan_high_headgear = {
+				index = 111
+				male = {
+					# Counts - North
+					2 = empty
+					4 = male_headgear_secular_mena_common_01
+					4 = male_headgear_secular_mena_nobility_01					
+					# Dukes - North
+					5 = male_headgear_epe_white_mena_high_02					
+					5 = male_headgear_secular_mena_high_nobility_01
+					# Kings - North
+					4 = male_headgear_secular_mena_royalty_01
+					3 = male_headgear_secular_ep1_mena_royalty_02
+					3 = male_headgear_epe_white_ep1_mena_royalty_02							
+					# Emperors - North
+					10 = male_headgear_secular_mena_imperial_01
+					# Dukes - South
+					10 = male_headgear_secular_sub_saharan_high_nobility_01
+					# Kings - South
+					10 = male_headgear_secular_sub_saharan_royalty_01
+					# Emperors - South
+					10 = male_headgear_secular_sub_saharan_imperial_01
+					# Dukes - East
+					5 = male_headgear_secular_dde_abbasid_high_nobility_01
+					5 = male_headgear_religious_dde_muslim_head_01
+					# Kings - East
+					5 = male_headgear_secular_dde_abbasid_royalty_01
+					5 = male_headgear_epe_white_abbasid_imperial_01						
+					# Emperors - East
+					10 = male_headgear_secular_dde_abbasid_imperial_01
+				}
+				female = {
+					# Counts - North
+					2 = empty
+					4 = female_headgear_secular_mena_common_01
+					4 = female_headgear_secular_mena_common_02
+					# Dukes - North
+					10 = female_headgear_secular_mena_nobility_01
+					# Kings / Emperors - North
+					10 = female_headgear_secular_mena_royalty_01
+					10 = female_headgear_secular_ep1_mena_royalty_02						
+					# Dukes - South
+					10 = female_headgear_secular_mena_nobility_01
+					# Kings / Emperors - South
+					20 = female_headgear_secular_mena_royalty_01
+					# Dukes - East
+					5 = female_headgear_secular_mena_nobility_01
+					5 = female_headgear_secular_dde_abbasid_high_nobility_02					
+					# Kings - East
+					10 = female_headgear_secular_dde_abbasid_high_nobility_01
+					# Emperors - East
+					10 = female_headgear_secular_dde_abbasid_royalty_01
+				}
+				boy = male
+				girl = female
+			}
+
+			arabyan_war_headgear = {
+				index = 112
+				male = {
+					# North
+					5 = empty
+					5 = male_headgear_secular_mena_common_01					
+					5 = male_clothes_situational_mena_stealth_hood_01					
+					10 = m_headgear_sec_mena_war_nob_01_lo
+					10 = m_headgear_sec_mena_war_nob_01_hi
+					10 = m_headgear_sec_crusades_mena_war_nob_01_lo
+					5 = m_headgear_sec_crusades_mena_war_nob_01_hi					
+					# South
+					10 = male_headgear_secular_sub_saharan_common_01					
+					15 = m_headgear_sec_mena_war_nob_01_lo
+					# East
+					2 = male_headgear_secular_dde_abbasid_common_01
+					3 = male_headgear_secular_dde_abbasid_common_02					
+					10 = m_headgear_sec_dde_abbasid_war_nob_01_lo
+					10 = m_headgear_sec_dde_abbasid_war_nob_01_hi
+				}
+				female = {
+					# North
+					5 = empty
+					5 = male_headgear_secular_mena_common_01					
+					5 = male_clothes_situational_mena_stealth_hood_01
+					10 = f_headgear_sec_mena_war_nob_01_lo
+					10 = f_headgear_sec_mena_war_nob_01_hi
+					10 = f_headgear_sec_crusades_mena_war_nob_01_lo
+					5 = f_headgear_sec_crusades_mena_war_nob_01_hi						
+					# South
+					5 = empty
+					10 = female_clothes_situational_mena_stealth_hood_01						
+					10 = f_headgear_sec_mena_war_nob_01_lo
+					# East
+					10 = female_clothes_situational_mena_stealth_hood_01					
+					5 = f_headgear_sec_dde_abbasid_war_nob_01_lo
+					10 = f_headgear_sec_dde_abbasid_war_nob_01_hi
+				}
+				boy = male
+				girl = female
+			}
 
 	## Strygan ##
 

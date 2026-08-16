@@ -53,7 +53,7 @@
 			accessory = {
 				mode = add
 				gene = legwear
-				template = western_proxy_common_legwear
+				template = elven_common_legwear
 				range = { 0 1 } # For the randomness to work correctly
 			}
 		}	
@@ -159,33 +159,33 @@
 		}
 	}
 	
-	# bretonnian_war_kings = {
-	# 	dna_modifiers = {
-	# 		accessory = {
-	# 			mode = add
-	# 			gene = legwear
-	# 			template = bretonnian_royal_plate_legwear
-	# 			range = { 0 1 } # For the randomness to work correctly
-	# 		}
-	# 	}	
-	# 	weight = {
-	# 		base = 0
-	# 		modifier = {
-    #             add = 160
-	# 			highest_held_title_tier >= tier_kingdom				
-    #             portrait_high_nobles_armor_trigger = { 
-    #                 CULTURE_INPUT = bretonnian
-    #             }
-    #         }
-    #         modifier = {
-    #             add = 80        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-	# 			highest_held_title_tier >= tier_kingdom
-    #             portrait_high_nobles_armor_in_army_trigger = { 
-    #                 CULTURE_INPUT = bretonnian
-    #             }
-    #         }
-	# 	}
-	# }
+	bretonnian_war_kings = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = legwear
+				template = bretonnian_royal_plate_legwear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}	
+		weight = {
+			base = 0
+			modifier = {
+                add = 160
+				highest_held_title_tier >= tier_kingdom				
+                portrait_high_nobles_armor_trigger = { 
+                    CULTURE_INPUT = bretonnian
+                }
+            }
+            modifier = {
+                add = 80        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+				highest_held_title_tier >= tier_kingdom
+                portrait_high_nobles_armor_in_army_trigger = { 
+                    CULTURE_INPUT = bretonnian
+                }
+            }
+		}
+	}
 
 	## TGP - Asia ##
 	
