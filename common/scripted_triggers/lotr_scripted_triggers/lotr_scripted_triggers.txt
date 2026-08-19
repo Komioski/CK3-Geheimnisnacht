@@ -32,6 +32,24 @@
 #	}
 #}
 
+
+lotr_can_be_activity_guest = {
+	is_wastelands = no
+	trigger_if = {
+		limit = { exists = scope:host }
+		lotr_tolerance_trigger = { CHARACTER = scope:host } #Basic race and alignment compatibility
+	}
+
+	# Orcs only attend Orcish events #WHG TODO
+	#trigger_if = {
+	#	limit = { scope:host ?= { is_orc = yes } }
+	#	is_orc = yes
+	#}
+	#trigger_else = { NOT = { is_orc = yes } }
+}
+
+
+
 lotr_is_shown_basic_activity_trigger = {
 	is_wastelands = no
 }
