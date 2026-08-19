@@ -1,6 +1,5 @@
 ﻿activity_pilgrimage = {
 	is_shown = {
-		lotr_is_shown_pilgrimage_activity_trigger = yes #WHG
 		highest_held_title_tier > tier_barony
 		is_playable_character = yes
 		trigger_if = {
@@ -233,7 +232,7 @@
 	#Filtering for Mecca will not work if put under Phase instead of the Activity setup
 	is_location_valid = {
 		#Hajj only goes to Mecca
-		# trigger_if = { #WHG
+		# trigger_if = { #LotR
 			# limit = {
 				# scope:special_option = flag:pilgrimage_type_hajj
 				# exists = barony
@@ -256,27 +255,7 @@
 				}
 			}
 		}
-		#You can't pilgrimage to your own capital #WHG TODO 
-		custom_tooltip = {
-			text = activity_pilgrimage.is_location_valid.capital_is_holy_site
-			scope:host.capital_province != root
-		}
-		
-		#You can't pilgrimage to abandoned wilderness # WHG
-		# trigger_if = {
-		# 	limit = {
-		# 		faith = {
-		# 			has_doctrine_parameter = wasteland_pilgrimage_allowed # For later, need to fix wasteland character popping up
-		# 		}
-		# 	}
-			custom_tooltip = {
-				text = activity_pilgrimage.is_location_valid.lotr_location_wasteland
-				NOT = { is_wastelands = yes }
-			}
-		# }
-		# trigger_else = { always = yes } #Needs trigger_else fallback
-		
-		#Elves and good Istari can't pilgrimage to an evil-held holy site
+		#You can't pilgrimage to your own capital - Except for if you are an adventurer because then you travel around all the time anyway
 		trigger_if = {
 			limit = {
 				scope:host = { is_landless_adventurer = no }
@@ -432,7 +411,7 @@
 							# county = title:c_brunswick # Paderborn
 						# }
 					# }
-					always = no #WHG Placeholder : to be replaced with appropriate holy sites
+					always = no #LotR Placeholder : to be replaced with appropriate holy sites
 				}
 			}
 			desc = activity_pilgrimage_province_unique_desc
@@ -1284,7 +1263,7 @@
 						# }
 						# has_trait = hajjaj
 					# }
-					always = yes #WHG
+					always = yes #LotR
 				}
 				is_valid = {
 					# Most Muslims must perform the Hajj first.
@@ -1373,7 +1352,7 @@
 			}
 			# pilgrimage_type_hajj = {
 				#Crashes [sometimes] if you start the game with a ruler where this is default then tag over to another ruler where this isn't default
-				# default = { #WHG
+				# default = { #LotR
 					# faith = { has_doctrine_parameter = mandatory_hajj }
 					# NOT = { has_trait = hajjaj }
 				# }
@@ -1542,7 +1521,7 @@
 						OR = {
 							has_trait = patient
 							has_trait = pilgrim
-							#has_trait = hajjaj #WHG
+							#has_trait = hajjaj #LotR
 						}
 					}
 				}
@@ -2726,16 +2705,6 @@
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-	
-	#background = { #LotR forest deep #WHG TODO COMMENT OUT
-	#	trigger = {
-	#		NOT = { scope:host.location = scope:activity.activity_location }
-	#		scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/lotr_forest_deep.dds"
-	#	environment = "environment_event_forest"
-	#	ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	#}
 
 	background = { #mountains, settled
 		trigger = {
@@ -2747,31 +2716,6 @@
 		}
 		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_mountains.dds"
 		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
-	#background = { #mountains, dwarven settled # WHG TODO COMMENT OUT
-	#	trigger = {
-	#		NOT = { scope:host.location = scope:activity.activity_location }
-	#		scope:host.location = {
-	#			graphical_wilderness_mountains_trigger = yes
-	#			exists = province_owner
-	#			NOT = { is_dwarf = yes }
-	#		}
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/lotr_dwarven_gate.dds"
-	#	environment = "environment_travel_mountain_settlement"
-	#	ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	#}
-	background = { #mountains, winter
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				has_winter_trigger = yes
-			}
-		}
-		texture = "gfx/interface/illustrations/event_scenes/bp3_mountain_winter.dds"
-		environment = "environment_bp3_mountain_winter"
 		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
 	}
 	background = { #mountains, unsettled
@@ -2873,32 +2817,32 @@
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
 
-	#background = { #hills, settled
-	#	trigger = {
-	#		scope:host.location != scope:activity.activity_location
-	#		scope:host.location = {
-	#			graphical_hills_trigger = yes
-	#			exists = province_owner
-	#			#NOT = { is_dwarf = yes } #WHG TODO
-	#		}
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/ep2_travel_hills.dds"
-	#	environment = "environment_travel_hills_settlement"
-	#	ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	#}
-	#background = { #hills, dwarven settled #WHG COMMENT OUT
-	#	trigger = {
-	#		NOT = { scope:host.location = scope:activity.activity_location }
-	#		scope:host.location = {
-	#			graphical_hills_trigger = yes
-	#			exists = province_owner
-	#			is_dwarf = yes
-	#		}
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/lotr_dwarven_gate.dds"
-	#	environment = "environment_travel_mountain_settlement"
-	#	ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	#}
+	background = { #hills, settled
+		trigger = {
+			scope:host.location != scope:activity.activity_location
+			scope:host.location = {
+				graphical_hills_trigger = yes
+				exists = province_owner
+				#NOT = { is_dwarf = yes } #WHG TODO
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_hills.dds"
+		environment = "environment_travel_hills_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
+	}
+	background = { #hills, dwarven settled #WHG COMMENT OUT
+		trigger = {
+			NOT = { scope:host.location = scope:activity.activity_location }
+			scope:host.location = {
+				graphical_hills_trigger = yes
+				exists = province_owner
+				is_dwarf = yes
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/lotr_dwarven_gate.dds"
+		environment = "environment_travel_mountain_settlement"
+		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
+	}
 	background = { #hills, winter
 		trigger = {
 			location ?= {
@@ -2935,161 +2879,179 @@
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
 	
+	background = { #LotR volcanic_plains #WHG COMMENT OUT
+		trigger = {
+			scope:host.location != scope:activity.activity_location
+			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
+		}
+		texture = "gfx/interface/illustrations/event_scenes/lotr_volcanic_plains.dds"
+		environment = "environment_event_feast" 
+		ambience = "event:/SFX/Events/Backgrounds/burning_building"
+	}
 
-	#background = { #WHG underground, dwarven settled
-	#	trigger = {
-	#		scope:host.location != scope:activity.activity_location
-	#		scope:host.location = {
-	#			graphical_underground_caverns_trigger = yes
-	#			exists = province_owner
-	#			culture ?= { is_dwarf_culture = yes }
-	#		}
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/lotr_city_dwarven.dds"
-	#	environment = "environment_bp2_university"
-	#	ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
-	#}
-	#background = { #WHG underground, orc settled
-	#	trigger = {
-	#		scope:host.location != scope:activity.activity_location
-	#		scope:host.location = {
-	#			graphical_underground_caverns_trigger = yes
-	#			exists = province_owner
-	#			culture ?= { is_orc_culture = yes }
-	#		}
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/lotr_throneroom_goblins.dds"
-	#	environment = "environment_bp2_university"
-	#	ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
-	#}
-	#background = { #WHG underground
-	#	trigger = {
-	#		scope:host.location != scope:activity.activity_location
-	#		scope:host.location = { graphical_underground_caverns_trigger = yes } 
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/lotr_halls.dds"
-	#	environment = "environment_event_alley"
-	#	ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	#}
+	background = { #LotR underground, dwarven settled
+		trigger = {
+			scope:host.location != scope:activity.activity_location
+			scope:host.location = {
+				graphical_underground_caverns_trigger = yes
+				exists = province_owner
+				culture ?= { is_dwarf_culture = yes }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/lotr_city_dwarven.dds"
+		environment = "environment_bp2_university"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+	background = { #LotR underground, orc settled
+		trigger = {
+			scope:host.location != scope:activity.activity_location
+			scope:host.location = {
+				graphical_underground_caverns_trigger = yes
+				exists = province_owner
+				culture ?= { is_orc_culture = yes }
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/lotr_throneroom_goblins.dds"
+		environment = "environment_bp2_university"
+		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
+	}
+	background = { #LotR underground
+		trigger = {
+			scope:host.location != scope:activity.activity_location
+			scope:host.location = { graphical_underground_caverns_trigger = yes } 
+		}
+		texture = "gfx/interface/illustrations/event_scenes/lotr_halls.dds"
+		environment = "environment_event_alley"
+		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
+	}
 
+	background = { #LotR saltflats
+		trigger = {
+			scope:host.location != scope:activity.activity_location
+			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
+		}
+		texture = "gfx/interface/illustrations/event_scenes/lotr_saltflats.dds"
+		environment = "environment_event_bp1_desert"
+		ambience = "event:/SFX/Events/Backgrounds/desert_day"
+	}
 	# End Travel
-	#Unique holy sites #WHG TODO RELIGION HOLY SITE TRIGGERS
-	#background = { 
-	#	trigger = {
-	#		activity_location.county = title:c_altdorf
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_mecca.dds"
-	#	environment = "environment_mecca"
-	#	ambience = "event:/SFX/Events/Backgrounds/town_market_middleeastern_day"
-	#}
-	#background = { #Jerusalem
-	#	trigger = {
-	#		activity_location.county = title:c_jerusalem #WHG TODO
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_jerusalem.dds"
-	#	environment = "environment_jerusalem"
-	#	ambience = "event:/SFX/Events/Backgrounds/town_market_middleeastern_day"
-	#}
-	#background = { #Constantinople
-	#	trigger = {
-	#		activity_location.county = title:c_byzantion #WHG TODO
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/ep3_hagia_sophia.dds"
-	#	environment = "environment_ep3_hagia_sophia"
-	#	ambience = "event:/DLC/EP3/SFX/Events/Event_Images/ep3_evn_eventimage_hagia_sophia"
-	#}
-	##Generic holy sites
-	#background = {
-	#	trigger = {
-	#		scope:host = {
-	#			OR = {
-	#				religion = religion:tengrism_religion
-	#				religion = religion:magyar_religion
-	#				religion = religion:siberian_religion
-	#				religion = religion:kamuyism_religion
-	#			}
-	#		}
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/mpo_temple_steppe.dds"
-	#	environment = "environment_mpo_temple_steppe" 
-	#	ambience = "event:/DLC/CE2/Events/Event_Images/mpo_temple_steppe"
-	#}
-	#background = {
-	#	trigger = { scope:host.religion = religion:zoroastrianism_religion }
-	#	texture = "gfx/interface/illustrations/event_scenes/fp3_temple.dds"
-	#	environment = "environment_event_fp3_temple"
-	#	ambience = "event:/DLC/FP1/SFX/Events/event_temple"
-	#}
-	#background = { #East Asia
-	#	trigger = {
-	#		scope:host = {
-	#			faith.religion = {
-	#				OR = {
-	#					is_in_family = rf_eastern
-	#					is_in_family = rf_sinitic
-	#					this = religion:shintoism_religion
-	#				}
-	#			}
-	#			culture = {
-	#				has_graphical_east_asia_culture_group_trigger = yes
-	#			}
-	#		}
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/tgp_holysite_asia.dds"
-	#	environment = "environment_tgp_holysite_asia"
-	#	ambience = "event:/DLC/EP4/SFX/Events/Event_Backgrounds/tgp_holysite_asia"
-	#}
-	#background = {
-	#	trigger = { activity_location.faith = faith:orthodox }
-	#	texture = "gfx/interface/illustrations/event_scenes/ep3_holysite_orthodox.dds"
-	#	environment = "environment_ep3_holysite_orthodox"
-	#	ambience = "event:/DLC/EP3/SFX/Events/Event_Images/ep3_evn_eventimage_orthodox_holy_site"
-	#}
-	#background = {
-	#	trigger = {
-	#		activity_location.culture = {
-	#			OR = {
-	#				has_graphical_mena_culture_group_trigger = yes
-	#				has_graphical_iranian_culture_group_trigger = yes
-	#			}
-	#		}
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_mena.dds"
-	#	environment = "environment_generic_holy_site_mena"
-	#	ambience = "event:/SFX/Events/Backgrounds/town_market_middleeastern_day"
-	#}
-	#background = {
-	#	trigger = {
-	#		activity_location.culture = { has_graphical_mena_culture_group_trigger = yes }
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_mena.dds"
-	#	environment = "environment_generic_holy_site_mena"
-	#	ambience = "event:/SFX/Events/Backgrounds/town_market_middleeastern_day"
-	#}
-	#background = {
-	#	trigger = {
-	#		activity_location.culture = { has_graphical_india_culture_group_trigger = yes }
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_indian.dds"
-	#	environment = "environment_indian_holy_site"
-	#	ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	#}
-	#background = {
-	#	trigger = {
-	#		activity_location.culture = { has_graphical_iberian_culture_group_trigger = yes }
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/fp2_temple.dds"
-	#	environment = "environment_event_fp2_temple"
-	#	ambience = "event:/DLC/FP2/SFX/Events/temple"
-	#}
-	#background = {
-	#	trigger = {
-	#		activity_location.culture = { has_graphical_western_culture_group_trigger = yes }
-	#	}
-	#	texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_western.dds"
-	#	environment = "environment_western_holy_site"
-	#	ambience = "event:/SFX/Events/Backgrounds/temple_christian"
-	#}
+	#Unique holy sites
+	background = {
+		trigger = {
+			activity_location.county = title:c_minas_tirith #WHG TODO
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_mecca.dds"
+		environment = "environment_mecca"
+		ambience = "event:/SFX/Events/Backgrounds/town_market_middleeastern_day"
+	}
+	background = { #Jerusalem
+		trigger = {
+			activity_location.county = title:c_jerusalem
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_jerusalem.dds"
+		environment = "environment_jerusalem"
+		ambience = "event:/SFX/Events/Backgrounds/town_market_middleeastern_day"
+	}
+	background = { #Constantinople
+		trigger = {
+			activity_location.county = title:c_byzantion
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep3_hagia_sophia.dds"
+		environment = "environment_ep3_hagia_sophia"
+		ambience = "event:/DLC/EP3/SFX/Events/Event_Images/ep3_evn_eventimage_hagia_sophia"
+	}
+	#Generic holy sites
+	background = {
+		trigger = {
+			scope:host = {
+				OR = {
+					religion = religion:tengrism_religion
+					religion = religion:magyar_religion
+					religion = religion:siberian_religion
+					religion = religion:kamuyism_religion
+				}
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/mpo_temple_steppe.dds"
+		environment = "environment_mpo_temple_steppe" 
+		ambience = "event:/DLC/CE2/Events/Event_Images/mpo_temple_steppe"
+	}
+	background = {
+		trigger = { scope:host.religion = religion:zoroastrianism_religion }
+		texture = "gfx/interface/illustrations/event_scenes/fp3_temple.dds"
+		environment = "environment_event_fp3_temple"
+		ambience = "event:/DLC/FP1/SFX/Events/event_temple"
+	}
+	background = { #East Asia
+		trigger = {
+			scope:host = {
+				faith.religion = {
+					OR = {
+						is_in_family = rf_eastern
+						is_in_family = rf_sinitic
+						this = religion:shintoism_religion
+					}
+				}
+				culture = {
+					has_graphical_east_asia_culture_group_trigger = yes
+				}
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/tgp_holysite_asia.dds"
+		environment = "environment_tgp_holysite_asia"
+		ambience = "event:/DLC/EP4/SFX/Events/Event_Backgrounds/tgp_holysite_asia"
+	}
+	background = {
+		trigger = { activity_location.faith = faith:orthodox }
+		texture = "gfx/interface/illustrations/event_scenes/ep3_holysite_orthodox.dds"
+		environment = "environment_ep3_holysite_orthodox"
+		ambience = "event:/DLC/EP3/SFX/Events/Event_Images/ep3_evn_eventimage_orthodox_holy_site"
+	}
+	background = {
+		trigger = {
+			activity_location.culture = {
+				OR = {
+					has_graphical_mena_culture_group_trigger = yes
+					has_graphical_iranian_culture_group_trigger = yes
+				}
+			}
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_mena.dds"
+		environment = "environment_generic_holy_site_mena"
+		ambience = "event:/SFX/Events/Backgrounds/town_market_middleeastern_day"
+	}
+	background = {
+		trigger = {
+			activity_location.culture = { has_graphical_mena_culture_group_trigger = yes }
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_mena.dds"
+		environment = "environment_generic_holy_site_mena"
+		ambience = "event:/SFX/Events/Backgrounds/town_market_middleeastern_day"
+	}
+	background = {
+		trigger = {
+			activity_location.culture = { has_graphical_india_culture_group_trigger = yes }
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_indian.dds"
+		environment = "environment_indian_holy_site"
+		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
+	}
+	background = {
+		trigger = {
+			activity_location.culture = { has_graphical_iberian_culture_group_trigger = yes }
+		}
+		texture = "gfx/interface/illustrations/event_scenes/fp2_temple.dds"
+		environment = "environment_event_fp2_temple"
+		ambience = "event:/DLC/FP2/SFX/Events/temple"
+	}
+	background = {
+		trigger = {
+			activity_location.culture = { has_graphical_western_culture_group_trigger = yes }
+		}
+		texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_western.dds"
+		environment = "environment_western_holy_site"
+		ambience = "event:/SFX/Events/Backgrounds/temple_christian"
+	}
 	background = {
 		trigger = {
 			OR = {
