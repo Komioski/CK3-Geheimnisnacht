@@ -265,29 +265,3 @@ has_any_travel_poi_trigger = {
 
 # juke note: general trigger for travel events - do our travellers want to seek interaction with the locals?
 # Evil wont approach good, human wont approach orc etc
-travel_interaction_with_locals_desired = {
-	# Orcs only help orcs!
-	OR = {
-		AND = {
-			location = { NOT = { is_orc = yes } }
-			NOT = { is_orc = yes }
-		}
-		AND = {
-			location = { is_orc = yes }
-			is_orc = yes
-		}
-	}
-	# Evil wont approach good and vice versa
-	OR = {
-		AND = {
-			faith_is_evil = no
-			location = { faith_is_evil = no }
-		}
-		AND = {
-			faith_is_good = no
-			location = { faith_is_good = no }
-		}
-	}
-	#Wastelands don't have inhabitants
-	location.culture != culture:wastelands
-}

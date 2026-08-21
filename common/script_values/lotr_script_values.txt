@@ -459,26 +459,6 @@ number_of_held_colonies = {
 	}
 }
 
-friends_with_elves = { # 5%
-	value = 0
-
-	if = {
-		limit = {
-			any_relation = { type = friend }
-		}
-		every_relation = {
-			type = friend
-			limit = {
-				OR = {
-					is_elf = yes
-					is_maiar = yes
-				}
-				prowess >= 55
-			}
-		}
-		add = 5
-	}
-}
 
 prowess_martial_value = { # 20%
 	value = 0

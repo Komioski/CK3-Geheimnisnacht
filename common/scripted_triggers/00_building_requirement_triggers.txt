@@ -131,14 +131,15 @@ building_requirement_castle_city_church_temple_citadel_tribe = {
 building_hall_of_heroes_requirement = {
 	custom_description = {
 		text = building_requirement_hall_of_heroes_failed
-		has_variable = hall_of_heroes
+		# has_variable = hall_of_heroes
 		scope:holder = {
-			OR = {
-				# has_religion = religion:baltic_religion
-				# has_religion = religion:slavic_religion
-				# has_religion = religion:finno_ugric_religion
-				# has_religion = religion:siberian_religion
-			}
+			always = no
+			# OR = {
+			# 	has_religion = religion:baltic_religion
+			# 	has_religion = religion:slavic_religion
+			# 	has_religion = religion:finno_ugric_religion
+			# 	has_religion = religion:siberian_religion
+			# }
 		}
 	}
 }
@@ -174,6 +175,23 @@ building_pastures_requirement_terrain = {
 			terrain = jungle
 			NOT = { geographical_region = world_innovation_elephants }
 		}
+		# Edited for LotR Noria. - Redundant, already unlocked by vanilla
+		#AND = {
+		#	OR = {
+		#		terrain = drylands
+		#		terrain = desert_mountains
+		#		terrain = red_desert
+		#	}
+		#	has_building_or_higher = noria_01
+		#}
+		#AND = {
+		#	OR = {
+		#		terrain = drylands
+		#		terrain = desert_mountains
+		#		terrain = red_desert
+		#	}
+		#	has_building_or_higher = waterfront_plaza_03
+		#}
 	}
 }
 
@@ -186,7 +204,9 @@ building_hunting_grounds_requirement_terrain = {
 		terrain = taiga
 		terrain = forest
 		terrain = jungle
+		terrain = deep_forest #LotR
 		terrain = wetlands
+		#terrain = arctic #LotR
 	}
 }
 
@@ -202,7 +222,16 @@ building_orchards_requirement_terrain = {
 }
 
 building_farm_estates_requirement_terrain = {
-	terrain = farmlands
+	OR = {
+		terrain = farmlands
+		AND = {
+			OR = {
+				terrain = hills
+				terrain = jungle
+			}
+			county.culture = { has_cultural_parameter = rice_cultivators_can_construct_paddy_fields_in_hills_and_jungle }
+		}
+	}
 }
 
 building_military_camps_requirement_terrain = {
@@ -236,6 +265,7 @@ building_ramparts_requirement_terrain = {
 		terrain = taiga
 		terrain = forest
 		terrain = jungle
+		terrain = deep_forest #LOTR
 	}
 }
 
@@ -245,6 +275,7 @@ building_curtain_walls_requirement_terrain = {
 		terrain = plains
 		terrain = wetlands
 		terrain = floodplains
+		#terrain = arctic #LotR
 	}
 }
 
@@ -264,10 +295,11 @@ building_paddy_fields_requirement_terrain = {
 			terrain = terraced_hills
 			AND = {
 				terrain = floodplains
-				OR = {
-					geographical_region = graphical_east_asia
-					geographical_region = custom_viet_lands
-				}
+				#OR = { #WHG
+				#	geographical_region = graphical_east_asia
+				#	geographical_region = custom_viet_lands
+				#}
+				geographical_region = middleearth_harad_bayoformal_sirayn #LotR
 			}
 			AND = {
 				terrain = wetlands
@@ -291,10 +323,10 @@ building_cereal_fields_requirement_terrain = {
 		terrain = drylands
 		AND = {
 			terrain = floodplains
-			NOR = {
-				geographical_region = graphical_east_asia
-				geographical_region = custom_viet_lands
-			}
+			# NOR = { #WHG
+			# 	geographical_region = graphical_east_asia
+			# 	geographical_region = custom_viet_lands
+			# }
 		}
 		county = {
 			OR = {
@@ -313,11 +345,12 @@ building_outposts_requirement_terrain = {
 		terrain = taiga
 		terrain = forest
 		terrain = jungle
+		terrain = deep_forest #LotR
 	}
 }
 
 building_barracks_requirement_terrain = {
-	#OR = {
+	#OR = { #Vanilla
 	#	terrain = farmlands
 	#	terrain = plains
 	#	terrain = drylands
@@ -360,6 +393,7 @@ building_logging_camps_requirement_terrain = {
 		terrain = taiga
 		terrain = forest
 		terrain = jungle
+		terrain = deep_forest #LotR
 	}
 }
 
@@ -368,6 +402,7 @@ building_peat_quarries_requirement_terrain = {
 }
 
 building_hill_farms_requirement_terrain = {
+	# terrain = hills
 	OR = {
 		terrain = hills
 		terrain = terraced_hills
@@ -375,7 +410,16 @@ building_hill_farms_requirement_terrain = {
 }
 
 building_elephant_pens_requirement_terrain = {
-	terrain = jungle
+	# terrain = jungle
+	OR = { #LOTR
+		terrain = jungle
+		terrain = deep_forest #LOTR
+		terrain = drylands # LOTR
+
+		terrain = farmlands # LOTR
+		terrain = floodplains # LOTR
+		terrain = hills # LOTR
+	}
 	OR = {
 		geographical_region = world_innovation_elephants
 		culture = { has_cultural_parameter = elephant_pens_building_bonuses }
@@ -385,8 +429,9 @@ building_elephant_pens_requirement_terrain = {
 building_horse_pastures_requirement_terrain = {
 	OR = {
 		terrain = steppe
-		geographical_region = world_steppe_east
-		culture = { has_cultural_parameter = unlock_horse_pastures_building }
+		# geographical_region = world_steppe_east #LotR
+		geographical_region = middleearth_rhun #WHG TODO
+		# culture = { has_cultural_parameter = unlock_horse_pastures_building } #LotR
 	}
 }
 
@@ -426,31 +471,31 @@ building_hillside_grazing_requirement_terrain = {
 		terrain = desert_mountains
 		terrain = hills
 	}
-	geographical_region = world_horse_buildings_in_hills_and_mountains
+	geographical_region = world_horse_buildings_in_hills_and_mountains #WHG TODO
 }
 
 building_wind_furnace_requirement_terrain = {
-	geographical_region = world_india
-	OR = {
-		is_coastal = yes
-		AND = {
-			scope:holder.top_liege = {
-				any_realm_county = {
-					any_county_province = {
-						has_building_or_higher = konasamudram_mines_01
-					}
-				}
-			}
-			duchy = {
-				any_de_jure_county = {
-					any_county_province = {
-						has_building_or_higher = konasamudram_mines_01
-					}
-				}
-			}
-		}
-		
-	}
+	#geographical_region = world_india #LotR
+	geographical_region = middleearth_rhun # WHG TODO
+	# OR = {
+	# 	is_coastal = yes
+	# 	AND = {
+	# 		scope:holder.top_liege = {
+	# 			any_realm_county = {
+	# 				any_county_province = {
+	# 					has_building_or_higher = konasamudram_mines_01
+	# 				}
+	# 			}
+	# 		}
+	# 		duchy = {
+	# 			any_county = {
+	# 				any_county_province = {
+	# 					has_building_or_higher = konasamudram_mines_01
+	# 				}
+	# 			}
+	# 		}
+	# 	}	
+	# }
 	
 	scope:holder.culture = { has_innovation = innovation_wootz_steel }
 }
@@ -487,6 +532,7 @@ building_watermills_requirement_terrain = {
 				terrain = taiga
 				terrain = jungle
 				terrain = terraced_hills
+				terrain = deep_forest #WHG
 				is_riverside_province = yes
 			}
 		}
@@ -530,7 +576,7 @@ building_hospices_requirement_terrain = {
 }
 
 has_any_special_mine_trigger = {
-	has_building_with_flag = special_mine
+	always = no
 	#OR = {
 	#	has_building_or_higher = rammelsberg_mines_01
 	#	has_building_or_higher = kutna_hora_mines_01
@@ -559,7 +605,7 @@ has_any_special_mine_trigger = {
 	#	has_building_or_higher = verespatak_mines_01
 	#	has_building_or_higher = nishapur_mines_01
 	#	has_building_or_higher = srebrenica_mines_01
-	#	has_building_or_higher = ratnapura_mines_01	
+	#	has_building_or_higher = ratnapura_mines_01
 	#	has_building_or_higher = mogok_mines_01
 	#}
 }
@@ -574,7 +620,8 @@ barony_cannot_construct_holding = {
 			terrain = desert
 			terrain = desert_mountains
 		}
-		geographical_region = world_africa_sahara
+		# geographical_region = world_africa_sahara #LotR
+		geographical_region = custom_dune_sea #WHG TODO
 	}
 }
 
@@ -749,130 +796,147 @@ generic_recruitment_building_innovations_trigger = {
 }
 
 islamic_special_building_trigger = {
-	OR = {
-		has_building = holy_site_great_mosque_of_djenne_01
-		has_building = holy_site_great_mosque_of_samarra_01
-		has_building = holy_site_prophetic_mosque_01
-		has_building = hagia_sophia_02
-		has_building = the_friday_mosque_01 # shared zoroastrian
-		has_building = holy_site_great_mosque_of_cordoba_01 # shared christian
-		has_building_or_higher = damascus_mosque_01
-		has_building_or_higher = yazd_mosque_01
-	}
+	always = no # WHG
+	#OR = {
+	#	has_building = holy_site_great_mosque_of_djenne_01
+	#	has_building = holy_site_great_mosque_of_samarra_01
+	#	has_building = holy_site_prophetic_mosque_01
+	#	has_building = hagia_sophia_02
+	#	has_building = the_friday_mosque_01 # shared zoroastrian
+	#	has_building = holy_site_great_mosque_of_cordoba_01 # shared christian
+	#	has_building_or_higher = damascus_mosque_01
+	#	has_building_or_higher = yazd_mosque_01
+	#}
 }
 
 christian_special_building_trigger = {
-	OR = {
-		has_building = holy_site_cologne_cathedral_01
-		has_building = holy_site_canterbury_cathedral_01
-		has_building = holy_site_canterbury_cathedral_02
-		has_building = holy_site_canterbury_cathedral_03
-		has_building = temple_of_uppsala_01
-		has_building = temple_of_uppsala_02
-		has_building = lund_cathedral_01
-		has_building = holy_site_great_mosque_of_cordoba_01 # shared muslim
-		has_building_or_higher = cluny_abbey_01
-		has_building_or_higher = beta_giyorgis_01
-		has_building_or_higher = holy_wisdom_01
-		has_building_or_higher = duomo_florence_01
-		has_building_or_higher = wawel_cathedral_01
-		has_building_or_higher = holy_site_st_peters_basilica_01
-		has_building_or_higher = mont_st_michel_01
-	}
+	always = no # WHG
+	# OR = {
+	# 	has_building = holy_site_cologne_cathedral_01
+	# 	has_building = holy_site_canterbury_cathedral_01
+	# 	has_building = holy_site_canterbury_cathedral_02
+	# 	has_building = holy_site_canterbury_cathedral_03
+	# 	has_building = temple_of_uppsala_01
+	# 	has_building = temple_of_uppsala_02
+	# 	has_building = lund_cathedral_01
+	# 	has_building = holy_site_great_mosque_of_cordoba_01 # shared muslim
+	# 	has_building_or_higher = cluny_abbey_01
+	# 	has_building_or_higher = beta_giyorgis_01
+	# 	has_building_or_higher = holy_wisdom_01
+	# 	has_building_or_higher = duomo_florence_01
+	# 	has_building_or_higher = wawel_cathedral_01
+	#	has_building_or_higher = holy_site_st_peters_basilica_01
+	#	has_building_or_higher = mont_st_michel_01
+	# }
 }
 
 eastern_special_building_trigger = {
-	OR = {
-		has_building = buddhas_of_bamian_01
-		has_building = brihadeeswarar_temple_01
-		has_building = shwedagon_pagoda_01
-		has_building = ananda_temple_01
-		has_building = khajuraho_01
-		has_building = angkor_wat_01
-		has_building = my_son_sanctuary_01
-		has_building = stone_pagoda_01
-		has_building = muara_takus_01
-		has_building = three_pagodas_dali_01
-		has_building = pyramid_lingapura_01
-		has_building = buddha_kamakura_01
-		has_building_or_higher = jokhang_01
-		has_building_or_higher = konark_temple_01
-		has_building_or_higher = vatapi_caves_01
-		has_building_or_higher = sanchi_stupa_01
-		has_building_or_higher = boudhanath_01
-		has_building_or_higher = temples_angkor_01
-	}
+	always = no #WHG
+	# OR = {
+	# 	has_building = buddhas_of_bamian_01
+	# 	has_building = brihadeeswarar_temple_01
+	# 	has_building = shwedagon_pagoda_01
+	# 	has_building = ananda_temple_01
+	# 	has_building = khajuraho_01
+	# 	has_building = angkor_wat_01
+	#	has_building = my_son_sanctuary_01
+	#	has_building = stone_pagoda_01
+	#	has_building = muara_takus_01
+	#	has_building = three_pagodas_dali_01
+	#	has_building = pyramid_lingapura_01
+	#	has_building = buddha_kamakura_01
+	#	has_building_or_higher = jokhang_01
+	#	has_building_or_higher = konark_temple_01
+	#	has_building_or_higher = vatapi_caves_01
+	#	has_building_or_higher = sanchi_stupa_01
+	#	has_building_or_higher = boudhanath_01
+	#	has_building_or_higher = temples_angkor_01
+	# }
 }
 
 # Religious special building triggers
 religious_special_building_exclusion_trigger = { # checks if any special buildings present do not fit your religion
-	OR = {
-		AND = { # Generic
-			NOT = {
-				barony = { is_holy_site_of = holder.faith }
-			}
-			OR = {
-				has_building = holy_site_cathedral_01
-				has_building = holy_site_mosque_01
-				has_building = holy_site_pagan_grand_temple_01
-				has_building = holy_site_indian_grand_temple_01
-				has_building = holy_site_other_grand_temple_01
-				has_building = hagia_sophia_01
-				has_building = holy_site_mahabodhi_temple_01
-				has_building = holy_site_imam_ali_mosque_01
-				has_building = holy_site_great_mosque_of_mecca_01
-				islamic_special_building_trigger = yes
-				christian_special_building_trigger = yes
-				has_building = holy_site_buddhist_grand_temple_01
-				has_building = holy_site_japanese_temple_01
-				has_building = holy_site_chinese_temple_01
-				has_building = holy_site_se_asia_pagan_temple_01
-				has_building = izumo_taisha_01
-			}
+	always = no
+	# OR = {
+	# 	AND = { # Generic
+	# 		NOT = {
+	# 			barony = { is_holy_site_of = holder.faith }
+	# 		}
+	# 		OR = {
+	# 			has_building = holy_site_cathedral_01
+	# 			has_building = holy_site_mosque_01
+	# 			has_building = holy_site_pagan_grand_temple_01
+	# 			has_building = holy_site_indian_grand_temple_01
+	# 			has_building = holy_site_other_grand_temple_01
+	# 			has_building = hagia_sophia_01
+	# 			has_building = holy_site_mahabodhi_temple_01
+	# 			has_building = holy_site_imam_ali_mosque_01
+	# 			has_building = holy_site_great_mosque_of_mecca_01
+	# 			islamic_special_building_trigger = yes
+	# 			christian_special_building_trigger = yes
+	#			has_building = holy_site_buddhist_grand_temple_01
+	#			has_building = holy_site_japanese_temple_01
+	#			has_building = holy_site_chinese_temple_01
+	#			has_building = holy_site_se_asia_pagan_temple_01
+	# 		}
+	# 	}
+	# 	AND = { # Islamic
+	# 		NOT = { barony.holder.religion = religion:islam_religion }
+	# 		islamic_special_building_trigger = yes
+	# 	}
+	# 	AND = { # Christian
+	# 		NOT = { barony.holder.religion = religion:christianity_religion }
+	# 		christian_special_building_trigger = yes
+	# 	}
+	# 	AND = { # Islamic/Zoroastrian
+	# 		NOT = { barony.holder.religion = religion:zoroastrianism_religion }
+	# 		has_building = the_friday_mosque_01 # shared muslim
+	# 	}
+	# 	AND = { # Eastern family
+	# 		NOR = {
+	# 			barony.holder.religion = religion:hinduism_religion
+	#			barony.holder.religion = religion:buddhism_religion
+	#			barony.holder.religion = religion:jainism_religion
+	#			barony.holder.religion = religion:taoism_religion
+	#			barony.holder.religion = religion:zoroastrianism_religion
+	# 		}
+	# 		eastern_special_building_trigger = yes
+	# 	}
+	# 	# Judaism
+	# 	AND = {
+	# 		barony.holder.religion = religion:judaism_religion
+	# 		has_building = dome_of_the_rock_01
+	# 	}
+	# 	AND = {
+	# 		NOT = { barony.holder.religion = religion:judaism_religion }
+	# 		has_building = temple_in_jerusalem_01
+	# 	}
+	# }
+}
+
+building_monastic_schools_holding_level_requirement_trigger = {
+	trigger_if = {
+		limit = { scope:holder.faith = { has_doctrine_parameter = monastic_schools_allowed_in_every_holding_type } }
+		OR = {
+			has_building_or_higher = castle_$LEVEL$
+			has_building_or_higher = city_$LEVEL$
+			has_building_or_higher = temple_$LEVEL$
+			has_building_or_higher = temple_citadel_$LEVEL$
 		}
-		# AND = { # Islamic
-		# 	NOT = { barony.holder.religion = religion:islam_religion }
-		# 	islamic_special_building_trigger = yes
-		# }
-		# AND = { # Christian
-		# 	NOT = { barony.holder.religion = religion:christianity_religion }
-		# 	christian_special_building_trigger = yes
-		# }
-		# AND = { # Islamic/Zoroastrian
-		# 	NOT = { barony.holder.religion = religion:zoroastrianism_religion }
-		# 	has_building = the_friday_mosque_01 # shared muslim
-		# }
-		# AND = { # Eastern family
-		# 	NOR = {
-		# 		barony.holder.religion = religion:hinduism_religion
-		# 		barony.holder.religion = religion:buddhism_religion
-		# 		barony.holder.religion = religion:jainism_religion
-		# 		barony.holder.religion = religion:taoism_religion
-		# 		barony.holder.religion = religion:confucianism_religion
-		# 		barony.holder.religion = religion:zoroastrianism_religion
-		# 	}
-		# 	eastern_special_building_trigger = yes
-		# }
-		# # Judaism
-		# AND = {
-		# 	barony.holder.religion = religion:judaism_religion
-		# 	has_building = dome_of_the_rock_01
-		# }
-		# AND = {
-		# 	NOT = { barony.holder.religion = religion:judaism_religion }
-		# 	has_building = temple_in_jerusalem_01
-		# }
+	}
+	trigger_else = {
+		has_building_or_higher = temple_$LEVEL$
 	}
 }
 
 building_murex_farm_requirement_terrain = {
 	is_county_capital = yes
 	is_coastal = yes
-	geographical_region = mediteranean_coast
-	NOR = {
-		this.barony = title:b_salmydessus
-		this.barony = title:b_chelai
-	}
+	geographical_region = special_region_murex #WHG TODO
+	# NOR = { #WHG
+	# 	this.barony = title:b_salmydessus
+	# 	this.barony = title:b_chelai
+	# }
 }
 
 building_waterworks_requirement_terrain = {
@@ -891,11 +955,12 @@ building_spice_plantation_requirement_terrain = {
 	# cinnamomum verum: India, Sri Lanka, Bangladesh and Myanmar
 	# cinnamomum malabathrum: Eastern Himalayas & Western Ghats
 	OR = {
-		geographical_region = world_asia_southeast_mainland
-		geographical_region = world_asia_borneo
-		geographical_region = world_asia_sulawesi_maluku
-		geographical_region = world_asia_indonesia 
-		geographical_region = world_india
+		# geographical_region = world_asia_southeast_mainland
+		# geographical_region = world_asia_borneo
+		# geographical_region = world_asia_sulawesi_maluku
+		# geographical_region = world_asia_indonesia 
+		# geographical_region = world_india
+		geographical_region = middleearth_harad_bayoformal_sirayn #WHG TODO
 	}
 	OR = {
 		terrain = jungle
@@ -914,18 +979,18 @@ building_examination_hall_requirement_terrain = {
 }
 
 building_breweries_requirement = {
-	OR = {
-		AND = {
+	trigger_if = {
+		limit = {
 			has_building_or_higher = temple_$NUMBER$
-			OR = {
-				#faith = faith:catholic
-				faith = { has_doctrine_parameter = allows_brewery }
-			}
 		}
-		AND = {
-			has_building_or_higher = city_$NUMBER$
-			culture = { has_cultural_parameter = allows_brewery }
+		OR = {
+			#faith = faith:catholic #WHG
+			faith = { has_doctrine_parameter = allows_brewery }
 		}
+	}
+	trigger_else = {
+    	building_requirement_castle_city_church = { LEVEL = $NUMBER$ }
+		culture = { has_cultural_parameter = allows_brewery }
 	}
 }
 
