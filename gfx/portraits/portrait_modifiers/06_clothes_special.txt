@@ -17,7 +17,7 @@
                 gene = cloaks
                 template = no_cloak
                 range = { 0 1 } # For the randomness to work correctly
-            }		
+            }
         }   
         outfit_tags = { no_clothes }
         weight = {
@@ -37,69 +37,474 @@
         }
     }
 
-    #nightgown_western = {
-    #    dna_modifiers = {
-    #        accessory = {
-    #            mode = add
-    #            gene = clothes
-    #            template = bedchamber_clothes
-    #            range = { 0.25 1.0 } # For the randomness to work correctly
-    #        }
-    #    }
-    #    outfit_tags = { no_clothes nightgown }
-    #    weight = {
-    #        base = 0
-    #        modifier = {
-    #            add = 110
-    #            should_show_nudity = no
-    #            should_be_naked_trigger = yes
-    #        }
-    #        modifier = {
-    #            add = -1000
-    #            should_show_nudity = yes
-    #        }
-    #        modifier = {
-    #            add = -50
-    #            portrait_byzantine_proxy_clothing_trigger = no
-    #            portrait_northern_proxy_clothing_trigger = no
-    #            portrait_western_proxy_clothing_trigger = no
-    #        }
-    #    }
-    #}
-	#
-    #nightgown_mena = {
-    #    dna_modifiers = {
-    #        accessory = {
-    #            mode = add
-    #            gene = clothes
-    #            template = bedchamber_clothes
-    #            range = { 0 1 } # For the randomness to work correctly
-    #        }
-    #    }   
-    #    outfit_tags = { no_clothes nightgown }
-    #    weight = {
-    #        base = 0
-    #        modifier = {
-    #            add = 110
-    #            should_show_nudity = no
-    #            should_be_naked_trigger = yes
-    #        }
-    #        modifier = {
-    #            add = -1000
-    #            should_show_nudity = yes
-    #        }
-    #        modifier = {
-    #            add = 1100
-    #            portrait_poverty_robes_trigger = yes
-    #        }
-    #        modifier = {
-    #            add = -50
-    #            portrait_mena_proxy_clothing_trigger = no
-    #            portrait_indian_proxy_clothing_trigger = no
-    #            portrait_steppe_proxy_clothing_trigger = no
-    #            portrait_african_proxy_clothing_trigger = no
-    #        }
-    #    }
-    #}
+    nightgown_western = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = western_sickness
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        outfit_tags = { no_clothes nightgown }
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                should_show_nudity = no
+                should_be_naked_trigger = yes
+            }
+            modifier = {
+                add = -1000
+                should_show_nudity = yes
+            }
+            modifier = {
+                add = -50
+                portrait_byzantine_clothing_trigger = no
+                portrait_northern_clothing_trigger = no
+                portrait_western_clothing_trigger = no
+            }
+        }
+    }
+
+    nightgown_mena = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = mena_sickness
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        outfit_tags = { no_clothes nightgown }
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                should_show_nudity = no
+                should_be_naked_trigger = yes
+            }
+            modifier = {
+                add = -1000
+                should_show_nudity = yes
+            }
+            modifier = {
+                add = 1100
+                portrait_poverty_robes_trigger = yes
+            }
+            modifier = {
+                add = -50
+                portrait_mena_clothing_trigger = no
+                portrait_indian_clothing_trigger = no
+                portrait_steppe_clothing_trigger = no
+                portrait_african_clothing_trigger = no
+                portrait_fp2_iberian_muslim_clothing_trigger = no				
+            }
+        }
+    }
+
+## Small children ## 
+
+    western_children = {
+
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = western_children_commoner_clothes
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }   
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                scope:age < 4
+				NOR = {
+					portrait_sami_clothing_trigger = yes
+					portrait_ugro_permian_clothing_trigger = yes
+				}
+            }
+        }
+    }
+
+    imaginary_friend_child = {
+        dna_modifiers = {
+            accessory = {
+                mode = add 
+                gene = clothes 
+                template = western_sickness
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add 
+                gene = special_headgear_face_mask
+                template = face_mask
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { imaginary_friend_child }
+        weight = {
+            base = 0 
+            modifier = {
+                add = 0
+                is_adult = no 
+                any_owned_story = {
+                    story_type = story_cycle_imaginary_friend
+                }
+            }
+        }
+    }
+
+    imaginary_friend_adult= {
+        dna_modifiers = {
+            accessory = {
+                mode = add 
+                gene = clothes 
+                template = western_sickness
+                range = { 0 1 }
+            }
+            accessory = {
+                mode = add 
+                gene = special_headgear_face_mask
+                template = face_mask
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { imaginary_friend_adult }
+        weight = {
+            base = 0 
+            modifier = {
+                add = 0 
+                is_adult = yes 
+                any_owned_story = {
+                    story_type = story_cycle_imaginary_friend
+                }
+            }
+        }
+    }
+
+    baudouin = { # This is where vanilla had baldwin's modifiers applied; so I am hijacking this one instead of making a new one.
+        dna_modifiers = {
+			# Vanilla
+			# accessory = {
+            #     mode = add 
+            #     gene = special_headgear_face_mask
+            #     template = face_mask
+            #     range = { 0 1 }
+            # }
+			# EPE Added
+			accessory = {
+				mode = add 
+				gene = special_headgear_face_mask
+				template = epe_jerusalem_face_mask
+				accessory = m_headgear_baldwin_mask_clean_01
+			}
+            accessory = {
+                mode = add
+                gene = clothes
+                template = epe_scripted_character_clothes
+                accessory = m_epe_late_western_nobility_hi_01_baldwin_white
+            }
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = epe_scripted_character_cloaks
+                accessory = m_cloaks_west_sagum_03a_epe_baldwin_white
+            }
+			accessory = {
+                mode = add
+                gene = headgear
+                template = epe_scripted_character_headgears
+                accessory = m_headgear_secular_baldwin_crown_01
+            }
+            accessory = {
+                mode = add
+                gene = special_accessories_hands
+                template = baldwin_gloves
+                accessory = m_epe_gloves_baldwin_white
+            }			
+        }
+        weight = {
+            base = 0 
+            modifier = {
+                add = 1000
+				exists = character:223523
+                this = character:223523
+				NOT = { portrait_wear_armor_trigger = yes }
+            }
+        }
+    }
+
+    baudouin_war = {
+        dna_modifiers = {
+			# EPE Added
+			accessory = {
+				mode = add 
+				gene = special_headgear_face_mask
+				template = epe_jerusalem_face_mask
+				accessory = m_headgear_baldwin_mask_war_01
+			}
+			accessory = {
+                mode = add
+                gene = clothes
+                template = epe_scripted_character_clothes
+                accessory = m_clothes_sec_jerusalem_war_roy_01
+            }
+            accessory = {
+                mode = add
+                gene = cloaks
+                template = epe_scripted_character_cloaks
+                accessory = m_cloaks_west_sagum_03a_epe_baldwin_white
+            }
+			accessory = {
+                mode = add
+                gene = headgear
+                template = epe_scripted_character_headgears
+                accessory = m_headgear_secular_baldwin_crown_01
+            }
+        }
+        weight = {
+            base = 0 
+            modifier = {
+                add = 1000
+				exists = character:223523
+                this = character:223523
+				portrait_wear_armor_trigger = yes
+            }
+        }
+    }
+	
+	
+    saladin_war = {
+        dna_modifiers = {
+			# EPE Added
+            accessory = {
+                mode = add
+                gene = clothes
+                template = epe_scripted_character_clothes
+                accessory = m_clothes_sec_saladin_war_imp_01
+            }
+            accessory = {
+                mode = add
+                gene = headgear
+                template = epe_scripted_character_headgears
+                accessory = m_headgear_ayyubid_war_royality_01
+                type = male
+            }
+			accessory = {
+				mode = add
+				gene = legwear
+				template = mena_war_legwear
+				range = { 0 1 } # For the randomness to work correctly
+			}
+        }
+        weight = {
+            base = 0 
+            modifier = {
+                add = 1000
+				exists = character:226000
+                this = character:226000
+				portrait_wear_armor_trigger = yes
+            }
+        }
+    }	
+	
+    107590_el_cid_armor = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = fp2_christian_war_nobility
+                accessory = male_iberian_nasalhelm_01b
+            }
+            accessory = {
+                mode = add
+                gene = clothes
+                template = ep2_western_era2_war_nobility_clothes
+                accessory = m_clothes_sec_ep2_western_era2_war_nob_01_hi
+            }			
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                exists = this			
+                exists = character:107590
+                this = character:107590
+				portrait_wear_armor_trigger = yes				
+            }
+        }
+    }	
+	
+    3046_suleyman_armor = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = seljuk_turkic_headgear
+                accessory = male_Seljuk_Helmet_Hat_01_war
+            }
+            accessory = {
+                mode = add
+                gene = clothes
+                template = seljuk_turkic_clothes
+                accessory = m_clothes_sec_epe_seljuk_war_nob_01_roy
+            }			
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                exists = this			
+                exists = character:3046
+                this = character:3046
+				portrait_wear_armor_trigger = yes				
+            }
+        }
+    }	
+	
+    EPE_easter_egg_5_SpadaUomo = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = western_war
+				accessory = male_early_great_helm_02
+            }
+            accessory = {
+                mode = add
+                gene = clothes
+                template = ep2_western_era2_war_nobility_clothes
+                accessory = m_clothes_sec_ep2_western_era2_war_nob_01_hi
+            }
+			accessory = {
+				mode = add
+				gene = cloaks
+				template = ep2_cloak_western_travel
+				range = { 0 1 }
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = western_war_legwear
+				range = { 0 1 } # For the randomness to work correctly
+			}			
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 500A
+                exists = character:EPE_easter_egg_5
+                this = character:EPE_easter_egg_5
+				portrait_wear_armor_trigger = yes				
+            }
+        }
+    }	
+	
+	
+    begteginid_1_gokbori_armor = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = headgear
+                template = seljuk_turkic_headgear
+                accessory = male_seljuk_war_helmet_04
+            }
+            accessory = {
+                mode = add
+                gene = clothes
+                template = seljuk_turkic_clothes
+                accessory = m_clothes_sec_epe_seljuk_war_nob_01_roy
+            }			
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                exists = this			
+                exists = character:begteginid_1
+                this = character:begteginid_1
+				portrait_wear_armor_trigger = yes				
+            }
+        }
+    }		
+	
+	
+   ###The Smiling Khatun
+    EPE_soyenbika_gokalpbags_867_war = {
+        dna_modifiers = {
+			# EPE Added
+            accessory = {
+                mode = add
+                gene = headgear
+                template = epe_scripted_character_headgears
+                accessory = female_smiling_khatun_war_helmet_b
+                type = female
+            }
+            accessory = {
+                mode = add
+                gene = clothes
+                template = tgp_sino_iranian_clothes
+                accessory = m_clothes_sec_sino_iranian_war_nob_01_hi
+            }			
+			accessory = {
+				mode = add
+				gene = legwear
+				template = tgp_chinese_war_legwear
+                accessory = m_legwear_sec_tgp_chinese_war_nob_02
+			}
+			morph = {
+				mode = add
+				gene = gene_makeup
+				template = epe_uyghur_01
+				value = 1.0
+			}			
+			########Makeup placeholder test#############		
+			morph = {
+				mode = add
+				gene = cosmetics_eyeliner
+				template = iranian_1
+				value = 0.55
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_eyeshadow
+				template = byzantine_1
+				value = 0.52
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_lipcolor
+				template = byzantine_1
+				value = 0.90
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_blush
+				template = iranian_1
+				value = 0.01
+			}
+			morph = {
+				mode = add
+				gene = cosmetics_foundation
+				template = foundation_none
+				value = 0.01
+			}
+			#############################################				
+        }
+        weight = {
+            base = 0 
+            modifier = {
+                add = 1000
+				exists = character:EPE_soyenbika_gokalpbags_867
+                this = character:EPE_soyenbika_gokalpbags_867
+				portrait_wear_armor_trigger = yes
+            }
+        }
+    }	
+	
+	
+
 }
 

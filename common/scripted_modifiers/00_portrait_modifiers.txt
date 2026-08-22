@@ -1,58 +1,56 @@
-﻿#Base game modifiers
-portrait_western_clothing_modifier = {#Fallback
-	modifier = {
-		add = 20
-        portrait_western_proxy_clothing_trigger = yes
-	}
-}
-
-portrait_mena_clothing_modifier = {#north_haradrim
-	modifier = {
-		add = 20
-        portrait_mena_proxy_clothing_trigger = yes
-	}
-}
-
-portrait_byzantine_clothing_modifier = {#numenorean
+﻿portrait_western_clothing_modifier = {
 	modifier = {
 		add = 50
-        portrait_byzantine_proxy_clothing_trigger = yes
+        portrait_western_clothing_trigger = yes
 	}
 }
 
-portrait_french_clothing_modifier = {#Bretonnian
+portrait_mena_clothing_modifier = {
 	modifier = {
-		add = 20
-        portrait_french_proxy_clothing_trigger = yes
+		add = 50
+        portrait_mena_clothing_trigger = yes
 	}
 }
 
-
-portrait_indian_clothing_modifier = {#rayan
+portrait_byzantine_clothing_modifier = {
 	modifier = {
-		add = 20
-        portrait_indian_proxy_clothing_trigger = yes
+		add = 50
+        portrait_byzantine_clothing_trigger = yes
 	}
 }
 
-portrait_steppe_clothing_modifier = {#ioriag
+portrait_indian_clothing_modifier = {
 	modifier = {
-		add = 20
-        portrait_steppe_proxy_clothing_trigger = yes
+		add = 50
+        portrait_indian_clothing_trigger = yes
 	}
 }
 
-portrait_northern_clothing_modifier = {#northmen
+portrait_steppe_clothing_modifier = {
 	modifier = {
-		add = 20
-        portrait_northern_proxy_clothing_trigger = yes
+		add = 50
+        portrait_steppe_clothing_trigger = yes
 	}
 }
 
-portrait_african_clothing_modifier = {#mumakani
+portrait_northern_clothing_modifier = {
 	modifier = {
-		add = 20
-        portrait_african_proxy_clothing_trigger = yes
+		add = 50
+        portrait_northern_clothing_trigger = yes
+	}
+}
+
+portrait_african_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_african_clothing_trigger = yes
+	}
+}
+
+portrait_fp1_norse_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_fp1_norse_clothing_trigger = yes
 	}
 }
 
@@ -88,67 +86,246 @@ portrait_fp3_turkic_clothing_modifier = {
 	}
 }
 
+####################################################################################################
+##################
+###                            EPE
+##################
+####################################################################################################
+
+
+####################################################################################################
+##################
+###East Slav
+##################
+####################################################################################################
+
+portrait_epe_east_slav_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_east_slav_clothing_trigger = yes
+	}
+}
+
+####################################################################################################
+##################
+###Balto-Finnic
+##################
+####################################################################################################
+
+portrait_epe_balto_finnic_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_balto_finnic_clothing_trigger = yes
+	}
+}
+
+####################################################################################################
+##################
+###West Slav
+##################
+####################################################################################################
+
+portrait_epe_west_slav_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_west_slav_clothing_trigger = yes
+	}
+}
+
+####################################################################################################
+##################
+###Gaelic/Irish
+##################
+####################################################################################################
+
+portrait_epe_gaelic_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_gaelic_clothing_trigger = yes
+	}
+}
+
+####################################################################################################
+##################
+###Eastern Turkic/Default Turk
+##################
+####################################################################################################
+
+portrait_epe_eastern_turk_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_eastern_turk_clothing_trigger = yes
+	}
+}
+
+####################################################################################################
+##################
+###Western Turkic
+##################
+####################################################################################################
+
+portrait_epe_western_turk_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_western_turk_clothing_trigger = yes
+	}
+}
+
+####################################################################################################
+##################
+###Seljuk Turk
+##################
+####################################################################################################
+
+portrait_epe_seljuk_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_seljuk_clothing_trigger = yes
+	}
+}
+
+####################################################################################################
+##################
+###North africa/maghreb
+##################
+####################################################################################################
+
+portrait_afr_berber_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_afr_berber_clothing_trigger = yes
+	}
+}
+
+####################################################################################################
+##################
+###Iranian Muslim
+##################
+####################################################################################################
+
+portrait_epe_islamic_iranian_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_islamic_iranian_clothing_trigger = yes
+	}
+}
+
+
+####################################################################################################
+##################
+###Iranian non-muslim
+##################
+####################################################################################################
+
+portrait_epe_non_islamic_iranian_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_non_islamic_iranian_clothing_trigger = yes
+	}
+}
+
+
+####################################################################################################
+##################
+###Han Chinese
+##################
+####################################################################################################
+
+
+
+####################################################################################################
+##################
+###Uyghur
+##################
+####################################################################################################
+
+portrait_epe_uyghur_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_epe_uyghur_clothing_trigger = yes
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+# Different likelyhood of a clean shaven look in different cultures
 portrait_clean_shaven_clothing_modifier = {
-	#LotR
-    # modifier = {
-    #     add = 0
-    #     portrait_western_clothing_trigger = yes
-    # }
-    # modifier = {
-    #     add = -10
-    #     portrait_northern_clothing_trigger = yes
-    # }
-    # modifier = {
-    #     add = -10
-    #     portrait_steppe_clothing_trigger = yes
-    # }
-    # modifier = {
-    #     add = -50
-    #     portrait_mena_clothing_trigger = yes
-    # }
-    # modifier = {
-    #     add = -50
-    #     portrait_fp2_iberian_muslim_clothing_trigger = yes
-    # }
-    #LotR
-    lotr_portrait_clean_shaven_clothing_modifier = yes
+    modifier = {
+        add = 0
+        portrait_western_clothing_trigger = yes
+    }
+    modifier = {
+        add = -10
+        portrait_northern_clothing_trigger = yes
+    }
+    modifier = {
+        add = -10
+        portrait_steppe_clothing_trigger = yes
+    }
+    modifier = {
+        add = -50
+        portrait_mena_clothing_trigger = yes
+    }
+    modifier = {
+        add = -50
+        portrait_fp2_iberian_muslim_clothing_trigger = yes
+    }
 }
 
 portrait_western_beards_clothes_modifier = {
-	# modifier = { #LotR
-	# 	add = 70
-    #     OR = {
-    #         portrait_western_clothing_trigger = yes
-    #         portrait_byzantine_clothing_trigger = yes
-    #     }
-	# }
+	modifier = {
+		add = 70
+        OR = {
+            portrait_western_clothing_trigger = yes
+            portrait_byzantine_clothing_trigger = yes
+        }
+	}
 }
 
 portrait_mena_beards_clothes_modifier = {
-	# modifier = { #LotR
-	# 	add = 70
-	# 	OR = {
-	# 		portrait_mena_clothing_trigger = yes
-	# 		portrait_african_clothing_trigger = yes
-	# 	}
-	# }
+	modifier = {
+		add = 70
+		OR = {
+			portrait_mena_clothing_trigger = yes
+			portrait_african_clothing_trigger = yes
+		}
+	}
 }
 
+portrait_iranian_beards_clothes_modifier = {
+	modifier = {
+		add = 70
+		OR = {
+			portrait_epe_islamic_iranian_clothing_trigger = yes
+			portrait_epe_non_islamic_iranian_clothing_trigger = yes
+		}
+	}
+}
+
+
 portrait_scottish_unique_haircut = {
-	#LotR
-	# modifier = {
-	# 	add = 60
-	# 	culture ?= culture:scottish
-	# }
+	modifier = {
+		add = 60
+		culture ?= culture:scottish
+	}
 }
 
 portrait_frankish_unique_haircut = {
-	#LotR
-	# modifier = {
-	# 	add = 60
-	# 	culture ?= { has_cultural_pillar = heritage_frankish }
-	# }
+	modifier = {
+		add = 60
+		culture ?= { has_cultural_pillar = heritage_frankish }
+	}
 }
+
+
 
 ### Court Amenity triggers get used a lot in the portrait modifiers. We can use these scripted modifiers instead ###
 
@@ -177,24 +354,4 @@ court_fashion_level_5_modifier = {
             CULTURE_INPUT = $INPUT_PARAMETER$
         }
     }
-}
-
-portrait_bretonnian_clothing_modifier = {
-	modifier = {
-		add = 200
-		portrait_bretonnian_clothing_trigger = yes
-	}
-}
-
-portrait_halfling_clothing_modifier = {
-	modifier = {
-		add = 200
-		portrait_halfling_clothing_trigger = yes
-	}
-}
-
-lotr_portrait_clean_shaven_clothing_modifier = {
-	modifier = {
-		add = 0
-	}
 }

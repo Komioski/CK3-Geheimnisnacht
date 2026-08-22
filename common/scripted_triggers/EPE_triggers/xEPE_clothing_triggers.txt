@@ -30,21 +30,17 @@ epe_allow_nudity_in_barbershop_trigger = {
 ####################################################################################################
 
 portrait_epe_norse_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_norse
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_norse
+	}
 }
 
 portrait_epe_norse_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_norse
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_norse
+	}
 }
 
 
@@ -55,21 +51,17 @@ portrait_epe_norse_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_english_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_english
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_english
+	}
 }
 
 portrait_epe_english_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_english
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_english
+	}
 }
 
 
@@ -80,21 +72,17 @@ portrait_epe_english_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_armenian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_armenian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_armenian
+	}
 }
 
 portrait_epe_armenian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_armenian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_armenian
+	}
 }
 
 
@@ -106,21 +94,17 @@ portrait_epe_armenian_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_georgian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_georgian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_georgian
+	}
 }
 
 portrait_epe_georgian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_georgian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_georgian
+	}
 }
 
 
@@ -132,21 +116,17 @@ portrait_epe_georgian_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_bulgarian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_bulgarian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_bulgarian
+	}
 }
 
 portrait_epe_bulgarian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_bulgarian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_bulgarian
+	}
 }
 
 
@@ -157,21 +137,17 @@ portrait_epe_bulgarian_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_south_slav_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_south_slav
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_south_slav
+	}
 }
 
 portrait_epe_south_slav_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_south_slav
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_south_slav
+	}
 }
 
 ####################################################################################################
@@ -181,33 +157,29 @@ portrait_epe_south_slav_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_bedouin_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = bedouin }
-	#	#epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = bedouin }
-	#}
-	#trigger_if = {
-	#	limit = { exists = this	}
-	#	NAND = {
-	#		is_landed = yes
-	 #       has_fp2_dlc_trigger = yes				
-	#		capital_province = { geographical_region = world_europe_west_iberia	}
-	#	}
-	#}	
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = bedouin }
+		#epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = bedouin }
+	}
+	trigger_if = {
+		limit = { exists = this	}
+		NAND = {
+			is_landed = yes
+	        has_fp2_dlc_trigger = yes				
+			capital_province = { geographical_region = world_europe_west_iberia	}
+		}
+	}	
 }
 portrait_epe_bedouin_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = bedouin }
-	#	#epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = bedouin }	
-	#}
-	#NAND = {
-	#	is_landed = yes
-	#   has_fp2_dlc_trigger = yes			
-	#	capital_province = { geographical_region = world_europe_west_iberia }
-	#}	
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = bedouin }
+		#epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = bedouin }	
+	}
+	NAND = {
+		is_landed = yes
+	    has_fp2_dlc_trigger = yes			
+		capital_province = { geographical_region = world_europe_west_iberia }
+	}	
 }
 
 
@@ -218,21 +190,17 @@ portrait_epe_bedouin_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_non_dlc_iranian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = iranian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = iranian
+	}
 }
 
 portrait_epe_non_dlc_iranian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = iranian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = iranian
+	}
 }
 
 ####################################################################################################
@@ -242,23 +210,19 @@ portrait_epe_non_dlc_iranian_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_islamic_iranian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#religion = religion:islam_religion		
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = iranian
+	}
+	religion = religion:islam_religion		
 }
 
 portrait_epe_islamic_iranian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#religion = religion:islam_religion		
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = iranian
+	}
+	religion = religion:islam_religion		
 }
 
 ####################################################################################################
@@ -268,23 +232,19 @@ portrait_epe_islamic_iranian_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_non_islamic_iranian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#NOT = { religion = religion:islam_religion }	
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = iranian
+	}
+	NOT = { religion = religion:islam_religion }	
 }
 
 portrait_epe_non_islamic_iranian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#NOT = { religion = religion:islam_religion }	
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = iranian
+	}
+	NOT = { religion = religion:islam_religion }	
 }
 
 
@@ -295,23 +255,19 @@ portrait_epe_non_islamic_iranian_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_western_non_islamic_iranian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#NOT = { religion = religion:islam_religion }
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = iranian
+	}
+	NOT = { religion = religion:islam_religion }
 }
 
 portrait_epe_western_non_islamic_iranian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#NOT = { religion = religion:islam_religion }	
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = iranian
+	}
+	NOT = { religion = religion:islam_religion }	
 }
 
 
@@ -322,37 +278,33 @@ portrait_epe_western_non_islamic_iranian_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_christian_iranian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#religion = religion:christianity_religion
-	#NAND = {
-	#	OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = sogdian }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = sogdian }				
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = iranian
+	}
+	religion = religion:christianity_religion
+	NAND = {
+		OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = sogdian }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = sogdian }				
 			
-	#	}
-	#}	
+		}
+	}	
 }
 
 portrait_epe_christian_iranian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#religion = religion:christianity_religion
-	#NAND = {
-	#	OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = sogdian }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = sogdian }				
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = iranian
+	}
+	religion = religion:christianity_religion
+	NAND = {
+		OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = sogdian }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = sogdian }				
 			
-	#	}
-	#}	
+		}
+	}	
 }
 
 
@@ -363,43 +315,35 @@ portrait_epe_christian_iranian_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_hindu_iranian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#religion = religion:hinduism_religion
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = iranian
+	}
+	religion = religion:hinduism_religion
 }
 
 portrait_epe_hindu_iranian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = iranian
-	#}
-	#religion = religion:hinduism_religion
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = iranian
+	}
+	religion = religion:hinduism_religion
 }
 
 
 ####Abbasid Tahirids Dynasty
 
 portrait_epe_tahirid_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#culture = { portrait_epe_tahirid_clothing_contents_trigger = yes }
-    #dynasty = dynasty:811	
-	#religion = religion:islam_religion
+	culture = { portrait_epe_tahirid_clothing_contents_trigger = yes }
+    dynasty = dynasty:811	
+	religion = religion:islam_religion
 }
 portrait_epe_tahirid_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#culture = {
-	#portrait_epe_tahirid_clothing_contents_trigger = yes
-	#}
-    #dynasty = dynasty:811		
-	#religion = religion:islam_religion
+	culture = {
+	portrait_epe_tahirid_clothing_contents_trigger = yes
+	}
+    dynasty = dynasty:811		
+	religion = religion:islam_religion
 }
 
 portrait_epe_tahirid_clothing_contents_trigger = {
@@ -409,18 +353,14 @@ portrait_epe_tahirid_clothing_contents_trigger = {
 
 ####Gokalpbags Clan
 portrait_epe_gokalpbags_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#culture = { portrait_epe_gokalpbags_clothing_contents_trigger = yes }
-    #dynasty = dynasty:epe_gokalpbags	
+	culture = { portrait_epe_gokalpbags_clothing_contents_trigger = yes }
+    dynasty = dynasty:epe_gokalpbags	
 }
 portrait_epe_gokalpbags_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#culture = {
-	#portrait_epe_gokalpbags_clothing_contents_trigger = yes
-	#}
-    #dynasty = dynasty:epe_gokalpbags		
+	culture = {
+	portrait_epe_gokalpbags_clothing_contents_trigger = yes
+	}
+    dynasty = dynasty:epe_gokalpbags		
 }
 
 portrait_epe_gokalpbags_clothing_contents_trigger = {
@@ -435,38 +375,34 @@ portrait_epe_gokalpbags_clothing_contents_trigger = {
 ####################################################################################################
 
 portrait_epe_eastern_turk_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = turkic
-	#}
-	#NAND = {
-	#	OR = {
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = scope:culture
-	#			CULTURE_FLAG = epe_seljuk
-	#		}						
-	#	}
-	#}		
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = turkic
+	}
+	NAND = {
+		OR = {
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = scope:culture
+				CULTURE_FLAG = epe_seljuk
+			}						
+		}
+	}		
 }
 
 portrait_epe_eastern_turk_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = turkic
-	#}
-	#NAND = {
-	#	OR = {
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = culture
-	#			CULTURE_FLAG = epe_seljuk
-	#		}			
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = turkic
+	}
+	NAND = {
+		OR = {
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = culture
+				CULTURE_FLAG = epe_seljuk
+			}			
 			
-	#	}
-	#}		
+		}
+	}		
 }
 
 
@@ -474,93 +410,89 @@ portrait_epe_eastern_turk_clothing_spouse_trigger = {
 ####Eastern Turkic/Default Turk
 
 portrait_epe_eastern_turk_muslim_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	portrait_epe_eastern_turk_clothing_trigger = yes
+	OR = {
+		portrait_epe_eastern_turk_clothing_trigger = yes
 
-	#}
-	#OR = {
-	#	trigger_if = {
-	#		limit = { exists = this	}
-	#		AND = {
-	#			is_landed = yes
-	#			religion = religion:islam_religion
-	#			capital_province = {
-	#				geographical_region = world_middle_east
-	#			}
-	#		}
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = this	}
-	#		AND = {
-	#			is_landed = yes
-	#			religion = religion:islam_religion
-	#			capital_province = {
-	#				geographical_region = world_asia_minor
-	#			}
-	#		}
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = this	}
-	#		AND = {
-	#			is_landed = yes
-	#			religion = religion:islam_religion
-	#			capital_province = {
-	#				geographical_region = ghw_region_transoxiana
-	#			}
-	#		}
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = this	}
-	#		AND = {
-	#			is_landed = yes
-	#			religion = religion:islam_religion
-	#			capital_province = {
-	#				geographical_region = world_europe_south
-	#			}
-	#		}
-	#	}		
-	#}
+	}
+	OR = {
+		trigger_if = {
+			limit = { exists = this	}
+			AND = {
+				is_landed = yes
+				religion = religion:islam_religion
+				capital_province = {
+					geographical_region = world_middle_east
+				}
+			}
+		}
+		trigger_if = {
+			limit = { exists = this	}
+			AND = {
+				is_landed = yes
+				religion = religion:islam_religion
+				capital_province = {
+					geographical_region = world_asia_minor
+				}
+			}
+		}
+		trigger_if = {
+			limit = { exists = this	}
+			AND = {
+				is_landed = yes
+				religion = religion:islam_religion
+				capital_province = {
+					geographical_region = ghw_region_transoxiana
+				}
+			}
+		}
+		trigger_if = {
+			limit = { exists = this	}
+			AND = {
+				is_landed = yes
+				religion = religion:islam_religion
+				capital_province = {
+					geographical_region = world_europe_south
+				}
+			}
+		}		
+	}
 }
 
 portrait_epe_eastern_turk_muslim_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	portrait_epe_eastern_turk_clothing_spouse_trigger = yes
+	OR = {
+		portrait_epe_eastern_turk_clothing_spouse_trigger = yes
 
-	#}
-	#OR = {
-	#	AND = {
-	#		is_landed = yes
-	#		religion = religion:islam_religion
-	#		capital_province = {
-	#			geographical_region = world_middle_east
-	#		}
-	#	}
-	#	AND = {
-	#		is_landed = yes
-	#		religion = religion:islam_religion
-	#		capital_province = {
-	#			geographical_region = world_asia_minor
-	#		}
-	#	}
-	#	AND = {
-	#		is_landed = yes
-	#		religion = religion:islam_religion
-	#		capital_province = {
-	#			geographical_region = ghw_region_transoxiana
-	#		}
-	#	}
-	#	AND = {
-	#		is_landed = yes
-	#		religion = religion:islam_religion
-	#		capital_province = {
-	#			geographical_region = world_europe_south
-	#		}
-	#	}		
-	#}
+	}
+	OR = {
+		AND = {
+			is_landed = yes
+			religion = religion:islam_religion
+			capital_province = {
+				geographical_region = world_middle_east
+			}
+		}
+		AND = {
+			is_landed = yes
+			religion = religion:islam_religion
+			capital_province = {
+				geographical_region = world_asia_minor
+			}
+		}
+		AND = {
+			is_landed = yes
+			religion = religion:islam_religion
+			capital_province = {
+				geographical_region = ghw_region_transoxiana
+			}
+		}
+		AND = {
+			is_landed = yes
+			religion = religion:islam_religion
+			capital_province = {
+				geographical_region = world_europe_south
+			}
+		}		
+	}
 }
 
 ####################################################################################################
@@ -570,21 +502,17 @@ portrait_epe_eastern_turk_muslim_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_western_turk_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_western_turk
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_western_turk
+	}
 }
 
 portrait_epe_western_turk_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_western_turk
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_western_turk
+	}
 }
 
 ####################################################################################################
@@ -594,21 +522,17 @@ portrait_epe_western_turk_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_seljuk_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_seljuk
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_seljuk
+	}
 }
 
 portrait_epe_seljuk_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_seljuk
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_seljuk
+	}
 }
 
 
@@ -619,21 +543,17 @@ portrait_epe_seljuk_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_uyghur_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_uyghur
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_uyghur
+	}
 }
 
 portrait_epe_uyghur_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_uyghur
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_uyghur
+	}
 }
 
 
@@ -644,166 +564,158 @@ portrait_epe_uyghur_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_sino_iranian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_sino_iranian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_sino_iranian
+	}
 }
 
 portrait_epe_sino_iranian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_sino_iranian
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_sino_iranian
+	}
 }
 
 
 ####Sino Iranian Chinese influence
 
 portrait_epe_sino_iranian_chinese_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_sino_iranian
-	#}
-	#NOT = { government_has_flag = government_is_landless_adventurer }		
-	#OR = {
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_sino_iranian
+	}
+	NOT = { government_has_flag = government_is_landless_adventurer }		
+	OR = {
 
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_tibet }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_tibet  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_tibet }
-	#	}
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_burma }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_burma  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_burma }
-	#	}
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_asia }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_asia  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_asia }
-	#	}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_tibet }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_tibet  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_tibet }
+		}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_burma }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_burma  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_burma }
+		}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_asia }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_asia  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_asia }
+		}
 
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_steppe_tarim }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_steppe_tarim  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_steppe_tarim }
-	#	}		
-    #  ########################################	  
-	#    host.capital_county ?= {
-	#	    title:k_dzungaria = { is_de_jure_liege_or_above_target = prev }
-	#    }			
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_steppe_tarim }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_steppe_tarim  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_steppe_tarim }
+		}		
+      ########################################	  
+	    host.capital_county ?= {
+		    title:k_dzungaria = { is_de_jure_liege_or_above_target = prev }
+	    }			
 		
-	#}
+	}
 }
 
 portrait_epe_sino_iranian_chinese_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_sino_iranian
-	#}
-	#NOT = { government_has_flag = government_is_landless_adventurer }		
-	#OR = {
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_sino_iranian
+	}
+	NOT = { government_has_flag = government_is_landless_adventurer }		
+	OR = {
 
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_tibet }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_tibet  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_tibet }
-	#	}
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_burma }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_burma  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_burma }
-	#	}
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_asia }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_asia  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_asia }
-	#	}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_tibet }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_tibet  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_tibet }
+		}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_burma }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_burma  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_burma }
+		}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_asia }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_asia  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_asia }
+		}
 
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_steppe_tarim }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_steppe_tarim  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_steppe_tarim }
-	#	}		
-    #  ########################################	  
-	#    host.capital_county ?= {
-	#	    title:k_dzungaria = { is_de_jure_liege_or_above_target = prev }
-	#    }			
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_steppe_tarim }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_steppe_tarim  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_steppe_tarim }
+		}		
+      ########################################	  
+	    host.capital_county ?= {
+		    title:k_dzungaria = { is_de_jure_liege_or_above_target = prev }
+	    }			
 		
-	#}
+	}
 }
 
 
@@ -820,21 +732,17 @@ portrait_epe_sino_iranian_chinese_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_east_slav_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_east_slav
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_east_slav
+	}
 }
 
 portrait_epe_east_slav_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_east_slav
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_east_slav
+	}
 }
 
 
@@ -846,21 +754,17 @@ portrait_epe_east_slav_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_west_slav_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_west_slav
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_west_slav
+	}
 }
 
 portrait_epe_west_slav_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_west_slav
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_west_slav
+	}
 }
 
 
@@ -874,21 +778,17 @@ portrait_epe_west_slav_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_gaelic_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_gaelic
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_gaelic
+	}
 }
 
 portrait_epe_gaelic_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_gaelic
-	#}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_gaelic
+	}
 }
 
 
@@ -899,47 +799,43 @@ portrait_epe_gaelic_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_balto_finnic_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = epe_balto_finnic
-	#}
-	#NAND = {
-	#	has_cp4_dlc_trigger = yes
-	#	OR = {
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = scope:culture
-	#			CULTURE_FLAG = sami
-	#		}
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = scope:culture
-	#			CULTURE_FLAG = ugro_permian
-	#		}
-	#	}
-	#}	
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = epe_balto_finnic
+	}
+	NAND = {
+		has_cp4_dlc_trigger = yes
+		OR = {
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = scope:culture
+				CULTURE_FLAG = sami
+			}
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = scope:culture
+				CULTURE_FLAG = ugro_permian
+			}
+		}
+	}	
 }
 
 portrait_epe_balto_finnic_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = epe_balto_finnic
-	#}
-	#NAND = {
-	#	has_cp4_dlc_trigger = yes
-	#	OR = {
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = culture
-	#			CULTURE_FLAG = sami
-	#		}
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = culture
-	#			CULTURE_FLAG = ugro_permian
-	#		}
-	#	}
-	#}	
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = epe_balto_finnic
+	}
+	NAND = {
+		has_cp4_dlc_trigger = yes
+		OR = {
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = culture
+				CULTURE_FLAG = sami
+			}
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = culture
+				CULTURE_FLAG = ugro_permian
+			}
+		}
+	}	
 }
 
 
@@ -950,33 +846,29 @@ portrait_epe_balto_finnic_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_brythonic_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = welsh }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = welsh }
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = welsh }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = welsh }
 
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = cornish }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = cornish }		
+		epe_clothing_culture_trigger = { CULTURE_FLAG = cornish }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = cornish }		
 		
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = cumbrian }
-	#	#epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = cumbrian }	###removed to avoid Scots from using breton clothes			
-	#}
+		epe_clothing_culture_trigger = { CULTURE_FLAG = cumbrian }
+		#epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = cumbrian }	###removed to avoid Scots from using breton clothes			
+	}
 }
 
 portrait_epe_brythonic_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = welsh }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = welsh }
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = welsh }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = welsh }
 
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = cornish }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = cornish }		
+		epe_clothing_culture_trigger = { CULTURE_FLAG = cornish }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = cornish }		
 		
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = cumbrian }
-	#	#epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = cumbrian }	###removed to avoid Scots from using breton clothes			
-	#}
+		epe_clothing_culture_trigger = { CULTURE_FLAG = cumbrian }
+		#epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = cumbrian }	###removed to avoid Scots from using breton clothes			
+	}
 }
 
 
@@ -987,90 +879,78 @@ portrait_epe_brythonic_clothing_spouse_trigger = {
 ####################################################################################################
 
 portrait_epe_norman_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = norman }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = norman }
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = norman }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = norman }
 	
-	#}
+	}
 }
 portrait_epe_norman_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = norman }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = norman }		
-	#}
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = norman }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = norman }		
+	}
 }
 
 ####Sicilian
 
 portrait_epe_sicilian_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = sicilian }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = sicilian }
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = sicilian }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = sicilian }
 	
-	#}
+	}
 }
 portrait_epe_sicilian_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = sicilian }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = sicilian }		
-	#}
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = sicilian }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = sicilian }		
+	}
 }
 
 
 ####Norman Sicily knights
 
 portrait_epe_norman_sicily_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = norman }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = norman }
-	#}
-	#OR = {
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_europe_south_italy }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_europe_south_italy  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_europe_south_italy }
-	#	}
-	#}
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = norman }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = norman }
+	}
+	OR = {
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_europe_south_italy }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_europe_south_italy  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_europe_south_italy }
+		}
+	}
 }
 
 portrait_epe_norman_sicily_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#OR = {
-	#	epe_clothing_culture_trigger = { CULTURE_FLAG = norman }
-	#	epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = norman }
-	#}
-	#OR = {
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_europe_south_italy }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_europe_south_italy  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_europe_south_italy }
-	#	}
-	#}
+	OR = {
+		epe_clothing_culture_trigger = { CULTURE_FLAG = norman }
+		epe_clothing_parent_culture_or_above_trigger = { CULTURE_FLAG = norman }
+	}
+	OR = {
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_europe_south_italy }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_europe_south_italy  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_europe_south_italy }
+		}
+	}
 }
 
 
@@ -1079,223 +959,219 @@ portrait_epe_norman_sicily_clothing_spouse_trigger = {
 
 
 portrait_epe_guiyi_circuit_chinese_clothing_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = chinese
-	#}
-	#NAND = {
-	#	OR = {
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = scope:culture
-	#			CULTURE_FLAG = epe_uyghur
-	#		}
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = scope:culture
-	#			CULTURE_FLAG = epe_sino_iranian
-	#		}						
-	#	}
-	#}	
-	#OR = {
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = chinese
+	}
+	NAND = {
+		OR = {
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = scope:culture
+				CULTURE_FLAG = epe_uyghur
+			}
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = scope:culture
+				CULTURE_FLAG = epe_sino_iranian
+			}						
+		}
+	}	
+	OR = {
 
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_tibet }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_tibet  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_tibet }
-	#	}
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = ghw_region_transoxiana }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = ghw_region_transoxiana  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = ghw_region_transoxiana }
-	#	}
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_middle_east }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_middle_east  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_middle_east }
-	#	}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_tibet }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_tibet  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_tibet }
+		}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = ghw_region_transoxiana }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = ghw_region_transoxiana  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = ghw_region_transoxiana }
+		}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_middle_east }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_middle_east  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_middle_east }
+		}
 
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_steppe_tarim }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_steppe_tarim  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_steppe_tarim }
-	#	}
-    #  ########################################	 
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = tgp_silk_road_central_asia_region }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = tgp_silk_road_central_asia_region  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = tgp_silk_road_central_asia_region }
-	#	}		
-    #  ########################################	 
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_steppe_central }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_steppe_central  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_steppe_central }
-	#	}	
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_steppe_tarim }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_steppe_tarim  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_steppe_tarim }
+		}
+      ########################################	 
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = tgp_silk_road_central_asia_region }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = tgp_silk_road_central_asia_region  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = tgp_silk_road_central_asia_region }
+		}		
+      ########################################	 
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_steppe_central }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_steppe_central  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_steppe_central }
+		}	
 		
-    #  ########################################	  
-	#    host.capital_county ?= {
-	#	    title:k_dzungaria = { is_de_jure_liege_or_above_target = prev }
-	#    }			
+      ########################################	  
+	    host.capital_county ?= {
+		    title:k_dzungaria = { is_de_jure_liege_or_above_target = prev }
+	    }			
 		
-	#}
+	}
 }
 
 portrait_epe_guiyi_circuit_chinese_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = chinese
-	#}
-	#NAND = {
-	#	OR = {
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = culture
-	#			CULTURE_FLAG = epe_uyghur
-	#		}
-	#		portrait_shared_clothing_contents_trigger = {
-	#			CULTURE_SCOPE = culture
-	#			CULTURE_FLAG = epe_sino_iranian
-	#		}
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = chinese
+	}
+	NAND = {
+		OR = {
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = culture
+				CULTURE_FLAG = epe_uyghur
+			}
+			portrait_shared_clothing_contents_trigger = {
+				CULTURE_SCOPE = culture
+				CULTURE_FLAG = epe_sino_iranian
+			}
 			
 			
-	#	}
-	#}	
-	#OR = {
+		}
+	}	
+	OR = {
 
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_tibet }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_tibet  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_tibet }
-	#	}
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = ghw_region_transoxiana }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = ghw_region_transoxiana  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = ghw_region_transoxiana }
-	#	}
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_middle_east }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_middle_east  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_middle_east }
-	#	}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_tibet }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_tibet  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_tibet }
+		}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = ghw_region_transoxiana }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = ghw_region_transoxiana  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = ghw_region_transoxiana }
+		}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_middle_east }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_middle_east  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_middle_east }
+		}
 
-    #  ########################################
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_steppe_tarim }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_steppe_tarim  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_steppe_tarim }
-	#	}	
-    #  ########################################	 
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = tgp_silk_road_central_asia_region }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = tgp_silk_road_central_asia_region  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = tgp_silk_road_central_asia_region }
-	#	}	
-    #  ########################################	 
-	#	trigger_if = {
-	#		limit = { exists = host.capital_province }
-	#		host.capital_province = { geographical_region = world_steppe_central }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = liege.capital_province }
-	#		liege.capital_province = { geographical_region = world_steppe_central  }
-	#	}
-	#	trigger_if = {
-	#		limit = { exists = location.province_owner.capital_province }
-	#		location.province_owner.capital_province = { geographical_region = world_steppe_central }
-	#	}
+      ########################################
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_steppe_tarim }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_steppe_tarim  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_steppe_tarim }
+		}	
+      ########################################	 
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = tgp_silk_road_central_asia_region }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = tgp_silk_road_central_asia_region  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = tgp_silk_road_central_asia_region }
+		}	
+      ########################################	 
+		trigger_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { geographical_region = world_steppe_central }
+		}
+		trigger_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { geographical_region = world_steppe_central  }
+		}
+		trigger_if = {
+			limit = { exists = location.province_owner.capital_province }
+			location.province_owner.capital_province = { geographical_region = world_steppe_central }
+		}
 		
-    #  ########################################	  
-	#    host.capital_county ?= {
-	#	    title:k_dzungaria = { is_de_jure_liege_or_above_target = prev }
-	#    }			
+      ########################################	  
+	    host.capital_county ?= {
+		    title:k_dzungaria = { is_de_jure_liege_or_above_target = prev }
+	    }			
 		
-	#}
+	}
 }
 
 
@@ -1314,66 +1190,58 @@ portrait_epe_guiyi_circuit_chinese_clothing_spouse_trigger = {
 ### Croatia Kingdom titles	 ###
 
 portrait_crown_of_zvonimir_trigger = {
-	# WHG TODO
-	always = no
-	#exists = this	
-	#OR = {
-	#	AND = {
-	#		highest_held_title_tier >= tier_kingdom
-	#		religion = religion:christianity_religion
-	#		has_culture = culture:croatian
-	#	}
-	#}
+	exists = this	
+	OR = {
+		AND = {
+			highest_held_title_tier >= tier_kingdom
+			religion = religion:christianity_religion
+			has_culture = culture:croatian
+		}
+	}
 }
 
 portrait_crown_of_sicily_trigger = {
-	# WHG TODO
-	always = no
-	#exists = this	
-	#OR = {
-	#	AND = {
-	#		highest_held_title_tier >= tier_kingdom
-	#		has_primary_title = title:k_sicily
-	#		OR = {
-	#			religion = religion:christianity_religion
-	#			religion = religion:dualism_religion
-	#			religion = religion:judaism_religion
-	#		}
-	#		OR = {
-	#			culture = culture:sicilian
-	#			culture = culture:norman
-	#			culture = {
-	#				any_parent_culture_or_above = {
-	#					this = culture:sicilian
-	#				}
-	#			}
-	#			culture = {
-	#				any_parent_culture_or_above = {
-	#					this = culture:norman
-	#				}
-	#			}
-	#		}
-	#	}
-	#}
+	exists = this	
+	OR = {
+		AND = {
+			highest_held_title_tier >= tier_kingdom
+			has_primary_title = title:k_sicily
+			OR = {
+				religion = religion:christianity_religion
+				religion = religion:dualism_religion
+				religion = religion:judaism_religion
+			}
+			OR = {
+				culture = culture:sicilian
+				culture = culture:norman
+				culture = {
+					any_parent_culture_or_above = {
+						this = culture:sicilian
+					}
+				}
+				culture = {
+					any_parent_culture_or_above = {
+						this = culture:norman
+					}
+				}
+			}
+		}
+	}
 }
 
 portrait_hch_trigger = {
-	# WHG TODO
-	always = no
-	#exists = this	
-	#OR = {
-	#	AND = {
-	#		highest_held_title_tier >= tier_kingdom
-	#		religion = religion:christianity_religion
-	#		has_culture = culture:hungarian
-	#		has_primary_title = title:k_hungary
-	#	}
-	#}
+	exists = this	
+	OR = {
+		AND = {
+			highest_held_title_tier >= tier_kingdom
+			religion = religion:christianity_religion
+			has_culture = culture:hungarian
+			has_primary_title = title:k_hungary
+		}
+	}
 }
 
 # portrait_crown_of_castille_trigger = {
-#	# WHG TODO
-#	always = no
 # 	exists = this	
 # 	OR = {
 # 		AND = {
@@ -1391,14 +1259,12 @@ portrait_hch_trigger = {
 ##################
 
 portrait_epe_roman_imperial_trigger = {
-	# WHG TODO
-	always = no
-	#exists = this	
-	#OR = {
-	#	AND = {
-	#		has_primary_title = title:h_roman_empire
-	#	}
-	#}
+	exists = this	
+	OR = {
+		AND = {
+			has_primary_title = title:h_roman_empire
+		}
+	}
 }
 
 ##################
@@ -1406,15 +1272,13 @@ portrait_epe_roman_imperial_trigger = {
 ##################
 
 portrait_epe_crown_of_lombardy_trigger = {
-	# WHG TODO
-	always = no
-	#exists = this	
-	#OR = {
-	#	AND = {
-	#		highest_held_title_tier = tier_kingdom
-	#		has_primary_title = title:k_italy
-	#	}
-	#}
+	exists = this	
+	OR = {
+		AND = {
+			highest_held_title_tier = tier_kingdom
+			has_primary_title = title:k_italy
+		}
+	}
 }
 
 #################
@@ -1433,74 +1297,70 @@ has_dde_abbasid_flavor_dlc_trigger = {
 ##################
 
 portrait_sunni_caliph_trigger = {
-	# WHG TODO
-	always = no
-	#exists = this	
-	#OR = {
-	#	has_title = title:d_sunni
-	#	AND = {
-	#		has_primary_title = title:d_sunni
-	#	}
+	exists = this	
+	OR = {
+		has_title = title:d_sunni
+		AND = {
+			has_primary_title = title:d_sunni
+		}
 		#AND = { ###if caliph/imperial title dies of the abbasid family they keep clothes when they death in era1
 		#	highest_held_title_tier = tier_empire
 		#	dynasty = dynasty:101727
 		#}		
     		
-	#}
+	}
 	
 }
 
 epe_portrait_high_nobles_clothing_trigger = {  ###only for high dutchy title
-	# WHG TODO
-	always = no
-	#exists = this
-	#portrait_can_use_noble_headgear_trigger = yes
-	#OR = {
-	#	AND = {
-	#		OR = {
-	#			highest_held_title_tier = tier_duchy
-	#			AND = {
-	#				government_has_flag = government_is_republic
-	#				primary_title.tier > tier_barony
-	#			}
-	#			AND = { 
-	#				is_ruler = yes 
-	#				government_has_flag = government_is_theocracy 
-	#			}
-	#		}
-	#		NAND = { # Blocked for mercenaries
-	#			is_ruler = yes 
-	#			government_has_flag = government_is_mercenary  
-	#		} 
-	#		portrait_$CULTURE_INPUT$_clothing_trigger = yes
-	#		trigger_if = {
-	#			limit = {
-	#				exists = primary_spouse
-	#			}
-	#			NOT = {
-	#				this.highest_held_title_tier < this.primary_spouse.highest_held_title_tier
-	#			}
-	#		}	
-	#	}
-	#	AND = {
-	#		exists = primary_spouse
-	#		OR = {
-	#			is_ruler = no
-	#			this.highest_held_title_tier < this.primary_spouse.highest_held_title_tier
-	#		}
-	#		primary_spouse = {
-	#			OR = {
-	#				highest_held_title_tier = tier_duchy
-	#				AND = {
-	#					government_has_flag = government_is_republic
-	#					primary_title.tier > tier_barony
-	#				}
-	#				AND = { is_ruler = yes government_has_flag = government_is_theocracy }
-	#			}
-	#			portrait_$CULTURE_INPUT$_clothing_spouse_trigger = yes
-	#		}
-	#	}
-	#}	
+	exists = this
+	portrait_can_use_noble_headgear_trigger = yes
+	OR = {
+		AND = {
+			OR = {
+				highest_held_title_tier = tier_duchy
+				AND = {
+					government_has_flag = government_is_republic
+					primary_title.tier > tier_barony
+				}
+				AND = { 
+					is_ruler = yes 
+					government_has_flag = government_is_theocracy 
+				}
+			}
+			NAND = { # Blocked for mercenaries
+				is_ruler = yes 
+				government_has_flag = government_is_mercenary  
+			} 
+			portrait_$CULTURE_INPUT$_clothing_trigger = yes
+			trigger_if = {
+				limit = {
+					exists = primary_spouse
+				}
+				NOT = {
+					this.highest_held_title_tier < this.primary_spouse.highest_held_title_tier
+				}
+			}	
+		}
+		AND = {
+			exists = primary_spouse
+			OR = {
+				is_ruler = no
+				this.highest_held_title_tier < this.primary_spouse.highest_held_title_tier
+			}
+			primary_spouse = {
+				OR = {
+					highest_held_title_tier = tier_duchy
+					AND = {
+						government_has_flag = government_is_republic
+						primary_title.tier > tier_barony
+					}
+					AND = { is_ruler = yes government_has_flag = government_is_theocracy }
+				}
+				portrait_$CULTURE_INPUT$_clothing_spouse_trigger = yes
+			}
+		}
+	}	
 }
 
 
@@ -1525,87 +1385,75 @@ epe_portrait_imperial_armor_in_army_trigger = {
 
 ### non DLC AFR ###
 portrait_non_dlc_afr_berber_clothing_trigger = {
-	# WHG TODO
-	always = no
-    #NOT = {
-    #     has_afr_dlc_trigger = yes
-    #}
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = scope:culture
-	#	CULTURE_FLAG = afr_berber
-	#}
+    NOT = {
+         has_afr_dlc_trigger = yes
+    }
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = scope:culture
+		CULTURE_FLAG = afr_berber
+	}
 }
 
 portrait_non_dlc_afr_berber_clothing_spouse_trigger = {
-	# WHG TODO
-	always = no
-    #NOT = {
-    #     has_afr_dlc_trigger = yes
-    #}
-	#portrait_shared_clothing_contents_trigger = {
-	#	CULTURE_SCOPE = culture
-	#	CULTURE_FLAG = afr_berber
-	#}
+    NOT = {
+         has_afr_dlc_trigger = yes
+    }
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = afr_berber
+	}
 }
 
 ### norse era 2 triggers ###
 portrait_era2_trigger_norse = { # Intended to primarily cover the years 1000 to 1100
-	# WHG TODO
-	always = no
-    #current_year >= 1030
-    #OR = {
-    #    AND = { # People from 16 to 25 will be the first to adopt new fashion
-    #        scope:year_of_birth >= 1005
-    #        scope:year_of_birth < 1100
-    #        scope:age >= 16 
-    #    }
-    #    AND = {
-    #        scope:year_of_birth >= 1030
-    #        scope:year_of_birth < 1130
-    #    }    
-    #}
+    current_year >= 1030
+    OR = {
+        AND = { # People from 16 to 25 will be the first to adopt new fashion
+            scope:year_of_birth >= 1005
+            scope:year_of_birth < 1100
+            scope:age >= 16 
+        }
+        AND = {
+            scope:year_of_birth >= 1030
+            scope:year_of_birth < 1130
+        }    
+    }
 }
 
 portrait_era2_trigger_norse_westernize = { # Intended to primarily cover the years 1100 to 1150
-	# WHG TODO
-	always = no
-    #current_year >= 1130
-    #OR = {
-    #    AND = { # People from 16 to 25 will be the first to adopt new fashion
-    #        scope:year_of_birth >= 1100
-    #        scope:year_of_birth < 1175
-    #        scope:age >= 16 
-    #    }
-    #    AND = {
-    #        scope:year_of_birth >= 1130
-    #        scope:year_of_birth < 1210
-    #    }    
-    #}
+    current_year >= 1130
+    OR = {
+        AND = { # People from 16 to 25 will be the first to adopt new fashion
+            scope:year_of_birth >= 1100
+            scope:year_of_birth < 1175
+            scope:age >= 16 
+        }
+        AND = {
+            scope:year_of_birth >= 1130
+            scope:year_of_birth < 1210
+        }    
+    }
 }
 
 
 ### Chinese era 1 triggers ###
 portrait_era1_tang_trigger = { # Intended to primarily cover the years 850 to 1000
-	# WHG TODO
-	always = no
-    #scope:year_of_birth < 960
+    scope:year_of_birth < 960
 }
 
 portrait_era2_song_trigger = { # Intended to primarily cover the years 1000 to 1150
-	# WHG TODO
-	always = no
-    #current_year >= 960
-    #OR = {
-    #    AND = { # People from 16 to 25 will be the first to adopt new fashion
-    #        scope:year_of_birth >= 935
-    #        scope:year_of_birth < 1175
-    #        scope:age >= 16 
-    #    }
-    #    AND = {
-    #        scope:year_of_birth >= 960
-    #        scope:year_of_birth < 1210
-    #    }    
-    #}
+    current_year >= 960
+    OR = {
+        AND = { # People from 16 to 25 will be the first to adopt new fashion
+            scope:year_of_birth >= 935
+            scope:year_of_birth < 1175
+            scope:age >= 16 
+        }
+        AND = {
+            scope:year_of_birth >= 960
+            scope:year_of_birth < 1210
+        }    
+    }
 }
 
 

@@ -4,19 +4,24 @@
     selection_behavior = weighted_random
     priority = 3
 
-## Elves ##
-    religious_clothes_elves = { 
+## Orthodox ##
+
+    religious_orthodox_head_clothes = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_western
-	            range = { 0.01 0.09 }
+                template = religious_orthodox_head_clothes
+                range = { 0 1 }
             }
         }
-        outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 150
+                portrait_religious_head_trigger = yes
+                portrait_religious_orthodox_trigger = yes
+            }
         }
     }  
 
@@ -25,82 +30,133 @@
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_western
-	            range = { 0.11 0.19 }
+                template = religious_orthodox_high_clothes
+                range = { 0 1 }
             }
         }
-        outfit_tags = { priest_outfit }
+        outfit_tags = { priest_outfit bishop_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 120
+                portrait_religious_high_trigger = yes
+                portrait_religious_orthodox_trigger = yes
+            }
         }
-    }		
+    }
 
-## Dwarves ##
-	religious_clothes_dwarves = { 
-	    dna_modifiers = {
-	        accessory = {
-	            mode = add
-	            gene = clothes
-	            template = religious_clothes_northern
-	            range = { 0.01 0.04 }
-	        }
-	    }
-	    outfit_tags = { priest_outfit }
-	    weight = {
-	        base = 0
-	        modifier = {
-                add = 110
-                is_dwarf = yes
-                portrait_religious_high_trigger = yes
-                religion = religion:dwarven_religion
-            }
-	    }
-	}
-
-## Halflings ##
-
-	religious_clothes_halflings = { 
-	    dna_modifiers = {
-	        accessory = {
-	            mode = add
-	            gene = clothes
-	            template = halfling_low_clothes
-	            range = { 0 1 }
-	        }
-	    }
-	    outfit_tags = { priest_outfit }
-	    weight = {
-	        base = 0
-	        modifier = {
-                add = 110
-                is_halfling = yes
-                portrait_religious_high_trigger = yes
-                #religion = religion:hobbit_religion
-            }
-	    }
-	}
+## Catholic ##  
 
 
-##  Dunedain/Numenorean/Arnorian/Uialdain/Gondorian ##
-
-    religious_clothes_dunedain = {
+    religious_catholic_head_clothes = { # The Pope
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_western
-                range = { 0.61 0.69 } # For the randomness to work correctly
+                template = religious_catholic_head_clothes
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 120
+                portrait_religious_head_trigger = yes
+                portrait_religious_catholic_trigger = yes
+            }
+        }
+    }
+
+    religious_catholic_high_clothes = { # Catholic Bishops and Priests
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_catholic_high_clothes
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { priest_outfit bishop_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                portrait_religious_high_trigger = yes
+                portrait_religious_christian_trigger = yes
+            }
+            modifier = {
+                factor = 0
+                portrait_iconoclast_high_trigger = yes
+            }
+        }
+    }
+
+    religious_catholic_devoted_clothes = { # Christian Monks and Nuns
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_catholic_devoted_clothes
+                range = { 0 1 } # For the randomness to work correctly
             }
             accessory = {
-				mode = add
-				gene = cloaks
-				template = no_cloak
-				value = 0.0
-			}
+                mode = add
+                gene = hairstyles
+                template = catholic_devoted_hairstyles
+                range = { 0 1 } # For the randomness to work correctly
+            }
         }
         outfit_tags = { monk_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_devoted_trigger = yes
+                portrait_religious_christian_trigger = yes
+            }
+        }
+    }
+
+## Iconoclast ##
+
+    religious_iconoclast_high_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_catholic_high_clothes
+                accessory = male_clothes_religious_catholic_high_01
+            }
+        }
+        outfit_tags = { priest_outfit bishop_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                portrait_iconoclast_high_trigger = yes
+            }
+        }
+    }
+
+## Jewish ##
+
+
+    religious_jewish_head_clothes = { # Kohen Gadol
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_jewish_head_clothes
+                range = { 0 1 }
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 120
+                portrait_religious_head_ruler_trigger = yes
+                portrait_religious_jewish_trigger = yes                
+            }
         }
     }
 
@@ -109,13 +165,20 @@
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_western
-                range = { 0.61 0.69 } # For the randomness to work correctly
+                template = religious_jewish_high_clothes
+                range = { 0 1 }
             }
         }
-        outfit_tags = { monk_outfit }
+        outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                portrait_religious_high_trigger = yes
+                OR = {
+                    portrait_religious_jewish_trigger = yes
+                }
+            }
         }
     }
 
@@ -127,15 +190,150 @@
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_western
-                range = { 0.51 0.59 } # For the randomness to work correctly
+                template = religious_muslim_head_clothes
+                range = { 0 1 }
             }
         }
-        outfit_tags = { monk_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 112
+                portrait_religious_head_caliph_trigger = {
+                    RELIGION_INPUT = islam
+                }
+				
+            }
         }
     } 
+
+    religious_muslim_high_clothes = { # Imams
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_muslim_high_clothes
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 111
+                portrait_religious_high_trigger = yes
+                portrait_religious_muslim_trigger = yes
+            }
+        }
+    }
+
+    religious_muslim_devoted_clothes = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = mena_commoner_clothes
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                portrait_religious_devoted_trigger = yes
+                portrait_religious_muslim_trigger = yes
+            }
+        }
+    }
+
+
+## Northern ##
+
+
+    religious_northern_high_clothes = { # Norse pagan priests
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_northern_high_clothes
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                portrait_religious_high_trigger = yes
+                portrait_religious_norse_trigger = yes           
+            }
+        }
+    }
+
+    ## CCP4 Siberian ##
+
+    religious_siberian_high_clothes = { # Khanty shamans wear fancy Khanty clothes
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = ccp4_khanty_clothes
+                range = { 0.48 0.69 } # For the randomness to work correctly
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 105 #higher than steppe
+                portrait_religious_high_trigger = yes
+                portrait_religious_siberian_trigger = yes
+            }
+        }
+    }
+
+    ## CCP4 Sami ##
+
+    religious_sami_high_clothes = { # Sami shamans wear Sami clothes
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = ccp4_sami_clothes
+                range = { 0.24 0.42 } # For the randomness to work correctly
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 105 #higher than norse
+                portrait_religious_high_trigger = yes
+                portrait_religious_sami_trigger = yes
+            }
+        }
+    }
+	
+    ## CCP7 Emishi Ainu Kamuy ##
+    religious_kamuyist_high_clothes = { # Kamuyist priests wear fancy Ainu clothes
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+				template = ccp7_emishi_nivkh_clothes
+				range = { 0.40 0.54 } # For the randomness to work correctly
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 105 #higher than steppe
+                portrait_religious_high_trigger = yes
+                portrait_religious_emishi_trigger = yes
+            }
+        }
+    }	
+
 
 ## Steppe ##
 
@@ -145,32 +343,64 @@
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_northern
-                range = { 0.41 0.49 } # For the randomness to work correctly
+                template = religious_steppe_high_clothes
+                range = { 0 1 }
             }
         }
-        outfit_tags = { monk_outfit }
+        outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_religious_high_trigger = yes
+                portrait_religious_steppe_trigger = yes
+            }
+			modifier = {
+                add = 100
+                has_court_position = court_astrologer_court_position
+				exists = situation:the_great_steppe
+				liege ?= {
+					any_character_situation = {
+						this = situation:the_great_steppe
+					}
+				}
+            }
         }
     }
 
 
 ## Buddhist ##
 
-
     religious_buddhist_high_clothes = { # Buddhist Monks
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_eastern
-                range = { 0.51 0.59 }
+                template = religious_buddhist_high_clothes
+                range = { 0 1 }
             }
         }
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                portrait_religious_high_trigger = yes
+                portrait_religious_buddhist_trigger = yes
+                OR = {
+					culture_has_east_asian_heritage_pillar_trigger = no
+					has_tgp_dlc_trigger = no
+				}
+            }
+            modifier = {
+                factor = 0
+                has_tgp_dlc_trigger = yes
+                OR = {
+                    portrait_chinese_clothing_trigger = yes
+					portrait_epe_uyghur_clothing_trigger = yes
+					portrait_epe_sino_iranian_clothing_trigger = yes					
+                }
+            }
         }
     }
 
@@ -179,67 +409,330 @@
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_eastern
-                range = { 0.11 0.29 }
+                template = religious_buddhist_high_clothes
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        outfit_tags = { monk_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                portrait_religious_devoted_trigger = yes
+                portrait_religious_buddhist_trigger = yes
+                OR = {
+                    culture_has_east_asian_heritage_pillar_trigger = no
+                    has_tgp_dlc_trigger = no
+                }
+            }
+            modifier = {
+                factor = 0
+                has_tgp_dlc_trigger = yes
+                OR = {
+                    portrait_chinese_clothing_trigger = yes
+					portrait_epe_uyghur_clothing_trigger = yes
+					portrait_epe_sino_iranian_clothing_trigger = yes					
+                }
+            }
+        }
+    }
+
+## Japanese (Shinto) ##
+
+    religious_japanese_high_clothes = { 
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = tgp_japanese_clothes
+                accessory = m_clothes_rel_tgp_shinto_priest
+            }
+        }
+        outfit_tags = { monk_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                OR = {
+                    portrait_religious_high_trigger = yes
+                    portrait_religious_devoted_trigger = yes
+                }
+                portrait_religious_buddhist_trigger = no # Not appropriate for Buddhists
+                portrait_japanese_clothing_trigger = yes
+                has_tgp_dlc_trigger = yes
+            }
+        }
+    }
+
+    ## Japanese (Buddhist) ##
+
+    religious_japanese_buddhist_clothes = { 
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = tgp_japanese_clothes
+                accessory = m_clothes_rel_tgp_buddhist_priest
+            }
+        }
+        outfit_tags = { monk_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                OR = {
+                    portrait_religious_high_trigger = yes
+                    portrait_religious_devoted_trigger = yes
+                }
+                portrait_religious_buddhist_trigger = yes
+                culture_has_east_asian_heritage_pillar_trigger = yes
+                portrait_japanese_clothing_trigger = yes
+                has_tgp_dlc_trigger = yes
+            }
+        }
+    }
+
+## TGP Chinese Buddhist ##
+
+    religious_chinese_buddhist_high_clothes = { # Buddhist Monks
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = tgp_chinese_clothes
+                accessory = m_clothes_rel_tgp_buddhist_devoted_01
             }
         }
         outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                portrait_religious_buddhist_trigger = yes
+                OR = {
+                    portrait_religious_devoted_trigger = yes
+                    portrait_religious_high_trigger = yes
+                }
+                OR = {
+                    portrait_chinese_clothing_trigger = yes
+                    portrait_korean_clothing_trigger = yes
+					portrait_epe_uyghur_clothing_trigger = yes
+					portrait_epe_sino_iranian_clothing_trigger = yes					
+                }
+                has_tgp_dlc_trigger = yes
+            }
         }
     }
 
-## Pel ##
-    religious_clothes_thani_hazad = {#native, hindu
+## TGP Chinese Taoist ##
+
+    religious_taoist_high_clothes = { 
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_southern
-                range = { 0.11 0.19 }
+                template = tgp_chinese_clothes
+                accessory = m_clothes_rel_tgp_taoist_priest_01
+            }
+            accessory = {
+                mode = add
+                gene = headgear
+                template = no_headgear
+                range = { 0 1 } # For the randomness to work correctly
             }
         }
+        outfit_tags = { priest_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 110
+                portrait_religious_taoist_trigger = yes
+                OR = {
+                    portrait_religious_devoted_trigger = yes
+                    portrait_religious_high_trigger = yes
+                }
+                has_tgp_dlc_trigger = yes
+            }
         }
     }
 
+## Hinduist ##
+
+    religious_hindu_devoted_clothes = { # Hindu Swami
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_hindu_devoted_clothes
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }
+        outfit_tags = { monk_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                portrait_religious_devoted_trigger = yes
+                portrait_religious_hindu_trigger = yes
+            }
+        }
+    }
+
+    religious_hindu_high_clothes = { # Hindu Swami
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_hindu_devoted_clothes
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 110
+                portrait_religious_high_trigger = yes
+                portrait_religious_hindu_trigger = yes
+            }
+        }
+    }
+
+## Zoroastrian ##
+
+    religious_zoroastrian_high_clothes = { # Zoroastrian Priests
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_zoroastrian_high_clothes
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { 
+            priest_outfit
+            religious_zoroastrian_high_clothes
+        }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                portrait_religious_high_trigger = yes
+                portrait_religious_zoroastrian_trigger = yes
+            }
+        }
+    }
+
+
 ## Jain ##
+
 
     religious_jain_high_clothes = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_northern
-                range = { 0.31 0.39 }
+                template = religious_jain_high_clothes
+                range = { 0 1 }
             }
+            morph = {
+                mode = modify_multiply
+                gene = gene_bs_bust
+                value = 1.0
+                template = bust_clothes_light
+            }
+
         }
+        outfit_tags = { priest_outfit }
         weight = {
             base = 0
             modifier = {
                 add = 110
-				scope:culture = culture:angmarrim				
+                exists = this
                 portrait_religious_high_trigger = yes
                 OR = {
-					religion = religion:forodwaith_religion					
+                    religion = religion:jainism_religion
                 }
             }
         }
     }
 
-## Womaw ##
-    religious_clothes_womaw = {#buddhist
+
+    religious_jain_devoted_clothes = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
-                template = religious_clothes_far_eastern
-                range = { 0.01 0.09 }
+                template = religious_jain_high_clothes
+                range = { 0 1 } # For the randomness to work correctly
             }
         }
+        outfit_tags = { monk_outfit }
         weight = {
             base = 0
+            modifier = {
+                add = 100
+                portrait_has_trait_trigger = { TRAIT = devoted }
+                OR = {
+                    religion = religion:jainism_religion
+                }
+            }
         }
     }
+
+
+## African Pagan ##
+
+    religious_african_high_clothes = { # African Pagan Shamans
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = religious_african_high_clothes
+                range = { 0 1 }
+            }
+        }
+        outfit_tags = { priest_outfit }
+        weight = {
+            base = 0
+            modifier = {
+                add = 100
+                portrait_religious_high_trigger = yes
+                portrait_religious_african_trigger = yes
+            }
+        }
+    }
+	
+## Sunni Caliph ##
+	
+
+    sunni_caliph = {
+        dna_modifiers = {
+            accessory = {
+                mode = add
+                gene = clothes
+                template = early_caliph_clothes
+                range = { 0 1 } # For the randomness to work correctly
+            }
+        }       
+        weight = {
+            base = 0
+            modifier = {
+                add = 118 #Slightly Higher
+				portrait_era1_trigger = yes
+				portrait_sunni_caliph_trigger = yes 
+            }
+        }
+    }	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }

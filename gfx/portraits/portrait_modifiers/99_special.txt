@@ -1,4 +1,5 @@
-﻿special_eyelashes = {
+﻿
+special_eyelashes = {
 
 	usage = game
 
@@ -150,7 +151,7 @@ muscularity = {
 						add = scope:prowess
 					}
 
-					multiply = 4
+					multiply = 2
 
 					max = 1.0
 				}
@@ -229,6 +230,24 @@ special_shrink_body = {
 	}
 }
 
+special_stretched_earlobes = {
+
+	usage = game
+	stretched_earlobes = {
+		dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_ear_stretch
+				template = ear_stretch
+				value = 1 
+			}
+		}   
+		weight = {
+			base = 10
+		}
+	}
+}
+
 additive_headgears = {
 
 	usage = game
@@ -238,6 +257,51 @@ additive_headgears = {
 				mode = add
 				gene = gene_bs_additive_headgears
 				template = additive_headgears
+				value = 1 
+			}
+		}
+	}
+}
+
+cloak_offset = {
+
+	usage = game
+	cloak_offset = {
+			dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_bs_cloak_offset
+				template = cloak_offset
+				value = 1 # For the randomness to work correctly
+			}
+		}
+	}
+}
+
+long_beard = {
+
+	usage = game
+	long_beard = {
+			dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_bs_long_beard
+				template = long_beard
+				value = 1 # For the randomness to work correctly
+			}
+		}
+	}
+}
+
+enclosed_helmet = {
+
+	usage = game
+	enclosed_helmet = {
+			dna_modifiers = {
+			morph = {
+				mode = add
+				gene = gene_enclosed_helmet
+				template = enclosed_helmet
 				value = 1 # For the randomness to work correctly
 			}
 		}
@@ -333,6 +397,42 @@ special_prophet = {
 		}
 		weight = {
 			base = 0
+			modifier = {
+				add = 999
+				exists = this
+				exists = character:33922
+				this = character:33922
+			}
+		}
+	}
+}
+
+special_beardless_eunuch = {
+
+	usage = game
+	selection_behavior = weighted_random
+
+	no_body_hair = { # Has no portrait 
+		dna_modifiers = {
+			morph = {
+				mode = replace
+				gene = gene_body_hair
+				template = body_hair_sparse
+				value = 0
+			} 
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			} 
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 999
+				has_trait = beardless_eunuch
+			}
 		}
 	}
 }
