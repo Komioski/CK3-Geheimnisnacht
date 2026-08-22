@@ -2871,14 +2871,6 @@ start_city_construction_decision = {
 					ROOT = { is_human = yes }
 					ROOT = { is_ai = no }
 				}
-				AND = { # Hobbits and Druedain could get along?
-					is_halfling = yes
-					ROOT = { is_druedain = yes }
-				}
-				AND = { # Druedain and Hobbits could get along?
-					is_druedain = yes
-					ROOT = { is_halfling = yes }
-				}
 				AND = { # Dark beings attract orcs
 					cannot_be_killed = yes
 					faith_is_evil = yes

@@ -321,7 +321,7 @@ wastelands.0006 = {
 				limit = {
 					OR = {
 						is_human = yes
-						is_hobbit = yes
+						#is_hobbit = yes
 					}
 				}
 				every_sub_realm_county = {
@@ -6154,7 +6154,6 @@ wastelands.1701 = { # Lost in the Forest
 		name = wastelands.1701.d
 		trigger = {
 			OR = {
-				is_druedain = yes
 				is_elf = yes
 			}
 		}
@@ -6246,7 +6245,6 @@ wastelands.1702 = { # Yield of the Forest
 		name = wastelands.1702.d
 		trigger = {
 			OR = {
-				is_druedain = yes
 				is_elf = yes
 				has_trait = lifestyle_gardener
 			}
@@ -6421,7 +6419,6 @@ wastelands.1704 = { # Nature's Retribution
 		trigger = {
 			OR = {
 				is_elf = yes
-				is_druedain = yes
 				has_trait = lifestyle_herbalist
 			}
 		}
@@ -7471,7 +7468,6 @@ wastelands.1904 = { # The Crafty Goblin
 			AND = {
 				OR = {
 					is_orc = yes
-					is_maiar_fallen = yes
 					is_nazgul = yes
 				}
 				highest_held_title_tier > tier_county
@@ -11260,7 +11256,7 @@ wastelands.9999 = {
 					government_is_clan = { scope:temporary_title_holder = { change_government = clan_government } }
 					government_is_elven = { scope:temporary_title_holder = { change_government = elven_government } }
 					government_is_feudal = { scope:temporary_title_holder = { change_government = feudal_government } }
-					government_is_hobbit = { scope:temporary_title_holder = { change_government = hobbit_government } }
+					#government_is_hobbit = { scope:temporary_title_holder = { change_government = hobbit_government } }
 					government_is_nomadic = { scope:temporary_title_holder = { change_government = nomad_government } }
 					government_is_oligarchy = { scope:temporary_title_holder = { change_government = oligarchy_government } }
 					government_is_orcish = { scope:temporary_title_holder = { change_government = orcish_government } }
