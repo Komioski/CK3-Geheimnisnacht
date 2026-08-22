@@ -3807,16 +3807,16 @@ colonisation_random.2012 = { # A Plea from the Settlers
 					set_holding_type = elven_holding
 				}
 			}
-			else_if = {
-				limit = {
-					root = {
-						is_hobbit = yes
-					}
-				}
-				scope:colony_province = {
-					set_holding_type = city_holding
-				}
-			}
+			# else_if = {
+			# 	limit = {
+			# 		root = {
+			# 			is_hobbit = yes
+			# 		}
+			# 	}
+			# 	scope:colony_province = {
+			# 		set_holding_type = city_holding
+			# 	}
+			# }
 			else_if = {
 				limit = {
 					root = {
@@ -3855,12 +3855,12 @@ colonisation_random.2012 = { # A Plea from the Settlers
 				}
 				scope:colonist = { change_government = elven_government }
 			}
-			else_if = {
-				limit = {
-					root = { is_hobbit = yes }
-				}
-				scope:colonist = { change_government = hobbit_government }
-			}
+			# else_if = {
+			# 	limit = {
+			# 		root = { is_hobbit = yes }
+			# 	}
+			# 	scope:colonist = { change_government = hobbit_government }
+			# }
 			else_if = {
 				limit = {
 					root = { is_orc = yes }
@@ -4153,26 +4153,26 @@ colonisation_random.2014 = { # Ahead of Schedule
 					set_holding_type = dwarven_holding
 				}	
 			}	
-			else_if = {
-				limit = {
-					root = {
-						is_elf = yes
-					}
-				}
-				scope:colony_province = {
-					set_holding_type = elven_holding
-				}
-			}
-			else_if = {
-				limit = {
-					root = {
-						is_hobbit = yes
-					}
-				}
-				scope:colony_province = {
-					set_holding_type = city_holding
-				}
-			}
+			# else_if = {
+			# 	limit = {
+			# 		root = {
+			# 			is_elf = yes
+			# 		}
+			# 	}
+			# 	scope:colony_province = {
+			# 		set_holding_type = elven_holding
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		root = {
+			# 			is_hobbit = yes
+			# 		}
+			# 	}
+			# 	scope:colony_province = {
+			# 		set_holding_type = city_holding
+			# 	}
+			# }
 			else_if = {
 				limit = {
 					root = {
@@ -4327,12 +4327,12 @@ colonisation_random.2016 = { # Heresy Outbreak
 					set_holding_type = elven_holding
 				}
 			}
-			else_if = {
-				limit = { is_hobbit = yes }
-				scope:colony_province = {
-					set_holding_type = city_holding
-				}
-			}
+			# else_if = {
+			# 	limit = { is_hobbit = yes }
+			# 	scope:colony_province = {
+			# 		set_holding_type = city_holding
+			# 	}
+			# }
 			else_if = {
 				limit = { government_has_flag = government_is_tribal }
 				scope:colony_province = {
@@ -4485,10 +4485,10 @@ colonisation_random.2016 = { # Heresy Outbreak
 					becomes_independent = { change = scope:change }
 					resolve_title_and_vassal_change = scope:change
 					
-					if = { 	
-						limit = { is_hobbit = yes }
-						change_government = hobbit_government
-					}
+					# if = { 	
+					# 	limit = { is_hobbit = yes }
+					# 	change_government = hobbit_government
+					# }
 					else_if = {
 						limit = { is_elf = yes }
 						change_government = elven_government

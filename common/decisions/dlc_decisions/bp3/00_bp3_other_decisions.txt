@@ -70,8 +70,6 @@ choose_designated_terrain_decision = {
 						location = {
 							OR = {
 								terrain = forest
-								terrain = deep_forest #LOTR
-								terrain = mallorn_forest #LOTR
 								terrain = jungle
 								terrain = taiga
 								terrain = wetlands
@@ -119,8 +117,6 @@ choose_designated_terrain_decision = {
 								terrain = steppe
 								terrain = farmlands
 								terrain = floodplains
-								terrain = savanna #LOTR
-								terrain = arctic #LOTR
 							}
 						}
 					}
@@ -208,8 +204,6 @@ choose_master_terrain_decision = {
 		NOR = {
 			# Woodlands
 			has_character_modifier = master_terrain_forest_modifier
-			has_character_modifier = master_terrain_deep_forest_modifier #LOTR
-			has_character_modifier = master_terrain_mallorn_forest_modifier #LOTR
 			has_character_modifier = master_terrain_jungle_modifier
 			has_character_modifier = master_terrain_taiga_modifier
 			has_character_modifier = master_terrain_wetlands_modifier
@@ -222,13 +216,10 @@ choose_master_terrain_decision = {
 			has_character_modifier = master_terrain_steppe_modifier
 			has_character_modifier = master_terrain_farmlands_modifier
 			has_character_modifier = master_terrain_floodplains_modifier
-			has_character_modifier = master_terrain_savanna_modifier #LOTR
-			has_character_modifier = master_terrain_arctic_modifier #LOTR
 			# Drylands
 			has_character_modifier = master_terrain_drylands_modifier
 			has_character_modifier = master_terrain_desert_modifier
 			has_character_modifier = master_terrain_oasis_modifier
-			has_character_modifier = master_terrain_dune_sea_modifier #LOTR
 		}
 		OR = {
 			landless_inspector_terrain_master_trigger = { TERRAIN = woodlands }
@@ -258,24 +249,6 @@ choose_master_terrain_decision = {
 				if = {
 					limit = {
 						location = { terrain = forest }
-					}
-					add = 100
-				}
-			}
-		}
-		item = { #LOTR - Deep Forest
-			value = master_terrain_deep_forest_terrain
-			current_description = master_terrain_deep_forest_decision
-			localization = master_terrain_deep_forest_decision
-			icon = "gfx/interface/icons/terrain_types/deep_forest.dds"
-			is_shown = { 
-				landless_inspector_terrain_master_trigger = { TERRAIN = woodlands } 
-			}
-			ai_chance = { 
-				value = 0
-				if = {
-					limit = {
-						location = { terrain = deep_forest }
 					}
 					add = 100
 				}
@@ -467,43 +440,6 @@ choose_master_terrain_decision = {
 				}
 			}
 		}
-		item = { #LOTR - Savanna
-			value = master_terrain_savanna_terrain
-			current_description = master_terrain_savanna_decision
-			localization = master_terrain_savanna_decision
-			icon = "gfx/interface/icons/terrain_types/savanna.dds"
-			is_shown = { 
-				landless_inspector_terrain_master_trigger = { TERRAIN = lowlands } 
-			}
-			ai_chance = { 
-				value = 0
-				if = {
-					limit = {
-						location = { terrain = savanna }
-					}
-					add = 100
-				}
-			}
-		}
-		item = { #LOTR - Arctic
-			value = master_terrain_arctic_terrain
-			current_description = master_terrain_arctic_decision
-			localization = master_terrain_arctic_decision
-			icon = "gfx/interface/icons/terrain_types/arctic.dds"
-			is_shown = { 
-				landless_inspector_terrain_master_trigger = { TERRAIN = lowlands } 
-			}
-			ai_chance = { 
-				value = 0
-				if = {
-					limit = {
-						location = { terrain = arctic }
-					}
-					add = 100
-				}
-			}
-		}
-
 
 		### Drylands
 		item = { # Drylands
@@ -560,24 +496,6 @@ choose_master_terrain_decision = {
 				}
 			}
 		}
-		item = { #LOTR - Dune Sea
-			value = master_terrain_dune_sea_terrain
-			current_description = master_terrain_dune_sea_decision
-			localization = master_terrain_dune_sea_decision
-			icon = "gfx/interface/icons/terrain_types/dune_sea.dds"
-			is_shown = { 
-				landless_inspector_terrain_master_trigger = { TERRAIN = drylands } 
-			}
-			ai_chance = { 
-				value = 0
-				if = {
-					limit = {
-						location = { terrain = dune_sea }
-					}
-					add = 100
-				}
-			}
-		}
 
 	}
 
@@ -590,12 +508,6 @@ choose_master_terrain_decision = {
 				trigger = yes
 				scope:master_terrain_forest_terrain = {
 					landless_inspector_master_terrain_effect = { TERRAIN = forest }
-				}
-				scope:master_terrain_deep_forest_terrain = { #LOTR
-					landless_inspector_master_terrain_effect = { TERRAIN = deep_forest }
-				}
-				scope:master_terrain_mallorn_forest_terrain = { #LOTR
-					landless_inspector_master_terrain_effect = { TERRAIN = mallorn_forest }
 				}
 				scope:master_terrain_jungle_terrain = {
 					landless_inspector_master_terrain_effect = { TERRAIN = jungle }
@@ -643,12 +555,6 @@ choose_master_terrain_decision = {
 				scope:master_terrain_floodplains_terrain = {
 					landless_inspector_master_terrain_effect = { TERRAIN = floodplains }
 				}
-				scope:master_terrain_savanna_terrain = { #LOTR
-					landless_inspector_master_terrain_effect = { TERRAIN = savanna }
-				}
-				scope:master_terrain_arctic_terrain = { #LOTR
-					landless_inspector_master_terrain_effect = { TERRAIN = arctic }
-				}
 			}
 		}
 		else_if = {
@@ -665,9 +571,6 @@ choose_master_terrain_decision = {
 				}
 				scope:master_terrain_oasis_terrain = {
 					landless_inspector_master_terrain_effect = { TERRAIN = oasis }
-				}
-				scope:master_terrain_dune_sea_terrain = { #LOTR
-					landless_inspector_master_terrain_effect = { TERRAIN = dune_sea }
 				}
 			}
 		}

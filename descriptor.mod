@@ -3,7 +3,6 @@ tags={
 	"Total Conversion"
 }
 name="WHDEVs"
-replace_path="common/bookmark_portraits"
 replace_path="common/dynasties"
 replace_path="common/dynasty_house_motto_inserts"
 replace_path="common/dynasty_house_mottos"

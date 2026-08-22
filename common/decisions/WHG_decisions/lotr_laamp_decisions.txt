@@ -68,40 +68,6 @@ settle_wilderness_county_or_duchy_decision = {
 
 		trigger_if = {
 			limit = { is_ai = yes }
-			OR = {
-				AND = { #If dwarf only settle in underground
-					is_dwarf = yes
-					root.location.county.title_province ?= { terrain = halls }
-				}
-				AND = { # Only settle in elven homelands OR appropriate terrain
-					is_elf = yes
-					OR = {
-						root.location.county = { has_county_modifier = elven_homeland_county_modifier }
-						root.location.county.title_province ?= { terrain = deep_forest }
-						root.location.county.title_province ?= { terrain = forest }
-						root.location.county.title_province ?= { terrain = mallorn_forest }
-					}
-				}
-				AND = {
-					is_druedain = yes 
-					OR = {
-						root.location.county.title_province ?= { terrain = hills }
-						root.location.county.title_province ?= { terrain = deep_forest }
-						root.location.county.title_province ?= { terrain = forest }
-					}
-				}
-				AND = {
-					is_orc = yes 
-					OR = {
-						root.location.county.title_province ?= { terrain = hills }
-						root.location.county.title_province ?= { terrain = deep_forest }
-						root.location.county.title_province ?= { terrain = forest }
-						root.location.county.title_province ?= { terrain = halls }
-						root.location.county.title_province ?= { terrain = mountains }
-					}
-				}
-				is_human = yes
-			}
 			trigger_if = {
 				limit = {
 					root.location.county = {
