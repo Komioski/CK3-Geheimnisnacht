@@ -472,57 +472,6 @@
 								}
 							}
 						}
-						if = {
-							limit = { story_owner = { is_orc = yes } }
-							if = {
-								limit = {
-									exists = cp:councillor_orc_1
-									cp:councillor_orc_1 = scope:stewardship_councillor
-								}
-								scope:stewardship_councillor = {
-									set_council_task = {
-										task_type = task_orc_1_develop_county
-										target = scope:scoped_county.title_province
-									}
-								}
-							}
-							else_if = {
-								limit = {
-									exists = cp:councillor_orc_2
-									cp:councillor_orc_2 = scope:stewardship_councillor
-								}
-								scope:stewardship_councillor = {
-									set_council_task = {
-										task_type = task_orc_2_develop_county
-										target = scope:scoped_county.title_province
-									}
-								}
-							}
-							else_if = {
-								limit = {
-									exists = cp:councillor_orc_3
-									cp:councillor_orc_3 = scope:stewardship_councillor
-								}
-								scope:stewardship_councillor = {
-									set_council_task = {
-										task_type = task_orc_3_develop_county
-										target = scope:scoped_county.title_province
-									}
-								}
-							}
-							else_if = {
-								limit = {
-									exists = cp:councillor_orc_4
-									cp:councillor_orc_4 = scope:stewardship_councillor
-								}
-								scope:stewardship_councillor = {
-									set_council_task = {
-										task_type = task_orc_4_develop_county
-										target = scope:scoped_county.title_province
-									}
-								}
-							}
-						}
 						else = {
 							scope:stewardship_councillor = {
 								set_council_task = {
