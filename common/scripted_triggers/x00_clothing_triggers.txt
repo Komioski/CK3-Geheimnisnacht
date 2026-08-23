@@ -1325,6 +1325,11 @@ portrait_dde_abbasid_clothing_spouse_trigger = {
 	}	
 }
 
+##Abbasid clothing dlc trigger #EPE
+has_dde_abbasid_flavor_dlc_trigger = {
+	has_dlc = "Fashion of the Abbasid Court"
+}
+
 ### SP2 - Elegance of the Empire ###
 
 portrait_sp2_western_clothing_trigger = {
@@ -1342,33 +1347,6 @@ portrait_sp2_western_clothing_spouse_trigger = {
 		CULTURE_FLAG = western
 	}
 }
-
-portrait_rus_clothing_trigger = {
-	OR = {
-		portrait_shared_clothing_contents_trigger = {
-			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = east_slavic
-		}	
-		portrait_shared_clothing_contents_trigger = {
-			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = west_slavic
-		}
-	}
-}
-
-portrait_rus_clothing_spouse_trigger = {
-	OR = {
-		portrait_shared_clothing_contents_trigger = {
-			CULTURE_SCOPE = culture
-			CULTURE_FLAG = east_slavic
-		}	
-		portrait_shared_clothing_contents_trigger = {
-			CULTURE_SCOPE = culture
-			CULTURE_FLAG = west_slavic
-		}
-	}
-}
-
 
 portrait_can_use_noble_headgear_trigger = {
 	NAND = {
@@ -1457,20 +1435,6 @@ portrait_korean_clothing_spouse_trigger = {
 	}
 }
 
-portrait_malay_clothing_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = malay
-	}
-}
-
-portrait_malay_clothing_spouse_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = malay
-	}
-}
-
 portrait_southeast_asian_clothing_trigger = {
 	portrait_shared_clothing_contents_trigger = {
 		CULTURE_SCOPE = scope:culture
@@ -1482,144 +1446,6 @@ portrait_southeast_asian_clothing_spouse_trigger = {
 	portrait_shared_clothing_contents_trigger = {
 		CULTURE_SCOPE = culture
 		CULTURE_FLAG = southeast_asian
-	}
-}
-
-portrait_papuan_clothing_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = papuan
-	}
-}
-
-portrait_papuan_clothing_spouse_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = papuan
-	}
-}
-
-portrait_viet_clothing_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = viet
-	}
-}
-
-portrait_viet_clothing_spouse_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = viet
-	}
-}
-
-portrait_tai_clothing_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = tai
-	}
-}
-
-portrait_tai_clothing_spouse_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = tai
-	}
-}
-
-portrait_ainu_clothing_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = ainu
-	}
-}
-
-portrait_ainu_clothing_spouse_trigger = {
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = ainu
-	}
-}
-
-### CCP9 ###
-
-portrait_khitan_clothing_trigger = { 
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = khitan
-	}
-}
-
-portrait_khitan_clothing_spouse_trigger = {
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = khitan
-	}
-}
-
-portrait_dali_clothing_trigger = { #DALI DYNASTY
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = dali
-	}
-}
-
-portrait_dali_clothing_spouse_trigger = {
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = dali
-	}
-}
-
-portrait_uyghur_clothing_trigger = { #UYGHR DYNASTY
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = uyghur
-	}
-}
-
-portrait_uyghur_clothing_spouse_trigger = {
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = uyghur
-	}
-}
-
-portrait_tangut_clothing_trigger = { #TANGUT DYNASTY
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = tangut
-	}
-}
-
-portrait_tangut_clothing_spouse_trigger = {
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = tangut
-	}
-}
-
-portrait_jurchen_clothing_trigger = { #TANGUT DYNASTY
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = jurchen
-	}
-}
-
-portrait_jurchen_clothing_spouse_trigger = {
-	#has_cp9_dlc_trigger = yes
-	portrait_shared_clothing_contents_trigger = {
-		CULTURE_SCOPE = culture
-		CULTURE_FLAG = jurchen
 	}
 }
 
