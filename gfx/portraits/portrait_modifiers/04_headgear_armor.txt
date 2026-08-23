@@ -115,11 +115,7 @@
 				portrait_war_nobles_helmet_trigger = {
 					CULTURE_INPUT = dde_hre 
 				}
-				has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era2_armor_trigger = yes				
-                    portrait_era3_armor_trigger = yes
-                }				
+				has_ep2_dlc_trigger = yes			
 			}
 		}
 	}
@@ -148,7 +144,6 @@
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                NOT = { portrait_era3_trigger = yes } 
             }
 		}
 	}
@@ -175,7 +170,7 @@
 			modifier = {
 				add = 50
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western 
+					CULTURE_INPUT = western_proxy 
 				}
 			}			
             modifier = {
@@ -205,51 +200,12 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western 
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}								
+					CULTURE_INPUT = western_proxy 
+				}							
 				has_ep2_dlc_trigger = yes
-				portrait_era1_armor_trigger = yes
 			}
 		}
 	}
-	
-	ep2_anglo_saxon_era1_war = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ep2_western_era1_war_nobility
-				range = { 0.74 1 } # For the randomness to work correctly
-			}
-			accessory = {
-				mode = add
-				gene = additive_headgear
-				template = no_additive
-				range = { 0 1 } # For the randomness to work correctly
-			}				
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 90
-				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_english 
-				}
-				has_ep2_dlc_trigger = yes
-				portrait_era1_armor_trigger = yes
-			}
-		}
-	}	
 
 	ep2_western_era2_war = {
 		dna_modifiers = {
@@ -271,19 +227,10 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western 
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
+					CULTURE_INPUT = western_proxy 
 				}
 				
 				has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era2_armor_trigger = yes
-                    portrait_era3_armor_trigger = yes
-                }
 			}
 		}
 	}
@@ -308,12 +255,9 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western 
+					CULTURE_INPUT = western_proxy 
 				}
-				has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                }				
+				has_ep2_dlc_trigger = yes			
 			}
 		}
 	}
@@ -338,13 +282,12 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western 
+					CULTURE_INPUT = western_proxy 
 				}
-		                portrait_commoner_armor_trigger = { 
-		                    CULTURE_INPUT = western
-		                }
+				portrait_commoner_armor_trigger = { 
+					CULTURE_INPUT = western_proxy
+				}
 				has_ep2_dlc_trigger = yes
-				portrait_era3_trigger = yes # not using the armor trigger here because that was changed to be less historically accurate
 			}
 		}
 	}
@@ -369,13 +312,12 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western 
+					CULTURE_INPUT = western_proxy 
 				}
                 portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy
                 }
 				has_ep2_dlc_trigger = yes
-				portrait_era3_trigger = yes # not using the armor trigger here because that was changed to be less historically accurate
 			}
 		}
 	}
@@ -406,13 +348,12 @@
 			modifier = {
 				add = 100
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western 
+					CULTURE_INPUT = western_proxy 
 				}
                 portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy
                 }
 				has_ep2_dlc_trigger = yes
-				portrait_era3_trigger = yes # not using the armor trigger here because that was changed to be less historically accurate
 			}
 		}
 	}
@@ -437,10 +378,9 @@
 			modifier = {
 				add = 100
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western 
+					CULTURE_INPUT = western_proxy 
 				}
 				has_ep2_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -476,11 +416,6 @@
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're in the early era
                 has_ep2_dlc_trigger = yes   
-                OR = {
-                    portrait_era1_trigger = yes
-                    portrait_era2_trigger = yes
-                    portrait_era4_armor_trigger = yes					
-                }
             }
 		}
 	}
@@ -522,11 +457,6 @@
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're in the early era
                 has_ep2_dlc_trigger = yes   
-                OR = {
-                    portrait_era1_trigger = yes
-                    portrait_era2_trigger = yes
-                    portrait_era4_armor_trigger = yes					
-                }
             }
 		}
 	}	
@@ -554,23 +484,20 @@
             modifier = {
                 add = 50 # larger than the western war headgear
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
                 OR = {
                     portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }
                     portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }
                 }
             }
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're in the early era
                 has_ep3_dlc_trigger = yes   
-                OR = {
-                    portrait_era1_trigger = yes
-                }
             }			
         }
     }
@@ -596,18 +523,15 @@
             modifier = {
                 add = 50 # larger than the western war headgear
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
                 portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
             }
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're in the early era
                 has_ep3_dlc_trigger = yes   
-                OR = {
-                    portrait_era1_trigger = yes
-                }
             }			
         }
     }
@@ -633,18 +557,15 @@
             modifier = {
                 add = 60 # larger than the western war headgear
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
                 portrait_royalty_armor_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
             }
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're in the early era
                 has_ep3_dlc_trigger = yes   
-                OR = {
-                    portrait_era1_trigger = yes
-                }
             }			
         }
     }
@@ -670,21 +591,13 @@
             modifier = {
                 add = 60
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
-                has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                    portrait_era4_armor_trigger = yes  
-                } 				
+                has_ep2_dlc_trigger = yes			
             }
             modifier = {
                 factor = 0        # Not used if EP3 is active and we're in the wrong era
                 has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era1_armor_trigger = yes
-                    portrait_era2_armor_trigger = yes
-                }
             }
         }
     }
@@ -710,18 +623,14 @@
             modifier = {
                 add = 60
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
                 OR = {
                     portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }
                 }
                 has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era1_armor_trigger = yes
-                    portrait_era2_armor_trigger = yes
-                }
             }
         }
     }
@@ -746,18 +655,14 @@
             modifier = {
                 add = 60
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
                 OR = {
                     portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }
                 }
                 has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era1_armor_trigger = yes
-                    portrait_era2_armor_trigger = yes
-                }
             }
         }
     }
@@ -783,81 +688,17 @@
             modifier = {
                 add = 60
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = byzantine
-                }
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                }			
                 OR = {
                     portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }				
                     portrait_royalty_armor_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }
-                }
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}
-				NOT = {
-					portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}					
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}
-				NOT = {
-					portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}
-				NOT = {
-					portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}						
+                }						
                 has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era1_armor_trigger = yes
-
-                }
             }
         }
     }	
@@ -884,14 +725,9 @@
             modifier = {
                 add = 60
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 }
                 has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era2_armor_trigger = yes				
-                    portrait_era3_armor_trigger = yes
-                    portrait_era4_armor_trigger = yes
-                }
             }
         }
     }
@@ -919,14 +755,14 @@
             modifier = {
                 add = 50 # larger than the western war headgear
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }
                 OR = {
                     portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = indian
+                        CULTURE_INPUT = indian_proxy
                     }
                     portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = indian
+                        CULTURE_INPUT = indian_proxy
                     }
                 }
             }
@@ -954,10 +790,10 @@
             modifier = {
                 add = 50 # larger than the western war headgear
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }
                 portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }
             }
         }
@@ -984,10 +820,10 @@
             modifier = {
                 add = 101
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }
                 portrait_royalty_armor_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }
             }
         }
@@ -1014,7 +850,7 @@
             modifier = {
                 add = 60
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }
                 has_ep2_dlc_trigger = yes
             }
@@ -1044,7 +880,7 @@
             modifier = {
                 add = 50
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_war_nobles_helmet_trigger = { 
@@ -1058,10 +894,10 @@
 				}				
                 OR = {
                     portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = mena
+                        CULTURE_INPUT = mena_proxy
                     }
                     portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = mena
+                        CULTURE_INPUT = mena_proxy
                     }
                 }
 				NOT = {
@@ -1109,7 +945,7 @@
             modifier = {
                 add = 50
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_war_nobles_helmet_trigger = { 
@@ -1122,7 +958,7 @@
                     }
 				}				
                 portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_high_nobles_armor_trigger = { 
@@ -1159,7 +995,7 @@
             modifier = {
                 add = 60
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_war_nobles_helmet_trigger = { 
@@ -1266,79 +1102,16 @@
             modifier = {
                 add = 50
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = steppe
-                }
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}		
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				
+                    CULTURE_INPUT = steppe_proxy
+                }		
                 OR = {
                     portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = steppe
+                        CULTURE_INPUT = steppe_proxy
                     }
                     portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = steppe
+                        CULTURE_INPUT = steppe_proxy
                     }
                 }
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}				
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}	
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}				
-	
-				
             }
         }
     }
@@ -1364,55 +1137,11 @@
             modifier = {
                 add = 50
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = steppe
+                    CULTURE_INPUT = steppe_proxy
                 }
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}	
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-
-			
                 portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = steppe
+                    CULTURE_INPUT = steppe_proxy
                 }
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-
-			
             }
         }
     }
@@ -1438,29 +1167,8 @@
             modifier = {
                 add = 60
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = steppe
+                    CULTURE_INPUT = steppe_proxy
                 }
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}	
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				
                 has_ep2_dlc_trigger = yes
             }
         }
@@ -1482,262 +1190,16 @@
                 add = 80
                 OR = {
                     portrait_war_nobles_helmet_trigger = {
-                        CULTURE_INPUT = steppe
+                        CULTURE_INPUT = steppe_proxy
                     }
                     portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = steppe
+                        CULTURE_INPUT = steppe_proxy
                     }
                 }
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_war_nobles_helmet_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-
-				
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				
                 has_mpo_dlc_trigger = yes
             }
         }
     }
-	
-	
-####################################################################################################
-##################
-###Western Turk
-##################
-####################################################################################################
-
-
-	western_turk_war_era1 = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = western_turkic_headgear
-				range = { 0.85 0.90 } # For the randomness to work correctly
-			}
-			accessory = {
-				mode = add
-				gene = headgear_2
-				template = no_headgear
-				value = 0
-			}
-			accessory = {
-				mode = add
-				gene = additive_headgear
-				template = no_additive
-				value = 0
-			}			
-		}
-		outfit_tags = { military_outfit }
-		weight = {
-			base = 0
-			modifier = {
-				add = 50
-                portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }
-                OR = {
-                    portrait_era1_trigger = yes  				
-                }				
-			}
-		}
-	}
-	
-	
-	western_turk_war_khazar = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = western_turkic_headgear
-				range = { 0.91 0.94 } # For the randomness to work correctly
-			}
-			accessory = {
-				mode = add
-				gene = headgear_2
-				template = no_headgear
-				value = 0
-			}
-			accessory = {
-				mode = add
-				gene = additive_headgear
-				template = no_additive
-				value = 0
-			}			
-		}
-		outfit_tags = { military_outfit }
-		weight = {
-			base = 0
-			modifier = {
-				add = 50
-                portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }
-                OR = {
-                    portrait_era1_trigger = yes 				
-                    portrait_era2_trigger = yes  				
-                    portrait_era3_trigger = yes   				
-                    portrait_era4_trigger = yes  
-                }				
-			}
-		}
-	}
-
-	western_turk_war_cuman = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = western_turkic_headgear
-                accessory = male_kipchak_war_helmet_01
-			}
-			accessory = {
-				mode = add
-				gene = headgear_2
-				template = no_headgear
-				value = 0
-			}
-			accessory = {
-				mode = add
-				gene = additive_headgear
-				template = no_additive
-				value = 0
-			}			
-		}
-		outfit_tags = { military_outfit }
-		weight = {
-			base = 0
-			modifier = {
-				add = 55
-                portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }
-				OR = {
-					culture = culture:cuman
-					culture = {
-						any_parent_culture_or_above = {
-							this = culture:cuman
-						}
-					}
-
-					culture = culture:kipchak
-					culture = {
-						any_parent_culture_or_above = {
-							this = culture:kipchak
-						}
-					}
-
-					culture = culture:kimek
-					culture = {
-						any_parent_culture_or_above = {
-							this = culture:kimek
-						}
-					}
-					culture = culture:bolghar					
-					
-				}				
-				#is_female = no				
-                OR = { 				
-                    portrait_era3_trigger = yes   				
-                    portrait_era4_trigger = yes  
-                }				
-			}
-		}
-	}
-
-
-	ce2_cumanian_war = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = special_headgear_face_mask
-				template = fp3_iranian_face_mask_open
-				range = { 0 1 }
-			}
-			accessory = {
-				mode = add
-				gene = headgear
-				template = mpo_mongol_headgear
-                accessory = m_headgear_sec_mpo_mongol_war_nob_01
-			}
-		}
-		outfit_tags = { military_outfit }
-		weight = {
-			base = 0
-			modifier = {
-				add = 55
-                portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }				
-				OR = {
-					culture = culture:cuman
-					culture = {
-						any_parent_culture_or_above = {
-							this = culture:cuman
-						}
-					}
-
-					culture = culture:kipchak
-					culture = {
-						any_parent_culture_or_above = {
-							this = culture:kipchak
-						}
-					}
-
-					culture = culture:kimek
-					culture = {
-						any_parent_culture_or_above = {
-							this = culture:kimek
-						}
-					}
-					culture = culture:bolghar					
-					
-				}			
-                OR = { 				
-                    portrait_era3_trigger = yes   				
-                    portrait_era4_trigger = yes  
-                }
-			}
-		}
-	}		
-
 
 ####################################################################################################
 ##################
@@ -1765,7 +1227,7 @@
 			modifier = {
 				add = 50
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 			}
             modifier = {
@@ -1795,10 +1257,9 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes
-				portrait_era1_armor_trigger = yes
 			}
 		}
 	}
@@ -1823,14 +1284,10 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
  				has_fp1_dlc_trigger = yes				
 				has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era1_armor_trigger = yes				
-					portrait_era2_armor_trigger = yes				
-                }
 			}
 		}
 	}	
@@ -1855,12 +1312,9 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era2_armor_trigger = yes
-                }
 			}
 		}
 	}
@@ -1885,12 +1339,9 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse 
+					CULTURE_INPUT = norse_proxy 
 				}
-				has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                }				
+				has_ep2_dlc_trigger = yes			
 			}
 		}
 	}	
@@ -1915,12 +1366,9 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                }
 			}
 		}
 	}	
@@ -1945,26 +1393,25 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
                 OR = {
                     portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_norse
+                        CULTURE_INPUT = norse_proxy
                     }
                     AND = {
                         OR = {
                             portrait_low_nobles_armor_trigger = { 
-                                CULTURE_INPUT = epe_norse
+                                CULTURE_INPUT = norse_proxy
                             }
                             portrait_high_nobles_armor_trigger = { 
-                                CULTURE_INPUT = epe_norse
+                                CULTURE_INPUT = norse_proxy
                             }
                         }
                         portrait_wear_armor_currently_in_army_trigger = no
                     }
                 }
 				has_ep2_dlc_trigger = yes
-				portrait_era3_trigger = yes # not using the armor trigger here because that was changed to be less historically accurate
 			}
 		}
 	}
@@ -1989,14 +1436,13 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
                 portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_norse
+                    CULTURE_INPUT = norse_proxy
                 }
                 portrait_wear_armor_currently_in_army_trigger = yes
 				has_ep2_dlc_trigger = yes
-				portrait_era3_trigger = yes # not using the armor trigger here because that was changed to be less historically accurate
 			}
 		}
 	}
@@ -2027,14 +1473,13 @@
 			modifier = {
 				add = 100
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
                 portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_norse
+                    CULTURE_INPUT = norse_proxy
                 }
                 portrait_wear_armor_currently_in_army_trigger = yes
 				has_ep2_dlc_trigger = yes
-				portrait_era3_trigger = yes # not using the armor trigger here because that was changed to be less historically accurate
 			}
 		}
 	}
@@ -2059,10 +1504,9 @@
 			modifier = {
 				add = 100
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -2239,11 +1683,7 @@
                         CULTURE_INPUT = fp2_iberian_christian
                     }
                 }
-				has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era2_armor_trigger = yes
-                    portrait_era3_armor_trigger = yes
-                }				
+				has_ep2_dlc_trigger = yes			
             }
         }
     }
@@ -2274,11 +1714,7 @@
                 portrait_high_nobles_armor_trigger = {
                     CULTURE_INPUT = fp2_iberian_christian
                 }
-				has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era2_armor_trigger = yes
-                    portrait_era3_armor_trigger = yes
-                }				
+				has_ep2_dlc_trigger = yes		
             }
         }
     }	
@@ -2370,7 +1806,7 @@
             modifier = {
                 add = 100
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = african
+                    CULTURE_INPUT = african_proxy
                 }
             }
         }
@@ -2413,9 +1849,6 @@
                 portrait_war_nobles_helmet_trigger = {
                     CULTURE_INPUT = afr_berber
                 }
-                portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = epe_butr
-                }
 				has_afr_dlc_trigger = yes					
             }
         }
@@ -2449,9 +1882,6 @@
                 add = 101 # slightly higher than mena
                 portrait_war_nobles_helmet_trigger = {
                     CULTURE_INPUT = afr_berber
-                }
-                portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = epe_baranis
                 }
 				has_afr_dlc_trigger = yes					
             }
@@ -2512,10 +1942,6 @@
             base = 0
             modifier = {
                 add = 101
-				OR = {
-					portrait_era1_armor_trigger = yes
-					portrait_era2_armor_trigger = yes
-				}
                 OR = {
                     portrait_war_nobles_helmet_trigger = {
                         CULTURE_INPUT = west_slavic
@@ -2552,7 +1978,6 @@
             base = 0
             modifier = {
                 add = 100
-				portrait_era3_armor_trigger = yes
 				portrait_war_nobles_helmet_trigger = {
 					CULTURE_INPUT = west_slavic
 				}
@@ -2580,7 +2005,6 @@
             base = 0
             modifier = {
                 add = 101
-				portrait_era3_armor_trigger = yes
 				portrait_war_nobles_helmet_trigger = {
 					CULTURE_INPUT = west_slavic
 				}
@@ -2611,7 +2035,6 @@
             base = 0
             modifier = {
                 add = 102 
-				portrait_era4_armor_trigger = yes
                 OR = {
                     portrait_war_nobles_helmet_trigger = {
                         CULTURE_INPUT = west_slavic
@@ -2644,7 +2067,6 @@
             base = 0
             modifier = {
                 add = 103
-				portrait_era4_armor_trigger = yes
 				OR = {
 					portrait_royalty_armor_trigger = {
 						CULTURE_INPUT = west_slavic
@@ -3018,7 +2440,6 @@
 				}
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era3_trigger = yes
 			}
 		}
 	}
@@ -3056,7 +2477,6 @@
 				}
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era3_trigger = yes
 			}
 		}
 	}
@@ -3086,10 +2506,6 @@
 					}
 				}
 				has_cp5_dlc_trigger = yes
-				OR = {
-					portrait_era3_trigger = yes
-					portrait_era4_armor_trigger = yes
-				}
 			}
 		}
 	}
@@ -3110,7 +2526,6 @@
 				portrait_ccp5_french_culture_group_low_nobles_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era3_trigger = yes
 			}
 		}
 	}
@@ -3131,7 +2546,6 @@
 				portrait_ccp5_french_culture_group_high_nobles_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era3_trigger = yes
 			}
 		}
 	}
@@ -3152,7 +2566,6 @@
 				portrait_ccp5_english_culture_group_low_nobles_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era3_trigger = yes
 			}
 		}
 	}
@@ -3173,7 +2586,6 @@
 				portrait_ccp5_english_culture_group_high_nobles_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era3_trigger = yes
 			}
 		}
 	}
@@ -3195,7 +2607,6 @@
 				portrait_ccp5_english_culture_group_low_nobles_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3216,7 +2627,6 @@
 				portrait_ccp5_english_culture_group_high_nobles_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3237,7 +2647,6 @@
 				portrait_ccp5_french_culture_group_low_nobles_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3258,7 +2667,6 @@
 				portrait_ccp5_french_culture_group_high_nobles_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3292,7 +2700,6 @@
 				}
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3326,7 +2733,6 @@
 				}
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3352,7 +2758,6 @@
 				}
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3378,7 +2783,6 @@
 				}
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3404,7 +2808,6 @@
 				}
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3430,7 +2833,6 @@
 				}
 				portrait_wear_armor_currently_in_army_trigger = yes
 				has_cp5_dlc_trigger = yes
-				portrait_era4_armor_trigger = yes
 			}
 		}
 	}
@@ -3460,7 +2862,6 @@
 				}
 				portrait_religious_high_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
-				portrait_era3_armor_trigger = yes
 				has_cp5_dlc_trigger = yes
 			}
 			modifier = {
@@ -3507,7 +2908,6 @@
 				}
 				portrait_religious_christian_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
-				portrait_era3_armor_trigger = yes
 				has_cp5_dlc_trigger = yes
 			}
 			modifier = {
@@ -3551,7 +2951,6 @@
 				portrait_religious_high_trigger = yes
 				portrait_religious_christian_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
-				portrait_era3_armor_trigger = yes
 				has_cp5_dlc_trigger = yes
 			}
 			modifier = {
@@ -3587,7 +2986,6 @@
 				portrait_religious_high_trigger = yes
 				portrait_religious_christian_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
-				portrait_era4_armor_trigger = yes
 				has_cp5_dlc_trigger = yes
 			}
 			modifier = {
@@ -3621,7 +3019,6 @@
 				}
 				portrait_religious_high_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
-				portrait_era4_armor_trigger = yes
 				has_cp5_dlc_trigger = yes
 			}
 			modifier = {
@@ -3668,7 +3065,6 @@
 				}
 				portrait_religious_christian_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
-				portrait_era4_armor_trigger = yes
 				has_cp5_dlc_trigger = yes
 			}
 			modifier = {
@@ -3712,7 +3108,6 @@
 				portrait_religious_high_trigger = yes
 				portrait_religious_christian_trigger = yes
 				portrait_wear_armor_currently_in_army_trigger = yes
-				portrait_era4_armor_trigger = yes
 				has_cp5_dlc_trigger = yes
 			}
 			modifier = {
@@ -3736,26 +3131,25 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western
+					CULTURE_INPUT = western_proxy
 				}
 				OR = {
 					portrait_commoner_armor_trigger = {
-						CULTURE_INPUT = western
+						CULTURE_INPUT = western_proxy
 					}
 					AND = {
 						OR = {
 							portrait_low_nobles_armor_trigger = {
-								CULTURE_INPUT = western
+								CULTURE_INPUT = western_proxy
 							}
 							portrait_high_nobles_armor_trigger = {
-								CULTURE_INPUT = western
+								CULTURE_INPUT = western_proxy
 							}
 						}
 						portrait_wear_armor_currently_in_army_trigger = no
 					}
 				}
 				has_cp5_dlc_trigger = yes
-				portrait_era3_trigger = yes # not using the armor trigger here because that was changed to be less historically accurate
 			}
 		}
 	}
@@ -3774,14 +3168,13 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = western
+					CULTURE_INPUT = western_proxy
 				}
 				portrait_commoner_armor_trigger = {
-					CULTURE_INPUT = western
+					CULTURE_INPUT = western_proxy
 				}
 				portrait_wear_armor_currently_in_army_trigger = no
 				has_cp5_dlc_trigger = yes
-				portrait_era3_trigger = yes # not using the armor trigger here because that was changed to be less historically accurate
 			}
 		}
 	}	

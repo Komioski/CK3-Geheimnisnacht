@@ -19,69 +19,14 @@
             modifier = {
                 add = 50
 				OR = {
-					portrait_western_clothing_trigger = yes
-					portrait_epe_english_clothing_trigger = yes				
+					portrait_western_proxy_clothing_trigger = yes			
 					portrait_dde_hre_clothing_trigger = yes										
 				}
-				NOT = {
-					portrait_west_slavic_clothing_trigger = yes
-				}				
 				portrait_wear_armor_trigger = yes				
                 has_ep2_dlc_trigger = yes   
-                portrait_era1_armor_trigger = yes     
             }
         }
 	}
-
-
-	Andalusian_war_cloaks = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = cloaks
-				template = no_cloak
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-            modifier = {
-                add = 202
-				OR = {
-					portrait_fp2_iberian_muslim_clothing_trigger = yes									
-				}				
-				portrait_wear_armor_trigger = yes				  
-            }
-		}
-	}
-
-####################################################################################################
-##################
-###Gaelic/Irish
-##################
-####################################################################################################
-
-	gaelic_war = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = cloaks
-				template = gaelic_cloak_high_nobility
-                range = { 0 1 }
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 50
-				portrait_wear_armor_trigger = yes
-                portrait_epe_gaelic_clothing_trigger = yes
-				has_fp1_dlc_trigger = yes
-			}
-		}
-	}
-
-
 
 ####################################################################################################
 ##################
@@ -106,7 +51,7 @@
 			modifier = {
 				add = 102
 				portrait_wear_armor_trigger = yes
-				portrait_byzantine_clothing_trigger = yes
+				portrait_byzantine_proxy_clothing_trigger = yes
 				highest_held_title_tier = tier_empire
 			}
 		}
@@ -129,93 +74,21 @@
                 add = 60
                 OR = {
                     portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }				
                     portrait_royalty_armor_in_army_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }
                     portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }				
                     portrait_royalty_armor_trigger = {
-                        CULTURE_INPUT = byzantine
+                        CULTURE_INPUT = byzantine_proxy
                     }					
                 }
                 has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era1_armor_trigger = yes
-                    portrait_era2_armor_trigger = yes
-                }
             }
         }
     }	
-
-	
-####################################################################################################
-##################
-###Norman-Sicilian era 2-4
-##################
-####################################################################################################
-
-	ep3_epe_sicilian_era2_royal_war = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = cloaks
-				template = sp2_norman_sicilian_cloak_imperial
-                accessory = m_cloaks_sec_sp2_norman_sicilian_imp_01
-			}
-		}
-		outfit_tags = {
-			military_outfit
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 202
-				portrait_wear_armor_trigger = yes
-                OR = {
-				    portrait_epe_sicilian_clothing_trigger = yes				
-				    portrait_epe_norman_sicily_clothing_trigger = yes	                
-                }				
-				highest_held_title_tier >= tier_kingdom
-                has_ep3_dlc_trigger = yes
-                has_dlc_feature = elegance_of_the_empire 					
-			}
-		}
-	}	
-
-	vanilla_epe_sicilian_era2_royal_war = {
-		dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = cloaks
-                template = western_royalty
-                range = { 0 1 }
-            }
-		}
-		outfit_tags = {
-			military_outfit
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 202
-				portrait_wear_armor_trigger = yes
-                OR = {
-				    portrait_epe_sicilian_clothing_trigger = yes				
-				    portrait_epe_norman_sicily_clothing_trigger = yes	                
-                }				
-				highest_held_title_tier >= tier_kingdom
-                has_ep3_dlc_trigger = yes
-                NOT = { has_dlc_feature = elegance_of_the_empire   }						
-			}
-		}
-	}	
-	
-	
-	
-	
-	
 
 }

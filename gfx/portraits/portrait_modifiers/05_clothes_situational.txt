@@ -27,9 +27,9 @@
             }
             modifier = {
                 add = -50
-                portrait_byzantine_clothing_trigger = no
-                portrait_northern_clothing_trigger = no
-                portrait_western_clothing_trigger = no
+                portrait_byzantine_proxy_clothing_trigger = no
+                portrait_northern_proxy_clothing_trigger = no
+                portrait_western_proxy_clothing_trigger = no
             }
         }
     }
@@ -56,10 +56,10 @@
             }
             modifier = {
                 add = -50
-                portrait_mena_clothing_trigger = no
-                portrait_indian_clothing_trigger = no
-                portrait_steppe_clothing_trigger = no
-                portrait_african_clothing_trigger = no
+                portrait_mena_proxy_clothing_trigger = no
+                portrait_indian_proxy_clothing_trigger = no
+                portrait_steppe_proxy_clothing_trigger = no
+                portrait_african_proxy_clothing_trigger = no
 				portrait_fp2_iberian_muslim_clothing_trigger = no
             }
         }
@@ -81,10 +81,10 @@
                 add = 500
                 has_character_flag = peasant_outfit
                 NOR = {
-                    portrait_mena_clothing_trigger = yes
-                    portrait_indian_clothing_trigger = yes
-                    portrait_steppe_clothing_trigger = yes
-                    portrait_african_clothing_trigger = yes
+                    portrait_mena_proxy_clothing_trigger = yes
+                    portrait_indian_proxy_clothing_trigger = yes
+                    portrait_steppe_proxy_clothing_trigger = yes
+                    portrait_african_proxy_clothing_trigger = yes
 					portrait_fp2_iberian_muslim_clothing_trigger = yes
                 }
             }
@@ -92,10 +92,10 @@
                 add = 500
                 portrait_beggar_trigger = yes      
                 NOR = {
-                    portrait_mena_clothing_trigger = yes
-                    portrait_indian_clothing_trigger = yes
-                    portrait_steppe_clothing_trigger = yes
-                    portrait_african_clothing_trigger = yes
+                    portrait_mena_proxy_clothing_trigger = yes
+                    portrait_indian_proxy_clothing_trigger = yes
+                    portrait_steppe_proxy_clothing_trigger = yes
+                    portrait_african_proxy_clothing_trigger = yes
 					portrait_fp2_iberian_muslim_clothing_trigger = yes
                 }
             }
@@ -103,9 +103,9 @@
                 add = 120
                 portrait_prisoner_trigger = yes
                 OR = {
-                    portrait_byzantine_clothing_trigger = yes
-                    portrait_northern_clothing_trigger = yes
-                    portrait_western_clothing_trigger = yes
+                    portrait_byzantine_proxy_clothing_trigger = yes
+                    portrait_northern_proxy_clothing_trigger = yes
+                    portrait_western_proxy_clothing_trigger = yes
                 }
             }
         }
@@ -126,9 +126,9 @@
                 add = 110
                 portrait_stealth_trigger = yes
                 OR = {
-                    portrait_byzantine_clothing_trigger = yes
-                    portrait_northern_clothing_trigger = yes
-                    portrait_western_clothing_trigger = yes
+                    portrait_byzantine_proxy_clothing_trigger = yes
+                    portrait_northern_proxy_clothing_trigger = yes
+                    portrait_western_proxy_clothing_trigger = yes
                 }
             }
         }
@@ -149,10 +149,10 @@
                 add = 500
                 has_character_flag = peasant_outfit
                 OR = {
-                    portrait_mena_clothing_trigger = yes
-                    portrait_indian_clothing_trigger = yes
-                    portrait_steppe_clothing_trigger = yes
-                    portrait_african_clothing_trigger = yes
+                    portrait_mena_proxy_clothing_trigger = yes
+                    portrait_indian_proxy_clothing_trigger = yes
+                    portrait_steppe_proxy_clothing_trigger = yes
+                    portrait_african_proxy_clothing_trigger = yes
 					portrait_fp2_iberian_muslim_clothing_trigger = yes
                 }
             }
@@ -160,10 +160,10 @@
                 add = 500
                 portrait_beggar_trigger = yes
                 OR = {
-                    portrait_mena_clothing_trigger = yes
-                    portrait_indian_clothing_trigger = yes
-                    portrait_steppe_clothing_trigger = yes
-                    portrait_african_clothing_trigger = yes
+                    portrait_mena_proxy_clothing_trigger = yes
+                    portrait_indian_proxy_clothing_trigger = yes
+                    portrait_steppe_proxy_clothing_trigger = yes
+                    portrait_african_proxy_clothing_trigger = yes
 					portrait_fp2_iberian_muslim_clothing_trigger = yes
                 }
             }
@@ -171,10 +171,10 @@
                 add = 110
                 portrait_prisoner_trigger = yes
                 OR = {
-                    portrait_mena_clothing_trigger = yes
-                    portrait_indian_clothing_trigger = yes
-                    portrait_steppe_clothing_trigger = yes
-                    portrait_african_clothing_trigger = yes
+                    portrait_mena_proxy_clothing_trigger = yes
+                    portrait_indian_proxy_clothing_trigger = yes
+                    portrait_steppe_proxy_clothing_trigger = yes
+                    portrait_african_proxy_clothing_trigger = yes
 					portrait_fp2_iberian_muslim_clothing_trigger = yes
                 }
             }
@@ -197,10 +197,10 @@
                 add = 110
                 portrait_stealth_trigger = yes
                 OR = {
-                    portrait_mena_clothing_trigger = yes
-                    portrait_indian_clothing_trigger = yes
-                    portrait_steppe_clothing_trigger = yes
-                    portrait_african_clothing_trigger = yes
+                    portrait_mena_proxy_clothing_trigger = yes
+                    portrait_indian_proxy_clothing_trigger = yes
+                    portrait_steppe_proxy_clothing_trigger = yes
+                    portrait_african_proxy_clothing_trigger = yes
 					portrait_fp2_iberian_muslim_clothing_trigger = yes
                 }
             }
@@ -406,23 +406,17 @@
                 has_ce1_dlc_trigger = yes
 				OR = {
                     portrait_commoner_clothing_trigger = {
-                      CULTURE_INPUT = western
+                      CULTURE_INPUT = western_proxy
                     }
                     portrait_commoner_clothing_trigger = {
-                      CULTURE_INPUT = northern
-                    }
-                    portrait_commoner_clothing_trigger = {
-                      CULTURE_INPUT = epe_english
-                    }
-                    portrait_commoner_clothing_trigger = {
-                      CULTURE_INPUT = epe_gaelic
+                      CULTURE_INPUT = northern_proxy
                     }
 				}
             }
             modifier = {
                 add = 20
                 has_ce1_dlc_trigger = yes
-                portrait_western_clothing_trigger = yes
+                portrait_western_proxy_clothing_trigger = yes
 				government_has_flag = government_is_landless_adventurer
 				OR = {
 					has_realm_law = camp_purpose_scholars
@@ -459,11 +453,7 @@
                 add = 1000
                 has_court_position = court_musician_court_position
                 has_ce1_dlc_trigger = yes
-                portrait_western_clothing_trigger = yes
-                OR = {
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                } 
+                portrait_western_proxy_clothing_trigger = yes
             }
             modifier = {
                 factor = 0

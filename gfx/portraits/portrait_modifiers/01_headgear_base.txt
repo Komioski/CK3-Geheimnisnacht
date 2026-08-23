@@ -57,7 +57,6 @@ headgear_base = {
 					CULTURE_INPUT = french
 				}
 				has_dlc_feature = couture_of_the_capets
-				portrait_era3_trigger = yes 
 			}
 			modifier = {
 				add = 50
@@ -66,10 +65,6 @@ headgear_base = {
                     CULTURE_INPUT = french 
                 }
                 has_dlc_feature = couture_of_the_capets
-                OR = {
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
 			}
 		}
 	}
@@ -93,10 +88,6 @@ headgear_base = {
                 }
                 has_dlc_feature = couture_of_the_capets
                 OR = {
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes 
-                }
-                OR = {
 					AND = {
 						is_independent_ruler = no    
 						prestige_level <= 4
@@ -113,10 +104,6 @@ headgear_base = {
                     CULTURE_INPUT = french 
                 }
                 has_dlc_feature = couture_of_the_capets
-                OR = {
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes 
-                }
                 OR = {
 					AND = {
 						is_independent_ruler = no    
@@ -151,10 +138,6 @@ headgear_base = {
                     CULTURE_INPUT = french 
                 }
 				has_dlc_feature = couture_of_the_capets
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes
-                }  
 			}
 			modifier = {
 				add = 50
@@ -162,10 +145,6 @@ headgear_base = {
                     CULTURE_INPUT = french 
                 }
 				has_dlc_feature = couture_of_the_capets
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes
-                } 
 				is_female = yes				 
 			}			
 		}
@@ -190,33 +169,8 @@ headgear_base = {
 				has_dlc_feature = elegance_of_the_empire
 				OR = {
 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = western
+						CULTURE_INPUT = western_proxy
 					}						
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_east_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gaelic
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_balto_finnic
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
 				}
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
@@ -234,62 +188,12 @@ headgear_base = {
 				has_dlc_feature = elegance_of_the_empire
 				OR = {
 					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = western
+						CULTURE_INPUT = western_proxy
 					}	
 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = western
+						CULTURE_INPUT = western_proxy
 					}					
 				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_east_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_east_slav
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gaelic
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gaelic
-                    }
-				}	
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_balto_finnic
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_balto_finnic
-                    }
-				}					
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}		
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
                     CULTURE_INPUT = french
@@ -310,9 +214,6 @@ headgear_base = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes 
-                NOT = {
-					portrait_era1_trigger = yes 
-                }  
             }
 		}
 	}
@@ -334,23 +235,8 @@ headgear_base = {
 				has_dlc_feature = elegance_of_the_empire
 				OR = {
 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = western
+						CULTURE_INPUT = western_proxy
 					}					
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_east_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_balto_finnic
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gaelic
-                    }
 				}
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
@@ -364,41 +250,11 @@ headgear_base = {
 				has_dlc_feature = elegance_of_the_empire
 				OR = {
 					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = western
+						CULTURE_INPUT = western_proxy
 					}	
 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = western
+						CULTURE_INPUT = western_proxy
 					}					
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_east_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_east_slav
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_balto_finnic
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_balto_finnic
-                    }
-				}				
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gaelic
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gaelic
-                    }
 				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -415,9 +271,6 @@ headgear_base = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes 
-                NOT = {
-                	portrait_era2_trigger = yes 
-                }  
             }
 		}
 	}
@@ -438,7 +291,7 @@ headgear_base = {
 				add = 50
 				has_dlc_feature = elegance_of_the_empire
 				portrait_high_nobles_headgear_trigger = {
-					CULTURE_INPUT = western
+					CULTURE_INPUT = western_proxy
 				}
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
@@ -449,10 +302,6 @@ headgear_base = {
 			modifier = {
 				factor = 0
 				has_ep2_dlc_trigger = yes
-				NOR = {
-					portrait_era2_trigger = yes 
-					portrait_era3_trigger = yes
-				}
 			}
 		}
 	}
@@ -481,10 +330,6 @@ headgear_base = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                NOR = { 
-                	portrait_era3_trigger = yes 
-                	portrait_era4_trigger = yes 
-                } 
             }
 		}
 	}
@@ -510,10 +355,6 @@ headgear_base = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                NOR = { 
-                	portrait_era3_trigger = yes 
-                	portrait_era4_trigger = yes 
-                } 
             }
 		}
 	}
@@ -539,10 +380,6 @@ headgear_base = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                NOR = { 
-                	portrait_era3_trigger = yes 
-                	portrait_era4_trigger = yes 
-                } 
             }
 		}
 	}
@@ -568,10 +405,6 @@ headgear_base = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                NOR = { 
-                	portrait_era3_trigger = yes 
-                	portrait_era4_trigger = yes 
-                } 
             }
 		}
 	}
@@ -613,12 +446,7 @@ headgear_base = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = western
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy
 				}
 				NOT = {
 					portrait_commoner_headgear_fallback_trigger = { 
@@ -630,12 +458,7 @@ headgear_base = {
 			modifier = {
 				add = 20
 				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = western
-				}
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy
 				}
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
@@ -661,22 +484,7 @@ headgear_base = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = western
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
+					CULTURE_INPUT = western_proxy
 				}
 				NOT = {
 					portrait_commoner_headgear_fallback_trigger = { 
@@ -684,35 +492,18 @@ headgear_base = {
                     }
 				}					
 				has_ep2_dlc_trigger = yes 
-				portrait_era1_trigger = yes 
 			}
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy
                 }
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
 				NOT = {
 					portrait_commoner_headgear_fallback_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-                has_ep2_dlc_trigger = yes   
-                portrait_era1_trigger = yes     
+                has_ep2_dlc_trigger = yes     
             }
         }
     }
@@ -731,17 +522,7 @@ headgear_base = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = western
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy
 				}
 				NOT = {
 					portrait_commoner_headgear_fallback_trigger = { 
@@ -749,30 +530,18 @@ headgear_base = {
                     }
 				}					
 				has_ep2_dlc_trigger = yes 
-				portrait_era2_trigger = yes 
 			}
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy
                 } 
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}					
-                has_ep2_dlc_trigger = yes   
-                portrait_era2_trigger = yes     
+                has_ep2_dlc_trigger = yes        
             }
         }
     }
@@ -791,12 +560,7 @@ headgear_base = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = western
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy
 				}
 				NOT = {
 					portrait_commoner_headgear_fallback_trigger = { 
@@ -804,25 +568,18 @@ headgear_base = {
                     }
 				}					
 				has_ep2_dlc_trigger = yes 
-				portrait_era3_trigger = yes 
 			}
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy
                 }
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}					
                 has_ep2_dlc_trigger = yes   
-                portrait_era3_trigger = yes     
             }
         }
     }
@@ -841,42 +598,24 @@ headgear_base = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = western
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy
 				}
 				NOT = {
 					portrait_commoner_headgear_fallback_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-				OR = {
-					portrait_era3_trigger = yes
-					portrait_era4_trigger = yes
-				}
 			}
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy
                 }
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-				OR = {
-					portrait_era3_trigger = yes
-					portrait_era4_trigger = yes
-				}
             }
         }
     }
@@ -895,31 +634,20 @@ headgear_base = {
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_headgear_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy
 		        }
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					court_fashion_level_4_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
 		        has_ep2_dlc_trigger = yes 
-		        portrait_era1_trigger = yes 
 		    }
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
@@ -944,53 +672,22 @@ headgear_base = {
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_headgear_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy
 		        }
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
 				NOT = {
 					court_fashion_level_4_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
 		        has_ep2_dlc_trigger = yes 
-		        portrait_era1_trigger = yes 
 		    }
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}	
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}
@@ -999,8 +696,7 @@ headgear_base = {
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-                has_ep2_dlc_trigger = yes
-                portrait_era1_trigger = yes  
+                has_ep2_dlc_trigger = yes 
 			}
 		}
 	}
@@ -1019,48 +715,26 @@ headgear_base = {
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_headgear_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy
 		        }
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					court_fashion_level_4_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
 		        has_ep2_dlc_trigger = yes 
-		        portrait_era2_trigger = yes 
 		    }
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
                 has_ep2_dlc_trigger = yes
-                portrait_era2_trigger = yes  
 			}
 		}
 	}
@@ -1079,41 +753,26 @@ headgear_base = {
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_headgear_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy
 		        }
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					court_fashion_level_4_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
 		        has_ep2_dlc_trigger = yes 
-		        portrait_era3_trigger = yes 
 		    }
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
                 has_ep2_dlc_trigger = yes
-                OR = {
-                	portrait_era3_trigger = yes  
-                	portrait_era4_trigger = yes  
-                }
 			}
 		}
 	}
@@ -1132,44 +791,26 @@ headgear_base = {
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_headgear_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy
 		        }
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					court_fashion_level_4_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
 		        has_ce1_dlc_trigger = yes
-                OR = {
-                	portrait_era3_trigger = yes  
-                	portrait_era4_trigger = yes  
-                }
 		    }
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
                 has_ce1_dlc_trigger = yes
-                OR = {
-                	portrait_era3_trigger = yes  
-                	portrait_era4_trigger = yes  
-                }
 			}
 		}
 	}
@@ -1189,13 +830,8 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
@@ -1221,30 +857,14 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = western 
-                }
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
+                    CULTURE_INPUT = western_proxy 
+                }			
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
                 has_ep2_dlc_trigger = yes
-                portrait_era1_trigger = yes  
 			}
 		}
 	}
@@ -1263,23 +883,14 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
                 has_dlc_feature = couture_of_the_capets
-                OR = {
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes 
-                }
                 OR = {
 					AND = {
 						is_independent_ruler = no    
@@ -1294,23 +905,14 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
                 has_dlc_feature = couture_of_the_capets
-                OR = {
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes 
-                }
                 OR = {
 					AND = {
 						is_independent_ruler = no    
@@ -1343,7 +945,7 @@ headgear_base = {
 			modifier = {
 				add = 50
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = western 
+					CULTURE_INPUT = western_proxy 
 				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -1370,12 +972,7 @@ headgear_base = {
 			modifier = {
 				add = 50
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = western 
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy 
 				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -1392,9 +989,6 @@ headgear_base = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes 
-                NOT = {
-                	portrait_era2_trigger = yes  
-                }  
             }
 		}
 	}
@@ -1414,12 +1008,7 @@ headgear_base = {
 			modifier = {
 				add = 50
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = western 
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy 
 				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -1436,9 +1025,6 @@ headgear_base = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes 
-                NOT = {
-                	portrait_era1_trigger = yes
-                }  
             }
 		}
 	}
@@ -1458,30 +1044,14 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}					
                 has_ep2_dlc_trigger = yes
-                portrait_era1_trigger = yes  
 			}
 		}
 	}
@@ -1501,25 +1071,14 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}					
                 has_ep2_dlc_trigger = yes
-                portrait_era2_trigger = yes  
 			}
 			modifier = {
 				factor = 0
@@ -1543,23 +1102,14 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}					
                 has_ep2_dlc_trigger = yes
-                OR = {
-                	portrait_era3_trigger = yes
-                	portrait_era4_trigger = yes
-                }  
 			}
 		}
 	}
@@ -1579,12 +1129,7 @@ headgear_base = {
 			modifier = {
 				add = 50
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = western 
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy 
 				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -1614,25 +1159,14 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}	
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}					
                 has_ce1_dlc_trigger = yes
-                portrait_era2_trigger = yes  
 			}
 		}
 	}
@@ -1651,12 +1185,7 @@ headgear_base = {
 			modifier = {
 				add = 50
 				portrait_imperial_headgear_trigger = {
-					CULTURE_INPUT = western 
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = western_proxy 
 				}
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
@@ -1668,27 +1197,7 @@ headgear_base = {
 			modifier = {
 				add = 50
 				portrait_imperial_headgear_trigger = {
-					CULTURE_INPUT = northern 
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_east_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_balto_finnic
-                    }
-				}					
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gaelic
-                    }
-				}	
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
+					CULTURE_INPUT = northern_proxy 
 				}
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
@@ -1715,57 +1224,21 @@ headgear_base = {
 			modifier = {
 				add = 100
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
 				portrait_imperial_headgear_trigger = {  
                     CULTURE_INPUT = french
-                }
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+                }			
                 has_ep2_dlc_trigger = yes
-                portrait_era1_trigger = yes  
 			}
 			modifier = {
 				add = 100
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
 				portrait_imperial_headgear_trigger = {  
                     CULTURE_INPUT = french
                 }
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
@@ -1773,7 +1246,6 @@ headgear_base = {
 				}				
 				is_female = yes					
                 has_ep2_dlc_trigger = yes
-                portrait_era1_trigger = yes  	
 			}
 		}
 	}
@@ -1793,28 +1265,14 @@ headgear_base = {
 			modifier = {
 				add = 85
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
                 has_ep2_dlc_trigger = yes
-                OR = {
-                	portrait_era2_trigger = yes
-                	portrait_era3_trigger = yes
-                }  
 			}
 
 		}
@@ -1835,47 +1293,14 @@ headgear_base = {
 			modifier = {
 				add = 85
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = western 
+                    CULTURE_INPUT = western_proxy 
                 }
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
                 has_ep2_dlc_trigger = yes
-                OR = {
-                	portrait_era4_trigger = yes
-                }  
-			}
-			modifier = {
-				add = 85
-                portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
-                }
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_east_slav
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_balto_finnic
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gaelic
-                    }
-				}				
-                has_ep2_dlc_trigger = yes
-                OR = {
-                	portrait_era4_trigger = yes
-                }  
 			}
 		}
 	}
@@ -1895,12 +1320,9 @@ headgear_base = {
 			base = 0
 			modifier = {
 				add = 10
-                OR = {
-                    portrait_era4_trigger = yes   				 
-                }	
 				OR = {
-					portrait_western_clothing_trigger = yes
-					portrait_western_clothing_spouse_trigger = yes
+					portrait_western_proxy_clothing_trigger = yes
+					portrait_western_proxy_clothing_spouse_trigger = yes
 				}
 				OR = {
 					AND = {
@@ -1921,9 +1343,8 @@ headgear_base = {
 			}
 			modifier = {
 				add = 30
-				portrait_era4_trigger = yes
                 portrait_low_nobles_trigger = {
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy
                 }
 			}
 		}
@@ -1945,54 +1366,14 @@ headgear_base = {
 			modifier = {
 				add = 80
                 portrait_commoner_headgear_fallback_trigger = {
-                    CULTURE_INPUT = byzantine
-                }
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                }			
 			}
 			modifier = {
 				add = 20
                 portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = byzantine
-                }
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                }		
 			}
             modifier = {
                 factor = 0     
@@ -2015,55 +1396,15 @@ headgear_base = {
 			modifier = {
 				add = 80
                 portrait_commoner_headgear_fallback_trigger = {
-                    CULTURE_INPUT = byzantine
-                }
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                }			
 				has_ep3_dlc_trigger = yes 
 			}
 			modifier = {
 				add = 20
                 portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = byzantine
-                }
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                }			
 				has_ep3_dlc_trigger = yes 
 			}
 		}
@@ -2084,28 +1425,8 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = byzantine 
-                }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy 
+                }			
 			}
             modifier = {
                 factor = 0     
@@ -2128,58 +1449,16 @@ headgear_base = {
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_headgear_trigger = {
-		            CULTURE_INPUT = byzantine
-		        }
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}					
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+		            CULTURE_INPUT = byzantine_proxy
+		        }			
 		        has_ep3_dlc_trigger = yes 
-		        portrait_era1_trigger = yes 
 		    }
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = byzantine 
-                }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy 
+                }			
                 has_ep3_dlc_trigger = yes
-                portrait_era1_trigger = yes  
 			}
 		}
 	}
@@ -2198,19 +1477,18 @@ headgear_base = {
 		    modifier = {
 		        add = 25
 		        has_ep3_dlc_trigger = yes 
-		        portrait_era1_trigger = yes
 				is_independent_ruler = no 
 		        OR = {
 	                portrait_low_nobles_clothing_trigger = {  
-	                    CULTURE_INPUT = byzantine 
+	                    CULTURE_INPUT = byzantine_proxy 
 	                }
 		        }
 		        NOR = {
 	                portrait_royalty_headgear_trigger = {  
-	                    CULTURE_INPUT = byzantine 
+	                    CULTURE_INPUT = byzantine_proxy 
 	                }	
 	                portrait_imperial_headgear_trigger = {  
-	                    CULTURE_INPUT = byzantine 
+	                    CULTURE_INPUT = byzantine_proxy 
 	                }	        
 		        }
 		    }
@@ -2218,9 +1496,9 @@ headgear_base = {
 		    modifier = {
 		        add = 40
 		        has_ep3_dlc_trigger = yes 
-		        portrait_era1_trigger = yes 
+
                 portrait_commoner_clothing_trigger = {  
-                    CULTURE_INPUT = byzantine 
+                    CULTURE_INPUT = byzantine_proxy 
                 }
 		    }
 		}
@@ -2241,66 +1519,16 @@ headgear_base = {
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_headgear_trigger = {
-		            CULTURE_INPUT = byzantine
-		        }
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}					
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}					
+		            CULTURE_INPUT = byzantine_proxy
+		        }				
 		        has_ep3_dlc_trigger = yes 
-                OR = {
-                    portrait_era2_trigger = yes  
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                }  
 		    }
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = byzantine 
-                }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}					
+                    CULTURE_INPUT = byzantine_proxy 
+                }					
                 has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era2_trigger = yes  
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                }  
 			}
 		}
 	}
@@ -2319,28 +1547,8 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = byzantine
-                }  
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}					
+                    CULTURE_INPUT = byzantine_proxy
+                }  					
 			}
             modifier = {
                 factor = 0 
@@ -2363,30 +1571,9 @@ headgear_base = {
 			modifier = {
 				add = 10
                 portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = byzantine
-                }
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                }				
 		        has_ep3_dlc_trigger = yes 
-                portrait_era1_trigger = yes 
 			}
 		}
 	}
@@ -2405,34 +1592,9 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = byzantine
-                } 
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
-		        has_ep3_dlc_trigger = yes 
-                OR = {
-                    portrait_era2_trigger = yes  
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                }  
+                    CULTURE_INPUT = byzantine_proxy
+                } 			
+		        has_ep3_dlc_trigger = yes  
 			}
 		}
 	}
@@ -2451,28 +1613,8 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = byzantine
-                }
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                }			
 			}
             modifier = {
                 factor = 0     
@@ -2495,30 +1637,9 @@ headgear_base = {
 			modifier = {
 				add = 85
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = byzantine 
-                }
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy 
+                }			
                 has_ep3_dlc_trigger = yes
-                portrait_era1_trigger = yes  
 			}
 		}
 	}
@@ -2537,34 +1658,9 @@ headgear_base = {
             modifier = {
                 add = 85
                 portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = byzantine
-                } 
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                } 			
                 has_ep3_dlc_trigger = yes   
-                OR = {
-                    portrait_era2_trigger = yes  
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                }     
             }
         }
     }
@@ -2583,28 +1679,8 @@ headgear_base = {
 			modifier = {
 				add = 50
 				portrait_imperial_headgear_trigger = {
-                    CULTURE_INPUT = byzantine 
-                }
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy 
+                }			
 			}
             modifier = {
                 factor = 0     
@@ -2627,28 +1703,8 @@ headgear_base = {
 			modifier = {
 				add = 50
 				portrait_imperial_headgear_trigger = {
-					CULTURE_INPUT = byzantine 
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+					CULTURE_INPUT = byzantine_proxy 
+				}			
 			}
 			modifier = {
 				factor = 0
@@ -2665,18 +1721,10 @@ headgear_base = {
             modifier = {
                 factor = 0     
                 has_ep3_dlc_trigger = yes 
-                OR = {
-					portrait_era3_trigger = yes
-					portrait_era4_trigger = yes 
-                }
             }
 			modifier = {
                 factor = 0     
                 has_ep3_dlc_trigger = yes 
-                OR = {
-					portrait_era1_trigger = yes
-					portrait_era2_trigger = yes 
-                }
             }
 		}
 	}
@@ -2695,30 +1743,9 @@ headgear_base = {
 			modifier = {
 				add = 85
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = byzantine 
-                }
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy 
+                }			
                 has_ep3_dlc_trigger = yes
-                portrait_era1_trigger = yes  
 			}
 		}
 	}
@@ -2737,34 +1764,9 @@ headgear_base = {
             modifier = {
                 add = 85
                 portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = byzantine
-                }
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_armenian
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_georgian
-                    }
-				}	
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_south_slav
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}                
+                    CULTURE_INPUT = byzantine_proxy
+                }            
                 has_ep3_dlc_trigger = yes   
-                OR = {
-                    portrait_era2_trigger = yes  
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                }     
             }
         }
     }
@@ -2785,19 +1787,19 @@ headgear_base = {
 			modifier = {
 				add = 80
                 portrait_commoner_headgear_fallback_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }
 			}
 			modifier = { # Non-european jesters should not use the jester hat
 				add = 1000
 				portrait_jester_trigger = {  
-                    CULTURE_INPUT = indian 
+                    CULTURE_INPUT = indian_proxy 
                 }
 			}
 			modifier = {
 				add = 20
 				portrait_commoner_clothing_trigger = {  
-                    CULTURE_INPUT = indian 
+                    CULTURE_INPUT = indian_proxy 
                 }
 			}
 		}
@@ -2818,7 +1820,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = indian 
+                    CULTURE_INPUT = indian_proxy 
                 }
 			}
 		}
@@ -2838,7 +1840,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }   
 			}
 		}
@@ -2858,7 +1860,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = indian
+                    CULTURE_INPUT = indian_proxy
                 }   
 			}
 		}
@@ -2878,7 +1880,7 @@ headgear_base = {
 			modifier = {
 				add = 100
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = indian
+					CULTURE_INPUT = indian_proxy
 				}
 				culture = {
 					has_cultural_pillar = heritage_burman
@@ -2926,7 +1928,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {
-                    CULTURE_INPUT = indian 
+                    CULTURE_INPUT = indian_proxy 
                 }
 			}
 		}
@@ -2946,7 +1948,7 @@ headgear_base = {
 			modifier = {
 				add = 100
                 portrait_imperial_headgear_trigger = {
-                    CULTURE_INPUT = indian 
+                    CULTURE_INPUT = indian_proxy 
                 }
 				culture = {
 					has_cultural_pillar = heritage_burman
@@ -2972,7 +1974,7 @@ headgear_base = {
 			modifier = {
 				add = 80
                 portrait_commoner_headgear_fallback_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_commoner_headgear_fallback_trigger = { 
@@ -2985,15 +1987,6 @@ headgear_base = {
 				}
 				NOT = {
 					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_butr
-                    }
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}					
@@ -3001,13 +1994,13 @@ headgear_base = {
 			modifier = { # Non-european jesters should not use the jester hat
 				add = 1000
                 portrait_jester_trigger = {  
-                    CULTURE_INPUT = mena 
+                    CULTURE_INPUT = mena_proxy 
                 }
 			}
 			modifier = {
 				add = 20
                 portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
@@ -3017,15 +2010,6 @@ headgear_base = {
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3051,7 +2035,7 @@ headgear_base = {
 			modifier = {
 				add = 60
 				portrait_mayor_headgear_trigger = {
-					CULTURE_INPUT = mena
+					CULTURE_INPUT = mena_proxy
 				}
 				NOT = {
 					portrait_mayor_headgear_trigger = { 
@@ -3061,15 +2045,6 @@ headgear_base = {
 				NOT = {
 					portrait_mayor_headgear_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_mayor_headgear_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_mayor_headgear_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3096,7 +2071,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
@@ -3106,15 +2081,6 @@ headgear_base = {
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3126,7 +2092,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
@@ -3136,15 +2102,6 @@ headgear_base = {
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3171,7 +2128,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
@@ -3181,15 +2138,6 @@ headgear_base = {
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3201,7 +2149,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
@@ -3211,15 +2159,6 @@ headgear_base = {
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3246,7 +2185,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -3256,15 +2195,6 @@ headgear_base = {
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3276,7 +2206,7 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = mena
+                    CULTURE_INPUT = mena_proxy
                 }
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -3286,15 +2216,6 @@ headgear_base = {
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3321,7 +2242,7 @@ headgear_base = {
 			modifier = {
 				add = 100
                 portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = mena 
+                    CULTURE_INPUT = mena_proxy 
                 }
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -3334,30 +2255,7 @@ headgear_base = {
 				religion = religion:islam_religion
 				has_ep1_dlc_trigger = yes
 				is_female = no
-			}	
-			modifier = {
-                add = 60
-                has_ep1_dlc_trigger = yes    
-                portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = epe_seljuk
-                }  
-                OR = {
-					portrait_era3_trigger = yes  					
-                }				
-				is_female = no         
-            }
-            modifier = {
-                add = 60
-                has_ep1_dlc_trigger = yes    
-                portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = epe_islamic_iranian
-                }
-                OR = {
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  					
-                }				
-				is_female = no        				
-            }				
+			}		
 		}
 	}
 
@@ -3375,7 +2273,7 @@ headgear_base = {
 			modifier = {
 				add = 51
                 portrait_imperial_headgear_trigger = {
-                    CULTURE_INPUT = mena 
+                    CULTURE_INPUT = mena_proxy 
                 }
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
@@ -3385,15 +2283,6 @@ headgear_base = {
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3405,7 +2294,7 @@ headgear_base = {
 			modifier = {
 				add = 51
                 portrait_imperial_headgear_trigger = {
-                    CULTURE_INPUT = mena 
+                    CULTURE_INPUT = mena_proxy 
                 }
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
@@ -3415,15 +2304,6 @@ headgear_base = {
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
                     CULTURE_INPUT = fp3_iranian
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_baranis                 }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_butr
                     }
 				}
 				NOT = {
@@ -3455,11 +2335,6 @@ headgear_base = {
                 portrait_commoner_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
 				has_dde_abbasid_flavor_dlc_trigger = yes
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
@@ -3486,11 +2361,6 @@ headgear_base = {
 				portrait_mayor_headgear_trigger = {
 					CULTURE_INPUT = dde_abbasid
 				}
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
@@ -3502,11 +2372,6 @@ headgear_base = {
 				portrait_mayor_headgear_trigger = {
 					CULTURE_INPUT = dde_abbasid
 				}
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }	
 				is_female = yes	
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
@@ -3534,11 +2399,6 @@ headgear_base = {
                 portrait_low_nobles_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
@@ -3549,11 +2409,6 @@ headgear_base = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
                 }
 				is_female = yes	
 				NOT = {
@@ -3581,11 +2436,6 @@ headgear_base = {
                 portrait_high_nobles_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
 				has_dde_abbasid_flavor_dlc_trigger = yes	
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
@@ -3597,11 +2447,6 @@ headgear_base = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
                 }
 				NOT = {
 					portrait_high_nobles_headgear_trigger = { 
@@ -3630,11 +2475,6 @@ headgear_base = {
                 portrait_royalty_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
@@ -3646,11 +2486,6 @@ headgear_base = {
 				add = 50
                 portrait_royalty_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
                 }
 				NOT = {
 					portrait_royalty_headgear_trigger = { 
@@ -3679,11 +2514,6 @@ headgear_base = {
                 portrait_imperial_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid 
                 }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
@@ -3695,11 +2525,6 @@ headgear_base = {
 				add = 100 # pick over mena
                 portrait_imperial_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid 
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
                 }
 				NOT = {
 					portrait_imperial_headgear_trigger = { 
@@ -3740,8 +2565,7 @@ headgear_base = {
 					portrait_commoner_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
-				}				
-                portrait_era1_trigger = yes 				
+				}								
 			}
 		}
 	}
@@ -3766,8 +2590,7 @@ headgear_base = {
 					portrait_mayor_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
-				}				
-                portrait_era1_trigger = yes				
+				}						
 			}
 			modifier = {
 				add = 60
@@ -3779,7 +2602,6 @@ headgear_base = {
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}					
-                portrait_era1_trigger = yes		
 				is_female = yes		
 			}
 		}
@@ -3806,8 +2628,7 @@ headgear_base = {
 					portrait_low_nobles_clothing_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
-				}					
-                portrait_era1_trigger = yes				
+				}		
 			}
 			modifier = {
 				add = 50
@@ -3819,7 +2640,6 @@ headgear_base = {
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-                portrait_era1_trigger = yes
 				is_female = yes				
 			}
 		}
@@ -3845,8 +2665,7 @@ headgear_base = {
 					portrait_high_nobles_headgear_trigger = { 
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
-				}				
-                portrait_era1_trigger = yes 				
+				}								
 			}
 			modifier = {
 				add = 50
@@ -3858,7 +2677,6 @@ headgear_base = {
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-                portrait_era1_trigger = yes 
 				is_female = yes					
 			}
 		}
@@ -3885,7 +2703,6 @@ headgear_base = {
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-                portrait_era1_trigger = yes 
 				has_dde_abbasid_flavor_dlc_trigger = yes				
 			}
 			modifier = {
@@ -3898,7 +2715,6 @@ headgear_base = {
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-                portrait_era1_trigger = yes 
 				has_dde_abbasid_flavor_dlc_trigger = yes	
 				is_female = yes				
 			}
@@ -3926,7 +2742,6 @@ headgear_base = {
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-                portrait_era1_trigger = yes 
 				has_dde_abbasid_flavor_dlc_trigger = yes				
 			}
 			modifier = {
@@ -3939,7 +2754,6 @@ headgear_base = {
                     CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-                portrait_era1_trigger = yes 
 				has_dde_abbasid_flavor_dlc_trigger = yes	
 				is_female = yes			
 			}
@@ -3969,8 +2783,7 @@ headgear_base = {
 				is_female = no  ##Male only
                 portrait_commoner_clothing_trigger = {
                     CULTURE_INPUT = fp2_iberian_muslim
-                }				
-                portrait_era1_trigger = yes 				
+                }				 				
 			}
 		}
 	}
@@ -3991,8 +2804,7 @@ headgear_base = {
 				is_female = no  ##Male only				
 				portrait_mayor_headgear_trigger = {
 					CULTURE_INPUT = fp2_iberian_muslim
-				}
-                portrait_era1_trigger = yes				
+				}		
 			}
 		}
 	}	
@@ -4014,8 +2826,7 @@ headgear_base = {
 				is_female = no  ##Male only				
                 portrait_low_nobles_clothing_trigger = {
                     CULTURE_INPUT = fp2_iberian_muslim
-                }
-                portrait_era1_trigger = yes				
+                }		
 			}
 		}
 	}
@@ -4036,15 +2847,13 @@ headgear_base = {
 				is_female = no  ##Male only				
                 portrait_high_nobles_headgear_trigger = {
                     CULTURE_INPUT = fp2_iberian_muslim
-                }
-                portrait_era1_trigger = yes 				
+                }				
 			}
 			modifier = {
 				add = 100
                 portrait_high_nobles_headgear_trigger = {
                     CULTURE_INPUT = fp2_iberian_muslim
                 }
-                portrait_era1_trigger = yes 
 				is_female = yes					
 			}
 		}
@@ -4069,7 +2878,6 @@ headgear_base = {
                 portrait_commoner_headgear_fallback_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                portrait_era1_trigger = yes
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4085,7 +2893,6 @@ headgear_base = {
                 portrait_commoner_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                portrait_era1_trigger = yes
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4109,7 +2916,6 @@ headgear_base = {
 				portrait_mayor_headgear_trigger = {
 					CULTURE_INPUT = dde_abbasid
 				}
-                portrait_era1_trigger = yes	
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4134,7 +2940,6 @@ headgear_base = {
                 portrait_low_nobles_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                portrait_era1_trigger = yes
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4143,8 +2948,7 @@ headgear_base = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                portrait_era1_trigger = yes
+				}
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }
@@ -4168,8 +2972,7 @@ headgear_base = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                } 
-                portrait_era1_trigger = yes
+                }
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4179,7 +2982,6 @@ headgear_base = {
                 portrait_high_nobles_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 } 
-                portrait_era1_trigger = yes
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }
@@ -4204,7 +3006,6 @@ headgear_base = {
                 portrait_royalty_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                portrait_era1_trigger = yes
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4214,7 +3015,6 @@ headgear_base = {
                 portrait_royalty_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                portrait_era1_trigger = yes
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }
@@ -4239,7 +3039,6 @@ headgear_base = {
                 portrait_imperial_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid 
                 }
-                portrait_era1_trigger = yes
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4249,7 +3048,6 @@ headgear_base = {
                 portrait_imperial_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid 
                 }
-                portrait_era1_trigger = yes
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }
@@ -4275,12 +3073,7 @@ headgear_base = {
 				add = 80
                 portrait_commoner_headgear_fallback_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }				
+                }			
 			}
 			modifier = { # Non-european jesters should not use the jester hat
 				add = 1000
@@ -4292,12 +3085,7 @@ headgear_base = {
 				add = 20
                 portrait_commoner_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }				
+                }		
 			}
 		}
 	}
@@ -4317,23 +3105,13 @@ headgear_base = {
 				add = 60
 				portrait_mayor_headgear_trigger = {
 					CULTURE_INPUT = dde_abbasid
-				}
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }				
+				}			
 			}
 			modifier = {
 				add = 60
 				portrait_mayor_headgear_trigger = {
 					CULTURE_INPUT = dde_abbasid
 				}
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
 				is_female = yes				
 			}
 		}
@@ -4355,22 +3133,12 @@ headgear_base = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }				
+                }			
 			}
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
                 }
 				is_female = yes				
 			}
@@ -4393,11 +3161,6 @@ headgear_base = {
                 portrait_high_nobles_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 } 
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4407,11 +3170,6 @@ headgear_base = {
                 portrait_high_nobles_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 } 
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }
@@ -4436,11 +3194,6 @@ headgear_base = {
                 portrait_royalty_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
                 }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4449,11 +3202,6 @@ headgear_base = {
 				add = 50
                 portrait_royalty_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
                 }
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
@@ -4479,11 +3227,6 @@ headgear_base = {
                 portrait_imperial_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid 
                 }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-                }
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
                 }				
@@ -4492,11 +3235,6 @@ headgear_base = {
 				add = 50
                 portrait_imperial_headgear_trigger = {
                     CULTURE_INPUT = dde_abbasid 
-                }
-                OR = {
-                    portrait_era2_trigger = yes  				
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
                 }
                 NOT = {
 					has_dde_abbasid_flavor_dlc_trigger = yes
@@ -4522,67 +3260,25 @@ headgear_base = {
 			modifier = {
 				add = 80
                 portrait_commoner_headgear_fallback_trigger = {
-                    CULTURE_INPUT = steppe
-                }
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_commoner_headgear_fallback_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				
+                    CULTURE_INPUT = steppe_proxy
+                }			
 			}
 			modifier = { # Non-european jesters should not use the jester hat
 				add = 1000
                 portrait_jester_trigger = {  
-                    CULTURE_INPUT = steppe 
+                    CULTURE_INPUT = steppe_proxy 
                 }
 				NOR = {
-					portrait_western_clothing_trigger = yes
-					portrait_byzantine_clothing_trigger = yes
-					portrait_northern_clothing_trigger = yes
+					portrait_western_proxy_clothing_trigger = yes
+					portrait_byzantine_proxy_clothing_trigger = yes
+					portrait_northern_proxy_clothing_trigger = yes
 				}
 			}
 			modifier = {
 				add = 20
                 portrait_commoner_clothing_trigger = {  
-                    CULTURE_INPUT = steppe 
-                }
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}	
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				
+                    CULTURE_INPUT = steppe_proxy 
+                }			
 			}
 		}
 	}
@@ -4602,30 +3298,8 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {
-                    CULTURE_INPUT = steppe
+                    CULTURE_INPUT = steppe_proxy
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-
-				
 			}
 		}
 	}
@@ -4644,30 +3318,8 @@ headgear_base = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = steppe
+                    CULTURE_INPUT = steppe_proxy
                 }
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-
-				
 			}
 		}
 	}
@@ -4687,63 +3339,21 @@ headgear_base = {
 				add = 50
 				OR = {
 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = steppe
+						CULTURE_INPUT = steppe_proxy
 					}   
 					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = steppe
+						CULTURE_INPUT = steppe_proxy
 					}   
 				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk
-                    }
-				}				
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}	
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_eastern_turk_muslim
-                    }
-				}
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}					
-				NOT = {
-					portrait_imperial_headgear_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}					
-
-				
 			}
 			modifier = {
 				add = -100
 				OR = {
 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = steppe
+						CULTURE_INPUT = steppe_proxy
 					}
 					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = steppe
+						CULTURE_INPUT = steppe_proxy
 					}
 				}
 				has_mpo_dlc_trigger = yes				
@@ -4774,58 +3384,24 @@ headgear_base = {
 				add = 50
                 OR = {
 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = epe_eastern_turk
+						CULTURE_INPUT = steppe_proxy
 					}   
 					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = epe_eastern_turk
-					} 
- 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = epe_western_turk
-					}   
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = epe_western_turk
-					} 						
+						CULTURE_INPUT = steppe_proxy
+					}					
 				}
-				has_ep1_dlc_trigger = yes				
-			}
-			modifier = {
-				add = 50
-                OR = {
-					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = epe_seljuk
-					}   
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = epe_seljuk
-					}						
-				}				
-                OR = {
-                    portrait_era1_trigger = yes  				
-                    portrait_era2_trigger = yes  				
-                    portrait_era3_trigger = yes  
-                }
-				is_female = no				
 				has_ep1_dlc_trigger = yes				
 			}			
 			modifier = {
 				add = 120
 				OR = {
 					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = epe_sino_iranian
+						CULTURE_INPUT = chinese
 					}   
 					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = epe_sino_iranian
-					}   
-					
-					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = epe_uyghur
-					}   
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = epe_uyghur
-					}					
-				}
-                OR = {
-                    portrait_era3_trigger = yes    				 
-                }					
+						CULTURE_INPUT = chinese
+					}  					
+				}				
 				has_tgp_dlc_trigger = yes
 				has_ep1_dlc_trigger = yes
 				is_female = no										
@@ -4855,7 +3431,7 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 85
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = steppe
+					CULTURE_INPUT = steppe_proxy
 				}
 				has_mpo_dlc_trigger = yes
 			}
@@ -4888,7 +3464,7 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 85
 				portrait_imperial_headgear_trigger = {
-					CULTURE_INPUT = steppe
+					CULTURE_INPUT = steppe_proxy
 				}
 				has_mpo_dlc_trigger = yes
 			}
@@ -4937,14 +3513,14 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				NOT = { has_ep2_dlc_trigger = yes }
 			}
 			modifier = {
 				add = 20
 				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				NOT = { has_ep2_dlc_trigger = yes }
 			}
@@ -4965,30 +3541,18 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes 
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes				
-					portrait_era2_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_norse
+                    CULTURE_INPUT = norse_proxy
                 } 
                 has_ep2_dlc_trigger = yes
-                has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes				
-					portrait_era2_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }         
+                has_fp1_dlc_trigger = yes				     
             }
         }
     }
@@ -5007,18 +3571,16 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes			
-				portrait_era1_trigger = yes 
 			}
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_norse
+                    CULTURE_INPUT = norse_proxy
                 } 
                 has_ep2_dlc_trigger = yes			
-                portrait_era1_trigger = yes     
             }
         }
     }
@@ -5037,18 +3599,16 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes 
-				portrait_era2_trigger = yes 
 			}
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_norse
+                    CULTURE_INPUT = norse_proxy
                 } 
-                has_ep2_dlc_trigger = yes   
-                portrait_era2_trigger = yes     
+                has_ep2_dlc_trigger = yes    
             }
         }
     }
@@ -5067,24 +3627,17 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes 
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes
-                }
+
 			}
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_norse
+                    CULTURE_INPUT = norse_proxy
                 } 
-                has_ep2_dlc_trigger = yes   
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes
-                }    
+                has_ep2_dlc_trigger = yes    
             }
         }
     }
@@ -5103,12 +3656,8 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 80
 				portrait_commoner_headgear_fallback_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes
-                }
 				NOT = {
 					portrait_religious_christian_trigger = yes
 				}  
@@ -5116,12 +3665,8 @@ mpo_mongol_royalty = {
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = epe_norse
+                    CULTURE_INPUT = norse_proxy
                 } 
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes
-                }
 				NOT = {
 					portrait_religious_christian_trigger = yes
 				}     
@@ -5143,14 +3688,14 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				court_fashion_level_4_headgear_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				NOT = { has_ep2_dlc_trigger = yes }
 			}
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 NOT = { has_ep2_dlc_trigger = yes }
 			}
@@ -5172,30 +3717,18 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				court_fashion_level_4_headgear_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes				
-					portrait_era2_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes				
-					portrait_era2_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
 		}
 	}
@@ -5214,24 +3747,22 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				court_fashion_level_4_headgear_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }					
-				portrait_era1_trigger = yes 
 			}
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }					
-                portrait_era1_trigger = yes  
 			}
 		}
 	}
@@ -5250,24 +3781,22 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				court_fashion_level_4_headgear_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes 
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-				portrait_era2_trigger = yes 
 			}
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                portrait_era2_trigger = yes  
 			}
 		}
 	}
@@ -5286,32 +3815,23 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				court_fashion_level_4_headgear_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
 				has_ep2_dlc_trigger = yes 
-				portrait_era3_trigger = yes 
 			}
 			modifier = {
 				add = 50
 				portrait_low_nobles_clothing_trigger = {  
-					CULTURE_INPUT = epe_norse 
+					CULTURE_INPUT = norse_proxy 
 				}
 				has_ep2_dlc_trigger = yes
-				OR = {
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-				}
 			}
 			modifier = {
 				add = 50
 				portrait_low_nobles_clothing_trigger = {  
-					CULTURE_INPUT = epe_norse 
+					CULTURE_INPUT = norse_proxy 
 				}
 				has_ep2_dlc_trigger = yes
-				OR = {
-					portrait_era3_trigger = yes  
-					portrait_era4_trigger = yes  
-				}
 				is_female = yes
 			}
 		}
@@ -5332,7 +3852,7 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 OR = {
                 AND = {
@@ -5363,26 +3883,18 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes									
-					portrait_era2_trigger_norse = yes					
-                } 
 			}
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes									
-					portrait_era2_trigger_norse = yes					
-                }
 				is_female = yes
 			}
 		}
@@ -5402,18 +3914,16 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes				
-                portrait_era1_trigger = yes  
 			}
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
-                has_ep2_dlc_trigger = yes				
-                portrait_era1_trigger = yes  
+                has_ep2_dlc_trigger = yes				 
 				is_female = yes
 			}
 		}
@@ -5434,13 +3944,12 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
-                }					
-                portrait_era2_trigger_norse = yes 					
+                }									
                 OR = {
                 AND = {
                     is_independent_ruler = no    
@@ -5455,13 +3964,12 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
-                }					
-                portrait_era2_trigger_norse = yes 						
+                }										
 				is_female = yes
                 OR = {
                 AND = {
@@ -5492,10 +4000,9 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }				
-                has_ep2_dlc_trigger = yes
-                portrait_era2_trigger_norse_westernize = yes 				
+                has_ep2_dlc_trigger = yes			
                 OR = {
 					AND = {
 						is_independent_ruler = no    
@@ -5511,10 +4018,9 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }				
-                has_ep2_dlc_trigger = yes
-                portrait_era2_trigger_norse_westernize = yes 					
+                has_ep2_dlc_trigger = yes					
 				is_female = yes 	
                 OR = {
 					AND = {
@@ -5545,14 +4051,10 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                } 
 				is_female = yes
 			}
 		}
@@ -5573,42 +4075,36 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 OR = {
-                AND = {
-                    is_independent_ruler = no    
-                    prestige_level <= 4
-                 }
-                AND = {
-                    is_independent_ruler = yes    
-                    prestige_level <= 3
-                 } 				
+					AND = {
+						is_independent_ruler = no    
+						prestige_level <= 4
+					}
+					AND = {
+						is_independent_ruler = yes    
+						prestige_level <= 3
+					} 				
                 }			
-                OR = {
-					portrait_era3_trigger = yes  
-                }
 			}
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 OR = {
-                AND = {
-                    is_independent_ruler = no    
-                    prestige_level <= 4
-                 }
-                AND = {
-                    is_independent_ruler = yes    
-                    prestige_level <= 3
-                 } 				
+					AND = {
+						is_independent_ruler = no    
+						prestige_level <= 4
+					}
+					AND = {
+						is_independent_ruler = yes    
+						prestige_level <= 3
+					} 				
                 }			
-                OR = {
-					portrait_era3_trigger = yes  
-                }
 				is_female = yes
 			}
 		}
@@ -5630,22 +4126,16 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era4_trigger = yes  
-                }
 			}
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era4_trigger = yes  
-                }
 				is_female = yes
 			}
 		}
@@ -5666,7 +4156,7 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = epe_norse 
+					CULTURE_INPUT = norse_proxy 
 				}
 				NOT = { has_ep2_dlc_trigger = yes }
 			}
@@ -5688,7 +4178,7 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = epe_norse 
+					CULTURE_INPUT = norse_proxy 
 				}
 			}
 			modifier = {
@@ -5700,9 +4190,6 @@ mpo_mongol_royalty = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes 
-                NOT = {
-					portrait_era2_trigger = yes  
-                }  
             }
 		}
 	}
@@ -5721,26 +4208,18 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes									
-					portrait_era2_trigger_norse = yes					
-                }
 			}
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes									
-					portrait_era2_trigger_norse = yes					
-                }
 				is_female = yes
 			}
 		}
@@ -5760,24 +4239,22 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                portrait_era1_trigger = yes  
 			}
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                portrait_era1_trigger = yes  
 				is_female = yes
 			}
 		}
@@ -5798,24 +4275,22 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                portrait_era2_trigger = yes  
 			}
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                portrait_era2_trigger = yes  
 				is_female = yes
 			}
 		}
@@ -5836,24 +4311,16 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era3_trigger = yes
-					portrait_era4_trigger = yes
-                }  
 			}
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era3_trigger = yes
-					portrait_era4_trigger = yes
-                }
 				is_female = yes  
 			}
 		}
@@ -5874,10 +4341,9 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }					
-                has_ep2_dlc_trigger = yes
-				portrait_era2_trigger_norse_westernize = yes					
+                has_ep2_dlc_trigger = yes	
 			}
 			modifier = {
 				factor = 0
@@ -5901,10 +4367,9 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_royalty_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }				
-                has_ce1_dlc_trigger = yes
-				portrait_era2_trigger_norse_westernize = yes					
+                has_ce1_dlc_trigger = yes				
 			}
 		}
 	}	
@@ -5924,14 +4389,14 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				portrait_imperial_headgear_trigger = {
-					CULTURE_INPUT = epe_norse 
+					CULTURE_INPUT = norse_proxy 
 				}
 				NOT = { has_ep2_dlc_trigger = yes }
 			}
 			modifier = {
 				add = 50
 				portrait_imperial_headgear_trigger = {
-					CULTURE_INPUT = epe_norse 
+					CULTURE_INPUT = norse_proxy 
 				}
 				NOT = { has_ep2_dlc_trigger = yes }
 				is_female = yes
@@ -5953,26 +4418,18 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes									
-					portrait_era2_trigger_norse = yes					
-                } 
 			}
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 has_fp1_dlc_trigger = yes				
-                OR = {
-					portrait_era1_trigger = yes									
-					portrait_era2_trigger_norse = yes					
-                } 
 				is_female = yes 
 			}
 		}
@@ -5992,24 +4449,22 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                portrait_era1_trigger = yes  
 			}
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                portrait_era1_trigger = yes 
 				is_female = yes 
 			}
 		}
@@ -6029,28 +4484,22 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                OR = {
-					portrait_era2_trigger = yes
-                }  
 			}
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
                     has_fp1_dlc_trigger = yes
                 }				
-                OR = {
-					portrait_era2_trigger = yes
-                }
 				is_female = yes  
 			}
 		}
@@ -6070,18 +4519,16 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
-				portrait_era2_trigger_norse_westernize = yes
 			}
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
-				portrait_era2_trigger_norse_westernize = yes
 				is_female = yes  
 			}
 		}
@@ -6101,24 +4548,16 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes
-                }  
 			}
 			modifier = {
 				add = 50
                 portrait_imperial_headgear_trigger = {  
-                    CULTURE_INPUT = epe_norse 
+                    CULTURE_INPUT = norse_proxy 
                 }
                 has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes
-                }
 				is_female = yes  
 			}
 		}
@@ -6140,14 +4579,10 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 20
                 portrait_commoner_clothing_trigger = {  
-                    CULTURE_INPUT = epe_norse # CULTURE_INPUT gets added into the trigger referenced in 00_clothing_triggers.txt so it's important the input is a correct match to an existing culture trigger
+                    CULTURE_INPUT = norse_proxy # CULTURE_INPUT gets added into the trigger referenced in 00_clothing_triggers.txt so it's important the input is a correct match to an existing culture trigger
                 }
                 has_ep2_dlc_trigger = yes 	
-	            has_dlc = "Garments of the Holy Roman Empire"	
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                } 				
+	            has_dlc = "Garments of the Holy Roman Empire"				
 			}
 		}
 	}
@@ -6167,14 +4602,10 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				portrait_low_nobles_clothing_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
                 has_ep2_dlc_trigger = yes 	
-	            has_dlc = "Garments of the Holy Roman Empire"	
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                } 					
+	            has_dlc = "Garments of the Holy Roman Empire"					
 			}
 		}
 	}
@@ -6194,14 +4625,10 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				portrait_high_nobles_headgear_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
                 has_ep2_dlc_trigger = yes 	
-	            has_dlc = "Garments of the Holy Roman Empire"	
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                } 					
+	            has_dlc = "Garments of the Holy Roman Empire"						
 			}
 		}
 	}
@@ -6221,15 +4648,10 @@ mpo_mongol_royalty = {
 			modifier = {
 				add = 50
 				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = epe_norse
+					CULTURE_INPUT = norse_proxy
 				}
                 has_ep2_dlc_trigger = yes 	
 	            has_dlc = "Garments of the Holy Roman Empire"	
-                OR = {
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                } 	
-				
 			}
 
 		}
@@ -6856,7 +5278,6 @@ ccp4_ugro_permian_high_nobles = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                portrait_era1_trigger = yes
             }
 		}
 	}
@@ -6882,7 +5303,6 @@ ccp4_ugro_permian_high_nobles = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                portrait_era1_trigger = yes 
             }
 		}
 	}
@@ -6907,7 +5327,6 @@ ccp4_ugro_permian_high_nobles = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                portrait_era1_trigger = yes 
             }
 		}
 	}
@@ -6932,7 +5351,6 @@ ccp4_ugro_permian_high_nobles = {
             modifier = {
                 factor = 0       # Should NOT show up if EP2 is active and we're not in the right era
                 has_ep2_dlc_trigger = yes   
-                portrait_era1_trigger = yes 
             }
 		}
 	}
@@ -7035,7 +5453,7 @@ ccp4_ugro_permian_high_nobles = {
 					AND = {
 						has_dlc_feature = the_northern_lords
 		                portrait_royalty_headgear_trigger = {
-		                    CULTURE_INPUT = northern
+		                    CULTURE_INPUT = northern_proxy
 		                } 
 					}
 	                portrait_royalty_headgear_trigger = {
@@ -7067,7 +5485,7 @@ ccp4_ugro_permian_high_nobles = {
 					AND = {
 						has_dlc_feature = the_northern_lords
 		                portrait_imperial_headgear_trigger = {
-		                    CULTURE_INPUT = northern
+		                    CULTURE_INPUT = northern_proxy
 		                } 
 					}
 	                portrait_imperial_headgear_trigger = {
@@ -7098,19 +5516,19 @@ ccp4_ugro_permian_high_nobles = {
 			modifier = {
 				add = 50
                 portrait_commoner_headgear_fallback_trigger = {
-                    CULTURE_INPUT = african
+                    CULTURE_INPUT = african_proxy
                 }
 			}
 			modifier = { # Non-european jesters should not use the jester hat
 				add = 1000
                 portrait_jester_trigger = {  
-                    CULTURE_INPUT = african 
+                    CULTURE_INPUT = african_proxy 
                 }
 			}
 			modifier = {
 				add = 50
                 portrait_commoner_clothing_trigger = {  
-                    CULTURE_INPUT = african 
+                    CULTURE_INPUT = african_proxy 
                 }
 			}
 		}
@@ -7130,7 +5548,7 @@ ccp4_ugro_permian_high_nobles = {
 			modifier = {
 				add = 50
                 portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = african
+                    CULTURE_INPUT = african_proxy
                 }   
 			}
 		}
@@ -7192,7 +5610,7 @@ ccp4_ugro_permian_high_nobles = {
 			modifier = {
 				add = 50
 				portrait_imperial_nobles_headgear_trigger = {
-					CULTURE_INPUT = african
+					CULTURE_INPUT = african_proxy
 				}
 			}
 		}
@@ -7214,7 +5632,7 @@ ccp4_ugro_permian_high_nobles = {
 			modifier = {
 				add = 100
                 portrait_war_nobles_helmet_trigger = {
-                    CULTURE_INPUT = african
+                    CULTURE_INPUT = african_proxy
                 }
 			}
 		}
@@ -7693,9 +6111,9 @@ ccp4_ugro_permian_high_nobles = {
 			modifier = {
 				add = 1000
 				OR = {
-					portrait_jester_trigger = { CULTURE_INPUT = western }
-					portrait_jester_trigger = { CULTURE_INPUT = byzantine }
-					portrait_jester_trigger = { CULTURE_INPUT = northern }
+					portrait_jester_trigger = { CULTURE_INPUT = western_proxy }
+					portrait_jester_trigger = { CULTURE_INPUT = byzantine_proxy }
+					portrait_jester_trigger = { CULTURE_INPUT = northern_proxy }
 				}				
 			}
 			modifier = {
@@ -7750,12 +6168,9 @@ ccp4_ugro_permian_high_nobles = {
 			base = -100
 			modifier = {
 				add = 110
-                OR = {
-                    portrait_era4_trigger = yes   				 
-                }	
 				OR = {
-					portrait_western_clothing_trigger = yes
-					portrait_western_clothing_spouse_trigger = yes
+					portrait_western_proxy_clothing_trigger = yes
+					portrait_western_proxy_clothing_spouse_trigger = yes
 				}
 				OR = {
 					AND = {
@@ -7812,8 +6227,8 @@ ccp4_ugro_permian_high_nobles = {
 				has_ep2_dlc_trigger = yes
 				portrait_ep2_wedding_clothes_trigger = yes
 				OR = {
-					portrait_western_clothing_trigger = yes
-					portrait_northern_clothing_trigger = yes
+					portrait_western_proxy_clothing_trigger = yes
+					portrait_northern_proxy_clothing_trigger = yes
 				}
 			}
 		}
@@ -7836,10 +6251,10 @@ ccp4_ugro_permian_high_nobles = {
 				has_ep2_dlc_trigger = yes
 				portrait_ep2_wedding_clothes_trigger = yes
 				OR = {
-					portrait_mena_clothing_trigger = yes
+					portrait_mena_proxy_clothing_trigger = yes
 					portrait_african_clothing_trigger = yes
-					portrait_indian_clothing_trigger = yes
-					portrait_steppe_clothing_trigger = yes
+					portrait_indian_proxy_clothing_trigger = yes
+					portrait_steppe_proxy_clothing_trigger = yes
 				}
 			}
 		}
@@ -7861,7 +6276,7 @@ ccp4_ugro_permian_high_nobles = {
 				add = 1000
 				has_ep2_dlc_trigger = yes
 				portrait_ep2_wedding_clothes_trigger = yes
-				portrait_byzantine_clothing_trigger = yes
+				portrait_byzantine_proxy_clothing_trigger = yes
 			}
 		}
 	}
@@ -7950,8 +6365,6 @@ ccp4_ugro_permian_high_nobles = {
 				}
 				has_tgp_dlc_trigger = yes
 				#NOT = { exists = global_var:chinese_fashion_change }
-                ##Tang
-                portrait_era1_tang_trigger = yes  
 			}
 		}
 	}
@@ -7983,11 +6396,6 @@ ccp4_ugro_permian_high_nobles = {
 				}
 				has_tgp_dlc_trigger = yes
 				#exists = global_var:chinese_fashion_change
-                OR = { ##Song			
-					portrait_era2_song_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
 		}
 	}
@@ -8017,8 +6425,6 @@ ccp4_ugro_permian_high_nobles = {
 					}
 				}
 				#NOT = { exists = global_var:chinese_fashion_change }
-                ##Tang
-                portrait_era1_tang_trigger = yes 
 			}
 		}
 	}
@@ -8049,11 +6455,6 @@ ccp4_ugro_permian_high_nobles = {
 				}
 				has_tgp_dlc_trigger = yes
 				#exists = global_var:chinese_fashion_change
-                OR = { ##Song			
-					portrait_era2_song_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
 		}
 	}
@@ -8124,7 +6525,6 @@ ccp4_ugro_permian_high_nobles = {
 					CULTURE_INPUT = chinese
 				}
 				is_female = yes
-				portrait_era1_tang_trigger = yes
 			}
 			modifier = {
 				add = 50
@@ -8137,7 +6537,6 @@ ccp4_ugro_permian_high_nobles = {
 					}
 				}
 				is_female = yes
-				portrait_era1_tang_trigger = yes
 			}
 		}
 	}
@@ -8186,8 +6585,6 @@ ccp4_ugro_permian_high_nobles = {
 					}
 				}
 				#NOT = { exists = global_var:chinese_fashion_change }
-                ##Tang
-                portrait_era1_tang_trigger = yes 
 			}
 		}
 	}
@@ -8219,8 +6616,6 @@ ccp4_ugro_permian_high_nobles = {
 					merit_level = 9
 				}				
 				#NOT = { exists = global_var:chinese_fashion_change }
-                ##Tang
-                portrait_era1_tang_trigger = yes 
 			}
 		}
 	}	
@@ -8251,11 +6646,6 @@ ccp4_ugro_permian_high_nobles = {
 				}
 				has_tgp_dlc_trigger = yes
 				#exists = global_var:chinese_fashion_change
-                OR = { ##Song			
-					portrait_era2_song_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
 		}
 	}	
@@ -8280,8 +6670,6 @@ ccp4_ugro_permian_high_nobles = {
 				}
 				has_tgp_dlc_trigger = yes
 				#NOT = { exists = global_var:chinese_fashion_change }
-                ##Tang
-                portrait_era1_tang_trigger = yes 				
 			}
 		}
 	}
@@ -8303,12 +6691,7 @@ ccp4_ugro_permian_high_nobles = {
 					CULTURE_INPUT = chinese
 				}
 				has_tgp_dlc_trigger = yes
-				#exists = global_var:chinese_fashion_change
-                OR = { ##Song			
-					portrait_era2_song_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }				
+				#exists = global_var:chinese_fashion_change			
 			}
 		}
 	}	
@@ -8378,11 +6761,6 @@ ccp4_ugro_permian_high_nobles = {
 				}
 				has_tgp_dlc_trigger = yes
 				#exists = global_var:chinese_fashion_change
-                OR = { ##Song			
-					portrait_era2_song_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
 		}
 	}
@@ -8419,11 +6797,6 @@ ccp4_ugro_permian_high_nobles = {
 				}
 				has_tgp_dlc_trigger = yes
 				#exists = global_var:chinese_fashion_change
-                OR = { ##Song			
-					portrait_era2_song_trigger = yes
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
 		}
 	}	
@@ -8443,8 +6816,6 @@ ccp4_ugro_permian_high_nobles = {
 				add = 110
 				primary_title ?= title:h_china
 				#NOT = { exists = global_var:chinese_fashion_change }
-                ##Tang
-                portrait_era1_tang_trigger = yes  				
 			}
 			modifier = {
 				add = 100
@@ -8498,11 +6869,7 @@ ccp4_ugro_permian_high_nobles = {
 				add = 110
 				primary_title ?= title:h_china
 				has_tgp_dlc_trigger = yes
-				#exists = global_var:chinese_fashion_change
-                OR = { ##Song			
-					portrait_era2_song_trigger = yes
-					portrait_era3_trigger = yes								
-                }				
+				#exists = global_var:chinese_fashion_change			
 			}
 		}
 	}
@@ -8523,10 +6890,7 @@ ccp4_ugro_permian_high_nobles = {
 				add = 110
 				primary_title ?= title:h_china
 				has_tgp_dlc_trigger = yes
-				#exists = global_var:chinese_fashion_change
-                OR = { ##Ming					
-					portrait_era4_trigger = yes					
-                }				
+				#exists = global_var:chinese_fashion_change		
 			}
 		}
 	}
@@ -8570,22 +6934,7 @@ ccp4_ugro_permian_high_nobles = {
 					government_has_flag = government_is_celestial
 				}				
 				has_tgp_dlc_trigger = yes
-			}
-			modifier = {
-				add = 120
-				portrait_epe_hegemony_trigger = {
-					CULTURE_INPUT = chinese
-				}
-				NOT = {
-					portrait_epe_hegemony_trigger = { 
-                    CULTURE_INPUT = korean
-                    }
-				}				
-				NOT = {
-					primary_title ?= title:h_china
-				}				
-				has_tgp_dlc_trigger = yes
-			}			
+			}	
 		}
 	}
 
@@ -8958,515 +7307,6 @@ ccp4_ugro_permian_high_nobles = {
 				}
 				has_cp7_dlc_trigger = yes
 			}
-		}
-	}	
-
-####################################################################################################
-##################
-###Liao Khitan### CCP9
-##################
-####################################################################################################
-
-	ccp9_liao_commoner_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = f_headgear_ccp9_lia_lo_01
-                type = female
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 60
-				OR = {
-					portrait_commoner_trigger = {
-						CULTURE_INPUT = khitan
-					}				
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = khitan
-					}
-				}
-				is_female = yes
-				has_cp9_dlc_trigger = yes
-			}
-		}
-	}
-	
-	ccp9_liao_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-				range = { 0.09 0.20 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 130
-				OR = {
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = khitan
-					}
-					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = khitan
-					}
-				}
-				has_cp9_dlc_trigger = yes
-			}
-		}
-	}
-	
-####################################################################################################
-##################
-###Dali Khitan### CCP9
-##################
-####################################################################################################
-
-	ccp9_dali_low_nobility_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = m_headgear_ccp9_dal_lo_01
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 70
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = dali
-					}
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = dali
-					}
-					portrait_high_nobles_headgear_trigger = {
-						CULTURE_INPUT = dali
-					}
-				}
-				has_cp9_dlc_trigger = yes
-			}
-		}
-	}
-
-	ccp9_dali_high_nobility_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = m_headgear_ccp9_dal_hi_01
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 330
-				OR = {
-					portrait_high_nobles_headgear_trigger = {
-						CULTURE_INPUT = dali
-					}
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = dali
-					}
-					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = dali
-					}
-				}
-				highest_held_title_tier >= tier_kingdom
-				has_cp9_dlc_trigger = yes
-			}
-		}
-	}	
-	
-####################################################################################################
-##################
-###Silla Korea era 1### CCP9
-##################
-####################################################################################################
-
-	ccp9_silla_royalty_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = m_headgear_ccp9_sil_roy_01
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 330
-				primary_title ?= title:k_silla
-				portrait_era1_trigger = yes
-				has_cp9_dlc_trigger = yes
-			}
-		}
-	}
-
-####################################################################################################
-##################
-###Qocho Uyghur### CCP9
-##################
-####################################################################################################
-
-	ccp9_uyghur_low_nobility_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = f_headgear_epe_ccp9_uyg_nob_01
-                type = female
-			}
-		}
-		weight = {
-			base = 0
-			
-			modifier = {
-				add = 50
-				court_fashion_level_4_headgear_trigger = {
-					CULTURE_INPUT = epe_uyghur
-				}
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gokalpbags
-					}
-				}				
-				is_female = yes
-				has_cp9_dlc_trigger = yes				
-				has_tgp_dlc_trigger = no					
-
-			}
-			modifier = {
-				add = 50
-                portrait_low_nobles_clothing_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_gokalpbags
-					}
-				}				
-				is_female = yes
-				has_cp9_dlc_trigger = yes				
-				has_tgp_dlc_trigger = no					
-					
-			}			
-		#########################################################################					
-			modifier = {
-				add = 80
-				court_fashion_level_4_headgear_trigger = {
-					CULTURE_INPUT = epe_uyghur
-				}
-				NOT = {
-					court_fashion_level_4_headgear_trigger = { 
-                    CULTURE_INPUT = epe_gokalpbags
-					}
-				}				
-				is_female = yes
-				has_cp9_dlc_trigger = yes				
-				has_tgp_dlc_trigger = yes					
-                OR = {
-                    portrait_era1_trigger = yes  					
-                    portrait_era2_trigger = yes  				 
-                }
-			}
-			modifier = {
-				add = 50
-                portrait_low_nobles_clothing_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_gokalpbags
-					}
-				}				
-				is_female = yes
-				has_cp9_dlc_trigger = yes				
-				has_tgp_dlc_trigger = yes					
-                OR = {
-                    portrait_era1_trigger = yes  					
-                    portrait_era2_trigger = yes  				 
-                }					
-			}
-			modifier = {
-				add = 30
-                portrait_low_nobles_clothing_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_gokalpbags
-					}
-				}				
-				is_female = yes				
-				has_tgp_dlc_trigger = yes	
-				has_cp9_dlc_trigger = yes				
-                OR = {
-                    portrait_era1_trigger = yes  					
-                    portrait_era2_trigger = yes  				 
-                }					
-				
-			}			
-		}
-	}
-
-	ccp9_uyghur_high_nobility_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = m_headgear_ccp9_uyg_hi_01
-			}
-		}
-		weight = {
-			base = 0
-
-			modifier = {
-				add = 50
-                portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }
-				has_tgp_dlc_trigger = no
-				has_cp9_dlc_trigger = yes				
-					
-				
-			}			
-		#########################################################################				
-			modifier = {
-				add = 50
-                portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }					
-				has_tgp_dlc_trigger = yes	
-				has_cp9_dlc_trigger = yes				
-                OR = {
-                    portrait_era1_trigger = yes  					
-                    portrait_era2_trigger = yes  				 
-                }					
-				
-			}
-		#########################################################################				
-			modifier = {
-				add = 30
-                portrait_high_nobles_headgear_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }	
-				is_female = yes				
-				has_tgp_dlc_trigger = yes	
-				has_cp9_dlc_trigger = yes				
-                OR = {
-                    portrait_era1_trigger = yes  					
-                    portrait_era2_trigger = yes  				 
-                }					
-				
-			}			
-		}
-	}
-
-	ccp9_uyghur_royalty_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = m_headgear_ccp9_uyg_roy_01
-			}
-		}
-		weight = {
-			base = 0
-
-			modifier = {
-				add = 120
-                portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }
-				has_tgp_dlc_trigger = no
-				has_cp9_dlc_trigger = yes				
-			}			
-		#########################################################################					
-			modifier = {
-				add = 50
-				OR = {
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = epe_uyghur
-					}				
-					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = epe_uyghur
-					}
-				}
-				has_tgp_dlc_trigger = yes
-				has_cp9_dlc_trigger = yes				
-                OR = {
-                    portrait_era1_trigger = yes  					
-                    portrait_era2_trigger = yes  				 
-                }					
-			}
-			modifier = {
-				add = 130
-				portrait_high_nobles_headgear_trigger = {
-					CULTURE_INPUT = uyghur
-				}
-				is_female = yes
-				has_cp9_dlc_trigger = yes
-				primary_spouse = { highest_held_title_tier >= tier_kingdom }
-			}			
-		}
-	}
-
-####################################################################################################
-##################
-###Western-Xia Tangut### CCP9
-##################
-####################################################################################################
-
-	ccp9_tangut_high_nobility_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = f_headgear_ccp9_tan_nob_01
-                type = female
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				portrait_high_nobles_headgear_trigger = {
-					CULTURE_INPUT = tangut
-				}
-				is_female = yes
-				has_cp9_dlc_trigger = yes
-			}
-		}
-	}
-
-	ccp9_tangut_royalty_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = f_headgear_ccp9_tan_roy_01
-                type = female
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 150
-				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = tangut
-				}
-				primary_spouse = { highest_held_title_tier >= tier_kingdom }
-				is_female = yes
-				has_cp9_dlc_trigger = yes
-			}
-		}
-	}
-
-####################################################################################################
-##################
-###Jin Jurchen### CCP9
-##################
-####################################################################################################
-
-	ccp9_jurchen_nobility_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = m_headgear_ccp9_jur_nob_01
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 80
-				portrait_low_nobles_trigger = {
-					CULTURE_INPUT = jurchen
-				}
-				has_cp9_dlc_trigger = yes
-			}
-			modifier = {
-				add = 150
-				portrait_high_nobles_headgear_trigger = {
-					CULTURE_INPUT = jurchen
-				}
-				has_cp9_dlc_trigger = yes
-			}
-		}
-	}
-
-####################################################################################################
-##################
-###Ming China### CCP9
-##################
-####################################################################################################
-
-	ccp9_ming_nobility_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp9_celestial_court_headgear
-                accessory = f_headgear_ccp9_min_nob_01
-                type = female
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				OR={
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = chinese
-					}
-					portrait_royalty_clothing_trigger = {
-						CULTURE_INPUT = chinese
-					}								
-				}
-				has_cp9_dlc_trigger = yes
-				portrait_era4_trigger = yes
-			}
-			modifier = {
-				add = -140
-				portrait_high_nobles_headgear_trigger = {
-					CULTURE_INPUT = dali
-				}
-				is_male = yes
-				highest_held_title_tier >= tier_kingdom
-				has_cp9_dlc_trigger = yes
-			}
-			modifier = {
-				add = 20
-				portrait_epe_hegemony_trigger = {
-					CULTURE_INPUT = chinese
-				}
-				NOT = {
-					portrait_epe_hegemony_trigger = { 
-                    CULTURE_INPUT = korean
-                    }
-				}				
-				NOT = {
-					primary_title ?= title:h_china
-				}				
-				has_cp9_dlc_trigger = yes
-				portrait_era4_trigger = yes				
-			}			
 		}
 	}	
 

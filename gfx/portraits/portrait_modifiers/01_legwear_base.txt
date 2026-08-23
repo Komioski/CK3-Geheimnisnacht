@@ -78,7 +78,7 @@
 			base = 0
 			modifier = {
 				add = 20
-				portrait_western_clothing_trigger = yes
+				portrait_western_proxy_clothing_trigger = yes
 			}
 		}
 	}
@@ -99,13 +99,13 @@
 				add = 60
 				portrait_wear_armor_trigger = yes
 				OR = {
-					portrait_western_clothing_trigger = yes
-					portrait_byzantine_clothing_trigger = yes
+					portrait_western_proxy_clothing_trigger = yes
+					portrait_byzantine_proxy_clothing_trigger = yes
 				}
 			}
             modifier = {
                 factor = 0   
-                portrait_western_clothing_trigger = yes   
+                portrait_western_proxy_clothing_trigger = yes   
                 has_ep2_dlc_trigger = yes   
             }   
 		}
@@ -126,9 +126,8 @@
 			modifier = {
 				add = 60
 				portrait_wear_armor_trigger = yes
-				portrait_western_clothing_trigger = yes
+				portrait_western_proxy_clothing_trigger = yes
                 has_ep2_dlc_trigger = yes   
-                portrait_era1_armor_trigger = yes  
 			}
 		}
 	}
@@ -148,9 +147,8 @@
 			modifier = {
 				add = 60
 				portrait_wear_armor_trigger = yes
-				portrait_western_clothing_trigger = yes
+				portrait_western_proxy_clothing_trigger = yes
                 has_ep2_dlc_trigger = yes   
-                portrait_era2_armor_trigger = yes  
 			}
 		}
 	}
@@ -171,14 +169,10 @@
 				add = 61
 				portrait_wear_armor_trigger = yes
 				OR = {
-					portrait_western_clothing_trigger = yes
-					portrait_epe_english_clothing_trigger = yes				
-					portrait_dde_hre_clothing_trigger = yes							
-					portrait_epe_west_slav_clothing_trigger = yes	
-					portrait_epe_norse_clothing_trigger = yes						
+					portrait_western_proxy_clothing_trigger = yes	
+					portrait_dde_hre_clothing_trigger = yes												
 				}
                 has_ep2_dlc_trigger = yes   
-                portrait_era3_armor_trigger = yes  
 			}
 		}
 	}
@@ -199,14 +193,10 @@
 				add = 100
 				portrait_wear_armor_trigger = yes
 				OR = {
-					portrait_western_clothing_trigger = yes
-					portrait_epe_english_clothing_trigger = yes				
-					portrait_dde_hre_clothing_trigger = yes							
-					portrait_epe_west_slav_clothing_trigger = yes	
-					portrait_epe_norse_clothing_trigger = yes						
+					portrait_western_proxy_clothing_trigger = yes		
+					portrait_dde_hre_clothing_trigger = yes												
 				}
                 has_ep2_dlc_trigger = yes   
-                portrait_era4_armor_trigger = yes  
 			}
 		}
 	}
@@ -226,13 +216,8 @@
 			modifier = {
 				add = 80
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = byzantine
-                } 
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_bulgarian
-                    }
-				}				
+                    CULTURE_INPUT = byzantine_proxy
+                }			
                 has_ep3_dlc_trigger = yes 
 			}
 		}
@@ -253,7 +238,7 @@
 			modifier = {
 				add = 80
                 portrait_high_nobles_headgear_trigger = { 
-                    CULTURE_INPUT = byzantine
+                    CULTURE_INPUT = byzantine_proxy
                 } 
                 has_ep3_dlc_trigger = yes 
 			}
@@ -276,58 +261,16 @@
 				add = 80
 				OR = {
 	                portrait_royalty_trigger = { 
-	                    CULTURE_INPUT = byzantine
+	                    CULTURE_INPUT = byzantine_proxy
 	                } 
 	                portrait_imperial_trigger = { 
-	                    CULTURE_INPUT = byzantine
+	                    CULTURE_INPUT = byzantine_proxy
 	                } 
 				}
                 has_ep3_dlc_trigger = yes 
 			}
 		}
 	}
-
-	ep3_bulgarian_low_nobility_legwear = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = pol_common_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 80
-				OR = {
-	                portrait_commoner_clothing_trigger = { 
-	                    CULTURE_INPUT = epe_bulgarian
-	                } 
-	                portrait_low_nobles_clothing_trigger = { 
-	                    CULTURE_INPUT = epe_bulgarian
-	                } 		
-				}				
-                has_ep3_dlc_trigger = yes 
-			}
-			modifier = {
-				factor = 0
-				OR = {
-	                portrait_high_nobles_clothing_trigger = { 
-	                    CULTURE_INPUT = epe_bulgarian
-	                }				
-                    portrait_royalty_clothing_trigger = {
-                        CULTURE_INPUT = epe_bulgarian
-                    }
-					portrait_imperial_clothing_trigger = {
-						CULTURE_INPUT = epe_bulgarian
-					}
-                }
-			}			
-		}
-	}
-
 
 	mena_common_legwear = {
 
@@ -344,9 +287,9 @@
 			modifier = {
 				add = 20
 				OR = {
-					portrait_mena_clothing_trigger = yes
-					portrait_indian_clothing_trigger = yes
-					portrait_african_clothing_trigger = yes
+					portrait_mena_proxy_clothing_trigger = yes
+					portrait_indian_proxy_clothing_trigger = yes
+					portrait_african_proxy_clothing_trigger = yes
                     portrait_fp2_iberian_muslim_clothing_trigger = yes	
 				}
 				NOT = {
@@ -387,9 +330,9 @@
 							}
 							NOT = { AND = { is_ruler = yes government_has_flag = government_is_mercenary  } } # Blocked for mercenaries
 							OR = {
-								portrait_mena_clothing_trigger = yes
-								portrait_indian_clothing_trigger = yes
-								portrait_african_clothing_trigger = yes	   								
+								portrait_mena_proxy_clothing_trigger = yes
+								portrait_indian_proxy_clothing_trigger = yes
+								portrait_african_proxy_clothing_trigger = yes	   								
 							}
 							NOT = {
 					          portrait_fp3_iranian_clothing_trigger = yes
@@ -437,10 +380,10 @@
 				trigger_else = {
 					scope:highest_held_title_tier > tier_county
 					OR = {
-						portrait_mena_clothing_trigger = yes
-						portrait_indian_clothing_trigger = yes
-						portrait_african_clothing_trigger = yes
-						portrait_steppe_clothing_trigger = yes
+						portrait_mena_proxy_clothing_trigger = yes
+						portrait_indian_proxy_clothing_trigger = yes
+						portrait_african_proxy_clothing_trigger = yes
+						portrait_steppe_proxy_clothing_trigger = yes
 					}
 				    NOT = {
 					   portrait_fp3_iranian_clothing_trigger = yes
@@ -467,10 +410,10 @@
 				add = 101
 				portrait_wear_armor_trigger = yes
 				OR = {
-					portrait_mena_clothing_trigger = yes
-					portrait_indian_clothing_trigger = yes
-					portrait_african_clothing_trigger = yes
-					portrait_steppe_clothing_trigger = yes
+					portrait_mena_proxy_clothing_trigger = yes
+					portrait_indian_proxy_clothing_trigger = yes
+					portrait_african_proxy_clothing_trigger = yes
+					portrait_steppe_proxy_clothing_trigger = yes
                     portrait_fp2_iberian_muslim_clothing_trigger = yes						
 				}
 			}
@@ -516,29 +459,15 @@
 			modifier = {
 				add = 101
 				portrait_west_slavic_clothing_trigger = yes
-				OR = {
-					portrait_era2_trigger = yes	
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 			}
 			modifier = {
 				add = 101
 				portrait_west_slavic_clothing_trigger = yes
-				OR = {
-					portrait_era2_trigger = yes	
-					portrait_era3_trigger = yes				
-					portrait_era4_trigger = yes					
-                }
 				is_female = yes
 			}
 			modifier = {
 				factor = 0
 				has_ep2_dlc_trigger = yes
-				OR = {
-					portrait_era3_armor_trigger = yes
-					portrait_era4_armor_trigger = yes
-				}
 				OR = {
                     portrait_commoner_armor_in_army_trigger = {
                         CULTURE_INPUT = west_slavic
@@ -711,11 +640,8 @@
 			modifier = {
 				add = 20
 				OR = {
-					portrait_northern_clothing_trigger = yes
-					portrait_fp1_norse_clothing_trigger = yes
-					portrait_epe_east_slav_clothing_trigger = yes	
-					portrait_epe_balto_finnic_clothing_trigger = yes		
-					portrait_epe_gaelic_clothing_trigger = yes					
+					portrait_northern_proxy_clothing_trigger = yes
+					portrait_fp1_norse_clothing_trigger = yes				
 				}
 			}
 		}
@@ -768,10 +694,6 @@
 			modifier = {
 				factor = 0
 				has_ep2_dlc_trigger = yes
-				OR = {
-					portrait_era3_armor_trigger = yes
-					portrait_era4_armor_trigger = yes
-				}
 				OR = {
                     portrait_commoner_armor_in_army_trigger = {
                         CULTURE_INPUT = west_slavic
@@ -877,447 +799,5 @@
 				portrait_southeast_asian_clothing_trigger = yes
 			}
 		}
-
 	}
-	
-    ####################################################################################################
-    ##################
-    #################################EPE Expanded
-    ##################
-    ####################################################################################################		
-
-
-
-	tgp_chinese_nobility = { # We can use the same type of shoes for mostly all nobility
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = tgp_chinese_high_nobility_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 80
-				is_male = yes				
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = chinese 
-					}
-					portrait_high_nobles_clothing_trigger = {
-						CULTURE_INPUT = chinese 
-					}				 				
-				}
-				has_tgp_dlc_trigger = yes
-			}
-		}
-	}	
-
-	guiyi_circuit_chinese_legwear = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = mena_war_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 80
-				portrait_epe_guiyi_circuit_chinese_clothing_trigger = yes
-			}
-		}
-	}	
-	
-	persian_common_legwear = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = mena_war_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 20
-				OR = {
-					portrait_fp3_iranian_clothing_trigger = yes	
-					portrait_steppe_clothing_trigger = yes					
-					portrait_epe_eastern_turk_clothing_trigger = yes	
-					AND = {
-					  portrait_epe_seljuk_clothing_trigger = yes
-                        OR = {		
-                        	portrait_era1_trigger = yes  
-                            portrait_era2_trigger = yes  
-                            portrait_era3_trigger = yes  							
-                        }
-					}	
-					portrait_epe_uyghur_clothing_trigger = yes	
-					portrait_epe_sino_iranian_clothing_trigger = yes						
-				}
-			}
-		}
-	}	
-	
-	
-	####Western Spymaster
-	western_spymaster_legwear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = spymaster_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				age > 17
-				OR = {
-					AND = {
-						has_council_position = councillor_spymaster
-						highest_held_title_tier < tier_county
-					}
-				}
-				NOT = {
-					portrait_wear_armor_trigger = yes
-					OR = {
-						has_government = theocracy_government
-						has_court_position = court_physician_court_position
-					}
-				}				
-				OR = {
-					portrait_byzantine_clothing_trigger = yes
-					portrait_western_clothing_trigger = yes
-					portrait_epe_gaelic_clothing_trigger = yes
-					portrait_epe_georgian_clothing_trigger = yes
-					portrait_epe_bulgarian_clothing_trigger = yes
-					portrait_epe_armenian_clothing_trigger = yes
-					portrait_epe_south_slav_clothing_trigger = yes
-				}
-			}
-		}
-	}
-	
-	####MENA Spymaster
-	mena_spymaster_legwear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = mena_war_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				age > 17
-				OR = {
-					AND = {
-						has_council_position = councillor_spymaster
-						highest_held_title_tier < tier_county
-					}
-				}
-				NOT = {
-					portrait_wear_armor_trigger = yes
-					OR = {
-						has_government = theocracy_government
-						has_court_position = court_physician_court_position
-					}
-				}				
-				OR = {
-					portrait_mena_clothing_trigger = yes
-					portrait_afr_berber_clothing_trigger = yes
-					portrait_dde_abbasid_clothing_trigger = yes	
-					portrait_epe_bedouin_clothing_trigger = yes						
-				}
-				NOT = {
-					portrait_epe_seljuk_clothing_trigger = yes
-				}
-				NOT = {
-					portrait_fp3_iranian_clothing_trigger = yes
-				}
-			}
-		}
-	}		
-	
-	
-	####Northern Spymaster
-	northern_spymaster_legwear = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = fp1_common_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				age > 17
-				OR = {
-					AND = {
-						has_council_position = councillor_spymaster
-						highest_held_title_tier < tier_county
-					}
-				}
-				NOT = {
-					portrait_wear_armor_trigger = yes
-					OR = {
-						has_government = theocracy_government
-						has_court_position = court_physician_court_position
-					}
-				}				
-				OR = {
-					portrait_northern_clothing_trigger = yes
-					portrait_fp1_norse_clothing_trigger = yes
-					portrait_epe_east_slav_clothing_trigger = yes	
-					portrait_epe_balto_finnic_clothing_trigger = yes		
-					portrait_epe_gaelic_clothing_trigger = yes	
-				}
-			}
-		}
-	}	
-	
-	####Persian Spymaster
-	persian_spymaster_legwear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = mena_war_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				age > 17
-				OR = {
-					AND = {
-						has_council_position = councillor_spymaster
-						highest_held_title_tier < tier_county
-					}
-				}
-				NOT = {
-					portrait_wear_armor_trigger = yes
-					OR = {
-						has_government = theocracy_government
-						has_court_position = court_physician_court_position
-					}
-				}				
-				OR = {
-					portrait_fp3_iranian_clothing_trigger = yes
-					portrait_epe_seljuk_clothing_trigger = yes
-					AND = {
-					  portrait_epe_eastern_turk_clothing_trigger = yes
-					  portrait_epe_eastern_turk_muslim_clothing_trigger = yes
-					}
-					
-				}
-			}
-		}
-	}	
-	
-	
-	andalusian_common_legwear = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = fp2_andalusian_legwear
-                accessory = m_legwear_sec_andalusian_nob_01_lo
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 21
-				OR = {
-                    portrait_fp2_iberian_muslim_clothing_trigger = yes	
-                    portrait_epe_baranis_clothing_trigger = yes						
-				}				
-			}
-		}
-	}
-
-	andalusian_nobility_legwear = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = fp2_andalusian_legwear
-                accessory = m_legwear_sec_andalusian_nob_01_hi
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				trigger_if = {
-					limit = { exists = this }
-					OR = {
-						AND = {
-							OR = {
-								highest_held_title_tier > tier_county
-								AND = {
-									government_has_flag = government_is_republic
-									primary_title.tier > 1
-								}
-								AND = { is_ruler = yes government_has_flag = government_is_theocracy }
-							}
-							NOT = { AND = { is_ruler = yes government_has_flag = government_is_mercenary  } } # Blocked for mercenaries
-							OR = {
-                                portrait_fp2_iberian_muslim_clothing_trigger = yes	
-							    AND = {
-                                  portrait_epe_baranis_clothing_trigger = yes	
-								  has_afr_dlc_trigger = yes
-							    }								
-							}				
-						}
-						AND = {
-							exists = primary_spouse
-							OR = {
-								is_ruler = no
-								highest_held_title_tier = tier_barony
-							}
-							primary_spouse = {
-								OR = {
-									highest_held_title_tier > tier_county
-									AND = {
-										government_has_flag = government_is_republic
-										primary_title.tier > 1
-									}
-									AND = { is_ruler = yes government_has_flag = government_is_theocracy }
-								}
-								OR = {
-                                    portrait_fp2_iberian_muslim_clothing_spouse_trigger = yes	  	
-							        AND = {									
-                                      portrait_epe_baranis_clothing_spouse_trigger = yes
-									  has_afr_dlc_trigger = yes
-								   }									  
-								}
-							}
-						}
-					}
-				}
-				trigger_else = {
-					scope:highest_held_title_tier > tier_county
-					OR = {
-						portrait_fp2_iberian_muslim_clothing_trigger = yes
-						AND = {	
-						  portrait_epe_baranis_clothing_trigger = yes	
-						  has_afr_dlc_trigger = yes
-						}  
-					}					
-				}
-			}
-		}
-	}	
-	
-		 ####Ottoman Turks
-		 
-	ottoman_turks_legwear_commoner = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = mena_war_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 50
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = epe_seljuk 
-				}
-                OR = {				
-                    portrait_era4_trigger = yes  
-                }				
-			}
-		}
-	}
-	ottoman_turks_legwear_commoner_02 = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = mena_common_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 50
-				portrait_commoner_clothing_trigger = {
-					CULTURE_INPUT = epe_seljuk 
-				}
-                OR = {				
-                    portrait_era4_trigger = yes  
-                }				
-			}
-		}
-	}	
-	ottoman_turks_legwear_noble = {
-
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = legwear
-				template = epe_ottoman_turks_legwear
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}	
-		weight = {
-			base = 0
-			modifier = {
-				add = 80
-				OR = {
-					portrait_low_nobles_clothing_trigger = {
-						CULTURE_INPUT = epe_seljuk 
-					}				
-	                portrait_high_nobles_clothing_trigger = { 
-	                    CULTURE_INPUT = epe_seljuk
-	                }				
-                    portrait_royalty_clothing_trigger = {
-                        CULTURE_INPUT = epe_seljuk
-                    }
-					portrait_imperial_clothing_trigger = {
-						CULTURE_INPUT = epe_seljuk
-					}
-                }
-                OR = {				
-                    portrait_era4_trigger = yes  
-                }				
-			}
-		}
-	}	
-	
-	
-	
-	
 }
