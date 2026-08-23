@@ -5527,207 +5527,207 @@ hairstyles = {
 
 
 				
-    ottoman_straight_era4 = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = hairstyles
-                template = ottomans_hairstyles_era4
-                range = { 0 0.35 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 55
-				OR = {
-					NOT = {
-						exists = this
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_no_beard
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}
-				}
-				OR = {							
-					AND = {
-					  	portrait_epe_seljuk_clothing_trigger = yes
-                        OR = {		
-                            portrait_era4_trigger = yes  	
-                        }
-					}					
-				}				
-            }
-        }
-    }
+    # ottoman_straight_era4 = {
+    #     dna_modifiers = {
+    #         accessory = {
+    #             mode = add
+    #             gene = hairstyles
+    #             template = ottomans_hairstyles_era4
+    #             range = { 0 0.35 } # For the randomness to work correctly
+    #         }
+    #     }   
+    #     weight = {
+    #         base = 0
+    #         modifier = {
+    #             add = 55
+	# 			OR = {
+	# 				NOT = {
+	# 					exists = this
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_straight
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_straight_no_beard
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_straight_thin_beard
+	# 				}
+	# 			}
+	# 			OR = {							
+	# 				AND = {
+	# 				  	portrait_epe_seljuk_clothing_trigger = yes
+    #                     OR = {		
+    #                         portrait_era4_trigger = yes  	
+    #                     }
+	# 				}					
+	# 			}				
+    #         }
+    #     }
+    # }
 
-    ottoman_wavy_era4 = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = hairstyles
-                template = ottomans_hairstyles_era4
-                range = { 0.36 0.78 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 55
-                exists = this
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy_no_beard
-					}
-				}
-				OR = {							
-					AND = {
-					  	portrait_epe_seljuk_clothing_trigger = yes
-                        OR = {		
-                            portrait_era4_trigger = yes  	
-                        }
-					}					
-				}
-            }
-        }
-    }
+    # ottoman_wavy_era4 = {
+    #     dna_modifiers = {
+    #         accessory = {
+    #             mode = add
+    #             gene = hairstyles
+    #             template = ottomans_hairstyles_era4
+    #             range = { 0.36 0.78 } # For the randomness to work correctly
+    #         }
+    #     }   
+    #     weight = {
+    #         base = 0
+    #         modifier = {
+    #             add = 55
+    #             exists = this
+	# 			OR = {
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_wavy
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_wavy_no_beard
+	# 				}
+	# 			}
+	# 			OR = {							
+	# 				AND = {
+	# 				  	portrait_epe_seljuk_clothing_trigger = yes
+    #                     OR = {		
+    #                         portrait_era4_trigger = yes  	
+    #                     }
+	# 				}					
+	# 			}
+    #         }
+    #     }
+    # }
 
-    ottoman_curly_era4 = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = hairstyles
-                template = ottomans_hairstyles_era4
-                range = { 0.79 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 55
-                exists = this
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly_no_beard
-					}
-				}
-				OR = {							
-					AND = {
-					  	portrait_epe_seljuk_clothing_trigger = yes
-                        OR = {		
-                            portrait_era4_trigger = yes  	
-                        }
-					}					
-				}
-            }
-        }
-    }
+    # ottoman_curly_era4 = {
+    #     dna_modifiers = {
+    #         accessory = {
+    #             mode = add
+    #             gene = hairstyles
+    #             template = ottomans_hairstyles_era4
+    #             range = { 0.79 1 } # For the randomness to work correctly
+    #         }
+    #     }   
+    #     weight = {
+    #         base = 0
+    #         modifier = {
+    #             add = 55
+    #             exists = this
+	# 			OR = {
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_curly
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_curly_no_beard
+	# 				}
+	# 			}
+	# 			OR = {							
+	# 				AND = {
+	# 				  	portrait_epe_seljuk_clothing_trigger = yes
+    #                     OR = {		
+    #                         portrait_era4_trigger = yes  	
+    #                     }
+	# 				}					
+	# 			}
+    #         }
+    #     }
+    # }
 
 
 
-	western_warrior = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = hairstyles
-				template = epe_western_hairstyles_warrior
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}   
-		weight = {
-			base = 0
-			modifier = {
-				add = 150
-				exists = this
-				OR = {
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_no_beard
-					}						
-					has_gene = {
-						category = gene_hair_type
-						template = hair_straight_thin_beard
-					}				
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_wavy_no_beard
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly
-					}
-					has_gene = {
-						category = gene_hair_type
-						template = hair_curly_no_beard
-					}					
-				}
+	# western_warrior = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = hairstyles
+	# 			template = epe_western_hairstyles_warrior
+	# 			range = { 0 1 } # For the randomness to work correctly
+	# 		}
+	# 	}   
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 150
+	# 			exists = this
+	# 			OR = {
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_straight
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_straight_no_beard
+	# 				}						
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_straight_thin_beard
+	# 				}				
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_wavy
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_wavy_no_beard
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_curly
+	# 				}
+	# 				has_gene = {
+	# 					category = gene_hair_type
+	# 					template = hair_curly_no_beard
+	# 				}					
+	# 			}
 				
-				OR = {
-					portrait_has_trait_trigger = { TRAIT = education_martial_4 }
-					portrait_has_trait_trigger = { TRAIT = education_martial_5 }
-					AND = {
-					  	#is_ruler = yes
-                        OR = {	
-					        portrait_has_trait_trigger = { TRAIT = education_martial_1 }						
-					        portrait_has_trait_trigger = { TRAIT = education_martial_2 }
-					        portrait_has_trait_trigger = { TRAIT = education_martial_3 }
-					        portrait_has_trait_trigger = { TRAIT = education_martial_4 }	
-					        portrait_has_trait_trigger = { TRAIT = education_martial_5 }								
-                        }						
-                        OR = {		
-				            has_realm_law = camp_purpose_mercenaries
-				            has_realm_law = camp_purpose_brigands	
-				            government_has_flag = government_is_mercenary								
-                        }
-					}						
-				}
-                OR = {
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes   				 
-                }					
-				is_female = yes	
-				age > 16
-                OR = {
-				    portrait_western_clothing_trigger = yes				
-					portrait_epe_norse_clothing_trigger = yes
-				}				
-			}
-            modifier = {
-                add = -100
-                exists = this
-                OR = {
-                    is_from_ruler_designer = yes
-                    has_character_flag = has_scripted_appearance
-                }
-            }		
-		}
-	}
+	# 			OR = {
+	# 				portrait_has_trait_trigger = { TRAIT = education_martial_4 }
+	# 				portrait_has_trait_trigger = { TRAIT = education_martial_5 }
+	# 				AND = {
+	# 				  	#is_ruler = yes
+    #                     OR = {	
+	# 				        portrait_has_trait_trigger = { TRAIT = education_martial_1 }						
+	# 				        portrait_has_trait_trigger = { TRAIT = education_martial_2 }
+	# 				        portrait_has_trait_trigger = { TRAIT = education_martial_3 }
+	# 				        portrait_has_trait_trigger = { TRAIT = education_martial_4 }	
+	# 				        portrait_has_trait_trigger = { TRAIT = education_martial_5 }								
+    #                     }						
+    #                     OR = {		
+	# 			            has_realm_law = camp_purpose_mercenaries
+	# 			            has_realm_law = camp_purpose_brigands	
+	# 			            government_has_flag = government_is_mercenary								
+    #                     }
+	# 				}						
+	# 			}
+    #             OR = {
+    #                 portrait_era3_trigger = yes  
+    #                 portrait_era4_trigger = yes   				 
+    #             }					
+	# 			is_female = yes	
+	# 			age > 16
+    #             OR = {
+	# 			    portrait_western_clothing_trigger = yes				
+	# 				portrait_epe_norse_clothing_trigger = yes
+	# 			}				
+	# 		}
+    #         modifier = {
+    #             add = -100
+    #             exists = this
+    #             OR = {
+    #                 is_from_ruler_designer = yes
+    #                 has_character_flag = has_scripted_appearance
+    #             }
+    #         }		
+	# 	}
+	# }
 
 
 

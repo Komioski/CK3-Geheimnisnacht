@@ -3183,2279 +3183,37 @@
 
 # ## FP3 Iranian ##
 
-#     fp3_iranian_war = {
-#         dna_modifiers = {
-#             accessory = {
-#                 mode = add
-#                 gene = clothes
-#                 template = fp3_iranian_war_nobility_clothes
-#                 range = { 0 1 } # For the randomness to work correctly
-#             }
-#         }
-#         weight = {
-#             base = 0
-#             modifier = {
-#                 add = 100 # slightly stronger than mena war
-#                 OR = {
-#                     portrait_low_nobles_armor_trigger = {
-#                         CULTURE_INPUT = fp3_iranian
-#                     }
-#                     portrait_high_nobles_armor_trigger = {
-#                         CULTURE_INPUT = fp3_iranian
-#                     }
-#                 }
-#             }
-#             modifier = {
-#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-#                 OR = {
-#                     portrait_low_nobles_armor_in_army_trigger = {
-#                         CULTURE_INPUT = fp3_iranian
-#                     }
-#                     portrait_low_nobles_armor_in_army_trigger = {
-#                         CULTURE_INPUT = fp3_iranian
-#                     }
-#                 }
-#             }
-#         }
-#     }
-	
-	
-    ####################################################################################################
-    ##################
-    #################################EPE Expanded
-    ##################
-    ####################################################################################################			
-	
-	
-####################################################################################################
-##################
-###Western Iranian non-muslim
-##################
-####################################################################################################
-	
-    non_islamic_Western_iranian_war_low_nobles = {
+    fp3_iranian_war = {
         dna_modifiers = {
             accessory = {
                 mode = add
                 gene = clothes
                 template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_non_islamic_western_iranian_war_nob_01_lo
+                range = { 0 1 } # For the randomness to work correctly
             }
         }
-        outfit_tags = { military_outfit }
         weight = {
             base = 0
             modifier = {
-                add = 50
+                add = 100 # slightly stronger than mena war
                 OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                }
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}				
-
-				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                }
-				NOT = {
-					portrait_commoner_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-
-				NOT = {
-					portrait_commoner_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-
-				
-            }
-        }
-    }
-
-    non_islamic_Western_iranian_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_non_islamic_western_iranian_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_non_islamic_iranian
-                }
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				
-				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_non_islamic_iranian
-                }
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				
-            }
-        }
-    }
-
-    non_islamic_Western_iranian_war_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_non_islamic_western_iranian_war_nob_01_roy
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_royalty_armor_trigger = {
-                    CULTURE_INPUT = epe_non_islamic_iranian
-                }
-				NOT = {
-					portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-
-				NOT = {
-					portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-
-				NOT = {
-					portrait_royalty_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}				
-				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_royalty_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_non_islamic_iranian
-                }
-				NOT = {
-					portrait_royalty_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_royalty_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}				
-			
-            }
-        }
-    }
-	
-    ## FP3 Iranian ##
-
-    fp3_non_islamic_Western_iranian_war = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_non_islamic_western_iranian_fp3_war_01
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51 # slightly stronger than mena war
-	            has_fp3_dlc_trigger = yes 				
-                OR = {
-				  AND = {
                     portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_western_non_islamic_iranian
-                    }
-				  }	
-				  AND = {
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_non_islamic_iranian
+                        CULTURE_INPUT = fp3_iranian
                     }
                     portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_western_non_islamic_iranian
+                        CULTURE_INPUT = fp3_iranian
                     }
-				  }
-				  
                 }
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_non_islamic_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_eastern_non_islamic_iranian
-                    }
-				}				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-	            has_fp3_dlc_trigger = yes 
-                OR = {
-				  AND = {
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_western_non_islamic_iranian
-                    }
-				  }	
-				  AND = {
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_western_non_islamic_iranian
-                    }
-				  }					
-                }
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}				
-				
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_eastern_non_islamic_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_eastern_non_islamic_iranian
-                    }
-				}				
-            }
-        }
-    }	
-
-
-    ## FP3 Iranian ##
-
-    fp3_non_islamic_eastern_iranian_war = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_non_islamic_eastern_iranian_fp3_war_01
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51 # slightly stronger than mena war
-	            has_fp3_dlc_trigger = yes 				
-                OR = {
-				  AND = {
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_eastern_non_islamic_iranian
-                    }
-				  }	
-				  AND = {
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_eastern_non_islamic_iranian
-                    }
-				  }
-				  
-                }
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_non_islamic_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_non_islamic_iranian
-                    }
-				}				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-	            has_fp3_dlc_trigger = yes 
-                OR = {
-				  AND = {
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_eastern_non_islamic_iranian
-                    }
-				  }	
-				  AND = {
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_non_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_eastern_non_islamic_iranian
-                    }
-				  }					
-                }
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_hindu_iranian
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_christian_iranian
-                    }
-				}				
-				
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_western_non_islamic_iranian
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_western_non_islamic_iranian
-                    }
-				}				
-            }
-        }
-    }
-
-
-
-####################################################################################################
-##################
-###Hindu Iranian
-##################
-####################################################################################################
-
-    hindu_iranian_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = indian_war_nobility_clothes
-                accessory = m_clothes_sec_indian_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_hindu_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_hindu_iranian
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_hindu_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_hindu_iranian
-                    }
-                }
-            }
-        }
-    }
-
-    hindu_iranian_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = indian_war_nobility_clothes
-                accessory = m_clothes_sec_indian_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_hindu_iranian
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_hindu_iranian
-                }
-            }
-        }
-    }
-
-    hindu_iranian_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = indian_war_nobility_clothes
-                accessory = m_clothes_sec_indian_war_nob_01_roy
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_royalty_armor_trigger = {
-                    CULTURE_INPUT = epe_hindu_iranian
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_royalty_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_hindu_iranian
-                }
-            }
-        }
-    }
-
-    ep2_hindu_iranian_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_indian_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_indian_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_hindu_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_hindu_iranian
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_hindu_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_hindu_iranian
-                    }
-                }  
-                has_ep2_dlc_trigger = yes
-            }
-        }
-    }
-
-    ep2_hindu_iranian_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_indian_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_indian_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_hindu_iranian
-                }
-                has_ep2_dlc_trigger = yes
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_hindu_iranian
-                } 
-                has_ep2_dlc_trigger = yes
-            }
-        }
-    }
-
-
-####################################################################################################
-##################
-###Iranian Christian
-##################
-####################################################################################################
-
-    epe_christ_iranian_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_byzantine_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                }
-            }
-        }
-    }
-
-    epe_christ_iranian_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_byzantine_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-            }
-        }
-    }
-
-    epe_christ_iranian_war_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_byzantine_war_nob_01_roy
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_royalty_armor_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_royalty_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-            }
-        }
-    }
-
-    ep2_epe_christ_iranian_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_byzantine_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-            }
-        }
-    }
-
-    ep2_epe_christ_iranian_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_byzantine_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-                has_ep2_dlc_trigger = yes
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-                has_ep2_dlc_trigger = yes
-            }
-        }
-    }
-
-    ep3_epe_christ_iranian_era1_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_byzantine_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                }
-                has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era1_armor_trigger = yes
-                    portrait_era2_armor_trigger = yes
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                }
-                has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era1_armor_trigger = yes
-                    portrait_era2_armor_trigger = yes
-                }
-            }
-        }
-    }
-
-    ep3_epe_christ_iranian_era1_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_byzantine_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-                has_ep3_dlc_trigger = yes
-                portrait_era1_trigger = yes
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-                has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era1_armor_trigger = yes
-                    portrait_era2_armor_trigger = yes
-                }
-            }
-        }
-    }
-
-    ep3_epe_christ_iranian_era2_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_byzantine_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                }
-                has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                    portrait_era4_armor_trigger = yes
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_christian_iranian
-                    }
-                }
-                has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                    portrait_era4_armor_trigger = yes
-                }
-            }
-        }
-    }
-
-    ep3_epe_christ_iranian_era2_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_byzantine_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_byzantine_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-                has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                    portrait_era4_armor_trigger = yes
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_christian_iranian
-                }
-                has_ep3_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                    portrait_era4_armor_trigger = yes
-                }
-            }
-        }
-    }
-	
-
-####################################################################################################
-##################
-###Early Islamic Iranian 
-##################
-####################################################################################################
-	
-    early_islamic_iranian_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_early_islamic_iranian_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                portrait_era1_trigger = yes				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                portrait_era1_trigger = yes				
-            }
-        }
-    }
-
-    early_islamic_iranian_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_early_islamic_iranian_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_islamic_iranian
-                }
-                portrait_era1_trigger = yes						
-            }
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_islamic_iranian
-                }
-                portrait_era1_trigger = yes
-                is_female = yes						
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_islamic_iranian
-                }
-                portrait_era1_trigger = yes						
-            }
-        }
-    }
-
-    ## FP3 Iranian ##
-
-    fp3_early_islamic_iranian_war = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_early_islamic_iranian_fp3_war_01
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51 # slightly stronger than mena war
-	            has_fp3_dlc_trigger = yes 				
-                OR = {
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                portrait_era1_trigger = yes					
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-	            has_fp3_dlc_trigger = yes 
-                OR = {
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                portrait_era1_trigger = yes					
-            }
-        }
-    }	
-
-	
-####################################################################################################
-##################
-###Islamic Iranian 
-##################
-####################################################################################################	
-
-    islamic_iranian_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_islamic_iranian_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-        }
-    }
-
-    islamic_iranian_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_islamic_iranian_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_islamic_iranian
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_islamic_iranian
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-        }
-    }
-	
-    ## FP3 Iranian ##
-
-    fp3_high_islamic_iranian_war = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_high_islamic_iranian_fp3_war_01
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51 # slightly stronger than mena war
-	            has_fp3_dlc_trigger = yes 				
-                OR = {
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				 
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-	            has_fp3_dlc_trigger = yes 
-                OR = {
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				 
-                }			
-            }
-        }
-    }	
-
-####################################################################################################
-##################
-###Late Islamic Iranian Era 4
-##################
-####################################################################################################	
-
-    late_islamic_iranian_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                range = { 0.24 0.34 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                OR = {  				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                OR = {  				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-        }
-    }
-
-    late_islamic_iranian_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                range = { 0.36 0.45 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_islamic_iranian
-                }
-                OR = { 				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_islamic_iranian
-                }
-                OR = {				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-        }
-    }
-
-
-
-    ## FP3 Iranian ##
-
-    fp3_late_islamic_iranian_war = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = fp3_iranian_war_nobility_clothes
-                accessory = m_clothes_epe_late_islamic_iranian_fp3_war_01
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51 # slightly stronger than mena war
-	            has_fp3_dlc_trigger = yes 				
-                OR = {
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                OR = {
-                	portrait_era4_trigger = yes  				 				 
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-	            has_fp3_dlc_trigger = yes 
-                OR = {
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_islamic_iranian
-                    }
-                }
-                OR = {
-                	portrait_era4_trigger = yes  								 
-                }			
-            }
-        }
-    }		
-	
-	
-    ####################################################################################################
-    ##################
-    ###North africa/maghreb
-    ##################
-    ####################################################################################################
-
-
-####################################################################################################
-##################
-###Butr/zaghawa - nomadic Berber
-##################
-####################################################################################################	
-
-    butr_maghreb_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = afr_war_nobility_clothes
-                accessory = m_clothes_epe_butr_war_nob_01_lo
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60 # slightly stronger than western war
-                OR = {
-					AND = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }					
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_butr
-                    }
-				  }
-					AND = {
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }					
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_butr
-                    }
-				  }				  
-                }
-				has_afr_dlc_trigger = yes								
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-					AND = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }					
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_butr
-                    }
-				  }
-				  
-					AND = {
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }					
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_butr
-                    }
-				  }					
-                }
-				has_afr_dlc_trigger = yes								
-            }
-        }
-    }
-
-    butr_maghreb_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = afr_war_nobility_clothes
-                accessory = m_clothes_epe_butr_war_nob_01_hi
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60 # slightly stronger than western war
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = afr_berber
-                }
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_butr
-                }				
-				has_afr_dlc_trigger = yes								
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = afr_berber
-                }
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_butr
-                }				
-				has_afr_dlc_trigger = yes								
-            }
-        }
-    }
-	
-####################################################################################################
-##################
-###Baranis - settled/Coastal Berber
-##################
-####################################################################################################
-	
-
-    baranis_maghreb_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = afr_war_nobility_clothes
-				range = { 0.41 0.77 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60 # slightly stronger than western war
-                OR = {
-					AND = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }					
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_baranis
-                    }
-				  }
-					AND = {
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }					
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_baranis
-                    }
-				  }				  
-                }
-				has_afr_dlc_trigger = yes								
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-					AND = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }					
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_baranis
-                    }
-				  }
-				  
-					AND = {
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }					
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_baranis
-                    }
-				  }					
-                }
-				has_afr_dlc_trigger = yes								
-            }
-        }
-    }
-
-    baranis_maghreb_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = afr_war_nobility_clothes
-                accessory = m_clothes_sec_fp2_epe_baranis_war_nob_01_hi
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60 # slightly stronger than western war
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = afr_berber
-                }
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_baranis
-                }				
-				has_afr_dlc_trigger = yes								
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = afr_berber
-                }
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_baranis
-                }				
-				has_afr_dlc_trigger = yes								
-            }
-        }
-    }	
-
-	#### North africa Non-dlc
-
-    non_dlc_maghreb_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = mena_war_nobility_clothes
-                accessory = m_clothes_sec_mena_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }
-                }
-                NOT = {
-                    has_afr_dlc_trigger = yes
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = afr_berber
-                    }
-                }
-                NOT = {
-                    has_afr_dlc_trigger = yes
-                }				
-            }
-        }
-    }
-
-    non_dlc_maghreb_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = mena_war_nobility_clothes
-                accessory = m_clothes_sec_mena_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = afr_berber
-                }
-                NOT = {
-                    has_afr_dlc_trigger = yes
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = afr_berber
-                }
-                NOT = {
-                    has_afr_dlc_trigger = yes
-                }				
-            }
-        }
-    }	
-	
-	
-    ####################################################################################################
-    ##################
-    ###Eastern Turkic/Default Turk
-    ##################
-    ####################################################################################################
-	
-	
-    eastern_turk_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_turkic_clothes
-                accessory = m_clothes_sec_steppe_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_eastern_turk
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_eastern_turk
-                    }
-                }
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}				
-				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_eastern_turk
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_eastern_turk
-                    }
-                }
-				NOT = {
-					portrait_commoner_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_commoner_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}				
-				
-				
-            }
-        }
-    }
-
-    eastern_turk_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_turkic_clothes
-                accessory = m_clothes_sec_steppe_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_eastern_turk
-                }
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}				
-			
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_eastern_turk
-                }
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_western_turk
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}				
-
-				
-            }
-        }
-    }
-
-    ep2_eastern_turk_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_steppe_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_steppe_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_eastern_turk
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_eastern_turk
-                    }
-                }
-				NOT = {
-					portrait_commoner_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				
-                has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                    portrait_era4_armor_trigger = yes  
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_eastern_turk
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_eastern_turk
-                    }
-                }
-				NOT = {
-					portrait_commoner_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				
-                has_ep2_dlc_trigger = yes
-            }
-        }
-    }
-
-    ep2_eastern_turk_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_steppe_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_steppe_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_eastern_turk
-                }
-				NOT = {
-					portrait_high_nobles_armor_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-			
-                has_ep2_dlc_trigger = yes
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_eastern_turk
-                } 
-				NOT = {
-					portrait_high_nobles_armor_in_army_trigger = { 
-                    CULTURE_INPUT = epe_seljuk
-                    }
-				}
-				
-                has_ep2_dlc_trigger = yes
-                OR = {
-                    portrait_era3_armor_trigger = yes
-                    portrait_era4_armor_trigger = yes  
-                }
-            }
-        }
-    }
-
-
-    ####################################################################################################
-    ##################
-    ###Seljuk Turk
-    ##################
-    ####################################################################################################
-
-    seljuk_turk_war_low_nobles_era1 = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_turkic_clothes
-                accessory = m_clothes_sec_steppe_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                }
-				portrait_era1_trigger = yes 
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                }
-				portrait_era1_trigger = yes 
-            }
-        }
-    }
-
-    seljuk_turk_war_high_nobles_era1 = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = eastern_turkic_clothes
-                accessory = m_clothes_sec_steppe_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_seljuk
-                }
-				portrait_era1_trigger = yes  
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_seljuk
-                }
-				portrait_era1_trigger = yes 
-            }
-        }
-    }
-
-
-	########Persianized	era 2-3
-	
-    seljuk_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = seljuk_turkic_clothes
-                accessory = m_clothes_sec_epe_seljuk_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-        }
-    }
-
-    seljuk_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = seljuk_turkic_clothes
-                accessory = m_clothes_sec_epe_seljuk_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_seljuk
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_seljuk
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-        }
-    }
-	
-    ## FP3 Iranian ##
-
-    fp3_seljuk_war = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = seljuk_turkic_clothes
-                accessory = m_clothes_epe_seljuk_iranian_fp3_war_01
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51 # slightly stronger than mena war
-                OR = {
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_seljuk
-                    }
-                }
-				has_fp3_dlc_trigger = yes	
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }			
             }
             modifier = {
                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
                 OR = {
                     portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_seljuk
+                        CULTURE_INPUT = fp3_iranian
                     }
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_seljuk
+                    portrait_low_nobles_armor_in_army_trigger = {
+                        CULTURE_INPUT = fp3_iranian
                     }
-                }
-				has_fp3_dlc_trigger = yes	
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }			
-            }
-        }
-    }		
-
-    seljuk_war_royalty = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = seljuk_turkic_clothes
-                accessory = m_clothes_sec_epe_seljuk_war_nob_01_roy
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_royalty_armor_trigger = {
-                    CULTURE_INPUT = epe_seljuk
-                }
-                OR = {
-                	portrait_era2_armor_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_royalty_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_seljuk
-                }
-                OR = {
-                	portrait_era2_trigger = yes  				
-                	portrait_era3_trigger = yes   				
-                	portrait_era4_trigger = yes  
-                }				
-            }
-        }
-    }
-
-
-####################################################################################################
-##################
-###Han Chinese
-##################
-####################################################################################################
-
-    han_chinese_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_sino_iranian_clothes
-                accessory = m_clothes_sec_epe_chinese_war_nob_01_lo
-            }
-			accessory = {
-				mode = add
-				gene = legwear
-				template = tgp_chinese_war_legwear
-				range = { 0 1 } 
-			}			
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = chinese
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = chinese
-                    }
-                }
-            }
-            modifier = {
-                add = 50
-                OR = {
-					portrait_commoner_armor_trigger = {
-						CULTURE_INPUT = japanese
-					}
-					portrait_low_nobles_armor_trigger = {
-						CULTURE_INPUT = japanese
-					}
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = japanese
-					}					
-                }
-				has_tgp_dlc_trigger = no				
-            }			
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = chinese
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = chinese
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = japanese
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = japanese
-                    }
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = japanese
-					}					
-                }
-				has_tgp_dlc_trigger = no					
-            }
-			
-        }
-    }
-
-    han_chinese_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_sino_iranian_clothes
-                accessory = m_clothes_sec_epe_chinese_war_nob_01_hi
-            }
-			accessory = {
-				mode = add
-				gene = legwear
-				template = tgp_chinese_war_legwear
-				range = { 0 1 } 
-			}			
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = chinese
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = chinese
                 }
             }
         }
@@ -5769,983 +3527,983 @@
 ##################
 ####################################################################################################
 
-    uyghur_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_uyghur_clothes
-				accessory = m_clothes_sec_uyghur_war_nob_02_lo
-            }
-			accessory = {
-				mode = add
-				gene = legwear
-				template = tgp_chinese_war_legwear
-				range = { 0 1 } 
-			}			
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_uyghur
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_uyghur
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_uyghur
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_uyghur
-                    }
-                }
-            }
-        }
-    }
+#     uyghur_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = tgp_uyghur_clothes
+# 				accessory = m_clothes_sec_uyghur_war_nob_02_lo
+#             }
+# 			accessory = {
+# 				mode = add
+# 				gene = legwear
+# 				template = tgp_chinese_war_legwear
+# 				range = { 0 1 } 
+# 			}			
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 100
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_uyghur
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_uyghur
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_uyghur
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_uyghur
+#                     }
+#                 }
+#             }
+#         }
+#     }
 
-    uyghur_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_uyghur_clothes
-				accessory = m_clothes_sec_uyghur_war_nob_02_hi
-            }
-			accessory = {
-				mode = add
-				gene = legwear
-				template = tgp_chinese_war_legwear
-				range = { 0 1 } 
-			}			
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_uyghur
-                }
-            }
-        }
-    }	
+#     uyghur_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = tgp_uyghur_clothes
+# 				accessory = m_clothes_sec_uyghur_war_nob_02_hi
+#             }
+# 			accessory = {
+# 				mode = add
+# 				gene = legwear
+# 				template = tgp_chinese_war_legwear
+# 				range = { 0 1 } 
+# 			}			
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 100
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_uyghur
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_uyghur
+#                 }
+#             }
+#         }
+#     }	
 
-    EPE_gokalpbags_clan_war_armor = {
-        dna_modifiers = {
-			# EPE Added
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_sino_iranian_clothes
-                accessory = m_clothes_sec_sino_iranian_war_nob_01_hi
-            }			
-			accessory = {
-				mode = add
-				gene = legwear
-				template = tgp_chinese_war_legwear
-                accessory = m_legwear_sec_tgp_chinese_war_nob_02
-			}		
-        }
-        weight = {
-            base = 0 
-            modifier = {
-                add = 1000 
-                OR = {
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_gokalpbags
-                    }
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_gokalpbags
-                    }
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_gokalpbags
-                    }
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_gokalpbags
-                    }
-                }				
-            }
-        }
-    }	
+#     EPE_gokalpbags_clan_war_armor = {
+#         dna_modifiers = {
+# 			# EPE Added
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = tgp_sino_iranian_clothes
+#                 accessory = m_clothes_sec_sino_iranian_war_nob_01_hi
+#             }			
+# 			accessory = {
+# 				mode = add
+# 				gene = legwear
+# 				template = tgp_chinese_war_legwear
+#                 accessory = m_legwear_sec_tgp_chinese_war_nob_02
+# 			}		
+#         }
+#         weight = {
+#             base = 0 
+#             modifier = {
+#                 add = 1000 
+#                 OR = {
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_gokalpbags
+#                     }
+#                     portrait_high_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_gokalpbags
+#                     }
+#                 }				
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_gokalpbags
+#                     }
+#                     portrait_high_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_gokalpbags
+#                     }
+#                 }				
+#             }
+#         }
+#     }	
 
-####################################################################################################
-##################
-###Sino-Iranian
-##################
-####################################################################################################
+# ####################################################################################################
+# ##################
+# ###Sino-Iranian
+# ##################
+# ####################################################################################################
 
-    sino_iranian_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_sino_iranian_clothes
-				accessory = m_clothes_sec_sino_iranian_war_nob_01_lo
-            }
-			accessory = {
-				mode = add
-				gene = legwear
-				template = tgp_chinese_war_legwear
-				range = { 0 1 } 
-			}			
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_sino_iranian
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_sino_iranian
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_sino_iranian
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_sino_iranian
-                    }
-                }
-            }
-        }
-    }
+#     sino_iranian_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = tgp_sino_iranian_clothes
+# 				accessory = m_clothes_sec_sino_iranian_war_nob_01_lo
+#             }
+# 			accessory = {
+# 				mode = add
+# 				gene = legwear
+# 				template = tgp_chinese_war_legwear
+# 				range = { 0 1 } 
+# 			}			
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 100
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_sino_iranian
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_sino_iranian
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_sino_iranian
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_sino_iranian
+#                     }
+#                 }
+#             }
+#         }
+#     }
 
-    sino_iranian_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_sino_iranian_clothes
-				accessory = m_clothes_sec_sino_iranian_war_nob_01_hi
-            }
-			accessory = {
-				mode = add
-				gene = legwear
-				template = tgp_chinese_war_legwear
-				range = { 0 1 } 
-			}			
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 100
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_sino_iranian
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_sino_iranian
-                }
-            }
-        }
-    }	
+#     sino_iranian_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = tgp_sino_iranian_clothes
+# 				accessory = m_clothes_sec_sino_iranian_war_nob_01_hi
+#             }
+# 			accessory = {
+# 				mode = add
+# 				gene = legwear
+# 				template = tgp_chinese_war_legwear
+# 				range = { 0 1 } 
+# 			}			
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 100
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_sino_iranian
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_sino_iranian
+#                 }
+#             }
+#         }
+#     }	
 	
 
-####################################################################################################
-##################
-###Eastern Slav/The Rus' 
-##################
-####################################################################################################
+# ####################################################################################################
+# ##################
+# ###Eastern Slav/The Rus' 
+# ##################
+# ####################################################################################################
 
-    east_slav_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = east_slav_clothes
-                accessory = m_clothes_sec_eastern_slav_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_east_slav
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_east_slav
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_east_slav
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_east_slav
-                    }
-                }
-            }
-        }
-    }
+#     east_slav_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = east_slav_clothes
+#                 accessory = m_clothes_sec_eastern_slav_war_nob_01_lo
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 OR = {
+#                     portrait_commoner_armor_trigger = {
+#                         CULTURE_INPUT = epe_east_slav
+#                     }
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_east_slav
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_east_slav
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_east_slav
+#                     }
+#                 }
+#             }
+#         }
+#     }
 
-    east_slav_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = east_slav_clothes
-                accessory = m_clothes_sec_eastern_slav_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_east_slav
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_east_slav
-                }
-            }
-        }
-    }
+#     east_slav_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = east_slav_clothes
+#                 accessory = m_clothes_sec_eastern_slav_war_nob_01_hi
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_east_slav
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_east_slav
+#                 }
+#             }
+#         }
+#     }
 
 
-####################################################################################################
-##################
-###Balto-Finnic
-##################
-####################################################################################################
+# ####################################################################################################
+# ##################
+# ###Balto-Finnic
+# ##################
+# ####################################################################################################
 
-    balto_finnic_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_slav_balto_finnic_clothes
-                accessory = m_clothes_sec_northern_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_balto_finnic
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_balto_finnic
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_balto_finnic
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_balto_finnic
-                    }
-                }
-            }
-        }
-    }
+#     balto_finnic_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_slav_balto_finnic_clothes
+#                 accessory = m_clothes_sec_northern_war_nob_01_lo
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 OR = {
+#                     portrait_commoner_armor_trigger = {
+#                         CULTURE_INPUT = epe_balto_finnic
+#                     }
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_balto_finnic
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_balto_finnic
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_balto_finnic
+#                     }
+#                 }
+#             }
+#         }
+#     }
 
-    balto_finnic_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_slav_balto_finnic_clothes
-                accessory = m_clothes_sec_northern_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_balto_finnic
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_balto_finnic
-                }
-            }
-        }
-    }
+#     balto_finnic_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_slav_balto_finnic_clothes
+#                 accessory = m_clothes_sec_northern_war_nob_01_hi
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_balto_finnic
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_balto_finnic
+#                 }
+#             }
+#         }
+#     }
 
-####################################################################################################
-##################
-###Sami
-##################
-####################################################################################################
+# ####################################################################################################
+# ##################
+# ###Sami
+# ##################
+# ####################################################################################################
 
-    sami_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ccp4_sami_clothes
-                accessory = m_clothes_sec_northern_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = sami
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = sami
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = sami
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = sami
-                    }
-                }
-            }
-        }
-    }
+#     sami_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = ccp4_sami_clothes
+#                 accessory = m_clothes_sec_northern_war_nob_01_lo
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 OR = {
+#                     portrait_commoner_armor_trigger = {
+#                         CULTURE_INPUT = sami
+#                     }
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = sami
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = {
+#                         CULTURE_INPUT = sami
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = sami
+#                     }
+#                 }
+#             }
+#         }
+#     }
 
-    sami_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ccp4_sami_clothes
-                accessory = m_clothes_sec_northern_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = sami
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = sami
-                }
-            }
-        }
-    }
+#     sami_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = ccp4_sami_clothes
+#                 accessory = m_clothes_sec_northern_war_nob_01_hi
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = sami
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = sami
+#                 }
+#             }
+#         }
+#     }
 	
-    ####################################################################################################
-    ##################
-    ###West Slav
-    ##################
-    ####################################################################################################
+#     ####################################################################################################
+#     ##################
+#     ###West Slav
+#     ##################
+#     ####################################################################################################
 
-    west_slav_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_war_nobility_clothes
-                accessory = m_clothes_sec_western_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-            }
-            modifier = {
-                factor = 0    
-                has_ep2_dlc_trigger = yes   
-            }
-        }
-    }
+#     west_slav_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_war_nobility_clothes
+#                 accessory = m_clothes_sec_western_war_nob_01_lo
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 factor = 0    
+#                 has_ep2_dlc_trigger = yes   
+#             }
+#         }
+#     }
 
-    west_slav_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_war_nobility_clothes
-                accessory = m_clothes_sec_western_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_high_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_high_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-            }
-            modifier = {
-                factor = 0    
-                has_ep2_dlc_trigger = yes   
-            }
-        }
-    }
+#     west_slav_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_war_nobility_clothes
+#                 accessory = m_clothes_sec_western_war_nob_01_hi
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 OR = {
+#                     portrait_high_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_high_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 factor = 0    
+#                 has_ep2_dlc_trigger = yes   
+#             }
+#         }
+#     }
 
-    ep2_west_slav_era1_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_slav_balto_finnic_clothes
-                accessory = m_clothes_sec_northern_war_nob_01_lo
-            }
-			accessory = {
-				mode = add
-				gene = cloaks
-				template = ep2_cloak_western_travel
-				range = { 0 1 }
-			}			
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-                portrait_era1_armor_trigger = yes 
-            }
-            modifier = {
-                add = 21
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-                has_ep2_dlc_trigger = yes  
-                portrait_era1_armor_trigger = yes  
-            }
-        }
-    }
+#     ep2_west_slav_era1_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_slav_balto_finnic_clothes
+#                 accessory = m_clothes_sec_northern_war_nob_01_lo
+#             }
+# 			accessory = {
+# 				mode = add
+# 				gene = cloaks
+# 				template = ep2_cloak_western_travel
+# 				range = { 0 1 }
+# 			}			
+#         }   
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era1_armor_trigger = yes 
+#             }
+#             modifier = {
+#                 add = 21
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes  
+#                 portrait_era1_armor_trigger = yes  
+#             }
+#         }
+#     }
 
-    ep2_west_slav_era1_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_slav_balto_finnic_clothes
-                accessory = m_clothes_sec_northern_war_nob_01_hi
-            }
-			accessory = {
-				mode = add
-				gene = cloaks
-				template = ep2_cloak_western_travel
-				range = { 0 1 }
-			}			
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }
-                has_ep2_dlc_trigger = yes
-                portrait_era1_armor_trigger = yes 
-            }
-            modifier = {
-                add = 21
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }
-                has_ep2_dlc_trigger = yes  
-                portrait_era1_armor_trigger = yes  
-            }
-        }
-    }
+#     ep2_west_slav_era1_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_slav_balto_finnic_clothes
+#                 accessory = m_clothes_sec_northern_war_nob_01_hi
+#             }
+# 			accessory = {
+# 				mode = add
+# 				gene = cloaks
+# 				template = ep2_cloak_western_travel
+# 				range = { 0 1 }
+# 			}			
+#         }   
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era1_armor_trigger = yes 
+#             }
+#             modifier = {
+#                 add = 21
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }
+#                 has_ep2_dlc_trigger = yes  
+#                 portrait_era1_armor_trigger = yes  
+#             }
+#         }
+#     }
 
-    ep2_west_slav_era2_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_western_era1_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_western_era1_war_nob_01_lo
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-                portrait_era2_armor_trigger = yes 
-            }
-            modifier = {
-                add = 21
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-                has_ep2_dlc_trigger = yes  
-                portrait_era2_armor_trigger = yes  
-            }
-        }
-    }
+#     ep2_west_slav_era2_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = ep2_western_era1_war_nobility_clothes
+#                 accessory = m_clothes_sec_ep2_western_era1_war_nob_01_lo
+#             }
+#         }   
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era2_armor_trigger = yes 
+#             }
+#             modifier = {
+#                 add = 21
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes  
+#                 portrait_era2_armor_trigger = yes  
+#             }
+#         }
+#     }
 
-    ep2_west_slav_era2_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_western_era1_war_nobility_clothes
-                accessory = m_clothes_sec_ep2_western_era1_war_nob_01_hi
-            }
-			accessory = {
-				mode = add
-				gene = cloaks
-				template = ep2_cloak_western_travel
-				range = { 0 1 }
-			}				
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }
-                has_ep2_dlc_trigger = yes
-                portrait_era2_armor_trigger = yes 
-            }
-            modifier = {
-                add = 21
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }
-                has_ep2_dlc_trigger = yes  
-                portrait_era2_armor_trigger = yes  
-            }
-        }
-    }
+#     ep2_west_slav_era2_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = ep2_western_era1_war_nobility_clothes
+#                 accessory = m_clothes_sec_ep2_western_era1_war_nob_01_hi
+#             }
+# 			accessory = {
+# 				mode = add
+# 				gene = cloaks
+# 				template = ep2_cloak_western_travel
+# 				range = { 0 1 }
+# 			}				
+#         }   
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era2_armor_trigger = yes 
+#             }
+#             modifier = {
+#                 add = 21
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }
+#                 has_ep2_dlc_trigger = yes  
+#                 portrait_era2_armor_trigger = yes  
+#             }
+#         }
+#     }
 
-    ep2_west_slav_era3_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_war_nobility_clothes
-                accessory = m_clothes_sec_western_war_nob_01_lo
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-                portrait_era3_armor_trigger = yes 
-            }
-            modifier = {
-                add = 21
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                } 
-                has_ep2_dlc_trigger = yes  
-                portrait_era3_armor_trigger = yes  
-            }
-        }
-    }
+#     ep2_west_slav_era3_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_war_nobility_clothes
+#                 accessory = m_clothes_sec_western_war_nob_01_lo
+#             }
+#         }   
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era3_armor_trigger = yes 
+#             }
+#             modifier = {
+#                 add = 21
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 } 
+#                 has_ep2_dlc_trigger = yes  
+#                 portrait_era3_armor_trigger = yes  
+#             }
+#         }
+#     }
 
-    ep2_west_slav_era3_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_war_nobility_clothes
-                accessory = m_clothes_sec_western_war_nob_01_hi
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }
-                has_ep2_dlc_trigger = yes
-                portrait_era3_armor_trigger = yes 
-            }
-            modifier = {
-                add = 21
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }
-                has_ep2_dlc_trigger = yes  
-                portrait_era3_armor_trigger = yes  
-            }
-        }
-    }
+#     ep2_west_slav_era3_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_war_nobility_clothes
+#                 accessory = m_clothes_sec_western_war_nob_01_hi
+#             }
+#         }   
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era3_armor_trigger = yes 
+#             }
+#             modifier = {
+#                 add = 21
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }
+#                 has_ep2_dlc_trigger = yes  
+#                 portrait_era3_armor_trigger = yes  
+#             }
+#         }
+#     }
 	
-    ep2_west_slav_dde_hre_era3_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = dde_hre_war_nobility_clothes
-                accessory = m_clothes_sec_dde_hre_war_nob_01_lo
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }				
-                has_ep2_dlc_trigger = yes
-                portrait_era3_armor_trigger = yes
-            }
-            modifier = {
-                add = 21
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }				
-                has_ep2_dlc_trigger = yes
-                portrait_era3_armor_trigger = yes
-            }
-        }
-    }
+#     ep2_west_slav_dde_hre_era3_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = dde_hre_war_nobility_clothes
+#                 accessory = m_clothes_sec_dde_hre_war_nob_01_lo
+#             }
+#         }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 OR = {
+#                     portrait_commoner_armor_trigger = {
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }				
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era3_armor_trigger = yes
+#             }
+#             modifier = {
+#                 add = 21
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }				
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era3_armor_trigger = yes
+#             }
+#         }
+#     }
 
-    ep2_west_slav_dde_hre_era3_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = dde_hre_war_nobility_clothes
-                accessory = m_clothes_sec_dde_hre_war_nob_01_hi
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }			
-                has_ep2_dlc_trigger = yes
-                portrait_era3_armor_trigger = yes
-            }
-            modifier = {
-                add = 21
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }				
-                has_ep2_dlc_trigger = yes
-                portrait_era3_armor_trigger = yes
-            }
-        }
-    }	
+#     ep2_west_slav_dde_hre_era3_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = dde_hre_war_nobility_clothes
+#                 accessory = m_clothes_sec_dde_hre_war_nob_01_hi
+#             }
+#         }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }			
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era3_armor_trigger = yes
+#             }
+#             modifier = {
+#                 add = 21
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }				
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era3_armor_trigger = yes
+#             }
+#         }
+#     }	
 
-    ep2_west_slav_era4_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_western_era4_war_nobility_clothes
-                range = { 0 0.49 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-                portrait_era4_armor_trigger = yes 
-            }
-            modifier = {
-                add = 21
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_west_slav
-                    }
-                }
-                has_ep2_dlc_trigger = yes  
-                portrait_era4_armor_trigger = yes  
-            }
-        }
-    }
+#     ep2_west_slav_era4_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = ep2_western_era4_war_nobility_clothes
+#                 range = { 0 0.49 } # For the randomness to work correctly
+#             }
+#         }   
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era4_armor_trigger = yes 
+#             }
+#             modifier = {
+#                 add = 21
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_west_slav
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes  
+#                 portrait_era4_armor_trigger = yes  
+#             }
+#         }
+#     }
 
-    ep2_west_slav_era4_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ep2_western_era4_war_nobility_clothes
-                range = { 0.51 1 } # For the randomness to work correctly
-            }
-        }   
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }
-                has_ep2_dlc_trigger = yes
-                portrait_era4_armor_trigger = yes 
-            }
-            modifier = {
-                add = 21
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_west_slav
-                }
-                has_ep2_dlc_trigger = yes  
-                portrait_era4_armor_trigger = yes  
-            }
-        }
-    }
+#     ep2_west_slav_era4_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = ep2_western_era4_war_nobility_clothes
+#                 range = { 0.51 1 } # For the randomness to work correctly
+#             }
+#         }   
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 portrait_era4_armor_trigger = yes 
+#             }
+#             modifier = {
+#                 add = 21
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_west_slav
+#                 }
+#                 has_ep2_dlc_trigger = yes  
+#                 portrait_era4_armor_trigger = yes  
+#             }
+#         }
+#     }
 
-###Western Slav POL
-	ep2_pol_west_slavic_war = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = pol_west_slav_clothes
-                accessory = m_clothes_sec_pol_war_nob_01
-			}
-		}
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = west_slavic
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = west_slavic
-                    }
-                }
- 				has_pol_dlc_trigger = yes
-                has_ep2_dlc_trigger = yes   
-                OR = {			
-					portrait_era1_armor_trigger = yes	
-                    current_date >= 940.1.1 					
-                }
-                NOT = { 
-                    current_date >= 1060.1.1 
-               }				
-            }
-            modifier = {
-                add = 21       
-				OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = west_slavic
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = west_slavic
-                    }
-                }
- 				has_pol_dlc_trigger = yes
-                has_ep2_dlc_trigger = yes   
-                OR = {			
-					portrait_era1_armor_trigger = yes	
-                    current_date >= 940.1.1 					
-                }
-                NOT = { 
-                    current_date >= 1060.1.1 
-               }			
+# ###Western Slav POL
+# 	ep2_pol_west_slavic_war = {
+# 		dna_modifiers = {
+# 			accessory = {
+# 				mode = add
+# 				gene = clothes
+# 				template = pol_west_slav_clothes
+#                 accessory = m_clothes_sec_pol_war_nob_01
+# 			}
+# 		}
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 OR = {
+#                     portrait_commoner_armor_trigger = {
+#                         CULTURE_INPUT = west_slavic
+#                     }
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = west_slavic
+#                     }
+#                 }
+#  				has_pol_dlc_trigger = yes
+#                 has_ep2_dlc_trigger = yes   
+#                 OR = {			
+# 					portrait_era1_armor_trigger = yes	
+#                     current_date >= 940.1.1 					
+#                 }
+#                 NOT = { 
+#                     current_date >= 1060.1.1 
+#                }				
+#             }
+#             modifier = {
+#                 add = 21       
+# 				OR = {
+#                     portrait_commoner_armor_in_army_trigger = {
+#                         CULTURE_INPUT = west_slavic
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = west_slavic
+#                     }
+#                 }
+#  				has_pol_dlc_trigger = yes
+#                 has_ep2_dlc_trigger = yes   
+#                 OR = {			
+# 					portrait_era1_armor_trigger = yes	
+#                     current_date >= 940.1.1 					
+#                 }
+#                 NOT = { 
+#                     current_date >= 1060.1.1 
+#                }			
 				
-            }
-        }
-	}
+#             }
+#         }
+# 	}
 	
-	ep2_pol_west_slavic_war_high_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = pol_west_slav_clothes
-                accessory = m_clothes_sec_pol_war_nob_01
-			}
-		}
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 101
-                OR = {
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = west_slavic
-					}
-                }
- 				has_pol_dlc_trigger = yes
-                has_ep2_dlc_trigger = yes   
-                OR = {			
-					portrait_era1_armor_trigger = yes	
-                    current_date >= 940.1.1 					
-                }
-                NOT = { 
-                    current_date >= 1060.1.1 
-               }				
-            }
-            modifier = {
-                add = 101        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-				OR = {
-					portrait_high_nobles_armor_in_army_trigger = {
-						CULTURE_INPUT = west_slavic
-					}
-                }
- 				has_pol_dlc_trigger = yes
-                has_ep2_dlc_trigger = yes   
-                OR = {			
-					portrait_era1_armor_trigger = yes	
-                    current_date >= 940.1.1 					
-                }
-                NOT = { 
-                    current_date >= 1060.1.1 
-               }			
+# 	ep2_pol_west_slavic_war_high_nobles = {
+# 		dna_modifiers = {
+# 			accessory = {
+# 				mode = add
+# 				gene = clothes
+# 				template = pol_west_slav_clothes
+#                 accessory = m_clothes_sec_pol_war_nob_01
+# 			}
+# 		}
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 101
+#                 OR = {
+# 					portrait_high_nobles_armor_trigger = {
+# 						CULTURE_INPUT = west_slavic
+# 					}
+#                 }
+#  				has_pol_dlc_trigger = yes
+#                 has_ep2_dlc_trigger = yes   
+#                 OR = {			
+# 					portrait_era1_armor_trigger = yes	
+#                     current_date >= 940.1.1 					
+#                 }
+#                 NOT = { 
+#                     current_date >= 1060.1.1 
+#                }				
+#             }
+#             modifier = {
+#                 add = 101        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+# 				OR = {
+# 					portrait_high_nobles_armor_in_army_trigger = {
+# 						CULTURE_INPUT = west_slavic
+# 					}
+#                 }
+#  				has_pol_dlc_trigger = yes
+#                 has_ep2_dlc_trigger = yes   
+#                 OR = {			
+# 					portrait_era1_armor_trigger = yes	
+#                     current_date >= 940.1.1 					
+#                 }
+#                 NOT = { 
+#                     current_date >= 1060.1.1 
+#                }			
 				
-            }
-        }
-	}
+#             }
+#         }
+# 	}
 	
-	## CCP4 khanty ##
+# 	## CCP4 khanty ##
 
     ccp4_khanty_war_com = {
         dna_modifiers = {
@@ -6829,418 +4587,418 @@
     }
 
 
-####################################################################################################
-##################
-###Gaelic/Irish
-##################
-####################################################################################################
+# ####################################################################################################
+# ##################
+# ###Gaelic/Irish
+# ##################
+# ####################################################################################################
 
-    gaelic_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = northern_war_nobility_clothes
-                accessory = m_clothes_sec_gaelic_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_gaelic
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_gaelic
-                    }
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_gaelic
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_gaelic
-                    }
-                }
-            }
-        }
-    }
+#     gaelic_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = northern_war_nobility_clothes
+#                 accessory = m_clothes_sec_gaelic_war_nob_01_lo
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 OR = {
+#                     portrait_commoner_armor_trigger = {
+#                         CULTURE_INPUT = epe_gaelic
+#                     }
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_gaelic
+#                     }
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_gaelic
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_gaelic
+#                     }
+#                 }
+#             }
+#         }
+#     }
 
-    gaelic_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = northern_war_nobility_clothes
-                accessory = m_clothes_sec_gaelic_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_gaelic
-                }
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_gaelic
-                }
-            }
-        }
-    }
+#     gaelic_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = northern_war_nobility_clothes
+#                 accessory = m_clothes_sec_gaelic_war_nob_01_hi
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_gaelic
+#                 }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_gaelic
+#                 }
+#             }
+#         }
+#     }
 
-####################################################################################################
-##################
-###Anglo-Saxon
-##################
-####################################################################################################	
+# ####################################################################################################
+# ##################
+# ###Anglo-Saxon
+# ##################
+# ####################################################################################################	
 	
-    ep2_anglo_saxon_era1_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = northern_war_nobility_clothes
-                accessory = m_clothes_sec_northern_war_nob_01_lo
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                OR = {
-                    portrait_commoner_armor_trigger = {
-                        CULTURE_INPUT = epe_english
-                    }
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_english
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era1_armor_trigger = yes							
-                }
-            }
-            modifier = {
-                add = 21
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_english
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_english
-                    }
-                }
-                has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era1_armor_trigger = yes							
-                }
-            }
-        }
-    }
+#     ep2_anglo_saxon_era1_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = northern_war_nobility_clothes
+#                 accessory = m_clothes_sec_northern_war_nob_01_lo
+#             }
+#         }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 OR = {
+#                     portrait_commoner_armor_trigger = {
+#                         CULTURE_INPUT = epe_english
+#                     }
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_english
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 OR = {
+# 					portrait_era1_armor_trigger = yes							
+#                 }
+#             }
+#             modifier = {
+#                 add = 21
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_english
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_english
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 OR = {
+# 					portrait_era1_armor_trigger = yes							
+#                 }
+#             }
+#         }
+#     }
 
-    ep2_anglo_saxon_era1_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = northern_war_nobility_clothes
-                accessory = m_clothes_sec_northern_war_nob_01_hi
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 60
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_english
-                }
-                has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era1_armor_trigger = yes							
-                }
-            }
-            modifier = {
-                add = 21
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_english
-                }
-                has_ep2_dlc_trigger = yes
-                OR = {
-					portrait_era1_armor_trigger = yes							
-                }
-            }
-        }
-    }	
-	
-	
-####################################################################################################
-##################
-###Western Turk
-##################
-####################################################################################################
-
-
-	
-    western_turk_war_low_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_turkic_clothes
-                accessory = m_clothes_sec_western_turk_war_nob_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                }				
-            }
-        }
-    }
-
-    western_turk_war_high_nobles = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_turkic_clothes
-                accessory = m_clothes_sec_western_turk_war_nob_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }				
-            }
-        }
-    }
-
-
-    ## EP2 Western Turk ##
-
-
-    western_turk_war_low_nobles_ep2 = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_turkic_clothes
-                accessory = m_clothes_sec_western_turk_war_nob_02_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                }
-                has_ep2_dlc_trigger = yes				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                }
-                has_ep2_dlc_trigger = yes				
-            }
-        }
-    }
-
-    western_turk_war_high_nobles_ep2 = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_turkic_clothes
-                accessory = m_clothes_sec_western_turk_war_nob_02_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 50
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }
-                has_ep2_dlc_trigger = yes				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }
-                has_ep2_dlc_trigger = yes				
-            }
-        }
-    }
+#     ep2_anglo_saxon_era1_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = northern_war_nobility_clothes
+#                 accessory = m_clothes_sec_northern_war_nob_01_hi
+#             }
+#         }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 60
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_english
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 OR = {
+# 					portrait_era1_armor_trigger = yes							
+#                 }
+#             }
+#             modifier = {
+#                 add = 21
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_english
+#                 }
+#                 has_ep2_dlc_trigger = yes
+#                 OR = {
+# 					portrait_era1_armor_trigger = yes							
+#                 }
+#             }
+#         }
+#     }	
 	
 	
-    ## POL Western Turk ##
+# ####################################################################################################
+# ##################
+# ###Western Turk
+# ##################
+# ####################################################################################################
 
 
-    western_turk_war_low_nobles_pol = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = pol_west_slav_clothes
-                accessory = m_clothes_epe_western_turk_pol_war_01_lo
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51
-                OR = {
-                    portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                    portrait_low_nobles_armor_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                }
-                has_pol_dlc_trigger = yes				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                OR = {
-                    portrait_commoner_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                    portrait_low_nobles_armor_in_army_trigger = { 
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                }
-                has_pol_dlc_trigger = yes				
-            }
-        }
-    }
-
-    western_turk_war_high_nobles_pol = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = pol_west_slav_clothes
-                accessory = m_clothes_epe_western_turk_pol_war_01_hi
-            }
-        }
-        outfit_tags = { military_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51
-                portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }
-                has_pol_dlc_trigger = yes				
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-                portrait_high_nobles_armor_in_army_trigger = {
-                    CULTURE_INPUT = epe_western_turk
-                }
-                has_pol_dlc_trigger = yes				
-            }
-        }
-    }	
 	
-    ## FP3 Western Turk ##
+#     western_turk_war_low_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_turkic_clothes
+#                 accessory = m_clothes_sec_western_turk_war_nob_01_lo
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                 }				
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                 }				
+#             }
+#         }
+#     }
 
-    fp3_western_turk_war = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = western_turkic_clothes
-                accessory = m_clothes_epe_western_turk_iranian_fp3_war_01
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 51 # slightly stronger than mena war
-				has_fp3_dlc_trigger = yes	
-                OR = {
-                    portrait_low_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                    portrait_high_nobles_armor_trigger = {
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                }
+#     western_turk_war_high_nobles = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_turkic_clothes
+#                 accessory = m_clothes_sec_western_turk_war_nob_01_hi
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_western_turk
+#                 }				
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_western_turk
+#                 }				
+#             }
+#         }
+#     }
+
+
+#     ## EP2 Western Turk ##
+
+
+#     western_turk_war_low_nobles_ep2 = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_turkic_clothes
+#                 accessory = m_clothes_sec_western_turk_war_nob_02_lo
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes				
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                 }
+#                 has_ep2_dlc_trigger = yes				
+#             }
+#         }
+#     }
+
+#     western_turk_war_high_nobles_ep2 = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_turkic_clothes
+#                 accessory = m_clothes_sec_western_turk_war_nob_02_hi
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 50
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_western_turk
+#                 }
+#                 has_ep2_dlc_trigger = yes				
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_western_turk
+#                 }
+#                 has_ep2_dlc_trigger = yes				
+#             }
+#         }
+#     }
+	
+	
+#     ## POL Western Turk ##
+
+
+#     western_turk_war_low_nobles_pol = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = pol_west_slav_clothes
+#                 accessory = m_clothes_epe_western_turk_pol_war_01_lo
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 51
+#                 OR = {
+#                     portrait_commoner_armor_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                     portrait_low_nobles_armor_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                 }
+#                 has_pol_dlc_trigger = yes				
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 OR = {
+#                     portrait_commoner_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                     portrait_low_nobles_armor_in_army_trigger = { 
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                 }
+#                 has_pol_dlc_trigger = yes				
+#             }
+#         }
+#     }
+
+#     western_turk_war_high_nobles_pol = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = pol_west_slav_clothes
+#                 accessory = m_clothes_epe_western_turk_pol_war_01_hi
+#             }
+#         }
+#         outfit_tags = { military_outfit }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 51
+#                 portrait_high_nobles_armor_trigger = {
+#                     CULTURE_INPUT = epe_western_turk
+#                 }
+#                 has_pol_dlc_trigger = yes				
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+#                 portrait_high_nobles_armor_in_army_trigger = {
+#                     CULTURE_INPUT = epe_western_turk
+#                 }
+#                 has_pol_dlc_trigger = yes				
+#             }
+#         }
+#     }	
+	
+#     ## FP3 Western Turk ##
+
+#     fp3_western_turk_war = {
+#         dna_modifiers = {
+#             accessory = {
+#                 mode = add
+#                 gene = clothes
+#                 template = western_turkic_clothes
+#                 accessory = m_clothes_epe_western_turk_iranian_fp3_war_01
+#             }
+#         }
+#         weight = {
+#             base = 0
+#             modifier = {
+#                 add = 51 # slightly stronger than mena war
+# 				has_fp3_dlc_trigger = yes	
+#                 OR = {
+#                     portrait_low_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                     portrait_high_nobles_armor_trigger = {
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                 }
 			
-            }
-            modifier = {
-                add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
-				has_fp3_dlc_trigger = yes	
-                OR = {
-                    portrait_low_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                    portrait_high_nobles_armor_in_army_trigger = {
-                        CULTURE_INPUT = epe_western_turk
-                    }
-                }
+#             }
+#             modifier = {
+#                 add = 21        # So priests who are actively serving in a raised army as a commander or knight wear armor instead of priest robes
+# 				has_fp3_dlc_trigger = yes	
+#                 OR = {
+#                     portrait_low_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                     portrait_high_nobles_armor_in_army_trigger = {
+#                         CULTURE_INPUT = epe_western_turk
+#                     }
+#                 }
 			
-            }
-        }
-    }
+#             }
+#         }
+#     }
 
 ####################################################################################################
 ##################
