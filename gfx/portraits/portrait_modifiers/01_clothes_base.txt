@@ -481,12 +481,12 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 #     CULTURE_INPUT = french
                 #     }
 				# }
-				# NOT = {
+				# NOT = { #WHG
 				# 	portrait_low_nobles_clothing_trigger = { 
                 #     CULTURE_INPUT = epe_west_slav
                 #     }
 				# }
-				# NOT = {
+				# NOT = { #WHG
 				# 	portrait_low_nobles_clothing_trigger = { 
                 #     CULTURE_INPUT = fp2_iberian_muslim
                 #     }
@@ -514,68 +514,68 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy #WHG
 		        }
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}				
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }				
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_english
+                #     }
+				# }				
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
 		        has_ep2_dlc_trigger = yes 
-		        portrait_era1_trigger = yes 
+		        #portrait_era1_trigger = yes #WHG TODO
 		    }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}				
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_english
+                #     }
+				# }				
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ep2_dlc_trigger = yes   
-                portrait_era1_trigger = yes     
+                #portrait_era1_trigger = yes #WHG TODO
             }
         }
     }
@@ -594,48 +594,48 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy #WHG
 		        }
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
 		        has_ep2_dlc_trigger = yes 
-		        portrait_era2_trigger = yes 
+		       # portrait_era2_trigger = yes #WHG TODO
 		    }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}	
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }	
+				# NOT = { #WHGs
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ep2_dlc_trigger = yes   
-                portrait_era2_trigger = yes     
+                #portrait_era2_trigger = yes #WHG TODO
             }
         }
     }
@@ -654,64 +654,64 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }					
-				}	
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }					
+				# }	
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ce1_dlc_trigger = yes
-                portrait_era2_trigger = yes 
+                #portrait_era2_trigger = yes #WHG TODO
                 is_female = yes # Currently this sub group only contains one female outfit
             }
             modifier = {
                 add = 20
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}	
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }	
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ce1_dlc_trigger = yes
-                portrait_era2_trigger = yes    
+                #portrait_era2_trigger = yes #WHG TODO
                 is_female = yes # Currently this sub group only contains one female outfit 
             }
         }
@@ -731,54 +731,54 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		    modifier = {
 		        add = 50
 		        court_fashion_level_4_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy #WHG
 		        }
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}					
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }					
 		        has_ep2_dlc_trigger = yes 
-                OR = {
-                	portrait_era3_trigger = yes  
-                	portrait_era4_trigger = yes  
-                } 
+                # OR = { #WHG TODO
+                # 	portrait_era3_trigger = yes  
+                # 	portrait_era4_trigger = yes  
+                # } 
 		    }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}					
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }					
                 has_ep2_dlc_trigger = yes
-                OR = {
-                	portrait_era3_trigger = yes  
-                	portrait_era4_trigger = yes  
-                }      
+                # OR = { #WHG TODO
+                # 	portrait_era3_trigger = yes  
+                # 	portrait_era4_trigger = yes  
+                # }     
             }
         }
     }
@@ -797,54 +797,54 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_4_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_4_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ce1_dlc_trigger = yes
-                OR = {
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                } 
+                # OR = { #WHG TODO
+                #     portrait_era3_trigger = yes  
+                #     portrait_era4_trigger = yes  
+                # } 
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_low_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ce1_dlc_trigger = yes
-                OR = {
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                }      
+                # OR = { #WHG TODO
+                #     portrait_era3_trigger = yes  
+                #     portrait_era4_trigger = yes  
+                # }      
             }
         }
     }
@@ -863,44 +863,44 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		    modifier = {
 		        add = 50
 		        court_fashion_level_5_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy #WHG
 		        }
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
 		    }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
             }
             modifier = {
                 factor = 0     
@@ -923,69 +923,69 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		    modifier = {
 		        add = 50
 		        court_fashion_level_5_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy #WHG
 		        }
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}					
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_english
+                #     }
+				# }					
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
 				
 		        has_ep2_dlc_trigger = yes 
-		        portrait_era1_trigger = yes 
+		        #portrait_era1_trigger = yes #WHG TODO
 		    }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western #WHG
                 } 
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_english
-                    }
-				}					
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_english
+                #     }
+				# }					
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ep2_dlc_trigger = yes   
-                portrait_era1_trigger = yes     
+                #portrait_era1_trigger = yes #WHG TODO  
             }
         }
     }
@@ -1004,68 +1004,68 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		    modifier = {
 		        add = 50
 		        court_fashion_level_5_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy #WHG
 		        }
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}				
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }					
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }				
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }					
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
 		        has_ep2_dlc_trigger = yes 
-		        portrait_era2_trigger = yes 
+		        #portrait_era2_trigger = yes #WHG TODO
 		    }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}				
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }			
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }				
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }			
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ep2_dlc_trigger = yes   
-                portrait_era2_trigger = yes     
+                #portrait_era2_trigger = yes #WHG TODO
             }
         }
     }
@@ -1084,69 +1084,69 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 20
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}	
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }				
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }	
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }				
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ce1_dlc_trigger = yes
-                portrait_era2_trigger = yes 
+                #portrait_era2_trigger = yes #WHG TODO
                 is_female = yes # Currently this sub group only contains one female outfit
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}	
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_brythonic
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }				
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }	
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_brythonic
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }				
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ce1_dlc_trigger = yes
-                portrait_era2_trigger = yes    
+                #portrait_era2_trigger = yes #WHG TODO
                 is_female = yes # Currently this sub group only contains one female outfit
             }
         }
@@ -1166,64 +1166,64 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 		    modifier = {
 		        add = 50
 		        court_fashion_level_5_trigger = {
-		            CULTURE_INPUT = western
+		            CULTURE_INPUT = western_proxy #WHG
 		        }
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }
-				}	
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}					
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }
+				# }	
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }					
 		        has_ep2_dlc_trigger = yes 
-                OR = {
-                	portrait_era3_trigger = yes  
-                	portrait_era4_trigger = yes  
-                } 
+                # OR = { #WHG TODO
+                # 	portrait_era3_trigger = yes  
+                # 	portrait_era4_trigger = yes  
+                # } 
 		    }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }				
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}					
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }				
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }					
                 has_ep2_dlc_trigger = yes  
-                OR = {
-                	portrait_era3_trigger = yes  
-                	portrait_era4_trigger = yes  
-                }    
+                # OR = { #WHG TODO
+                # 	portrait_era3_trigger = yes  
+                # 	portrait_era4_trigger = yes  
+                # }    
             }
         }
     }
@@ -1242,64 +1242,64 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 }
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }				
-				}
-				NOT = {
-					court_fashion_level_5_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }				
+				# }
+				# NOT = { #WHG
+				# 	court_fashion_level_5_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ce1_dlc_trigger = yes
-                OR = {
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                } 
+                # OR = { #WHG TODO
+                #     portrait_era3_trigger = yes  
+                #     portrait_era4_trigger = yes  
+                # } 
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = western
+                    CULTURE_INPUT = western_proxy #WHG
                 } 
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_west_slav
-                    }
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = epe_sicilian
-                    }				
-				}
-				NOT = {
-					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}				
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = french
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_west_slav
+                #     }
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = epe_sicilian
+                #     }				
+				# }
+				# NOT = { #WHG
+				# 	portrait_high_nobles_clothing_trigger = { 
+                #     CULTURE_INPUT = fp2_iberian_muslim
+                #     }
+				# }				
                 has_ce1_dlc_trigger = yes
-                OR = {
-                    portrait_era3_trigger = yes  
-                    portrait_era4_trigger = yes  
-                }    
+                # OR = { #WHG TODO
+                #     portrait_era3_trigger = yes  
+                #     portrait_era4_trigger = yes  
+                # }    
             }
         }
     }
