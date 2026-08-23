@@ -5,7 +5,6 @@
 @great_project_china_icon = "gfx/interface/icons/great_projects/city_china.dds"
 @great_project_great_canals_icon = "gfx/interface/icons/great_projects/grand_canals.dds"
 @icon_great_project_great_wall = "gfx/interface/icons/great_projects/great_wall.dds"
-@icon_great_project_generic_icon = "gfx/interface/icons/great_projects/_default.dds"
 
 @default_illustration = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds"
 @mandala_capital_illustration = "gfx/interface/illustrations/decisions/tgp_projects_mandala_capital.dds"
@@ -13,7 +12,6 @@
 @great_wall_illustration = "gfx/interface/illustrations/decisions/tgp_great_wall.dds"
 @grand_canals_illustration = "gfx/interface/illustrations/event_scenes/tgp_chinese_city.dds"
 @courtyard_asia_illustration = "gfx/interface/illustrations/event_scenes/tgp_courtyard_asia.dds"
-@lotr_great_project_generic_illustration = "gfx/interface/illustrations/event_scenes/city_north.dds" # LotR
 
 #The Mandala Capital Great Project!
 mandala_capital_01 = {
@@ -3466,7 +3464,7 @@ construct_great_barracks = {
 				is_independent_ruler = yes
 				highest_held_title_tier >= tier_empire
 			}
-			# has_title = title:e_minister_of_war # LOTR
+			# has_title = title:e_minister_of_war # WHG
 			# has_title = title:e_minister_grand_marshal
 		}
 		NOT = { is_planning_great_project = construct_great_barracks }
@@ -3586,7 +3584,7 @@ construct_great_barracks = {
 					OR = {
 						this = scope:great_project.great_project_location.province_owner
 						is_liege_or_above_of = scope:great_project.great_project_location.province_owner
-						# has_title = title:e_minister_of_war # LOTR
+						# has_title = title:e_minister_of_war # WHG
 						# has_title = title:e_minister_grand_marshal
 					}
 				}
@@ -3634,7 +3632,7 @@ construct_great_barracks = {
 					OR = {
 						this = scope:great_project.great_project_location.province_owner
 						is_liege_or_above_of = scope:great_project.great_project_location.province_owner
-						# has_title = title:e_minister_of_war # LOTR
+						# has_title = title:e_minister_of_war # WHG
 						# has_title = title:e_minister_grand_marshal
 					}
 				}
@@ -3682,7 +3680,7 @@ construct_great_barracks = {
 					OR = {
 						this = scope:great_project.great_project_location.province_owner
 						is_liege_or_above_of = scope:great_project.great_project_location.province_owner
-						# has_title = title:e_minister_of_war # LOTR
+						# has_title = title:e_minister_of_war # WHG
 						# has_title = title:e_minister_grand_marshal
 					}
 				}
@@ -3730,7 +3728,7 @@ construct_great_barracks = {
 					OR = {
 						this = scope:great_project.great_project_location.province_owner
 						is_liege_or_above_of = scope:great_project.great_project_location.province_owner
-						# has_title = title:e_minister_of_war # LOTR
+						# has_title = title:e_minister_of_war # WHG
 						# has_title = title:e_minister_grand_marshal
 					}
 				}
@@ -3818,10 +3816,10 @@ construct_great_barracks = {
 # Strengthen Capital - Improves the capital in various ways, and slows down the drift for the dynastic cycle
 strengthen_capital = {
 	icon = {
-		reference = @icon_great_project_generic_icon # LotR
+		reference = @great_project_china_icon
 	}
 	illustration = {
-		reference = @lotr_great_project_generic_illustration # LotR
+		reference = @courtyard_asia_illustration
 	}
 
 	name = {
@@ -3846,7 +3844,7 @@ strengthen_capital = {
 		}
 		NOT = {
 			any_sub_realm_county = {
-				has_county_modifier = lotr_strengthen_capital_modifier # LotR
+				has_county_modifier = tgp_strengthen_capital_modifier
 			}
 		}
 		trigger_if = {
@@ -3890,13 +3888,10 @@ strengthen_capital = {
 	on_start_build = {}
 	
 	on_complete = {
-		scope:province.county.duchy = {
-			every_in_de_jure_hierarchy = {
-				limit = { tier = tier_county }
-				add_county_modifier = {
-					modifier = lotr_strengthen_capital_modifier # LotR - different modifier
-					years = 40 # LotR - lasts longer
-				}
+		scope:province.county = {
+			add_county_modifier = {
+				modifier = tgp_strengthen_capital_modifier
+				years = 20
 			}
 		}
 		show_as_tooltip = {
@@ -3908,10 +3903,11 @@ strengthen_capital = {
 					right_icon = scope:province.county
 					desc = great_project_completed_msg_desc
 
-					add_character_modifier = { # LotR - changed modifier, lasts longer
-						modifier = lotr_strengthen_capital_character_modifier
-						years = 40
+					add_character_modifier = {
+						modifier = tgp_strengthen_capital_character_modifier
+						years = 20
 					}
+					
 					if = {
 						limit = { is_valid_for_legitimacy_change = yes }
 						add_legitimacy = {
@@ -3927,11 +3923,6 @@ strengthen_capital = {
 							}
 						}
 					}
-					if = { # LotR - Elves gain hope
-						limit = { is_good_undying = yes }
-						add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_great_project_completed }
-					}
-					dynasty = { add_dynasty_prestige = 500 }
 				}
 			}		
 		}
@@ -3944,10 +3935,11 @@ strengthen_capital = {
 					right_icon = scope:province.county
 					desc = great_project_completed_msg_desc
 
-					add_character_modifier = { # LotR - changed modifier, lasts longer
-						modifier = lotr_strengthen_capital_character_modifier
-						years = 40
+					add_character_modifier = {
+						modifier = tgp_strengthen_capital_character_modifier
+						years = 20
 					}
+					
 					if = {
 						limit = { is_valid_for_legitimacy_change = yes }
 						add_legitimacy = {
@@ -3963,11 +3955,6 @@ strengthen_capital = {
 							}
 						}
 					}
-					if = { # LotR - Elves gain hope
-						limit = { is_good_undying = yes }
-						add_elven_hope_effect = { VALUE = massive_elven_hope_gain HOPE_EFFECT = effect_elven_hope_great_project_completed }
-					}
-					dynasty = { add_dynasty_prestige = 500 }
 				}
 			}
 		}
@@ -4084,9 +4071,9 @@ strengthen_capital = {
 					OWNER_REWARD_EFFECT = great_project_reward_contribution_completion_null
 				}
 				scope:province.county = {
-					add_county_modifier = { # LotR - replaced modifier and lasts longer
-						modifier = lotr_strengthen_capital_architects_modifier
-						years = 40
+					add_county_modifier = {
+						modifier = tgp_strengthen_capital_architects_modifier
+						years = 20
 					}
 				}
 			}
@@ -4126,9 +4113,9 @@ strengthen_capital = {
 					OWNER_REWARD_EFFECT = great_project_reward_contribution_completion_null
 				}
 				scope:province.county = {
-					add_county_modifier = { # LotR - replaced modifier and lasts longer
-						modifier = lotr_strengthen_capital_engineers_modifier
-						years = 40
+					add_county_modifier = {
+						modifier = tgp_strengthen_capital_engineers_modifier
+						years = 20
 					}
 				}
 			}
@@ -4168,9 +4155,9 @@ strengthen_capital = {
 					OWNER_REWARD_EFFECT = great_project_reward_contribution_completion_null
 				}
 				scope:province.county.holder = {
-					add_character_modifier = { # LotR - replaced modifier and lasts longer
-						modifier = lotr_strengthen_capital_sculptors_modifier
-						years = 40
+					add_character_modifier = {
+						modifier = tgp_strengthen_capital_sculptors_modifier
+						years = 20
 					}
 				}
 			}
@@ -4447,14 +4434,14 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		# Vassals and tributaries can all contribute to these
 		walls_01 = { # b_wulan
 			is_shown = {
-				# title:b_wulan.title_province = { # LOTR
+				# title:b_wulan.title_province = { # WHG
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no # LOTR
+				always = no # WHG
 			}
 			on_complete = {
-				# title:b_wulan.title_province = { set_great_building = the_great_wall_04 } #LOTR
+				# title:b_wulan.title_province = { set_great_building = the_great_wall_04 } #WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4488,13 +4475,13 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		}
 		walls_02 = { # b_fengan
 			is_shown = {
-				# title:b_fengan.title_province = { # LOTR
+				# title:b_fengan.title_province = { # WHG
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
 			}
 			on_complete = {
-				# title:b_fengan.title_province = { set_great_building = the_great_wall_04 } # LOTR
+				# title:b_fengan.title_province = { set_great_building = the_great_wall_04 } # WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4528,14 +4515,14 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		}
 		walls_03 = { # b_mingsha
 			is_shown = {
-				# title:b_mingsha.title_province = { #LOTR
+				# title:b_mingsha.title_province = { #WHG
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no # LOTR
+				always = no # WHG
 			}
 			on_complete = {
-				# title:b_mingsha.title_province = { set_great_building = the_great_wall_04 } # LOTR
+				# title:b_mingsha.title_province = { set_great_building = the_great_wall_04 } # WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4569,7 +4556,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		}
 		walls_04 = { # b_yaode
 			is_shown = {
-				always = no # LOTR
+				always = no # WHG
 				# title:b_yaode.title_province = { #LotR
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
@@ -4610,14 +4597,14 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		}
 		walls_05 = { # b_huile
 			is_shown = {
-				# title:b_huile.title_province = { # LOTR
+				# title:b_huile.title_province = { # WHG
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no # LOTR
+				always = no # WHG
 			}
 			on_complete = {
-				# title:b_huile.title_province = { set_great_building = the_great_wall_04 } # LOTR
+				# title:b_huile.title_province = { set_great_building = the_great_wall_04 } # WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4651,14 +4638,14 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		}
 		walls_06 = { # b_baojing
 			is_shown = {
-				# title:b_baojing.title_province = { # LOTR
+				# title:b_baojing.title_province = { # WHG
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no # LOTR
+				always = no # WHG
 			}
 			on_complete = {
-				# title:b_baojing.title_province = { set_great_building = the_great_wall_04 } #LOTR
+				# title:b_baojing.title_province = { set_great_building = the_great_wall_04 } #WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4692,14 +4679,14 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		}
 		walls_07 = { # b_huaiyuan
 			is_shown = {
-				# title:b_huaiyuan.title_province = { #LOTR
+				# title:b_huaiyuan.title_province = { #WHG
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no #LOTR
+				always = no #WHG
 			}
 			on_complete = {
-				# title:b_huaiyuan.title_province = { set_great_building = the_great_wall_04 }#LOTR
+				# title:b_huaiyuan.title_province = { set_great_building = the_great_wall_04 }#WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4733,14 +4720,14 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		}
 		walls_08 = { # b_shengwei
 			is_shown = {
-				# title:b_shengwei.title_province = {#LOTR
+				# title:b_shengwei.title_province = {#WHG
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no #LOTR
+				always = no #WHG
 			}
 			on_complete = {
-				# title:b_shengwei.title_province = { set_great_building = the_great_wall_04 }#LOTR
+				# title:b_shengwei.title_province = { set_great_building = the_great_wall_04 }#WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4778,10 +4765,10 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no #LOTR
+				always = no #WHG
 			}
 			on_complete = {
-				# title:b_hequ.title_province = { set_great_building = the_great_wall_04 }#LOTR
+				# title:b_hequ.title_province = { set_great_building = the_great_wall_04 }#WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4815,14 +4802,14 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 		}
 		walls_10 = { # b_helan
 			is_shown = {
-				# title:b_helan.title_province = { #LOTR
+				# title:b_helan.title_province = { #WHG
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no #LOTR
+				always = no #WHG
 			}
 			on_complete = {
-				# title:b_helan.title_province = { set_great_building = the_great_wall_04 } #LOTR
+				# title:b_helan.title_province = { set_great_building = the_great_wall_04 } #WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4860,10 +4847,10 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no #LOTR
+				always = no #WHG
 			}
 			on_complete = {
-				# title:b_dengkou.title_province = { set_great_building = the_great_wall_04 }#LOTR
+				# title:b_dengkou.title_province = { set_great_building = the_great_wall_04 }#WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -4901,10 +4888,10 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 				# 	NOT = { has_building_or_higher = the_great_wall_04 }
 				# 	province_owner ?= { top_liege = root.top_liege }
 				# }
-				always = no #LOTR
+				always = no #WHG
 			}
 			on_complete = {
-				# title:b_wuluhai.title_province = { set_great_building = the_great_wall_04 }#LOTR
+				# title:b_wuluhai.title_province = { set_great_building = the_great_wall_04 }#WHG
 				contributor_great_wall_reward_effect = yes
 			}
 			
@@ -5906,7 +5893,7 @@ great_wall = { # This is a project to upgrade pre-existing wall sections within 
 	completion_sound_effect = @msg_completion_effect_military
 }
 
-great_wall_extend_to_shanhai_pass = { #LOTR
+great_wall_extend_to_shanhai_pass = { #WHG
 	icon = {
 		reference = @icon_great_project_great_wall
 	}
@@ -6405,7 +6392,7 @@ great_wall_extend_to_shanhai_pass = { #LOTR
 	completion_sound_effect = @msg_completion_effect_military
 }
 
-great_wall_extend_to_liaodong = { #LOTR
+great_wall_extend_to_liaodong = { #WHG
 	icon = {
 		reference = @icon_great_project_great_wall
 	}
@@ -6667,23 +6654,30 @@ great_wall_extend_to_liaodong = { #LOTR
 		# Add the great wall to all relevant holdings
 		custom_tooltip = {
 			text = add_great_wall_in_liaodong_desc
-			
-			# title:b_yuyang.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_zunhua.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_cirlzj_qinglonghe.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_cirlzj_luexiating.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Dading.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Enzhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Jianzhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Wuanzhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Chuanzhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Suizhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Liaozhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Guangzhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Tangzhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Haizhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Tongzhou.title_province = { add_great_building = the_great_wall_04 } #LotR
-			# title:b_Liao_Diezhou.title_province = { add_great_building = the_great_wall_liaodong } #LotR
+			#title:b_anxi_2.title_province = { #WHG 
+			#	if = {
+			#		limit = { has_great_building = no }
+			#		add_great_building = the_great_wall_04
+			#	}
+			#}
+			#title:b_cirlzj_longtan.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_cirlzj_yuhejing.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Liping.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Chaoyang.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Wuanzhou.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Chengzhou.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Suizhou.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Weizhou2.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Yuanzhou.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Shuangzhou.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Qizhou.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Fuzhou2.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_FIC_Liao_Huangcaocun.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Guidezhou.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Fengcheng.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Liao_Dandong.title_province = { add_great_building = the_great_wall_04 }
+			#title:b_Goryeo_Bukgye_Uiju.title_province = { add_great_building = the_great_wall_liaodong }
+			#title:b_Goryeo_Bukgye_Cheolju.title_province = { add_great_building = the_great_wall_04 }
 		}
 		# Mark this section as complete
 		set_global_variable = {
