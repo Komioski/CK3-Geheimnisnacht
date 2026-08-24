@@ -36,22 +36,22 @@ special_makeup = {
 				add = 1000
 				should_be_topless_portrait_trigger = yes
 			}
-			modifier = { #
-				add = 50
-				is_male = yes
-				# Japanese gfx
-				portrait_shared_clothing_contents_trigger = {
-					CULTURE_SCOPE = culture
-					CULTURE_FLAG = japanese
-				}
-			}
+			# modifier = { #
+			# 	add = 50
+			# 	is_male = yes
+			# 	# Japanese gfx
+			# 	portrait_shared_clothing_contents_trigger = {
+			# 		CULTURE_SCOPE = culture
+			# 		CULTURE_FLAG = japanese
+			# 	}
+			# }
 			modifier = {
 				add = 50
 				is_male = yes	
-                OR = {
-                    religion = religion:hinduism_religion	 					
-                    religion = religion:jainism_religion	 				 
-                }					
+                # OR = {
+                #     religion = religion:hinduism_religion	 					
+                #     religion = religion:jainism_religion	 				 
+                # }					
 				OR = {
 					portrait_commoner_clothing_trigger = {  
 						CULTURE_INPUT = indian_proxy 

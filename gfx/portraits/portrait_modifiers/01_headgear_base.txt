@@ -4598,7 +4598,7 @@ mpo_mongol_royalty = {
 		}
 		weight = {
 			base = 0
-			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = epe_norse } # common/scripted_modifiers/00_portrait_modifiers.txt
+			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = northern_proxy } # common/scripted_modifiers/00_portrait_modifiers.txt
 			modifier = {
 				add = 50
 				portrait_low_nobles_clothing_trigger = {
@@ -6870,27 +6870,6 @@ ccp4_ugro_permian_high_nobles = {
 				primary_title ?= title:h_china
 				has_tgp_dlc_trigger = yes
 				#exists = global_var:chinese_fashion_change			
-			}
-		}
-	}
-
-	chinese_imperial_headgear_ming = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = tgp_chinese_headgear
-                value = 0.82				
-				#accessory = male_headgear_secular_chinese_high_nobility_02
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 110
-				primary_title ?= title:h_china
-				has_tgp_dlc_trigger = yes
-				#exists = global_var:chinese_fashion_change		
 			}
 		}
 	}

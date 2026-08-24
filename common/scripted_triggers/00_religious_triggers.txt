@@ -804,21 +804,9 @@ is_preferred_heresy = {
 		#		faiths_are_in_muhakkima_islam_group = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$}
 		#	}
 		#}
-		AND = {
-			religion = religion:dunedain_religion #LotR
-			OR = {
-				faiths_are_in_dunedain_group_and_appropriate = {FAITH_1 = $ORIGIN_FAITH$ FAITH_2 = $HERETICAL_FAITH$ }
-			}
-		}
-		AND = {
-			this = faith:faith_corsair
-			scope:heretic_capital ?= {
-				title_province = { geographical_region = custom_close_corsair_coast }
-			}
-		}
 
 		#Otherwise, we don't have any special preferences.
-		AND = {
+		AND = { #WHG TODO
 			NOT = {
 				#religion_tag = islam_religion #LOTR
 				#religion_tag = christianity_religion #LOTR

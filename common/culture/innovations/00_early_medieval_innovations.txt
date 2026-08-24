@@ -80,11 +80,12 @@ innovation_mangonel = {
 
 	asset = {
 		trigger = {
-			OR = {
-				has_cultural_pillar = heritage_chinese
-				has_cultural_pillar = heritage_japonic
-				has_cultural_pillar = heritage_korean
-			}
+			# OR = {
+			# 	has_cultural_pillar = heritage_chinese
+			# 	has_cultural_pillar = heritage_japonic
+			# 	has_cultural_pillar = heritage_korean
+			# }
+			always = no #WHG
 		}
 		icon = @cloud_ladder
 		name = innovation_mangonel_chinese
@@ -115,7 +116,8 @@ innovation_burhs = { # Stone Forts in-game
 	# Suki (柵)
 	asset = {
 		trigger = {
-			has_cultural_pillar = heritage_japonic
+			#has_cultural_pillar = heritage_japonic
+			always = no #WHG
 		}
 		icon = @civil_construction_2
 		name = innovation_burhs_japan
@@ -124,7 +126,8 @@ innovation_burhs = { # Stone Forts in-game
 	# Wu Bi/Wū Bì (塢壁)
 	asset = {
 		trigger = {
-			has_cultural_pillar = heritage_chinese
+			#has_cultural_pillar = heritage_chinese
+			always = no #WHG
 		}
 		icon = @civil_construction_2
 		name = innovation_burhs_chinese
@@ -133,7 +136,8 @@ innovation_burhs = { # Stone Forts in-game
 	# Burhs
 	asset = {
 		trigger = {
-			has_cultural_pillar = heritage_west_germanic
+			#has_cultural_pillar = heritage_west_germanic
+			always = yes #WHG default
 		}
 		icon = @civil_construction_2
 		name = innovation_burhs_anglo_saxon
@@ -142,7 +146,8 @@ innovation_burhs = { # Stone Forts in-game
 	# Castra
 	asset = {
 		trigger = {
-			has_cultural_pillar = heritage_latin
+			#has_cultural_pillar = heritage_latin
+			always = no #WHG
 		}
 		icon = @civil_construction_2
 		name = innovation_burhs_latin
