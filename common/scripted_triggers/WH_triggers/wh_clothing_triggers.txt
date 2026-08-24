@@ -25,10 +25,11 @@ portrait_western_proxy_clothing_spouse_trigger = {
 }
 portrait_western_proxy_clothing_contents_trigger = {
 	OR = {
-		#has_clothing_gfx = bretonnian_clothing_gfx #Just standard fallback
+		has_clothing_gfx = western_clothing_gfx
 		has_clothing_gfx = imperial_clothing_gfx
 		has_clothing_gfx = estalian_clothing_gfx
 		has_clothing_gfx = tilean_clothing_gfx
+		has_clothing_gfx = halfling_clothing_gfx
 		#add all other clothing gfx here for western fallbacks, including the ones that are not in the game yet
 	}
 }
@@ -65,11 +66,12 @@ portrait_byzantine_proxy_clothing_spouse_trigger = {
 
 portrait_byzantine_proxy_clothing_contents_trigger = {
 	OR = {
+		has_clothing_gfx = byzantine_clothing_gfx #WHG TODO
 		has_clothing_gfx = khyprian_clothing_gfx #WHG TODO
 	}
 }
 
-## MENA Proxy #Arabyn
+## MENA Proxy
 
 portrait_mena_proxy_clothing_trigger = {
 	scope:culture = { portrait_mena_proxy_clothing_contents_trigger = yes }
@@ -102,7 +104,7 @@ portrait_indian_proxy_clothing_spouse_trigger = {
 
 portrait_indian_proxy_clothing_contents_trigger = {
 	OR = {
-		has_clothing_gfx = ind_clothing_gfx
+		has_clothing_gfx = brigundian_clothing_gfx
 	}
 }
 
@@ -139,7 +141,7 @@ portrait_steppe_proxy_clothing_spouse_trigger = {
 
 portrait_steppe_proxy_clothing_contents_trigger = {
 	OR = {
-		has_clothing_gfx = kurgan_clothing_gfx	
+		has_clothing_gfx = kurgan_clothing_gfx
 	}
 }
 
@@ -157,7 +159,8 @@ portrait_african_proxy_clothing_spouse_trigger = {
 
 portrait_african_proxy_clothing_contents_trigger = {
 	OR = {
-		has_clothing_gfx = tribal_clothing_gfx	
+		has_clothing_gfx = tribal_clothing_gfx
+		has_clothing_gfx = afr_berber_clothing_gfx
 	}
 }
 
@@ -176,25 +179,6 @@ portrait_no_proxy_clothing_spouse_trigger = {
 portrait_no_proxy_clothing_contents_trigger = {
 	OR = {
 		has_clothing_gfx = temp_clothing_gfx
-	}
-}
-
-## Wilderness ##
-
-portrait_wastelands_clothing_trigger = {
-	scope:culture = { portrait_wastelands_clothing_contents_trigger = yes }
-}
-
-portrait_wastelands_clothing_spouse_trigger = {
-	culture = {
-		portrait_wastelands_clothing_contents_trigger = yes
-	}
-}
-
-portrait_wastelands_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = wastelands
 	}
 }
 
@@ -508,7 +492,7 @@ wh_portrait_fp2_iberian_muslim_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = pel
+			CULTURE_FLAG = arabyan
 		}
 	}
 }
@@ -517,7 +501,7 @@ wh_portrait_fp2_iberian_muslim_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = pel
+			CULTURE_FLAG = arabyan
 		}
 	}
 }
@@ -544,7 +528,7 @@ wh_portrait_fp3_iranian_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = variag
+			CULTURE_FLAG = kurgan
 		}
 	}
 }
@@ -553,7 +537,7 @@ wh_portrait_fp3_iranian_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = variag
+			CULTURE_FLAG = kurgan
 		}
 	}
 }
@@ -562,7 +546,7 @@ wh_portrait_fp3_turkic_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = rhunnic
+			CULTURE_FLAG = kurgan
 		}
 	}
 }
@@ -571,7 +555,7 @@ wh_portrait_fp3_turkic_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = rhunnic
+			CULTURE_FLAG = kurgan
 		}
 	}
 }
@@ -598,7 +582,7 @@ wh_portrait_west_slavic_clothing_trigger = {
 	scope:culture = { 
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = orodbedhrim
+			CULTURE_FLAG = kislevite
 		}
 	}
 }
@@ -607,7 +591,7 @@ wh_portrait_west_slavic_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = orodbedhrim
+			CULTURE_FLAG = kislevite
 		}
 	}
 
@@ -617,7 +601,7 @@ wh_portrait_fp1_norse_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = gwathiurim
+			CULTURE_FLAG = norscan
 		}
 	}
 }
@@ -626,7 +610,7 @@ wh_portrait_fp1_norse_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = gwathiurim
+			CULTURE_FLAG = norscan
 		}
 	}
 }
@@ -660,7 +644,7 @@ wh_portrait_dde_hre_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = numenorean
+			CULTURE_FLAG = kislevite
 		}
 	}
 }
@@ -669,7 +653,7 @@ wh_portrait_dde_hre_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = numenorean
+			CULTURE_FLAG = kislevite
 		}
 	}
 }
@@ -679,7 +663,7 @@ wh_portrait_dde_abbasid_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = east_haradrim
+			CULTURE_FLAG = arabyan
 		}
 	}
 }
@@ -688,7 +672,7 @@ wh_portrait_dde_abbasid_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
-			CULTURE_FLAG = east_haradrim
+			CULTURE_FLAG = arabyan
 		}
 	}
 }
@@ -716,7 +700,7 @@ wh_portrait_ep2_wedding_clothes_trigger = {
 	}
 }
 
-#lotr_should_be_knight_idle_trigger = { # from AGOT
+#lotr_should_be_knight_idle_trigger = { # WHG TODO
 #	is_lotr_adult = yes
 #	NOR = {
 #		portrait_sickness_trigger = yes
@@ -750,29 +734,10 @@ wh_portrait_ep2_wedding_clothes_trigger = {
 
 
 
-##################################################################################################################################################
+#############################################################################################################################################################
 ################### Geheimnisnacht Clothing Triggers Below ###################
 
 ### Cultural Clothing GFX ###
-
-## Strygan ##
-
-portrait_strygan_clothing_trigger = {
-	scope:culture = { portrait_strygan_clothing_contents_trigger = yes }
-}
-
-portrait_strygan_clothing_spouse_trigger = {
-	culture = {
-		portrait_strygan_clothing_contents_trigger = yes
-	}
-}
-
-portrait_strygan_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = strygan
-	}
-}
 
 ## Halfling ##
 
@@ -787,138 +752,222 @@ portrait_halfling_clothing_spouse_trigger = {
 }
 
 portrait_halfling_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
+	portrait_shared_clothing_contents_trigger = {
 		CULTURE_SCOPE = scope:culture
 		CULTURE_FLAG = halfling
 	}
 }
 
-## Dwarf ##
+## WHG TODO, below triggers currently cause crashes, but should be adapted in the future
 
-portrait_dwarf_clothing_trigger = {
-	scope:culture = { portrait_dwarf_clothing_contents_trigger = yes }
-}
+# ## Bretonnian ##
 
-portrait_dwarf_clothing_spouse_trigger = {
-	culture = {
-		portrait_dwarf_clothing_contents_trigger = yes
-	}
-}
+# portrait_bretonnian_clothing_trigger = {
+# 	scope:culture = { portrait_bretonnian_clothing_contents_trigger = yes }
+# }
 
-portrait_dwarf_clothing_contents_trigger = {
-	OR = {
-		has_clothing_gfx = dwarf_clothing_gfx
-		has_clothing_gfx = firebeard_clothing_gfx
-		has_clothing_gfx = broadbeam_clothing_gfx
-		has_clothing_gfx = ironfist_clothing_gfx
-		has_clothing_gfx = stiffbeard_clothing_gfx
-		has_clothing_gfx = blacklock_clothing_gfx
-		has_clothing_gfx = stonefoot_clothing_gfx
-	}
-	
-}
+# portrait_bretonnian_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_bretonnian_clothing_contents_trigger = yes
+# 	}
+# }
 
-portrait_dwarf_bronze_clothing_trigger = {
-	scope:culture = { portrait_dwarf_bronze_clothing_contents_trigger = yes }
-}
+# portrait_bretonnian_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = bretonnian
+# 	}
+# }
 
-portrait_dwarf_bronze_clothing_spouse_trigger = {
-	culture = {
-		portrait_dwarf_bronze_clothing_contents_trigger = yes
-	}
-}
+# ## Imperial ##
 
-portrait_dwarf_bronze_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = firebeard
-	}
-}
+# portrait_imperial_clothing_trigger = {
+# 	scope:culture = { portrait_imperial_clothing_contents_trigger = yes }
+# }
 
-portrait_dwarf_gold_clothing_trigger = {
-	scope:culture = { portrait_dwarf_gold_clothing_contents_trigger = yes }
-}
+# portrait_imperial_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_imperial_clothing_contents_trigger = yes
+# 	}
+# }
 
-portrait_dwarf_gold_clothing_spouse_trigger = {
-	culture = {
-		portrait_dwarf_gold_clothing_contents_trigger = yes
-	}
-}
+# portrait_imperial_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = imperial
+# 	}
+# }
 
-portrait_dwarf_gold_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = broadbeam
-	}
-}
+# ## Norscan ##
 
-portrait_dwarf_iron_clothing_trigger = {
-	scope:culture = { has_cultural_pillar = heritage_broadbeam }
-}
+# portrait_norscan_clothing_trigger = {
+# 	scope:culture = { portrait_norscan_clothing_contents_trigger = yes }
+# }
 
+# portrait_norscan_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_norscan_clothing_contents_trigger = yes
+# 	}
+# }
 
+# portrait_norscan_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = norscan
+# 	}
+# }
 
+# ## Khyprian ##
 
+# portrait_khyprian_clothing_trigger = {
+# 	scope:culture = { portrait_khyprian_clothing_contents_trigger = yes }
+# }
 
+# portrait_khyprian_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_khyprian_clothing_contents_trigger = yes
+# 	}
+# }
 
-## Bretonnian ##
+# portrait_khyprian_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = khyprian
+# 	}
+# }
 
-portrait_bretonnian_clothing_trigger = {
-	scope:culture = { portrait_bretonnian_clothing_contents_trigger = yes }
-}
+# ## Estalian ##
 
-portrait_bretonnian_clothing_spouse_trigger = {
-	culture = {
-		portrait_bretonnian_clothing_contents_trigger = yes
-	}
-}
+# portrait_estalian_clothing_trigger = {
+# 	scope:culture = { portrait_estalian_clothing_contents_trigger = yes }
+# }
 
-portrait_bretonnian_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = bretonnian
-	}
-}
+# portrait_estalian_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_estalian_clothing_contents_trigger = yes
+# 	}
+# }
 
+# portrait_estalian_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = estalian
+# 	}
+# }
 
-## Rayan ##
+# ## Arabyan ##
 
-portrait_rayan_clothing_trigger = {
-	scope:culture = { portrait_rayan_clothing_contents_trigger = yes }
-}
+# portrait_arabyan_clothing_trigger = {
+# 	scope:culture = { portrait_arabyan_clothing_contents_trigger = yes }
+# }
 
-portrait_rayan_clothing_spouse_trigger = {
-	culture = {
-		portrait_rayan_clothing_contents_trigger = yes
-	}
-}
+# portrait_arabyan_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_arabyan_clothing_contents_trigger = yes
+# 	}
+# }
 
-portrait_rayan_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = rayan
-	}
-}
+# portrait_arabyan_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = arabyan
+# 	}
+# }
 
-## estalian ##
+# ## Kislevite ##
 
-portrait_estalian_clothing_trigger = {
-	scope:culture = { portrait_estalian_clothing_contents_trigger = yes }
-}
+# portrait_kislevite_clothing_trigger = {
+# 	scope:culture = { portrait_kislevite_clothing_contents_trigger = yes }
+# }
 
-portrait_estalian_clothing_spouse_trigger = {
-	culture = {
-		portrait_estalian_clothing_contents_trigger = yes
-	}
-}
+# portrait_kislevite_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_kislevite_clothing_contents_trigger = yes
+# 	}
+# }
 
-portrait_estalian_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = estalian
-	}
-}
+# portrait_kislevite_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = kislevite
+# 	}
+# }
 
+# ## Tilean ##
+
+# portrait_tilean_clothing_trigger = {
+# 	scope:culture = { portrait_tilean_clothing_contents_trigger = yes }
+# }
+
+# portrait_tilean_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_tilean_clothing_contents_trigger = yes
+# 	}
+# }
+
+# portrait_tilean_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = tilean
+# 	}
+# }
+
+# ## Strygan ##
+
+# portrait_strygan_clothing_trigger = {
+# 	scope:culture = { portrait_strygan_clothing_contents_trigger = yes }
+# }
+
+# portrait_strygan_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_strygan_clothing_contents_trigger = yes
+# 	}
+# }
+
+# portrait_strygan_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = { #LotR
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = strygan
+# 	}
+# }
+
+## Kurgan ##
+
+# portrait_kurgan_clothing_trigger = {
+# 	scope:culture = { portrait_kurgan_clothing_contents_trigger = yes }
+# }
+
+# portrait_kurgan_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_kurgan_clothing_contents_trigger = yes
+# 	}
+# }
+
+# portrait_kurgan_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = kurgan
+# 	}
+# }
+
+# ## Brigundian ##
+
+# portrait_brigundian_clothing_trigger = {
+# 	scope:culture = { portrait_brigundian_clothing_contents_trigger = yes }
+# }
+
+# portrait_brigundian_clothing_spouse_trigger = {
+# 	culture = {
+# 		portrait_brigundian_clothing_contents_trigger = yes
+# 	}
+# }
+
+# portrait_brigundian_clothing_contents_trigger = {
+# 	portrait_shared_clothing_contents_trigger = {
+# 		CULTURE_SCOPE = scope:culture
+# 		CULTURE_FLAG = brigundian
+# 	}
+# }
 
 ## Wilderness ##
 

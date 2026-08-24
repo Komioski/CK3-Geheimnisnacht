@@ -152,23 +152,6 @@ is_wastelands_culture = {
 	has_cultural_pillar = heritage_wastelands
 }
 
-portrait_wastelands_clothing_trigger = {
-	scope:culture = { portrait_wastelands_clothing_contents_trigger = yes }
-}
-
-portrait_wastelands_clothing_spouse_trigger = {
-	culture = {
-		portrait_wastelands_clothing_contents_trigger = yes
-	}
-}
-
-portrait_wastelands_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = wastelands
-	}
-}
-
 cannot_be_killed = {
 	OR = {
 		is_wastelands = yes
@@ -287,24 +270,6 @@ is_underground_race_culture = {
 		is_dwarf_culture = yes
 #		is_orc_culture = yes
 #		is_goblin_culture = yes
-	}
-}
-
-
-### HALFLING TRIGGERS ##
-
-portrait_halfling_clothing_trigger = {
-	scope:culture = { portrait_halfling_clothing_contents_trigger = yes }
-}
-portrait_halfling_clothing_spouse_trigger = {
-	culture = {
-		portrait_halfling_clothing_contents_trigger = yes
-	}
-}
-portrait_halfling_clothing_contents_trigger = {
-	portrait_shared_clothing_contents_trigger = { #LotR
-		CULTURE_SCOPE = scope:culture
-		CULTURE_FLAG = halfling
 	}
 }
 

@@ -424,32 +424,6 @@ recruit_terrain_specialist_decision = {
 				}
 			}
 		}
-		item = { # Cavern Commander - #LotR
-			value = recruit_halls_specialist_decision
-			is_valid = {
-				culture = {
-					has_cultural_parameter = can_recruit_halls_specialist
-				}
-			}
-			current_description = recruit_halls_specialist_decision
-			localization = recruit_halls_specialist_decision
-			icon = "gfx/interface/icons/traits/cavern_commander.dds"
-			ai_chance = {
-				value = 0
-				if = {
-					limit = {
-						culture = {
-							has_cultural_parameter = can_recruit_halls_specialist
-						}
-					}
-					add = 100
-				}
-				if = {
-					limit = { has_trait = cavern_commander }
-					multiply = 0
-				}
-			}
-		}
 	}
 
 	effect = {
@@ -513,13 +487,6 @@ recruit_terrain_specialist_decision = {
 				recruit_terrain_specialist_effect = {
 					SPECIALIST_TRAIT = open_terrain_expert
 					SPECIALIST_TEMPLATE_CHARACTER = open_commander_character
-				}
-			}
-			else_if = { #LotR
-				limit = { scope:recruit_halls_specialist_decision = yes }
-				recruit_terrain_specialist_effect = {
-					SPECIALIST_TRAIT = cavern_commander
-					SPECIALIST_TEMPLATE_CHARACTER = halls_commander_character
 				}
 			}
 		}
