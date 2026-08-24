@@ -3294,7 +3294,7 @@ headgear_base = {
 		}
 		weight = {
 			base = 0
-			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = steppe } 
+			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = steppe_proxy } 
 			modifier = {
 				add = 50
                 portrait_low_nobles_clothing_trigger = {
@@ -3345,27 +3345,7 @@ headgear_base = {
 						CULTURE_INPUT = steppe_proxy
 					}   
 				}
-			}
-			modifier = {
-				add = -100
-				OR = {
-					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = steppe_proxy
-					}
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = steppe_proxy
-					}
-				}
-				has_mpo_dlc_trigger = yes				
-				OR = {
-					culture = culture:khitan
-					culture = {
-						any_parent_culture_or_above = {
-							this = culture:khitan
-						}
-					}
-				}
-			}			
+			}		
 		}
 	}
 
@@ -3417,76 +3397,98 @@ headgear_base = {
 	}
 	
 	
-mpo_mongol_royalty = {
+	mpo_mongol_commoners = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = headgear
-				template = mpo_mongol_royalty
-				range = { 0 1 } # For the randomness to work correctly
+				template = mpo_mongol_headgear
+                accessory = m_headgear_sec_mpo_mongol_com_01
 			}
 		}
 		weight = {
 			base = 0
 			modifier = {
-				add = 85
-				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = steppe_proxy
-				}
+				add = 20
+                portrait_commoner_clothing_trigger = {  
+                    CULTURE_INPUT = steppe_proxy 
+                }
 				has_mpo_dlc_trigger = yes
-			}
-			modifier = {
-				add = -75
-				OR = {
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = khitan
-					}
-					portrait_imperial_nobles_headgear_trigger = {
-						CULTURE_INPUT = khitan
-					}
-				}
-				has_cp9_dlc_trigger = yes
+			
 			}
 		}
 	}
 
-	mpo_mongol_imperial = {
+	mpo_mongol_low_nobles = {
 		dna_modifiers = {
 			accessory = {
 				mode = add
 				gene = headgear
-				template = mpo_mongol_imperial
-				range = { 0 1 } # For the randomness to work correctly
+				template = mpo_mongol_headgear
+				range = { 0.13 0.60 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			court_fashion_level_4_headgear_modifier = { INPUT_PARAMETER = steppe_proxy } 
+			modifier = {
+				add = 50
+                portrait_low_nobles_clothing_trigger = {
+                    CULTURE_INPUT = steppe_proxy
+                }
+				has_mpo_dlc_trigger = yes
+			
+			}
+		}
+	}
+
+	mpo_mongol_high_nobles = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = mpo_mongol_headgear
+				range = { 0.13 0.60 } # For the randomness to work correctly
 			}
 		}
 		weight = {
 			base = 0
 			modifier = {
-				add = 85
-				portrait_imperial_headgear_trigger = {
-					CULTURE_INPUT = steppe_proxy
-				}
+				add = 50
+                portrait_high_nobles_headgear_trigger = {
+                    CULTURE_INPUT = steppe_proxy
+                }
+				is_female = yes
 				has_mpo_dlc_trigger = yes
+				
 			}
-			modifier = {
-				add = -85
-				portrait_imperial_headgear_trigger = {
-					CULTURE_INPUT = fp3_turkic
-				}
-				has_mpo_dlc_trigger = yes
+		}
+	}
+	
+	mpo_mongol_royalty = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = mpo_mongol_headgear
+                accessory = m_headgear_sec_mpo_mongol_imp_01
 			}
+		}
+		weight = {
+			base = 0
 			modifier = {
-				add = -75
+				add = 50
 				OR = {
+					portrait_imperial_headgear_trigger = {
+						CULTURE_INPUT = steppe_proxy
+					}   
 					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = khitan
-					}
-					portrait_imperial_nobles_headgear_trigger = {
-						CULTURE_INPUT = khitan
-					}
+						CULTURE_INPUT = steppe_proxy
+					}   
 				}
-				has_cp9_dlc_trigger = yes
-			}
+				has_mpo_dlc_trigger = yes
+				
+			}	
 		}
 	}
 

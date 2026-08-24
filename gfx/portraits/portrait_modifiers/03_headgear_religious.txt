@@ -526,31 +526,6 @@ religious_sami_high_headgear = {
 			}
 		}
 	}
-	
-## TGP Chinese Taoist ##
-
-	religious_taoist_devoted_headgear = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = tgp_chinese_headgear
-                accessory = male_headgear_secular_chinese_nobility_06
-			}
-		}
-		outfit_tags = { monk_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-                portrait_religious_taoist_trigger = yes
-                OR = {
-                    portrait_religious_devoted_trigger = yes
-                    portrait_religious_high_trigger = yes
-                }
-            }
-        }
-	}	
 
 ## Hinduist ##
 
