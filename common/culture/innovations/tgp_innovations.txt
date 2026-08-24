@@ -122,10 +122,11 @@ innovation_rocket_cart = { # Singijeon & Hwacha, and the Huo Che
 
 	asset = {
 		trigger = {
-			OR = {
-				has_cultural_pillar = heritage_korean
-				has_cultural_pillar = heritage_buyeo
-			}
+			# OR = {
+			# 	has_cultural_pillar = heritage_korean
+			# 	has_cultural_pillar = heritage_buyeo
+			# }
+			always = no # WHG
 		}
 		icon = @rocket_cart
 		name = innovation_rocket_cart_koreanic
@@ -142,10 +143,11 @@ innovation_rocket_cart = { # Singijeon & Hwacha, and the Huo Che
 	potential = {
 		has_tgp_dlc_trigger = yes
 		OR = {
-			has_cultural_pillar = heritage_chinese
-			has_cultural_pillar = heritage_korean
-			has_cultural_pillar = heritage_buyeo
+			# has_cultural_pillar = heritage_chinese
+			# has_cultural_pillar = heritage_korean
+			# has_cultural_pillar = heritage_buyeo
 		}
+		has_innovation = innovation_fire_medicine #WHG
 	}
 
 	can_progress = {

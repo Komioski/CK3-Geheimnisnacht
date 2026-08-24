@@ -892,20 +892,20 @@ tradition_tgp_fortified_strongholds = {
 	is_shown = {
 		has_tgp_dlc_trigger = yes
 		scope:character = { government_has_flag = government_is_mandala }
-		OR = {
-			has_cultural_pillar = heritage_tai
-			has_cultural_pillar = heritage_burman
-			scope:character = {
-				any_sub_realm_county = {
-					culture = {
-						OR = {
-							has_cultural_pillar = heritage_tai
-							has_cultural_pillar = heritage_burman
-						}
-					}
-				}
-			}
-		}
+		# OR = { #WHG
+		# 	has_cultural_pillar = heritage_tai
+		# 	has_cultural_pillar = heritage_burman
+		# 	scope:character = {
+		# 		any_sub_realm_county = {
+		# 			culture = {
+		# 				OR = {
+		# 					has_cultural_pillar = heritage_tai
+		# 					has_cultural_pillar = heritage_burman
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 	
 	parameters = {
@@ -1050,16 +1050,16 @@ tradition_tgp_esoteric_power = {
 	is_shown = {
 		has_tgp_dlc_trigger = yes
 		scope:character = { government_has_flag = government_is_mandala }
-		OR = {
-			has_cultural_pillar = heritage_austronesian
-			scope:character = {
-				any_sub_realm_county = {
-					culture = {
-						has_cultural_pillar = heritage_austronesian
-					}
-				}
-			}
-		}
+		# OR = { #WHG
+		# 	has_cultural_pillar = heritage_austronesian
+		# 	scope:character = {
+		# 		any_sub_realm_county = {
+		# 			culture = {
+		# 				has_cultural_pillar = heritage_austronesian
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 	
 	parameters = {
@@ -1125,16 +1125,16 @@ tradition_tgp_barangay_confederations = {
 	is_shown = {
 		has_tgp_dlc_trigger = yes
 		scope:character = { government_has_flag = government_is_tribal }
-		OR = {
-			has_cultural_pillar = heritage_austronesian
-			scope:character = {
-				any_sub_realm_county = {
-					culture = {
-						has_cultural_pillar = heritage_austronesian
-					}
-				}
-			}
-		}
+		# OR = { #WHG
+		# 	has_cultural_pillar = heritage_austronesian
+		# 	scope:character = {
+		# 		any_sub_realm_county = {
+		# 			culture = {
+		# 				has_cultural_pillar = heritage_austronesian
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 
 	parameters = {
@@ -1321,22 +1321,22 @@ tradition_tgp_mountain_island = {
 			has_cultural_tradition = tradition_himalayan_settlers
 			has_cultural_tradition = tradition_mountaineer_ruralism
 			has_cultural_tradition = tradition_mountain_homes
-			has_cultural_pillar = heritage_arabic
-			has_cultural_pillar = heritage_berber
-			has_cultural_pillar = heritage_tibetan
-			has_cultural_pillar = heritage_qiangic
-			has_cultural_pillar = heritage_west_slavic
-			any_culture_county = {
-				title_province = {
-					geographical_region = world_himalaya
-				}
-			}
+			# has_cultural_pillar = heritage_arabic #WHG
+			# has_cultural_pillar = heritage_berber
+			# has_cultural_pillar = heritage_tibetan
+			# has_cultural_pillar = heritage_qiangic
+			# has_cultural_pillar = heritage_west_slavic
+			# any_culture_county = {
+			# 	title_province = {
+			# 		geographical_region = world_himalaya
+			# 	}
+			# }
 		}
-		any_culture_county = {
-			title_province = {
-				geographical_region = world_asia_japan
-			}
-		}
+		# any_culture_county = { #WHG
+		# 	title_province = {
+		# 		geographical_region = world_asia_japan
+		# 	}
+		# }
 	}
 	can_pick = {
 		custom_description = {
@@ -1468,7 +1468,7 @@ tradition_stratified_society = {
 		culture_head = {
 			government_allows = merit
 		}
-		has_cultural_pillar = heritage_korean
+		# has_cultural_pillar = heritage_korean #WHG
 	}
 
 	parameters = {
@@ -1522,10 +1522,11 @@ tradition_fortress_mastery = {
 
 	is_shown = {
 		has_tgp_dlc_trigger = yes
-		OR = {
-			has_cultural_pillar = heritage_korean
-			has_cultural_pillar = heritage_buyeo
-		}
+		# OR = {
+		# 	has_cultural_pillar = heritage_korean
+		# 	has_cultural_pillar = heritage_buyeo
+		# }
+		has_cultural_pillar = heritage_womaw #WHG
 	}
 
 	parameters = {
