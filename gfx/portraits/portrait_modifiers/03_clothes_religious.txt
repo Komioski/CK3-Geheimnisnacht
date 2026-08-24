@@ -271,68 +271,68 @@
 
     ## CCP4 Siberian ##
 
-    religious_siberian_high_clothes = { # Khanty shamans wear fancy Khanty clothes
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ccp4_khanty_clothes
-                range = { 0.48 0.69 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { priest_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 105 #higher than steppe
-                portrait_religious_high_trigger = yes
-                portrait_religious_siberian_trigger = yes
-            }
-        }
-    }
+    # religious_siberian_high_clothes = { # Khanty shamans wear fancy Khanty clothes
+    #     dna_modifiers = {
+    #         accessory = {
+    #             mode = add
+    #             gene = clothes
+    #             template = ccp4_khanty_clothes
+    #             range = { 0.48 0.69 } # For the randomness to work correctly
+    #         }
+    #     }
+    #     outfit_tags = { priest_outfit }
+    #     weight = {
+    #         base = 0
+    #         modifier = {
+    #             add = 105 #higher than steppe
+    #             portrait_religious_high_trigger = yes
+    #             portrait_religious_siberian_trigger = yes
+    #         }
+    #     }
+    # }
 
-    ## CCP4 Sami ##
+    # ## CCP4 Sami ##
 
-    religious_sami_high_clothes = { # Sami shamans wear Sami clothes
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = ccp4_sami_clothes
-                range = { 0.24 0.42 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { priest_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 105 #higher than norse
-                portrait_religious_high_trigger = yes
-                portrait_religious_sami_trigger = yes
-            }
-        }
-    }
+    # religious_sami_high_clothes = { # Sami shamans wear Sami clothes
+    #     dna_modifiers = {
+    #         accessory = {
+    #             mode = add
+    #             gene = clothes
+    #             template = ccp4_sami_clothes
+    #             range = { 0.24 0.42 } # For the randomness to work correctly
+    #         }
+    #     }
+    #     outfit_tags = { priest_outfit }
+    #     weight = {
+    #         base = 0
+    #         modifier = {
+    #             add = 105 #higher than norse
+    #             portrait_religious_high_trigger = yes
+    #             portrait_religious_sami_trigger = yes
+    #         }
+    #     }
+    # }
 	
-    ## CCP7 Emishi Ainu Kamuy ##
-    religious_kamuyist_high_clothes = { # Kamuyist priests wear fancy Ainu clothes
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-				template = ccp7_emishi_nivkh_clothes
-				range = { 0.40 0.54 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { priest_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 105 #higher than steppe
-                portrait_religious_high_trigger = yes
-                portrait_religious_emishi_trigger = yes
-            }
-        }
-    }	
+    # ## CCP7 Emishi Ainu Kamuy ##
+    # religious_kamuyist_high_clothes = { # Kamuyist priests wear fancy Ainu clothes
+    #     dna_modifiers = {
+    #         accessory = {
+    #             mode = add
+    #             gene = clothes
+	# 			template = ccp7_emishi_nivkh_clothes
+	# 			range = { 0.40 0.54 } # For the randomness to work correctly
+    #         }
+    #     }
+    #     outfit_tags = { priest_outfit }
+    #     weight = {
+    #         base = 0
+    #         modifier = {
+    #             add = 105 #higher than steppe
+    #             portrait_religious_high_trigger = yes
+    #             portrait_religious_emishi_trigger = yes
+    #         }
+    #     }
+    # }	
 
 
 ## Steppe ##
@@ -488,68 +488,6 @@
         }
     }
 
-## TGP Chinese Buddhist ##
-
-    religious_chinese_buddhist_high_clothes = { # Buddhist Monks
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_chinese_clothes
-                accessory = m_clothes_rel_tgp_buddhist_devoted_01
-            }
-        }
-        outfit_tags = { priest_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-                portrait_religious_buddhist_trigger = yes
-                OR = {
-                    portrait_religious_devoted_trigger = yes
-                    portrait_religious_high_trigger = yes
-                }
-                OR = {
-                    portrait_chinese_clothing_trigger = yes
-                    portrait_korean_clothing_trigger = yes				
-                }
-                has_tgp_dlc_trigger = yes
-            }
-        }
-    }
-
-## TGP Chinese Taoist ##
-
-    religious_taoist_high_clothes = { 
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = tgp_chinese_clothes
-                accessory = m_clothes_rel_tgp_taoist_priest_01
-            }
-            accessory = {
-                mode = add
-                gene = headgear
-                template = no_headgear
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }
-        outfit_tags = { priest_outfit }
-        weight = {
-            base = 0
-            modifier = {
-                add = 110
-                portrait_religious_taoist_trigger = yes
-                OR = {
-                    portrait_religious_devoted_trigger = yes
-                    portrait_religious_high_trigger = yes
-                }
-                has_tgp_dlc_trigger = yes
-            }
-        }
-    }
-
 ## Hinduist ##
 
     religious_hindu_devoted_clothes = { # Hindu Swami
@@ -696,36 +634,5 @@
             }
         }
     }
-	
-## Sunni Caliph ##
-	
-
-    sunni_caliph = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = early_caliph_clothes
-                range = { 0 1 } # For the randomness to work correctly
-            }
-        }       
-        weight = {
-            base = 0
-            modifier = {
-                add = 118 #Slightly Higher
-				portrait_sunni_caliph_trigger = yes 
-            }
-        }
-    }	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

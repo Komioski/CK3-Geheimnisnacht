@@ -14278,14 +14278,12 @@ ep2_involved_activity = {
 				limit = { exists = scope:bg_override_char }
 				scope:bg_override_char = {
 					involved_activity ?= { has_activity_type = activity_feast }
-					# involved_activity.activity_location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
-					involved_activity.activity_location = { lotr_has_numenorean_culture_trigger = yes } #WHG TODO
+					involved_activity.activity_location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 				}
 			}
 			trigger_else = {
 				involved_activity ?= { has_activity_type = activity_feast }
-				# involved_activity.activity_location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
-				involved_activity.activity_location = { lotr_has_numenorean_culture_trigger = yes } #WHG TODO
+				involved_activity.activity_location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 			} #WHG START HERE
 		}
 		reference = "gfx/interface/illustrations/event_scenes/ep3_feast_byzantine.dds"
@@ -14820,8 +14818,7 @@ ep2_activity = { #WHG
 	background = {	# EP3
 		trigger = {
 			involved_activity ?= { has_activity_type = activity_feast }
-			# involved_activity.activity_location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
-			involved_activity.activity_location.culture ?= { lotr_has_numenorean_culture_trigger = yes } #WHG TODO
+			involved_activity.activity_location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 		}
 		reference = "gfx/interface/illustrations/event_scenes/ep3_feast_byzantine.dds"
 		environment = "environment_ep3_byzantine_feast"
@@ -16756,13 +16753,12 @@ relaxing_room_location = {
 	}
 	background = {
 		trigger = {
-			#location.culture = {
-			#	OR = {
-			#		has_building_gfx = byzantine_building_gfx
-			#		has_building_gfx = caucasian_building_gfx
-			#	}
-			#}
-			location.culture = { lotr_has_numenorean_culture_trigger = yes }
+			location.culture = {
+				OR = {
+					has_building_gfx = byzantine_building_gfx
+					has_building_gfx = caucasian_building_gfx
+				}
+			}
 		}
 		reference = "gfx/interface/illustrations/event_scenes/ep3_relaxing_room.dds"
 		environment = "environment_ep3_relaxing_room"

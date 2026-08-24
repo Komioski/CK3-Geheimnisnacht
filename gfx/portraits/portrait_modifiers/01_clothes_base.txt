@@ -712,7 +712,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 mode = add
                 gene = clothes
                 template = byzantine_commoner_clothes
-                accessory = m_clothes_sec_ep3_byzantine_era1_com_01
+                accessory = male_clothes_secular_byzantine_nobility_01_common
             }
         }   
         weight = {
@@ -733,7 +733,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 mode = add
                 gene = clothes
                 template = byzantine_commoner_clothes
-                accessory = m_clothes_sec_ep3_byzantine_era1_com_01
+                accessory = male_clothes_secular_byzantine_nobility_02_common
             }
         }   
         weight = {
@@ -1097,10 +1097,10 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 }
 				NOT = {
 					portrait_commoner_no_mayors_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
+                        CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-				has_dde_abbasid_flavor_dlc_trigger = yes					
+				wh_portrait_dde_abbasid_clothing_trigger = yes					
             }
         }
     }
@@ -1124,10 +1124,10 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 }
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
+                        CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-				has_dde_abbasid_flavor_dlc_trigger = yes					
+				wh_portrait_dde_abbasid_clothing_trigger = yes					
             }
             modifier = {
                 add = 50
@@ -1136,10 +1136,10 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 }
 				NOT = {
 					portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
+                        CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-				has_dde_abbasid_flavor_dlc_trigger = yes
+				wh_portrait_dde_abbasid_clothing_trigger = yes
                 is_female = yes					
             }
         }
@@ -1164,10 +1164,10 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 }
 				NOT = {
 					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
+                        CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-				has_dde_abbasid_flavor_dlc_trigger = yes					
+				wh_portrait_dde_abbasid_clothing_trigger = yes					
             }
             modifier = {
                 add = 50
@@ -1176,10 +1176,10 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 }
 				NOT = {
 					portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
+                        CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
-				has_dde_abbasid_flavor_dlc_trigger = yes		
+				wh_portrait_dde_abbasid_clothing_trigger = yes		
                 is_female = yes			
             }
         }
@@ -1213,12 +1213,12 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				}
 				NOT = {
 					portrait_commoner_no_mayors_trigger = { 
-                    CULTURE_INPUT = fp3_iranian
+                        CULTURE_INPUT = fp3_iranian
                     }
 				}
 				NOT = {
 					portrait_commoner_no_mayors_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
+                        CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
             }
@@ -1243,17 +1243,17 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 }
 				NOT = {
 					portrait_mayor_trigger = { 
-                    CULTURE_INPUT = dde_abbasid
+                        CULTURE_INPUT = dde_abbasid
                     }
 				}
 				NOT = {
 					portrait_mayor_trigger = { 
-                    CULTURE_INPUT = fp3_iranian
+                        CULTURE_INPUT = fp3_iranian
                     }
 				}
 				NOT = {
 					portrait_mayor_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
+                        CULTURE_INPUT = fp2_iberian_muslim
                     }
 				}				
             }
@@ -1603,7 +1603,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
             }
             modifier = {
@@ -1627,7 +1627,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
  				has_fp1_dlc_trigger = yes
                 has_ep2_dlc_trigger = yes      
@@ -1649,7 +1649,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes
                 NOT = {
@@ -1673,7 +1673,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   
             }
@@ -1694,7 +1694,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
 				is_lowborn = yes				
                 has_ep2_dlc_trigger = yes   
@@ -1716,7 +1716,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
 				is_lowborn = yes				
                 has_ce1_dlc_trigger = yes    
@@ -1738,7 +1738,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
 				is_lowborn = no
 				
@@ -1761,19 +1761,19 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }      
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 is_female = yes      
             }
@@ -1798,7 +1798,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 
 				has_fp1_dlc_trigger = yes
@@ -1806,7 +1806,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes
 				has_fp1_dlc_trigger = yes 
@@ -1814,7 +1814,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes 
 				has_fp1_dlc_trigger = yes
@@ -1837,7 +1837,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes
                 NOT = {
@@ -1847,7 +1847,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes 
                 NOT = {
@@ -1857,7 +1857,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes 
                 NOT = {
@@ -1882,21 +1882,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   				
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   				
                 is_female = yes    
@@ -1918,21 +1918,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 					
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   				
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   				
                 is_female = yes    
@@ -1954,21 +1954,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes
                 is_female = yes      
@@ -1990,19 +1990,19 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 is_female = yes
             }
@@ -2027,7 +2027,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 
  				has_fp1_dlc_trigger = yes
@@ -2035,7 +2035,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes 
  				has_fp1_dlc_trigger = yes
@@ -2043,7 +2043,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes 
  				has_fp1_dlc_trigger = yes	
@@ -2066,7 +2066,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 
                 NOT = {
@@ -2076,7 +2076,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes 
                 NOT = {
@@ -2086,7 +2086,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes 
                 NOT = {
@@ -2111,21 +2111,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 				
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   				
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   				
                 is_female = yes    
@@ -2147,21 +2147,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 				
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   				
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes  			
                 is_female = yes    
@@ -2183,21 +2183,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes   
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 } 
                 has_ep2_dlc_trigger = yes  
                 is_female = yes    
@@ -2219,7 +2219,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 	
 	            has_dlc = "Garments of the Holy Roman Empire"										
@@ -2243,7 +2243,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 	
 	            has_dlc = "Garments of the Holy Roman Empire"					
@@ -2267,7 +2267,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 has_ep2_dlc_trigger = yes 	
 	            has_dlc = "Garments of the Holy Roman Empire"					
@@ -2293,7 +2293,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 has_dlc_feature = elegance_of_the_empire
                 has_ep2_dlc_trigger = yes				
                 portrait_imperial_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }			
             }
 			modifier = {
@@ -2301,7 +2301,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 				has_dlc_feature = elegance_of_the_empire
                 has_ep2_dlc_trigger = yes				
                 portrait_imperial_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }			
 				is_female = yes
 			}
@@ -2934,7 +2934,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 add = 100
                 has_dlc_feature = elegance_of_the_empire
                 portrait_imperial_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
 				NOT = {
 					portrait_imperial_trigger = { 
@@ -2946,7 +2946,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 add = 100
                 has_dlc_feature = elegance_of_the_empire
                 portrait_imperial_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
 				NOT = {
 					portrait_imperial_trigger = { 
@@ -2977,10 +2977,10 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 add = 50
                 OR = {
                     portrait_royalty_trigger = {
-                        CULTURE_INPUT = french
+                        CULTURE_INPUT = french_proxy
                     } 				
                     portrait_imperial_trigger = {
-                        CULTURE_INPUT = french
+                        CULTURE_INPUT = french_proxy
                     }                
                 }
 				NOT = {
@@ -2999,10 +2999,10 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 add = 50
                 OR = {
                     portrait_royalty_trigger = {
-                        CULTURE_INPUT = french
+                        CULTURE_INPUT = french_proxy
                     } 				
                     portrait_imperial_trigger = {
-                        CULTURE_INPUT = french
+                        CULTURE_INPUT = french_proxy
                     }                
                 }
 				NOT = {
@@ -3051,7 +3051,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 20
                 portrait_commoner_clothing_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
@@ -3080,7 +3080,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
@@ -3106,7 +3106,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
 				NOT = {
 					portrait_commoner_clothing_trigger = { 
@@ -3132,7 +3132,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
 				is_lowborn = yes
                 has_ep2_dlc_trigger = yes    
@@ -3154,7 +3154,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 
 				is_lowborn = yes				
                 has_ce1_dlc_trigger = yes   
@@ -3176,7 +3176,7 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 portrait_commoner_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
 				is_lowborn = no
 				
@@ -3199,19 +3199,19 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }      
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
                 is_female = yes      
             }
@@ -3236,21 +3236,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 
                 has_ep2_dlc_trigger = yes   
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 
                 has_ep2_dlc_trigger = yes   
                 is_female = yes     
@@ -3272,21 +3272,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }				
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 				
                 has_ep2_dlc_trigger = yes     
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }				
                 has_ep2_dlc_trigger = yes   
                 is_female = yes     
@@ -3308,21 +3308,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_4_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }				
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }				
                 has_ep2_dlc_trigger = yes   
             }
             modifier = {
                 add = 50
                 portrait_low_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }				
                 has_ep2_dlc_trigger = yes
                 is_female = yes      
@@ -3344,19 +3344,19 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
                 is_female = yes 
             }
@@ -3381,21 +3381,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 
                 has_ep2_dlc_trigger = yes   
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 
                 has_ep2_dlc_trigger = yes   
                 is_female = yes    
@@ -3417,21 +3417,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }			
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }			
                 has_ep2_dlc_trigger = yes      
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 			
                 has_ep2_dlc_trigger = yes   
                 is_female = yes     
@@ -3453,21 +3453,21 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
             modifier = {
                 add = 50
                 court_fashion_level_5_trigger = {
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }
                 has_ep2_dlc_trigger = yes 
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 }			
                 has_ep2_dlc_trigger = yes  
             }
             modifier = {
                 add = 50
                 portrait_high_nobles_clothing_trigger = { 
-                    CULTURE_INPUT = french
+                    CULTURE_INPUT = french_proxy
                 } 			
                 has_ep2_dlc_trigger = yes  
                 is_female = yes    
@@ -3476,10 +3476,10 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
                 factor = 0       
                 OR = {
                     portrait_royalty_trigger = {
-                        CULTURE_INPUT = french
+                        CULTURE_INPUT = french_proxy
                     } 				
                     portrait_imperial_trigger = {
-                        CULTURE_INPUT = french
+                        CULTURE_INPUT = french_proxy
                     }                
                 }			
                 has_dlc_feature = couture_of_the_capets
@@ -4094,72 +4094,6 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 			}		
 		}
 	}
-	
-	chinese_imperial_clothes_tang = { # Intentionally included as free content
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = tgp_chinese_clothes
-				accessory = m_clothes_sec_tgp_chinese_imp_02
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 221
-				primary_title ?= title:h_china
-				#NOT = { exists = global_var:chinese_fashion_change }
-                ##Tang
-				has_tgp_dlc_trigger = yes				
-			}
-			modifier = {
-				add = 120
-				primary_title ?= title:h_china
-				has_tgp_dlc_trigger = no
-			}
-		}
-	}
-
-	chinese_imperial_clothes_song = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = tgp_chinese_clothes
-				accessory = m_clothes_sec_tgp_chinese_imp_01
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 221
-				primary_title ?= title:h_china
-				has_tgp_dlc_trigger = yes
-				#exists = global_var:chinese_fashion_change
-			}
-		}
-	}
-	
-	chinese_imperial_clothes_ming = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = tgp_chinese_clothes
-				accessory = m_clothes_sec_tgp_chinese_nob_02_ming_imp
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 221
-				primary_title ?= title:h_china
-				has_tgp_dlc_trigger = yes
-				#exists = global_var:chinese_fashion_change
-			}
-		}
-	}
 
 	## TGP - Japanese ##
 
@@ -4225,32 +4159,6 @@ clothes_base = { # The lowest priority group of clothes with triggers based on r
 			}
 		}
 	}
-	
-	japanese_high_nobility_clothes_other_goverments = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = clothes
-				template = tgp_japanese_clothes
-				range = { 0.13 0.20 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100			
-				portrait_high_nobles_trigger_japanese = {
-					CULTURE_INPUT = japanese
-				}
-                OR = { 			
-					government_has_flag = government_is_feudal
-					government_has_flag = government_is_clan			
-					government_has_flag = government_is_tribal				
-                }				
-				has_tgp_dlc_trigger = yes
-			}
-		}
-	}	
 
 	japanese_royalty_clothes = {
 		dna_modifiers = {

@@ -95,64 +95,6 @@
 		ambience = "event:/DLC/EP4/SFX/Events/Event_Backgrounds/tgp_farm_asia"
 	}
 
-	background = { # Hobbit Farmland, settled
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest_regular.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = {
-				OR = {
-					terrain = farmlands
-					terrain = hills
-					terrain = plains
-				}
-				exists = province_owner
-				
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/hills_hobbit.dds"
-		environment = "environment_travel_farmlands"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
-	background = { # Elven Farmland, settled
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest_regular.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = {
-				terrain = farmlands
-				exists = province_owner
-				is_elf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/elven_holding.dds"
-		environment = "environment_travel_farmlands"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
 	background = { # Farmland, settled
 		trigger = {
 			OR = {
@@ -361,34 +303,6 @@
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
 
-
-	background = { #mountains, dwarven settled
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest_regular.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #mountains, settled
 		trigger = {
 			OR = {
@@ -625,61 +539,6 @@
 		environment = "environment_event_bp1_plains"
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
-
-	background = { #hills, hobbit settled
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest_regular.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/hills_hobbit.dds"
-		environment = "environment_travel_farmlands"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
-	background = { #hills, dwarven settled
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:honorary_guest_regular.location
-					NOT = {
-						scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #hills, settled
 		trigger = {
 			OR = {
@@ -758,67 +617,10 @@
 		environment = "environment_event_fp1_ocean"
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
-	
-	#background = { #LotR volcanic_plains #WHG TODO
-	#	trigger = {
-	#		OR = {
-	#			scope:host.location != scope:activity.activity_location
-	#			AND = {
-	#				exists = scope:activity.special_guest:honorary_guest.location
-	#				NOT = {
-	#					scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-	#				}
-	#			}
-	#			AND = {
-	#				exists = scope:activity.special_guest:honorary_guest_regular.location
-	#				NOT = {
-	#					scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-	#				}
-	#			}
-	#		}
-	#		scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-	#	}
-	#	reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-	#	environment = "environment_event_feast" 
-	#	ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	#}
-	#background = { #LotR underground
-	#	trigger = {
-	#		OR = {
-	#			scope:host.location != scope:activity.activity_location
-	#			AND = {
-	#				exists = scope:activity.special_guest:honorary_guest.location
-	#				NOT = {
-	#					scope:activity.special_guest:honorary_guest.location ?= scope:activity.activity_location
-	#				}
-	#			}
-	#			AND = {
-	#				exists = scope:activity.special_guest:honorary_guest_regular.location
-	#				NOT = {
-	#					scope:activity.special_guest:honorary_guest_regular.location ?= scope:activity.activity_location
-	#				}
-	#			}
-	#		}
-	#		scope:host.location = { graphical_underground_caverns_trigger = yes } 
-	#	}
-	#	reference = "gfx/interface/illustrations/event_scenes/halls.dds"
-	#	environment = "environment_event_alley"
-	#	ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	#}
-	# End Travel
-	#background = {	# LOTR Dwarven
-	#	trigger = {
-	#		activity_location.culture = { is_dwarf_culture = yes }
-	#	}
-	#	reference = "gfx/interface/illustrations/event_scenes/kitchen_dwarven.dds"
-	#	environment = "environment_event_bp1_kitchen_western" 
-	#	ambience = "event:/SFX/Events/Backgrounds/feasthall"
-	#}
 
 	background = {	# Norse
 		trigger = {
-			# activity_location.culture = { has_building_gfx = norse_building_gfx }
-			activity_location ?= { fp1_should_use_norse_graphics_trigger = yes } #LotR
+			activity_location.culture = { has_building_gfx = norse_building_gfx }
 		}
 		reference = "gfx/interface/illustrations/event_scenes/fp1_viking_feast.dds"
 		environment = "environment_event_fp1_viking_feast"
@@ -967,18 +769,6 @@ activity_gruesome_festival = {
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	background = { #Desert, unsettled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -1024,32 +814,6 @@ activity_gruesome_festival = {
 		reference = "gfx/interface/illustrations/event_scenes/forest.dds"
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	
-	background = { #LotR forest_deep
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-
-
-
-	background = { #mountains, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				NOT = { is_dwarf = yes }
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
 	}
 	background = { #mountains, settled
 		trigger = {
@@ -1162,19 +926,6 @@ activity_gruesome_festival = {
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
 
-	background = { #hills, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #hills, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -1212,35 +963,6 @@ activity_gruesome_festival = {
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
 	
-	background = { #LotR volcanic_plains
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
-
-	background = { #LotR underground
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_underground_caverns_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/halls.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
-
-	background = { #LotR saltflats
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/saltflats.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	# End Travel
 	background = {
 		reference = "gfx/interface/illustrations/activity_backgrounds/activity_gruesome_festival.dds"
@@ -1340,18 +1062,7 @@ activity_playdate = {
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
+
 	background = { #Desert, unsettled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -1398,32 +1109,7 @@ activity_playdate = {
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-	
-	background = { #LotR forest_deep
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
 
-
-
-	background = { #mountains, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				NOT = { is_dwarf = yes }
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #mountains, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -1534,19 +1220,7 @@ activity_playdate = {
 		environment = "environment_event_bp1_plains"
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
-	background = { #hills, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
+
 	background = { #hills, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -1583,36 +1257,7 @@ activity_playdate = {
 		environment = "environment_event_fp1_ocean"
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
-	
-	background = { #LotR volcanic_plains
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
 
-	background = { #LotR underground
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_underground_caverns_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/halls.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
-
-	background = { #LotR saltflats
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/saltflats.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	# End Travel
 	
 	background = {
@@ -1742,18 +1387,6 @@ activity_witch_ritual = {
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	background = { #Desert, unsettled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -1800,18 +1433,6 @@ activity_witch_ritual = {
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-	
-	background = { #LotR forest_deep
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-
-
 
 	background = { #mountains, settled
 		trigger = {
@@ -1822,19 +1443,6 @@ activity_witch_ritual = {
 			}
 		}
 		reference = "gfx/interface/illustrations/event_scenes/ep2_travel_mountains.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
-	background = { #mountains, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				NOT = { is_dwarf = yes }
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
 		environment = "environment_travel_mountain_settlement"
 		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
 	}
@@ -1936,19 +1544,7 @@ activity_witch_ritual = {
 		environment = "environment_event_bp1_plains"
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
-	background = { #hills, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
+
 	background = { #hills, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -1986,35 +1582,6 @@ activity_witch_ritual = {
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
 	
-	background = { #LotR volcanic_plains
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
-
-	background = { #LotR underground
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_underground_caverns_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/halls.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
-
-	background = { #LotR saltflats
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/saltflats.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	# End Travel
 	background = {
 		reference = "gfx/interface/illustrations/event_scenes/bp1_bonfire.dds"
@@ -2114,18 +1681,6 @@ activity_pilgrimage = {
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	background = { #Desert, unsettled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -2171,32 +1726,6 @@ activity_pilgrimage = {
 		reference = "gfx/interface/illustrations/event_scenes/forest.dds"
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-	
-	background = { #LotR forest_deep
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-
-
-
-	background = { #mountains, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				NOT = { is_dwarf = yes }
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
 	}
 	background = { #mountains, settled
 		trigger = {
@@ -2309,19 +1838,6 @@ activity_pilgrimage = {
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
 
-	background = { #hills, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #hills, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -2359,35 +1875,6 @@ activity_pilgrimage = {
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
 	
-	background = { #LotR volcanic_plains
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
-
-	background = { #LotR underground
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_underground_caverns_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/halls.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
-
-	background = { #LotR saltflats
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/saltflats.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	# End Travel
 	#Unique holy sites
 	# background = {
@@ -2406,135 +1893,7 @@ activity_pilgrimage = {
 	# 	environment = "environment_jerusalem"
 	# 	ambience = "event:/DLC/EP2/SFX/Events/Backgrounds/evn_background_jerusalem"
 	# }
-	background = {
-		trigger = {
-			activity_location.county = title:c_minas_tirith
-		}
-		reference = "gfx/interface/illustrations/event_scenes/minas_tirith.dds"
-		environment = "environment_event_farms"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
-	background = { # Dol Amroth
-		trigger = {
-			activity_location.county = title:c_dol_amroth
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dol_amroth.dds"
-		environment = "environment_event_docks"
-		ambience = "event:/SFX/Events/Backgrounds/docks_day"
-	}
-	background = { # Annuminas
-		trigger = {
-			activity_location.county = title:c_annuminas
-		}
-		reference = "gfx/interface/illustrations/event_scenes/annuminas.dds"
-		environment = "environment_event_mountains"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
-	background = {
-		trigger = {
-			activity_location.county = title:c_kingstead
-		}
-		reference = "gfx/interface/illustrations/event_scenes/edoras.dds"
-		environment = "environment_event_farms"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
-	background = {
-		trigger = {
-			activity_location.county = title:c_caras_galadhon
-		}
-		reference = "gfx/interface/illustrations/event_scenes/lorien_night.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
-	background = { # Amon Lanc
-		trigger = {
-			activity_location.county = title:c_amon_lanc
-		}
-		reference = "gfx/interface/illustrations/event_scenes/amon_lanc.dds"
-		environment = "environment_event_mountains"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
-	background = { # Mithlond
-		trigger = {
-			activity_location.county = {
-				OR = {
-					this = title:c_mithannunlond
-					this = title:c_mithrhulond
-					this = title:c_forlond
-					this = title:c_harlond
-				}
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/grey_havens.dds"
-		environment = "environment_event_docks"
-		ambience = "event:/SFX/Events/Backgrounds/docks_day"
-	}
-	background = {
-		trigger = {
-			activity_location.county = title:c_barad_dur
-		}
-		reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
-	#Generic holy sites
-	background = { # Dwarven
-		trigger = {
-			activity_location.culture = { is_dwarf_culture = yes }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_farmlands"
-		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
-	}
 
-	background = { #Elven - Lorien
-		trigger = {
-			activity_location = {
-				culture = { is_elf_culture = yes }
-				terrain = mallorn_forest
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/nimrodel.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_waterbank"
-	}
-
-	background = { #Elven - desertic
-		trigger = {
-			activity_location = {
-				culture = { is_elf_culture = yes }
-				OR = {
-					terrain = drylands
-					terrain = desert
-					terrain = oasis
-					terrain = desert_mountains
-					terrain = red_desert
-					terrain = dune_sea
-				}
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/temple_dwarven.dds"
-		environment = "environment_event_temple"
-		ambience = "event:/SFX/Events/Backgrounds/temple_generic"
-	}
-
-	background = { #Elven - temperate
-		trigger = {
-			activity_location.culture = { is_elf_culture = yes }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/fp4_legendary_spring.dds"
-		environment = "environment_legendary_spring" 
-		ambience = "event:/SFX/Events/Backgrounds/FP4/fp4_magic_spring"
-	}
-
-	background = { # Dunedain generic holy site
-		trigger = {
-			activity_location.culture = { has_cultural_pillar = heritage_dunedain }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/ep3_holysite_gondor.dds"
-		environment = "environment_ep3_holysite_orthodox"
-		ambience = "event:/DLC/EP3/SFX/Events/Event_Images/ep3_evn_eventimage_orthodox_holy_site"
-	}
 	background = {
 		trigger = {
 			scope:host = {
@@ -2745,18 +2104,6 @@ activity_hunt = {
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	background = { #Desert, unsettled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -2803,32 +2150,7 @@ activity_hunt = {
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-	
-	background = { #LotR forest_deep
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
 
-
-
-	background = { #mountains, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				NOT = { is_dwarf = yes }
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #mountains, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -2940,19 +2262,6 @@ activity_hunt = {
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
 
-	background = { #hills, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #hills, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -2989,36 +2298,7 @@ activity_hunt = {
 		environment = "environment_event_fp1_ocean"
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
-	
-	background = { #LotR volcanic_plains
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
 
-	background = { #LotR underground
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_underground_caverns_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/halls.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
-
-	background = { #LotR saltflats
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/saltflats.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	# End Travel
 	
 	background = { #Desert
@@ -3028,15 +2308,6 @@ activity_hunt = {
 		reference = "gfx/interface/illustrations/event_scenes/bp1_desert.dds"
 		environment = "environment_event_bp1_desert"
 		ambience = "event:/DLC/EP2/SFX/Events/Grand_Activities/Hunts/ep2_event_grand_hunt_desert"
-	}
-	
-	background = { #LotR volcanic_plains
-	 	trigger = {
-	 		activity_location ?= { graphical_wilderness_volcanic_trigger = yes }
-	 	}
-	 	reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-	 	environment = "environment_event_feast"
-	 	ambience = "event:/SFX/Events/Backgrounds/burning_building"
 	}
 
 	background = { #forest snowy
@@ -3055,9 +2326,6 @@ activity_hunt = {
 				OR = {
 					has_building_or_higher = royal_forest_01
 					has_building_or_higher = hunting_grounds_01
-					#has_building_or_higher = elven_hunting_grounds_01 #LotR #WHG TODO
-					#has_building_or_higher = hunting_outposts_01 #LotR
-					#has_building_or_higher = dwarven_outpost_01 #LotR
 				}
 			}
 		}
@@ -3065,16 +2333,6 @@ activity_hunt = {
 		environment = "environment_ep2_forest_managed"
 		ambience = "event:/DLC/EP2/SFX/Events/Backgrounds/evn_background_dark_forest"
 	}
-	
-	background = { #LotR - Deep forest
-		trigger = { 
-			activity_location ?= { graphical_wilderness_forest_deep_trigger = yes }
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
-
 
 	background = {
 		trigger = {
@@ -3212,18 +2470,6 @@ activity_tour = {
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	background = { #Desert, unsettled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -3270,30 +2516,7 @@ activity_tour = {
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-	
-	background = { #LotR forest_deep
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
 
-	background = { #mountains, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				NOT = { is_dwarf = yes }
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #mountains, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -3405,19 +2628,6 @@ activity_tour = {
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
 
-	background = { #hills, dwarven settled
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #hills, settled
 		trigger = {
 			scope:host.location != scope:activity.activity_location
@@ -3454,36 +2664,7 @@ activity_tour = {
 		environment = "environment_event_fp1_ocean"
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
-	
-	background = { #LotR volcanic_plains
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
 
-	background = { #LotR underground
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_underground_caverns_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/halls.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
-
-	background = { #LotR saltflats
-		trigger = {
-			scope:host.location != scope:activity.activity_location
-			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/saltflats.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	# End Travel
 	
 	# Tour the Grounds
@@ -3986,32 +3167,6 @@ activity_wedding = {
 		environment = "environment_travel_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-	background = { #LotR Rhûn desert
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = {
-				graphical_wilderness_desert_rhun_trigger = yes
-				exists = province_owner
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/rhun.dds"
-		environment = "environment_event_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	background = { #Desert, unsettled
 		trigger = {
 			OR = {
@@ -4114,60 +3269,7 @@ activity_wedding = {
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-	
-	background = { #LotR forest_deep
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = { graphical_wilderness_forest_deep_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/forest_deep.dds"
-		environment = "environment_event_forest"
-		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
-	}
 
-
-
-	background = { #mountains, dwarven settled
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = {
-				graphical_wilderness_mountains_trigger = yes
-				exists = province_owner
-				NOT = { is_dwarf = yes }
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #mountains, settled
 		trigger = {
 			OR = {
@@ -4407,35 +3509,6 @@ activity_wedding = {
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
 
-	background = { #hills, dwarven settled
-		trigger = {
-			OR = {
-				NOT = {
-					scope:host.location = scope:activity.activity_location
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = {
-				graphical_hills_trigger = yes
-				exists = province_owner
-				is_dwarf = yes
-			}
-		}
-		reference = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
-		environment = "environment_travel_mountain_settlement"
-		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
-	}
 	background = { #hills, settled
 		trigger = {
 			OR = {
@@ -4514,78 +3587,7 @@ activity_wedding = {
 		environment = "environment_event_fp1_ocean"
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
-	
-	background = { #LotR volcanic_plains
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = { graphical_wilderness_volcanic_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/volcanic_plains.dds"
-		environment = "environment_event_feast" 
-		ambience = "event:/SFX/Events/Backgrounds/burning_building"
-	}
 
-	background = { #LotR underground
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = { graphical_underground_caverns_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/halls.dds"
-		environment = "environment_event_alley"
-		ambience = "event:/SFX/Events/Backgrounds/city_alley_night"
-	}
-
-	background = { #LotR saltflats
-		trigger = {
-			OR = {
-				scope:host.location != scope:activity.activity_location
-				AND = {
-					exists = scope:activity.special_guest:spouse_2.location
-					NOT = {
-						scope:activity.special_guest:spouse_2.location ?= scope:activity.activity_location
-					}
-				}
-				AND = {
-					exists = scope:activity.special_guest:spouse_1.location
-					NOT = {
-						scope:activity.special_guest:spouse_1.location ?= scope:activity.activity_location
-					}
-				}
-			}
-			scope:host.location = { graphical_wilderness_saltflats_trigger = yes } 
-		}
-		reference = "gfx/interface/illustrations/event_scenes/saltflats.dds"
-		environment = "environment_event_bp1_desert"
-		ambience = "event:/SFX/Events/Backgrounds/desert_day"
-	}
 	# End Travel
 	background = {	 #Indian
 		trigger = {

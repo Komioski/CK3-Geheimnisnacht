@@ -639,7 +639,8 @@
             accessory = {
                 mode = add
                 gene = headgear
-                template = byzantine_war
+                #template = byzantine_war 
+				template = ep3_byzantine_era1_war_nobility
                 accessory = m_headgear_sec_ep3_byzantine_era1_war_nob_01
             }
 			accessory = {
@@ -1227,7 +1228,7 @@
 			modifier = {
 				add = 50
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
 			}
             modifier = {
@@ -1257,7 +1258,7 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
 				has_ep2_dlc_trigger = yes
 			}
@@ -1284,7 +1285,7 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
  				has_fp1_dlc_trigger = yes				
 				has_ep2_dlc_trigger = yes
@@ -1312,7 +1313,7 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
 				has_ep2_dlc_trigger = yes
 			}
@@ -1339,7 +1340,7 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy 
+					CULTURE_INPUT = northern_proxy 
 				}
 				has_ep2_dlc_trigger = yes			
 			}
@@ -1366,7 +1367,7 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
 				has_ep2_dlc_trigger = yes
 			}
@@ -1393,19 +1394,19 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
                 OR = {
                     portrait_commoner_armor_trigger = { 
-                        CULTURE_INPUT = norse_proxy
+                        CULTURE_INPUT = northern_proxy
                     }
                     AND = {
                         OR = {
                             portrait_low_nobles_armor_trigger = { 
-                                CULTURE_INPUT = norse_proxy
+                                CULTURE_INPUT = northern_proxy
                             }
                             portrait_high_nobles_armor_trigger = { 
-                                CULTURE_INPUT = norse_proxy
+                                CULTURE_INPUT = northern_proxy
                             }
                         }
                         portrait_wear_armor_currently_in_army_trigger = no
@@ -1436,10 +1437,10 @@
 			modifier = {
 				add = 90
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
                 portrait_low_nobles_armor_trigger = { 
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 portrait_wear_armor_currently_in_army_trigger = yes
 				has_ep2_dlc_trigger = yes
@@ -1473,10 +1474,10 @@
 			modifier = {
 				add = 100
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
                 portrait_high_nobles_armor_trigger = {
-                    CULTURE_INPUT = norse_proxy
+                    CULTURE_INPUT = northern_proxy
                 }
                 portrait_wear_armor_currently_in_army_trigger = yes
 				has_ep2_dlc_trigger = yes
@@ -1504,7 +1505,7 @@
 			modifier = {
 				add = 100
 				portrait_war_nobles_helmet_trigger = {
-					CULTURE_INPUT = norse_proxy
+					CULTURE_INPUT = northern_proxy
 				}
 				has_ep2_dlc_trigger = yes
 			}
@@ -1811,14 +1812,6 @@
             }
         }
     }
-
-	
-    ####################################################################################################
-    ##################
-    ###North africa/maghreb
-    ##################
-    ####################################################################################################
-
 
 ####################################################################################################
 ##################
@@ -2338,68 +2331,6 @@
 			}
 		}
 	}	
-
-	cp7_emishi_war_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ccp7_emishi_war_nob
-				range = { 0 1 }
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				portrait_armor_generic_trigger = yes
-				OR = {
-					portrait_commoner_armor_trigger = {
-						CULTURE_INPUT = emishi
-					} 
-					portrait_low_nobles_armor_trigger = {
-						CULTURE_INPUT = emishi
-					}	
-					portrait_high_nobles_armor_trigger = {
-						CULTURE_INPUT = emishi
-					}
-					portrait_war_nobles_helmet_trigger = {
-						CULTURE_INPUT = emishi
-					}					 
-				}
-				has_cp7_dlc_trigger = yes
-			}
-		}
-	}
-	cp7_nivkh_war_nobles = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = steppe_war
-				range = { 0.0 0.6 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				portrait_armor_generic_trigger = yes
-				OR = {
-					portrait_commoner_armor_trigger = {
-						CULTURE_INPUT = nivkh
-					} 
-					portrait_low_nobles_armor_trigger = {
-						CULTURE_INPUT = nivkh
-					}						 
-				}
-				OR = {
-					has_mpo_dlc_trigger = yes
-					has_cp7_dlc_trigger = yes
-				}
-			}
-		}
-	}
 	
 ####################################################################################################
 ##################
@@ -2496,7 +2427,7 @@
 				add = 550
 				OR = {
 					portrait_commoner_armor_trigger = {
-						CULTURE_INPUT = french
+						CULTURE_INPUT = french_proxy
 					}
 					portrait_commoner_armor_trigger = {
 						CULTURE_INPUT = norman
@@ -2893,7 +2824,7 @@
 				add = 500
 				OR = {
 					portrait_ccp5_is_any_war_noble_trigger = {
-						CULTURE_INPUT = french
+						CULTURE_INPUT = french_proxy
 					}
 					portrait_ccp5_is_any_war_noble_trigger = {
 						CULTURE_INPUT = norman
@@ -3050,7 +2981,7 @@
 				add = 500
 				OR = {
 					portrait_ccp5_is_any_war_noble_trigger = {
-						CULTURE_INPUT = french
+						CULTURE_INPUT = french_proxy
 					}
 					portrait_ccp5_is_any_war_noble_trigger = {
 						CULTURE_INPUT = norman

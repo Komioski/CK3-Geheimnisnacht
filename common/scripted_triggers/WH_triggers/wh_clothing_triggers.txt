@@ -25,7 +25,7 @@ portrait_western_proxy_clothing_spouse_trigger = {
 }
 portrait_western_proxy_clothing_contents_trigger = {
 	OR = {
-		has_clothing_gfx = bretonnian_clothing_gfx #Just standard fallback
+		#has_clothing_gfx = bretonnian_clothing_gfx #Just standard fallback
 		has_clothing_gfx = imperial_clothing_gfx
 		has_clothing_gfx = estalian_clothing_gfx
 		has_clothing_gfx = tilean_clothing_gfx
@@ -35,21 +35,21 @@ portrait_western_proxy_clothing_contents_trigger = {
 
 ## French Proxy #Bretonnian
 
-# portrait_french_proxy_clothing_trigger = {
-# 	scope:culture = { portrait_french_proxy_clothing_contents_trigger = yes }
-# }
+portrait_french_proxy_clothing_trigger = {
+	scope:culture = { portrait_french_proxy_clothing_contents_trigger = yes }
+}
 
-# portrait_french_proxy_clothing_spouse_trigger = {
-# 	culture = {
-# 		portrait_french_proxy_clothing_contents_trigger = yes
-# 	}
-# }
+portrait_french_proxy_clothing_spouse_trigger = {
+	culture = {
+		portrait_french_proxy_clothing_contents_trigger = yes
+	}
+}
 
-# portrait_french_proxy_clothing_contents_trigger = {
-# 	OR = {
-# 		has_clothing_gfx = bretonnian_clothing_gfx
-# 	}
-# }
+portrait_french_proxy_clothing_contents_trigger = {
+	OR = {
+		has_clothing_gfx = bretonnian_clothing_gfx
+	}
+}
 
 ## Byzantine Proxy
 
@@ -321,11 +321,11 @@ lotr_wear_no_hat_trigger = {
 	has_character_flag = no_hat #LotR
 }
 
-#lotr_portrait_wear_no_headgear_trigger = {
+#wh_portrait_wear_no_headgear_trigger = {
 #	scope:age <= lotr_coronation_minimum_age_value
 #}
 
-lotr_portrait_wear_armor_trigger = {
+wh_portrait_wear_armor_trigger = {
 	exists = this
 	is_incapable = no
 	is_imprisoned = no
@@ -450,11 +450,11 @@ lotr_portrait_wear_armor_trigger = {
 	}
 }
 
-lotr_portrait_wear_armor_currently_in_army_trigger = {
+wh_portrait_wear_armor_currently_in_army_trigger = {
 	is_pregnant = no	
 }
 
-lotr_portrait_wear_helmet_trigger = {
+wh_portrait_wear_helmet_trigger = {
 	is_pregnant = no
 	#is_maiar = no
 }
@@ -464,47 +464,47 @@ lotr_portrait_wear_helmet_trigger = {
 #Vanilla Clothing triggers
 
 
-lotr_portrait_byzantine_clothing_trigger = {
+wh_portrait_byzantine_clothing_trigger = {
 	scope:culture = { portrait_byzantine_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_byzantine_clothing_spouse_trigger = {
+wh_portrait_byzantine_clothing_spouse_trigger = {
 	culture = { portrait_byzantine_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_indian_clothing_trigger = {
+wh_portrait_indian_clothing_trigger = {
 	scope:culture = { portrait_indian_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_indian_clothing_spouse_trigger = {
+wh_portrait_indian_clothing_spouse_trigger = {
 	culture = { portrait_indian_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_mena_clothing_trigger = {
+wh_portrait_mena_clothing_trigger = {
 	scope:culture = { portrait_mena_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_mena_clothing_spouse_trigger = {
+wh_portrait_mena_clothing_spouse_trigger = {
 	culture = { portrait_mena_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_african_clothing_trigger = {
+wh_portrait_african_clothing_trigger = {
 	scope:culture = { portrait_african_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_african_clothing_spouse_trigger = {
+wh_portrait_african_clothing_spouse_trigger = {
 	culture = { portrait_african_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_northern_clothing_trigger = {
+wh_portrait_northern_clothing_trigger = {
 	scope:culture = { portrait_northern_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_northern_clothing_spouse_trigger = {
+wh_portrait_northern_clothing_spouse_trigger = {
 	culture = { portrait_northern_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_fp2_iberian_muslim_clothing_trigger = {
+wh_portrait_fp2_iberian_muslim_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -513,7 +513,7 @@ lotr_portrait_fp2_iberian_muslim_clothing_trigger = {
 	}
 }
 
-lotr_portrait_fp2_iberian_muslim_clothing_spouse_trigger = {
+wh_portrait_fp2_iberian_muslim_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -522,7 +522,7 @@ lotr_portrait_fp2_iberian_muslim_clothing_spouse_trigger = {
 	}
 }
 
-lotr_portrait_fp2_iberian_christian_clothing_trigger = { #Estalian
+wh_portrait_fp2_iberian_christian_clothing_trigger = { #Estalian
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -531,7 +531,7 @@ lotr_portrait_fp2_iberian_christian_clothing_trigger = { #Estalian
 	}
 }
 
-lotr_portrait_fp2_iberian_christian_clothing_spouse_trigger = { #Estalian
+wh_portrait_fp2_iberian_christian_clothing_spouse_trigger = { #Estalian
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -540,7 +540,7 @@ lotr_portrait_fp2_iberian_christian_clothing_spouse_trigger = { #Estalian
 	}
 }
 
-lotr_portrait_fp3_iranian_clothing_trigger = {
+wh_portrait_fp3_iranian_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -549,7 +549,7 @@ lotr_portrait_fp3_iranian_clothing_trigger = {
 	}
 }
 
-lotr_portrait_fp3_iranian_clothing_spouse_trigger = {
+wh_portrait_fp3_iranian_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -558,7 +558,7 @@ lotr_portrait_fp3_iranian_clothing_spouse_trigger = {
 	}
 }
 
-lotr_portrait_fp3_turkic_clothing_trigger = {
+wh_portrait_fp3_turkic_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -567,7 +567,7 @@ lotr_portrait_fp3_turkic_clothing_trigger = {
 	}
 }
 
-lotr_portrait_fp3_turkic_clothing_spouse_trigger = {
+wh_portrait_fp3_turkic_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -576,7 +576,7 @@ lotr_portrait_fp3_turkic_clothing_spouse_trigger = {
 	}
 }
 
-lotr_portrait_afr_berber_clothing_trigger = {
+wh_portrait_afr_berber_clothing_trigger = {
 	scope:culture = { 
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -585,7 +585,7 @@ lotr_portrait_afr_berber_clothing_trigger = {
 	}
 }
 
-lotr_portrait_afr_berber_clothing_spouse_trigger = {
+wh_portrait_afr_berber_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -595,7 +595,7 @@ lotr_portrait_afr_berber_clothing_spouse_trigger = {
 
 }
 
-lotr_portrait_fp1_norse_clothing_trigger = {
+wh_portrait_fp1_norse_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -604,7 +604,7 @@ lotr_portrait_fp1_norse_clothing_trigger = {
 	}
 }
 
-lotr_portrait_fp1_norse_clothing_spouse_trigger = {
+wh_portrait_fp1_norse_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -613,35 +613,51 @@ lotr_portrait_fp1_norse_clothing_spouse_trigger = {
 	}
 }
 
-lotr_portrait_steppe_clothing_trigger = {
+wh_portrait_steppe_clothing_trigger = {
 	scope:culture = { portrait_steppe_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_steppe_clothing_spouse_trigger = {
+wh_portrait_steppe_clothing_spouse_trigger = {
 	culture = { portrait_steppe_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_western_clothing_trigger = {
+wh_portrait_western_clothing_trigger = {
 	scope:culture = { portrait_western_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_western_clothing_spouse_trigger = {
+wh_portrait_western_clothing_spouse_trigger = {
 	culture = { portrait_western_proxy_clothing_contents_trigger = yes }
 }
 
 
-lotr_portrait_french_clothing_trigger = {
+wh_portrait_french_clothing_trigger = {
 	scope:culture = { portrait_french_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_french_clothing_spouse_trigger = {
+wh_portrait_french_clothing_spouse_trigger = {
 	culture = { portrait_french_proxy_clothing_contents_trigger = yes }
 }
 
+wh_portrait_dde_hre_clothing_trigger = {
+	scope:culture = {
+		portrait_shared_clothing_contents_trigger = {
+			CULTURE_SCOPE = scope:culture
+			CULTURE_FLAG = numenorean
+		}
+	}
+}
+
+wh_portrait_dde_hre_clothing_spouse_trigger = {
+	culture = {
+		portrait_shared_clothing_contents_trigger = {
+			CULTURE_SCOPE = scope:culture
+			CULTURE_FLAG = numenorean
+		}
+	}
+}
 
 
-
-lotr_portrait_dde_abbasid_clothing_trigger = {
+wh_portrait_dde_abbasid_clothing_trigger = {
 	scope:culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -650,7 +666,7 @@ lotr_portrait_dde_abbasid_clothing_trigger = {
 	}
 }
 
-lotr_portrait_dde_abbasid_clothing_spouse_trigger = {
+wh_portrait_dde_abbasid_clothing_spouse_trigger = {
 	culture = {
 		portrait_shared_clothing_contents_trigger = {
 			CULTURE_SCOPE = scope:culture
@@ -659,17 +675,17 @@ lotr_portrait_dde_abbasid_clothing_spouse_trigger = {
 	}
 }
 
-lotr_portrait_sp2_western_clothing_trigger = {
+wh_portrait_sp2_western_clothing_trigger = {
 	scope:culture = { portrait_western_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_sp2_western_clothing_spouse_trigger = {
+wh_portrait_sp2_western_clothing_spouse_trigger = {
 	culture = { portrait_western_proxy_clothing_contents_trigger = yes }
 }
 
-lotr_portrait_ep2_wedding_clothes_trigger = {
+wh_portrait_ep2_wedding_clothes_trigger = {
 	OR = {
-		has_character_flag = wedding_outfit #LotR
+		has_character_flag = wedding_outfit #WHG
 		AND = {
 			involved_activity ?= {
 				has_activity_type = activity_wedding

@@ -4136,14 +4136,13 @@ scripted_trigger ep3_2160_valid_neighbor_trigger = {
 	liege != root.liege
 	OR = {
 		government_has_flag = government_is_tribal
-		lotr_steppe_cultures_trigger = yes
-		# culture = { #LotR
-		# 	OR = {
-		# 		has_cultural_tradition = tradition_horse_lords
-		# 		has_cultural_tradition = tradition_saharan_nomads
-		# 		has_cultural_tradition = tradition_desert_nomads
-		# 	}
-		# }
+		culture = {
+			OR = {
+				has_cultural_tradition = tradition_horse_lords
+				has_cultural_tradition = tradition_saharan_nomads
+				has_cultural_tradition = tradition_desert_nomads
+			}
+		}
 	}
 	is_ai = yes
 }
