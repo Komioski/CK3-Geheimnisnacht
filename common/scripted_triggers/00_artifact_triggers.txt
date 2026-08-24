@@ -1546,7 +1546,7 @@ artifact_feature_metal_folded_iron_trigger = {
 }
 
 
-# dwarven_steel
+# dwarven_steel #LOTR #WHG TODO
 artifact_feature_metal_dwarven_steel_trigger = {
 	exists = scope:wealth
 	exists = scope:owner
@@ -1557,46 +1557,6 @@ artifact_feature_metal_dwarven_steel_trigger = {
 artifact_feature_metal_dwarven_steel_imported_trigger = {
 	exists = scope:wealth
 	artifact_value_trigger = { VALUE = scope:wealth MIN = 80 MAX = 999 }
-}
-
-# gondorian_steel
-artifact_feature_metal_gondorian_steel_trigger = {
-	exists = scope:wealth
-	exists = scope:owner
-	artifact_value_trigger = { VALUE = scope:wealth MIN = 80 MAX = 999 }
-	artifact_region_trigger = { CHARACTER = scope:owner REGION = material_metal_gondorian }
-}
-
-# noldorin_steel
-artifact_feature_metal_noldorin_steel_trigger = {
-	exists = scope:wealth
-	exists = scope:owner
-	artifact_value_trigger = { VALUE = scope:wealth MIN = 80 MAX = 999 }
-	artifact_region_trigger = { CHARACTER = scope:owner REGION = material_metal_noldorin }
-}
-
-# Decorative Materials
-
-# mithril
-artifact_feature_metal_mithril_trigger = {
-	AND = { 
-		exists = scope:wealth
-		trigger_if = {
-			limit = {
-				scope:owner = {
-					location.county.holder ?= {
-						any_sub_realm_county = {
-							any_county_province = {	has_province_modifier = mining_mithril_province_modifier }
-						}
-					}
-				}
-			}
-			artifact_value_trigger = { VALUE = scope:wealth MIN = 60 MAX = 999 }
-		}
-		trigger_else = {
-			artifact_value_trigger = { VALUE = scope:wealth MIN = 80 MAX = 999 }
-		}
-	}
 }
 
 # gold

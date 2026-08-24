@@ -19,84 +19,84 @@ base_colony_upkeep = 1
 
 ### RACIAL VALUES ###
 
-is_elf_bool = { #Used for fertility filter in marriage gui
-  if = {
-    limit = {NOT = { is_elf = yes }}
-    value = 1
-  }
-}
+# is_elf_bool = { #Used for fertility filter in marriage gui
+#   if = {
+#     limit = {NOT = { is_elf = yes }}
+#     value = 1
+#   }
+# }
 
-### Elven holding building limits
+# ### Elven holding building limits
 
-counties_in_subrealm = {
-	value = 0
-	every_sub_realm_county = {
-		add = 1
-	}
-}
+# counties_in_subrealm = {
+# 	value = 0
+# 	every_sub_realm_county = {
+# 		add = 1
+# 	}
+# }
 
-elven_holdings_in_realm = {
-	value = 0
-	every_realm_province = {
-		limit = {
-			has_building_or_higher = elven_settlement_01
-		}
-		add = 1
-	}
-}
+# elven_holdings_in_realm = {
+# 	value = 0
+# 	every_realm_province = {
+# 		limit = {
+# 			has_building_or_higher = elven_settlement_01
+# 		}
+# 		add = 1
+# 	}
+# }
 
-elven_strongholds_in_realm = {
-	value = 0
-	every_realm_province = {
-		limit = {
-			OR = {
-				has_building = elven_settlement_03
-				has_building = elven_settlement_04
-				has_building = elven_settlement_05
-			}
-		}
-		add = 1
-	}
-}
+# elven_strongholds_in_realm = {
+# 	value = 0
+# 	every_realm_province = {
+# 		limit = {
+# 			OR = {
+# 				has_building = elven_settlement_03
+# 				has_building = elven_settlement_04
+# 				has_building = elven_settlement_05
+# 			}
+# 		}
+# 		add = 1
+# 	}
+# }
 
-elven_cities_in_realm = {
-	value = 0
-	every_realm_province = {
-		limit = {
-			OR = {
-				has_building = elven_settlement_06
-				has_building = elven_settlement_07
-			}
-		}
-		add = 1
-	}
-}
+# elven_cities_in_realm = {
+# 	value = 0
+# 	every_realm_province = {
+# 		limit = {
+# 			OR = {
+# 				has_building = elven_settlement_06
+# 				has_building = elven_settlement_07
+# 			}
+# 		}
+# 		add = 1
+# 	}
+# }
 
-elven_stronghold_limit = {
-	value = elven_holdings_in_realm
-	divide = 5
-	floor = yes
-}
+# elven_stronghold_limit = {
+# 	value = elven_holdings_in_realm
+# 	divide = 5
+# 	floor = yes
+# }
 
-elven_stronghold_additional_required = {
-	value = elven_holdings_in_realm
-	modulo = 5
-	multiply = -1
-	add = 5
-}
+# elven_stronghold_additional_required = {
+# 	value = elven_holdings_in_realm
+# 	modulo = 5
+# 	multiply = -1
+# 	add = 5
+# }
 
-elven_city_limit = {
-	value = elven_holdings_in_realm
-	divide = 10
-	floor = yes
-}
+# elven_city_limit = {
+# 	value = elven_holdings_in_realm
+# 	divide = 10
+# 	floor = yes
+# }
 
-elven_city_additional_required = {
-	value = elven_holdings_in_realm
-	modulo = 10
-	multiply = -1
-	add = 10
-}
+# elven_city_additional_required = {
+# 	value = elven_holdings_in_realm
+# 	modulo = 10
+# 	multiply = -1
+# 	add = 10
+# }
 
 ### WILDERNESS SCRIPT VALUES ###
 # Used to display colonisation cost in sGUI.
@@ -554,7 +554,6 @@ character_domain_domain_limit = {
 			limit = {
 				OR = {
 					has_building = economic_specialization_03
-					has_building = wonder_edhellond_02
 				}
 				barony.holder = root
 			}
@@ -617,35 +616,35 @@ character_churches_held = {
 	}
 }
 
-character_elven_refuge_held = {
-	value = 0
+# character_elven_refuge_held = {
+# 	value = 0
 
-	every_held_title = {
-		limit = { tier = tier_county }
-		every_county_province = {
-			limit = {
-				has_holding_type = elven_holding
-				barony.holder = root
-			}
-			add = 1
-		}
-	}
-}
+# 	every_held_title = {
+# 		limit = { tier = tier_county }
+# 		every_county_province = {
+# 			limit = {
+# 				has_holding_type = elven_holding
+# 				barony.holder = root
+# 			}
+# 			add = 1
+# 		}
+# 	}
+# }
 
-character_delving_held = {
-	value = 0
+# character_delving_held = {
+# 	value = 0
 
-	every_held_title = {
-		limit = { tier = tier_county }
-		every_county_province = {
-			limit = {
-				has_holding_type = dwarven_holding
-				barony.holder = root
-			}
-			add = 1
-		}
-	}
-}
+# 	every_held_title = {
+# 		limit = { tier = tier_county }
+# 		every_county_province = {
+# 			limit = {
+# 				has_holding_type = dwarven_holding
+# 				barony.holder = root
+# 			}
+# 			add = 1
+# 		}
+# 	}
+# }
 
 character_tribe_held = {
 	value = 0

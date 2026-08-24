@@ -1156,345 +1156,6 @@ religious_decision.0002 = {
 # 	}
 # }
 
-#religious_decision.0103 = {	#LOTR: Cult of Saints var
-#	type = character_event
-#	title = religious_decision.0103.t
-#	desc = religious_decision.0103.desc
-#	theme = faith
-#	left_portrait = {
-#		character = root
-#		animation = personality_rational
-#	}
-#	right_portrait = {
-#			character = scope:saintportrait
-#	}
-#	immediate = {
-#		character:izindubethfaithfounder = {
-#			save_scope_as = saintscope_prophet
-#		}
-#		character:izindubethfaithleader4 = {
-#			save_scope_as = saintscope_militant
-#		}
-#		character:izindubethspecialfaithleader2 = {
-#			save_scope_as = saintscope_wise
-#		}
-#		character:izindubethspecialfaithleader3 = {
-#			save_scope_as = saintscope_pilgrim
-#		}
-#		character:lineofthonuzir79 = {
-#			save_scope_as = saintscope_anointed
-#		}
-#		if = {
-#			limit = { game_start_date >= 6986.10.26 }
-#				character:lineofsurdu3 = {
-#				save_scope_as = saintscope_chaste
-#				}
-#		}
-#		if = {
-#			limit ={
-#				exists = global_var:bor_saint
-#				global_var:bor_saint = yes
-#			}
-#			character:lineofthezij51 = {
-#			save_scope_as = saintscope_reformer
-#			}
-#		}
-#		random_list = {
-#			100 = {
-#				character:izindubethfaithfounder = {
-#					save_scope_as = saintportrait
-#				}
-#			}
-#			100 = {
-#				character:izindubethfaithleader4 = {
-#					save_scope_as = saintportrait
-#				}
-#			}
-#			100 = {
-#				character:izindubethspecialfaithleader1 = {
-#					save_scope_as = saintportrait
-#				}
-#			}
-#			100 = {
-#				character:izindubethspecialfaithleader2 = {
-#					save_scope_as = saintportrait
-#				}
-#			}
-#			100 = {
-#				character:izindubethspecialfaithleader3 = {
-#					save_scope_as = saintportrait
-#				}
-#			}
-#			100 = {
-#				character:izindubethspecialfaithleader4 = {
-#					save_scope_as = saintportrait
-#				}
-#			}
-#			100 = {
-#				character:lineofthonuzir79 = {
-#					save_scope_as = saintportrait
-#				}
-#			}
-#			100 = {
-#				character:lineofazarkadae1 = {
-#					save_scope_as = saintportrait
-#				}
-#			}
-#			100 = {
-#				if = {
-#					limit = { game_start_date >= 6986.10.26 }
-#					character:lineofsurdu3 = {
-#						save_scope_as = saintportrait
-#					}
-#				}
-#				else = {
-#					character:izindubethfaithfounder = {
-#						save_scope_as = saintportrait
-#					}
-#				}
-#			}
-#			100 = {
-#				if = {
-#					limit ={
-#						exists = global_var:bor_saint
-#						global_var:bor_saint = yes
-#					}
-#					character:lineofthezij51 = {
-#						save_scope_as = saintportrait
-#					}
-#				}
-#				else = {
-#					character:izindubethfaithfounder = {
-#						save_scope_as = saintportrait
-#					}
-#				}
-#			}
-#		}
-#	}
-#	# Izindubêth the Prophet
-#	option = {
-#		name = religious_decision.0103.prophet
-#		trigger = {
-#			NOT = { has_character_modifier = patron_saint_prophet_modifier }
-#		}
-#		set_bhakti_effect = { BHAKTI = patron_saint_prophet_modifier }
-#	}
-#
-#	# Saint Tamarzîr the Militant
-#	option = {
-#		name = religious_decision.0103.militant
-#		trigger = {
-#			NOT = { has_character_modifier = patron_saint_militant_modifier }
-#		}
-#		set_bhakti_effect = { BHAKTI = patron_saint_militant_modifier }
-#	}
-#
-#	# Saint Erukhôr the Wise
-#	option = {
-#		name = religious_decision.0103.wise
-#		trigger = {
-#			NOT = { has_character_modifier = patron_saint_wise_modifier }
-#		}
-#		set_bhakti_effect = { BHAKTI = patron_saint_wise_modifier }
-#	}
-#
-#	# Saint Broedaban the Patron of Pilgrims
-#	option = {
-#		name = religious_decision.0103.pilgrim
-#		trigger = {
-#			NOT = { has_character_modifier = patron_saint_pilgrim_modifier }
-#		}
-#		set_bhakti_effect = { BHAKTI = patron_saint_pilgrim_modifier }
-#	}
-#
-#	# Saint Bavabathor II the Anointed of Felaya
-#	option = {
-#		name = religious_decision.0103.anointed
-#		trigger = {
-#			OR = {
-#				culture = culture:felayan 
-#				culture = { any_parent_culture_or_above = { this = culture:felayan } }
-#			}
-#			NOT = {
-#				has_character_modifier = patron_saint_anointed_modifier
-#				culture = { any_parent_culture_or_above = { this = culture:tedjin } }
-#			}
-#		}
-#		set_bhakti_effect = { BHAKTI = patron_saint_anointed_modifier }
-#	}
-#	
-#	# Saint Bahlgahleya the Chaste
-#	option = {
-#		name = religious_decision.0103.chaste
-#		trigger = {
-#			OR = {
-#				culture = culture:bellanarud 
-#				culture = { any_parent_culture_or_above = { this = culture:bellanarud } }
-#			}
-#			NOT = {
-#				has_character_modifier = patron_saint_chaste_modifier
-#				culture = culture:felayan 
-#				culture = culture:tedjin 
-#				culture = culture:soriyan 
-#				culture = { any_parent_culture_or_above = { this = culture:felayan } }
-#				culture = { any_parent_culture_or_above = { this = culture:tedjin } }
-#				culture = { any_parent_culture_or_above = { this = culture:soriyan } }
-#			}
-#		}
-#		set_bhakti_effect = { BHAKTI = patron_saint_chaste_modifier }
-#	}
-#	
-#	# Saint Bôr the Reformer of the Tedjin
-#	# To be added
-#	option = {
-#		name = religious_decision.0103.reformer
-#		trigger = {
-#			OR = {
-#				culture = culture:tedjin
-#				culture = { any_parent_culture_or_above = { this = culture:tedjin } }
-#			}
-#			NOT = { has_character_modifier = patron_saint_reformer }
-#			exists = global_var:bor_saint
-#			global_var:bor_saint = yes
-#			
-#		}
-#		set_bhakti_effect = { BHAKTI = patron_saint_reformer }
-#	}
-#	
-#	# Opt-Out
-#	option = {
-#		name = religious_decision.0103.optout
-#		flavor = religious_decision.0103.flavor
-#
-#		ai_chance = {
-#			base = 0
-#		}		
-#	}
-#}
-
-
-#### SAINTS ###
-#
-#### Main Saints ###
-#
-#Izindubêth Imrathôr
-#Greatest of all Saints, known as Izindubêth the Prophet
-#High learning, temperate zealot
-#character:izindubethfaithfounder
-#
-#Saint Tamarzîr the Militant
-#Revered sword-saint who defended the faith with arms
-#Warrior-Saint, high martial, brave ambitious zealot, blademaster
-#character:izindubethfaithleader4
-#
-#Saint Gimilzôr the Unbreakable
-#Unrelenting faith, no matter how he was harmed. Died of natural causes despite numerous injuries
-#brave, forgiving, compassionate
-#character:izindubethspecialfaithleader1
-#
-#Saint Erukhôr the Wise
-#A widely read theologian and political philosopher, his writings would provide much of the impetus for a growing sense of an intertwined Felayan political and religious identity that would forment the de-facto independence of the region 
-#just, diligent, ambitious genius
-#character:izindubethspecialfaithleader2
-#
-#Saint Broedaban the Patron of Pilgrims
-#Travelled the world to view the beauty the valar had created, spread the faith through pilgrimage
-#fickle gregarious adventurer, Bellanarûd
-#character:izindubethspecialfaithleader3
-#
-#Saint Zimrebal the Fasting
-#Proved that one can survive on faith alone, lived a long and pious life with little worldly pleasures 
-#temperate content gardener, ate very little, high learning
-#character:izindubethspecialfaithleader4
-#
-#### Other Saints ###
-#
-#Saint Bavabathor II the Anointed of Felaya
-#First Lord of Felaya, ancestor of modern ones.
-#High learning, temperate, honest, compassionate man
-#character:lineofthonuzir79
-#
-#Saint Izindôn the Valiant of Khibal
-#granted the devastated lordship of Kas Torath in thanks for his valiant defense of it against the Corsair invasions
-#peasant leader, brave, temperate, holy warrior
-#character:lineofazarkadae1
-#
-#Saint Bahlgahleya the Chaste
-#Very pious, wise nun.
-#learned, chaste, temperate
-#character:lineofsurdu3
-#
-#Saint Bôr the Reformer
-#Reformer of the Tedjin, only avaiable if he managed to reform the Tedjin successfully
-#Excellent diplomat
-#character:lineofthezij51
-
-religious_decision.0104 = { # Mumakan-adapted version of the vanilla
-	type = character_event
-	title = religious_decision.0102.t
-	desc = religious_decision.0102.desc
-	theme = faith
-	left_portrait = {
-		character = root
-		animation = personality_rational
-	}
-
-	# Odin
-	option = {
-		name = religious_decision.0104.mumathumur
-		trigger = {
-			NOT = { has_character_modifier = bhakti_mumakan_mumathumur }
-		}
-		set_bhakti_effect = { BHAKTI = bhakti_mumakan_mumathumur }
-	}
-
-	# Ullr
-	option = {
-		name = religious_decision.0104.lakabah
-		trigger = {
-			NOT = { has_character_modifier = bhakti_mumakan_lakabah }
-		}
-		set_bhakti_effect = { BHAKTI = bhakti_mumakan_lakabah }
-	}
-
-	# Tyr
-	option = {
-		name = religious_decision.0104.mubadahr
-		trigger = {
-			NOT = { has_character_modifier = bhakti_mumakan_mubadahr }
-		}
-		set_bhakti_effect = { BHAKTI = bhakti_mumakan_mubadahr }
-	}
-
-	# Thor
-	option = {
-		name = religious_decision.0104.amav
-		trigger = {
-			NOT = { has_character_modifier = bhakti_mumakan_amav }
-		}
-		set_bhakti_effect = { BHAKTI = bhakti_mumakan_amav }
-	}
-
-	# Freyr
-	option = {
-		name = religious_decision.0104.ahsuli
-		trigger = {
-			NOT = { has_character_modifier = bhakti_mumakan_ahsuli }
-		}
-		set_bhakti_effect = { BHAKTI = bhakti_mumakan_ahsuli }
-	}
-
-	# Opt-Out
-	option = {
-		name = religious_decision.0102.optout
-		flavor = religious_decision.0102.flavor
-
-		ai_chance = {
-			base = 0
-		}
-	}
-}
-
 #########################
 # Meditate in Seclusion	#
 # by Sean Hughes		#
@@ -1546,14 +1207,9 @@ scripted_trigger religious_decision_0201_has_two_meditation_options_trigger = {
 		has_character_flag = meditation_option_wetlands
 		has_character_flag = meditation_option_jungle
 		has_character_flag = meditation_option_desert
-		has_character_flag = meditation_option_dune_sea
-		has_character_flag = meditation_option_red_desert
 		has_character_flag = meditation_option_deep_forest
-		has_character_flag = meditation_option_volcanic_plains
 		has_character_flag = meditation_option_arctic
 		has_character_flag = meditation_option_halls
-		has_character_flag = meditation_option_saltflats
-		has_character_flag = meditation_option_savanna
 	}
 }
 
@@ -1868,14 +1524,8 @@ religious_decision.0201 = {
 		remove_character_flag = meditation_option_wetlands
 		remove_character_flag = meditation_option_jungle
 		remove_character_flag = meditation_option_desert
-		remove_character_flag = meditation_option_dune_sea
-		remove_character_flag = meditation_option_red_desert
 		remove_character_flag = meditation_option_deep_forest
-		remove_character_flag = meditation_option_volcanic_plains
 		remove_character_flag = meditation_option_arctic
-		remove_character_flag = meditation_option_halls
-		remove_character_flag = meditation_option_saltflats
-		remove_character_flag = meditation_option_savanna
 		remove_character_flag = planning_an_activity
 	}
 }
@@ -1976,36 +1626,12 @@ religious_decision.0211 = {
 				desc = religious_decision.0211.desc.beginning.desert
 			}
 			triggered_desc = {
-				trigger = {var:meditation_location = { terrain = dune_sea }}
-				desc = religious_decision.0211.desc.beginning.dune_sea
-			}
-			triggered_desc = {
-				trigger = {var:meditation_location = { terrain = red_desert }}
-				desc = religious_decision.0211.desc.beginning.red_desert
-			}
-			triggered_desc = {
 				trigger = {var:meditation_location = { terrain = deep_forest }}
 				desc = religious_decision.0211.desc.beginning.deep_forest
 			}
 			triggered_desc = {
-				trigger = {var:meditation_location = { terrain = volcanic_plains }}
-				desc = religious_decision.0211.desc.beginning.volcanic_plains
-			}
-			triggered_desc = {
 				trigger = {var:meditation_location = { terrain = arctic }}
 				desc = religious_decision.0211.desc.beginning.arctic
-			}
-			triggered_desc = {
-				trigger = {var:meditation_location = { terrain = halls }}
-				desc = religious_decision.0211.desc.beginning.halls
-			}
-			triggered_desc = {
-				trigger = {var:meditation_location = { terrain = saltflats }}
-				desc = religious_decision.0211.desc.beginning.saltflats
-			}
-			triggered_desc = {
-				trigger = {var:meditation_location = { terrain = savanna }}
-				desc = religious_decision.0211.desc.beginning.savanna
 			}
 		}
 		first_valid = {
@@ -2196,7 +1822,6 @@ religious_decision.0211 = {
 							scope:meditation_location = {
 								OR = {
 									terrain = hills
-									terrain = red_desert
 								}
 							}
 						}
@@ -2211,8 +1836,6 @@ religious_decision.0211 = {
 								OR = {
 									terrain = desert
 									terrain = drylands
-									terrain = saltflats
-									terrain = halls
 								}							
 							}
 						}
@@ -2221,7 +1844,6 @@ religious_decision.0211 = {
 							scope:meditation_location = {
 								OR = {
 									terrain = desert
-									terrain = dune_sea
 								}
 							}
 						}
@@ -2244,7 +1866,6 @@ religious_decision.0211 = {
 							terrain = forest
 							terrain = taiga
 							terrain = drylands
-							terrain = savanna
 						}
 					}
 				}
@@ -2258,13 +1879,8 @@ religious_decision.0211 = {
 							terrain = mountains
 							terrain = wetlands
 							terrain = jungle
-							terrain = dune_sea
-							terrain = red_desert
 							terrain = deep_forest
-							terrain = volcanic_plains
 							terrain = arctic
-							terrain = halls
-							terrain = saltflats
 						}
 					}
 				}
@@ -2359,11 +1975,6 @@ religious_decision.0211 = {
 								OR = {
 									terrain = desert
 									terrain = drylands
-									terrain = dune_sea
-									terrain = red_desert
-									terrain = volcanic_plains
-									terrain = saltflats
-									terrain = savanna
 								}
 							}
 						}
