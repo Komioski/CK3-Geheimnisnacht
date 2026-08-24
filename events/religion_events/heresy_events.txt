@@ -136,50 +136,6 @@ heresy.0001 = {
 					}
 					add_to_list = potential_heresies
 				}
-				#if = {
-				#	limit = {
-				#		is_in_family = rf_eruhini
-				#	}
-				#	# Men should not convert to Elves!
-				#	faith:faith_eldar = {
-				#		remove_from_list = potential_heresies
-				#	}
-				#}
-				if = {
-					limit = {
-						OR = {
-							this = religion:adunai_religion
-							this = religion:bellakari_religion
-						}
-					}
-					faith:faith_corsair = {
-						add_to_list = potential_heresies
-					}
-				}
-				#Pardahunuk is the rejection of the Sauronic religion
-				if = {
-					limit = {
-						this = religion:sauronic_religion
-					}
-					faith:way_of_strength = {
-						add_to_list = potential_heresies
-					}
-				}
-				#Sauronic faiths are fair game for orcs
-				if = {
-					limit = {
-						this = religion:orcish_religion
-					}
-					faith:lidless_eye = {
-						add_to_list = potential_heresies
-					}
-					faith:sons_of_sauron = {
-						add_to_list = potential_heresies
-					}
-					faith:faith_angmar_evil = {
-						add_to_list = potential_heresies
-					}
-				}
 			}
 
 			#We want to pick certain faiths to be our heresy over others, assuming they are valid.

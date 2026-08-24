@@ -3010,25 +3010,7 @@ coronation_events.0300 = {
 					save_scope_as = animation_2
 				}
 			}
-			if = { #LotR - Istari can be officiants
-				limit = {
-					any_attending_character = {
-						has_trait = istari
-						same_alignment = { TARGET = scope:host }
-					}
-				}
-				save_scope_as = alternative_2
-				if = {
-					limit = {
-						NOT = { exists = scope:animation_1 }
-					}
-					save_scope_as = animation_1
-				}
-				else = {
-					save_scope_as = animation_3
-				}
-			}
-			else = { #lotR - if not, revert to vanilla
+			if = {
 			ordered_attending_character = {
 				limit = {
 					faith = root.faith

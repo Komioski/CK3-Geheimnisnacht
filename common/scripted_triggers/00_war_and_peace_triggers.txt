@@ -1,5 +1,4 @@
-﻿# LotR: Various commenting out of vanilla references and Sauron cannot lead an army without the ring.
-
+﻿
 ###TRIGGER LIST
 #prisoner_gives_warscore_for_trigger - takes WAR and CHARACTER (primary enemy or one of their top 3 player heirs)
 
@@ -310,7 +309,6 @@ can_be_warrior_trigger = {
 			}
 		}
 	}
-	NOT = { has_trait = sauron_ringless } #LotR
 }
 
 # referenced in KNIGHT_RESTRICTIONS_TT, update when changing this trigger
@@ -384,7 +382,6 @@ can_be_knight_trigger = {
 		}
 		is_knight_permitted = $ARMY_OWNER$
 	}
-	NOT = { has_trait = sauron_ringless } #LotR
 }
 
 # If you update one of the available triggers, update all of them. It's a lot better for performance to not have scripted triggers within scripted triggers when they're checked as often as these ones are.
@@ -415,7 +412,6 @@ can_be_commander_basic_trigger = {
 		is_ai = yes
 		highest_held_title_tier < tier_hegemony
 	}
-	NOT = { has_trait = sauron_ringless } #LotR
 }
 
 # If you update one of the available triggers, update all of them. It's a lot better for performance to not have scripted triggers within scripted triggers when they're checked as often as these ones are.
@@ -450,7 +446,6 @@ can_be_commander_now_trigger = {
 			is_being_visited_on_tour_strict = yes
 		}
 	}
-	NOT = { has_trait = sauron_ringless } #LotR
 }
 
 get_valid_commander_list_trigger = {

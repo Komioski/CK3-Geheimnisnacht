@@ -378,7 +378,6 @@
 								}
 								scope:stewardship_councillor = {
 									OR = {
-										is_performing_council_task = task_orc_1_develop_county
 										is_performing_council_task = task_develop_county
 									}
 								}
@@ -386,7 +385,6 @@
 							root.story_owner = {
 								any_sub_realm_county = { 
 									OR = {
-										is_target_of_council_task = task_orc_1_develop_county
 										is_target_of_council_task = task_develop_county
 									}
 									development_level > 2
@@ -397,7 +395,6 @@
 							limit = {
 								scope:stewardship_councillor = {
 									OR = {
-										is_performing_council_task = task_orc_1_develop_county
 										is_performing_council_task = task_develop_county
 									}
 								}
@@ -405,7 +402,6 @@
 							root.story_owner = {
 								any_sub_realm_county = { 
 									OR = {
-										is_target_of_council_task = task_orc_1_develop_county
 										is_target_of_council_task = task_develop_county
 									}
 									development_level > 3

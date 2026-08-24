@@ -275,17 +275,6 @@
 			}
 		# }
 		# trigger_else = { always = yes } #Needs trigger_else fallback
-		
-		#Elves and good Istari can't pilgrimage to an evil-held holy site
-		trigger_if = {
-			limit = {
-				scope:host = { is_landless_adventurer = no }
-			}
-			custom_tooltip = {
-				text = activity_pilgrimage.is_location_valid.capital_is_holy_site
-				scope:host.capital_province != root
-			}
-		}
 
 		# If you are supposed to be the realm's reserve ruler, then you can't take a multi-year foreign trip.
 		trigger_if = {
