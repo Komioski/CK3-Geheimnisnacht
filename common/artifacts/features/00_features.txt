@@ -636,39 +636,6 @@
 		}
 		weight = 50
 	}
-	decoration_material_embroidery_mithril_thread = {
-		group = decoration_material_embroidery
-		trigger = {
-			OR = {
-				AND = {
-					artifact_value_trigger = { VALUE = scope:wealth MIN = 60 MAX = 999 }
-					scope:owner = {
-						location.county.holder ?= {
-							any_sub_realm_county = {
-								any_county_province = {	has_province_modifier = mining_mithril_province_modifier }
-							}
-						}
-					}
-				}
-				artifact_value_trigger = { VALUE = scope:wealth MIN = 80 MAX = 999 }
-			}
-		}
-		weight = {
-			value = 50
-			if = {
-				limit = {
-					scope:owner = {
-						location.county.holder ?= {
-							any_sub_realm_county = {
-								any_county_province = {	has_province_modifier = mining_mithril_province_modifier }
-							}
-						}
-					}
-				}
-				add = 50
-			}
-		}
-	}
 
 # generic_material_cloth
 	# wools - found literally everywhere
@@ -1603,13 +1570,8 @@
 			value = 10
 			if = {
 				limit = { #Mostly in Middle East and Europe
-					culture = { has_cultural_pillar = heritage_northern_apysaic }
-					culture = { has_cultural_pillar = heritage_northern_adunaic }
-					culture = { has_cultural_pillar = heritage_daen_lintis }
-					culture = { has_cultural_pillar = heritage_danan_lin }
-					culture = { has_cultural_pillar = heritage_daen_coentis }
-					culture = { has_cultural_pillar = heritage_tulwangi }
-					culture = { has_cultural_pillar = heritage_thani_native }
+					culture = { has_cultural_pillar = heritage_arabic }
+					culture_has_european_heritage_pillar_trigger = yes
 				}
 				add = 10
 			}
@@ -1621,12 +1583,17 @@
 			value = 10
 			if = {
 				limit = { #Mostly England and Scandinavia
-					culture = { has_cultural_pillar = heritage_eotheod }
-					culture = { has_cultural_pillar = heritage_northron }
-					is_orc = yes
-					is_elf = yes
+					culture_has_north_european_heritage_pillar_trigger = yes
+					culture_has_west_european_heritage_pillar_trigger = yes
 				}
 				add = 10
+			}
+			if = {
+				limit = {
+					# Only common until 11th century
+					current_date > 1000.1.1
+				}
+				multiply = 0
 			}
 		}
 	}
@@ -1636,13 +1603,16 @@
 			value = 10
 			if = {
 				limit = { # Western European origin
-					culture = { has_cultural_pillar = heritage_eotheod }
-					culture = { has_cultural_pillar = heritage_northron }
-					culture = { has_cultural_pillar = heritage_daen_lintis }
-					culture = { has_cultural_pillar = heritage_daen_coentis }
-					is_orc = yes
+					culture_has_west_european_heritage_pillar_trigger = yes
 				}
 				add = 10
+			}
+			if = {
+				limit = {
+					# Lost popularity at the end of 13th century
+					current_date > 1250.1.1
+				}
+				multiply = 0
 			}
 		}
 	}
@@ -1659,8 +1629,7 @@
 			value = 10
 			if = {
 				limit = { # Mostly in Europe
-					lotr_has_numenorean_culture_trigger = yes
-					is_elf = yes
+					culture_has_european_heritage_pillar_trigger = yes
 				}
 				add = 10
 			}
@@ -1670,6 +1639,13 @@
 					scope:armor_type = flag:armor_type_plate
 				}
 				add = 40
+			}
+			if = {
+				limit = {
+					# Began to show up late 12th century
+					current_date < 1150.1.1
+				}
+				multiply = 0
 			}
 		}
 	}
@@ -1681,13 +1657,14 @@
 				limit = { exists = scope:wealth }
 				scope:wealth >= 60
 			}
+			# Began to show up late 12th century (Crusades)
+			current_date > 1150.1.1
 		}
 		weight = {
 			value = 10
 			if = {
 				limit = { # Mostly in Europe
-					lotr_has_numenorean_culture_trigger = yes
-					is_elf = yes
+					culture_has_west_european_heritage_pillar_trigger = yes
 				}
 				add = 10
 			}
@@ -1697,6 +1674,13 @@
 					scope:armor_type = flag:armor_type_plate
 				}
 				add = 40
+			}
+			if = {
+				limit = {
+					# Mostly used after 1220
+					current_date > 1220.1.1
+				}
+				add = 10
 			}
 		}
 	}
@@ -1708,13 +1692,14 @@
 				limit = { exists = scope:wealth }
 				scope:wealth >= 60
 			}
+			# Bascinet began to show up late 12th century (first recorded reference: 1281)
+			current_date > 1281.1.1
 		}
 		weight = {
 			value = 10
 			if = {
 				limit = { # Mostly in Europe
-					lotr_has_numenorean_culture_trigger = yes
-					is_elf = yes
+					culture_has_west_european_heritage_pillar_trigger = yes
 				}
 				add = 10
 			}
@@ -1735,13 +1720,14 @@
 				limit = { exists = scope:wealth }
 				scope:wealth >= 60
 			}
+			# Began to show up late 12th century (Crusades)
+			current_date > 1150.1.1
 		}
 		weight = {
 			value = 10
 			if = {
 				limit = { # Mostly in Europe
-					lotr_has_numenorean_culture_trigger = yes
-					is_elf = yes
+					culture_has_west_european_heritage_pillar_trigger = yes
 				}
 				add = 10
 			}
@@ -1752,21 +1738,34 @@
 				}
 				add = 40
 			}
+			if = {
+				limit = {
+					# Mostly used after 1250
+					current_date > 1250.1.1
+				}
+				add = 10
+			}
 		}
 	}
 	armor_helmet_turban_helmet = {
 		group = armor_helmet
+		trigger = {
+			#Began to show up late 13th century (Ottoman Empire)
+			current_date > 1250.1.1
+		}
 		weight = {
 			value = 10
 			if = {
 				limit = { # Mostly in North Africa/West Asia/Southeast Europe
-					culture = { has_cultural_pillar = heritage_northern_apysaic }
-					culture = { has_cultural_pillar = heritage_middle_apysaic }
-					culture = { has_cultural_pillar = heritage_southern_apysaic }
-					# culture = { has_cultural_pillar = heritage_geshan } # Former Nafarati
-					culture = { has_cultural_pillar = heritage_tulwangi }
-					culture = { has_cultural_pillar = heritage_thani_native }
-					lotr_steppe_cultures_trigger = yes
+					OR = {
+						culture_has_north_african_heritage_pillar_trigger = yes
+						culture_has_west_asian_heritage_pillar_trigger = yes
+						culture = { has_cultural_pillar = heritage_turkic }
+						culture = { has_cultural_pillar = heritage_latin }
+						culture = { has_cultural_pillar = heritage_byzantine }
+						culture = { has_cultural_pillar = heritage_caucasian }
+						culture = { has_cultural_pillar = heritage_syriac }
+					}
 				}
 				add = 10
 			}
@@ -1774,11 +1773,15 @@
 	}
 	armor_helmet_lamellar = {
 		group = armor_helmet
+		trigger = {
+			#Began to show up late 13th century (Ottoman Empire)
+			current_date > 1250.1.1
+		}
 		weight = {
 			value = 10
 			if = {
 				limit = { # Popularized in central Asia by the steppe nomads
-					lotr_steppe_cultures_trigger = yes
+					culture_has_central_asian_heritage_pillar_trigger = yes
 				}
 				add = 10
 			}
@@ -1793,12 +1796,15 @@
 	}
 	armor_helmet_cervelliere = {
 		group = armor_helmet
+		trigger = {
+			#First introduced during the late 12th century
+			current_date > 1150.1.1
+		}
 		weight = {
 			value = 10
 			if = {
 				limit = { # Mostly in Europe
-					lotr_has_numenorean_culture_trigger = yes
-					is_elf = yes
+					culture_has_european_heritage_pillar_trigger = yes
 				}
 				add = 10
 			}
@@ -1812,14 +1818,15 @@
 	}
 	armor_helmet_kettle = {
 		group = armor_helmet
+		trigger = {
+			#First introduced during the late 12th century
+			current_date > 1150.1.1
+		}
 		weight = {
 			value = 10
 			if = {
 				limit = { # Mostly in Europe
-					culture = { has_cultural_pillar = heritage_eotheod }
-					culture = { has_cultural_pillar = heritage_northron }
-					culture = { has_cultural_pillar = heritage_daen_lintis }
-					culture = { has_cultural_pillar = heritage_daen_coentis }
+					culture_has_european_heritage_pillar_trigger = yes
 				}
 				add = 10
 			}
@@ -1838,12 +1845,17 @@
 			if = {
 				limit = { # Originated in Central Asia, but also used in all of west Asia
 					OR = {
-						culture = { has_cultural_pillar = heritage_igath }
-						culture = { has_cultural_pillar = heritage_ioriag }
-						culture = { has_cultural_pillar = heritage_tedjin }
+						culture_has_central_asian_heritage_pillar_trigger = yes
+						culture_has_west_asian_heritage_pillar_trigger = yes
 					}
 				}
 				add = 10
+			}
+			if = {
+				limit = { # Mostly used in the later middle ages
+					current_date < 1400.1.1
+				}
+				multiply = 0.25
 			}
 		}
 	}
@@ -2006,13 +2018,6 @@
 		}
 		weight = 20
 	}
-	artifact_armor_descriptor_mithril_inlaid = {
-		group = armor_property
-		trigger = {
-			has_artifact_feature = decoration_material_inlay_mithril
-		}
-		weight = 20
-	}
 	artifact_armor_descriptor_bronze_inlaid = {
 		group = armor_property
 		trigger = {
@@ -2031,14 +2036,6 @@
 		group = armor_property
 		trigger = {
 			has_artifact_feature = armor_material_steel
-		}
-		weight = 20
-	}
-	artifact_armor_descriptor_armor_mithril_decorated = {
-		group = armor_property
-		trigger = {
-			has_artifact_feature_group = decoration_material_inlay
-			has_artifact_feature = decoration_material_inlay_mithril
 		}
 		weight = 20
 	}
@@ -2063,6 +2060,22 @@
 		trigger = {
 			has_artifact_feature_group = decoration_material_inlay
 			has_artifact_feature = decoration_material_inlay_copper
+		}
+		weight = 20
+	}
+	artifact_armor_descriptor_armor_shakudo_decorated = {
+		group = armor_property
+		trigger = {
+			has_artifact_feature_group = decoration_material_inlay
+			has_artifact_feature = decoration_material_inlay_shakudo
+		}
+		weight = 20
+	}
+	artifact_armor_descriptor_armor_shibuichi_decorated = {
+		group = armor_property
+		trigger = {
+			has_artifact_feature_group = decoration_material_inlay
+			has_artifact_feature = decoration_material_inlay_shibuichi
 		}
 		weight = 20
 	}
