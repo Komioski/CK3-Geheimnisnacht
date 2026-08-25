@@ -10,13 +10,6 @@
 			is_at_war = no
 			short_term_gold >= festival_activity_base_cost
 		}
-		#OR = { #LotR
-		#	culture ?= { has_cultural_pillar = heritage_womaw }
-		#	culture ?= { has_cultural_pillar = heritage_magri }
-		#	culture ?= { has_cultural_pillar = heritage_sare }
-		#	culture ?= { has_cultural_pillar = heritage_periannath }
-		#}
-		#lotr_is_shown_basic_activity_trigger = yes #LotR
 	}
 	can_start_showing_failures_only = {
 		NOT = { is_activity_type_on_cooldown = activity_festival }

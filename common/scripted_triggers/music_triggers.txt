@@ -1,0 +1,289 @@
+﻿# Various music triggers
+
+# Trigger that blocks generic music groups for specific cultures/governments that should only use their own
+should_not_use_bespoke_music_trigger = {
+	trigger_if = {
+		limit = {
+			has_tgp_dlc_trigger = yes
+			should_use_chinese_music_trigger = yes
+		}
+		always = no
+	}
+	trigger_else_if = {
+		limit = {
+			has_mpo_dlc_trigger = yes
+			should_use_nomadic_music_trigger = yes
+		}
+		always = no
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+should_not_be_valid_if_asian_music_is_valid_trigger = {
+	trigger_if = {
+		limit = {
+			has_tgp_dlc_trigger = yes
+			should_use_asian_music_trigger = yes
+		}
+		always = no
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+should_use_asian_music_trigger = {
+	OR = {
+		AND = {
+			culture = {
+				has_building_gfx = steppe_building_gfx
+			}
+			OR = {
+				# culture = { has_cultural_pillar = heritage_mongolic }
+				# culture = { any_parent_culture_or_above = { has_cultural_pillar = heritage_mongolic } }
+				# culture = { has_cultural_pillar = heritage_tungusic }
+				# culture = { any_parent_culture_or_above = { has_cultural_pillar = heritage_tungusic } }
+				culture = { has_cultural_pillar = heritage_kislevite } #WHG TODO
+				culture = { any_parent_culture_or_above = { has_cultural_pillar = heritage_kislevite } } #WHG TODO
+			}
+			#capital_province ?= { #WHG
+			#	OR = {
+			#		# geographical_region = world_asia_north_east
+			#		# geographical_region = world_steppe_east
+			#	}
+			#}
+		}
+		culture = {
+			OR = {
+				# has_building_gfx = chinese_building_gfx
+				# has_building_gfx = indian_building_gfx
+				# has_building_gfx = southeast_asian_building_gfx
+				# has_building_gfx = tibetan_building_gfx
+				# has_building_gfx = japanese_building_gfx
+				has_cultural_pillar = heritage_kislevite #WHG TODO
+			}
+		}
+		# religion = { is_in_family = rf_sinitic } #LOTR
+		# religion = religion:buddhism_religion
+		# religion = religion:hinduism_religion
+		# religion = religion:shintoism_religion
+		# any_character_situation = { situation_type = dynastic_cycle }
+	}
+}
+
+should_use_chinese_music_trigger = {
+	OR = {
+		# culture = { has_cultural_pillar = heritage_chinese } #WHG TODO
+		# culture = { any_parent_culture_or_above = { has_cultural_pillar = heritage_chinese } }
+		# any_character_situation = { situation_type = dynastic_cycle }
+		# religion = { is_in_family = rf_sinitic }
+		always = no #WHG
+	}
+}
+
+should_use_byzantine_music_trigger = {
+	OR = {
+		# culture = { has_cultural_pillar = heritage_byzantine }
+		culture = { has_cultural_pillar = heritage_khyprian } #WHG
+		# culture = { any_parent_culture_or_above = { has_cultural_pillar = heritage_byzantine } }
+		culture = { any_parent_culture_or_above = { has_cultural_pillar = heritage_khyprian } } #WHG
+		# top_liege = { has_title = title:e_byzantium }
+		# top_liege = { has_title = title:h_roman_empire }
+		# religion = religion:christianity_religion
+	}
+	always = no # WHG TODO
+}
+
+should_use_nomadic_music_trigger = {
+	OR = {
+		# culture = {
+		# 	has_cultural_pillar = heritage_mongolic
+		# }
+		# culture = {
+		# 	has_cultural_pillar = heritage_turkic
+		# }
+		# faith.religion = faith:tengri_pagan.religion
+		always = no # WHG TODO
+		AND = {
+			government_has_flag = government_is_nomadic
+			any_character_situation = {
+				this = situation:the_great_steppe
+			}
+		}
+	}
+}
+
+should_use_sami_music_trigger = {
+	OR = {
+		culture = {
+			OR = {
+				# has_cultural_pillar = heritage_ugro_permian
+				# has_cultural_pillar = heritage_balto_finnic
+				# has_cultural_pillar = heritage_nivkh
+			}
+		}
+		culture = {
+			OR = {
+				# any_parent_culture_or_above = { has_cultural_pillar = heritage_ugro_permian }
+				# any_parent_culture_or_above = { has_cultural_pillar = heritage_balto_finnic }
+				# any_parent_culture_or_above = { has_cultural_pillar = heritage_nivkh }
+			}
+		}
+		# AND = {
+		# 	exists = capital_province
+		# 	capital_province = { geographical_region = cp4_music_area }
+		# }
+	}
+	always = no # WHG TODO
+}
+
+should_use_norse_music_trigger = {
+	OR = {
+		culture = { has_cultural_pillar = heritage_norscan } #WHG
+		# culture = { has_cultural_pillar = heritage_north_germanic }
+		# religion = religion:germanic_religion
+	}
+	always = no # LOTR TODO
+}
+
+should_use_iberian_music_trigger = {
+	OR = {
+		culture = {
+			# has_cultural_pillar = heritage_iberian
+			has_cultural_pillar = heritage_estalian #WHG
+		}
+		culture = {
+		# 	any_parent_culture_or_above = { has_cultural_pillar = heritage_iberian }
+		 	any_parent_culture_or_above = { has_cultural_pillar = heritage_estalian } #WHG
+		}
+		AND = {
+			exists = capital_province
+			# capital_province = { geographical_region = world_europe_west_iberia }
+			capital_province = { 
+				OR = {
+					geographical_region = world_old_world_southern_realms_estalia_north
+					geographical_region = world_old_world_southern_realms_estalia_south
+				}
+			}
+		}
+	}
+}
+
+should_use_iranian_music_trigger = {
+	OR = {
+		culture = {
+			#has_cultural_pillar = heritage_iranian
+			has_cultural_pillar = heritage_kurgan #WHG
+		}
+		culture = {
+			#any_parent_culture_or_above = { has_cultural_pillar = heritage_iranian }
+			any_parent_culture_or_above = { has_cultural_pillar = heritage_kurgan }
+		}
+		# AND = { #WHG
+		# 	religion = religion:islam_religion
+		# 	NAND = {
+		# 		government_has_flag = government_is_nomadic
+		# 		any_character_situation = {
+		# 			this = situation:the_great_steppe
+		# 		}
+		# 	}
+		# }
+		# religion = religion:zoroastrianism_religion
+		# AND = {
+		# 	exists = capital_province
+		# 	capital_province = { geographical_region = world_persian_empire }
+		# }
+	}
+}
+
+should_use_specifically_persian_music_trigger = {
+	OR = {
+		#culture = {
+		#	has_cultural_pillar = heritage_iranian
+		#}
+		# culture = {
+		# 	any_parent_culture_or_above = { has_cultural_pillar = heritage_iranian }
+		# }
+		#AND = {
+		#	exists = capital_province
+			# capital_province = { geographical_region = world_persian_empire }
+		#}
+	}
+	always = no #WHG
+}
+
+should_use_european_christian_music_trigger = { #WHG TODO
+	NOT = { government_has_flag = government_is_nomadic }
+	#religion = religion:christianity_religion
+	#OR = { #LotR
+	#	AND = {
+	#		religion = religion:christianity_religion
+	#		faith != faith:orthodox
+	#		faith != faith:armenian_apostolic
+	#		faith != faith:nestorian
+	#		faith != faith:coptic
+	#		faith != faith:messalian
+	#	}
+	#	AND = {
+	#		exists = capital_province
+	#		capital_province = {
+	#			OR = {
+	#				geographical_region = world_europe_west
+	#				geographical_region = world_europe_north
+	#				geographical_region = world_europe_south
+	#			}
+	#		}
+	#	}
+	#}
+}
+
+should_use_broadly_european_music_trigger = { #WHG TODO
+	NOT = { government_has_flag = government_is_nomadic }
+	#OR = { #LotR
+	#	AND = {
+	#		exists = capital_province
+	#		capital_province = {
+	#			OR = {
+	#				geographical_region = world_europe_west
+	#				geographical_region = world_europe_north
+	#				geographical_region = world_europe_south
+	#			}
+	#		}
+	#		religion != religion:islam_religion
+	#	}
+	#	culture = {
+	#		OR = {
+	#			has_cultural_pillar = heritage_iberian
+	#			has_cultural_pillar = heritage_north_germanic
+	#			has_cultural_pillar = heritage_west_germanic
+	#			has_cultural_pillar = heritage_central_germanic
+	#			has_cultural_pillar = heritage_frankish
+	#			has_cultural_pillar = heritage_latin
+	#			has_cultural_pillar = heritage_south_slavic
+	#			has_cultural_pillar = heritage_west_slavic
+	#			has_cultural_pillar = heritage_vlach
+	#			has_cultural_pillar = heritage_magyar
+	#			has_cultural_pillar = heritage_goidelic
+	#			has_cultural_pillar = heritage_brythonic
+	#			any_parent_culture_or_above = {
+	#				OR = {
+	#					has_cultural_pillar = heritage_iberian
+	#					has_cultural_pillar = heritage_north_germanic
+	#					has_cultural_pillar = heritage_west_germanic
+	#					has_cultural_pillar = heritage_central_germanic
+	#					has_cultural_pillar = heritage_frankish
+	#					has_cultural_pillar = heritage_latin
+	#					has_cultural_pillar = heritage_south_slavic
+	#					has_cultural_pillar = heritage_west_slavic
+	#					has_cultural_pillar = heritage_vlach
+	#					has_cultural_pillar = heritage_magyar
+	#					has_cultural_pillar = heritage_goidelic
+	#					has_cultural_pillar = heritage_brythonic
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+}
