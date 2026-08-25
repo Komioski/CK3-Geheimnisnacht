@@ -357,19 +357,19 @@ idle = {
 			portrait_modifier_pack = one_handed_sword
 		}
 
-		character_murchad = {
-			animation = { head = "emotion_thinking_entry" torso = "emotion_thinking_entry" }
-			portrait_modifier = {
-				animations = AI_rational_decal
-			}
-			weight = {
-				base = 0
-				modifier = {
-					add = 5000
-					this = character:83355
-				}
-			}
-		}
+		# character_murchad = { #WHG
+		# 	animation = { head = "emotion_thinking_entry" torso = "emotion_thinking_entry" }
+		# 	portrait_modifier = {
+		# 		animations = AI_rational_decal
+		# 	}
+		# 	weight = {
+		# 		base = 0
+		# 		modifier = {
+		# 			add = 5000
+		# 			this = character:83355
+		# 		}
+		# 	}
+		# }
 
 		shepherd_with_sheep = {
 			animation = { head = "herder" torso = "herder" }
@@ -388,51 +388,51 @@ idle = {
 			}
 		}
 
-		character_robert = {
-			animation = { head = "council_marshal" torso = "council_marshal" }
-			weight = {
-				base = 0
-				modifier = {
-					add = 5000
-					this = character:1128
-				}
-			}
-			portrait_modifier_pack = one_handed_sword
-		}
+		# character_robert = { #WHG
+		# 	animation = { head = "council_marshal" torso = "council_marshal" }
+		# 	weight = {
+		# 		base = 0
+		# 		modifier = {
+		# 			add = 5000
+		# 			this = character:1128
+		# 		}
+		# 	}
+		# 	portrait_modifier_pack = one_handed_sword
+		# }
 
-		character_henry = {
-			animation = { head = "council_marshal" torso = "council_marshal" }
-			weight = {
-				base = 0
-				modifier = {
-					add = 5000
-					OR = {
-						this = character:easteregg_henry_of_skalitz
-						this = character:easteregg_henry_kobyla
-						this = character:easteregg_henry_kobyla_late
-					}
-				}
-			}
-			portrait_modifier_pack = long_swords
-		}
+		# character_henry = { #WHG
+		# 	animation = { head = "council_marshal" torso = "council_marshal" }
+		# 	weight = {
+		# 		base = 0
+		# 		modifier = {
+		# 			add = 5000
+		# 			OR = {
+		# 				this = character:easteregg_henry_of_skalitz
+		# 				this = character:easteregg_henry_kobyla
+		# 				this = character:easteregg_henry_kobyla_late
+		# 			}
+		# 		}
+		# 	}
+		# 	portrait_modifier_pack = long_swords
+		# }
 
-		character_yahya = {
-			animation = { head = "chessCocky1_entry" torso = "chessCocky1_entry" }
-			portrait_modifier = {
-				animations_props = fp2_chess_piece_prop_left_hand
-				animations = fat_additive
-				animations = dwarf_additive
-				animations = female_prop_fix_additive
-				animations = child_additive
-			}
-			weight = {
-				base = 0
-				modifier = {
-					add = 5000
-					this = character:3924
-				}
-			}
-		}
+		# character_yahya = { #WHG
+		# 	animation = { head = "chessCocky1_entry" torso = "chessCocky1_entry" }
+		# 	portrait_modifier = {
+		# 		animations_props = fp2_chess_piece_prop_left_hand
+		# 		animations = fat_additive
+		# 		animations = dwarf_additive
+		# 		animations = female_prop_fix_additive
+		# 		animations = child_additive
+		# 	}
+		# 	weight = {
+		# 		base = 0
+		# 		modifier = {
+		# 			add = 5000
+		# 			this = character:3924
+		# 		}
+		# 	}
+		# }
 
 		camp_purpose_mercenaries = {
 			animation = { head = "marshal_shield" torso = "marshal_shield" }
@@ -491,7 +491,7 @@ idle = {
 					add = 5000
 					is_ruler = yes
 					age >= 10
-					NOT = { this = character:41702 }
+					#NOT = { this = character:41702 } #WHG
 					NOR = {
 						has_trait = blind
 						has_trait = maimed
