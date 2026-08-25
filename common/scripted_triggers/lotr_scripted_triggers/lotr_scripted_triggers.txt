@@ -55,35 +55,35 @@ lotr_is_shown_basic_activity_trigger = {
 }
 
 
-#opposite_alignment = { #compares two scopes, example opposite_alignment = { TARGET = scope:target_ruler }
-#	OR = {
-#		AND = {
-#			faith_is_good = yes
-#			$TARGET$ = { faith_is_evil = yes }
-#		}
-#		AND = {
-#			faith_is_evil = yes
-#			$TARGET$ = { faith_is_good = yes }
-#		}
-#	}
-#}
+opposite_alignment = { #compares two scopes, example opposite_alignment = { TARGET = scope:target_ruler }
+	OR = {
+		AND = {
+			faith_is_good = yes
+			$TARGET$ = { faith_is_evil = yes }
+		}
+		AND = {
+			faith_is_evil = yes
+			$TARGET$ = { faith_is_good = yes }
+		}
+	}
+}
 
-#same_alignment = { #compares two scopes, example same_alignment = { TARGET = scope:target_ruler }
-#	OR = {
-#		AND = {
-#			faith_is_good = yes
-#			$TARGET$ = { faith_is_good = yes }
-#		}
-#		AND = {
-#			faith_is_evil = yes
-#			$TARGET$ = { faith_is_evil = yes }
-#		}
-#		AND = {
-#			faith_is_neutral = yes
-#			$TARGET$ = { faith_is_neutral = yes }
-#		}
-#	}
-#}
+same_alignment = { #compares two scopes, example same_alignment = { TARGET = scope:target_ruler }
+	OR = {
+		AND = {
+			faith_is_good = yes
+			$TARGET$ = { faith_is_good = yes }
+		}
+		AND = {
+			faith_is_evil = yes
+			$TARGET$ = { faith_is_evil = yes }
+		}
+		AND = {
+			faith_is_neutral = yes
+			$TARGET$ = { faith_is_neutral = yes }
+		}
+	}
+}
 
 is_lotr_adult = {
 	trigger_if = {
