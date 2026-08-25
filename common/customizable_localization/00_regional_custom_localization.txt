@@ -309,17 +309,7 @@ ObjectToClimb = {
 	type = character
 
 	text = {	
-		#trigger = { location = { terrain = desert } } #LOTR
-		trigger = {
-			location = { 
-				OR = {
-					terrain = desert
-					terrain = dune_sea
-					terrain = red_desert
-					terrain = saltflats
-				}
-			}
-		}
+		trigger = { location = { terrain = desert } }
 		localization_key = sand_dune
 	}
 	text = {	
@@ -700,43 +690,8 @@ TerrainType = {
 	}
 
 	text = {	
-		trigger = { location = { terrain = savanna } }
-		localization_key = terrain_savanna
-	}
-
-	text = {	
-		trigger = { location = { terrain = dune_sea } }
-		localization_key = terrain_dune_sea
-	}
-
-	text = {	
-		trigger = { location = { terrain = red_desert } }
-		localization_key = terrain_red_desert
-	}
-
-	text = {	
-		trigger = { location = { terrain = saltflats } }
-		localization_key = terrain_saltflats
-	}
-
-	text = {	
-		trigger = { location = { terrain = mallorn_forest } }
-		localization_key = terrain_mallorn_forest
-	}
-
-	text = {	
 		trigger = { location = { terrain = deep_forest } }
 		localization_key = terrain_deep_forest
-	}
-
-	text = {	
-		trigger = { location = { terrain = volcanic_plains } }
-		localization_key = terrain_volcanic_plains
-	}
-
-	text = {	
-		trigger = { location = { terrain = arctic } }
-		localization_key = terrain_arctic
 	}
 
 	text = {	
@@ -824,43 +779,8 @@ TerrainTypeProvince = {
 	}
 
 	text = {	
-		trigger = { terrain = savanna }
-		localization_key = terrain_savanna
-	}
-
-	text = {	
-		trigger = { terrain = dune_sea }
-		localization_key = terrain_dune_sea
-	}
-
-	text = {	
-		trigger = { terrain = red_desert }
-		localization_key = terrain_red_desert
-	}
-
-	text = {	
-		trigger = { terrain = saltflats }
-		localization_key = terrain_saltflats
-	}
-
-	text = {	
-		trigger = { terrain = mallorn_forest }
-		localization_key = terrain_mallorn_forest
-	}
-
-	text = {	
 		trigger = { terrain = deep_forest }
 		localization_key = terrain_deep_forest
-	}
-
-	text = {	
-		trigger = { terrain = volcanic_plains }
-		localization_key = terrain_volcanic_plains
-	}
-
-	text = {	
-		trigger = { terrain = arctic }
-		localization_key = terrain_arctic
 	}
 
 	text = {	
@@ -878,7 +798,6 @@ TerrainTypeProvincePrefix = {
 				terrain = plains
 				terrain = farmlands
 				terrain = oasis
-				terrain = savanna #LotR
 			}
 		}
 		localization_key = prefix_verdant
@@ -888,7 +807,6 @@ TerrainTypeProvincePrefix = {
 		trigger = {
 			OR = {
 				terrain = hills
-				terrain = red_desert #LotR
 			}
 		}
 		localization_key = prefix_rolling
@@ -912,10 +830,6 @@ TerrainTypeProvincePrefix = {
 				terrain = desert
 				terrain = steppe
 				terrain = taiga
-				terrain = saltflats #LotR
-				terrain = dune_sea #LotR
-				terrain = volcanic_plains #LotR
-				terrain = arctic #LotR
 			}
 		}
 		localization_key = prefix_endless
@@ -926,7 +840,6 @@ TerrainTypeProvincePrefix = {
 			OR = {
 				terrain = jungle
 				terrain = forest
-				terrain = mallorn_forest #LotR
 				terrain = deep_forest #LotR
 			}
 		}
@@ -3763,112 +3676,101 @@ GetProvinceTricksterSpirit = {
 }
 
 #This is used only in the peasant uprisings, make your own custom loc if you want it in events
-RegionalPeasantHeadgear = { # LOTR - Basically adapted this, could use expanding later.
+RegionalPeasantHeadgear = {
 	type = character
 
-	# text = { #LotR
-	# 	trigger = {
-	# 		culture = {
-	# 			has_clothing_gfx = western_clothing_gfx
-	# 		}
-	# 	}
-	# 	localization_key = peasant_headgear_coif
-	# }
+	text = {
+		trigger = {
+			culture = {
+				has_clothing_gfx = western_clothing_gfx
+			}
+		}
+		localization_key = peasant_headgear_coif
+	}
 
-	# text = {
-	# 	trigger = {
-	# 		culture = {
-	# 			has_clothing_gfx = french_clothing_gfx
-	# 		}
-	# 	}
-	# 	localization_key = peasant_headgear_chaperon
-	# }
+	text = {
+		trigger = {
+			culture = {
+				has_clothing_gfx = french_clothing_gfx
+			}
+		}
+		localization_key = peasant_headgear_chaperon
+	}
 
 	text = {
 		trigger = {
 			culture = {
 				OR = {
-					# has_clothing_gfx = mongol_clothing_gfx
-					# has_clothing_gfx = northern_clothing_gfx
-					# has_clothing_gfx = sami_clothing_gfx
-					# has_clothing_gfx = ugro_permian_clothing_gfx
-					has_clothing_gfx = circumpolar_clothing_gfx # LOTR
-					has_clothing_gfx = angmarrim_clothing_gfx # LOTR
+					has_clothing_gfx = mongol_clothing_gfx
+					has_clothing_gfx = northern_clothing_gfx
+					has_clothing_gfx = sami_clothing_gfx
+					has_clothing_gfx = ugro_permian_clothing_gfx
 				}
 			}
 		}
 		localization_key = peasant_headgear_fur
 	}
 
-	# text = {
-	# 	trigger = {
-	# 		culture = {
-	# 			has_clothing_gfx = chinese_clothing_gfx #historical reasons, see Red and Yellow Turban uprisings
-	# 		}
-	# 	}
-	# 	localization_key = peasant_headgear_chinese
-	# }
+	text = {
+		trigger = {
+			culture = {
+				has_clothing_gfx = chinese_clothing_gfx #historical reasons, see Red and Yellow Turban uprisings
+			}
+		}
+		localization_key = peasant_headgear_chinese
+	}
 
 	text = {
 		trigger = {
 			culture = {
 				OR = {
-					# has_clothing_gfx = mena_clothing_gfx
-					# has_clothing_gfx = dde_abbasid_clothing_gfx
-					# has_clothing_gfx = iranian_clothing_gfx
-					# has_clothing_gfx = iberian_muslim_clothing_gfx
-					has_clothing_gfx = north_haradrim_clothing_gfx
-					has_clothing_gfx = south_haradrim_clothing_gfx
+					has_clothing_gfx = mena_clothing_gfx
+					has_clothing_gfx = dde_abbasid_clothing_gfx
+					has_clothing_gfx = iranian_clothing_gfx
+					has_clothing_gfx = iberian_muslim_clothing_gfx
 				}
 			}
 		}
 		localization_key = peasant_headgear_turban
 	}
 
-	# text = {
-	# 	trigger = {
-	# 		culture = {
-	# 			has_clothing_gfx = japanese_clothing_gfx
-	# 		}
-	# 	}
-	# 	localization_key = peasant_headgear_kasa
-	# }
+	text = {
+		trigger = {
+			culture = {
+				has_clothing_gfx = japanese_clothing_gfx
+			}
+		}
+		localization_key = peasant_headgear_kasa
+	}
 
 	text = {
 		trigger = {
 			culture = {
-				# has_clothing_gfx = west_slavic_clothing_gfx
-				OR = {
-					has_clothing_gfx = gwathiurim_clothing_gfx
-					has_clothing_gfx = pel_clothing_gfx
-				}
+				has_clothing_gfx = west_slavic_clothing_gfx
 			}
 		}
 		localization_key = peasant_headgear_hood
 	}
 
-	# text = {
-	# 	trigger = {
-	# 		culture = {
-	# 			OR = {
-	# 				has_clothing_gfx = turkic_clothing_gfx
-	# 				has_clothing_gfx = east_slavic_clothing_gfx
-	# 			}
-	# 		}
-	# 	}
-	# 	localization_key = peasant_headgear_kalpak
-	# }
+	text = {
+		trigger = {
+			culture = {
+				OR = {
+					has_clothing_gfx = turkic_clothing_gfx
+					has_clothing_gfx = east_slavic_clothing_gfx
+				}
+			}
+		}
+		localization_key = peasant_headgear_kalpak
+	}
 
 	text = {
 		trigger = {
 			culture = {
 				OR = {
-					# has_clothing_gfx = southeast_asian_clothing_gfx
-					# has_clothing_gfx = malay_clothing_gfx
-					# has_clothing_gfx = korean_clothing_gfx
-					has_clothing_gfx = gondorian_clothing_gfx
-					has_clothing_gfx = belfalathrim_clothing_gfx
-					has_clothing_gfx = umbar_clothing_gfx
+					has_clothing_gfx = southeast_asian_clothing_gfx
+					has_clothing_gfx = malay_clothing_gfx
+					has_clothing_gfx = korean_clothing_gfx
 				}
 			}
 		}
@@ -3879,9 +3781,8 @@ RegionalPeasantHeadgear = { # LOTR - Basically adapted this, could use expanding
 		trigger = {
 			culture = {
 				OR = {
-					# has_clothing_gfx = dde_hre_clothing_gfx
-					# has_clothing_gfx = byzantine_clothing_gfx
-					has_clothing_gfx = sirayni_clothing_gfx
+					has_clothing_gfx = dde_hre_clothing_gfx
+					has_clothing_gfx = byzantine_clothing_gfx
 				}
 			}
 		}
@@ -3889,7 +3790,7 @@ RegionalPeasantHeadgear = { # LOTR - Basically adapted this, could use expanding
 	}
 
 	text = {
-		fallback = yes
+		fallback = yes #WHG
 		localization_key = peasant_headgear_cap
 	}
 }
