@@ -12229,21 +12229,7 @@ pilgrimage.6780 = {
 				}
 			}
 		}
-		OR = { #LotR
-			AND = {
-				location.county.holder ?= {
-					faith_is_good = no
-				}
-				faith_is_good = no
-			}
-			AND = {
-				location.county.holder ?= {
-					faith_is_evil = no
-				}
-				faith_is_evil = no
-			}
-		}
-		same_race = { TARGET = location.county.holder } #LotR
+		same_race = { TARGET = location.county.holder } #WHG TODO
 	}
 	immediate = {
 		location.county.holder = { save_scope_as = current_employer }

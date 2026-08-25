@@ -34,15 +34,7 @@ lotr_valid_laamp_for_employer = {
 			}
 		}
 	}
-	trigger_if = {
-		limit = { #Orcs, Nazgûl and Umaiar employers won't hire non-Evil characters.
-			faith_is_evil = yes #Just in case they aren't evil, this will disable the limitation
-			OR = {
-				is_orc = yes
-			}
-		}
-		$CHARACTER$ = { faith_is_evil = yes }
-	}
+
 }
 
 lotr_location_can_spawn_laamp_courtiers = {

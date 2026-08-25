@@ -743,16 +743,6 @@ councillor_court_chaplain = {
 				desc = {
 					first_valid = {
 						### LOTR
-						## Add cultural names here for temporal faiths to use them instead of the generic 'Loremaster'
-						# High-Elven
-						triggered_desc = { # Kingdom and Imperial Tier
-							trigger = { highest_held_title_tier >= tier_kingdom culture = { has_cultural_pillar = heritage_calaquendi } }
-							desc = councillor_court_chaplain_bishop_noldor
-						}
-						triggered_desc = { # Duchy and Below
-							trigger = { highest_held_title_tier < tier_kingdom culture = { has_cultural_pillar = heritage_calaquendi } }
-							desc = councillor_court_chaplain_noldor
-						}
 						# Twilight-Elven
 						#triggered_desc = { # Kingdom and Imperial Tier
 						#	trigger = { highest_held_title_tier >= tier_kingdom culture = { has_cultural_pillar = heritage_lomiquendi } }

@@ -2855,7 +2855,7 @@ start_city_construction_decision = {
 		NOT = {
 			has_character_flag = laamp_city_builder
 		}
-		location.county.holder ?= { # LOTR
+		location.county.holder ?= { # WHG
 			is_wastelands = no
 			OR = {
 				same_race = { TARGET = ROOT }
@@ -2867,11 +2867,6 @@ start_city_construction_decision = {
 					is_halfling = yes
 					ROOT = { is_human = yes }
 					ROOT = { is_ai = no }
-				}
-				AND = { # Dark beings attract orcs
-					cannot_be_killed = yes
-					faith_is_evil = yes
-					ROOT = { is_orc = yes }
 				}
 			}
 		}
