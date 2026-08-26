@@ -372,7 +372,6 @@ wastelands.0006 = {
 					OR = {
 						is_dwarf = yes
 						is_orc = yes
-						cannot_be_killed = yes
 					}
 				}
 				every_sub_realm_county = {
@@ -386,29 +385,14 @@ wastelands.0006 = {
 				}
 			}
 			else = {
-				if = {
-					limit = { is_elf = yes has_medium_hope_or_higher = yes }
-					every_sub_realm_county = {
-						every_title_to_title_neighboring_and_across_water_county = {
-							limit = {
-								is_wastelands = yes
-								is_underground_county = no
-								NOT = { has_county_modifier = block_settlement_ability }
-							}
-							add_to_list = adjacent_wastelands
+				every_sub_realm_county = {
+					every_title_to_title_neighboring_and_across_water_county = {
+						limit = {
+							is_wastelands = yes
+							is_underground_county = no
+							NOT = { has_county_modifier = block_settlement_ability }
 						}
-					}
-				}
-				else = {
-					every_sub_realm_county = {
-						every_title_to_title_neighboring_and_across_water_county = {
-							limit = {
-								is_wastelands = yes
-								is_underground_county = no
-								NOT = { has_county_modifier = block_settlement_ability }
-							}
-							add_to_list = adjacent_wastelands
-						}
+						add_to_list = adjacent_wastelands
 					}
 				}
 			}

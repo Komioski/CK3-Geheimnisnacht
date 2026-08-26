@@ -11,9 +11,8 @@ fp2_urbanism_legacy_track = {
 			dynasty = {
 				OR = {
 					dynast = {
-						culture = { # LotR
+						culture = {
 							OR = {
-								has_cultural_pillar = heritage_periannath
 								AND = {
 									has_cultural_parameter = is_human_heritage
 									OR = {
@@ -64,24 +63,20 @@ fp2_coterie_legacy_track = {
 					dynast = {
 						culture = { # LotR
 							OR = {
-								has_cultural_pillar = heritage_periannath
 								has_cultural_parameter = is_human_heritage
 							}
 						}
 						OR = {
 							any_character_struggle = {
 								involvement = involved
-								# is_struggle_type = iberian_struggle #LotR
-								is_struggle_type = thani_hazad_struggle
+								is_struggle_type = iberian_struggle
 							}
-							AND = {
-								exists = capital_province
-								capital_province = {
-									# geographical_region = world_europe_west_iberia
-									geographical_region = middleearth_thani_hazad_struggle_region #LOTR
-								}
-							}
-							culture = { has_cultural_pillar = heritage_harshandatt } #LotR
+							# AND = {
+							# 	exists = capital_province
+							# 	capital_province = {
+							# 		geographical_region = world_europe_west_iberia
+							# 	}
+							# }
 						}
 					}
 					has_dynasty_perk = fp2_coterie_legacy_1

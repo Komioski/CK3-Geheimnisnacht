@@ -1160,18 +1160,13 @@ artifact_feature_animal_bear_trigger = {
 artifact_feature_animal_aurochs_trigger = {
 	trigger_if = {
 		limit = { exists = scope:location }
-		scope:location = {
-			#NOR = {
-			#	geographical_region = world_africa
-			#	geographical_region = world_india
-			#}
-			NOT = { terrain = mountains }
-			OR = {
-				geographical_region = middleearth_rhun_seaofrhun
-				geographical_region = middleearth_west_rhovanion_dorwinion
-				geographical_region = middleearth_west_rhovanion_brownlands
-			}
-		}
+		scope:location = { geographical_region = hunt_animal_aurochs_region } #WHG
+		# scope:location = {
+		# 	NOR = {
+		# 		geographical_region = world_africa
+		# 		geographical_region = world_india
+		# 	}
+		# }
 	}
 }
 
@@ -1181,7 +1176,7 @@ artifact_feature_animal_lynx_trigger = {
 		limit = { exists = scope:location }
 		scope:location = {
 					terrain = forest
-					geographical_region = middleearth_west
+					geographical_region = world_old_world_southern_realms #WHG
 					# geographical_region = world_europe
 		}
 	}
@@ -2219,8 +2214,6 @@ axe_unique_gfx_trigger = {
 sword_unique_gfx_trigger = {
 	OR = {
 		portrait_northern_proxy_clothing_spouse_trigger = yes
-		portrait_bellakari_clothing_spouse_trigger = yes
-		portrait_north_haradrim_clothing_spouse_trigger = yes
 		portrait_steppe_proxy_clothing_spouse_trigger = yes
 		portrait_byzantine_proxy_clothing_spouse_trigger = yes
 		portrait_indian_proxy_clothing_spouse_trigger = yes
@@ -2233,8 +2226,6 @@ sword_unique_gfx_trigger = {
 spear_unique_gfx_trigger = {
 	OR = {
 		portrait_northern_proxy_clothing_spouse_trigger = yes
-		portrait_bellakari_clothing_spouse_trigger = yes
-		portrait_north_haradrim_clothing_spouse_trigger = yes
 		portrait_mena_proxy_clothing_spouse_trigger = yes
 		portrait_indian_proxy_clothing_spouse_trigger = yes
 		portrait_african_proxy_clothing_spouse_trigger = yes
@@ -2246,8 +2237,6 @@ spear_unique_gfx_trigger = {
 dagger_unique_gfx_trigger = {
 	OR = {
 		portrait_northern_proxy_clothing_spouse_trigger = yes
-		portrait_bellakari_clothing_spouse_trigger = yes
-        portrait_north_haradrim_clothing_spouse_trigger = yes
 		portrait_steppe_proxy_clothing_spouse_trigger = yes
 		portrait_mena_proxy_clothing_spouse_trigger = yes
 		portrait_african_proxy_clothing_spouse_trigger = yes
