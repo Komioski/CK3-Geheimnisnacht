@@ -82,6 +82,7 @@ world_old_world = {
 	regions = {
 		world_old_world_bretonnia
 		world_old_world_southern_realms
+		world_old_world_empire
 	}
 }
 
@@ -245,6 +246,30 @@ world_old_world_troll_country = {
 
 
 ############################Empire Regions
+
+world_old_world_empire = {
+	regions = {
+		##EMPIRE CENTRAL
+		world_old_world_reikland
+		world_old_world_talabecland
+		world_old_world_moot
+		world_old_world_stirland	
+		##EMPIRE NORTH
+		world_old_world_westerland
+		world_old_world_ostland
+		world_old_world_nordland
+		world_old_world_hochland
+		world_old_world_middenland
+		##EMPIRE EAST
+		world_old_world_ostermark
+		world_old_world_sylvania
+		##EMPIRE SOUTH
+		world_old_world_averland
+		world_old_world_wissenland
+		#world_old_world_solland
+	}
+}
+
 
 
 world_old_world_empire_central = {
@@ -536,15 +561,24 @@ hunt_animal_deer_region = {
 }
 
 # Antelope Spread
-hunt_animal_antelope_region = {}
+hunt_animal_antelope_region = {
+	regions = { #WHG TODO temporary
+		world_old_world_southern_realms_tilea_south
+	}
+}
 
 # Gazelle Spread
-hunt_animal_gazelle_region = {}
+hunt_animal_gazelle_region = {
+	regions = { #WHG TODO temporary
+		world_old_world_southern_realms_tilea_south
+	}
+}
 
 # Boar Spread
 hunt_animal_boar_region = {
 	regions = {
 		world_old_world_bretonnia
+		world_old_world_empire
 		world_old_world_southern_realms
 	}
 }
@@ -552,7 +586,8 @@ hunt_animal_boar_region = {
 # Bear Spread
 hunt_animal_bear_region = {
 	regions = {
-		world_old_world
+		world_old_world_bretonnia
+		world_old_world_empire
 	}
 }
 
@@ -563,6 +598,7 @@ hunt_animal_big_cat_region = {}
 hunt_animal_bison_region = {
 	regions = {
 		world_old_world_bretonnia
+		world_old_world_empire
 	}
 }
 
