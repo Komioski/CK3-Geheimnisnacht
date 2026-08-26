@@ -118,72 +118,28 @@ initiate_consolamentum_decision = {
 	}
 	title = {
 		first_valid = {
-			#triggered_desc = { #LotR
-			#	trigger = {
-			#		religion = religion:christianity_religion
-			#	}
-			#	desc = initiate_consolamentum_decision
-			#}
- 			triggered_desc = { #LotR
- 				trigger = {
- 					faith = {
- 						has_doctrine = tenet_gift_of_men
- 					}
- 				}
- 				desc = lotr_lay_down_life_decision
- 			}
+			triggered_desc = {
+				trigger = {
+					religion = religion:christianity_religion
+				}
+				desc = initiate_consolamentum_decision
+			}
 			desc = initiate_consolamentum_decision_alternate
 		}
 	}
 	desc = {
 		first_valid = {
-			#triggered_desc = { #LotR
-			#	trigger = {
-			#		religion = religion:christianity_religion
-			#	}
-			#	desc = initiate_consolamentum_decision_desc
-			#}
- 			triggered_desc = { #LotR
- 				trigger = {
- 					faith = {
- 						has_doctrine = tenet_gift_of_men
- 					}
- 				}
- 				desc = lotr_lay_down_life_decision_desc
- 			}
+			triggered_desc = {
+				trigger = {
+					religion = religion:christianity_religion
+				}
+				desc = initiate_consolamentum_decision_desc
+			}
 			desc = initiate_consolamentum_decision_desc_alternate
 		}
 	}
 
-	# selection_tooltip = initiate_consolamentum_decision_tooltip #LOTR
-
-	selection_tooltip = { #LOTR
-		first_valid = {
- 			triggered_desc = {
- 				trigger = {
- 					faith = {
- 						has_doctrine = tenet_gift_of_men
- 					}
- 				}
- 				desc = lotr_lay_down_life_decision_tooltip
- 			}
-			desc = initiate_consolamentum_decision_tooltip
-		}
-	}
-	confirm_text = {
-		first_valid = {
- 			triggered_desc = { #LotR
- 				trigger = {
- 					faith = {
- 						has_doctrine = tenet_gift_of_men
- 					}
- 				}
- 				desc = lotr_lay_down_life_decision_confirm
- 			}
-			desc = initiate_consolamentum_decision_confirm
-		}
-	}
-	decision_group_type = realms_in_exile_minor #LOTR
+	selection_tooltip = initiate_consolamentum_decision_tooltip
 
 	is_shown = {
 		faith = {
@@ -193,48 +149,12 @@ initiate_consolamentum_decision = {
 
 	is_valid = {
 		OR = {
-			custom_tooltip = { #LOTR
-				text = age_equivalent_advanced_eighty
-				age >= total_life_expectancy
-			}
+			age >= ritual_suicide_age
 			custom_description = {
 				text = decision_consolamentum_health
 				health <= 1
 			}
 			has_trait = incapable
-			has_trait_xp = {
-				trait = infirm
-				value >= 25
-			}
-			has_trait_xp = {
-				trait = withering_mind
-				value >= 25
-			}
-			has_trait_xp = {
-				trait = clouded_eyes
-				value >= 25
-			}
-			has_trait_xp = {
-				trait = faltering_heart
-				value >= 25
-			}
-			has_trait_xp = {
-				trait = fragile_bones
-				value >= 25
-			}
-		}
-	}
-	
-	is_valid_showing_failures_only = {
-		# LotR - Immortal limits
-		custom_tooltip = {
-			text = immortals_cannot_commit_suicide
-			cannot_be_killed = no
-		}
-		# LotR - Elven limits
-		custom_tooltip = {
-			text = elves_cannot_accept_the_gift_of_men
-			NOT = { is_elf = yes }
 		}
 	}
 
@@ -242,7 +162,7 @@ initiate_consolamentum_decision = {
 		hidden_effect = {
 			add_piety_level = 1
 		}
-		death = { death_reason = death_laid_down_life } #LOTR
+		death = { death_reason = death_ritual_suicide }
 		show_as_tooltip = {
 			add_piety_level = 1
 		}

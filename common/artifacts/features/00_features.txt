@@ -3131,40 +3131,6 @@
 		}
 		weight = 4
 	}
-	animal_hide_type_warg = {
-		group = animal_hide_type
-		trigger = {
-			OR = {
-				scope:owner.var:animal_type ?= flag:warg
-				AND = {
-					scope:owner.var:animal_type ?= flag:none
-					scope:location ?= { hunt_animal_warg_trigger = yes }
-				}
-			}
-			trigger_if = {
-				limit = { exists = scope:animal_hide_size }
-				scope:animal_hide_size = flag:big
-			}
-		}
-		weight = 4
-	}
-	animal_hide_type_caragor = {
-		group = animal_hide_type
-		trigger = {
-			OR = {
-				scope:owner.var:animal_type ?= flag:caragor
-				AND = {
-					scope:owner.var:animal_type ?= flag:none
-					scope:location ?= { hunt_animal_caragor_trigger = yes }
-				}
-			}
-			trigger_if = {
-				limit = { exists = scope:animal_hide_size }
-				scope:animal_hide_size = flag:big
-			}
-		}
-		weight = 4
-	}
 	animal_hide_type_wolf = {
 		group = animal_hide_type
 		trigger = {

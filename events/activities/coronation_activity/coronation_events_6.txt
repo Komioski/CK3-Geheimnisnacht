@@ -1578,8 +1578,8 @@ coronation_events.6010 = {
 
 scripted_trigger coronation_events_6011_trigger = {
 	# is_adult = yes
-	is_lotr_adult = yes
-	age <= middle_age #LotR
+	is_lotr_adult = yes #WHG TODO
+	age <= middle_age #LotR #WHG TODO
 	is_courtier_of = $CHARACTER$
 	is_imprisoned = no
 	is_healthy = yes
@@ -2430,8 +2430,7 @@ scripted_trigger coronation_events_6020_foe_trigger = {
 	}
 	#LotR
 	NOR = {
-		is_wastelands = yes
-		
+		is_wastelands = yes	
 	}
 }
 scripted_trigger coronation_events_6020_supporter_trigger = {
@@ -3844,9 +3843,6 @@ coronation_events.6030 = {
 			has_contagious_deadly_disease_trigger = yes
 			is_eunuch_trigger = yes
 			has_trait = leper
-			#LotR
-			cannot_be_killed = yes
-			is_elf = yes
 		}
 		involved_activity = {
 			activity_host = {
@@ -3876,9 +3872,6 @@ coronation_events.6030 = {
 					is_incapable = yes
 					has_trait = celibate
 					has_trait = chaste
-					#LotR
-					cannot_be_killed = yes
-					is_elf = yes
 				}
 				# is_adult = yes 
 				is_nubile = yes
@@ -4760,16 +4753,6 @@ coronation_events.6100 = {
 						# 	}
 						# 	desc = coronation_events.6100.desc_byzantine_femme
 						# }
-						triggered_desc = { #LotR - Dwarves
-							trigger = {
-								scope:activity.var:activity_special_type_progression >= 25
-								scope:host.faith.religion = {
-									this = religion:dwarven_religion
-								}
-								scope:host = { is_dwarf = yes }
-							}
-							desc = coronation_events.6100.desc_dwarven
-						}
 						triggered_desc = {	
 							trigger = {
 								scope:activity.var:activity_special_type_progression >= 75
@@ -6158,45 +6141,6 @@ coronation_events.6102 = {
 					}
 					desc = coronation_events.6102_middle
 					first_valid = {
-						triggered_desc = {
-							trigger = {
-								scope:host = {
-									is_elf = yes
-								}
-							}
-							desc = {
-								desc = coronation_events.6102.desc_elf_beginning
-								desc = {
-									first_valid = {
-										triggered_desc = {
-											trigger = { scope:host.culture = { has_cultural_pillar = heritage_calaquendi } }
-											desc = coronation_events.6102.desc_elf_calaquendi
-										}
-										triggered_desc = {
-											trigger = { scope:host.culture = { has_cultural_pillar = heritage_lomiquendi } }
-											desc = coronation_events.6102.desc_elf_lomiquendi
-										}
-										desc = coronation_events.6102.desc_elf_avari
-									}
-								}
-								desc = {
-									first_valid = {
-										triggered_desc = {
-											trigger = {
-												scope:activity = {
-													has_activity_option = {
-														category = special_type
-														option = coronation_type_anointment
-													}
-												}
-											}
-											desc = coronation_events.6102.desc_elf_high_ending
-										}
-										desc = coronation_events.6102.desc_elf_low_ending
-									}
-								}
-							}
-						}
 						#triggered_desc = { #LotR
 						#	trigger = {
 						#		scope:host = {
@@ -6336,45 +6280,6 @@ coronation_events.6102 = {
 				}
 				desc = coronation_events.6102_middle_guest
 				first_valid = {
-					triggered_desc = {
-						trigger = {
-							scope:host = {
-								is_elf = yes
-							}
-						}
-						desc = {
-							desc =  coronation_events.6102.desc_elf_guest_beginning
-							desc = {
-								first_valid = {
-									triggered_desc = {
-										trigger = { scope:host.culture = { has_cultural_pillar = heritage_calaquendi } }
-										desc = coronation_events.6102.desc_elf_calaquendi
-									}
-									triggered_desc = {
-										trigger = { scope:host.culture = { has_cultural_pillar = heritage_lomiquendi } }
-										desc = coronation_events.6102.desc_elf_lomiquendi
-									}
-									desc = coronation_events.6102.desc_elf_avari
-								}
-							}
-							desc = {
-								first_valid = {
-									triggered_desc = {
-										trigger = {
-											scope:activity = {
-												has_activity_option = {
-													category = special_type
-													option = coronation_type_anointment
-												}
-											}
-										}
-										desc = coronation_events.6102.desc_elf_high_guest_ending
-									}
-									desc = coronation_events.6102.desc_elf_low_guest_ending
-								}
-							}
-						}
-					}
 					#triggered_desc = { #LotR
 					#	trigger = {
 					#		scope:host = {
@@ -6974,19 +6879,7 @@ coronation_events.6110 = {
 				}
 				desc = coronation_events.6110.desc_crown
 			}
-			triggered_desc = { #LotR
-				trigger = {
-					coronation_proper_artifact_throne_trigger = yes
-				}
-				desc = coronation_events.6110.desc_throne
-			}
 			desc = coronation_events.6110.desc_regalia
-		}
-		triggered_desc = { #LotR
-			trigger = {
-				coronation_proper_artifact_throne_trigger = no
-			}
-			desc = coronation_events.6110.desc_2
 		}
 		first_valid = {
 			# triggered_desc = { #LotR
@@ -7025,7 +6918,6 @@ coronation_events.6110 = {
 				root = { 
 					OR = {
 						coronation_proper_artifact_regalia_trigger = yes 
-						coronation_proper_artifact_throne_trigger = yes #LotR
 					}
 				}
 			}
@@ -7035,7 +6927,6 @@ coronation_events.6110 = {
 			trigger = {
 				root = { 
 					coronation_proper_artifact_regalia_trigger = no 
-					coronation_proper_artifact_throne_trigger = no #LotR
 				}
 			}
 			animation = crowning
@@ -7061,7 +6952,6 @@ coronation_events.6110 = {
 				root = {
 					OR = {
 						coronation_proper_artifact_regalia_trigger = yes
-						coronation_proper_artifact_throne_trigger = yes #LotR
 					}
 					government_has_flag = government_is_tribal
 					government_has_flag = government_is_nomadic
@@ -7073,7 +6963,6 @@ coronation_events.6110 = {
 			trigger = {
 				root = { 
 					coronation_proper_artifact_regalia_trigger = no 
-					coronation_proper_artifact_throne_trigger = no #LotR
 				}
 			}
 			animation = toast_goblet
@@ -7124,7 +7013,6 @@ coronation_events.6110 = {
 					limit = {
 						coronation_proper_artifact_crown_trigger = yes
 						coronation_proper_artifact_regalia_trigger = no
-						coronation_proper_artifact_throne_trigger = no #LotR
 					}
 					save_temporary_scope_as = needs_crown_temp
 				}
@@ -7132,17 +7020,8 @@ coronation_events.6110 = {
 					limit = {
 						coronation_proper_artifact_regalia_trigger = yes
 						coronation_proper_artifact_crown_trigger = no
-						coronation_proper_artifact_throne_trigger = no #LotR
 					}
 					save_temporary_scope_as = needs_regalia_temp
-				}
-				trigger_if = { #LotR
-					limit = {
-						coronation_proper_artifact_throne_trigger = yes
-						coronation_proper_artifact_regalia_trigger = no
-						coronation_proper_artifact_crown_trigger = no
-					}
-					save_temporary_scope_as = needs_throne_temp
 				}
 
 				OR = {
@@ -7161,17 +7040,10 @@ coronation_events.6110 = {
 								}
 								artifact_slot_type = regalia
 							}
-							trigger_else_if = { #LotR
-								limit = {
-									exists = scope:needs_throne_temp
-								}
-								artifact_slot_type = throne
-							}
 							trigger_else = {
 								OR = {
 									artifact_slot_type = regalia
 									artifact_slot_type = helmet
-									artifact_slot_type = throne #LotR
 								}
 							}
 							has_variable = artifact_succession_title
@@ -7195,17 +7067,10 @@ coronation_events.6110 = {
 								}
 								artifact_slot_type = regalia
 							}
-							trigger_else_if = { #LotR
-								limit = {
-									exists = scope:needs_throne_temp
-								}
-								artifact_slot_type = throne
-							}
 							trigger_else = {
 								OR = {
 									artifact_slot_type = regalia
 									artifact_slot_type = helmet
-									artifact_slot_type = throne #LotR
 								}
 							}
 							has_variable = artifact_succession_title
@@ -7227,17 +7092,10 @@ coronation_events.6110 = {
 								}
 								artifact_slot_type = regalia
 							}
-							trigger_else_if = { #LotR
-								limit = {
-									exists = scope:needs_throne_temp
-								}
-								artifact_slot_type = throne
-							}
 							trigger_else = {
 								OR = {
 									artifact_slot_type = regalia
 									artifact_slot_type = helmet
-									artifact_slot_type = throne #LotR
 								}
 							}
 							NOT = {
@@ -7301,7 +7159,6 @@ coronation_events.6110 = {
 				scope:host = {
 					coronation_proper_artifact_crown_trigger = yes
 					coronation_proper_artifact_regalia_trigger = no
-					coronation_proper_artifact_throne_trigger = no #LotR
 				}
 			}
 			save_scope_as = needs_crown
@@ -7311,20 +7168,9 @@ coronation_events.6110 = {
 				scope:host = {
 					coronation_proper_artifact_regalia_trigger = yes
 					coronation_proper_artifact_crown_trigger = no
-					coronation_proper_artifact_throne_trigger = no #LotR
 				}
 			}
 			save_scope_as = needs_regalia
-		}
-		if = { #LotR
-			limit = {
-				scope:host = {
-					coronation_proper_artifact_throne_trigger = yes 
-					coronation_proper_artifact_regalia_trigger = no
-					coronation_proper_artifact_crown_trigger = no
-				}
-			}
-			save_scope_as = needs_throne
 		}
 		#Save your title's regalia if it exists
 		ordered_character_artifact = {
@@ -7342,17 +7188,10 @@ coronation_events.6110 = {
 					}
 					artifact_slot_type = regalia
 				}
-				trigger_else_if = { #LotR
-					limit = {
-						exists = scope:needs_throne
-					}
-					artifact_slot_type = throne
-				}
 				trigger_else = {
 					OR = {
 						artifact_slot_type = helmet
 						artifact_slot_type = regalia
-						artifact_slot_type = throne #LotR
 					}
 				}
 
@@ -7378,17 +7217,10 @@ coronation_events.6110 = {
 					}
 					artifact_slot_type = regalia
 				}
-				trigger_else_if = { #LotR
-					limit = {
-						exists = scope:needs_throne
-					}
-					artifact_slot_type = throne
-				}
 				trigger_else = {
 					OR = {
 						artifact_slot_type = helmet
 						artifact_slot_type = regalia
-						artifact_slot_type = throne #LotR
 					}
 				}
 				trigger_if = {
@@ -7422,17 +7254,10 @@ coronation_events.6110 = {
 						}
 						artifact_slot_type = regalia
 					}
-					trigger_else_if = { #LotR
-						limit = {
-							exists = scope:needs_throne
-						}
-						artifact_slot_type = throne
-					}
 					trigger_else = {
 						OR = {
 							artifact_slot_type = helmet
 							artifact_slot_type = regalia
-							artifact_slot_type = throne #LotR
 						}
 					}
 					this != scope:crowning_artifact
@@ -7468,17 +7293,10 @@ coronation_events.6110 = {
 						}
 						artifact_slot_type = regalia
 					}
-					trigger_else_if = { #LotR
-						limit = {
-							exists = scope:needs_throne
-						}
-						artifact_slot_type = throne
-					}
 					trigger_else = {
 						OR = {
 							artifact_slot_type = helmet
 							artifact_slot_type = regalia
-							artifact_slot_type = throne #LotR
 						}
 					}
 					NOR = {
@@ -7517,17 +7335,10 @@ coronation_events.6110 = {
 						}
 						artifact_slot_type = regalia
 					}
-					trigger_else_if = { #LotR
-						limit = {
-							exists = scope:needs_throne
-						}
-						artifact_slot_type = throne
-					}
 					trigger_else = {
 						OR = {
 							artifact_slot_type = helmet
 							artifact_slot_type = regalia
-							artifact_slot_type = throne #LotR
 						}
 					}
 					NOR = {
@@ -7568,17 +7379,10 @@ coronation_events.6110 = {
 						}
 						artifact_slot_type = regalia
 					}
-					trigger_else_if = { #LotR
-						limit = {
-							exists = scope:needs_throne
-						}
-						artifact_slot_type = throne
-					}
 					trigger_else = {
 						OR = {
 							artifact_slot_type = helmet
 							artifact_slot_type = regalia
-							artifact_slot_type = throne #LotR
 						}
 					}
 					NOR = {
@@ -9804,7 +9608,6 @@ coronation_events.6122 = {
 			save_scope_as = commoner_2
 		}
 		coronation_ceremony_legitimacy_effect = yes
-		coronation_ceremony_hope_effect = yes #LotR
 	}
 	#Exalt the crown
 	option = {
@@ -10302,7 +10105,6 @@ coronation_events.6123 = {
 				coronation_ceremony_piety_effect = yes
 				coronation_ceremony_legitimacy_effect = yes
 				coronation_ceremony_prestige_effect = yes
-				coronation_ceremony_hope_effect = yes #LotR
 			}
 			save_scope_as = bg_override_char
 		}
@@ -11785,8 +11587,8 @@ coronation_events.6130 = {
 			triggered_desc = {
 				trigger = {
 					scope:host = {
-						# coronation_events_6130_dharmic_trigger = yes
-						is_elf = yes
+						#coronation_events_6130_dharmic_trigger = yes
+						portrait_indian_proxy_clothing_spouse_trigger = yes #WHG TODO
 					}
 				}
 				desc = coronation_events.6130.t_dharmic
@@ -11868,23 +11670,6 @@ coronation_events.6130 = {
 			# 	}
 			# 	desc = coronation_events.6130.dharmic_intro_guest
 			# }
-			triggered_desc = { #LotR
-				trigger = {
-					this = scope:host
-					scope:host = {
-						is_elf = yes
-					}
-				}
-				desc = coronation_events.6130.elf_intro_host
-			}
-			triggered_desc = { #LotR
-				trigger = {
-					scope:host = {
-						is_elf = yes
-					}
-				}
-				desc = coronation_events.6130.elf_intro_guest
-			}
 			triggered_desc = {
 				trigger = {
 					this = scope:host
@@ -11955,8 +11740,8 @@ coronation_events.6130 = {
 			triggered_desc = {
 				trigger = {
 					scope:host = {
-						# coronation_events_6130_dharmic_trigger = no
-						is_elf = no #LotR
+						#coronation_events_6130_dharmic_trigger = no
+						portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 					}
 					this = scope:host
 					OR = {
@@ -11977,8 +11762,8 @@ coronation_events.6130 = {
 			triggered_desc = {
 				trigger = {
 					scope:host = {
-						# coronation_events_6130_dharmic_trigger = no
-						is_elf = no #LotR
+						#coronation_events_6130_dharmic_trigger = no
+						portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 					}
 					this = scope:host
 				}
@@ -11987,8 +11772,8 @@ coronation_events.6130 = {
 			triggered_desc = {
 				trigger = {
 					scope:host = {
-						# coronation_events_6130_dharmic_trigger = no
-						is_elf = no #LotR
+						#coronation_events_6130_dharmic_trigger = no
+						portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 					}
 				}
 				desc = coronation_events.6130.anointing_abrahamic_guest
@@ -11997,11 +11782,9 @@ coronation_events.6130 = {
 				trigger = {
 					this = scope:host
 				}
-			# 	desc = coronation_events.6130.anointing_dharmic_host
-				desc = coronation_events.6130.anointing_elf_host
+				desc = coronation_events.6130.anointing_dharmic_host
 			}
-			# desc = coronation_events.6130.anointing_dharmic_guest
-			desc = coronation_events.6130.anointing_elf_guest
+			desc = coronation_events.6130.anointing_dharmic_guest
 		}
 		#Credit it to church or god based on zeal
 		#Abrahamic also work for generic here
@@ -12009,8 +11792,8 @@ coronation_events.6130 = {
 			triggered_desc = {
 				trigger = {
 					scope:host = {
-						# coronation_events_6130_dharmic_trigger = no
-						is_elf = no #LotR
+						#coronation_events_6130_dharmic_trigger = no
+						portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 					}
 					this = scope:host
 					ai_zeal >= medium_negative_ai_value
@@ -12020,8 +11803,8 @@ coronation_events.6130 = {
 			triggered_desc = {
 				trigger = {
 					scope:host = {
-						# coronation_events_6130_dharmic_trigger = no
-						is_elf = no #LotR
+						#coronation_events_6130_dharmic_trigger = no
+						portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 					}
 					this = scope:host
 				}
@@ -12030,8 +11813,8 @@ coronation_events.6130 = {
 			triggered_desc = {
 				trigger = {
 					scope:host = {
-						# coronation_events_6130_dharmic_trigger = no
-						is_elf = no #LotR
+						#coronation_events_6130_dharmic_trigger = no
+						portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 					}
 					ai_zeal >= medium_negative_ai_value
 				}
@@ -12040,8 +11823,8 @@ coronation_events.6130 = {
 			triggered_desc = {
 				trigger = {
 					scope:host = {
-						# coronation_events_6130_dharmic_trigger = no
-						is_elf = no #LotR
+						#coronation_events_6130_dharmic_trigger = no
+						portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 					}
 				}
 				desc = coronation_events.6130.ending_abrahamic_guest_cynical
@@ -12050,11 +11833,9 @@ coronation_events.6130 = {
 				trigger = {
 					this = scope:host
 				}
-				# desc = coronation_events.6130.ending_dharmic_host
-				desc = coronation_events.6130.ending_elf_host #LotR
+				desc = coronation_events.6130.ending_dharmic_host
 			}
-			# desc = coronation_events.6130.ending_dharmic_guest
-			desc = coronation_events.6130.ending_elf_guest #LotR
+			desc = coronation_events.6130.ending_dharmic_guest
 		}
 	}
 	
@@ -12068,8 +11849,8 @@ coronation_events.6130 = {
 		triggered_animation = {
 			trigger = {
 				scope:host = {
-					# coronation_events_6130_dharmic_trigger = yes
-					is_elf = yes #LotR
+					#coronation_events_6130_dharmic_trigger = yes
+					portrait_indian_proxy_clothing_spouse_trigger = yes #WHG TODO
 				}
 			}
 			animation = toast_goblet
@@ -12101,10 +11882,6 @@ coronation_events.6130 = {
 						category = special_type
 						option = coronation_type_anointment
 					}
-					has_activity_option = { #LotR
-						category = special_type
-						option = coronation_type_elf
-					}
 				}
 			}
 		}
@@ -12130,10 +11907,10 @@ coronation_events.6130 = {
 			OR = {
 				# activity_host.faith.religion  = religion:christianity_religion #LotR
 				# activity_host.faith.religion  = religion:judaism_religion #LotR
-				# activity_host = {
-				# 	coronation_events_6130_dharmic_trigger = yes
-				# }
-				activity_host = { is_elf = yes }
+				activity_host = {
+					#coronation_events_6130_dharmic_trigger = yes
+					portrait_indian_proxy_clothing_spouse_trigger = yes #WHG TODO
+				}
 				has_activity_option = {
 					category = special_type
 					option = coronation_type_anointment
@@ -12572,8 +12349,8 @@ coronation_events.6130 = {
 		name = {
 			trigger = {
 				scope:host = {
-			 		# coronation_events_6130_dharmic_trigger = no
-					is_elf = no
+			 		#coronation_events_6130_dharmic_trigger = no
+					portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 				}
 			}
 			text = coronation_events.6130.a
@@ -12581,8 +12358,8 @@ coronation_events.6130 = {
 		name = {
 			trigger = {
 				scope:host = {
-					# coronation_events_6130_dharmic_trigger = yes
-					is_elf = yes
+					#coronation_events_6130_dharmic_trigger = yes
+					portrait_indian_proxy_clothing_spouse_trigger = yes #WHG TODO
 				}
 			}
 			text = coronation_events.6130.a_dharmic
@@ -12720,8 +12497,8 @@ coronation_events.6130 = {
 		name = {
 			trigger = {
 				scope:host = {
-					# coronation_events_6130_dharmic_trigger = no
-					is_elf = no
+					#coronation_events_6130_dharmic_trigger = no
+					portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
 				}
 			}
 			text = coronation_events.6130.c
@@ -12729,8 +12506,8 @@ coronation_events.6130 = {
 		name = {
 			trigger = {
 				scope:host = {
-					# coronation_events_6130_dharmic_trigger = yes
-					is_elf = yes
+					#coronation_events_6130_dharmic_trigger = yes
+					portrait_indian_proxy_clothing_spouse_trigger = yes #WHG TODO
 				}
 			}
 			text = coronation_events.6130.c_dharmic
@@ -12790,9 +12567,10 @@ coronation_events.6130 = {
 						trigger = {
 							this = scope:host
 							ai_zeal >= low_positive_ai_value
-							# scope:host = {
-							# 	coronation_events_6130_dharmic_trigger = no
-							# }
+							scope:host = {
+								#coronation_events_6130_dharmic_trigger = no
+								portrait_indian_proxy_clothing_spouse_trigger = no #WHG TODO
+							}
 						}
 						desc = coronation_events.6130.d.faithful_host
 					}
@@ -12816,8 +12594,8 @@ coronation_events.6130 = {
 						trigger = {
 							ai_zeal >= low_positive_ai_value
 							scope:host = {
-								# coronation_events_6130_dharmic_trigger = yes
-								is_elf = yes
+								#coronation_events_6130_dharmic_trigger = yes
+								portrait_indian_proxy_clothing_spouse_trigger = yes #WHG TODO
 							}
 							opinion = {
 								target = scope:host
@@ -13139,7 +12917,6 @@ coronation_events.6140 = {
 							trigger = {
 								scope:host = {
 									coronation_proper_artifact_regalia_trigger = no
-									coronation_proper_artifact_throne_trigger = no #LotR
 								}
 							}
 							desc = coronation_events.6140_desc_crown_spouse
@@ -13262,7 +13039,6 @@ coronation_events.6140 = {
 						trigger = {
 							scope:host = {
 								coronation_proper_artifact_regalia_trigger = no
-								coronation_proper_artifact_throne_trigger = no #LotR
 							}
 						}
 						desc = coronation_events.6140_desc_crown
@@ -14181,7 +13957,7 @@ scripted_trigger coronation_events_6150_neighbor_trigger = {
 		value > -20
 	}
 	current_military_strength <= root.half_current_military_strength
-	same_race = { TARGET = root } #LotR - to avoid weird tributarisations
+	#same_race = { TARGET = root } #LotR - to avoid weird tributarisations
 }
 
 scripted_trigger coronation_events_6150_vassal_trigger = {
