@@ -608,7 +608,7 @@ temple = {
 					OR = {
 						#location.culture ?= { has_building_gfx = iberian_building_gfx }
 						#location = { geographical_region = world_europe_west_iberia }
-						location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
 					}
 				}
 			}
@@ -616,7 +616,7 @@ temple = {
 				OR = {
 					#location.culture ?= { has_building_gfx = iberian_building_gfx }
 	 				#location = { geographical_region = world_europe_west_iberia } #WHG TODO
-					location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } 
+					location.culture ?= { has_cultural_pillar = heritage_estalian } 
 
 				}
 			}
@@ -727,7 +727,7 @@ temple = {
 				# 		is_in_family = rf_sinitic
 				# 	}
 				# }
-				scope:bg_override_char.culture = { has_cultural_pillar = heritage_southern_apysaic } #WHG TODO
+				scope:bg_override_char.culture = { has_cultural_pillar = heritage_arabyan } #WHG TODO
 			}
 			trigger_else = {
 				# location.faith.religion ?= {
@@ -736,7 +736,7 @@ temple = {
 				# 		is_in_family = rf_sinitic
 				# 	}
 				# }
-				culture = { has_cultural_pillar = heritage_southern_apysaic } #WHG TODO
+				culture = { has_cultural_pillar = heritage_arabyan } #WHG TODO
 			}
 		}
 		reference = "gfx/interface/illustrations/event_scenes/ep2_holysite_indian.dds"
@@ -845,9 +845,9 @@ temple_scope = {
 		trigger = {
 			scope:background_temple_scope.culture = { #WHG TODO
 				OR  = {
-					has_cultural_pillar = heritage_northern_adunaic
-					has_cultural_pillar = heritage_bellakari
-					has_cultural_pillar = heritage_southern_adunaic
+					has_cultural_pillar = heritage_estalian
+					has_cultural_pillar = heritage_khyprian
+					has_cultural_pillar = heritage_tilean
 				}
 			}
 		}
@@ -917,7 +917,7 @@ temple_scope = {
 				faith.religion = {
 					is_in_family = rf_eastern #Dharmic if not East Asian #WHG
 				}
-				culture = { has_cultural_pillar = heritage_southern_apysaic } #WHG TODO
+				culture = { has_cultural_pillar = heritage_arabyan } #WHG TODO
 			}
 		}
 		reference = "gfx/interface/illustrations/event_scenes/ep2_holysite_indian.dds"
@@ -1052,9 +1052,9 @@ corridor_night = {
 						location ?= {
 							steppe_building_gfx_use_mena_trigger = yes
 						}
-						location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-						location.culture ?= { has_cultural_pillar = heritage_bellakari }
-						location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+						location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_khyprian }
+						location.culture ?= { has_cultural_pillar = heritage_tilean }
 					}
 					NOT = {
 						government_has_flag = government_is_tribal
@@ -1069,9 +1069,9 @@ corridor_night = {
 					location ?= {
 						steppe_building_gfx_use_mena_trigger = yes
 					}
-					location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					location.culture ?= { has_cultural_pillar = heritage_bellakari }
-					location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+					location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					location.culture ?= { has_cultural_pillar = heritage_khyprian }
+					location.culture ?= { has_cultural_pillar = heritage_tilean }
 				}
 				NOT = {
 					government_has_flag = government_is_tribal
@@ -1229,9 +1229,9 @@ corridor_day = {
 						location ?= {
 							steppe_building_gfx_use_mena_trigger = yes
 						}
-						location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-						location.culture ?= { has_cultural_pillar = heritage_bellakari }
-						location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+						location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_khyprian }
+						location.culture ?= { has_cultural_pillar = heritage_tilean }
 					}
 					NOT = {
 						government_has_flag = government_is_tribal
@@ -1247,9 +1247,9 @@ corridor_day = {
 					location ?= {
 						steppe_building_gfx_use_mena_trigger = yes
 					}
-					location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					location.culture ?= { has_cultural_pillar = heritage_bellakari }
-					location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+					location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					location.culture ?= { has_cultural_pillar = heritage_khyprian }
+					location.culture ?= { has_cultural_pillar = heritage_tilean }
 				}
 				NOT = {
 					government_has_flag = government_is_tribal
@@ -1451,8 +1451,8 @@ council_chamber = {
 								#has_cultural_pillar = heritage_caucasian
 								#has_cultural_pillar = heritage_latin
 								#has_graphical_mediterranean_culture_group_trigger = yes 
-								has_cultural_pillar = heritage_bellakari #WHG TODO
-								has_cultural_pillar = heritage_northern_adunaic
+								has_cultural_pillar = heritage_khyprian #WHG TODO
+								has_cultural_pillar = heritage_estalian
 							}
 						}
 						location ?= { steppe_building_gfx_use_mediterranean_trigger = yes }
@@ -1467,8 +1467,8 @@ council_chamber = {
 							#has_cultural_pillar = heritage_caucasian
 							#has_cultural_pillar = heritage_latin
 							#has_graphical_mediterranean_culture_group_trigger = yes 
-							has_cultural_pillar = heritage_bellakari
-							has_cultural_pillar = heritage_northern_adunaic
+							has_cultural_pillar = heritage_khyprian
+							has_cultural_pillar = heritage_estalian
 						}
 					}
 					location ?= { steppe_building_gfx_use_mediterranean_trigger = yes }
@@ -1852,8 +1852,8 @@ courtyard = {
 					OR = {
 						#location.culture ?= { has_building_gfx = iberian_building_gfx }
 						#location = { geographical_region = world_europe_west_iberia }
-						location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-						location.culture ?= { has_cultural_pillar = heritage_bellakari }
+						location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_khyprian }
 					}
 				}
 			}
@@ -1861,8 +1861,8 @@ courtyard = {
 				OR = {
 					#location.culture ?= { has_building_gfx = iberian_building_gfx }
 					#location = { geographical_region = world_europe_west_iberia }
-					location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					location.culture ?= { has_cultural_pillar = heritage_bellakari }
+					location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					location.culture ?= { has_cultural_pillar = heritage_khyprian }
 				}
 			}
 		}
@@ -1880,7 +1880,7 @@ courtyard = {
 	 					#location ?= { geographical_region = world_europe_south_east }
 	 					#location ?= { geographical_region = world_europe_south_italy } #WHG TODO
 						location ?= { steppe_building_gfx_use_mediterranean_trigger = yes }
-						location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+						location.culture ?= { has_cultural_pillar = heritage_tilean }
 						location = { geographical_region = middleearth_west_gondor }
 						location = { geographical_region = middleearth_west_rhovanion_dalelands }
 						location = { geographical_region = middleearth_west_rhovanion_dorwinion }
@@ -1893,7 +1893,7 @@ courtyard = {
  					#location ?= { geographical_region = world_europe_south_east }
  					#location ?= { geographical_region = world_europe_south_italy }
 					location ?= { steppe_building_gfx_use_mediterranean_trigger = yes } #WHG TODO
-					location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+					location.culture ?= { has_cultural_pillar = heritage_tilean }
 					location = { geographical_region = middleearth_west_gondor }
 					location = { geographical_region = middleearth_west_rhovanion_dalelands }
 					location = { geographical_region = middleearth_west_rhovanion_dorwinion }
@@ -2280,8 +2280,8 @@ courtyard_location = {
 					OR = {
 						#location.culture ?= { has_building_gfx = iberian_building_gfx }
 						#location = { geographical_region = world_europe_west_iberia }
-						location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-						location.culture ?= { has_cultural_pillar = heritage_bellakari }
+						location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_khyprian }
 					}
 				}
 			}
@@ -2289,8 +2289,8 @@ courtyard_location = {
 				OR = {
 					#location.culture ?= { has_building_gfx = iberian_building_gfx }
 					#location = { geographical_region = world_europe_west_iberia }
-					location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					location.culture ?= { has_cultural_pillar = heritage_bellakari }
+					location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					location.culture ?= { has_cultural_pillar = heritage_khyprian }
 				}
 			}
 		}
@@ -2307,7 +2307,7 @@ courtyard_location = {
 						#location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 	 					#location = { geographical_region = world_europe_south_east }
 	 					#location = { geographical_region = world_europe_south_italy }
-						location.culture ?= { has_cultural_pillar = heritage_southern_adunaic } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_tilean } #WHG TODO
 						location = { geographical_region = middleearth_west_gondor }
 						location = { geographical_region = middleearth_west_rhovanion_dalelands }
 						location = { geographical_region = middleearth_west_rhovanion_dorwinion }
@@ -2319,7 +2319,7 @@ courtyard_location = {
 						#location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 	 					#location = { geographical_region = world_europe_south_east }
 	 					#location = { geographical_region = world_europe_south_italy }
-						location.culture ?= { has_cultural_pillar = heritage_southern_adunaic } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_tilean } #WHG TODO
 						location = { geographical_region = middleearth_west_gondor }
 						location = { geographical_region = middleearth_west_rhovanion_dalelands }
 						location = { geographical_region = middleearth_west_rhovanion_dorwinion }
@@ -2423,8 +2423,8 @@ courtyard_scope = {
 			OR = {
 				#location.culture ?= { has_building_gfx = iberian_building_gfx }
 				#location = { geographical_region = world_europe_west_iberia }
-				location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-				location.culture ?= { has_cultural_pillar = heritage_bellakari }
+				location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+				location.culture ?= { has_cultural_pillar = heritage_khyprian }
 			}
 		}
 		reference = "gfx/interface/illustrations/event_scenes/fp2_courtyard.dds"
@@ -2437,7 +2437,7 @@ courtyard_scope = {
 					# scope:background_courtyard_scope.location.culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 					# scope:background_courtyard_scope.location ?= { geographical_region = world_europe_south_east }
 					# scope:background_courtyard_scope.location ?= { geographical_region = world_europe_south_italy }
-					scope:background_courtyard_scope.location.culture ?= { has_cultural_pillar = heritage_southern_adunaic } #WHG TODO
+					scope:background_courtyard_scope.location.culture ?= { has_cultural_pillar = heritage_tilean } #WHG TODO
 					scope:background_courtyard_scope.location = { geographical_region = middleearth_west_gondor }
 					scope:background_courtyard_scope.location = { geographical_region = middleearth_west_rhovanion_dalelands }
 					scope:background_courtyard_scope.location = { geographical_region = middleearth_west_rhovanion_dorwinion }
@@ -2549,9 +2549,9 @@ dungeon = {
 						#location = { geographical_region = world_europe_west_iberia }
 						location.culture ?= { has_graphical_mena_culture_group_trigger = yes }
 						location ?= { steppe_building_gfx_use_mena_trigger = yes }
-						location.culture ?= { has_cultural_pillar = heritage_northern_adunaic }
-						location.culture ?= { has_cultural_pillar = heritage_southern_adunaic } #WHG TODO
-						location.culture ?= { has_cultural_pillar = heritage_bellakari }
+						location.culture ?= { has_cultural_pillar = heritage_estalian }
+						location.culture ?= { has_cultural_pillar = heritage_tilean } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_khyprian }
 					}
 				}
 			}
@@ -2561,9 +2561,9 @@ dungeon = {
 					#location = { geographical_region = world_europe_west_iberia }
 					location.culture ?= { has_graphical_mena_culture_group_trigger = yes }
 					location ?= { steppe_building_gfx_use_mena_trigger = yes }
-					location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
-					location.culture ?= { has_cultural_pillar = heritage_bellakari }
+					location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					location.culture ?= { has_cultural_pillar = heritage_tilean }
+					location.culture ?= { has_cultural_pillar = heritage_khyprian }
 				}
 			}
 			
@@ -2602,9 +2602,9 @@ dungeon_scope = {
 					#location = { geographical_region = world_europe_west_iberia }
 					capital_province.culture ?= { has_graphical_mena_culture_group_trigger = yes }
 					capital_province ?= { steppe_building_gfx_use_mena_trigger = yes }
-					capital_province.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					capital_province.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
-					capital_province.culture ?= { has_cultural_pillar = heritage_bellakari }
+					capital_province.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					capital_province.culture ?= { has_cultural_pillar = heritage_tilean }
+					capital_province.culture ?= { has_cultural_pillar = heritage_khyprian }
 				}
 			}
 		}
@@ -5593,9 +5593,9 @@ feast = {
 				#}
 				location ?= {
 					OR = {
-						culture ?= { has_cultural_pillar = heritage_southern_adunaic } #WHG TODO
-						culture ?= { has_cultural_pillar = heritage_northern_adunaic }
-						culture ?= { has_cultural_pillar = heritage_bellakari }
+						culture ?= { has_cultural_pillar = heritage_tilean } #WHG TODO
+						culture ?= { has_cultural_pillar = heritage_estalian }
+						culture ?= { has_cultural_pillar = heritage_khyprian }
 					}
 				}
 			}
@@ -5608,9 +5608,9 @@ feast = {
 				#}
 				scope:activity.activity_location ?= {
 					OR = {
-						culture ?= { has_cultural_pillar = heritage_southern_adunaic }
-						culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO COMMENT OUT
-						culture ?= { has_cultural_pillar = heritage_bellakari }
+						culture ?= { has_cultural_pillar = heritage_tilean }
+						culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO COMMENT OUT
+						culture ?= { has_cultural_pillar = heritage_khyprian }
 					}
 				}
 			}
@@ -5788,9 +5788,9 @@ feast_event = {
 					#}
 					location = {
 						OR = {
-							culture ?= { has_cultural_pillar = heritage_southern_adunaic }
-							culture ?= { has_cultural_pillar = heritage_northern_adunaic }
-							culture ?= { has_cultural_pillar = heritage_bellakari } #WHG TODO
+							culture ?= { has_cultural_pillar = heritage_tilean }
+							culture ?= { has_cultural_pillar = heritage_estalian }
+							culture ?= { has_cultural_pillar = heritage_khyprian } #WHG TODO
 						}
 					}
 				}
@@ -5799,9 +5799,9 @@ feast_event = {
 				# location.culture = { has_building_gfx = byzantine_building_gfx } #WHG TODO
 				location = {
 					OR = {
-						culture ?= { has_cultural_pillar = heritage_southern_adunaic }
-						culture ?= { has_cultural_pillar = heritage_northern_adunaic }
-						culture ?= { has_cultural_pillar = heritage_bellakari }
+						culture ?= { has_cultural_pillar = heritage_tilean }
+						culture ?= { has_cultural_pillar = heritage_estalian }
+						culture ?= { has_cultural_pillar = heritage_khyprian }
 					}
 				}
 			}
@@ -6259,9 +6259,9 @@ garden = {
 						location ?= {
 							steppe_building_gfx_use_mena_trigger = yes
 						}
-						location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-						location.culture ?= { has_cultural_pillar = heritage_bellakari }
-						location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+						location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_khyprian }
+						location.culture ?= { has_cultural_pillar = heritage_tilean }
 					}
 				}
 			}
@@ -6275,9 +6275,9 @@ garden = {
 					location ?= {
 						steppe_building_gfx_use_mena_trigger = yes
 					}
-					location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					location.culture ?= { has_cultural_pillar = heritage_bellakari }
-					location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+					location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					location.culture ?= { has_cultural_pillar = heritage_khyprian }
+					location.culture ?= { has_cultural_pillar = heritage_tilean }
 				}
 			}
 		}
@@ -6604,9 +6604,9 @@ garden_location = {
 				location ?= {
 					steppe_building_gfx_use_mena_trigger = yes
 				}
-				location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-				location.culture ?= { has_cultural_pillar = heritage_bellakari }
-				location.culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+				location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+				location.culture ?= { has_cultural_pillar = heritage_khyprian }
+				location.culture ?= { has_cultural_pillar = heritage_tilean }
 			}
 		}
 		reference = "gfx/interface/illustrations/event_scenes/fp2_garden.dds"
@@ -6878,9 +6878,9 @@ market = {
 	# 						geographical_region = world_asia_minor
 	# 						culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 							steppe_building_gfx_use_mediterranean_trigger = yes
-							culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-							culture ?= { has_cultural_pillar = heritage_bellakari }
-							culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+							culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+							culture ?= { has_cultural_pillar = heritage_khyprian }
+							culture ?= { has_cultural_pillar = heritage_tilean }
 						}
 					}
 				}
@@ -6892,9 +6892,9 @@ market = {
 	# 					geographical_region = world_asia_minor
 	# 					culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 						steppe_building_gfx_use_mediterranean_trigger = yes
-						culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-						culture ?= { has_cultural_pillar = heritage_bellakari }
-						culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+						culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+						culture ?= { has_cultural_pillar = heritage_khyprian }
+						culture ?= { has_cultural_pillar = heritage_tilean }
 					}
 				}
 			}
@@ -7118,9 +7118,9 @@ market_scope = {
 					# geographical_region = world_asia_minor
 					# culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
 					steppe_building_gfx_use_mediterranean_trigger = yes
-					culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					culture ?= { has_cultural_pillar = heritage_bellakari }
-					culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+					culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					culture ?= { has_cultural_pillar = heritage_khyprian }
+					culture ?= { has_cultural_pillar = heritage_tilean }
 				}
 			}
 		}
@@ -7498,8 +7498,8 @@ sitting_room = {
 						location.culture ?= {
 							# has_graphical_mediterranean_culture_group_trigger = yes
 							OR = {
-								has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-								has_cultural_pillar = heritage_bellakari
+								has_cultural_pillar = heritage_estalian #WHG TODO
+								has_cultural_pillar = heritage_khyprian
 							}
 						}
 						location ?= {
@@ -7514,8 +7514,8 @@ sitting_room = {
 					location.culture ?= {
 						# has_graphical_mediterranean_culture_group_trigger = yes
 						OR = {
-							has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-							has_cultural_pillar = heritage_bellakari
+							has_cultural_pillar = heritage_estalian #WHG TODO
+							has_cultural_pillar = heritage_khyprian
 						}
 					}
 					location ?= {
@@ -7540,8 +7540,8 @@ sitting_room = {
 								# has_cultural_pillar = heritage_caucasian
 								# has_cultural_pillar = heritage_latin
 								# has_graphical_mediterranean_culture_group_trigger = yes 
-								has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-								has_cultural_pillar = heritage_bellakari
+								has_cultural_pillar = heritage_estalian #WHG TODO
+								has_cultural_pillar = heritage_khyprian
 							}
 						}
 						location ?= {
@@ -7558,8 +7558,8 @@ sitting_room = {
 							# has_cultural_pillar = heritage_caucasian
 							# has_cultural_pillar = heritage_latin
 							# has_graphical_mediterranean_culture_group_trigger = yes 
-							has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-							has_cultural_pillar = heritage_bellakari
+							has_cultural_pillar = heritage_estalian #WHG TODO
+							has_cultural_pillar = heritage_khyprian
 						}
 					}
 					location ?= {
@@ -8000,8 +8000,8 @@ study = {
 								# has_cultural_pillar = heritage_caucasian
 								# has_cultural_pillar = heritage_latin
 								# has_graphical_mediterranean_culture_group_trigger = yes 
-								has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-								has_cultural_pillar = heritage_bellakari
+								has_cultural_pillar = heritage_estalian #WHG TODO
+								has_cultural_pillar = heritage_khyprian
 							}
 						}
 					}
@@ -8015,8 +8015,8 @@ study = {
 							# has_cultural_pillar = heritage_caucasian
 							# has_cultural_pillar = heritage_latin
 							# has_graphical_mediterranean_culture_group_trigger = yes 
-							has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-							has_cultural_pillar = heritage_bellakari
+							has_cultural_pillar = heritage_estalian #WHG TODO
+							has_cultural_pillar = heritage_khyprian
 						}
 					}
 				}
@@ -8183,9 +8183,9 @@ location_study = {
 						# has_cultural_pillar = heritage_caucasian
 						# has_cultural_pillar = heritage_latin
 						# has_graphical_mediterranean_culture_group_trigger = yes 
-						has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-						has_cultural_pillar = heritage_bellakari
-						has_cultural_pillar = heritage_southern_adunaic
+						has_cultural_pillar = heritage_estalian #WHG TODO
+						has_cultural_pillar = heritage_khyprian
+						has_cultural_pillar = heritage_tilean
 					}
 				}
 				location ?= { steppe_building_gfx_use_mediterranean_trigger = yes }
@@ -8315,9 +8315,9 @@ relaxing_room = {
 								# has_cultural_pillar = heritage_caucasian
 								# has_cultural_pillar = heritage_latin
 								# has_graphical_mediterranean_culture_group_trigger = yes 
-								has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-								has_cultural_pillar = heritage_bellakari
-								has_cultural_pillar = heritage_southern_adunaic
+								has_cultural_pillar = heritage_estalian #WHG TODO
+								has_cultural_pillar = heritage_khyprian
+								has_cultural_pillar = heritage_tilean
 							}
 						}
 					}
@@ -8333,9 +8333,9 @@ relaxing_room = {
 							# has_cultural_pillar = heritage_caucasian
 							# has_cultural_pillar = heritage_latin
 							# has_graphical_mediterranean_culture_group_trigger = yes 
-							has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-							has_cultural_pillar = heritage_bellakari
-							has_cultural_pillar = heritage_southern_adunaic
+							has_cultural_pillar = heritage_estalian #WHG TODO
+							has_cultural_pillar = heritage_khyprian
+							has_cultural_pillar = heritage_tilean
 						}
 					}
 				}
@@ -8358,9 +8358,9 @@ relaxing_room = {
 								# has_cultural_pillar = heritage_caucasian
 								# has_cultural_pillar = heritage_latin
 								# has_graphical_mediterranean_culture_group_trigger = yes 
-								has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-								has_cultural_pillar = heritage_bellakari
-								has_cultural_pillar = heritage_southern_adunaic
+								has_cultural_pillar = heritage_estalian #WHG TODO
+								has_cultural_pillar = heritage_khyprian
+								has_cultural_pillar = heritage_tilean
 							}
 						}
 					}
@@ -8375,9 +8375,9 @@ relaxing_room = {
 							# has_cultural_pillar = heritage_caucasian
 							# has_cultural_pillar = heritage_latin
 							# has_graphical_mediterranean_culture_group_trigger = yes 
-							has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-							has_cultural_pillar = heritage_bellakari
-							has_cultural_pillar = heritage_southern_adunaic
+							has_cultural_pillar = heritage_estalian #WHG TODO
+							has_cultural_pillar = heritage_khyprian
+							has_cultural_pillar = heritage_tilean
 						}
 					}
 				}
@@ -8516,9 +8516,9 @@ relaxing_room_scope = {
 						# has_cultural_pillar = heritage_caucasian
 						# has_cultural_pillar = heritage_latin
 						# has_graphical_mediterranean_culture_group_trigger = yes 
-						has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-						has_cultural_pillar = heritage_bellakari
-						has_cultural_pillar = heritage_southern_adunaic
+						has_cultural_pillar = heritage_estalian #WHG TODO
+						has_cultural_pillar = heritage_khyprian
+						has_cultural_pillar = heritage_tilean
 					}
 				}
 			}
@@ -8536,9 +8536,9 @@ relaxing_room_scope = {
 						# has_cultural_pillar = heritage_caucasian
 						# has_cultural_pillar = heritage_latin
 						# has_graphical_mediterranean_culture_group_trigger = yes 
-						has_cultural_pillar = heritage_northern_adunaic #WHG TODO
-						has_cultural_pillar = heritage_bellakari
-						has_cultural_pillar = heritage_southern_adunaic
+						has_cultural_pillar = heritage_estalian #WHG TODO
+						has_cultural_pillar = heritage_khyprian
+						has_cultural_pillar = heritage_tilean
 					}
 				}
 			}
@@ -9101,7 +9101,7 @@ throne_room = {
 						# 		any_de_jure_top_liege = { this = root }
 						# 	}
 						# }
-						location.culture ?= { has_cultural_pillar = heritage_bellakari } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_khyprian } #WHG TODO
 
 					}
 				}
@@ -9115,7 +9115,7 @@ throne_room = {
 					# 		any_de_jure_top_liege = { this = root }
 					# 	}
 					# }
-					location.culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+					location.culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
 				}
 			}
 		}
@@ -9181,7 +9181,7 @@ throne_room = {
 					OR = {
 						# location.culture ?= { has_building_gfx = iberian_building_gfx }
 						# location = { geographical_region = world_europe_west_iberia }
-						location.culture ?= { has_cultural_pillar = heritage_northern_apysaic } #WHG TODO
+						location.culture ?= { has_cultural_pillar = heritage_arabyan } #WHG TODO
 					}
 				}
 			}
@@ -9189,7 +9189,7 @@ throne_room = {
 				OR = {
 					# location.culture ?= { has_building_gfx = iberian_building_gfx }
 					# location = { geographical_region = world_europe_west_iberia }
-					location.culture ?= { has_cultural_pillar = heritage_northern_apysaic } #WHG TODO
+					location.culture ?= { has_cultural_pillar = heritage_arabyan } #WHG TODO
 				}
 			}
 		}
@@ -9475,9 +9475,9 @@ throne_room_scope = {
 					# 		any_de_jure_top_liege = { this = root } 
 					# 	}
 					# }
-					culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
-					culture ?= { has_cultural_pillar = heritage_bellakari }
-					culture ?= { has_cultural_pillar = heritage_southern_adunaic }
+					culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
+					culture ?= { has_cultural_pillar = heritage_khyprian }
+					culture ?= { has_cultural_pillar = heritage_tilean }
 				}
 			}
 		}
@@ -9517,7 +9517,7 @@ throne_room_scope = {
 			scope:background_throne_room_scope.capital_province ?= {
 				# culture = { has_building_gfx = iberian_building_gfx }
 				# geographical_region = world_europe_west_iberia
-				culture = { has_cultural_pillar = heritage_northern_apysaic } #WHG TODO
+				culture = { has_cultural_pillar = heritage_arabyan } #WHG TODO
 			}
 		}
 		reference = "gfx/interface/illustrations/event_scenes/fp2_throneroom.dds"
@@ -10948,7 +10948,7 @@ tour_arrival = {
 				activity_location.culture = {
 					# has_graphical_iberian_culture_group_trigger = yes
 					OR = {
-						has_cultural_pillar = heritage_southern_adunaic #WHG TODO
+						has_cultural_pillar = heritage_tilean #WHG TODO
 					}
 				}
 			}
@@ -10965,7 +10965,7 @@ tour_arrival = {
 				activity_location.culture = {
 					# has_graphical_iberian_culture_group_trigger = yes
 					OR = {
-						has_cultural_pillar = heritage_southern_adunaic #WHG TODO
+						has_cultural_pillar = heritage_tilean #WHG TODO
 
 					}
 				}
@@ -11568,7 +11568,7 @@ holy_site_generic = {
 							# geographical_region = graphical_india
 							# geographical_region = world_europe_south_east
 							# geographical_region = world_asia_minor
-							culture = { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+							culture = { has_cultural_pillar = heritage_estalian } #WHG TODO
 						}
 					}
 				}
@@ -11585,7 +11585,7 @@ holy_site_generic = {
 						# geographical_region = graphical_india
 						# geographical_region = world_europe_south_east
 						# geographical_region = world_asia_minor
-						culture = { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+						culture = { has_cultural_pillar = heritage_estalian } #WHG TODO
 					}
 				}
 			}
@@ -11718,8 +11718,7 @@ holy_site_generic = {
 					# NOT = {
 					# 	location.religion ?= { is_in_family = rf_pagan }
 					# }
-					NOR = { #Unreformed faiths and Drughu
-						religion = religion:dru_diaspora_religion
+					NOR = { #Unreformed faiths
 						faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 					}
 				}
@@ -11745,9 +11744,8 @@ holy_site_generic = {
 				# NOT = {
 				# 	location.religion ?= { is_in_family = rf_pagan }
 				# }
-				NOR = { #WHG - Unreformed faiths and Drughu
-					religion = religion:dru_diaspora_religion #WHG TODO
-					faith = { has_doctrine = unreformed_faith_doctrine } 
+				NOR = { #Unreformed faiths
+					faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 				}
 			}
 		}
@@ -11799,16 +11797,14 @@ holy_site_generic = {
 									government_has_flag = government_is_herder
 								}
 								# religion = { is_in_family = rf_pagan } #WHG TODO
-								OR = { #WHG - Unreformed faiths and Drughu
-									religion = religion:dru_diaspora_religion
-									faith = { has_doctrine = unreformed_faith_doctrine } 
+								OR = { #Unreformed faiths
+									faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 								}
 							}
 						}
 						# religion = { is_in_family = rf_pagan } #WHG TODO
-						OR = { #WHG - Unreformed faiths and Drughu
-							religion = religion:dru_diaspora_religion
-							faith = { has_doctrine = unreformed_faith_doctrine } 
+						OR = { #Unreformed faiths
+							faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 						}
 					}
 				}
@@ -11824,16 +11820,14 @@ holy_site_generic = {
 								government_has_flag = government_is_herder
 							}
 							# religion = { is_in_family = rf_pagan }
-							OR = { #WHG TODO - Unreformed faiths and Drughu
-								religion = religion:dru_diaspora_religion
-								faith = { has_doctrine = unreformed_faith_doctrine } 
+							OR = { #Unreformed faiths
+								faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 							}
 						}
 					}
 					# religion = { is_in_family = rf_pagan }
-					OR = { #WHG TODO - Unreformed faiths and Drughu
-						religion = religion:dru_diaspora_religion
-						faith = { has_doctrine = unreformed_faith_doctrine } 
+					OR = { #Unreformed faiths
+						faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 					}
 				}
 			}
@@ -12049,7 +12043,7 @@ holy_site_generic_scope = {
 						# }
 						culture = {
 							OR = {
-								has_cultural_pillar = heritage_northern_adunaic #WHG TODO
+								has_cultural_pillar = heritage_estalian #WHG TODO
 							}
 						}
 					}
@@ -12068,7 +12062,7 @@ holy_site_generic_scope = {
 					# }
 					culture = {
 						OR = {
-							has_cultural_pillar = heritage_northern_adunaic #WHG TODO
+							has_cultural_pillar = heritage_estalian #WHG TODO
 
 						}
 					}
@@ -12143,9 +12137,8 @@ holy_site_generic_scope = {
 						# NOT = {
 						# 	religion ?= { is_in_family = rf_pagan }
 						# }
-						NOR = { ##WHG TODO - Unreformed faiths and Drughu
-							religion = religion:dru_diaspora_religion
-							faith = { has_doctrine = unreformed_faith_doctrine } 
+						NOR = { #Unreformed faiths
+							faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 						}
 					}
 				}
@@ -12157,9 +12150,8 @@ holy_site_generic_scope = {
 					# NOT = {
 					# 	religion ?= { is_in_family = rf_pagan }
 					# }
-					NOR = { ##WHG TODO - Unreformed faiths and Drughu
-						religion = religion:dru_diaspora_religion
-						faith = { has_doctrine = unreformed_faith_doctrine } 
+					NOR = { #Unreformed faiths
+						faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 					}
 				}
 			}
@@ -12195,17 +12187,15 @@ holy_site_generic_scope = {
 							government_has_flag = government_is_herder
 						} 
 						# religion = { is_in_family = rf_pagan } 
-						OR = { ##WHG TODO - Unreformed faiths and Drughu
-							religion = religion:dru_diaspora_religion
-							faith = { has_doctrine = unreformed_faith_doctrine } 
+						OR = { #Unreformed faiths
+							faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 						}
 					}
 				}
 				# scope:holy_site_scope.religion = { is_in_family = rf_pagan }
 				scope:holy_site_scope = { 
-					OR = { ##WHG TODO - Unreformed faiths and Drughu
-						religion = religion:dru_diaspora_religion
-						faith = { has_doctrine = unreformed_faith_doctrine } 
+					OR = { #Unreformed faiths
+						faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 					}
 				}
 			}
@@ -12537,7 +12527,7 @@ holy_site_unique = {
 							# geographical_region = graphical_india
 							# geographical_region = world_europe_south_east
 							# geographical_region = world_asia_minor
-							culture = { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+							culture = { has_cultural_pillar = heritage_estalian } #WHG TODO
 						}
 					}
 				}
@@ -12554,7 +12544,7 @@ holy_site_unique = {
 						# geographical_region = graphical_india
 						# geographical_region = world_europe_south_east
 						# geographical_region = world_asia_minor
-						culture = { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+						culture = { has_cultural_pillar = heritage_estalian } #WHG TODO
 
 					}
 				}
@@ -12639,8 +12629,7 @@ holy_site_unique = {
 					# NOT = {
 					# 	location.religion ?= { is_in_family = rf_pagan }
 					# }
-					NOR = { #LotR - Unreformed faiths and Drughu
-						religion = religion:dru_diaspora_religion
+					NOR = { #Unreformed faiths
 						faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 					}
 				}
@@ -12666,9 +12655,8 @@ holy_site_unique = {
 				# NOT = {
 				# 	location.religion ?= { is_in_family = rf_pagan }
 				# }
-				NOR = { #WHG TODO - Unreformed faiths and Drughu
-					religion = religion:dru_diaspora_religion
-					faith = { has_doctrine = unreformed_faith_doctrine } 
+				NOR = { #Unreformed faiths
+					faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 				}
 			}
 		}
@@ -12720,15 +12708,13 @@ holy_site_unique = {
 									government_has_flag = government_is_herder
 								}
 								# religion = { is_in_family = rf_pagan }
-								OR = { #WHG TODO - Unreformed faiths and Drughu
-									religion = religion:dru_diaspora_religion
-									faith = { has_doctrine = unreformed_faith_doctrine } 
+								OR = { #Unreformed faiths
+									faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 								}
 							}
 						}
 						# religion = { is_in_family = rf_pagan }
-						OR = {
-							religion = religion:dru_diaspora_religion
+						OR = { #Unreformed faiths
 							faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 						}
 					}
@@ -12745,16 +12731,14 @@ holy_site_unique = {
 								government_has_flag = government_is_herder
 							}
 							# religion = { is_in_family = rf_pagan }
-							OR = { #WHG TODO - Unreformed faiths and Drughu
-								religion = religion:dru_diaspora_religion
-								faith = { has_doctrine = unreformed_faith_doctrine } 
+							OR = { #Unreformed faiths
+								faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 							}
 						}
 					}
 					# religion = { is_in_family = rf_pagan }
-					OR = { #WHG TODO - Unreformed faiths and Drughu
-						religion = religion:dru_diaspora_religion
-						faith = { has_doctrine = unreformed_faith_doctrine } 
+					OR = { #Unreformed faiths
+						faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 					}
 				}
 			}
@@ -12944,7 +12928,7 @@ holy_site_scope = {
 					# geographical_region = graphical_india
 					# geographical_region = world_europe_south_east
 					# geographical_region = world_asia_minor
-					culture = { has_cultural_pillar = heritage_northern_adunaic }#WHG TODO
+					culture = { has_cultural_pillar = heritage_estalian }#WHG TODO
 				}
 			}
 		}
@@ -12991,9 +12975,8 @@ holy_site_scope = {
 				# NOT = {
 				# 	religion ?= { is_in_family = rf_pagan }
 				# }
-				NOR = { #WHG TODO - Unreformed faiths and Drughu
-					religion = religion:dru_diaspora_religion
-					faith = { has_doctrine = unreformed_faith_doctrine } 
+				NOR = { #Unreformed faiths
+					faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 				}
 			}
 		}
@@ -13013,9 +12996,8 @@ holy_site_scope = {
 		trigger = {
 			# scope:background_terrain_scope.religion = { is_in_family = rf_pagan }
 			scope:background_terrain_scope = {
-				OR = { #WHG TODO - Unreformed faiths and Drughu
-					religion = religion:dru_diaspora_religion
-					faith = { has_doctrine = unreformed_faith_doctrine } 
+				OR = { #Unreformed faiths
+					faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 				}
 			}
 					
@@ -13950,7 +13932,7 @@ ep2_involved_activity = {
 							# geographical_region = graphical_india
 							# geographical_region = world_europe_south_east
 							# geographical_region = world_asia_minor
-							culture = { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+							culture = { has_cultural_pillar = heritage_estalian } #WHG TODO
 						}
 					}
 				}
@@ -13965,7 +13947,7 @@ ep2_involved_activity = {
 						# geographical_region = graphical_india
 						# geographical_region = world_europe_south_east
 						# geographical_region = world_asia_minor
-						culture = { has_cultural_pillar = heritage_northern_adunaic }#WHG TODO
+						culture = { has_cultural_pillar = heritage_estalian }#WHG TODO
 
 					}
 				}
@@ -14093,9 +14075,8 @@ ep2_involved_activity = {
 					# NOT = {
 					# 	religion ?= { is_in_family = rf_pagan }
 					# }
-					NOR = { #WHG TODO - Unreformed faiths and Drughu
-						religion = religion:dru_diaspora_religion
-						faith = { has_doctrine = unreformed_faith_doctrine } 
+					NOR = { #Unreformed faiths
+						faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 					}
 				}
 			}
@@ -14110,9 +14091,8 @@ ep2_involved_activity = {
 				# NOT = {
 				# 	religion ?= { is_in_family = rf_pagan }
 				# }
-				NOR = { #WHG TODO - Unreformed faiths and Drughu
-					religion = religion:dru_diaspora_religion
-					faith = { has_doctrine = unreformed_faith_doctrine } 
+				NOR = { #Unreformed faiths
+					faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 				}
 			}
 		}
@@ -14676,7 +14656,7 @@ ep2_activity = { #WHG
 					# geographical_region = graphical_india
 					# geographical_region = world_europe_south_east
 					# geographical_region = world_asia_minor
-					culture = { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+					culture = { has_cultural_pillar = heritage_estalian } #WHG TODO
 
 				}
 			}
@@ -14719,9 +14699,8 @@ ep2_activity = { #WHG
 				# NOT = {
 				# 	religion ?= { is_in_family = rf_pagan }
 				# }
-				NOR = { #LotR - Unreformed faiths and Drughu #WHG TODO
-					religion = religion:dru_diaspora_religion
-					faith = { has_doctrine = unreformed_faith_doctrine } 
+				NOR = { #Unreformed faiths
+					faith = { has_doctrine = unreformed_faith_doctrine } #WHG TODO
 				}
 			}
 		}
@@ -15682,7 +15661,7 @@ journey_activity_background = {
 						# has_building_or_higher = cattolica_stilo
 						# has_building_or_higher = hosios_loukas
 						# has_building_or_higher = sofia_ohrid
-						culture = { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+						culture = { has_cultural_pillar = heritage_estalian } #WHG TODO
 
 					}
 				}
@@ -17739,7 +17718,7 @@ coronation_activity_background = {
 						# 		any_de_jure_top_liege = { this = root } 
 						# 	}
 						# }
-						culture ?= { has_cultural_pillar = heritage_northern_adunaic } #WHG TODO
+						culture ?= { has_cultural_pillar = heritage_estalian } #WHG TODO
 
 					}
 				}

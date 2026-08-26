@@ -6,6 +6,7 @@
 # 0001 - 0010
 ##################################################
 
+##### LotR: This system has been heavily modified by naugrim04, check in before making changes.
 scripted_trigger valid_scandinavian_adventurer = {
 	is_available_ai_adult = yes
 	is_alive = yes
@@ -16,12 +17,13 @@ scripted_trigger valid_scandinavian_adventurer = {
 scripted_trigger significant_north_germanic_presence_trigger = {
 	holder = {
 		OR = {
-			culture = { has_cultural_pillar = heritage_north_germanic }
-			has_culture = culture:norman
-			has_character_modifier = embraced_local_traditions_modifier
-			dynasty ?= {
-					has_dynasty_modifier = settled_norse_dynasty_modifier
-				}
+			has_government = pirate_government #WHG TODO
+			# culture = { has_cultural_pillar = heritage_north_germanic }
+			# has_culture = culture:norman
+			# has_character_modifier = embraced_local_traditions_modifier
+			# dynasty ?= {
+			# 		has_dynasty_modifier = settled_norse_dynasty_modifier
+			# 	}
 		}
 		OR = {
 			AND = {
@@ -40,44 +42,47 @@ scripted_trigger significant_north_germanic_presence_trigger = {
 }
 
 scripted_trigger scattered_north_germanic_presence_trigger = {
-	holder = {
-		OR = {
-			culture = { has_cultural_pillar = heritage_north_germanic }
-			has_culture = culture:norman
-			has_character_modifier = embraced_local_traditions_modifier
-			dynasty ?= {
-					has_dynasty_modifier = settled_norse_dynasty_modifier
-				}
-		}
-	}
+	has_government = pirate_government #WHG TODO
+	# holder = {
+	# 	OR = {
+	# 		culture = { has_cultural_pillar = heritage_north_germanic }
+	# 		has_culture = culture:norman
+	# 		has_character_modifier = embraced_local_traditions_modifier
+	# 		dynasty ?= {
+	# 				has_dynasty_modifier = settled_norse_dynasty_modifier
+	# 			}
+	# 	}
+	# }
 }
 
 scripted_trigger valid_adventurer_target_trigger = {
 	holder = {
+		is_wastelands = no #LotR
 		NOR = {
+			has_government = pirate_government #WHG TODO
 			#Filter out North Germanics & Normans.
-			culture = { has_cultural_pillar = heritage_north_germanic }
-			has_culture = culture:norman
-			has_character_modifier = embraced_local_traditions_modifier
-			dynasty ?= {
-					has_dynasty_modifier = settled_norse_dynasty_modifier
-				}
-			#Plus any places already being attacked.
-			top_liege = {
-				any_character_war = { using_cb = fp1_scandi_adventurer_conquest }
-			}
-			#Or which have already earnt a ceasefire with this particular adventurer. Or any of their liege
-			OR = {
-				any_truce_holder = { this = scope:scandi_adventurer }
-				any_liege_or_above = {
-					any_truce_holder = { this = scope:scandi_adventurer }
-				}
-			}
-			#And finally anywhere that has earnt a little peace.
-			OR = {
-				has_character_modifier = fp1_reprieve_from_sa_modifier
-				any_liege_or_above = { has_character_modifier = fp1_reprieve_from_sa_modifier }
-			}
+			# culture = { has_cultural_pillar = heritage_north_germanic }
+			# has_culture = culture:norman
+			# has_character_modifier = embraced_local_traditions_modifier
+			# dynasty ?= {
+			# 		has_dynasty_modifier = settled_norse_dynasty_modifier
+			# 	}
+			# #Plus any places already being attacked.
+			# top_liege = {
+			# 	any_character_war = { using_cb = fp1_scandi_adventurer_conquest }
+			# }
+			# #Or which have already earnt a ceasefire with this particular adventurer. Or any of their liege
+			# OR = {
+			# 	any_truce_holder = { this = scope:scandi_adventurer }
+			# 	any_liege_or_above = {
+			# 		any_truce_holder = { this = scope:scandi_adventurer }
+			# 	}
+			# }
+			# #And finally anywhere that has earnt a little peace.
+			# OR = {
+			# 	has_character_modifier = fp1_reprieve_from_sa_modifier
+			# 	any_liege_or_above = { has_character_modifier = fp1_reprieve_from_sa_modifier }
+			# }
 		}
 		OR = {
 			is_ai = yes
@@ -92,14 +97,15 @@ scripted_trigger valid_adventurer_target_trigger = {
 
 scripted_trigger valid_scandinavian_county_trigger = {
 	#Should be simple enough, but might want to make it more complex in future.
-	culture = { has_cultural_pillar = heritage_north_germanic }
+	has_government = pirate_government #WHG TODO
+	#culture = { has_cultural_pillar = heritage_north_germanic }
 }
 
 scripted_trigger valid_scandinavian_county_for_embark_trigger = {
 	is_coastal_county = yes
-	holder = { fp1_is_norse = yes }
+	#holder = { fp1_is_norse = yes }
+	holder = { has_government = pirate_government } #WHG TODO
 }
-
 scripted_effect scandinavian_adventurer_start_war_effect = {
 	#Give the adventurer a dynamic title to tide them over.
 	create_dynamic_title = {
@@ -269,20 +275,20 @@ fp1_scandinavian_adventurers.0001 = {
 		#DLC check.
 		has_fp1_dlc_trigger = yes
 		NOT = { has_game_rule = fp1_scandi_adventurers_off }
-		OR = {
-			culture:norse = {
-				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
-			}
-			culture:norwegian = {
-				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
-			}
-			culture:danish = {
-				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
-			}
-			culture:swedish = {
-				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
-			}
-		}
+		# OR = { #WHG TODO
+		# 	culture:norse = {
+		# 		NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+		# 	}
+		# 	culture:norwegian = {
+		# 		NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+		# 	}
+		# 	culture:danish = {
+		# 		NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+		# 	}
+		# 	culture:swedish = {
+		# 		NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+		# 	}
+		# }
 	}
 
 	immediate = {
@@ -298,12 +304,12 @@ fp1_scandinavian_adventurers.0001 = {
 					}
 				}
 				any_county_in_region = {
-					region = dlc_fp1_region_western_scandinavia_pool
+					#region = dlc_fp1_region_eastern_scandinavia_pool #WHG TODO
 					valid_scandinavian_county_trigger = yes
 				}
 			}
 			random_county_in_region = {
-				region = dlc_fp1_region_western_scandinavia_pool
+				#region = dlc_fp1_region_eastern_scandinavia_pool #WHG TODO
 				limit = { valid_scandinavian_county_trigger = yes }
 				save_scope_as = scandinavian_county
 			}
@@ -330,12 +336,12 @@ fp1_scandinavian_adventurers.0001 = {
 					}
 				}
 				any_county_in_region = {
-					region = dlc_fp1_region_eastern_scandinavia_pool
+					#region = dlc_fp1_region_eastern_scandinavia_pool #WHG TODO
 					valid_scandinavian_county_trigger = yes
 				}
 			}
 			random_county_in_region = {
-				region = dlc_fp1_region_eastern_scandinavia_pool
+				#region = dlc_fp1_region_eastern_scandinavia_pool #WHG TODO
 				limit = { valid_scandinavian_county_trigger = yes }
 				save_scope_as = scandinavian_county
 			}
@@ -713,227 +719,227 @@ fp1_scandinavian_adventurers.0003 = {
 		}
 		##Check through the ordered eastern targets to see if a region needs a few more Norsemen.
 		###Novgorod
-		if = {
-			limit = {
-				NOR = {
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_novgorod
-						significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_novgorod }
-					}
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_novgorod
-						count >= 3
-						scattered_north_germanic_presence_trigger = yes
-					}
-				}
-				any_county_in_region = {
-					region = dlc_fp1_region_eastern_adventure_targets_novgorod
-					valid_adventurer_target_trigger = yes
-				}
-			}
-			every_county_in_region = {
-				region = dlc_fp1_region_eastern_adventure_targets_novgorod
-				limit = {
-					NOT = {
-						holder = { is_in_list = western_scandi_targets_list }
-					}
-					valid_adventurer_target_trigger = yes
-				}
-				add_to_list = eastern_scandi_targets_list
-			}
-			random_in_list = {
-				list = eastern_scandi_targets_list
-				weight = {
-					modifier = { add = scandinavian_adventurer_target_title_priority_value }
-				}
-				save_scope_as = adventurer_target
-			}
-		}
-		###White Rus'
-		else_if = {
-			limit = {
-				NOR = {
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_white_rus
-						significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_white_rus }
-					}
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_white_rus
-						count >= 3
-						scattered_north_germanic_presence_trigger = yes
-					}
-				}
-				any_county_in_region = {
-					region = dlc_fp1_region_eastern_adventure_targets_white_rus
-					valid_adventurer_target_trigger = yes
-				}
-			}
-			every_county_in_region = {
-				region = dlc_fp1_region_eastern_adventure_targets_white_rus
-				limit = {
-					NOT = {
-						holder = { is_in_list = western_scandi_targets_list }
-					}
-					valid_adventurer_target_trigger = yes
-				}
-				add_to_list = eastern_scandi_targets_list
-			}
-			random_in_list = {
-				list = eastern_scandi_targets_list
-				weight = {
-					modifier = { add = scandinavian_adventurer_target_title_priority_value }
-				}
-				save_scope_as = adventurer_target
-			}
-		}
+		# if = { #WHG TODO, define valid_adventurer_target_trigger and SCANDI_ADV_TARGET_REGION (geographical_region)
+		# 	limit = {
+		# 		NOR = {
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_novgorod
+		# 				significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_novgorod }
+		# 			}
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_novgorod
+		# 				count >= 3
+		# 				scattered_north_germanic_presence_trigger = yes
+		# 			}
+		# 		}
+		# 		any_county_in_region = {
+		# 			region = dlc_fp1_region_eastern_adventure_targets_novgorod
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 	}
+		# 	every_county_in_region = {
+		# 		region = dlc_fp1_region_eastern_adventure_targets_novgorod
+		# 		limit = {
+		# 			NOT = {
+		# 				holder = { is_in_list = western_scandi_targets_list }
+		# 			}
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 		add_to_list = eastern_scandi_targets_list
+		# 	}
+		# 	random_in_list = {
+		# 		list = eastern_scandi_targets_list
+		# 		weight = {
+		# 			modifier = { add = scandinavian_adventurer_target_title_priority_value }
+		# 		}
+		# 		save_scope_as = adventurer_target
+		# 	}
+		# }
+		# ###White Rus'
+		# else_if = { #WHG TODO, define valid_adventurer_target_trigger and SCANDI_ADV_TARGET_REGION (geographical_region)
+		# 	limit = {
+		# 		NOR = {
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_white_rus
+		# 				significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_white_rus }
+		# 			}
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_white_rus
+		# 				count >= 3
+		# 				scattered_north_germanic_presence_trigger = yes
+		# 			}
+		# 		}
+		# 		any_county_in_region = {
+		# 			region = dlc_fp1_region_eastern_adventure_targets_white_rus
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 	}
+		# 	every_county_in_region = {
+		# 		region = dlc_fp1_region_eastern_adventure_targets_white_rus
+		# 		limit = {
+		# 			NOT = {
+		# 				holder = { is_in_list = western_scandi_targets_list }
+		# 			}
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 		add_to_list = eastern_scandi_targets_list
+		# 	}
+		# 	random_in_list = {
+		# 		list = eastern_scandi_targets_list
+		# 		weight = {
+		# 			modifier = { add = scandinavian_adventurer_target_title_priority_value }
+		# 		}
+		# 		save_scope_as = adventurer_target
+		# 	}
+		# }
 		###Vladimir
-		else_if = {
-			limit = {
-				NOR = {
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_vladimir
-						significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_vladimir }
-					}
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_vladimir
-						count >= 3
-						scattered_north_germanic_presence_trigger = yes
-					}
-				}
-				any_county_in_region = {
-					region = dlc_fp1_region_eastern_adventure_targets_vladimir
-					valid_adventurer_target_trigger = yes
-				}
-			}
-			every_county_in_region = {
-				region = dlc_fp1_region_eastern_adventure_targets_vladimir
-				limit = {
-					NOT = {
-						holder = { is_in_list = western_scandi_targets_list }
-					}
-					valid_adventurer_target_trigger = yes
-				}
-				add_to_list = eastern_scandi_targets_list
-			}
-			random_in_list = {
-				list = eastern_scandi_targets_list
-				weight = {
-					modifier = { add = scandinavian_adventurer_target_title_priority_value }
-				}
-				save_scope_as = adventurer_target
-			}
-		}
+		# else_if = { #WHG TODO, define valid_adventurer_target_trigger and SCANDI_ADV_TARGET_REGION (geographical_region)
+		# 	limit = {
+		# 		NOR = {
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_vladimir
+		# 				significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_vladimir }
+		# 			}
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_vladimir
+		# 				count >= 3
+		# 				scattered_north_germanic_presence_trigger = yes
+		# 			}
+		# 		}
+		# 		any_county_in_region = {
+		# 			region = dlc_fp1_region_eastern_adventure_targets_vladimir
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 	}
+		# 	every_county_in_region = {
+		# 		region = dlc_fp1_region_eastern_adventure_targets_vladimir
+		# 		limit = {
+		# 			NOT = {
+		# 				holder = { is_in_list = western_scandi_targets_list }
+		# 			}
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 		add_to_list = eastern_scandi_targets_list
+		# 	}
+		# 	random_in_list = {
+		# 		list = eastern_scandi_targets_list
+		# 		weight = {
+		# 			modifier = { add = scandinavian_adventurer_target_title_priority_value }
+		# 		}
+		# 		save_scope_as = adventurer_target
+		# 	}
+		# }
 		###Ruthenia
-		else_if = {
-			limit = {
-				NOR = {
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_ruthenia
-						significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_ruthenia }
-					}
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_ruthenia
-						count >= 3
-						scattered_north_germanic_presence_trigger = yes
-					}
-				}
-				any_county_in_region = {
-					region = dlc_fp1_region_eastern_adventure_targets_ruthenia
-					valid_adventurer_target_trigger = yes
-				}
-			}
-			every_county_in_region = {
-				region = dlc_fp1_region_eastern_adventure_targets_ruthenia
-				limit = {
-					NOT = {
-						holder = { is_in_list = western_scandi_targets_list }
-					}
-					valid_adventurer_target_trigger = yes
-				}
-				add_to_list = eastern_scandi_targets_list
-			}
-			random_in_list = {
-				list = eastern_scandi_targets_list
-				weight = {
-					modifier = { add = scandinavian_adventurer_target_title_priority_value }
-				}
-				save_scope_as = adventurer_target
-			}
-		}
-		###Estonia
-		else_if = {
-			limit = {
-				NOR = {
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_estonia
-						significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_estonia }
-					}
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_estonia
-						count >= 3
-						scattered_north_germanic_presence_trigger = yes
-					}
-				}
-				any_county_in_region = {
-					region = dlc_fp1_region_eastern_adventure_targets_estonia
-					valid_adventurer_target_trigger = yes
-				}
-			}
-			every_county_in_region = {
-				region = dlc_fp1_region_eastern_adventure_targets_estonia
-				limit = {
-					NOT = {
-						holder = { is_in_list = western_scandi_targets_list }
-					}
-					valid_adventurer_target_trigger = yes
-				}
-				add_to_list = eastern_scandi_targets_list
-			}
-			random_in_list = {
-				list = eastern_scandi_targets_list
-				weight = {
-					modifier = { add = scandinavian_adventurer_target_title_priority_value }
-				}
-				save_scope_as = adventurer_target
-			}
-		}
-		###Zaporizhia
-		else_if = {
-			limit = {
-				NOR = {
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_zaporizhia
-						significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_zaporizhia }
-					}
-					any_county_in_region = {
-						region = dlc_fp1_region_eastern_adventure_targets_zaporizhia
-						count >= 3
-						scattered_north_germanic_presence_trigger = yes
-					}
-				}
-				any_county_in_region = {
-					region = dlc_fp1_region_eastern_adventure_targets_zaporizhia
-					valid_adventurer_target_trigger = yes
-				}
-			}
-			every_county_in_region = {
-				region = dlc_fp1_region_eastern_adventure_targets_zaporizhia
-				limit = {
-					NOT = {
-						holder = { is_in_list = western_scandi_targets_list }
-					}
-					valid_adventurer_target_trigger = yes
-				}
-				add_to_list = eastern_scandi_targets_list
-			}
-			random_in_list = {
-				list = eastern_scandi_targets_list
-				weight = {
-					modifier = { add = scandinavian_adventurer_target_title_priority_value }
-				}
-				save_scope_as = adventurer_target
-			}
-		}
+		# else_if = { #WHG TODO, define valid_adventurer_target_trigger and SCANDI_ADV_TARGET_REGION (geographical_region)
+		# 	limit = {
+		# 		NOR = {
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_ruthenia
+		# 				significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_ruthenia }
+		# 			}
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_ruthenia
+		# 				count >= 3
+		# 				scattered_north_germanic_presence_trigger = yes
+		# 			}
+		# 		}
+		# 		any_county_in_region = {
+		# 			region = dlc_fp1_region_eastern_adventure_targets_ruthenia
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 	}
+		# 	every_county_in_region = {
+		# 		region = dlc_fp1_region_eastern_adventure_targets_ruthenia
+		# 		limit = {
+		# 			NOT = {
+		# 				holder = { is_in_list = western_scandi_targets_list }
+		# 			}
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 		add_to_list = eastern_scandi_targets_list
+		# 	}
+		# 	random_in_list = {
+		# 		list = eastern_scandi_targets_list
+		# 		weight = {
+		# 			modifier = { add = scandinavian_adventurer_target_title_priority_value }
+		# 		}
+		# 		save_scope_as = adventurer_target
+		# 	}
+		# }
+		# ###Estonia
+		# else_if = { #WHG TODO, define valid_adventurer_target_trigger and SCANDI_ADV_TARGET_REGION (geographical_region)
+		# 	limit = {
+		# 		NOR = {
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_estonia
+		# 				significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_estonia }
+		# 			}
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_estonia
+		# 				count >= 3
+		# 				scattered_north_germanic_presence_trigger = yes
+		# 			}
+		# 		}
+		# 		any_county_in_region = {
+		# 			region = dlc_fp1_region_eastern_adventure_targets_estonia
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 	}
+		# 	every_county_in_region = {
+		# 		region = dlc_fp1_region_eastern_adventure_targets_estonia
+		# 		limit = {
+		# 			NOT = {
+		# 				holder = { is_in_list = western_scandi_targets_list }
+		# 			}
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 		add_to_list = eastern_scandi_targets_list
+		# 	}
+		# 	random_in_list = {
+		# 		list = eastern_scandi_targets_list
+		# 		weight = {
+		# 			modifier = { add = scandinavian_adventurer_target_title_priority_value }
+		# 		}
+		# 		save_scope_as = adventurer_target
+		# 	}
+		# }
+		# ###Zaporizhia
+		# else_if = { #WHG TODO, define valid_adventurer_target_trigger and SCANDI_ADV_TARGET_REGION (geographical_region)
+		# 	limit = {
+		# 		NOR = {
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_zaporizhia
+		# 				significant_north_germanic_presence_trigger = { SCANDI_ADV_TARGET_REGION = dlc_fp1_region_eastern_adventure_targets_zaporizhia }
+		# 			}
+		# 			any_county_in_region = {
+		# 				region = dlc_fp1_region_eastern_adventure_targets_zaporizhia
+		# 				count >= 3
+		# 				scattered_north_germanic_presence_trigger = yes
+		# 			}
+		# 		}
+		# 		any_county_in_region = {
+		# 			region = dlc_fp1_region_eastern_adventure_targets_zaporizhia
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 	}
+		# 	every_county_in_region = {
+		# 		region = dlc_fp1_region_eastern_adventure_targets_zaporizhia
+		# 		limit = {
+		# 			NOT = {
+		# 				holder = { is_in_list = western_scandi_targets_list }
+		# 			}
+		# 			valid_adventurer_target_trigger = yes
+		# 		}
+		# 		add_to_list = eastern_scandi_targets_list
+		# 	}
+		# 	random_in_list = {
+		# 		list = eastern_scandi_targets_list
+		# 		weight = {
+		# 			modifier = { add = scandinavian_adventurer_target_title_priority_value }
+		# 		}
+		# 		save_scope_as = adventurer_target
+		# 	}
+		# }
 
 		#SORT WAR
 		if = {
@@ -972,7 +978,8 @@ fp1_scandinavian_adventurers.0011 = {
 		# DLC check.
 		has_fp1_dlc_trigger = yes
 		# No point in later starts.
-		game_start_date = 867.1.1
+		game_start_date = 7053.1.1 #LotR start date is 7033.1.1 #WHG TODO
+		# game_start_date = 867.1.1
 	}
 
 	immediate = {
@@ -1008,8 +1015,8 @@ scripted_effect scandi_adventurers_grab_famous_character_effect = {
 					}
 				}
 				# And is still North Germanic/not in either of the lists.
-				#culture = { has_cultural_pillar = heritage_north_germanic } #WHG
-				culture = { has_cultural_pillar = heritage_bretonnian } #WHG TODO
+				has_government = pirate_government #WHG TODO
+				#culture = { has_cultural_pillar = heritage_north_germanic }
 				NOR = {
 					save_temporary_scope_as = character
 					any_in_global_list = {
@@ -1023,7 +1030,7 @@ scripted_effect scandi_adventurers_grab_famous_character_effect = {
 				}
 			}
 			# Norse, Norwegians, & Danes go into the western adventurer list.
-			# if = {
+			# if = { #WHG TODO
 			# 	limit = {
 			# 		OR = {
 			# 			has_culture = culture:norse
@@ -1037,7 +1044,7 @@ scripted_effect scandi_adventurers_grab_famous_character_effect = {
 			# 	}
 			# }
 			# # Norse & Swedes go into the eastern adventurer list.
-			# if = {
+			# if = { #WHG TODO
 			# 	limit = {
 			# 		OR = {
 			# 			has_culture = culture:norse
@@ -1055,6 +1062,241 @@ scripted_effect scandi_adventurers_grab_famous_character_effect = {
 	}
 }
 
+#	Startup event, delaying the initial cycle.
+fp1_scandinavian_adventurers.0004 = {
+	scope = none
+	hidden = yes
+
+	immediate = {
+		trigger_event = {
+			id = fp1_scandinavian_adventurers.0001
+			years = 5
+		}
+	}
+}
+
+#	Start the war (separate event to config scopes correctly).
+fp1_scandinavian_adventurers.0005 = {
+	hidden = yes
+
+	immediate = { scandinavian_adventurer_start_war_effect = yes }
+}
+
+#	Drag in famous landless Norse characters if they haven't become landed after twenty years.
+fp1_scandinavian_adventurers.0011 = {
+	scope = none
+	hidden = yes
+
+	trigger = {
+		# DLC check.
+		has_fp1_dlc_trigger = yes
+		# No point in later starts.
+		game_start_date = 7053.1.1 #LotR start date is 7033.1.1
+		# game_start_date = 867.1.1
+	}
+
+	immediate = {
+		trigger_event = {
+			id = fp1_scandinavian_adventurers.0012
+			years = 20
+		}
+	}
+}
+
+scripted_effect scandi_adventurers_grab_famous_character_effect = {
+	$CHARACTER$ ?= {
+		if = {
+			limit = {
+				# Still kickin'.
+				is_physically_able_adult = yes
+				# Shouldn't ever really be an issue, but y'never know.
+				is_ai = yes
+				# Hasn't got anything dynastic of note going on.
+				is_ruler = no
+				any_heir_title = { count = 0 }
+				# And is free and clear to go.
+				is_imprisoned = no
+				OR = {
+					is_married = no
+					AND = {
+						is_female = yes
+						matrilinear_marriage = yes
+					}
+					AND = {
+						is_male = yes
+						patrilinear_marriage = yes
+					}
+				}
+				# And is still North Germanic/not in either of the lists.
+				OR = {
+						AND = {	#Orcs
+							has_game_rule = northern_orcs_invade								
+							AND = {
+								culture = { has_cultural_pillar = heritage_orc } #OrcAdventure
+								NOR = {
+									culture = culture:rukhashai
+									culture = { any_parent_culture_or_above = { this = culture:rukhashai } }
+								}
+							}							
+						}						
+						AND = {	#Goblins
+							has_game_rule = northern_orcs_invade								
+							AND = {
+								culture = { has_cultural_pillar = heritage_goblin } #OrcAdventure
+								NOR = {
+									culture = culture:echomaker_goblin
+									culture = { any_parent_culture_or_above = { this = culture:echomaker_goblin } }
+									culture = culture:flintslinger_gobbo
+									culture = { any_parent_culture_or_above = { this = culture:flintslinger_gobbo } }
+								}
+							}							
+						}
+						AND = {	#Eotheod						
+							has_game_rule = northern_orcs_no_invade
+							culture = { has_cultural_pillar = heritage_eotheod }				
+						}		
+						
+						AND = {	#Daen Lintis
+							has_game_rule = northern_orcs_no_invade
+							culture = { has_cultural_pillar = heritage_daen_lintis } #LotR								
+						}
+						
+						AND = {	#Daen Coentis
+							has_game_rule = northern_orcs_no_invade
+							culture = { has_cultural_pillar = heritage_daen_coentis } #LotR								
+						}
+						AND = {	#southern Orcs
+							has_game_rule = southern_orcs_invade								
+							AND = {
+								culture = { has_cultural_pillar = heritage_orc } #OrcAdventure
+								OR = {
+									culture = culture:rukhashai
+									culture = { any_parent_culture_or_above = { this = culture:rukhashai } }
+								}
+							}				
+						}						
+						AND = {	#southern Goblins
+							has_game_rule = southern_orcs_invade								
+							AND = {
+								culture = { has_cultural_pillar = heritage_goblin } #OrcAdventure
+								OR = {
+									culture = culture:echomaker_goblin
+									culture = { any_parent_culture_or_above = { this = culture:echomaker_goblin } }
+									culture = culture:flintslinger_gobbo
+									culture = { any_parent_culture_or_above = { this = culture:flintslinger_gobbo } }
+								}
+							}
+							
+						}
+						AND = {	#Corsairs
+							has_game_rule = southern_orcs_no_invade
+							culture = { has_cultural_tradition = tradition_corsairs_of_umbar }					
+						}
+				}
+				# culture = { has_cultural_pillar = heritage_north_germanic }
+				NOR = {
+					save_temporary_scope_as = character
+					any_in_global_list = {
+						variable = western_scandinavian_adventurer_list
+						this = scope:character
+					}
+					any_in_global_list = {
+						variable = eastern_scandinavian_adventurer_list
+						this = scope:character
+					}
+				}
+			}
+			# Norse, Norwegians, & Danes go into the western adventurer list.
+			if = {
+				limit = {
+					OR = {
+						AND = {	#Orcs
+							has_game_rule = northern_orcs_invade								
+							AND = {
+								culture = { has_cultural_pillar = heritage_orc } #OrcAdventure
+								NOR = {
+									culture = culture:rukhashai
+									culture = { any_parent_culture_or_above = { this = culture:rukhashai } }
+								}
+							}							
+						}						
+						AND = {	#Goblins
+							has_game_rule = northern_orcs_invade								
+							AND = {
+								culture = { has_cultural_pillar = heritage_goblin } #OrcAdventure
+								NOR = {
+									culture = culture:echomaker_goblin
+									culture = { any_parent_culture_or_above = { this = culture:echomaker_goblin } }
+									culture = culture:flintslinger_gobbo
+									culture = { any_parent_culture_or_above = { this = culture:flintslinger_gobbo } }
+								}
+							}							
+						}
+						AND = {	#Eotheod						
+							has_game_rule = northern_orcs_no_invade
+							culture = { has_cultural_pillar = heritage_eotheod }				
+						}		
+						
+						AND = {	#Daen Lintis
+							has_game_rule = northern_orcs_no_invade
+							culture = { has_cultural_pillar = heritage_daen_lintis } #LotR								
+						}
+						
+						AND = {	#Daen Coentis
+							has_game_rule = northern_orcs_no_invade
+							culture = { has_cultural_pillar = heritage_daen_coentis } #LotR								
+						}
+					}
+				}
+				add_to_global_variable_list = {
+					name = western_scandinavian_adventurer_list
+					target = this
+				}
+			}
+			# Norse & Swedes go into the eastern adventurer list.
+			if = {
+				limit = {
+					OR = {
+						AND = {	#southern Orcs
+							has_game_rule = southern_orcs_invade								
+							AND = {
+								culture = { has_cultural_pillar = heritage_orc } #OrcAdventure
+								OR = {
+									culture = culture:rukhashai
+									culture = { any_parent_culture_or_above = { this = culture:rukhashai } }
+								}
+							}				
+						}						
+						AND = {	#southern Goblins
+							has_game_rule = southern_orcs_invade								
+							AND = {
+								culture = { has_cultural_pillar = heritage_goblin } #OrcAdventure
+								OR = {
+									culture = culture:echomaker_goblin
+									culture = { any_parent_culture_or_above = { this = culture:echomaker_goblin } }
+									culture = culture:flintslinger_gobbo
+									culture = { any_parent_culture_or_above = { this = culture:flintslinger_gobbo } }
+								}
+							}
+							
+						}
+						AND = {	#Corsairs
+							has_game_rule = southern_orcs_no_invade
+							culture = { has_cultural_tradition = tradition_corsairs_of_umbar }					
+						}
+					}
+				}
+				add_to_global_variable_list = {
+					name = eastern_scandinavian_adventurer_list
+					target = this
+				}
+			}
+			# Either way, flag 'em for priority in the system.
+			add_character_flag = prioritised_scandinavian_adventurer
+		}
+	}
+}
+
 fp1_scandinavian_adventurers.0012 = {
 	hidden = yes
 	scope = none
@@ -1063,16 +1305,23 @@ fp1_scandinavian_adventurers.0012 = {
 		# DLC check.
 		has_fp1_dlc_trigger = yes
 		# No point in later starts.
-		game_start_date = 867.1.1
-
-		# OR = { #WHG
-		# 	exists = character:242
-		# 	exists = character:163119
-		# }
-
+		game_start_date = 7033.1.1 #WHG TODO
+		# game_start_date = 867.1.1
 	}
 
-	immediate = { #WHG
+	immediate = {
+		# Burôdapân, Lord of Waves
+		#scandi_adventurers_grab_famous_character_effect = { CHARACTER = character:lineofcassimir24 }
+		# Câssimir, Lord of Stone																			#OrcAdventure
+		#scandi_adventurers_grab_famous_character_effect = { CHARACTER = character:lineofcassimir23 }
+		# Wulfgar Brynjarsson of Dunland																	#OrcAdventure
+		#scandi_adventurers_grab_famous_character_effect = { CHARACTER = character:lineoffreca15 }			#OrcAdventure
+		# Ulfcúr Wulfdenesson, king of the Wulfdenings
+		#scandi_adventurers_grab_famous_character_effect = { CHARACTER = character:lineofwulfdening5 }      #OrcAdventure
+		# Thrydan Wolfsbane, Wildmen of Dunland king during WotR
+		#scandi_adventurers_grab_famous_character_effect = { CHARACTER = character:lineofdathabha4 }        #OrcAdventure
+		# The Mad Dog of Saerlann
+		#scandi_adventurers_grab_famous_character_effect = { CHARACTER = character:lineofmorcad13 }         #OrcAdventure
 		# # Nab Rollo.
 		# scandi_adventurers_grab_famous_character_effect = { CHARACTER = character:242 }
 		# # Nab Ubbe.
@@ -1088,10 +1337,11 @@ fp1_scandinavian_adventurers.0021 = {
 		# DLC check.
 		has_fp1_dlc_trigger = yes
 		# No point in later starts.
-		game_start_date = 867.1.1
+		game_start_date = 7033.1.1 #WHG TODO
+		# game_start_date = 867.1.1
 	}
 
-	immediate = { #WHG
+	immediate = {
 		# # Haesteinn.
 		# character:6878 = { add_character_flag = prioritised_scandinavian_adventurer }
 		# # Ivar the Boneless.

@@ -1537,17 +1537,28 @@ artifact_feature_metal_folded_iron_trigger = {
 }
 
 
-# dwarven_steel #LOTR #WHG TODO
-artifact_feature_metal_dwarven_steel_trigger = {
+# wootz_steel
+artifact_feature_metal_wootz_steel_trigger = {
 	exists = scope:wealth
 	exists = scope:owner
-	artifact_value_trigger = { VALUE = scope:wealth MIN = 50 MAX = 999 }
-	artifact_region_trigger = { CHARACTER = scope:owner REGION = material_metal_dwarven }	
+	artifact_value_trigger = { VALUE = scope:wealth MIN = 80 MAX = 999 }
+	artifact_region_trigger = { CHARACTER = scope:owner REGION = material_metal_wootz }	
 }
 
-artifact_feature_metal_dwarven_steel_imported_trigger = {
+# damascus_steel
+artifact_feature_metal_damascus_steel_trigger = {
 	exists = scope:wealth
+	exists = scope:owner
 	artifact_value_trigger = { VALUE = scope:wealth MIN = 80 MAX = 999 }
+	artifact_region_trigger = { CHARACTER = scope:owner REGION = material_metal_damascus }
+}
+
+# bulat_steel
+artifact_feature_metal_bulat_steel_trigger = {
+	exists = scope:wealth
+	exists = scope:owner
+	artifact_value_trigger = { VALUE = scope:wealth MIN = 80 MAX = 999 }
+	artifact_region_trigger = { CHARACTER = scope:owner REGION = material_metal_bulat }
 }
 
 # gold

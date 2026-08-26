@@ -740,40 +740,55 @@ councillor_court_chaplain = {
 						}
 					}
 				}
-				desc = {
-					first_valid = {
-						### LOTR
-						# Twilight-Elven
-						#triggered_desc = { # Kingdom and Imperial Tier
-						#	trigger = { highest_held_title_tier >= tier_kingdom culture = { has_cultural_pillar = heritage_lomiquendi } }
-						#	desc = councillor_court_chaplain_bishop_sindarin
-						#}
-						triggered_desc = { # Duchy and Below
-							trigger = { highest_held_title_tier < tier_kingdom culture = { has_cultural_pillar = heritage_lomiquendi } }
-							desc = councillor_court_chaplain_sindarin
-						}
-						# Bellakari
-						triggered_desc = { # Kingdom and Imperial Tier
-							trigger = { highest_held_title_tier >= tier_kingdom culture = { has_cultural_pillar = heritage_bellakari } }
-							desc = councillor_court_chaplain_bishop_bellakari
-						}
-						triggered_desc = { # Duchy and Below
-							trigger = { highest_held_title_tier < tier_kingdom culture = { has_cultural_pillar = heritage_bellakari } }
-							desc = councillor_court_chaplain_bellakari
-						}
-						# Near Haradrim
-						triggered_desc = { # Kingdom and Imperial Tier
-							trigger = { highest_held_title_tier >= tier_kingdom culture = { has_cultural_pillar = heritage_northern_apysaic } }
-							desc = councillor_court_chaplain_bishop_haradrim
-						}
-						triggered_desc = { # Duchy and Below
-							trigger = { highest_held_title_tier < tier_kingdom culture = { has_cultural_pillar = heritage_northern_apysaic } }
-							desc = councillor_court_chaplain_haradrim
-						}
-						desc = councillor_court_chaplain
-					}
-				}
-			}
+			# 	desc = { #WHG TODO
+			# 		first_valid = {
+			# 			#Shia
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier >= tier_empire faith = faith:ismaili }
+			# 				desc = councillor_court_chaplain_ismaili_empire
+			# 			}
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier >= tier_kingdom faith = faith:ismaili }
+			# 				desc = councillor_court_chaplain_ismaili_kingdom
+			# 			}
+			# 			#Islam
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier >= tier_empire faith.religion = faith:ashari.religion }
+			# 				desc = councillor_court_chaplain_islam_empire
+			# 			}
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier >= tier_kingdom faith.religion = faith:ashari.religion }
+			# 				desc = councillor_court_chaplain_islam_kingdom
+			# 			}
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier >= tier_duchy faith.religion = faith:ashari.religion }
+			# 				desc = councillor_court_chaplain_islam_duchy
+			# 			}
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier < tier_duchy faith.religion = faith:ashari.religion }
+			# 				desc = councillor_court_chaplain_islam_county
+			# 			}
+			# 			#Yazidi
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier >= tier_empire faith.religion = faith:yazidi.religion }
+			# 				desc = councillor_court_chaplain_yazidi_empire
+			# 			}
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier >= tier_kingdom faith.religion = faith:yazidi.religion }
+			# 				desc = councillor_court_chaplain_yazidi_kingdom
+			# 			}
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier >= tier_duchy faith.religion = faith:yazidi.religion }
+			# 				desc = councillor_court_chaplain_yazidi_duchy
+			# 			}
+			# 			triggered_desc = {
+			# 				trigger = { highest_held_title_tier < tier_duchy faith.religion = faith:yazidi.religion }
+			# 				desc = councillor_court_chaplain_yazidi_county
+			# 			}
+			# 			desc = councillor_court_chaplain
+			# 		}
+			# 	}
+			# }
 			desc = councillor_court_chaplain
 		}
 	}
