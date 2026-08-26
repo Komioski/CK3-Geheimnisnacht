@@ -16,7 +16,7 @@
 	#fp3_yearly.8031 - Grateful Letter (letter event, follow-up)
 #fp3_yearly.8032 - The Ten Days of Death, by Ola Jentzsch
 #fp3_yearly.8033 - Frozen Delights, by Ola Jentzsch
-#fp3_yearly.8034 - The Hephthalite Hoard, by Ola Jentzsch 
+#fp3_yearly.8034 - The Hephthalite Hoard, by Ola Jentzsch -> The Balchoth Hoard
 #fp3_yearly.8035 - The Heart and the Creator, by Ola Jentzsch 
 #fp3_yearly.8036 - The City of the Mouthless, by Ola Jentzsch 
 
@@ -41,6 +41,7 @@ scripted_trigger fp3_hateful_ruler_trigger = {
 		has_trait = sadistic
 		has_trait = paranoid 
 		faith = { has_doctrine = doctrine_pluralism_fundamentalist }
+		faith = { has_doctrine = doctrine_pluralism_chosen_people }
 	}
 }
 
@@ -361,6 +362,7 @@ scripted_trigger fp3_zealous_caliph_trigger = {
 		has_trait = sadistic
 		has_trait = paranoid 
 		faith = { has_doctrine = doctrine_pluralism_fundamentalist }
+		faith = { has_doctrine = doctrine_pluralism_chosen_people }
 	}
 }
 
@@ -2329,31 +2331,46 @@ fp3_yearly.8032 = {
 
 	trigger = { #this event triggers from yearly_persian.1001, and in order to not mess that up, I decided to not demand a fp3_dlc_trigger for this one. 
 
-		always = no # is_available_adult = yes
-		# OR = {
-		# 	culture = { has_cultural_pillar = heritage_iranian }
-		# 	AND = {
-		# 		any_consort = {
-		# 			culture = { has_cultural_pillar = heritage_iranian }
-		# 		}
-		# 		root.capital_province = { geographical_region = world_persian_empire }
-		# 	}
-		# }
+		is_available_adult = yes
+		OR = {
+			culture = { 
+				OR = {
+					has_cultural_pillar = heritage_north_khailuza 
+					has_cultural_pillar = heritage_south_khailuza 
+				}
+			}
+			AND = {
+				any_consort = {
+					culture = { 
+						OR = {
+							has_cultural_pillar = heritage_north_khailuza 
+							has_cultural_pillar = heritage_south_khailuza 
+						}
+					}
+				}
+				root.capital_province = { geographical_region = middleearth_harad_bayoformal_khy }
+			}
+		}
 
-		# any_consort = {
-		# 	is_ai = yes 
-		# 	culture = { has_cultural_pillar = heritage_iranian }
-		# 	NOR = {
-		# 		has_trait = arrogant
-		# 		has_trait = cynical
-		# 		has_trait = callous
-		# 	}
-		# }
+		any_consort = {
+			is_ai = yes 
+			culture = { 
+				OR = {
+					has_cultural_pillar = heritage_north_khailuza 
+					has_cultural_pillar = heritage_south_khailuza 
+				}
+			}
+			NOR = {
+				has_trait = arrogant
+				has_trait = cynical
+				has_trait = callous
+			}
+		}
 
-		# any_ancestor = {
-		# 	even_if_dead = yes 
-		# 	house = root.house
-		# }
+		any_ancestor = {
+			even_if_dead = yes 
+			house = root.house
+		}
 	}
 
 	immediate = {
@@ -2366,7 +2383,12 @@ fp3_yearly.8032 = {
 		random_consort = {
 			limit = {
 				is_ai = yes 
-				#culture = { has_cultural_pillar = heritage_iranian }
+				culture = { 
+					OR = {
+						has_cultural_pillar = heritage_north_khailuza 
+						has_cultural_pillar = heritage_south_khailuza 
+					}
+				}
 				NOR = {
 					has_trait = arrogant
 					has_trait = cynical
@@ -2397,9 +2419,9 @@ fp3_yearly.8032 = {
 		name = fp3_yearly.8032.a
 
 		trigger = {
-			OR = {
-				has_religion = religion:islam_religion
-				has_religion = religion:christianity_religion
+			NOR = {
+				has_religion = religion:ormalbay_religion
+				faith = { has_doctrine = tenet_ancestor_worship }
 			}
 		}
 
@@ -2430,11 +2452,17 @@ fp3_yearly.8032 = {
 			}
 			NOR = {
 				AND = {
-					has_religion = religion:islam_religion
+					OR = {
+						has_religion = religion:ormalbay_religion
+						faith = { has_doctrine = tenet_ancestor_worship }
+					}
 					has_trait = zealous 
 				}
 				AND = {
-					has_religion = religion:christianity_religion
+					OR = {
+						has_religion = religion:ormalbay_religion
+						faith = { has_doctrine = tenet_ancestor_worship }
+					}
 					has_trait = zealous
 				}
 			}
@@ -2547,7 +2575,7 @@ fp3_yearly.8033 = {
 		is_ruler = yes
 		is_available = yes 
 		is_healthy = yes 
-		root.capital_province = { geographical_region = world_persian_empire }
+		root.capital_province = { geographical_region = middleearth_harad_bayoformal }
 
 		#checking that we have an interesting character that would fit the scope
 		OR = { 
@@ -2570,7 +2598,7 @@ fp3_yearly.8033 = {
 
 		any_held_county = {
 			any_county_province = {
-				geographical_region = world_persian_empire
+				geographical_region = middleearth_harad_bayoformal
 				OR = {
 					terrain = desert
 					terrain = drylands
@@ -2638,7 +2666,7 @@ fp3_yearly.8033 = {
 		random_held_county = {
 			limit = {
 				any_county_province = {
-					geographical_region = world_persian_empire
+					geographical_region = middleearth_harad_bayoformal
 					OR = {
 						terrain = desert
 						terrain = drylands
@@ -2801,22 +2829,15 @@ fp3_yearly.8033 = {
 # The Hephthalite Hoard - by Ola Jentzsch
 ###############################################################
 scripted_trigger hypothetical_hephthalite_heritage_trigger = {
-	always = no # OR = {
-	# 	has_culture = culture:saka
-	# 	has_culture = culture:tajik
-	# 	has_culture = culture:sogdian
-	# 	has_culture = culture:turkish
-	# 	has_culture = culture:khwarezmian
-	# 	has_culture = culture:afghan 
-	# 	has_culture = culture:tocharian
-	# }
+	OR = { # LotR
+		lotr_steppe_cultures_trigger = yes
+		has_culture = culture:dorwinionrim
+	}
 }
 
 scripted_trigger hephthalite_hoard_province_trigger = {
-	OR = {
-		geographical_region = dlc_fp3_eastern_persian_frontier_regions
-		geographical_region = custom_bactria
-		geographical_region = world_steppe_tarim
+	OR = { # LotR
+		geographical_region = middleearth_rhun
 	}
 }
 	
@@ -2857,7 +2878,7 @@ fp3_yearly.8034 = {
 			}
 			any_vassal_or_below = {
 				is_ai = yes
-				#hypothetical_hephthalite_heritage_trigger = yes
+				hypothetical_hephthalite_heritage_trigger = yes
 				any_held_county = { 
 					any_county_province = { hephthalite_hoard_province_trigger = yes }
 				}
@@ -3378,14 +3399,20 @@ fp3_yearly.8036 = {
 		has_fp3_dlc_trigger = yes
 		is_available_healthy_adult = yes 
 		is_ruler = yes 
-		root.capital_province = { geographical_region = world_persian_empire }
+		is_druedain = no
+		# root.capital_province = { geographical_region = world_persian_empire }
 
 		any_councillor = {	superstitious_coward_trigger = yes	}
 
-		any_held_county = {
-			OR = {
-				this = title:c_ardabil
-				development_level <= medium_development_level
+		any_sub_realm_county = { #Regions where Pukel Men are likely to be found
+			any_province = {
+				OR = {
+					AND = {
+						geographical_region = dlc_fp3_region_pukel_men
+						terrain = mountains
+					}
+					geographical_region = middleearth_west_enedhwaith
+				}
 			}
 		}
 	}
@@ -3399,17 +3426,19 @@ fp3_yearly.8036 = {
 			save_scope_as = superstitious_councillor
 		}
 
-		random_held_county = {
-			if = {
-				limit = { this = title:c_ardabil }
-				save_scope_as = spooky_county
-			}
-			else_if = {
-				limit = { 
-					development_level < medium_development_level
+		random_realm_county = {
+			limit = {
+				any_province = {
+					OR = {
+						AND = {
+							geographical_region = dlc_fp3_region_pukel_men
+							terrain = mountains
+						}
+						geographical_region = middleearth_west_enedhwaith
+					}
 				}
-				save_scope_as = spooky_county
 			}
+			save_scope_as = spooky_county
 		}
 	}
 

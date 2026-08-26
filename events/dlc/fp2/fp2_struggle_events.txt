@@ -2944,9 +2944,9 @@ fp2_struggle.1010 = { # Soul of Iron, by Ola Jentzsch
 			save_scope_as = blacksmith_county #this scopes it - note that it might be the same county as toledo_county; that is intentional. 
 		}
 
-		title:b_dale = { save_scope_as = toledo_holding } #this is used in the localization
+		title:b_toledo = { save_scope_as = toledo_holding } #this is used in the localization
 
-		title:c_dale = { save_scope_as = toledo_county } #this is used in option c, as well as the localization
+		title:c_toledo = { save_scope_as = toledo_county } #this is used in option c, as well as the localization
 
 		create_character = { #this is the mighty blacksmith that the event needs
 			age = { middle_age old_age } #he's experienced and aging, but not old
@@ -2971,7 +2971,7 @@ fp2_struggle.1010 = { # Soul of Iron, by Ola Jentzsch
 				scarred = {}
 			}
 			culture = scope:toledo_county.culture
-			faith = faith:faith_dale
+			faith = faith:faith_toledo
 			dynasty = none 
 			save_scope_as = great_swordsmith 	#this saves him as a scope so we can get nice effects to bounce off him! 
 		}
@@ -2993,7 +2993,7 @@ fp2_struggle.1010 = { # Soul of Iron, by Ola Jentzsch
 		trigger = { #root needs to control Toledo, and it needs to have a blacksmith building. 
 			any_held_county = {
 				any_county_province = { 
-					barony = title:b_dale
+					barony = title:b_toledo
 					has_building_or_higher = blacksmiths_01
 				}
 			}
@@ -3049,7 +3049,7 @@ fp2_struggle.1010 = { # Soul of Iron, by Ola Jentzsch
 			NAND = {
 				any_held_county = {
 					any_county_province = { 
-						barony = title:b_dale
+						barony = title:b_toledo
 						has_building_or_higher = blacksmiths_01
 					}
 				}
