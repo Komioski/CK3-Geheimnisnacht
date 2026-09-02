@@ -7,7 +7,6 @@
 #######################
 
 tradition_fp3_frontier_warriors = {
-	{
 	category = regional
 
 	layers = {
@@ -20,7 +19,7 @@ tradition_fp3_frontier_warriors = {
 		# DLC check.
 		has_fp3_dlc_trigger = yes
 
-		always = no
+		always = no #WHG
 		
 		# Any culture present in the given area can pick this
 		# any_culture_county = { 
@@ -34,6 +33,7 @@ tradition_fp3_frontier_warriors = {
 		# }
 	}
 
+	can_pick = { #WHG TODO
 		culture_not_pacifistic_trigger = yes
 		# Must have a significant cultural presence in the general Turanian area, i.e. the "frontier"
 		# custom_tooltip = {
@@ -52,7 +52,7 @@ tradition_fp3_frontier_warriors = {
 	}
 	
 	parameters = {
-		# unlock_maa_tarkhan = yes
+		# unlock_maa_tarkhan = yes #WHG
 		faith_warrior_traits_more_valued = yes
 	}
 	province_modifier = {
@@ -103,7 +103,7 @@ tradition_fp3_frontier_warriors = {
 				}
 			}
 			#Turko-Mongol-Iranians get it cheaper!
-			# if = { 
+			# if = {  #WHG
 			# 	limit = {
 			# 		NOR = {
 			# 			has_cultural_pillar = heritage_iranian
@@ -168,6 +168,7 @@ tradition_fp3_irrigation_experts = {
 	is_shown = {
 		# DLC check.
 		has_fp3_dlc_trigger = yes
+		#has_cultural_pillar = heritage_iranian #WHG TODO
 		NOT = { has_cultural_tradition = tradition_dryland_dwellers }
 	}
 	
@@ -310,7 +311,7 @@ tradition_fp3_beacon_of_learning = { # Offshoot of tradition_philosopher_culture
 	is_shown = {
 		has_fp3_dlc_trigger = yes
 		OR = {
-			has_cultural_pillar = heritage_estalian
+			has_cultural_pillar = heritage_estalian #WHG
 			has_cultural_pillar = heritage_tilean
 			has_cultural_pillar = heritage_myrmidon
 		}
@@ -560,6 +561,10 @@ tradition_fp3_jirga = {
 	is_shown = {
 		# DLC check.
 		has_fp3_dlc_trigger = yes
+		OR = { #WHG TODO
+			has_cultural_pillar = heritage_arabyan
+
+		}
 	}
 	
 	can_pick = {
@@ -628,7 +633,7 @@ tradition_fp3_jirga = {
 	
 	ai_will_do = {
 		value = 100
-		# if = { #LotR
+		# if = { #WHG
 		# 	limit = {
 		# 		OR = {
 		# 			culture_tradition:tradition_things = { is_in_list = traits }
@@ -652,7 +657,7 @@ tradition_fp3_pragmatic_creed = {
 	is_shown = {
 		# DLC check.
 		has_fp3_dlc_trigger = yes
-		# has_cultural_pillar = heritage_iranian # LotR
+		# has_cultural_pillar = heritage_iranian # WHG
 	}
 	
 	can_pick = {
@@ -663,13 +668,14 @@ tradition_fp3_pragmatic_creed = {
 				county_has_province_with_terrain = {
 					terrain = mountains
 					terrain = desert_mountains
+					#terrain = halls #WHG TODO
 				}
 			}
 		}
 	}
 	
 	parameters = {
-		# unlock_maa_zupin_warrior = yes
+		# unlock_maa_zupin_warrior = yes #WHG
 		diligent_trait_more_common = yes
 		pragmatic_traits_county_opinion_modifiers = yes
 		commanders_likelier_to_gain_commander_traits = yes
@@ -708,6 +714,7 @@ tradition_fp3_pragmatic_creed = {
 							county_has_province_with_terrain = {
 								terrain = mountains
 								terrain = desert_mountains
+								#terrain = halls #WHG TODO
 							}
 						}
 					}
@@ -747,7 +754,7 @@ tradition_fp3_pragmatic_creed = {
 			limit = {
 				NOT = { # Less likely for cultures who doesn't descend from Daylamite
 					any_parent_culture_or_above = {
-						this = culture:variag
+						#this = culture:daylamite #WHG TODO
 					}
 				}
 			}
@@ -761,7 +768,7 @@ tradition_fp3_pragmatic_creed = {
 #######################
 
 tradition_fp3_fierce_independence = {
-	category = societal
+	category = societal #WHG
 
 	layers = {
 		0 = martial
@@ -771,21 +778,17 @@ tradition_fp3_fierce_independence = {
 	
 	is_shown = {
 		has_fp3_dlc_trigger = yes
-		#has_cultural_pillar = heritage_iranian
+		#has_cultural_pillar = heritage_iranian #WHG
 	}
 
 	can_pick = {
-		custom_description = { #LotR
-			text = fewer_that_20_culture_counties
-			culture_number_of_counties < 20
-		}
 		NOT = {
 			has_cultural_tradition = tradition_staunch_traditionalists
 		}
 	}
 	
 	parameters = {
-		# unlock_maa_tawashi = yes 
+		# unlock_maa_tawashi = yes  #WHG
 		harder_to_hybridize = yes
 		harder_to_convert_county_culture = yes
 	}

@@ -127,14 +127,11 @@ tradition_lords_of_the_elephant = {
 	}
 	can_pick = {
 		has_innovation = innovation_elephantry
-		NOT = { has_cultural_tradition = tradition_annammonnil }
 	}
 
 	parameters = {
 		can_recruit_jungle_specialist = yes
-		elephant_pens_building_bonuses = yes
 		elephant_bonuses_for_rank_4_education = yes
-		elephant_pens_enabled_for_tribals = yes 
 	}
 	character_modifier = {
 		elephant_cavalry_recruitment_cost_mult = -0.15
@@ -200,8 +197,9 @@ tradition_lords_of_the_elephant = {
 		if = {
 			limit = {
 				NOR = {
-					# has_cultural_pillar = heritage_indo_aryan 
+					# has_cultural_pillar = heritage_indo_aryan  #WHG
 					# has_cultural_pillar = heritage_dravidian
+					has_cultural_pillar = heritage_ind #WHG TODO
 				}
 			}
 			multiply = 0
@@ -219,7 +217,7 @@ tradition_african_tolerance = {
 	}
 
 	is_shown = {
-		always = no
+		always = no #WHG
 		OR = { # For cultures with any heritage from western or central Africa
 			# has_cultural_pillar = heritage_berber
 			# has_cultural_pillar = heritage_west_african
@@ -509,18 +507,22 @@ category = regional
 		1 = mena
 		4 = camel.dds
 	}
-	
+
 	is_shown = {
-		# always = no #LotR
+		OR = { #WHG TODO
+			#has_culturel_pillar = heritage_arabyan
+			#has_culturel_pillar = heritage_cathay
+		 }
+		always = no #LotR
 	}
-	
+
 	parameters = {
 		wanderers_gain_extra_economic_skills = yes
 		more_likely_to_leave_court = yes
 		second_caravanserai = yes
 		unlock_voluntary_laampdom = yes
 	}
-	
+
 	character_modifier = {
 		diplomatic_range_mult = 0.2
 		stewardship = 1
@@ -528,7 +530,7 @@ category = regional
 		desert_travel_danger = desert_medium_danger_reduction
 		drylands_travel_danger = drylands_medium_danger_reduction
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -590,6 +592,9 @@ tradition_horse_lords = {
 			text = culture_in_steppe_desc
 			any_culture_county = {
 				percent >= 0.4
+				any_county_province = {
+					#geographical_region = world_steppe #WHG TODO
+				}
 			}
 		}
 	}
@@ -1146,9 +1151,7 @@ tradition_mountaineer_ruralism = {
 			# }
 		}
 		OR ={
-			has_cultural_pillar = heritage_daen_coentis
-			has_cultural_pillar = heritage_daen_lintis
-			has_cultural_pillar = heritage_danan_lin
+			#has_cultural_pillar = heritage_kislevite
 		}
 	}
 
@@ -1166,19 +1169,10 @@ tradition_mountaineer_ruralism = {
 				}
 			}
 		}
-		trigger_if = {
-            limit = {
-                scope:replacing ?= culture_tradition:tradition_variag_succession
-            }
-            custom_tooltip = {
-                text = cannot_replace_variag_succession
-                NOT = { has_cultural_tradition = tradition_variag_succession } #To prevent stacking after hybridization
-            }
-        }
 	}
-	
+
 	parameters = {
-		# unlock_maa_zbrojnosh = yes
+		# unlock_maa_zbrojnosh = yes #WHG
 		quarries_building_bonuses = yes
 		hill_farms_building_bonuses = yes
 		rough_terrain_expert_trait_more_common = yes

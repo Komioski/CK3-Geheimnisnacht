@@ -1182,7 +1182,6 @@ antiquarian_court_position = {
 		background = "gfx/interface/illustrations/event_scenes/tgp_courtyard_asia.dds"
 		localization_key = antiquarian_celestial
 	}
-	
 
 	court_position_asset = {
 		animation = throne_room_one_handed_passive_3
@@ -1507,7 +1506,6 @@ seneschal_court_position = {
 		background = "gfx/interface/illustrations/event_scenes/tgp_asia_estate.dds"
 		localization_key = seneschal_celestial
 	}
-
 
 	court_position_asset = {
 		trigger = { culture_has_east_asian_heritage_pillar_trigger = yes }
@@ -2409,7 +2407,6 @@ wet_nurse_court_position = { # BP2
 
 	is_shown_character = {
 		scope:employee = {
-			same_race = { TARGET = scope:liege } # LOTR
 			court_position_employee_shown_trigger = yes
 		}
 	}
@@ -2635,7 +2632,6 @@ charioteer_court_position = {
 		is_landed_or_landless_administrative = yes
 		has_ep3_dlc_trigger = yes
 		highest_held_title_tier > tier_county
-		culture = { has_cultural_parameter = hosts_chariot_races } #LotR
 	}
 
 	opinion = {
@@ -3507,7 +3503,7 @@ akolouthos_court_position = { # EP1 & EP3
 	}
 
 	is_shown = {
-		always = no #LotR
+		always = no #WHG
 		#is_landed_or_landless_administrative = yes
 		#has_ep1_court_positions_dlc_trigger = yes
 		has_ep3_dlc_trigger = yes
@@ -3971,6 +3967,29 @@ master_of_horse_court_position = {
 		localization_key = master_of_horse_celestial
 	}
 
+	court_position_asset = {
+		trigger = { culture_has_east_asian_heritage_pillar_trigger = yes }
+		animation = throne_room_two_handed_passive_1
+		background = "gfx/interface/illustrations/event_scenes/tgp_courtyard_asia.dds"
+	}
+
+	court_position_asset = {
+		trigger = { culture_has_south_asian_heritage_pillar_trigger = yes }
+		animation = throne_room_two_handed_passive_1
+		background = "gfx/interface/illustrations/event_scenes/bp1_courtyard_indian.dds"
+	}
+
+	court_position_asset = {
+		trigger = { culture_has_mena_heritage_pillar_trigger = yes }
+		animation = throne_room_two_handed_passive_1
+		background = "gfx/interface/illustrations/event_scenes/bp1_courtyard_mena.dds"
+	}
+
+	court_position_asset = {
+		trigger = { culture_has_south_european_heritage_pillar_trigger = yes }
+		animation = throne_room_two_handed_passive_1
+		background = "gfx/interface/illustrations/event_scenes/fp2_courtyard.dds"
+	}
 
 	court_position_asset = {
 		animation = throne_room_two_handed_passive_1
@@ -4058,18 +4077,12 @@ master_of_horse_court_position = {
 			}
 			always = no
 		}
-		is_dwarf = no #LotR
-		is_orc = no #LotR
-		is_goblin = no #LotR
 	}
 
 	# Is this an available position for this court? (root is court owner)
 	valid_position = {
 		is_landed_or_landless_administrative = yes
 		highest_held_title_tier >= tier_duchy
-		is_dwarf = no #LotR
-		is_orc = no #LotR
-		is_goblin = no #LotR
 	}
 
 	is_shown_character = {
@@ -5638,7 +5651,7 @@ chief_qadi_court_position = {
 
 	# Is this an available position for this court? (root is court owner)
 	is_shown = {
-		always = no
+		always = no #WHG
 	#	is_landed_or_landless_administrative = yes
 	#	NOT = { government_has_flag = government_is_nomadic }
 	#	trigger_if = {
@@ -5654,7 +5667,7 @@ chief_qadi_court_position = {
 		is_landed_or_landless_administrative = yes
 		# has_religion = religion:islam_religion
 		highest_held_title_tier >= tier_kingdom
-		always = no # LotR
+		always = no # WHG
 	}
 
 	is_shown_character = {
@@ -5847,6 +5860,12 @@ court_gardener_court_position = {
 	}
 
 	court_position_asset = {
+		trigger = { culture_has_east_asian_heritage_pillar_trigger = yes }
+		animation = admiration
+		background = "gfx/interface/illustrations/event_scenes/tgp_garden_asia.dds"
+	}
+
+	court_position_asset = {
 		animation = admiration
 		background = "gfx/interface/illustrations/event_scenes/garden.dds"
 	}
@@ -5976,7 +5995,7 @@ court_gardener_court_position = {
 			}
 			always = no
 		}
-		culture = { has_cultural_parameter = can_appoint_court_gardener } #LotR
+		culture = { has_cultural_parameter = can_appoint_court_gardener } #WHG TODO?
 	}
 
 	is_shown_character = {
@@ -6527,6 +6546,13 @@ chronicler_court_position = { # CE1
 		background = "gfx/interface/illustrations/event_scenes/tgp_asia_throne_room.dds"
 	}
 
+	#court_position_asset = { #WHG
+	#	trigger = {
+	#		is_roman_emperor_trigger = yes
+	#	}
+	#	animation = writing
+	#	background = "gfx/interface/illustrations/event_scenes/ep3_byzantine_throne_room.dds"
+	#}
 
 	court_position_asset = {
 		trigger = { culture_has_mena_heritage_pillar_trigger = yes }
@@ -7352,13 +7378,6 @@ court_brewmaster_court_position = {
 			}
 			always = no
 		}
-		# custom_tooltip = { #LotR
-		# 	text = court_brewmaster_requirement_tt
-		# 	any_sub_realm_barony = {
-		# 		county.holder = root
-		# 		title_province = { has_building_or_higher = breweries_01 }
-		# 	}
-		# }
 	}
 
 	# Is this an available position for this court? (root is court owner)
@@ -7853,6 +7872,22 @@ royal_architect_court_position = { # EP1
 		background = "gfx/interface/illustrations/event_scenes/tgp_chinese_city.dds"
 		localization_key = royal_architect_celestial
 	}
+
+	court_position_asset = { #WHG COMMENT OUT
+		trigger = {
+			culture = { has_cultural_pillar = heritage_japonic }
+		}
+		animation = survey
+		background = "gfx/interface/illustrations/event_scenes/tgp_japanese_city.dds"
+	}
+
+	#court_position_asset = { #WHG
+	#	trigger = {
+	#		culture = { has_cultural_pillar = heritage_japonic }
+	#	}
+	#	animation = survey
+	#	background = "gfx/interface/illustrations/event_scenes/tgp_japanese_city.dds"
+	#}
 
 	court_position_asset = {
 		trigger = { culture_has_east_asian_heritage_pillar_trigger = yes }
@@ -8453,15 +8488,14 @@ court_poet_court_position = { # EP1
 		background = "gfx/interface/illustrations/event_scenes/tgp_tavern_asia.dds"
 		localization_key = court_poet_celestial
 	}
-	
 
-	court_position_asset = { #LotR
+	court_position_asset = {
 		trigger = { culture_has_east_asian_heritage_pillar_trigger = yes }
 		animation = storyteller
 		background = "gfx/interface/illustrations/event_scenes/tgp_tavern_asia.dds"
 	}
 
-	court_position_asset = { #LotR
+	court_position_asset = {
 		trigger = { culture_has_mena_heritage_pillar_trigger = yes }
 		animation = storyteller
 		background = "gfx/interface/illustrations/event_scenes/bp2_tavern_mena.dds"
@@ -8470,8 +8504,7 @@ court_poet_court_position = { # EP1
 	court_position_asset = {
 		trigger = {
 			root.culture ?= {
-				#has_cultural_pillar = heritage_north_germanic #LOTR
-				has_cultural_pillar = heritage_norscan
+				has_cultural_pillar = heritage_north_germanic
 			}
 		}
 		animation = storyteller
@@ -9000,8 +9033,6 @@ court_musician_court_position = {
 				desc = court_position_tradition_music_theory
 			}
 		}
-
-
 		#Events
 		if = {
 			limit = {
@@ -9114,7 +9145,6 @@ court_musician_court_position = {
 			}
 			highest_held_title_tier >= tier_duchy
 		}
-
 		trigger_else = {
 			highest_held_title_tier >= tier_kingdom
 		}
@@ -9942,23 +9972,27 @@ keeper_of_swans_court_position = {
 	}
 
 	is_shown = {
-		always = no # is_landed_or_landless_administrative = yes
-		# NOR = {
-		# 	government_has_flag = government_is_nomadic
-		# 	government_has_flag = government_is_celestial
-		# }
-		# trigger_if = {
-		# 	limit = {
-		# 		is_ai = yes
-		# 		highest_held_title_tier <= tier_county
-		# 	}
-		# 	always = no #LotR
-		# }
-		
+		is_landed_or_landless_administrative = yes
+		NOR = {
+			government_has_flag = government_is_nomadic
+			government_has_flag = government_is_celestial
+		}
+		trigger_if = {
+			limit = {
+				is_ai = yes
+				highest_held_title_tier <= tier_county
+			}
+			always = no
+		}
 	}
 
 	valid_position = {
-
+		is_landed_or_landless_administrative = yes
+		highest_held_title_tier >= tier_kingdom
+		culture = {
+			#has_cultural_pillar = heritage_west_germanic
+			has_cultural_pillar = heritage_bretonnian
+		}
 	}
 
 	is_shown_character = {
@@ -10123,7 +10157,6 @@ court_jester_court_position = {
 		animation = dancing
 		background = "gfx/interface/illustrations/event_scenes/ep2_feast_steppe.dds"
 	}
-
 
 	court_position_asset = {
 		trigger = { culture_has_east_asian_heritage_pillar_trigger = yes }
@@ -10565,7 +10598,7 @@ executioner_court_position = { # EP1
 
 	is_shown_character = {
 		scope:employee = {
-			tgp_is_ceremonial_liege_trigger = no
+			court_position_employee_shown_trigger = yes
 		}
 	}
 
@@ -10746,12 +10779,10 @@ bodyguard_court_position = { # EP1
 	max_available_positions = 2
 
 	skill = prowess
-	
-
 
 	court_position_asset = {
 		trigger = {
-			culture = { has_cultural_pillar = heritage_kurgan }
+			culture = { has_cultural_pillar = heritage_kurgan } #WHG
 		}
 		animation = menacing
 		background = "gfx/interface/illustrations/event_scenes/corridor.dds"
@@ -10905,7 +10936,7 @@ bodyguard_court_position = { # EP1
 			limit = {
 				has_trait = varangian
 				employer ?= {
-					# has_title = title:e_byzantium
+					#has_title = title:e_byzantium #WHG
 					employs_court_position = akolouthos_court_position
 				}
 			}
@@ -11410,7 +11441,14 @@ court_artificer_court_position = { # EP1
 		background = "gfx/interface/illustrations/event_scenes/tgp_study_asia.dds"
 		localization_key = court_artificer_celestial
 	}
-	
+
+	court_position_asset = { #WHG TODO
+		trigger = {
+			culture = { has_cultural_pillar = heritage_japonic }
+		}
+		animation = page_flipping
+		background = "gfx/interface/illustrations/event_scenes/tgp_study_japan.dds"
+	}
 
 	court_position_asset = {
 		trigger = { culture_has_east_asian_heritage_pillar_trigger = yes }

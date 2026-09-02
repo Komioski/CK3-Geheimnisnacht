@@ -1114,36 +1114,6 @@ headgear_base = {
 		}
 	}
 
-	ep1_italian_royalty = { # The Iron Crown of Lombardy
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ep1_italian_royalty
-				range = { 0 1 } # For the randomness to work correctly
-			}
-
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 50
-				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = western_proxy 
-				}
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = fp2_iberian_muslim
-                    }
-				}					
-				culture = {
-					has_cultural_pillar = heritage_latin
-				}
-				has_ep1_dlc_trigger = yes
-			}
-		}
-	}
-
 	fp4_western_era2_royalty = {
 		dna_modifiers = {
 			accessory = {
@@ -1866,53 +1836,53 @@ headgear_base = {
 		}
 	}
 
-	ep1_indian_royalty = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ep1_indian_royalty
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-				portrait_royalty_headgear_trigger = {
-					CULTURE_INPUT = indian_proxy
-				}
-				culture = {
-					has_cultural_pillar = heritage_burman
-				}
-				has_ep1_dlc_trigger = yes
-			}
-			modifier = {
-				add = 20000
-				has_character_flag = wear_makuta
-			}
-			modifier = {
-				add = 50
-				OR = {
-					portrait_royalty_headgear_trigger = {
-						CULTURE_INPUT = southeast_asian
-					}
-					portrait_imperial_headgear_trigger = {
-						CULTURE_INPUT = southeast_asian
-					}
-				}
-			}
-			modifier = {
-				add = 50
-				OR = {
-					portrait_high_nobles_headgear_trigger = {
-						CULTURE_INPUT = southeast_asian
-					}
-				}
-				has_tgp_dlc_trigger = no
-			}
-		}
-	}
+	# ep1_indian_royalty = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = ep1_indian_royalty
+	# 			range = { 0 1 } # For the randomness to work correctly
+	# 		}
+	# 	}
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 100
+	# 			portrait_royalty_headgear_trigger = {
+	# 				CULTURE_INPUT = indian_proxy
+	# 			}
+	# 			culture = {
+	# 				has_cultural_pillar = heritage_burman
+	# 			}
+	# 			has_ep1_dlc_trigger = yes
+	# 		}
+	# 		modifier = {
+	# 			add = 20000
+	# 			has_character_flag = wear_makuta
+	# 		}
+	# 		modifier = {
+	# 			add = 50
+	# 			OR = {
+	# 				portrait_royalty_headgear_trigger = {
+	# 					CULTURE_INPUT = southeast_asian
+	# 				}
+	# 				portrait_imperial_headgear_trigger = {
+	# 					CULTURE_INPUT = southeast_asian
+	# 				}
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			add = 50
+	# 			OR = {
+	# 				portrait_high_nobles_headgear_trigger = {
+	# 					CULTURE_INPUT = southeast_asian
+	# 				}
+	# 			}
+	# 			has_tgp_dlc_trigger = no
+	# 		}
+	# 	}
+	# }
 
 	indian_imperial = {
 		dna_modifiers = {
@@ -2228,36 +2198,36 @@ headgear_base = {
 		}
 	}
 
-	ep1_mena_royalty = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = ep1_mena_royalty
-				range = { 0 1 } # For the randomness to work correctly
-			}
-		}		
-		weight = {
-			base = 0
-			modifier = {
-				add = 100
-                portrait_royalty_headgear_trigger = {
-                    CULTURE_INPUT = mena_proxy 
-                }
-				NOT = {
-					portrait_royalty_headgear_trigger = { 
-                    CULTURE_INPUT = fp3_iranian
-                    }
-				}				
-				culture = {
-					has_cultural_pillar = heritage_east_african
-				}
-				religion = religion:islam_religion
-				has_ep1_dlc_trigger = yes
-				is_female = no
-			}		
-		}
-	}
+	# ep1_mena_royalty = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = ep1_mena_royalty
+	# 			range = { 0 1 } # For the randomness to work correctly
+	# 		}
+	# 	}		
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 100
+    #             portrait_royalty_headgear_trigger = {
+    #                 CULTURE_INPUT = mena_proxy 
+    #             }
+	# 			NOT = {
+	# 				portrait_royalty_headgear_trigger = { 
+    #                 CULTURE_INPUT = fp3_iranian
+    #                 }
+	# 			}				
+	# 			culture = {
+	# 				has_cultural_pillar = heritage_east_african
+	# 			}
+	# 			religion = religion:islam_religion
+	# 			has_ep1_dlc_trigger = yes
+	# 			is_female = no
+	# 		}		
+	# 	}
+	# }
 
 	mena_imperial = {
 		dna_modifiers = {
@@ -5648,46 +5618,46 @@ ccp4_ugro_permian_high_nobles = {
 
 ## Orthodox ##
 
-	religious_orthodox_high = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = religious_orthodox_high
-				range = { 0 1 }
-			}
-		}
-		outfit_tags = { priest_outfit bishop_outfit }
-		weight = {
-			base = 0
-			modifier = {
-				add = 130
-				portrait_religious_orthodox_trigger = yes
-				portrait_religious_high_headgear_trigger = {
-					FAITH_INPUT = orthodox
-				}
-			}
-		}
-	}
+	# religious_orthodox_high = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = religious_orthodox_high
+	# 			range = { 0 1 }
+	# 		}
+	# 	}
+	# 	outfit_tags = { priest_outfit bishop_outfit }
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 130
+	# 			portrait_religious_orthodox_trigger = yes
+	# 			portrait_religious_high_headgear_trigger = {
+	# 				FAITH_INPUT = orthodox
+	# 			}
+	# 		}
+	# 	}
+	# }
 
-	religious_orthodox_head = {
-		dna_modifiers = {
-			accessory = {
-				mode = add
-				gene = headgear
-				template = religious_orthodox_head
-				range = { 0 1 }
-			}
-		}
-		weight = {
-			base = 0
-			modifier = {
-				add = 200
-				portrait_religious_head_trigger = yes
-				faith = faith:orthodox
-			}
-		}
-	}
+	# religious_orthodox_head = {
+	# 	dna_modifiers = {
+	# 		accessory = {
+	# 			mode = add
+	# 			gene = headgear
+	# 			template = religious_orthodox_head
+	# 			range = { 0 1 }
+	# 		}
+	# 	}
+	# 	weight = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 200
+	# 			portrait_religious_head_trigger = yes
+	# 			faith = faith:orthodox
+	# 		}
+	# 	}
+	# }
 
 
 ## Catholic ##
