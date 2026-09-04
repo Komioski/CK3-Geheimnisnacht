@@ -262,7 +262,6 @@ wastelands.0006 = {
 							is_underground_county = no
 
 							NOR = {
-								has_county_modifier = elven_homeland_county_modifier
 								has_county_modifier = block_settlement_ability
 							}
 						}
@@ -282,14 +281,12 @@ wastelands.0006 = {
 							is_wastelands = yes
 
 							NOR = {
-								has_county_modifier = block_settlement_ability
-								has_county_modifier = elven_homeland_county_modifier
-							}
+								has_county_modifier = block_settlement_ability							}
 							OR = {
 								county_has_province_with_terrain = {
 									terrain = mountains
 									terrain = desert_mountains
-									terrain = halls
+									# terrain = halls
 								}
 								AND = {
 									any_county_province = {
@@ -297,7 +294,7 @@ wastelands.0006 = {
 										any_neighboring_province = {
 											OR = {
 												terrain = desert_mountains
-												terrain = halls
+												# terrain = halls
 												terrain = mountains
 											}
 										}
@@ -330,7 +327,6 @@ wastelands.0006 = {
 							is_wastelands = yes
 							is_underground_county = no
 							NOR = {
-								has_county_modifier = elven_homeland_county_modifier
 								has_county_modifier = block_settlement_ability
 							}
 						}
@@ -348,7 +344,6 @@ wastelands.0006 = {
 							is_wastelands = yes
 							NOR = {
 								has_county_modifier = block_settlement_ability
-								has_county_modifier = elven_homeland_county_modifier
 							}
 							county_has_province_with_terrain = {
 								terrain = plains
@@ -4275,7 +4270,7 @@ wastelands.1403 = { # Saved from the Lair
 			scope:obstacle_province = {
 				NOT = {
 					#terrain = mountains
-					terrain = halls
+					# terrain = halls
 					#terrain = desert_mountains
 				}
 			}
@@ -4294,7 +4289,7 @@ wastelands.1403 = { # Saved from the Lair
 				if = { # Check if the county is underground
 					limit = {
 						scope:obstacle_province = {
-							terrain = halls
+							# terrain = halls
 						}
 					}
 					scope:obstacle_province = {
@@ -5231,11 +5226,11 @@ wastelands.1603 = { # The Brotherhood
 	desc = wastelands.1603.desc
 	theme = martial
 	override_background = {
-		trigger = { scope:obstacle_province = { terrain = halls } }
+		# trigger = { scope:obstacle_province = { terrain = halls } }
 		reference = armory_dwarven
 	}
 	override_background = {
-		trigger = { NOT = { scope:obstacle_province = { terrain = halls } } }
+		# trigger = { NOT = { scope:obstacle_province = { terrain = halls } } }
 		reference = market_tribal
 	}
 	left_portrait = {
@@ -5708,7 +5703,7 @@ wastelands.1606 = { # The Cunning Brigand
 				if = {
 					limit = {
 						scope:obstacle_province = {
-							terrain = halls
+							# terrain = halls
 						}
 					}
 					scope:obstacle_province = {
@@ -5793,7 +5788,7 @@ wastelands.1606 = { # The Cunning Brigand
 							scope:obstacle_province = {
 								OR = {
 									#terrain = mountains
-									terrain = halls
+									# terrain = halls
 									#terrain = desert_mountains
 								}
 							}
@@ -5861,7 +5856,7 @@ wastelands.1606 = { # The Cunning Brigand
 					scope:obstacle_province = {
 						OR = {
 							#terrain = mountains
-							terrain = halls
+							# terrain = halls
 							#terrain = desert_mountains
 						}
 					}
@@ -7107,7 +7102,7 @@ wastelands.1901 = { # The Orcish leader
 						limit = {
 							scope:obstacle_province = {
 								OR = {
-									terrain = halls
+									# terrain = halls
 								}
 							}
 						}
@@ -7478,7 +7473,7 @@ wastelands.1904 = { # The Crafty Goblin
 					if = {
 						limit = {
 							scope:obstacle_province = {
-								terrain = halls
+								# terrain = halls
 							}
 						}
 						scope:obstacle_province = {
@@ -7538,7 +7533,7 @@ wastelands.1904 = { # The Crafty Goblin
 					if = {
 						limit = {
 							scope:obstacle_province = {
-								terrain = halls
+								# terrain = halls
 							}
 						}
 						scope:obstacle_province = {
