@@ -8547,7 +8547,7 @@ hajjaj = {
 		prowess = 2
 	}
 	
-	arabyan_religion_opinion = 5
+	#arabyan_religion_opinion = 5 #WHG
 	character_travel_speed = 5
 	character_travel_safety = 5
 	
@@ -8660,74 +8660,74 @@ devoted = {
 				}
 				desc = trait_devoted_child
 			}
-			triggered_desc = {
-				trigger = {
-					faith ?= {
-						faith:theravada.religion ?= religion
-					}
-					culture ?= { has_cultural_pillar = language_japonic }
-					is_female = no
-				}
-				desc = trait_devoted_buddhism_japanese_male
-			}
-			triggered_desc = {
-				trigger = {
-					faith ?= {
-						faith:theravada.religion ?= religion
-					}
-					culture ?= { has_cultural_pillar = language_japonic }
-					is_female = yes
-				}
-				desc = trait_devoted_buddhism_japanese_female
-			}
-			triggered_desc = {
-				trigger = {
-					exists = faith.religion
-					faith.religion = faith:theravada.religion
-					is_female = no
-				}
-				desc = trait_devoted_buddhism_male
-			}
-			triggered_desc = {
-				trigger = {
-					exists = faith.religion
-					faith.religion = faith:theravada.religion
-					is_female = yes
-				}
-				desc = trait_devoted_buddhism_female
-			}
-			triggered_desc = {
-				trigger = {
-					exists = faith.religion
-					faith.religion = faith:vaishnavism.religion
-					is_female = no
-				}
-				desc = trait_devoted_hinduism_male
-			}
-			triggered_desc = {
-				trigger = {
-					exists = faith.religion
-					faith.religion = faith:vaishnavism.religion
-					is_female = yes
-				}
-				desc = trait_devoted_hinduism_female
-			}
-			triggered_desc = {
-				trigger = {
-					exists = faith.religion
-					faith.religion = faith:digambara.religion
-					is_female = no
-				}
-				desc = trait_devoted_jainism_male
-			}
-			triggered_desc = {
-				trigger = {
-					exists = faith.religion
-					faith.religion = faith:digambara.religion
-					is_female = yes
-				}
-				desc = trait_devoted_jainism_female
-			}
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		faith ?= {
+			# 			faith:theravada.religion ?= religion
+			# 		}
+			# 		culture ?= { has_cultural_pillar = language_japonic }
+			# 		is_female = no
+			# 	}
+			# 	desc = trait_devoted_buddhism_japanese_male
+			# } 
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		faith ?= {
+			# 			faith:theravada.religion ?= religion
+			# 		}
+			# 		culture ?= { has_cultural_pillar = language_japonic }
+			# 		is_female = yes
+			# 	}
+			# 	desc = trait_devoted_buddhism_japanese_female
+			# }
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = faith.religion
+			# 		faith.religion = faith:theravada.religion
+			# 		is_female = no
+			# 	}
+			# 	desc = trait_devoted_buddhism_male
+			# }
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = faith.religion
+			# 		faith.religion = faith:theravada.religion
+			# 		is_female = yes
+			# 	}
+			# 	desc = trait_devoted_buddhism_female
+			# }
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = faith.religion
+			# 		faith.religion = faith:vaishnavism.religion
+			# 		is_female = no
+			# 	}
+			# 	desc = trait_devoted_hinduism_male
+			# }
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = faith.religion
+			# 		faith.religion = faith:vaishnavism.religion
+			# 		is_female = yes
+			# 	}
+			# 	desc = trait_devoted_hinduism_female
+			# }
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = faith.religion
+			# 		faith.religion = faith:digambara.religion
+			# 		is_female = no
+			# 	}
+			# 	desc = trait_devoted_jainism_male
+			# }
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = faith.religion
+			# 		faith.religion = faith:digambara.religion
+			# 		is_female = yes
+			# 	}
+			# 	desc = trait_devoted_jainism_female
+			# }
 			triggered_desc = {
 				trigger = { is_female = yes }
 				desc = trait_devoted_female
@@ -8755,7 +8755,7 @@ devoted = {
 sayyid = {
 	category = fame
 	
-	arabyan_religion_opinion = 5
+	#arabyan_religion_opinion = 5 #WHG
 	flag = initial_legitimacy_boost
 	
 	ruler_designer_cost = 25
@@ -8799,7 +8799,7 @@ saoshyant = {
 	learning = 2
 	prowess = 2
 
-	zoroastrianism_religion_opinion = 10
+	#zoroastrianism_religion_opinion = 10 #WHG
 	
 	shown_in_ruler_designer = no
 	
@@ -8826,7 +8826,7 @@ saoshyant_descendant = {
 	}
 	learning = 1
 
-	zoroastrianism_religion_opinion = 5
+	#zoroastrianism_religion_opinion = 5 #WHG
 	
 	shown_in_ruler_designer = no
 	
@@ -8937,11 +8937,11 @@ faith_warrior = {
 				trigger = { NOT = { exists = this } }
 				desc = faith_warrior.dds
 			}
-			triggered_desc = {
-				trigger = { faith = { religion_tag = christianity_religion } }
-				desc = crusader.dds
-			}
-			#triggered_desc = {
+			# triggered_desc = { #WHG
+			# 	trigger = { faith = { religion_tag = christianity_religion } }
+			# 	desc = crusader.dds
+			# }
+			#triggered_desc = { #WHG
 			#	trigger = { faith = { religion_tag = arabyan_religion } }
 			#	desc = mujahid.dds
 			#}
@@ -8955,87 +8955,87 @@ faith_warrior = {
 				trigger = { NOT = { exists = this } }
 				desc = trait_faith_warrior
 			}
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = christianity_religion } }
 			# 	desc = trait_crusader
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = arabyan_religion } }
 			# 	desc = trait_mujahid
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = bon_religion } }
 			# 	desc = trait_crusader_bon
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = buddhism_religion } }
 			# 	desc = trait_crusader_buddhism
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = dualism_religion } }
 			# 	desc = trait_crusader_dualism
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = germanic_religion } }
 			# 	desc = trait_crusader_germanic
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = hellenism_religion } }
 			# 	desc = trait_crusader_hellenism
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = hinduism_religion } }
 			# 	desc = trait_crusader_hinduism
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = jainism_religion } }
 			# 	desc = trait_crusader_jainism
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = judaism_religion } }
 			# 	desc = trait_crusader_judaism
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = magyar_religion } }
 			# 	desc = trait_crusader_magyar
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = baltic_religion } }
 			# 	desc = trait_crusader_baltic
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = slavic_religion } }
 			# 	desc = trait_crusader_slavic
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = finno_ugric_religion } }
 			# 	desc = trait_crusader_finno_ugric
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = siberian_religion } }
 			# 	desc = trait_crusader_siberian
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = tengrism_religion } }
 			# 	desc = trait_crusader_tengrism
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = west_african_religion } }
 			# 	desc = trait_crusader_west_african
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = west_african_bori_religion } }
 			# 	desc = trait_crusader_west_african_bori
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = west_african_roog_religion } }
 			# 	desc = trait_crusader_west_african_roog
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = zoroastrianism_religion } }
 			# 	desc = trait_crusader_zoroastrianism
 			# }
-			# triggered_desc = {
+			# triggered_desc = { #WHG
 			# 	trigger = { faith = { religion_tag = zunism_religion } }
 			# 	desc = trait_crusader_zunism
 			# }
@@ -9050,14 +9050,14 @@ faith_warrior = {
 				trigger = { NOT = { exists = this } }
 				desc = trait_faith_warrior_desc
 			}
-			#triggered_desc = {
+			#triggered_desc = { #WHG
 			#	trigger = { faith = { religion_tag = arabyan_religion } }
 			#	desc = trait_mujahid_character_desc
 			#}
-			triggered_desc = {
-				trigger = { faith = { religion_tag = christianity_religion } }
-				desc = trait_crusader_character_desc
-			}
+			# triggered_desc = { #WHG
+			# 	trigger = { faith = { religion_tag = christianity_religion } }
+			# 	desc = trait_crusader_character_desc
+			# }
 			desc = trait_faith_warrior_character_desc
 		}
 	}
@@ -9078,10 +9078,10 @@ saint = {
 				trigger = { NOT = { exists = this } }
 				desc = trait_venerated_ancestor
 			}
-			triggered_desc = {
-				trigger = { faith = { religion_tag = christianity_religion } }
-				desc = trait_saint
-			}
+			# triggered_desc = { #WHG
+			# 	trigger = { faith = { religion_tag = christianity_religion } }
+			# 	desc = trait_saint
+			# }
 			desc = trait_venerated_ancestor
 		}
 	}
@@ -14126,9 +14126,9 @@ chakravarti = {
 	learning = 2
 	martial = 1
 
-	jainism_religion_opinion = 20
-	hinduism_religion_opinion = 20
-	buddhism_religion_opinion = 20
+	#jainism_religion_opinion = 20 #WHG
+	#hinduism_religion_opinion = 20 #WHG
+	#buddhism_religion_opinion = 20 #WHG
 	
 	shown_in_ruler_designer = no
 	
@@ -15669,39 +15669,39 @@ governor = {
 	name = {
 		first_valid = {
 			#Kokushi - Japan flavor
-			triggered_desc = {
-				trigger = {
-					exists = this
-					top_liege.culture ?= { has_cultural_pillar = heritage_japonic }
-					is_male = yes
-				}
-				desc = count_administrative_male_japanese
-			}
-			triggered_desc = {
-				trigger = {
-					exists = this
-					top_liege.culture ?= { has_cultural_pillar = heritage_japonic }
-					is_female = yes
-				}
-				desc = count_administrative_female_japanese
-			}
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = this
+			# 		top_liege.culture ?= { has_cultural_pillar = heritage_japonic }
+			# 		is_male = yes
+			# 	}
+			# 	desc = count_administrative_male_japanese
+			# }
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = this
+			# 		top_liege.culture ?= { has_cultural_pillar = heritage_japonic }
+			# 		is_female = yes
+			# 	}
+			# 	desc = count_administrative_female_japanese
+			# }
 			#Strategos - Byz flavor
-			triggered_desc = {
-				trigger = {
-					exists = this
-					top_liege ?= { culture = { has_cultural_pillar = heritage_byzantine } }
-					is_male = yes
-				}
-				desc = duke_administrative_male_byzantine_group
-			}
-			triggered_desc = {
-				trigger = {
-					exists = this
-					top_liege ?= { culture = { has_cultural_pillar = heritage_byzantine } }
-					is_female = yes
-				}
-				desc = duke_administrative_female_byzantine_group
-			}
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = this
+			# 		top_liege ?= { culture = { has_cultural_pillar = heritage_byzantine } }
+			# 		is_male = yes
+			# 	}
+			# 	desc = duke_administrative_male_byzantine_group
+			# }
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		exists = this
+			# 		top_liege ?= { culture = { has_cultural_pillar = heritage_byzantine } }
+			# 		is_female = yes
+			# 	}
+			# 	desc = duke_administrative_female_byzantine_group
+			# }
 			#Governor - Default
 			triggered_desc = {
 				trigger = {
@@ -16289,7 +16289,7 @@ confucian_education = {
 		20 = {
 			learning = 1
 			monthly_lifestyle_xp_gain_mult = 0.04
-			confucianism_religion_opinion = 5
+			#confucianism_religion_opinion = 5 #WHG
 			ai_sociability = 5
 			ai_compassion = 5
 		}
@@ -16302,7 +16302,7 @@ confucian_education = {
 		60 = {
 			learning = 1
 			monthly_lifestyle_xp_gain_mult = 0.04
-			confucianism_religion_opinion = 5
+			#confucianism_religion_opinion = 5 #WHG
 			ai_sociability = 5
 			ai_compassion = 5
 		}
@@ -16314,7 +16314,7 @@ confucian_education = {
 		}
 		100 = {
 			learning = 1
-			confucianism_religion_opinion = 5
+			#confucianism_religion_opinion = 5 #WHG
 			monthly_lifestyle_xp_gain_mult = 0.04
 			ai_sociability = 5
 			ai_compassion = 5
@@ -16465,21 +16465,21 @@ former_emperor = {
 				trigger = { NOT = { exists = this } }
 				desc = trait_former_emperor_male
 			}
-			triggered_desc = {
-				trigger = {
-					is_male = yes
-					culture = { has_cultural_pillar = heritage_japonic } 
-				}
-				desc = trait_former_tenno_male
-			}
+			# triggered_desc = { #WHG
+			# 	trigger = {
+			# 		is_male = yes
+			# 		culture = { has_cultural_pillar = heritage_japonic } 
+			# 	}
+			# 	desc = trait_former_tenno_male
+			# }
 			triggered_desc = {
 				trigger = { is_male = yes }
 				desc = trait_former_emperor_male
 			}
-			triggered_desc = {
-				trigger = { culture = { has_cultural_pillar = heritage_japonic } }
-				desc = trait_former_tenno_female
-			}
+			# triggered_desc = { #WHG
+			# 	trigger = { culture = { has_cultural_pillar = heritage_japonic } }
+			# 	desc = trait_former_tenno_female
+			# }
 			desc = trait_former_emperor_female
 		}
 	}
