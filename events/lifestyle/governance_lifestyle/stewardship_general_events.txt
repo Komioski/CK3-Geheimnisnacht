@@ -96,7 +96,7 @@ stewardship_general.1054 = {
 						#Beguilling young woman/man
 						create_character = {
 							location = root.capital_province
-							age = { 16 25 }
+							age = 16 #LotR 
 							dynasty = none
 							gender = scope:dummy_mystic_gender
 							trait = education_diplomacy_2
@@ -106,14 +106,21 @@ stewardship_general.1054 = {
 							culture = this.culture
 							diplomacy = { 10 12 }
 							learning = { 8 10 }
-							save_scope_as = witch
+							save_scope_as = young_witch #LotR
+
+							after_creation = {
+								lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+									MAX = 16 #IMPORTANT AGES TO BE REWORKED
+									MIN = 16 #IMPORTANT AGES TO BE REWORKED
+								}
+							}							
 						}
 					}
 					33 = {
 						#Wise old woman/man
 						create_character = {
 							location = root.capital_province
-							age = { 55 65 }
+							age = 16 #LotR 
 							dynasty = none
 							gender = scope:dummy_mystic_gender
 							trait = education_learning_3
@@ -122,14 +129,22 @@ stewardship_general.1054 = {
 							faith = root.faith
 							culture = root.culture
 							learning = { 12 14 }
-							save_scope_as = witch
+							save_scope_as = middle_witch #LotR
+
+							after_creation = {
+								lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+									MAX = 16 #IMPORTANT AGES TO BE REWORKED
+									MIN = 16 #IMPORTANT AGES TO BE REWORKED
+								}
+							}
+
 						}
 					}
 					33 = {
 						#Eccentric hermit
 						create_character = {
 							location = root.capital_province
-							age = { 35 45 }
+							age = 16 #LotR
 							dynasty = none
 							gender = scope:dummy_mystic_gender
 							trait = education_learning_2
@@ -143,9 +158,31 @@ stewardship_general.1054 = {
 							martial = { 6 8 }
 							intrigue = { 4 6 }
 							stewardship = { 6 8 }
-							save_scope_as = witch
+							save_scope_as = eccentric_hermit #LotR
+
+							after_creation = {
+								lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+									MAX = 16 #IMPORTANT AGES TO BE REWORKED
+									MIN = 16 #IMPORTANT AGES TO BE REWORKED
+								}
+							}
+
 						}
 					}
+				}
+
+				if = { #LotR
+					limit = { exists = scope:young_witch }
+					scope:young_witch = { set_age = { nubile_age young_age } }
+					scope:young_witch = { save_scope_as = witch }
+				} else_if = {
+					limit = { exists = scope:middle_witch }
+					scope:middle_witch = { set_age = { middle_age old_age } }
+					scope:middle_witch = { save_scope_as = witch }
+				} else_if = {
+					limit = { exists = scope:eccentric_hermit }
+					scope:eccentric_hermit = { set_age = { young_age middle_age } }
+					scope:eccentric_hermit = { save_scope_as = witch }
 				}
 
 				scope:witch = {

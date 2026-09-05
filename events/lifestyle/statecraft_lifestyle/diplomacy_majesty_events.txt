@@ -1,4 +1,5 @@
 ﻿namespace = diplomacy_majesty
+#LOTR: added restrictions on learned language (possible culture conversion)
 
 # Diplomacy (Majesty) Events:
 	#0004 - 0006: The Power of Words (Compliment Someone), by Mathilda Bjarnehed
@@ -488,7 +489,8 @@ diplomacy_majesty.0016 = {
 
 scripted_trigger diplomacy_majesty_1020_vassal_trigger = {
 	basic_is_available_ai = yes
-	is_adult = yes
+	#is_adult = yes
+	is_lotr_adult = yes
 	NOT = {
 		has_trait_rank = {
 			trait = wounded
@@ -1034,7 +1036,8 @@ scripted_trigger diplomacy_majesty_4070_valid_culture = {
 		}
 	}
 	
-	is_adult = yes
+	#is_adult = yes
+	is_lotr_adult = yes
 	
 	culture_conversion_to_allowed = { TARGET = root }
 }

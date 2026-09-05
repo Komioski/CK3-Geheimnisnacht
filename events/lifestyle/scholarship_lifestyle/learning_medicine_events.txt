@@ -2,6 +2,7 @@
 namespace = learning_medicine
 namespace = learning_medicine_special
 ##################################################
+#LOTR: added race checks to Fertility treatment and commented out geographical triggers
 
 # Learning Medicine Lifestyle events
 
@@ -28,7 +29,8 @@ namespace = learning_medicine_special
 scripted_trigger learning_medicine_2001_basic_herbalist_trigger = {
 	has_trait = lifestyle_herbalist
 	is_available_ai = yes
-	is_adult = yes
+	#is_adult = yes
+	is_lotr_adult = yes
 }
 
 scripted_trigger learning_medicine_2001_pool_herbalist_trigger = {
@@ -165,7 +167,7 @@ learning_medicine.2001 = { #by Mathilda Bjarnehed
 					create_character = {
 						location = root.capital_province
 						faith = root.faith
-						culture = root.culture
+						#culture = root.culture #LotR
 						template = witchy_template
 						save_scope_as = herbalist
 					}
@@ -1223,6 +1225,7 @@ learning_medicine.2022 = { #by Mathilda Bjarnehed
 								scope:physician = {
 									is_male = yes
 									learning_medicine_2020_can_have_child_trigger = yes
+									lotr_extramarital_to_allowed = { TARGET = scope:spouse }
 								}
 							}
 							modifier = {
@@ -1720,7 +1723,8 @@ scripted_trigger leaning_medicine_2030_potential_confider_friend_trigger = {
 	}
 	target_is_liege_or_above = root.top_liege
 	basic_is_available_ai = yes
-	is_adult = yes
+	#is_adult = yes
+	is_lotr_adult = yes
 	NOT = { has_relation_rival = root }
 }
 
@@ -4265,7 +4269,7 @@ learning_medicine_special.2100 = {
 					if = {
 						limit = {
 							has_any_nickname = no
-
+							lotr_gets_nicknames_trigger = yes
 						}
 						give_nickname = nick_the_fishy
 					}
@@ -4345,6 +4349,7 @@ learning_medicine_special.2100 = {
 		custom_tooltip = learning_medicine_special.2100.c.tt
 		hidden_effect = {
 			scope:fish_alchemist = {
+				add_trait = burned #LotR
 				death = {
 					death_reason = death_burned_witch
 					killer = root

@@ -863,7 +863,7 @@ stewardship_wealth.1051 = {
 			#Generate a high stewardship peasant to be our successful farmer.
 			root = { random_dummy_gender_landholder_effect = yes }
 			create_character = {
-				age = { 20 30 }
+				age = 16 #LotR
 				location = root.capital_province
 				gender = scope:dummy_gender
 				trait = education_stewardship_2
@@ -874,8 +874,17 @@ stewardship_wealth.1051 = {
 				dynasty = none
 				stewardship = { 10 12 }
 				save_scope_as = freeman
+
+				after_creation = {
+					lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+						MAX = 16 #IMPORTANT AGES TO BE REWORKED
+						MIN = 16 #IMPORTANT AGES TO BE REWORKED
+					}
+				}
+
 			}
 		}
+		scope:freeman = { set_age = { young_age middle_age } } #LotR
 	}
 
 	#Recruit the peasant farmer to our court.
@@ -1374,7 +1383,7 @@ stewardship_wealth.5001 = {
 		capital_county ?= {
 			holder = root
 			NOR = {
-				#title_province = { terrain = halls } #LotR
+				title_province = { terrain = halls } #LotR
 				has_county_modifier = governance_cattle_herd_county_modifier
 				has_county_modifier = governance_large_cattle_herd_county_modifier
 			}
@@ -1509,7 +1518,7 @@ stewardship_wealth.5001 = {
 	option = { #slaughter and sell
 		trigger = {
 			always = yes 
-			#NOT = { religion = religion:hinduism_religion } #WHG
+			#NOT = { religion = religion:hinduism_religion }
 		}
 		name = stewardship_wealth.5001.c
 		add_gold = medium_gold_value
@@ -2031,6 +2040,19 @@ stewardship_wealth.6001 = {
 			random_traits = yes
 			save_scope_as = stall_owner
 			template_character = root
+				# if = { #LotR - If Undying can recruit from their capital, create a local - Throws errors, please fix Brice. Commenting out for now since we want to update
+					# limit = {
+						# root = {
+							# cannot_be_killed = yes
+							# lotr_location_can_spawn_courtiers = { LOCATION = capital_province } #Can recruit locals from capital
+						# } 
+					# }
+					# culture = root.capital_province.culture #LotR
+					# faith = root.capital_province.faith #LotR
+				# }
+				# else = { #Otherwise, revert to Vanilla code
+					# template_character = root
+				# }
 			dynasty = none
 			location = root.capital_province
 		}
